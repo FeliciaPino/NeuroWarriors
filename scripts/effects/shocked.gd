@@ -8,4 +8,4 @@ func _init() -> void:
 
 func start_of_turn():
 	super.start_of_turn()
-	affected.update_ap(affected.actions_left - (affected.speed+1)/2)
+	affected.update_ap(affected.ap - (affected.speed+1)/2)
