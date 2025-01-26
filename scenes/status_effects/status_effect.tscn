@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://r1v5s6jc2e2g"]
+
+[ext_resource type="Script" path="res://scripts/effects/status_effect.gd" id="1_i1u13"]
+[ext_resource type="Texture2D" uid="uid://gekifpob47eb" path="res://assets/ui/effect_icons.png" id="2_yfr8p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gy6vw"]
+atlas = ExtResource("2_yfr8p")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2dtvr"]
+font_size = 10
+shadow_color = Color(0, 0, 0, 0.54902)
+
+[node name="status effect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1136.0
+offset_bottom = -632.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_i1u13")
+
+[node name="icon" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 16.0
+offset_bottom = 16.0
+tooltip_text = "This is a status effect. Or is it? *vsauce music*"
+texture = SubResource("AtlasTexture_gy6vw")
+stretch_mode = 2
+
+[node name="turns_remaining_label" type="Label" parent="icon"]
+texture_filter = 1
+layout_mode = 0
+offset_right = 16.0
+offset_bottom = 16.0
+text = "3
+"
+label_settings = SubResource("LabelSettings_2dtvr")
+horizontal_alignment = 1
+vertical_alignment = 1

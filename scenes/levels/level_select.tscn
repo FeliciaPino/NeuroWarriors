@@ -1,0 +1,168 @@
+[gd_scene load_steps=5 format=3 uid="uid://bj5rs4y8fe2v2"]
+
+[ext_resource type="PackedScene" uid="uid://csb64tig53vlq" path="res://scenes/ui/map_button.tscn" id="1_577n0"]
+[ext_resource type="Script" path="res://scripts/level_select.gd" id="1_i8215"]
+[ext_resource type="Texture2D" uid="uid://dxheorleswbgf" path="res://assets/map.png" id="2_qpw07"]
+[ext_resource type="AudioStream" uid="uid://djsucf4dtk7aj" path="res://addons/Pixel_boy/theme-3.ogg" id="3_56r5g"]
+
+[node name="Level_select" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_i8215")
+
+[node name="background" type="TextureRect" parent="."]
+z_index = -1
+layout_mode = 0
+offset_left = -36.0
+offset_top = -43.0
+offset_right = 1364.0
+offset_bottom = 857.0
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("2_qpw07")
+
+[node name="return" type="Button" parent="."]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 44.0
+offset_right = 188.0
+offset_bottom = 75.0
+text = "Return to Menu"
+
+[node name="play_cutscene" parent="." instance=ExtResource("1_577n0")]
+layout_mode = 0
+offset_left = 210.0
+offset_top = 215.0
+offset_right = 270.0
+offset_bottom = 255.0
+level_path = "res://scenes/intro_cutscene.tscn"
+level_name = "watch cutscene again"
+
+[node name="lv1" parent="." instance=ExtResource("1_577n0")]
+layout_mode = 0
+offset_left = 264.0
+offset_top = 313.0
+offset_right = 324.0
+offset_bottom = 353.0
+level_path = "res://scenes/levels/level_1.tscn"
+level_name = "Learning to Fight"
+
+[node name="lv2" parent="." instance=ExtResource("1_577n0")]
+layout_mode = 0
+offset_left = 180.0
+offset_top = 401.0
+offset_right = 240.0
+offset_bottom = 441.0
+level_path = "res://scenes/levels/level_2.tscn"
+level_name = "Into the Swing of Things"
+previous_level = "Learning to Fight"
+
+[node name="lv3" parent="." instance=ExtResource("1_577n0")]
+layout_mode = 0
+offset_left = 305.0
+offset_top = 523.0
+offset_right = 365.0
+offset_bottom = 563.0
+level_path = "res://scenes/levels/level_3.tscn"
+level_name = "Vedal’s Refuge"
+previous_level = "Into the Swing of Things"
+
+[node name="lv4" parent="." instance=ExtResource("1_577n0")]
+layout_mode = 0
+offset_left = 428.0
+offset_top = 550.0
+offset_right = 488.0
+offset_bottom = 590.0
+level_path = "res://scenes/levels/level_4.tscn"
+level_name = "The Duo's Back, Baby!"
+previous_level = "Vedal’s Refuge"
+
+[node name="lv5" parent="." instance=ExtResource("1_577n0")]
+layout_mode = 0
+offset_left = 536.0
+offset_top = 558.0
+offset_right = 596.0
+offset_bottom = 598.0
+level_path = "res://scenes/levels/level_5.tscn"
+level_name = "New Enemies"
+previous_level = "The Duo's Back, Baby!"
+
+[node name="lv6" parent="." instance=ExtResource("1_577n0")]
+layout_mode = 0
+offset_left = 657.0
+offset_top = 565.0
+offset_right = 717.0
+offset_bottom = 605.0
+level_path = "res://scenes/levels/level_6.tscn"
+level_name = "Evil's Spawnpoint"
+previous_level = "New Enemies"
+
+[node name="lv7" parent="." instance=ExtResource("1_577n0")]
+layout_mode = 0
+offset_left = 667.0
+offset_top = 464.0
+offset_right = 727.0
+offset_bottom = 504.0
+level_path = "res://scenes/levels/level_7.tscn"
+level_name = "Twins Reunited"
+previous_level = "Evil's Spawnpoint"
+
+[node name="lv8" parent="." instance=ExtResource("1_577n0")]
+layout_mode = 0
+offset_left = 673.0
+offset_top = 336.0
+offset_right = 733.0
+offset_bottom = 376.0
+level_path = "res://scenes/levels/level_8.tscn"
+level_name = "Into the City"
+previous_level = "Twins Reunited"
+
+[node name="lv9" parent="." instance=ExtResource("1_577n0")]
+layout_mode = 0
+offset_left = 673.0
+offset_top = 254.0
+offset_right = 733.0
+offset_bottom = 294.0
+level_path = "res://scenes/levels/level_9.tscn"
+level_name = "Rust and Dust"
+previous_level = "Into the City"
+
+[node name="lv10" parent="." instance=ExtResource("1_577n0")]
+layout_mode = 0
+offset_left = 548.0
+offset_top = 173.0
+offset_right = 608.0
+offset_bottom = 213.0
+level_path = "res://scenes/levels/level_10.tscn"
+level_name = "Rainbow Drone Trio"
+previous_level = "Rust and Dust"
+
+[node name="lv11" parent="." instance=ExtResource("1_577n0")]
+layout_mode = 0
+offset_left = 613.0
+offset_top = 98.0
+offset_right = 673.0
+offset_bottom = 138.0
+level_path = "res://scenes/levels/level_11.tscn"
+level_name = "The Chaos Before the Storm"
+previous_level = "Rainbow Drone Trio"
+
+[node name="lv12" parent="." instance=ExtResource("1_577n0")]
+layout_mode = 0
+offset_left = 798.0
+offset_top = 97.0
+offset_right = 858.0
+offset_bottom = 137.0
+level_path = "res://scenes/levels/level_12.tscn"
+level_name = "The End"
+previous_level = "The Chaos Before the Storm"
+
+[node name="music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_56r5g")
+volume_db = -20.0
+autoplay = true
+bus = &"Music"
+parameters/looping = true

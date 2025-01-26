@@ -1,0 +1,211 @@
+[gd_scene load_steps=20 format=3 uid="uid://by2t4l3fto5ou"]
+
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_jt04v"]
+[ext_resource type="Texture2D" uid="uid://daakoqoug8tly" path="res://assets/destroyed_city_background1.png" id="2_7nwux"]
+[ext_resource type="Texture2D" uid="uid://b1iw4xeonbkc0" path="res://assets/destroyed_city_background2.png" id="3_v3xq4"]
+[ext_resource type="PackedScene" uid="uid://cmccd8rxiyqab" path="res://scenes/characters/neuro_sama.tscn" id="3_wkgts"]
+[ext_resource type="PackedScene" uid="uid://du1rkche8wapa" path="res://scenes/characters/enemies/drone.tscn" id="4_mjs6v"]
+[ext_resource type="PackedScene" uid="uid://uwmc3sf7fq3o" path="res://scenes/characters/vedal.tscn" id="5_65q3q"]
+[ext_resource type="PackedScene" uid="uid://mweqpto0skb6" path="res://scenes/actions/force_field.tscn" id="5_wmweo"]
+[ext_resource type="Texture2D" uid="uid://duwanoipd03rk" path="res://assets/ui/selection_circle.png" id="5_x2aaw"]
+[ext_resource type="PackedScene" uid="uid://e2g21mtkqscf" path="res://scenes/actions/generic_melee.tscn" id="6_euvtv"]
+[ext_resource type="PackedScene" uid="uid://b6410g70liyhb" path="res://scenes/characters/evil.tscn" id="7_4yh8k"]
+[ext_resource type="AudioStream" uid="uid://cdbbs3cm1pli5" path="res://addons/Pixel_boy/theme-7.ogg" id="9_8kw85"]
+[ext_resource type="PackedScene" uid="uid://d4f0gy2sw12hv" path="res://scenes/ui/end_screen.tscn" id="10_46ql1"]
+[ext_resource type="AudioStream" uid="uid://bcvyh3sruf5vp" path="res://addons/Pixel_boy/theme-3b.ogg" id="10_u2d8w"]
+[ext_resource type="AudioStream" uid="uid://c2qho0xysuk3u" path="res://addons/sfx/Retro Negative Long 12.wav" id="11_qh83r"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d2meb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_7nwux")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_v3xq4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="Animation" id="Animation_3mlxk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TurnLabel:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Your turn"]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TurnLabel:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(5, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TurnLabel:modulate:a")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_yj4cw"]
+resource_name = "show_end_screen"
+length = 0.7
+
+[sub_resource type="Animation" id="Animation_puse5"]
+resource_name = "start_player_turn"
+length = 2.0
+step = 0.0538
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TurnLabel:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.517541),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Your turn"]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TurnLabel:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(5, -0.25, 0, 0.25, 0, 80, -0.25, 0, 0.25, 0, 80, -0.25, 0, 0.25, 0, 160, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.517541, 0.950874, 1.21754, 1.68421)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TurnLabel:modulate:a")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.517541, 0.950874, 1.21754, 1.68421)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xsa6o"]
+_data = {
+"RESET": SubResource("Animation_3mlxk"),
+"show_end_screen": SubResource("Animation_yj4cw"),
+"start_player_turn": SubResource("Animation_puse5")
+}
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_jt04v")
+
+[node name="Background" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.8)
+position = Vector2(612, 309)
+sprite_frames = SubResource("SpriteFrames_d2meb")
+frame_progress = 0.854451
+
+[node name="Party" type="Node" parent="."]
+
+[node name="NeuroSama" parent="Party" instance=ExtResource("3_wkgts")]
+position = Vector2(207, 514)
+entity_name = "default name"
+entity_description = "default description"
+defense = 200
+attack = 10
+is_player_controlled = false
+
+[node name="forceField" parent="Party/NeuroSama" instance=ExtResource("5_wmweo")]
+
+[node name="generic_meele" parent="Party/NeuroSama" instance=ExtResource("6_euvtv")]
+
+[node name="Vedal" parent="Party" instance=ExtResource("5_65q3q")]
+position = Vector2(310, 438)
+
+[node name="Evil" parent="Party" instance=ExtResource("7_4yh8k")]
+position = Vector2(408, 554)
+
+[node name="Foes" type="Node" parent="."]
+
+[node name="Drone" parent="Foes" instance=ExtResource("4_mjs6v")]
+position = Vector2(916, 551)
+attack = 30
+
+[node name="Drone2" parent="Foes" instance=ExtResource("4_mjs6v")]
+position = Vector2(780, 482)
+maxHealth = 100
+attack = 20
+
+[node name="SelectionCircle" type="Sprite2D" parent="."]
+position = Vector2(584, 427)
+texture = ExtResource("5_x2aaw")
+
+[node name="InstructionLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="EndTurnButton" type="Button" parent="."]
+offset_left = 559.0
+offset_top = 582.0
+offset_right = 635.0
+offset_bottom = 613.0
+text = "end turn"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_xsa6o")
+}
+
+[node name="TurnLabel" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 543.0
+offset_top = 5.0
+offset_right = 617.0
+offset_bottom = 28.0
+text = "Your turn"
+
+[node name="Return" type="Button" parent="."]
+offset_left = 19.0
+offset_top = 610.0
+offset_right = 139.0
+offset_bottom = 641.0
+text = "Return to map
+"
+
+[node name="music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_8kw85")
+volume_db = -30.0
+autoplay = true
+bus = &"Music"
+parameters/looping = true
+
+[node name="win_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_u2d8w")
+volume_db = -20.0
+bus = &"Music"
+
+[node name="EndScreen" parent="." instance=ExtResource("10_46ql1")]
+
+[node name="lose_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_qh83r")
+volume_db = -10.0

@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://csb64tig53vlq"]
+
+[ext_resource type="Texture2D" uid="uid://bkksi35xe6s8g" path="res://assets/ui/map_button.png" id="1_erf5f"]
+[ext_resource type="Script" path="res://scripts/map_button.gd" id="2_p75u2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n6ge1"]
+atlas = ExtResource("1_erf5f")
+region = Rect2(0, 0, 60, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0lwv1"]
+atlas = ExtResource("1_erf5f")
+region = Rect2(60, 0, 60, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x2y7p"]
+atlas = ExtResource("1_erf5f")
+region = Rect2(180, 0, 60, 40)
+
+[node name="map_button" type="TextureButton"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = SubResource("AtlasTexture_n6ge1")
+texture_hover = SubResource("AtlasTexture_0lwv1")
+texture_disabled = SubResource("AtlasTexture_x2y7p")
+script = ExtResource("2_p75u2")
+
+[node name="button_label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -40.0
+offset_right = 100.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(100, 30)
+text = "xxxxxxxxxxxxxxxxx"
+horizontal_alignment = 1
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

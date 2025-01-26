@@ -1,0 +1,67 @@
+[gd_scene load_steps=8 format=3 uid="uid://mweqpto0skb6"]
+
+[ext_resource type="PackedScene" uid="uid://c0p02mr1a5wep" path="res://scenes/actions/action.tscn" id="1_c7syv"]
+[ext_resource type="Script" path="res://scripts/actions/force_field.gd" id="1_l4pmk"]
+[ext_resource type="Texture2D" uid="uid://cfddrf68kdhe8" path="res://assets/bubble.png" id="2_njlen"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dh5xu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_njlen")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_8cqg7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_814ga"]
+resource_name = "animation"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.133333, 3.42727e-07, 0.133333, 0.3, 0.4),
+"transitions": PackedFloat32Array(0.257095, 0.257095, -3.36359, -2, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1e-05, 1e-05), Vector2(1.4, 1.4), Vector2(1.1, 1.1), Vector2(1.2, 1.2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_neydj"]
+_data = {
+"RESET": SubResource("Animation_8cqg7"),
+"animation": SubResource("Animation_814ga")
+}
+
+[node name="forceField" instance=ExtResource("1_c7syv")]
+script = ExtResource("1_l4pmk")
+
+[node name="sprite" parent="." index="0"]
+modulate = Color(1, 1, 1, 0.6)
+z_index = 1
+scale = Vector2(1e-05, 1e-05)
+sprite_frames = SubResource("SpriteFrames_dh5xu")
+
+[node name="AnimationPlayer" parent="." index="2"]
+libraries = {
+"": SubResource("AnimationLibrary_neydj")
+}

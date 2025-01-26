@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://criuo0gomqd7t"]
+
+[ext_resource type="PackedScene" uid="uid://dp2gnkbdq83n4" path="res://scenes/characters/battle_entity.tscn" id="1_xwt0g"]
+[ext_resource type="Script" path="res://scripts/actions/genericPunch.gd" id="2_wlr7q"]
+[ext_resource type="Script" path="res://scripts/actions/throw_rock.gd" id="3_boi75"]
+
+[node name="GenericGuy" instance=ExtResource("1_xwt0g")]
+entity_name = "guy"
+speed = 3
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+autoplay = "default"
+frame_progress = 0.716289
+
+[node name="genericPunch" type="Node" parent="Actions" index="0"]
+script = ExtResource("2_wlr7q")
+
+[node name="throwRock" type="Node" parent="Actions" index="1"]
+script = ExtResource("3_boi75")

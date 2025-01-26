@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=3 uid="uid://d4f0gy2sw12hv"]
+
+[ext_resource type="Script" path="res://scripts/end_screen.gd" id="1_iqvlg"]
+
+[node name="EndScreen" type="Control"]
+visible = false
+z_index = 2
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 600.0
+offset_top = 43.0
+offset_right = 640.0
+offset_bottom = 83.0
+grow_horizontal = 2
+pivot_offset = Vector2(20, 0)
+script = ExtResource("1_iqvlg")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = -300.0
+offset_right = 300.0
+offset_bottom = 400.0
+pivot_offset = Vector2(300, 0)
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "you vicori. or defet?"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Return to map"

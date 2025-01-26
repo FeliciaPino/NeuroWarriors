@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://cto77pwu6noeu"]
+
+[ext_resource type="Texture2D" uid="uid://sykrphmkkln0" path="res://assets/ui/ap_display.png" id="1_0o56i"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vchg7"]
+font_color = Color(0.0431373, 0.792157, 1, 1)
+
+[node name="ApDisplay" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_right = 36.0
+offset_bottom = 20.0
+texture = ExtResource("1_0o56i")
+patch_margin_left = 20
+patch_margin_top = 10
+patch_margin_right = 4
+patch_margin_bottom = 10
+
+[node name="Label" type="Label" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -12.0
+offset_right = -5.0
+offset_bottom = 11.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "9"
+label_settings = SubResource("LabelSettings_vchg7")
+horizontal_alignment = 2
+vertical_alignment = 1

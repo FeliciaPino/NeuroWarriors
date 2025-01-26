@@ -1,0 +1,52 @@
+[gd_scene load_steps=10 format=3 uid="uid://dskhgf30rx6ai"]
+
+[ext_resource type="PackedScene" uid="uid://c0p02mr1a5wep" path="res://scenes/actions/action.tscn" id="1_4r42l"]
+[ext_resource type="Script" path="res://scripts/actions/shock.gd" id="1_k7ikc"]
+[ext_resource type="Texture2D" uid="uid://b2jrcljcom4t1" path="res://assets/electricity.png" id="2_fwcj5"]
+[ext_resource type="AudioStream" uid="uid://cc2txgf62i1s5" path="res://addons/sfx/Retro Electric Short 17.wav" id="4_t876y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wh7pc"]
+atlas = ExtResource("2_fwcj5")
+region = Rect2(0, 0, 100, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nicdr"]
+atlas = ExtResource("2_fwcj5")
+region = Rect2(100, 0, 100, 160)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3wj4k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wh7pc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nicdr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="Animation" id="Animation_1atln"]
+resource_name = "animation"
+length = 0.5
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_55von"]
+_data = {
+"animation": SubResource("Animation_1atln")
+}
+
+[node name="shock" instance=ExtResource("1_4r42l")]
+script = ExtResource("1_k7ikc")
+
+[node name="sprite" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_3wj4k")
+
+[node name="sound" parent="." index="1"]
+stream = ExtResource("4_t876y")
+volume_db = -10.0
+
+[node name="AnimationPlayer" parent="." index="2"]
+libraries = {
+"": SubResource("AnimationLibrary_55von")
+}

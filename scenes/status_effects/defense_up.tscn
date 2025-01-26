@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://pw4jv5qi0muv"]
+
+[ext_resource type="PackedScene" uid="uid://r1v5s6jc2e2g" path="res://scenes/status_effects/status_effect.tscn" id="1_14y7d"]
+[ext_resource type="Script" path="res://scripts/effects/defense_up.gd" id="2_d2xwo"]
+[ext_resource type="Texture2D" uid="uid://gekifpob47eb" path="res://assets/ui/effect_icons.png" id="3_ma0us"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l0342"]
+atlas = ExtResource("3_ma0us")
+region = Rect2(16, 0, 16, 16)
+
+[node name="defense_up" instance=ExtResource("1_14y7d")]
+script = ExtResource("2_d2xwo")
+
+[node name="icon" parent="." index="0"]
+tooltip_text = "De-fence, HO, HO!"
+texture = SubResource("AtlasTexture_l0342")

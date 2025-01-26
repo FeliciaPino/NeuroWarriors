@@ -1,0 +1,62 @@
+[gd_scene load_steps=4 format=3 uid="uid://bcuvnhkfoa0u"]
+
+[ext_resource type="Texture2D" uid="uid://cc42smkgc8bch" path="res://assets/ui/health_bar_under.png" id="1_0gqqi"]
+[ext_resource type="Texture2D" uid="uid://cgqe3pk3vx8ys" path="res://assets/ui/health_progress.png" id="2_ac24r"]
+[ext_resource type="Script" path="res://scripts/ui/health_bar.gd" id="3_2hydt"]
+
+[node name="HealthBar" type="TextureProgressBar"]
+z_index = 1
+texture_filter = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -45.0
+offset_top = -30.0
+offset_right = 98.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+min_value = -1.0
+max_value = 101.0
+value = 101.0
+nine_patch_stretch = true
+stretch_margin_left = 20
+stretch_margin_top = 14
+stretch_margin_right = 3
+stretch_margin_bottom = 8
+texture_under = ExtResource("1_0gqqi")
+texture_progress = ExtResource("2_ac24r")
+tint_progress = Color(0.807843, 0.352941, 0.372549, 1)
+script = ExtResource("3_2hydt")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_right = 143.0
+offset_bottom = 30.0
+mouse_filter = 2
+value = 80.0
+nine_patch_stretch = true
+stretch_margin_left = 20
+stretch_margin_top = 14
+stretch_margin_right = 3
+stretch_margin_bottom = 8
+texture_progress = ExtResource("2_ac24r")
+tint_progress = Color(0.501961, 0.843137, 0.384314, 1)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="Shield_bar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 13.0
+offset_right = 182.0
+offset_bottom = 23.0
+pivot_offset = Vector2(0, 5)
+mouse_filter = 2
+value = 100.0
+show_percentage = false

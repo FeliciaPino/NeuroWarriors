@@ -1,0 +1,90 @@
+[gd_scene load_steps=8 format=3 uid="uid://cgpf6o36fg7r5"]
+
+[ext_resource type="PackedScene" uid="uid://c0p02mr1a5wep" path="res://scenes/actions/action.tscn" id="1_7wytg"]
+[ext_resource type="Script" path="res://scripts/actions/tutel_shield.gd" id="2_3xrb5"]
+[ext_resource type="Texture2D" uid="uid://bdltdynro0s8x" path="res://assets/tutel_shield.png" id="2_x81h4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ag4b6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_x81h4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_jsk2m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_a2p80"]
+resource_name = "animation"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 12.5664]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jem67"]
+_data = {
+"RESET": SubResource("Animation_jsk2m"),
+"animation": SubResource("Animation_a2p80")
+}
+
+[node name="Tutel_shield" instance=ExtResource("1_7wytg")]
+script = ExtResource("2_3xrb5")
+
+[node name="sprite" parent="." index="0"]
+modulate = Color(1, 1, 1, 0.580392)
+z_index = 1
+sprite_frames = SubResource("SpriteFrames_ag4b6")
+
+[node name="AnimationPlayer" parent="." index="2"]
+libraries = {
+"": SubResource("AnimationLibrary_jem67")
+}

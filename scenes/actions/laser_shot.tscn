@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://bk30a0mgktx6r"]
+
+[ext_resource type="PackedScene" uid="uid://c0p02mr1a5wep" path="res://scenes/actions/action.tscn" id="1_6uchr"]
+[ext_resource type="Script" path="res://scripts/actions/laser_shot.gd" id="1_7wgxe"]
+[ext_resource type="Texture2D" uid="uid://c0yh4sjku8ha3" path="res://assets/solid_white_square.png" id="2_4upev"]
+[ext_resource type="AudioStream" uid="uid://c4tfdbdvvf3ta" path="res://addons/sfx/Retro Weapon Laser 03.wav" id="3_e0r44"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ao5b8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_4upev")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="laserShot" instance=ExtResource("1_6uchr")]
+script = ExtResource("1_7wgxe")
+
+[node name="sprite" parent="." index="0"]
+modulate = Color(1, 0, 0, 1)
+scale = Vector2(30, 5)
+sprite_frames = SubResource("SpriteFrames_ao5b8")
+
+[node name="sound" parent="." index="1"]
+stream = ExtResource("3_e0r44")
+volume_db = -20.0

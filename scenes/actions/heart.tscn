@@ -1,0 +1,69 @@
+[gd_scene load_steps=9 format=3 uid="uid://b36hf4y7sydbp"]
+
+[ext_resource type="Script" path="res://scripts/actions/heart.gd" id="1_ie21g"]
+[ext_resource type="PackedScene" uid="uid://c0p02mr1a5wep" path="res://scenes/actions/action.tscn" id="1_ixepv"]
+[ext_resource type="Texture2D" uid="uid://bnfhmvrsa41qr" path="res://assets/heart.png" id="2_kdp55"]
+[ext_resource type="AudioStream" uid="uid://dqbx8vtoosd83" path="res://assets/audio/SFX/heart.wav" id="4_aikks"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7yr44"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_kdp55")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_k2kku"]
+resource_name = "animation"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [-0.349066, 0.349066, -0.349066]
+}
+
+[sub_resource type="Animation" id="Animation_jw6yy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kqet7"]
+_data = {
+"RESET": SubResource("Animation_jw6yy"),
+"animation": SubResource("Animation_k2kku")
+}
+
+[node name="heart" instance=ExtResource("1_ixepv")]
+script = ExtResource("1_ie21g")
+
+[node name="sprite" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_7yr44")
+
+[node name="sound" parent="." index="1"]
+stream = ExtResource("4_aikks")
+
+[node name="AnimationPlayer" parent="." index="2"]
+libraries = {
+"": SubResource("AnimationLibrary_kqet7")
+}

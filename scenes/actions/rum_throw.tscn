@@ -1,0 +1,70 @@
+[gd_scene load_steps=9 format=3 uid="uid://c5fgqjhldruh1"]
+
+[ext_resource type="PackedScene" uid="uid://c0p02mr1a5wep" path="res://scenes/actions/action.tscn" id="1_5mapb"]
+[ext_resource type="Script" path="res://scripts/actions/rum_throw.gd" id="1_5rjq5"]
+[ext_resource type="Texture2D" uid="uid://dd4x7ub5hj3mw" path="res://assets/rum.png" id="2_eu38x"]
+[ext_resource type="AudioStream" uid="uid://cbihur5nfjeb4" path="res://addons/sfx/Retro Charge Magic 11.wav" id="4_i1lut"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o4my3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_eu38x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_c21uv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_2rdyp"]
+resource_name = "animation"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sqtqw"]
+_data = {
+"RESET": SubResource("Animation_c21uv"),
+"animation": SubResource("Animation_2rdyp")
+}
+
+[node name="Rum_throw" instance=ExtResource("1_5mapb")]
+script = ExtResource("1_5rjq5")
+
+[node name="sprite" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_o4my3")
+
+[node name="sound" parent="." index="1"]
+stream = ExtResource("4_i1lut")
+volume_db = -15.0
+
+[node name="AnimationPlayer" parent="." index="2"]
+libraries = {
+"": SubResource("AnimationLibrary_sqtqw")
+}

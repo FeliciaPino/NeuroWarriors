@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://e2g21mtkqscf"]
+
+[ext_resource type="PackedScene" uid="uid://c0p02mr1a5wep" path="res://scenes/actions/action.tscn" id="1_06rwy"]
+[ext_resource type="Script" path="res://scripts/actions/generic_melee.gd" id="1_sh0rd"]
+
+[node name="generic_meele" instance=ExtResource("1_06rwy")]
+script = ExtResource("1_sh0rd")
