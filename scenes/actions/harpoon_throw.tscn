@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cj1hdugjo18ff"]
+[gd_scene load_steps=8 format=3 uid="uid://cj1hdugjo18ff"]
 
 [ext_resource type="Script" path="res://scripts/actions/harpoon_throw.gd" id="1_iyune"]
 [ext_resource type="PackedScene" uid="uid://c0p02mr1a5wep" path="res://scenes/actions/action.tscn" id="1_qsrqi"]
@@ -16,6 +16,14 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_jp6ak"]
+resource_name = "animation"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_avu8r"]
+_data = {
+"animation": SubResource("Animation_jp6ak")
+}
+
 [node name="Harpoon_throw" instance=ExtResource("1_qsrqi")]
 script = ExtResource("1_iyune")
 
@@ -25,3 +33,8 @@ sprite_frames = SubResource("SpriteFrames_jh5vq")
 [node name="sound" parent="." index="1"]
 stream = ExtResource("4_6iwqg")
 volume_db = -15.0
+
+[node name="AnimationPlayer" parent="." index="2"]
+libraries = {
+"": SubResource("AnimationLibrary_avu8r")
+}

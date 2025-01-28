@@ -8,8 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://du1rkche8wapa" path="res://scenes/characters/enemies/drone.tscn" id="5_7rjcs"]
 [ext_resource type="PackedScene" uid="uid://c85gj43e28h10" path="res://scenes/characters/enemies/defensive_drone.tscn" id="7_4nvvf"]
 [ext_resource type="Texture2D" uid="uid://duwanoipd03rk" path="res://assets/ui/selection_circle.png" id="7_xonnl"]
-[ext_resource type="Script" path="res://scripts/end_screen.gd" id="8_70l3u"]
 [ext_resource type="AudioStream" uid="uid://cdbbs3cm1pli5" path="res://addons/Pixel_boy/theme-7.ogg" id="9_b3g7v"]
+[ext_resource type="PackedScene" uid="uid://d4f0gy2sw12hv" path="res://scenes/ui/end_screen.tscn" id="9_cusop"]
 [ext_resource type="AudioStream" uid="uid://bcvyh3sruf5vp" path="res://addons/Pixel_boy/theme-3b.ogg" id="10_x8w4k"]
 [ext_resource type="AudioStream" uid="uid://c2qho0xysuk3u" path="res://addons/sfx/Retro Negative Long 12.wav" id="11_fq0yo"]
 
@@ -222,48 +222,7 @@ offset_right = 617.0
 offset_bottom = 28.0
 text = "Your turn"
 
-[node name="EndScreen" type="Control" parent="."]
-visible = false
-z_index = 2
-layout_mode = 3
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 600.0
-offset_top = 43.0
-offset_right = 640.0
-offset_bottom = 83.0
-grow_horizontal = 2
-pivot_offset = Vector2(20, 0)
-script = ExtResource("8_70l3u")
-
-[node name="PanelContainer" type="PanelContainer" parent="EndScreen"]
-layout_mode = 0
-offset_left = -300.0
-offset_right = 300.0
-offset_bottom = 400.0
-pivot_offset = Vector2(300, 0)
-
-[node name="MarginContainer" type="MarginContainer" parent="EndScreen/PanelContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 40
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 40
-theme_override_constants/margin_bottom = 20
-
-[node name="VBoxContainer" type="VBoxContainer" parent="EndScreen/PanelContainer/MarginContainer"]
-layout_mode = 2
-theme_override_constants/separation = 40
-alignment = 1
-
-[node name="Label" type="Label" parent="EndScreen/PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "you vicori. or defet?"
-horizontal_alignment = 1
-
-[node name="Button" type="Button" parent="EndScreen/PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Return to map"
+[node name="EndScreen" parent="." instance=ExtResource("9_cusop")]
 
 [node name="Return" type="Button" parent="."]
 offset_left = 19.0

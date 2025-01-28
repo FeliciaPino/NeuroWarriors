@@ -24,13 +24,14 @@ func _validate_values_are_initialized()->void:
 	assert(price != null)
 	assert(animationType != null)
 	
+#TODO: make user and target global variables, that way I can make a validate() function instead of doing is_instance_valid() all the time
+	
 #each specific action must override this with it's effects
 func execute(user:BattleEntity, target:BattleEntity):
 	if not user.alive: return
 	#I don't think this should be here in this part, it should be when the character is already standing by the target
 	if isMelee:
 		target.got_on_your_personal_space(user)
-	user.did_an_action(price)
 #so, this does what the action does, be it increase stats, apply effects, or whatever. Each specific action will have to override it
 func _action_effect(user:BattleEntity, target:BattleEntity)->void:
 	pass
@@ -41,7 +42,8 @@ func _meele_action(user:BattleEntity, target:BattleEntity)->void:
 		spotToAttackFrom = user.global_position
 	user.animated_sprite.play("run")
 	var tween = get_tree().create_tween()
-	tween.tween_property(user,"global_position",spotToAttackFrom, 1)
+	user.animated_sprite.flip_h = target.global_position.x<user.global_position.x
+	tween.tween_property(user,"global_position",spotToAttackFrom, user.global_position.distance_to(spotToAttackFrom)/500)
 	await tween.finished
 	if is_instance_valid(target): #this if isn't fixing the error is supposed to
 		target.got_on_your_personal_space(user)
@@ -49,10 +51,11 @@ func _meele_action(user:BattleEntity, target:BattleEntity)->void:
 	await user.animation_player.animation_finished
 	if is_instance_valid(target):
 		_action_effect(user,target)
+		user.did_an_action(price)
 	user.animated_sprite.play("run")
 	user.animated_sprite.flip_h = user.global_position.x > 550
 	tween = get_tree().create_tween()
-	tween.tween_property(user,"global_position",user.mySpot, 1)
+	tween.tween_property(user,"global_position",user.mySpot,  user.global_position.distance_to(user.mySpot)/500)
 	await tween.finished
 	user.settle_into_spot()
 	action_finished.emit()
@@ -62,15 +65,18 @@ func _projectile_action(user:BattleEntity, target:BattleEntity, projectileSpeed=
 	user.animation_player.play(animationType)
 	await  get_tree().create_timer(0.6).timeout #for the animation to get to about the throwing part
 	sound.play()
-	sprite.rotation = (target.global_position-user.global_position).normalized().angle()
+	if is_instance_valid(target):
+		sprite.rotation = (target.global_position-user.global_position).normalized().angle()
 	sprite.visible = true
 	sprite.global_position = user.global_position
 	animationPlayer.play("animation")
 	var tween = get_tree().create_tween()
-	tween.tween_property(sprite,"global_position",target.global_position, 10.0/projectileSpeed)
+	tween.tween_property(sprite,"global_position",target.global_position, sprite.global_position.distance_to(target.global_position)/(projectileSpeed*40))
 	await tween.finished
 	sprite.visible = false
-	_action_effect(user,target)
+	if is_instance_valid(target):
+		_action_effect(user,target)
+		user.did_an_action(price)
 	action_finished.emit()
 #plays the animation of the entity and calls _action_effect
 func _ranged_non_projectile_action(user:BattleEntity, target:BattleEntity)->void:
@@ -79,10 +85,13 @@ func _ranged_non_projectile_action(user:BattleEntity, target:BattleEntity)->void
 	sound.play()
 	animationPlayer.play("animation")
 	sprite.play()
-	sprite.global_position = target.global_position
+	if is_instance_valid(target):
+		sprite.global_position = target.global_position
 	sprite.visible = true
 	await animationPlayer.animation_finished
-	_action_effect(user,target)
+	if is_instance_valid(target):
+		_action_effect(user,target)
+		user.did_an_action(price)
 	await get_tree().create_timer(0.6).timeout
 	sprite.visible = false
 	action_finished.emit()

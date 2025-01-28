@@ -21,6 +21,10 @@ func _ready() -> void:
 	
 func remove_entity(entity:BattleEntity):
 	entities.erase(entity)
+	if entity.is_player_controlled:
+		_update_formation(get_party(),partyRect)
+	else:
+		_update_formation(get_foes(),foesRect,true)
 	game_manager.update_battle_entities()
 #returns a list of all alive player-controlled characters
 func get_party()->Array[BattleEntity]:
@@ -48,7 +52,7 @@ func _random_formation(team:Array[BattleEntity],rect:Rect2):
 			e.go_to_your_spot()
 func _update_formation(team:Array[BattleEntity],rect:Rect2, mirror_x:bool = false)->void:
 	var i:int = 0
-	if team.size()>FORMATIONS.size():
+	if team.size()>=FORMATIONS.size():
 		#there's no plan for this amount of entities! Chaos, chaos!
 		_random_formation(team,rect)
 		return
@@ -57,6 +61,7 @@ func _update_formation(team:Array[BattleEntity],rect:Rect2, mirror_x:bool = fals
 		team[i].mySpot.y = rect.position.y + rect.size.y * p.y
 		team[i].go_to_your_spot()
 		i += 1
+#I think this is deprecated. I mean, if an entity is added or removed we should only update it's side of the battlefield, no?
 func update_entities_formations()->void:
 	_update_formation(get_party(),partyRect)
 	_update_formation(get_foes(),foesRect,true)
@@ -69,8 +74,10 @@ func spawn_entity(entity_scene:PackedScene, is_player_controlled:bool):
 	var window_size = DisplayServer.window_get_size()
 	if is_player_controlled:
 		entity.global_position = Vector2(-200,window_size.y/2)
+		_update_formation(get_party(),partyRect)
 	else:
 		entity.global_position = Vector2(window_size.x+200,window_size.y/2)#assuming window width is 1152
-	update_entities_formations()
+		_update_formation(get_foes(),foesRect,true)
+		
 	
 	

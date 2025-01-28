@@ -56,11 +56,8 @@ func _process(delta: float) -> void:
 		for character in party: if character.is_hovered_over_with_the_mouse:
 			highlighted_character = character
 func update_battle_entities():
-	var previous_amounts = Vector2(party.size(),foes.size())
 	party = entity_manager.get_party()
 	foes = entity_manager.get_foes()
-	if previous_amounts != Vector2(party.size(),foes.size()):
-		entity_manager.update_entities_formations()
 func end_turn():
 	if is_game_over or not is_player_turn: return
 	update_battle_entities()
