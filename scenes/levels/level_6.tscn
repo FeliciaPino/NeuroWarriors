@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://fpabcmf0i62b"]
+[gd_scene load_steps=17 format=3 uid="uid://fpabcmf0i62b"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_vxa0n"]
 [ext_resource type="Texture2D" uid="uid://dl6b6ewaxaxom" path="res://assets/forest_background.png" id="2_kg6tm"]
+[ext_resource type="PackedScene" uid="uid://c0cerfjhi148m" path="res://scenes/entity_manager.tscn" id="3_45m0p"]
 [ext_resource type="PackedScene" uid="uid://cmccd8rxiyqab" path="res://scenes/characters/neuro_sama.tscn" id="3_j2vf3"]
 [ext_resource type="PackedScene" uid="uid://uwmc3sf7fq3o" path="res://scenes/characters/vedal.tscn" id="4_mh72k"]
 [ext_resource type="PackedScene" uid="uid://du1rkche8wapa" path="res://scenes/characters/enemies/drone.tscn" id="5_7rjcs"]
@@ -178,22 +179,20 @@ script = ExtResource("1_vxa0n")
 position = Vector2(576, 294)
 texture = ExtResource("2_kg6tm")
 
-[node name="Party" type="Node" parent="."]
+[node name="Entity_manager" parent="." instance=ExtResource("3_45m0p")]
 
-[node name="NeuroSama" parent="Party" instance=ExtResource("3_j2vf3")]
-position = Vector2(272, 485)
+[node name="Vedal" parent="Entity_manager" instance=ExtResource("4_mh72k")]
+position = Vector2(-69, 388)
 
-[node name="Vedal" parent="Party" instance=ExtResource("4_mh72k")]
-position = Vector2(375, 381)
+[node name="NeuroSama" parent="Entity_manager" instance=ExtResource("3_j2vf3")]
+position = Vector2(-172, 492)
 
-[node name="Foes" type="Node" parent="."]
-
-[node name="Drone" parent="Foes" instance=ExtResource("5_7rjcs")]
-position = Vector2(733, 346)
+[node name="Drone" parent="Entity_manager" instance=ExtResource("5_7rjcs")]
+position = Vector2(1321, 362)
 entity_name = "Basic Drone 1"
 
-[node name="defensive drone" parent="Foes" instance=ExtResource("7_4nvvf")]
-position = Vector2(763, 475)
+[node name="defensive drone" parent="Entity_manager" instance=ExtResource("7_4nvvf")]
+position = Vector2(1351, 491)
 
 [node name="SelectionCircle" type="Sprite2D" parent="."]
 position = Vector2(584, 427)

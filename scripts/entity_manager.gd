@@ -3,34 +3,54 @@ extends Node
 
 const FORMATIONS = [
 	[],
-	[Vector2(0.5,0.5)],
-	[Vector2(0.4,0.6),Vector2(0.5,0.4)],
-	[Vector2(0.3, 0.5), Vector2(0.5, 0.5), Vector2(0.7, 0.5)],
-	[Vector2(0.25, 0.5), Vector2(0.4, 0.5), Vector2(0.6, 0.5), Vector2(0.75, 0.5)]
+	[Vector2(0.7,0.5)],
+	[Vector2(0.7,0.3),Vector2(0.5,0.8)],
+	[Vector2(0.8, 0.3), Vector2(0.6, 0.8), Vector2(0.4, 0.2)],
+	[Vector2(0.85, 0.3), Vector2(0.7, 0.8), Vector2(0.55, 0.2), Vector2(0.4,0.8)],
 	#add more later
 ]
 var entities:Array[BattleEntity] = []
-var partyRect:Rect2 = Rect2(Vector2(100,600),Vector2(500,400))
-var foesRect:Rect2 = Rect2(Vector2(600,600),Vector2(500,400))
+@export var partyRect:Rect2 = Rect2(Vector2(50,400),Vector2(450,170))
+@export var foesRect:Rect2 = Rect2(Vector2(600,400),Vector2(450,170))
 func _ready() -> void:
 	for child in get_children():
 		if child is BattleEntity:
 			entities.append(child)
+			child.just_freaking_died_right_now.connect(func():remove_entity(child))
 	update_entities_formations()
-			
+	
+func remove_entity(entity:BattleEntity):
+	entities.erase(entity)
+	game_manager.update_battle_entities()
 #returns a list of all alive player-controlled characters
 func get_party()->Array[BattleEntity]:
 	return entities.filter(func(entity): return entity.is_player_controlled and entity.alive)
 #returns a list of all alive foes
 func get_foes()->Array[BattleEntity]:
 	return entities.filter(func(entity): return not entity.is_player_controlled and entity.alive)
-
+	
+func _nudge_entites_from_eachother(enti:Array[BattleEntity],rect:Rect2):
+	for e in enti:
+		for ee in enti:
+			if e == ee: continue
+			var p1:Vector2 = e.mySpot
+			var p2:Vector2 = ee.mySpot
+			var repeller:Vector2 = (p1-p2).normalized()*5000/(p1.distance_squared_to(p2)+1)
+			e.mySpot += repeller
+			ee.mySpot -= repeller
+			e.mySpot = e.mySpot.clamp(rect.position,rect.position+rect.size)
+			ee.mySpot = ee.mySpot.clamp(rect.position,rect.position+rect.size)
+			
+func _random_formation(team:Array[BattleEntity],rect:Rect2):
+		for e in team:e.mySpot = Vector2(rect.position.x + randi()%int(rect.size.x), rect.position.y + randi()%int(rect.size.y))
+		for i in range(8):_nudge_entites_from_eachother(team,rect)
+		for e in team: 
+			e.go_to_your_spot()
 func _update_formation(team:Array[BattleEntity],rect:Rect2, mirror_x:bool = false)->void:
 	var i:int = 0
 	if team.size()>FORMATIONS.size():
 		#there's no plan for this amount of entities! Chaos, chaos!
-		for e in team:
-			e.mySpot = Vector2(rect.position.x + randi()%int(rect.size.x), rect.position.y + randi()%int(rect.size.y))
+		_random_formation(team,rect)
 		return
 	for p in FORMATIONS[team.size()]:
 		team[i].mySpot.x = rect.position.x + rect.size.x * ((1-p.x) if mirror_x else p.x)

@@ -26,7 +26,7 @@ signal speed_changed
 signal received_damage(amount:int, bypass_shield:bool)
 
 var mySpot:Vector2 #where the entity returns after moving and stuff. Y'know, their spot
-
+signal just_freaking_died_right_now
 var alive:bool = true
 var actions:Array[BattleAction] = [] #the actions the entity can take, such as active abilites or attacks
 var ap:int #how many actions are left in a turn
@@ -145,7 +145,7 @@ func update_health(value):
 	health_changed.emit()
 	alive = health>0
 	if not alive:
-		game_manager.update_battle_entities() #tell game manager to remove dead entity
+		just_freaking_died_right_now.emit()
 		animation_player.play("die")
 func update_ap(value:int):
 	ap = value
@@ -202,7 +202,10 @@ func update_menu_actions():
 		action_menu.add_child(button)
 
 func go_to_your_spot()->void:
+	var distance_to_spot = mySpot.distance_to(global_position)
+	if distance_to_spot < 1: return
 	var tween = get_tree().create_tween()
+	animated_sprite.play("run")
 	#maybe make the time depend on how far away they are from their spot?
 	tween.tween_property(self,"global_position",mySpot, 1)
 	tween.finished.connect(settle_into_spot)

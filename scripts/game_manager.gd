@@ -1,7 +1,6 @@
 extends Node2D
 
-@onready var party_node = $Party
-@onready var foes_node = $Foes
+@onready var entity_manager = $Entity_manager
 @onready var selection_circle = $SelectionCircle
 @onready var instruction_label = $InstructionLabel
 @onready var end_turn_buttton = $EndTurnButton
@@ -57,13 +56,11 @@ func _process(delta: float) -> void:
 		for character in party: if character.is_hovered_over_with_the_mouse:
 			highlighted_character = character
 func update_battle_entities():
-	party = []
-	for child in party_node.get_children():
-		if child is BattleEntity: if child.alive: party.append(child)
-	foes = []
-	for child in foes_node.get_children():
-		if child is BattleEntity: if child.alive: foes.append(child)
-	
+	var previous_amounts = Vector2(party.size(),foes.size())
+	party = entity_manager.get_party()
+	foes = entity_manager.get_foes()
+	if previous_amounts != Vector2(party.size(),foes.size()):
+		entity_manager.update_entities_formations()
 func end_turn():
 	if is_game_over or not is_player_turn: return
 	update_battle_entities()
