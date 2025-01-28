@@ -79,6 +79,8 @@ func start_turn():
 	animation_player.play("start_player_turn")
 	if GameState.is_neuro_controlling: make_neuro_play("your turn has started")
 	print("your turn")
+	
+#This is for neuro integration, unused so far
 func make_neuro_play(message:String):
 	print("finna make neuro play")
 	update_battle_entities()
@@ -93,6 +95,8 @@ func make_neuro_play(message:String):
 	var evi = get_entity_by_name("Evil")
 	if evi and evi.get_posible_actions().size() > 0: actionWindow.add_action(control_evil_action.new(actionWindow, self))
 	actionWindow.register()
+
+#This is for neuro integration, unused so far
 func give_neuro_battle_context():
 	var context = "Battlefield status:\n"
 	for character in party:
