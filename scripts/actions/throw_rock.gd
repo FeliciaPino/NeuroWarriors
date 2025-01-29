@@ -2,12 +2,14 @@ extends BattleAction
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	super._ready()
 	action_name = "Throw rock"
 	description = "does damage from a distance"
 	verb = "throw a rock at"
 	isMelee = false
 	isPositive = false
 	price = 1
+	_validate_values_are_initialized()
 
 func execute (user:BattleEntity, target:BattleEntity):
 	super.execute(user,target)

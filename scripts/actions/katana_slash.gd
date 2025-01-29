@@ -1,6 +1,7 @@
 extends BattleAction
 
 func _ready():
+	super._ready()
 	action_name = "Katana Slash"
 	description = "Cool katana slash to obliterate you oponents"
 	verb = "attack"

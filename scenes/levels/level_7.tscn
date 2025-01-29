@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://2svbf3b7fhue"]
+[gd_scene load_steps=17 format=3 uid="uid://2svbf3b7fhue"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_4ou3d"]
 [ext_resource type="Texture2D" uid="uid://dl6b6ewaxaxom" path="res://assets/forest_background.png" id="2_70qjf"]
+[ext_resource type="PackedScene" uid="uid://c0cerfjhi148m" path="res://scenes/entity_manager.tscn" id="3_8eals"]
 [ext_resource type="PackedScene" uid="uid://cmccd8rxiyqab" path="res://scenes/characters/neuro_sama.tscn" id="3_638b5"]
 [ext_resource type="PackedScene" uid="uid://b6410g70liyhb" path="res://scenes/characters/evil.tscn" id="4_qkwtt"]
 [ext_resource type="PackedScene" uid="uid://du1rkche8wapa" path="res://scenes/characters/enemies/drone.tscn" id="5_y34hf"]
@@ -178,26 +179,24 @@ script = ExtResource("1_4ou3d")
 position = Vector2(576, 294)
 texture = ExtResource("2_70qjf")
 
-[node name="Party" type="Node" parent="."]
+[node name="Entity_manager" parent="." instance=ExtResource("3_8eals")]
 
-[node name="NeuroSama" parent="Party" instance=ExtResource("3_638b5")]
-position = Vector2(272, 485)
+[node name="NeuroSama" parent="Entity_manager" instance=ExtResource("3_638b5")]
+position = Vector2(-150, 382)
 
-[node name="Evil" parent="Party" instance=ExtResource("4_qkwtt")]
-position = Vector2(371, 358)
+[node name="Evil" parent="Entity_manager" instance=ExtResource("4_qkwtt")]
+position = Vector2(-138, 513)
 
-[node name="Foes" type="Node" parent="."]
-
-[node name="Drone" parent="Foes" instance=ExtResource("5_y34hf")]
-position = Vector2(733, 346)
+[node name="Drone" parent="Entity_manager" instance=ExtResource("5_y34hf")]
+position = Vector2(1269, 354)
 entity_name = "Basic Drone 1"
 
-[node name="Drone2" parent="Foes" instance=ExtResource("5_y34hf")]
-position = Vector2(731, 533)
+[node name="Drone2" parent="Entity_manager" instance=ExtResource("5_y34hf")]
+position = Vector2(1267, 541)
 entity_name = "Basic Drone 2"
 
-[node name="defensive drone" parent="Foes" instance=ExtResource("6_d6l2n")]
-position = Vector2(922, 451)
+[node name="defensive drone" parent="Entity_manager" instance=ExtResource("6_d6l2n")]
+position = Vector2(1458, 459)
 
 [node name="SelectionCircle" type="Sprite2D" parent="."]
 position = Vector2(584, 427)
@@ -208,6 +207,7 @@ offset_right = 40.0
 offset_bottom = 23.0
 
 [node name="EndTurnButton" type="Button" parent="."]
+z_index = 1
 offset_left = 491.0
 offset_top = 575.0
 offset_right = 567.0
@@ -234,10 +234,10 @@ layout_mode = 3
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 600.0
-offset_top = 43.0
-offset_right = 640.0
-offset_bottom = 83.0
+offset_left = 448.0
+offset_top = 14.0
+offset_right = 488.0
+offset_bottom = 54.0
 grow_horizontal = 2
 pivot_offset = Vector2(20, 0)
 script = ExtResource("8_0axec")
@@ -271,6 +271,7 @@ layout_mode = 2
 text = "Return to map"
 
 [node name="Return" type="Button" parent="."]
+z_index = 1
 offset_left = 19.0
 offset_top = 610.0
 offset_right = 139.0

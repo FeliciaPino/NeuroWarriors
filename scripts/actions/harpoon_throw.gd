@@ -2,6 +2,7 @@ extends BattleAction
 # Called when the node enters the scene tree for the first time.
 
 func _ready() -> void:
+	super._ready()
 	action_name = "Harpoon Throw"
 	description = "Throws a heavy harpoon at target"
 	verb = "throw harpoon at"

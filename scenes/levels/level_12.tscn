@@ -1,8 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://d3cwy5c0pj1dc"]
+[gd_scene load_steps=22 format=3 uid="uid://d3cwy5c0pj1dc"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_deqmt"]
 [ext_resource type="Texture2D" uid="uid://daakoqoug8tly" path="res://assets/destroyed_city_background1.png" id="2_1lq7u"]
 [ext_resource type="Texture2D" uid="uid://b1iw4xeonbkc0" path="res://assets/destroyed_city_background2.png" id="3_ksrm0"]
+[ext_resource type="PackedScene" uid="uid://c0cerfjhi148m" path="res://scenes/entity_manager.tscn" id="4_obpgy"]
 [ext_resource type="PackedScene" uid="uid://cmccd8rxiyqab" path="res://scenes/characters/neuro_sama.tscn" id="4_xo3i0"]
 [ext_resource type="PackedScene" uid="uid://b6410g70liyhb" path="res://scenes/characters/evil.tscn" id="5_mvmsc"]
 [ext_resource type="PackedScene" uid="uid://uwmc3sf7fq3o" path="res://scenes/characters/vedal.tscn" id="6_pbhy6"]
@@ -196,40 +197,38 @@ script = ExtResource("1_deqmt")
 position = Vector2(590, 321)
 sprite_frames = SubResource("SpriteFrames_id0ps")
 
-[node name="Party" type="Node" parent="."]
+[node name="Entity_manager" parent="." instance=ExtResource("4_obpgy")]
 
-[node name="NeuroSama" parent="Party" instance=ExtResource("4_xo3i0")]
-position = Vector2(320, 549)
+[node name="NeuroSama" parent="Entity_manager" instance=ExtResource("4_xo3i0")]
+position = Vector2(-205, 543)
 
-[node name="Evil" parent="Party" instance=ExtResource("5_mvmsc")]
-position = Vector2(420, 444)
+[node name="Evil" parent="Entity_manager" instance=ExtResource("5_mvmsc")]
+position = Vector2(-105, 438)
 
-[node name="Vedal" parent="Party" instance=ExtResource("6_pbhy6")]
-position = Vector2(215, 469)
+[node name="Vedal" parent="Entity_manager" instance=ExtResource("6_pbhy6")]
+position = Vector2(-310, 463)
 
-[node name="Foes" type="Node" parent="."]
-
-[node name="offensiveDrone" parent="Foes" instance=ExtResource("7_d4tiq")]
-position = Vector2(766, 399)
+[node name="offensiveDrone" parent="Entity_manager" instance=ExtResource("7_d4tiq")]
+position = Vector2(1423, 386)
 entity_name = "Offensive Drone 1"
 
-[node name="offensiveDrone2" parent="Foes" instance=ExtResource("7_d4tiq")]
-position = Vector2(770, 564)
+[node name="offensiveDrone2" parent="Entity_manager" instance=ExtResource("7_d4tiq")]
+position = Vector2(1427, 551)
 entity_name = "Offensive Drone 2"
 
-[node name="defensive drone" parent="Foes" instance=ExtResource("8_h7r00")]
-position = Vector2(947, 400)
+[node name="defensive drone" parent="Entity_manager" instance=ExtResource("8_h7r00")]
+position = Vector2(1604, 387)
 entity_name = "Defensive Drone 1"
 
-[node name="defensive drone2" parent="Foes" instance=ExtResource("8_h7r00")]
-position = Vector2(946, 563)
+[node name="defensive drone2" parent="Entity_manager" instance=ExtResource("8_h7r00")]
+position = Vector2(1603, 550)
 entity_name = "Defensive Drone 2"
 
-[node name="Drone" parent="Foes" instance=ExtResource("7_epio6")]
-position = Vector2(643, 481)
+[node name="Drone" parent="Entity_manager" instance=ExtResource("7_epio6")]
+position = Vector2(1300, 468)
 
-[node name="BattleEntity" parent="Foes" instance=ExtResource("10_ed810")]
-position = Vector2(1069, 480)
+[node name="BattleEntity" parent="Entity_manager" instance=ExtResource("10_ed810")]
+position = Vector2(1726, 467)
 entity_name = "Enemy antenna"
 
 [node name="SelectionCircle" type="Sprite2D" parent="."]

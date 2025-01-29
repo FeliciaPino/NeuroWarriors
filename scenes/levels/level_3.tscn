@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://iou0tjr5a320"]
+[gd_scene load_steps=16 format=3 uid="uid://iou0tjr5a320"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_1d4vy"]
 [ext_resource type="Texture2D" uid="uid://dl6b6ewaxaxom" path="res://assets/forest_background.png" id="2_f6o4n"]
 [ext_resource type="PackedScene" uid="uid://cmccd8rxiyqab" path="res://scenes/characters/neuro_sama.tscn" id="3_06r6c"]
+[ext_resource type="PackedScene" uid="uid://c0cerfjhi148m" path="res://scenes/entity_manager.tscn" id="3_lc17n"]
 [ext_resource type="PackedScene" uid="uid://du1rkche8wapa" path="res://scenes/characters/enemies/drone.tscn" id="4_sa8pl"]
 [ext_resource type="Texture2D" uid="uid://duwanoipd03rk" path="res://assets/ui/selection_circle.png" id="5_5evu7"]
 [ext_resource type="PackedScene" uid="uid://d4f0gy2sw12hv" path="res://scenes/ui/end_screen.tscn" id="6_5e04m"]
@@ -177,19 +178,17 @@ script = ExtResource("1_1d4vy")
 position = Vector2(576, 294)
 texture = ExtResource("2_f6o4n")
 
-[node name="Party" type="Node" parent="."]
+[node name="Entity_manager" parent="." instance=ExtResource("3_lc17n")]
 
-[node name="NeuroSama" parent="Party" instance=ExtResource("3_06r6c")]
-position = Vector2(289, 440)
+[node name="NeuroSama" parent="Entity_manager" instance=ExtResource("3_06r6c")]
+position = Vector2(-76, 460)
 
-[node name="Foes" type="Node" parent="."]
-
-[node name="Drone" parent="Foes" instance=ExtResource("4_sa8pl")]
-position = Vector2(670, 465)
+[node name="Drone" parent="Entity_manager" instance=ExtResource("4_sa8pl")]
+position = Vector2(1250, 488)
 entity_name = "Basic Drone 1"
 
-[node name="Drone2" parent="Foes" instance=ExtResource("4_sa8pl")]
-position = Vector2(765, 348)
+[node name="Drone2" parent="Entity_manager" instance=ExtResource("4_sa8pl")]
+position = Vector2(1345, 371)
 entity_name = "Basic Drone 2"
 
 [node name="SelectionCircle" type="Sprite2D" parent="."]
@@ -221,6 +220,10 @@ offset_bottom = 28.0
 text = "Your turn"
 
 [node name="EndScreen" parent="." instance=ExtResource("6_5e04m")]
+offset_left = 448.0
+offset_top = 14.0
+offset_right = 488.0
+offset_bottom = 54.0
 
 [node name="Return" type="Button" parent="."]
 offset_left = 19.0

@@ -7,6 +7,7 @@ const FORMATIONS = [
 	[Vector2(0.7,0.3),Vector2(0.5,0.8)],
 	[Vector2(0.8, 0.3), Vector2(0.6, 0.8), Vector2(0.4, 0.2)],
 	[Vector2(0.85, 0.3), Vector2(0.7, 0.8), Vector2(0.55, 0.2), Vector2(0.4,0.8)],
+	[Vector2(0.85, 0.2), Vector2(0.8, 0.8), Vector2(0.6, 0.2), Vector2(0.4,0.8), Vector2(0.4,0.3)]
 	#add more later
 ]
 var entities:Array[BattleEntity] = []

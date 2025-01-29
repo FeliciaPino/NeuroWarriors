@@ -9,6 +9,7 @@ func _ready() -> void:
 	isPositive = true
 	price = 2
 	animationType = "effect"
+	_validate_values_are_initialized()
 	
 
 func execute (user:BattleEntity, target:BattleEntity):

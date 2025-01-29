@@ -3,6 +3,7 @@ extends BattleAction
 var poisoned_effect = preload("res://scenes/status_effects/poisoned.tscn")
 
 func _ready() -> void:
+	super._ready()
 	action_name = "Rum Throw"
 	description = "Throws very strong rum at target, poisoning them"
 	verb = "throw rum at"
@@ -10,6 +11,7 @@ func _ready() -> void:
 	isPositive = false
 	price = 2
 	animationType = "throw"
+	_validate_values_are_initialized()
 
 func execute (user:BattleEntity, target:BattleEntity):
 	super.execute(user,target)

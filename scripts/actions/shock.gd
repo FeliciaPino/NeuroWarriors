@@ -11,6 +11,7 @@ func _ready() -> void:
 	isPositive = false
 	price = 4
 	animationType = "effect"
+	_validate_values_are_initialized()
 
 func execute (user:BattleEntity, target:BattleEntity):
 	super.execute(user,target)

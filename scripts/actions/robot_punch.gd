@@ -1,6 +1,7 @@
 extends BattleAction
 
 func _ready():
+	super._ready()
 	action_name = "Robot Punch"
 	description = "Deliver a powerful blow with her robot actuators"
 	verb = "punch"

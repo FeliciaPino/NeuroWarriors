@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://clcpepbmh3462"]
+[gd_scene load_steps=17 format=3 uid="uid://clcpepbmh3462"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_jiqrc"]
 [ext_resource type="Texture2D" uid="uid://dl6b6ewaxaxom" path="res://assets/forest_background.png" id="2_jimri"]
+[ext_resource type="PackedScene" uid="uid://c0cerfjhi148m" path="res://scenes/entity_manager.tscn" id="3_flf6w"]
 [ext_resource type="PackedScene" uid="uid://cmccd8rxiyqab" path="res://scenes/characters/neuro_sama.tscn" id="3_wljnb"]
 [ext_resource type="PackedScene" uid="uid://uwmc3sf7fq3o" path="res://scenes/characters/vedal.tscn" id="4_6hcl4"]
 [ext_resource type="PackedScene" uid="uid://du1rkche8wapa" path="res://scenes/characters/enemies/drone.tscn" id="5_u00gj"]
@@ -178,22 +179,20 @@ script = ExtResource("1_jiqrc")
 position = Vector2(576, 294)
 texture = ExtResource("2_jimri")
 
-[node name="Party" type="Node" parent="."]
+[node name="Entity_manager" parent="." instance=ExtResource("3_flf6w")]
 
-[node name="NeuroSama" parent="Party" instance=ExtResource("3_wljnb")]
-position = Vector2(272, 485)
+[node name="Vedal" parent="Entity_manager" instance=ExtResource("4_6hcl4")]
+position = Vector2(-89, 381)
 
-[node name="Vedal" parent="Party" instance=ExtResource("4_6hcl4")]
-position = Vector2(375, 381)
+[node name="NeuroSama" parent="Entity_manager" instance=ExtResource("3_wljnb")]
+position = Vector2(-192, 485)
 
-[node name="Foes" type="Node" parent="."]
-
-[node name="Drone" parent="Foes" instance=ExtResource("5_u00gj")]
-position = Vector2(733, 346)
+[node name="Drone" parent="Entity_manager" instance=ExtResource("5_u00gj")]
+position = Vector2(1406, 346)
 entity_name = "Basic Drone 1"
 
-[node name="offensiveDrone" parent="Foes" instance=ExtResource("6_eu02h")]
-position = Vector2(781, 544)
+[node name="offensiveDrone" parent="Entity_manager" instance=ExtResource("6_eu02h")]
+position = Vector2(1454, 544)
 
 [node name="SelectionCircle" type="Sprite2D" parent="."]
 position = Vector2(584, 427)
@@ -230,10 +229,10 @@ layout_mode = 3
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 600.0
-offset_top = 43.0
-offset_right = 640.0
-offset_bottom = 83.0
+offset_left = 448.0
+offset_top = 14.0
+offset_right = 488.0
+offset_bottom = 54.0
 grow_horizontal = 2
 pivot_offset = Vector2(20, 0)
 script = ExtResource("7_djeoo")

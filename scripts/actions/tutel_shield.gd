@@ -10,6 +10,7 @@ func _ready() -> void:
 	isMelee = false
 	isPositive = true
 	price = 2
+	_validate_values_are_initialized()
 	
 
 func execute (user:BattleEntity, target:BattleEntity):
