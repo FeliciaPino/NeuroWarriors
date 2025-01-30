@@ -1,13 +1,15 @@
 extends Node
-@onready var game_manager = $".."
+class_name EntityManager
 
+@onready var game_manager = $".."
 const FORMATIONS = [
 	[],
 	[Vector2(0.7,0.5)],
 	[Vector2(0.7,0.3),Vector2(0.5,0.8)],
 	[Vector2(0.8, 0.3), Vector2(0.6, 0.8), Vector2(0.4, 0.2)],
 	[Vector2(0.85, 0.3), Vector2(0.7, 0.8), Vector2(0.55, 0.2), Vector2(0.4,0.8)],
-	[Vector2(0.85, 0.2), Vector2(0.8, 0.8), Vector2(0.6, 0.2), Vector2(0.4,0.8), Vector2(0.4,0.3)]
+	[Vector2(0.85, 0.4), Vector2(0.7, 0.8), Vector2(0.6, 0.2), Vector2(0.4,0.8), Vector2(0.3,0.3)],
+	[Vector2(0.85, 0.5), Vector2(0.65, 0.8), Vector2(0.65, 0.2), Vector2(0.45,0.8), Vector2(0.45,0.2), Vector2(0.25,0.5)]
 	#add more later
 ]
 var entities:Array[BattleEntity] = []
@@ -22,10 +24,12 @@ func _ready() -> void:
 	
 func remove_entity(entity:BattleEntity):
 	entities.erase(entity)
+	"""
 	if entity.is_player_controlled:
 		_update_formation(get_party(),partyRect)
 	else:
 		_update_formation(get_foes(),foesRect,true)
+	"""
 	game_manager.update_battle_entities()
 #returns a list of all alive player-controlled characters
 func get_party()->Array[BattleEntity]:
@@ -67,17 +71,17 @@ func update_entities_formations()->void:
 	_update_formation(get_party(),partyRect)
 	_update_formation(get_foes(),foesRect,true)
 	
-func spawn_entity(entity_scene:PackedScene, is_player_controlled:bool):
-	var entity:BattleEntity = entity_scene.instantiate()
-	entity.is_player_controlled = is_player_controlled
+func spawn_entity(entity:BattleEntity):
 	self.add_child(entity)
 	entities.append(entity)
+	entity.set_up_at_start_of_turn()
+	entity.just_freaking_died_right_now.connect(func():remove_entity(entity))
 	var window_size = DisplayServer.window_get_size()
-	if is_player_controlled:
-		entity.global_position = Vector2(-200,window_size.y/2)
+	if entity.is_player_controlled:
+		entity.global_position = Vector2(0,window_size.y/2)
 		_update_formation(get_party(),partyRect)
 	else:
-		entity.global_position = Vector2(window_size.x+200,window_size.y/2)#assuming window width is 1152
+		entity.global_position = Vector2(window_size.x-100,window_size.y*0.6)
 		_update_formation(get_foes(),foesRect,true)
 		
 	

@@ -504,6 +504,9 @@ sprite_frames = SubResource("SpriteFrames_qljkk")
 
 [node name="Shock" parent="Actions" index="2" instance=ExtResource("6_5fem2")]
 
+[node name="Menu" parent="." index="5"]
+metadata/_edit_use_anchors_ = true
+
 [node name="melee_attack" parent="sound_effects" index="2"]
 stream = ExtResource("6_5kpql")
 volume_db = -15.0

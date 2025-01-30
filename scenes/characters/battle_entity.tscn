@@ -142,12 +142,14 @@ animations = [{
 }]
 
 [node name="BattleEntity" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_m46ik")
 
 [node name="SelectionCircle" type="Sprite2D" parent="."]
 texture = ExtResource("4_i6faa")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_e8na7")
 
 [node name="Actions" type="Node" parent="."]

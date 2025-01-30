@@ -41,7 +41,7 @@ var ap:int #how many actions are left in a turn
 @onready var actions_left_label = $Menu/ApDisplay/NinePatchRect/Label
 @onready var actions_left_display = $Menu/ApDisplay
 @onready var info_panel = $Menu/info_container/Info
-@onready var game_manager = $"../.." #TODO: update this
+@onready var game_manager:GameManager = $"../.." #TODO: update this
 @onready var animated_sprite:AnimatedSprite2D = $AnimatedSprite2D
 @onready var animation_player = $BattleEntityAnimationPlayer
 @onready var explosion_animated_sprite = $explosion
@@ -204,10 +204,11 @@ func update_menu_actions():
 func go_to_your_spot()->void:
 	var distance_to_spot = mySpot.distance_to(global_position)
 	if distance_to_spot < 1: return
+	animated_sprite.flip_h = mySpot.x < global_position.x
 	var tween = get_tree().create_tween()
 	animated_sprite.play("run")
 	#maybe make the time depend on how far away they are from their spot?
-	tween.tween_property(self,"global_position",mySpot, 1)
+	tween.tween_property(self,"global_position",mySpot, distance_to_spot/500+0.1)
 	tween.finished.connect(settle_into_spot)
 func settle_into_spot():
 	global_position = mySpot

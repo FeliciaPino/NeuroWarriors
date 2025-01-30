@@ -1,7 +1,7 @@
 extends Node2D
-
-@onready var entity_manager = $Entity_manager
-@onready var selection_circle = $SelectionCircle
+class_name GameManager
+@onready var entity_manager:EntityManager = $Entity_manager
+@onready var selection_circle = $SelectionCircle #get rid of this
 @onready var instruction_label = $InstructionLabel
 @onready var end_turn_buttton = $EndTurnButton
 @onready var animation_player = $AnimationPlayer
@@ -118,7 +118,7 @@ func set_selected_character(character: BattleEntity):
 		selection_circle.visible = false
 	else:
 		selected_character.open_menu()
-		selection_circle.visible = true
+		#selection_circle.visible = true
 		selection_circle.position = selected_character.position
 
 	
