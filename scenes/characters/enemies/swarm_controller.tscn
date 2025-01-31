@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://baw6pv13fsf0w"]
+[gd_scene load_steps=26 format=3 uid="uid://baw6pv13fsf0w"]
 
 [ext_resource type="PackedScene" uid="uid://dp2gnkbdq83n4" path="res://scenes/characters/battle_entity.tscn" id="1_mi723"]
 [ext_resource type="Texture2D" uid="uid://cn4cl6flutifh" path="res://assets/swarm_controls.png" id="2_cx1ph"]
@@ -37,10 +37,6 @@ region = Rect2(80, 0, 40, 40)
 atlas = ExtResource("3_j4waa")
 region = Rect2(40, 0, 40, 40)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3iuwq"]
-atlas = ExtResource("3_j4waa")
-region = Rect2(0, 0, 40, 40)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_hqbsj"]
 atlas = ExtResource("3_j4waa")
 region = Rect2(40, 0, 40, 40)
@@ -52,10 +48,6 @@ region = Rect2(80, 0, 40, 40)
 [sub_resource type="AtlasTexture" id="AtlasTexture_b0mfy"]
 atlas = ExtResource("3_j4waa")
 region = Rect2(120, 0, 40, 40)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1hvkp"]
-atlas = ExtResource("3_j4waa")
-region = Rect2(160, 0, 40, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ut2c0"]
 atlas = ExtResource("3_j4waa")
@@ -98,9 +90,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3iuwq")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_hqbsj")
 }, {
 "duration": 1.0,
@@ -108,9 +97,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_b0mfy")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1hvkp")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ut2c0")
@@ -129,7 +115,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"spinning",
-"speed": 20.0
+"speed": 15.0
 }]
 
 [sub_resource type="Animation" id="Animation_2bga6"]
@@ -462,7 +448,7 @@ sprite_frames = SubResource("SpriteFrames_vjs0u")
 sprite_frames = SubResource("SpriteFrames_m4jya")
 animation = &"spinning"
 autoplay = "default"
-frame_progress = 0.134391
+frame_progress = 0.0267329
 offset = Vector2(0, -30)
 
 [node name="summon drone" parent="Actions" index="0" instance=ExtResource("3_ijl66")]
