@@ -60,7 +60,8 @@ func _ready() -> void:
 	print(get_signal_connection_list("mouse_entered"))
 
 	print(entity_name+" is ready")
-	animated_sprite.play("default")
+	animated_sprite.play()
+	animation_player.play("idle")
 	explosion_animated_sprite.visible = false
 	is_hovered_over_with_the_mouse = false
 	for child in actions_node.get_children():
@@ -207,13 +208,13 @@ func go_to_your_spot()->void:
 	if distance_to_spot < 1: return
 	animated_sprite.flip_h = mySpot.x < global_position.x
 	var tween = get_tree().create_tween()
-	animated_sprite.play("run")
+	animation_player.play("walking")
 	#maybe make the time depend on how far away they are from their spot?
 	tween.tween_property(self,"global_position",mySpot, distance_to_spot/500+0.1)
 	tween.finished.connect(settle_into_spot)
 func settle_into_spot():
 	global_position = mySpot
-	animated_sprite.play("default")
+	animation_player.play("idle")
 	animated_sprite.flip_h = global_position.x > 550
 	
 

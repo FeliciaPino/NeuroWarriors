@@ -40,11 +40,12 @@ func _meele_action(user:BattleEntity, target:BattleEntity)->void:
 	var spotToAttackFrom = target.global_position+Vector2(100 if target.global_position.x<user.global_position.x else -100, 0)
 	if user==target:
 		spotToAttackFrom = user.global_position
-	user.animated_sprite.play("run")
-	var tween = get_tree().create_tween()
+	user.animation_player.play("walking")
 	user.animated_sprite.flip_h = target.global_position.x<user.global_position.x
+	var tween = get_tree().create_tween()
 	tween.tween_property(user,"global_position",spotToAttackFrom, user.global_position.distance_to(spotToAttackFrom)/500)
 	await tween.finished
+	#TODO: verify that the user hasn't been freed
 	if is_instance_valid(target):
 		target.got_on_your_personal_space(user)
 	user.animation_player.play(animationType)
@@ -52,7 +53,7 @@ func _meele_action(user:BattleEntity, target:BattleEntity)->void:
 	if is_instance_valid(target):
 		_action_effect(user,target)
 		user.did_an_action(price)
-	user.animated_sprite.play("run")
+	user.animation_player.play("walking")
 	user.animated_sprite.flip_h = user.global_position.x > 550
 	tween = get_tree().create_tween()
 	tween.tween_property(user,"global_position",user.mySpot,  user.global_position.distance_to(user.mySpot)/500)
