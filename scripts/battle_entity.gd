@@ -31,6 +31,7 @@ var alive:bool = true
 var actions:Array[BattleAction] = [] #the actions the entity can take, such as active abilites or attacks
 var ap:int #how many actions are left in a turn
 @export var is_player_controlled:bool
+@export var is_stationary:bool
 
 @onready var actions_node = $Actions
 @onready var healthBar = $HealthBar

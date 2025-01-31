@@ -227,9 +227,8 @@ entity_name = "Defensive Drone 2"
 [node name="Drone" parent="Entity_manager" instance=ExtResource("7_epio6")]
 position = Vector2(1300, 468)
 
-[node name="BattleEntity" parent="Entity_manager" instance=ExtResource("10_ed810")]
-position = Vector2(1726, 467)
-entity_name = "Enemy antenna"
+[node name="swarm_controller" parent="Entity_manager" instance=ExtResource("10_ed810")]
+position = Vector2(998, 441)
 
 [node name="SelectionCircle" type="Sprite2D" parent="."]
 position = Vector2(584, 427)

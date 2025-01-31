@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://baw6pv13fsf0w"]
+[gd_scene load_steps=12 format=3 uid="uid://baw6pv13fsf0w"]
 
 [ext_resource type="PackedScene" uid="uid://dp2gnkbdq83n4" path="res://scenes/characters/battle_entity.tscn" id="1_mi723"]
 [ext_resource type="Texture2D" uid="uid://cn4cl6flutifh" path="res://assets/swarm_controls.png" id="2_cx1ph"]
+[ext_resource type="PackedScene" uid="uid://s8dyi6mkp2np" path="res://scenes/actions/summon_drone.tscn" id="3_ijl66"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vjs0u"]
 animations = [{
@@ -11,6 +12,11 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"effect",
 "speed": 5.0
 }]
 
@@ -365,17 +371,20 @@ _data = {
 [node name="swarm_controller" instance=ExtResource("1_mi723")]
 health = 200
 maxHealth = 200
+entity_name = "Swarm Controller"
+entity_description = "Sends signals to summon allies"
 defense = 20
-attack = 0
-speed = 0
+attack = 5
+speed = 6
+is_stationary = true
 
 [node name="AnimatedSprite2D" parent="." index="1"]
-position = Vector2(-2, 39)
 sprite_frames = SubResource("SpriteFrames_vjs0u")
 
+[node name="summon drone" parent="Actions" index="0" instance=ExtResource("3_ijl66")]
+
 [node name="HealthBar" parent="." index="3"]
-offset_right = -15.0
-offset_bottom = -81.0
+offset_right = -37.0
 
 [node name="BattleEntityAnimationPlayer" type="AnimationPlayer" parent="." index="8"]
 libraries = {

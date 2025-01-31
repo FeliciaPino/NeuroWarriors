@@ -8,7 +8,7 @@ func _ready() -> void:
 	verb = "summon"
 	isMelee = false
 	isPositive = true
-	price = 2
+	price = 8
 	animationType = "effect"
 	_validate_values_are_initialized()
 

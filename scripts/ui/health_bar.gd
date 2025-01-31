@@ -7,7 +7,7 @@ func setup(newMax:int, defense:int)->void:
 	max_value = newMax+1
 	value = newMax
 	min_value = -2 #Same as with the max, one less than 0 so it doesn't look empty when the value is 1
-	size.x = max_value/2
+	size.x = max_value/2 + 11
 	position.x = -size.x/2
 	trailing_bar.size = size
 	trailing_bar.position=Vector2()

@@ -45,7 +45,7 @@ func _meele_action(user:BattleEntity, target:BattleEntity)->void:
 	user.animated_sprite.flip_h = target.global_position.x<user.global_position.x
 	tween.tween_property(user,"global_position",spotToAttackFrom, user.global_position.distance_to(spotToAttackFrom)/500)
 	await tween.finished
-	if is_instance_valid(target): #this if isn't fixing the error is supposed to
+	if is_instance_valid(target):
 		target.got_on_your_personal_space(user)
 	user.animation_player.play(animationType)
 	await user.animation_player.animation_finished
