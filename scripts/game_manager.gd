@@ -3,10 +3,10 @@ class_name GameManager
 @onready var entity_manager:EntityManager = $Entity_manager
 @onready var selection_circle = $SelectionCircle #get rid of this
 @onready var instruction_label = $InstructionLabel
-@onready var end_turn_buttton = $EndTurnButton
+@onready var end_turn_buttton:Button = $EndTurnButton
 @onready var animation_player = $AnimationPlayer
 @onready var end_screen = $EndScreen
-@onready var return_to_map_button = $Return
+@onready var return_to_map_button:Button = $Return
 @onready var background = $Background
 var level_select_scene = preload("res://scenes/levels/level_select.tscn")
 
@@ -29,11 +29,12 @@ const end_turn_action := preload("res://scripts/neuro_actions/end_turn_action.gd
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	print("current scene: "+str(get_tree().current_scene))
-	
-	Context.send("Battle started. Neuro and her allies face off against a swarm of enemies. ", true)
+	if GameState.is_neuro_controlling:
+		Context.send("Battle started. Neuro and her allies face off against a swarm of enemies. ", true)
 
 	if background is AnimatedSprite2D:
 		background.play("default")
+		
 	update_battle_entities()
 	for party_member in party:
 		party_member.is_player_controlled = true
@@ -59,6 +60,7 @@ func update_battle_entities():
 	party = entity_manager.get_party()
 	foes = entity_manager.get_foes()
 func end_turn():
+	end_turn_buttton.disabled = true
 	if is_game_over or not is_player_turn: return
 	update_battle_entities()
 	print("turn ended")
@@ -66,7 +68,9 @@ func end_turn():
 	for foe in foes: foe.set_up_at_start_of_turn()
 	do_enemy_action()
 func start_turn():
-	give_neuro_battle_context()
+	end_turn_buttton.disabled = false
+	if GameState.is_neuro_controlling:
+		give_neuro_battle_context()
 	update_battle_entities()
 	if check_game_end(): return
 	for character in party: character.set_up_at_start_of_turn()
