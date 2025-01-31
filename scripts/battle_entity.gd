@@ -60,7 +60,6 @@ func _ready() -> void:
 	print(get_signal_connection_list("mouse_entered"))
 
 	print(entity_name+" is ready")
-	animated_sprite.play()
 	animation_player.play("idle")
 	explosion_animated_sprite.visible = false
 	is_hovered_over_with_the_mouse = false

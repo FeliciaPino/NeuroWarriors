@@ -95,6 +95,7 @@ func _ranged_non_projectile_action(user:BattleEntity, target:BattleEntity)->void
 		user.did_an_action(price)
 	await get_tree().create_timer(0.6).timeout
 	sprite.visible = false
+	user.animation_player.play("idle")
 	action_finished.emit()
 
 #deprecated
