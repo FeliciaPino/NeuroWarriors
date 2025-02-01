@@ -9,11 +9,14 @@ var price:int #how much energy it takes to perform
 
 var animationType:String #either  "attack", "throw", or "effect". Or another if it's unique maybe? 
 @onready var sprite = $sprite
-@onready var sound:AudioStreamPlayer = $sound
+@onready var sounds:Array[AudioStreamPlayer]
 @onready var animationPlayer:AnimationPlayer = $AnimationPlayer
 signal action_finished
 func _ready() -> void:
 	sprite.visible = false
+	for c in get_children():
+		if c is AudioStreamPlayer:
+			sounds.append(c)
 #gotta call this at the end of the sub-class initializer, to avoid me forgeting stuff. 
 func _validate_values_are_initialized()->void:
 	assert(action_name != null)
@@ -49,6 +52,7 @@ func _meele_action(user:BattleEntity, target:BattleEntity)->void:
 	if is_instance_valid(target):
 		target.got_on_your_personal_space(user)
 	user.animation_player.play(animationType)
+	get_tree().create_timer(0.2).timeout.connect(func():sounds[0].play())
 	await user.animation_player.animation_finished
 	if is_instance_valid(target):
 		_action_effect(user,target)
@@ -65,7 +69,7 @@ func _meele_action(user:BattleEntity, target:BattleEntity)->void:
 func _projectile_action(user:BattleEntity, target:BattleEntity, projectileSpeed=10)->void:
 	user.animation_player.play(animationType)
 	await  get_tree().create_timer(0.6).timeout #for the animation to get to about the throwing part
-	sound.play()
+	sounds[0].play()
 	if is_instance_valid(target):
 		sprite.rotation = (target.global_position-user.global_position).normalized().angle()
 	sprite.visible = true
@@ -78,12 +82,14 @@ func _projectile_action(user:BattleEntity, target:BattleEntity, projectileSpeed=
 	if is_instance_valid(target):
 		_action_effect(user,target)
 		user.did_an_action(price)
+		if sounds.size()>1:
+			sounds[1].play()
 	action_finished.emit()
 #plays the animation of the entity and calls _action_effect
 func _ranged_non_projectile_action(user:BattleEntity, target:BattleEntity)->void:
 	user.animation_player.play(animationType)
 	await user.animation_player.animation_finished
-	sound.play()
+	sounds[0].play()
 	animationPlayer.play("animation")
 	sprite.play()
 	if is_instance_valid(target):

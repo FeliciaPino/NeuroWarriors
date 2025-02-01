@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dp2gnkbdq83n4"]
+[gd_scene load_steps=27 format=3 uid="uid://dp2gnkbdq83n4"]
 
 [ext_resource type="Script" path="res://scripts/battle_entity.gd" id="1_m46ik"]
 [ext_resource type="Texture2D" uid="uid://qn41g1ovgmc5" path="res://assets/charsprites_default.png" id="2_sdw82"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://cto77pwu6noeu" path="res://scenes/ui/ap_display.tscn" id="5_wqjtl"]
 [ext_resource type="AudioStream" uid="uid://fjhqrwyqj5im" path="res://addons/sfx/Retro Explosion Short 15.wav" id="6_0htqn"]
 [ext_resource type="AudioStream" uid="uid://c5cnketelr6mc" path="res://addons/sfx/Retro Blop 18.wav" id="7_5e4t5"]
+[ext_resource type="AudioStream" uid="uid://lnqaagn01gqm" path="res://assets/audio/homemade/SFX/bwoaa.wav" id="9_deo4h"]
+[ext_resource type="AudioStream" uid="uid://b22eiqdfnoyr" path="res://addons/sfx/Retro FootStep 03.wav" id="10_5ppgc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bafwe"]
 atlas = ExtResource("2_sdw82")
@@ -265,6 +267,15 @@ bus = &"SFX"
 [node name="melee_attack" type="AudioStreamPlayer" parent="sound_effects"]
 volume_db = -10.0
 bus = &"SFX"
+
+[node name="bwoaa" type="AudioStreamPlayer" parent="sound_effects"]
+stream = ExtResource("9_deo4h")
+pitch_scale = 1.81
+
+[node name="hit" type="AudioStreamPlayer" parent="sound_effects"]
+stream = ExtResource("10_5ppgc")
+volume_db = -10.0
+pitch_scale = 2.0
 
 [connection signal="health_changed" from="." to="HealthBar" method="_on_battle_entity_health_changed"]
 [connection signal="received_damage" from="." to="HealthBar" method="_on_battle_entity_received_damage"]

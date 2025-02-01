@@ -448,7 +448,7 @@ sprite_frames = SubResource("SpriteFrames_vjs0u")
 sprite_frames = SubResource("SpriteFrames_m4jya")
 animation = &"spinning"
 autoplay = "default"
-frame_progress = 0.0267329
+frame_progress = 0.601091
 offset = Vector2(0, -30)
 
 [node name="summon drone" parent="Actions" index="0" instance=ExtResource("3_ijl66")]

@@ -27,12 +27,12 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_28twq"]
+length = 0.001
+
 [sub_resource type="Animation" id="Animation_dmf2h"]
 resource_name = "animation"
 length = 0.4
-
-[sub_resource type="Animation" id="Animation_28twq"]
-length = 0.001
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1wemy"]
 _data = {
@@ -49,6 +49,7 @@ frame_progress = 0.419983
 
 [node name="sound" parent="." index="1"]
 stream = ExtResource("4_buh5l")
+volume_db = -15.0
 
 [node name="AnimationPlayer" parent="." index="2"]
 libraries = {

@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://c0p02mr1a5wep" path="res://scenes/actions/action.tscn" id="1_5mapb"]
 [ext_resource type="Script" path="res://scripts/actions/rum_throw.gd" id="1_5rjq5"]
 [ext_resource type="Texture2D" uid="uid://dd4x7ub5hj3mw" path="res://assets/rum.png" id="2_eu38x"]
-[ext_resource type="AudioStream" uid="uid://cbihur5nfjeb4" path="res://addons/sfx/Retro Charge Magic 11.wav" id="4_i1lut"]
+[ext_resource type="AudioStream" uid="uid://mw2x4y4vqdxd" path="res://addons/sfx/Retro Explosion Short 01.wav" id="4_hwmnw"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_o4my3"]
 animations = [{
@@ -61,10 +61,14 @@ script = ExtResource("1_5rjq5")
 sprite_frames = SubResource("SpriteFrames_o4my3")
 
 [node name="sound" parent="." index="1"]
-stream = ExtResource("4_i1lut")
 volume_db = -15.0
 
-[node name="AnimationPlayer" parent="." index="2"]
+[node name="sound2" type="AudioStreamPlayer" parent="." index="2"]
+stream = ExtResource("4_hwmnw")
+volume_db = -10.0
+pitch_scale = 2.57
+
+[node name="AnimationPlayer" parent="." index="3"]
 libraries = {
 "": SubResource("AnimationLibrary_sqtqw")
 }

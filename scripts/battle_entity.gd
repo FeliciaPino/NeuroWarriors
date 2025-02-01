@@ -115,6 +115,7 @@ func receive_damage(attack_power):
 	emit_signal("received_damage",attack_power,false)
 	#play damaged animation. maybe
 	throw_text(str(damage_taken),Color.FIREBRICK)
+	make_sound("hit", true)
 
 #makes some info be thrown from the entity. I'm thinking mostly using it to indicate damage
 func throw_text(text:String, color:Color = Color.WHITE):
@@ -155,6 +156,7 @@ func update_ap(value:int):
 	
 func heal(amount:int):
 	throw_text(str(amount),Color.GREEN)
+	make_sound("bwoaa",true)
 	update_health(health+amount)
 	
 func did_an_action(price:int):
@@ -173,10 +175,17 @@ func set_up_at_start_of_turn():
 	update_ap_label_text()
 	update_menu_actions()
 
-func make_sound(sound_name:String):
+func make_sound(sound_name:String, switch_it_up_a_bit:bool = false):
+	var sound_to_play:AudioStreamPlayer
 	for sound in sound_effects.get_children():
-		if sound.name == sound_name:
-			sound.play()
+		if sound.name == sound_name and sound is AudioStreamPlayer:
+			sound_to_play = sound
+	var original_pitch = sound_to_play.pitch_scale
+	if switch_it_up_a_bit:
+		sound_to_play.pitch_scale = original_pitch + randf_range(-0.5,0.5)
+	sound_to_play.play()
+	sound_to_play.finished.connect(func():sound_to_play.pitch_scale = original_pitch)
+	
 func get_speed():
 	return speed
 		
