@@ -68,7 +68,7 @@ func _meele_action(user:BattleEntity, target:BattleEntity)->void:
 #does the throwing thing and calls _action_effect
 func _projectile_action(user:BattleEntity, target:BattleEntity, projectileSpeed=10)->void:
 	user.animation_player.play(animationType)
-	await  get_tree().create_timer(0.6).timeout #for the animation to get to about the throwing part
+	await  get_tree().create_timer(0.4).timeout #for the animation to get to about the throwing part
 	sounds[0].play()
 	if is_instance_valid(target):
 		sprite.rotation = (target.global_position-user.global_position).normalized().angle()

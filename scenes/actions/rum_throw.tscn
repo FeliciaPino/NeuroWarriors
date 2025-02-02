@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://c5fgqjhldruh1"]
+[gd_scene load_steps=10 format=3 uid="uid://c5fgqjhldruh1"]
 
 [ext_resource type="PackedScene" uid="uid://c0p02mr1a5wep" path="res://scenes/actions/action.tscn" id="1_5mapb"]
 [ext_resource type="Script" path="res://scripts/actions/rum_throw.gd" id="1_5rjq5"]
 [ext_resource type="Texture2D" uid="uid://dd4x7ub5hj3mw" path="res://assets/rum.png" id="2_eu38x"]
-[ext_resource type="AudioStream" uid="uid://mw2x4y4vqdxd" path="res://addons/sfx/Retro Explosion Short 01.wav" id="4_hwmnw"]
+[ext_resource type="AudioStream" uid="uid://bymhdcicx5ap3" path="res://assets/audio/homemade/SFX/Woosh.mp3" id="4_rpxqk"]
+[ext_resource type="AudioStream" uid="uid://d4a0ll67wiweg" path="res://assets/audio/SFX/shatter.mp3" id="5_8nle4"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_o4my3"]
 animations = [{
@@ -61,12 +62,13 @@ script = ExtResource("1_5rjq5")
 sprite_frames = SubResource("SpriteFrames_o4my3")
 
 [node name="sound" parent="." index="1"]
-volume_db = -15.0
+stream = ExtResource("4_rpxqk")
+pitch_scale = 0.8
 
 [node name="sound2" type="AudioStreamPlayer" parent="." index="2"]
-stream = ExtResource("4_hwmnw")
-volume_db = -10.0
-pitch_scale = 2.57
+stream = ExtResource("5_8nle4")
+volume_db = -5.0
+pitch_scale = 1.52
 
 [node name="AnimationPlayer" parent="." index="3"]
 libraries = {
