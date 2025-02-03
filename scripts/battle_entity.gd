@@ -250,9 +250,10 @@ func close_menu():
 #returns a dictionoray like this ["action":BattleAction,"target",BattleEntity]
 func figure_out_something_to_do():
 	var posible_actions = get_posible_actions()
-	posible_actions.append(null)
+	if not are_there_posible_action(): return {"action":null,"target":null}
 	var chosen_action:BattleAction = posible_actions.pick_random()
-	if chosen_action == null: return {"action":null,"target":null}
+	#5% chance to end turn
+	if randi()%100<=5 or chosen_action==null: return {"action":null,"target":null}
 	var posible_targets = game_manager.party if is_player_controlled == chosen_action.isPositive else game_manager.foes
 	var chosen_target:BattleEntity = posible_targets.pick_random()
 	return {"action":chosen_action, "target":chosen_target}

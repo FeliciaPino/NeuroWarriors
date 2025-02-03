@@ -447,9 +447,12 @@ _data = {
 }
 
 [node name="Drone" instance=ExtResource("1_vpuy2")]
-maxHealth = 40
+maxHealth = 45
 entity_name = "Basic Drone"
 entity_description = "Basic Drone"
+defense = 0
+attack = 12
+speed = 2
 
 [node name="AnimatedSprite2D" parent="." index="1"]
 sprite_frames = SubResource("SpriteFrames_6hsqf")

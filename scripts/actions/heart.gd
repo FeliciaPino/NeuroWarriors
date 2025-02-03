@@ -8,7 +8,7 @@ func _ready() -> void:
 	verb = "heal"
 	isMelee = false
 	isPositive = true
-	price = 2
+	price = 3
 	animationType = "effect"
 	_validate_values_are_initialized()
 
