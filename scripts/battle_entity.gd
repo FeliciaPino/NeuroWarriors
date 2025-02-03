@@ -247,6 +247,16 @@ func close_menu():
 	tween.tween_property(menu, "scale", Vector2(), 0.2)
 	#tween.tween_property(menu,"rotation",3.14159,0.25)
 
+#returns a dictionoray like this ["action":BattleAction,"target",BattleEntity]
+func figure_out_something_to_do():
+	var posible_actions = get_posible_actions()
+	posible_actions.append(null)
+	var chosen_action:BattleAction = posible_actions.pick_random()
+	if chosen_action == null: return {"action":null,"target":null}
+	var posible_targets = game_manager.party if is_player_controlled == chosen_action.isPositive else game_manager.foes
+	var chosen_target:BattleEntity = posible_targets.pick_random()
+	return {"action":chosen_action, "target":chosen_target}
+
 #returns whether or not it's possible to do anything with the AP left
 func are_there_posible_action():
 	var ans = false

@@ -66,7 +66,7 @@ func end_turn():
 	print("turn ended")
 	is_player_turn = false
 	for foe in foes: foe.set_up_at_start_of_turn()
-	do_enemy_action()
+	enemy_turn()
 func start_turn():
 	end_turn_buttton.disabled = false
 	if GameState.is_neuro_controlling:
@@ -160,10 +160,8 @@ func on_action_finished(action):
 	_set_stand_by(false)
 	update_battle_entities()
 	if check_game_end(): return
-	if is_player_turn:
-		if GameState.is_neuro_controlling: make_neuro_play("it is still your turn")
-	else:
-		do_enemy_action()
+	if is_player_turn and  GameState.is_neuro_controlling:
+		make_neuro_play("it is still your turn")
 
 func _set_stand_by(value:bool):
 	stand_by = value
@@ -201,7 +199,8 @@ func finish(win_status:bool):
 		if GameState.current_level == GameState.last_level:
 			get_tree().change_scene_to_file("res://scenes/credits.tscn")
 	animation_player.play("show_end_screen")
-#makes a movemente by the enmeies
+
+"""
 func do_enemy_action():
 		var thing_to_do = get_game_ai_action()
 		if thing_to_do["ended_turn"]:
@@ -210,18 +209,21 @@ func do_enemy_action():
 			start_turn()
 		else:
 			do_an_action(thing_to_do["user"],thing_to_do["action"],thing_to_do["target"])
+"""
+func enemy_turn():
+	var foes_to_act = []
+	for f in foes: foes_to_act.append(f)
+	while not foes_to_act.is_empty():
+		var foe:BattleEntity = foes_to_act.pick_random()
+		var decision = foe.figure_out_something_to_do()
+		if decision["action"] == null:
+			foes_to_act.erase(foe)
+			continue
+		do_an_action(foe, decision["action"], decision["target"])
+		await decision["action"].action_finished
+	is_player_turn = true
+	start_turn()
 	
-func get_game_ai_action():
-	#for now let's use a random algorithm, we can refine it later (by 'we' I of course mean 'I')
-	var foes_that_can_still_do_stuff = []
-	for foe in foes: if foe.are_there_posible_action(): foes_that_can_still_do_stuff.append(foe)
-	var s = foes_that_can_still_do_stuff.size()
-	if randf() < 0.2 or s==0:
-		return{"ended_turn":true}
-	var ai_selected_foe = foes_that_can_still_do_stuff.pick_random()
-	var ai_selected_action = ai_selected_foe.get_strongest_posible_action()
-	var ai_selected_target =  foes.pick_random() if ai_selected_action.isPositive else party.pick_random()
-	return {"user":ai_selected_foe,"action":ai_selected_action,"target":ai_selected_target, "ended_turn":false}
 
 func is_mouse_click_L(event: InputEvent):
 	return event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed
