@@ -71,45 +71,53 @@ libraries = {
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 180.0
-offset_top = 660.0
-offset_right = 780.0
-offset_bottom = 1541.0
+offset_left = 214.0
+offset_top = 224.0
+offset_right = 814.0
+offset_bottom = 1313.0
 scale = Vector2(1.3, 1.3)
 text = "Congratulations!
 You saved the world!
 
-That sure was an ordeal, I bet you're tired.
-
-
-
-Because I am.
-
-
-But it was fun.
-fr fr I had a blast
 
 
 Credits:
 
-Creativity: CopperQueen29
-Drawing: CopperQueen29
-Programming: CopperQueen29
-Directive Manager of Making up titles to sound important: CopperQueen29
+I, CopperQueen29, have made this game.
+ With love and passion
+Heart
+
+ Stuff I downloaded online:
+
+Music
+The delightful CC0 music was made by Pixel-boy at Sparklin Labs
+
+SFX
+I found a pack of free sound effects here:
+https://kronbits.itch.io/freesfx
+The rest I found on freesound or made myself.
 
 
 
- Here's the stuff I downloaded online:
+Special thanks to my mom for being so great.
 
-The delightful CC0 music was made by Pixel-boy at at Sparklin Labs
+To the Neuro twins for being the cutest AIs in the planet
 
-The sound effects where made by Kronbits
+To Vedal, for giving them life
 
-Except for the \"heart\" sound I'm not sure where that came from
+To Anny, for being their mom
 
-Special thanks to my mom for being so great
-and to ChatGPT for listening to me ramble for hours about my ideas
-and occasionally giving good technical advice."
+To ChatGPT, for listening to me ramble for hours about my ideas
+(and occasionally giving good technical advice).
+
+And to you!
+
+I hope you had as much fun playing this as I had making it.
+
+
+
+
+Heart <3"
 horizontal_alignment = 1
 autowrap_mode = 1
 
