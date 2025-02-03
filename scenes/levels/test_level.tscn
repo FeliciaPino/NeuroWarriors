@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://by2t4l3fto5ou"]
+[gd_scene load_steps=25 format=3 uid="uid://by2t4l3fto5ou"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_jt04v"]
 [ext_resource type="Texture2D" uid="uid://daakoqoug8tly" path="res://assets/destroyed_city_background1.png" id="2_7nwux"]
@@ -9,6 +9,7 @@
 [ext_resource type="Shader" path="res://assets/shaders/shadow.gdshader" id="4_a6i2a"]
 [ext_resource type="PackedScene" uid="uid://uwmc3sf7fq3o" path="res://scenes/characters/vedal.tscn" id="4_ea8a6"]
 [ext_resource type="PackedScene" uid="uid://du1rkche8wapa" path="res://scenes/characters/enemies/drone.tscn" id="4_mjs6v"]
+[ext_resource type="PackedScene" uid="uid://mweqpto0skb6" path="res://scenes/actions/force_field.tscn" id="5_ikhlj"]
 [ext_resource type="PackedScene" uid="uid://btq0qkod0rqo" path="res://scenes/actions/shadow_clone.tscn" id="5_ncxge"]
 [ext_resource type="Texture2D" uid="uid://duwanoipd03rk" path="res://assets/ui/selection_circle.png" id="5_x2aaw"]
 [ext_resource type="PackedScene" uid="uid://b6410g70liyhb" path="res://scenes/characters/evil.tscn" id="7_4yh8k"]
@@ -134,6 +135,8 @@ position = Vector2(-113, 518)
 
 [node name="Vedal" parent="Entity_manager" instance=ExtResource("4_ea8a6")]
 position = Vector2(-204, 461)
+
+[node name="forceField" parent="Entity_manager/Vedal" instance=ExtResource("5_ikhlj")]
 
 [node name="NeuroSama" parent="Entity_manager" instance=ExtResource("3_wkgts")]
 material = SubResource("ShaderMaterial_qpqo2")

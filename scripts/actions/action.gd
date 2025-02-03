@@ -91,6 +91,7 @@ func _ranged_non_projectile_action(user:BattleEntity, target:BattleEntity)->void
 	await user.animation_player.animation_finished
 	sounds[0].play()
 	animationPlayer.play("animation")
+	animationPlayer.seek(0.0,true)
 	sprite.play()
 	if is_instance_valid(target):
 		sprite.global_position = target.global_position

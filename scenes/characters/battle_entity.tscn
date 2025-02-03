@@ -261,7 +261,8 @@ bus = &"SFX"
 
 [node name="menu_up" type="AudioStreamPlayer" parent="sound_effects"]
 stream = ExtResource("7_5e4t5")
-volume_db = -15.0
+volume_db = -18.0
+pitch_scale = 0.8
 bus = &"SFX"
 
 [node name="melee_attack" type="AudioStreamPlayer" parent="sound_effects"]

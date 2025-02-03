@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cgpf6o36fg7r5"]
+[gd_scene load_steps=9 format=3 uid="uid://cgpf6o36fg7r5"]
 
 [ext_resource type="PackedScene" uid="uid://c0p02mr1a5wep" path="res://scenes/actions/action.tscn" id="1_7wytg"]
 [ext_resource type="Script" path="res://scripts/actions/tutel_shield.gd" id="2_3xrb5"]
 [ext_resource type="Texture2D" uid="uid://bdltdynro0s8x" path="res://assets/tutel_shield.png" id="2_x81h4"]
+[ext_resource type="AudioStream" uid="uid://h0dkp76w84xe" path="res://assets/audio/homemade/SFX/ting.wav" id="4_re06y"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ag4b6"]
 animations = [{
@@ -64,10 +65,10 @@ tracks/1/path = NodePath("sprite:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(-0.0333333, 0, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(1, 1)]
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jem67"]
@@ -83,6 +84,11 @@ script = ExtResource("2_3xrb5")
 modulate = Color(1, 1, 1, 0.580392)
 z_index = 1
 sprite_frames = SubResource("SpriteFrames_ag4b6")
+
+[node name="sound" parent="." index="1"]
+stream = ExtResource("4_re06y")
+volume_db = -10.0
+pitch_scale = 0.42
 
 [node name="AnimationPlayer" parent="." index="2"]
 libraries = {
