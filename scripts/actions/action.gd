@@ -84,6 +84,7 @@ func _projectile_action(user:BattleEntity, target:BattleEntity, projectileSpeed=
 		user.did_an_action(price)
 		if sounds.size()>1:
 			sounds[1].play()
+	user.animation_player.play("idle")
 	action_finished.emit()
 #plays the animation of the entity and calls _action_effect
 func _ranged_non_projectile_action(user:BattleEntity, target:BattleEntity)->void:

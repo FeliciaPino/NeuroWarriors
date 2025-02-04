@@ -44,7 +44,7 @@ var ap:int #how many actions are left in a turn
 @onready var info_panel = $Menu/info_container/Info
 @onready var game_manager:GameManager = $"../.." #TODO: update this
 @onready var animated_sprite:AnimatedSprite2D = $AnimatedSprite2D
-@onready var animation_player = $BattleEntityAnimationPlayer
+@onready var animation_player = $AnimationPlayer
 @onready var explosion_animated_sprite = $explosion
 
 @onready var sound_effects = $sound_effects

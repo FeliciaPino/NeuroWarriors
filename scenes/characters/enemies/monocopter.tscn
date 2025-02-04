@@ -1,0 +1,312 @@
+[gd_scene load_steps=20 format=3 uid="uid://b3wy6ts3hkpc5"]
+
+[ext_resource type="PackedScene" uid="uid://dp2gnkbdq83n4" path="res://scenes/characters/battle_entity.tscn" id="1_hi2w3"]
+[ext_resource type="Texture2D" uid="uid://bant0s7tn53im" path="res://assets/monocopter.png" id="2_1v1sd"]
+[ext_resource type="PackedScene" uid="uid://bk30a0mgktx6r" path="res://scenes/actions/laser_shot.tscn" id="3_i3cgb"]
+[ext_resource type="PackedScene" uid="uid://e2g21mtkqscf" path="res://scenes/actions/generic_melee.tscn" id="4_xgbm6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j6wi1"]
+atlas = ExtResource("2_1v1sd")
+region = Rect2(0, 160, 100, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ul2fy"]
+atlas = ExtResource("2_1v1sd")
+region = Rect2(100, 160, 100, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0jwrd"]
+atlas = ExtResource("2_1v1sd")
+region = Rect2(0, 160, 100, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_88opy"]
+atlas = ExtResource("2_1v1sd")
+region = Rect2(0, 0, 100, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_31f70"]
+atlas = ExtResource("2_1v1sd")
+region = Rect2(100, 0, 100, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o2w4i"]
+atlas = ExtResource("2_1v1sd")
+region = Rect2(200, 0, 100, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_05hha"]
+atlas = ExtResource("2_1v1sd")
+region = Rect2(0, 160, 100, 160)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xhfjx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j6wi1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ul2fy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0jwrd")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_88opy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_31f70")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o2w4i")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_05hha")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_sngej"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5037),
+"transitions": PackedFloat32Array(2, 1.10957),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 5)]
+}
+
+[sub_resource type="Animation" id="Animation_ceur5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_7r033"]
+resource_name = "walking"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"run"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5037),
+"transitions": PackedFloat32Array(2, 1.10957),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 5)]
+}
+
+[sub_resource type="Animation" id="Animation_os75q"]
+resource_name = "effect"
+
+[sub_resource type="Animation" id="Animation_3s4rj"]
+resource_name = "attack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"attack"]
+}
+
+[sub_resource type="Animation" id="Animation_oe4dc"]
+resource_name = "die"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("explosion:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("explosion:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"explosion"]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("explosion")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0666667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"", 1.0, false],
+"method": &"play"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("explosion:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.666667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AnimatedSprite2D:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("HealthBar:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("sound_effects/explosion:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b731o"]
+_data = {
+"RESET": SubResource("Animation_ceur5"),
+"attack": SubResource("Animation_3s4rj"),
+"die": SubResource("Animation_oe4dc"),
+"effect": SubResource("Animation_os75q"),
+"idle": SubResource("Animation_sngej"),
+"walking": SubResource("Animation_7r033")
+}
+
+[node name="monocopter" instance=ExtResource("1_hi2w3")]
+health = 30
+maxHealth = 30
+entity_name = "Monocopter"
+entity_description = "Moncopter monocpter. "
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_xhfjx")
+animation = &"default"
+frame_progress = 0.739156
+
+[node name="laserShot" parent="Actions" index="0" instance=ExtResource("3_i3cgb")]
+
+[node name="generic_meele" parent="Actions" index="1" instance=ExtResource("4_xgbm6")]
+
+[node name="explosion" parent="." index="6"]
+visible = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="8"]
+libraries = {
+"": SubResource("AnimationLibrary_b731o")
+}
+autoplay = "idle"

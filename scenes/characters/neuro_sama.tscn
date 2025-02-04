@@ -178,6 +178,7 @@ animations = [{
 }]
 
 [sub_resource type="Animation" id="Animation_2bga6"]
+resource_name = "RESET"
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -467,6 +468,7 @@ is_player_controlled = true
 
 [node name="AnimatedSprite2D" parent="." index="1"]
 sprite_frames = SubResource("SpriteFrames_qljkk")
+animation = &"default"
 
 [node name="RobotPunch" parent="Actions" index="0" instance=ExtResource("3_pp2ar")]
 
@@ -490,7 +492,7 @@ bus = &"SFX"
 stream = ExtResource("8_jbjki")
 bus = &"SFX"
 
-[node name="BattleEntityAnimationPlayer" type="AnimationPlayer" parent="." index="8"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="8"]
 libraries = {
 "": SubResource("AnimationLibrary_8v7bq")
 }

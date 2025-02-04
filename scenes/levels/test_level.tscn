@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://by2t4l3fto5ou"]
+[gd_scene load_steps=28 format=3 uid="uid://by2t4l3fto5ou"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_jt04v"]
 [ext_resource type="Texture2D" uid="uid://daakoqoug8tly" path="res://assets/destroyed_city_background1.png" id="2_7nwux"]
@@ -18,6 +18,9 @@
 [ext_resource type="PackedScene" uid="uid://baw6pv13fsf0w" path="res://scenes/characters/enemies/swarm_controller.tscn" id="10_omf2e"]
 [ext_resource type="AudioStream" uid="uid://bcvyh3sruf5vp" path="res://addons/Pixel_boy/theme-3b.ogg" id="10_u2d8w"]
 [ext_resource type="AudioStream" uid="uid://c2qho0xysuk3u" path="res://addons/sfx/Retro Negative Long 12.wav" id="11_qh83r"]
+[ext_resource type="PackedScene" uid="uid://b3wy6ts3hkpc5" path="res://scenes/characters/enemies/monocopter.tscn" id="12_7oajt"]
+[ext_resource type="PackedScene" uid="uid://cshv2w6p6ypkr" path="res://scenes/characters/enemies/offensive_drone.tscn" id="13_wds3u"]
+[ext_resource type="PackedScene" uid="uid://c85gj43e28h10" path="res://scenes/characters/enemies/defensive_drone.tscn" id="14_m4usg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qpqo2"]
 shader = ExtResource("4_a6i2a")
@@ -132,6 +135,7 @@ foesRect = Rect2(650, 400, 450, 170)
 
 [node name="Evil" parent="Entity_manager" instance=ExtResource("7_4yh8k")]
 position = Vector2(-113, 518)
+defense = 2
 
 [node name="Vedal" parent="Entity_manager" instance=ExtResource("4_ea8a6")]
 position = Vector2(-204, 461)
@@ -147,87 +151,28 @@ speed = 6
 
 [node name="shadow_clone" parent="Entity_manager/NeuroSama" instance=ExtResource("5_ncxge")]
 
-[node name="NeuroSama2" parent="Entity_manager" instance=ExtResource("3_wkgts")]
-material = SubResource("ShaderMaterial_qpqo2")
-position = Vector2(116, 497)
-speed = 6
-
-[node name="summon drone" parent="Entity_manager/NeuroSama2" instance=ExtResource("4_61vuu")]
-
-[node name="shadow_clone" parent="Entity_manager/NeuroSama2" instance=ExtResource("5_ncxge")]
-
-[node name="NeuroSama3" parent="Entity_manager" instance=ExtResource("3_wkgts")]
-material = SubResource("ShaderMaterial_qpqo2")
-position = Vector2(116, 497)
-speed = 6
-
-[node name="summon drone" parent="Entity_manager/NeuroSama3" instance=ExtResource("4_61vuu")]
-
-[node name="shadow_clone" parent="Entity_manager/NeuroSama3" instance=ExtResource("5_ncxge")]
-
-[node name="NeuroSama4" parent="Entity_manager" instance=ExtResource("3_wkgts")]
-material = SubResource("ShaderMaterial_qpqo2")
-position = Vector2(116, 497)
-speed = 6
-
-[node name="summon drone" parent="Entity_manager/NeuroSama4" instance=ExtResource("4_61vuu")]
-
-[node name="shadow_clone" parent="Entity_manager/NeuroSama4" instance=ExtResource("5_ncxge")]
-
-[node name="NeuroSama5" parent="Entity_manager" instance=ExtResource("3_wkgts")]
-material = SubResource("ShaderMaterial_qpqo2")
-position = Vector2(116, 497)
-speed = 6
-
-[node name="summon drone" parent="Entity_manager/NeuroSama5" instance=ExtResource("4_61vuu")]
-
-[node name="shadow_clone" parent="Entity_manager/NeuroSama5" instance=ExtResource("5_ncxge")]
-
-[node name="NeuroSama6" parent="Entity_manager" instance=ExtResource("3_wkgts")]
-material = SubResource("ShaderMaterial_qpqo2")
-position = Vector2(116, 497)
-speed = 6
-
-[node name="summon drone" parent="Entity_manager/NeuroSama6" instance=ExtResource("4_61vuu")]
-
-[node name="shadow_clone" parent="Entity_manager/NeuroSama6" instance=ExtResource("5_ncxge")]
-
-[node name="NeuroSama7" parent="Entity_manager" instance=ExtResource("3_wkgts")]
-material = SubResource("ShaderMaterial_qpqo2")
-position = Vector2(116, 497)
-speed = 6
-
-[node name="summon drone" parent="Entity_manager/NeuroSama7" instance=ExtResource("4_61vuu")]
-
-[node name="shadow_clone" parent="Entity_manager/NeuroSama7" instance=ExtResource("5_ncxge")]
-
-[node name="NeuroSama8" parent="Entity_manager" instance=ExtResource("3_wkgts")]
-material = SubResource("ShaderMaterial_qpqo2")
-position = Vector2(116, 497)
-speed = 6
-
-[node name="summon drone" parent="Entity_manager/NeuroSama8" instance=ExtResource("4_61vuu")]
-
-[node name="shadow_clone" parent="Entity_manager/NeuroSama8" instance=ExtResource("5_ncxge")]
-
-[node name="NeuroSama9" parent="Entity_manager" instance=ExtResource("3_wkgts")]
-material = SubResource("ShaderMaterial_qpqo2")
-position = Vector2(116, 497)
-speed = 6
-
-[node name="summon drone" parent="Entity_manager/NeuroSama9" instance=ExtResource("4_61vuu")]
-
-[node name="shadow_clone" parent="Entity_manager/NeuroSama9" instance=ExtResource("5_ncxge")]
-
 [node name="Drone" parent="Entity_manager" instance=ExtResource("4_mjs6v")]
 y_sort_enabled = false
 position = Vector2(1474, 413)
 
 [node name="swarm_controller" parent="Entity_manager" instance=ExtResource("10_omf2e")]
-position = Vector2(797, 447)
+position = Vector2(1055, 478)
+
+[node name="monocopter" parent="Entity_manager" instance=ExtResource("12_7oajt")]
+position = Vector2(1596, 485)
+health = 5085
+speed = 156
+is_player_controlled = true
+
+[node name="offensiveDrone" parent="Entity_manager" instance=ExtResource("13_wds3u")]
+position = Vector2(1358, 525)
+
+[node name="defensive drone" parent="Entity_manager" instance=ExtResource("14_m4usg")]
+position = Vector2(1358, 525)
 
 [node name="Background" type="AnimatedSprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.8)
+z_index = -10
 position = Vector2(612, 309)
 sprite_frames = SubResource("SpriteFrames_d2meb")
 frame_progress = 0.854451

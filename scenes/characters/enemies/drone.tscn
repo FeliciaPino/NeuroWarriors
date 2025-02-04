@@ -450,12 +450,12 @@ _data = {
 maxHealth = 45
 entity_name = "Basic Drone"
 entity_description = "Basic Drone"
-defense = 0
 attack = 12
 speed = 2
 
 [node name="AnimatedSprite2D" parent="." index="1"]
 sprite_frames = SubResource("SpriteFrames_6hsqf")
+animation = &"default"
 
 [node name="laserShot" parent="Actions" index="0" instance=ExtResource("5_vic0x")]
 
@@ -469,7 +469,7 @@ stream = ExtResource("7_14x8k")
 volume_db = -10.0
 bus = &"SFX"
 
-[node name="BattleEntityAnimationPlayer" type="AnimationPlayer" parent="." index="8"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="8"]
 libraries = {
 "": SubResource("AnimationLibrary_8v7bq")
 }
