@@ -44,7 +44,7 @@ var ap:int #how many actions are left in a turn
 @onready var info_panel = $Menu/info_container/Info
 @onready var game_manager:GameManager = $"../.." #TODO: update this
 @onready var animated_sprite:AnimatedSprite2D = $AnimatedSprite2D
-@onready var animation_player = $AnimationPlayer
+@onready var animation_player:AnimationPlayer = $AnimationPlayer
 @onready var explosion_animated_sprite = $explosion
 
 @onready var sound_effects = $sound_effects
@@ -255,6 +255,7 @@ func figure_out_something_to_do():
 	#5% chance to end turn
 	if randi()%100<=5 or chosen_action==null: return {"action":null,"target":null}
 	var posible_targets = game_manager.party if is_player_controlled == chosen_action.isPositive else game_manager.foes
+	if posible_targets.size() <= 0: return {"action":null,"target":null}
 	var chosen_target:BattleEntity = posible_targets.pick_random()
 	return {"action":chosen_action, "target":chosen_target}
 
