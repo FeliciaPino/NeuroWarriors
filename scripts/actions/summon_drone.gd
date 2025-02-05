@@ -3,6 +3,7 @@ extends BattleAction
 const drone_scene = preload("res://scenes/characters/enemies/drone.tscn")
 const offensive_drone_scene = preload("res://scenes/characters/enemies/offensive_drone.tscn")
 const defensive_drone_scene = preload("res://scenes/characters/enemies/defensive_drone.tscn")
+const healing_drone_scene = preload("res://scenes/characters/enemies/healing_drone.tscn")
 func _ready() -> void:
 	super._ready()
 	action_name = "Summon drone"
@@ -22,8 +23,10 @@ func _action_effect(user:BattleEntity, target:BattleEntity)->void:
 	var new_guy:BattleEntity
 	if random_number<= 40:
 		new_guy = drone_scene.instantiate()
-	elif random_number <= 70:
+	elif random_number <= 65:
 		new_guy = offensive_drone_scene.instantiate()
-	else:
+	elif random_number <= 80:
 		new_guy = defensive_drone_scene.instantiate()
+	else:
+		new_guy = healing_drone_scene.instantiate()
 	user.game_manager.entity_manager.spawn_entity(new_guy)

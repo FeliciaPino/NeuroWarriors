@@ -194,6 +194,9 @@ entity_name = "Basic Drone 1"
 [node name="offensiveDrone" parent="Entity_manager" instance=ExtResource("6_eu02h")]
 position = Vector2(1454, 544)
 
+[node name="offensiveDrone2" parent="Entity_manager" instance=ExtResource("6_eu02h")]
+position = Vector2(1454, 544)
+
 [node name="SelectionCircle" type="Sprite2D" parent="."]
 position = Vector2(584, 427)
 texture = ExtResource("6_o6wrr")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://by2t4l3fto5ou"]
+[gd_scene load_steps=30 format=3 uid="uid://by2t4l3fto5ou"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_jt04v"]
 [ext_resource type="Texture2D" uid="uid://daakoqoug8tly" path="res://assets/destroyed_city_background1.png" id="2_7nwux"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://mweqpto0skb6" path="res://scenes/actions/force_field.tscn" id="5_ikhlj"]
 [ext_resource type="PackedScene" uid="uid://btq0qkod0rqo" path="res://scenes/actions/shadow_clone.tscn" id="5_ncxge"]
 [ext_resource type="Texture2D" uid="uid://duwanoipd03rk" path="res://assets/ui/selection_circle.png" id="5_x2aaw"]
+[ext_resource type="PackedScene" uid="uid://c4ii0hbadpfiv" path="res://scenes/actions/robot_punch.tscn" id="6_8svoa"]
 [ext_resource type="PackedScene" uid="uid://b6410g70liyhb" path="res://scenes/characters/evil.tscn" id="7_4yh8k"]
 [ext_resource type="AudioStream" uid="uid://cdbbs3cm1pli5" path="res://addons/Pixel_boy/theme-7.ogg" id="9_8kw85"]
 [ext_resource type="PackedScene" uid="uid://d4f0gy2sw12hv" path="res://scenes/ui/end_screen.tscn" id="10_46ql1"]
@@ -143,6 +144,8 @@ position = Vector2(-204, 461)
 
 [node name="forceField" parent="Entity_manager/Vedal" instance=ExtResource("5_ikhlj")]
 
+[node name="RobotPunch" parent="Entity_manager/Vedal" instance=ExtResource("6_8svoa")]
+
 [node name="NeuroSama" parent="Entity_manager" instance=ExtResource("3_wkgts")]
 material = SubResource("ShaderMaterial_qpqo2")
 position = Vector2(116, 497)
@@ -169,7 +172,7 @@ is_player_controlled = true
 
 [node name="defensive drone" parent="Entity_manager" instance=ExtResource("14_m4usg")]
 position = Vector2(1035, 305)
-speed = 2
+is_player_controlled = true
 
 [node name="healingDrone" parent="Entity_manager" instance=ExtResource("15_ov7ig")]
 position = Vector2(1010, 139)

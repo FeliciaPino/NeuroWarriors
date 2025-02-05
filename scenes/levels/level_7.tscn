@@ -188,15 +188,14 @@ position = Vector2(-150, 382)
 position = Vector2(-138, 513)
 
 [node name="Drone" parent="Entity_manager" instance=ExtResource("5_y34hf")]
-position = Vector2(1269, 354)
+position = Vector2(1247, 367)
 entity_name = "Basic Drone 1"
 
-[node name="Drone2" parent="Entity_manager" instance=ExtResource("5_y34hf")]
-position = Vector2(1267, 541)
-entity_name = "Basic Drone 2"
-
 [node name="defensive drone" parent="Entity_manager" instance=ExtResource("6_d6l2n")]
-position = Vector2(1458, 459)
+position = Vector2(1323, 583)
+
+[node name="defensive drone2" parent="Entity_manager" instance=ExtResource("6_d6l2n")]
+position = Vector2(1437, 477)
 
 [node name="SelectionCircle" type="Sprite2D" parent="."]
 position = Vector2(584, 427)

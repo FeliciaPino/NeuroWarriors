@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dceoc87ukm03x"]
+[gd_scene load_steps=22 format=3 uid="uid://dceoc87ukm03x"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_3kd4p"]
 [ext_resource type="Texture2D" uid="uid://daakoqoug8tly" path="res://assets/destroyed_city_background1.png" id="2_s1jb3"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://du1rkche8wapa" path="res://scenes/characters/enemies/drone.tscn" id="9_qno3u"]
 [ext_resource type="Script" path="res://scripts/end_screen.gd" id="10_ccmpq"]
 [ext_resource type="AudioStream" uid="uid://cdbbs3cm1pli5" path="res://addons/Pixel_boy/theme-7.ogg" id="11_munr0"]
+[ext_resource type="PackedScene" uid="uid://dqc5wbfh6jqnu" path="res://scenes/characters/enemies/healing_drone.tscn" id="11_okfmi"]
 [ext_resource type="AudioStream" uid="uid://bcvyh3sruf5vp" path="res://addons/Pixel_boy/theme-3b.ogg" id="12_wa2k4"]
 [ext_resource type="AudioStream" uid="uid://c2qho0xysuk3u" path="res://addons/sfx/Retro Negative Long 12.wav" id="13_wwkbe"]
 
@@ -215,6 +216,9 @@ position = Vector2(1479, 424)
 
 [node name="Drone" parent="Entity_manager" instance=ExtResource("9_qno3u")]
 position = Vector2(1496, 541)
+
+[node name="healingDrone" parent="Entity_manager" instance=ExtResource("11_okfmi")]
+position = Vector2(1315, 512)
 
 [node name="SelectionCircle" type="Sprite2D" parent="."]
 position = Vector2(584, 427)

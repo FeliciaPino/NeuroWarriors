@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://dl6b6ewaxaxom" path="res://assets/forest_background.png" id="2_f6o4n"]
 [ext_resource type="PackedScene" uid="uid://cmccd8rxiyqab" path="res://scenes/characters/neuro_sama.tscn" id="3_06r6c"]
 [ext_resource type="PackedScene" uid="uid://c0cerfjhi148m" path="res://scenes/entity_manager.tscn" id="3_lc17n"]
-[ext_resource type="PackedScene" uid="uid://du1rkche8wapa" path="res://scenes/characters/enemies/drone.tscn" id="4_sa8pl"]
 [ext_resource type="Texture2D" uid="uid://duwanoipd03rk" path="res://assets/ui/selection_circle.png" id="5_5evu7"]
+[ext_resource type="PackedScene" uid="uid://cshv2w6p6ypkr" path="res://scenes/characters/enemies/offensive_drone.tscn" id="5_sdahw"]
 [ext_resource type="PackedScene" uid="uid://d4f0gy2sw12hv" path="res://scenes/ui/end_screen.tscn" id="6_5e04m"]
 [ext_resource type="AudioStream" uid="uid://cdbbs3cm1pli5" path="res://addons/Pixel_boy/theme-7.ogg" id="7_dh72o"]
 [ext_resource type="AudioStream" uid="uid://bcvyh3sruf5vp" path="res://addons/Pixel_boy/theme-3b.ogg" id="8_6nrhj"]
@@ -184,13 +184,8 @@ texture = ExtResource("2_f6o4n")
 [node name="NeuroSama" parent="Entity_manager" instance=ExtResource("3_06r6c")]
 position = Vector2(-76, 460)
 
-[node name="Drone" parent="Entity_manager" instance=ExtResource("4_sa8pl")]
-position = Vector2(1250, 488)
-entity_name = "Basic Drone 1"
-
-[node name="Drone2" parent="Entity_manager" instance=ExtResource("4_sa8pl")]
-position = Vector2(1345, 371)
-entity_name = "Basic Drone 2"
+[node name="offensiveDrone" parent="Entity_manager" instance=ExtResource("5_sdahw")]
+position = Vector2(1256, 466)
 
 [node name="SelectionCircle" type="Sprite2D" parent="."]
 position = Vector2(584, 427)

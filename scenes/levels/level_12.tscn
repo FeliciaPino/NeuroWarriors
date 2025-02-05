@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://d3cwy5c0pj1dc"]
+[gd_scene load_steps=23 format=3 uid="uid://d3cwy5c0pj1dc"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_deqmt"]
 [ext_resource type="Texture2D" uid="uid://daakoqoug8tly" path="res://assets/destroyed_city_background1.png" id="2_1lq7u"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://baw6pv13fsf0w" path="res://scenes/characters/enemies/swarm_controller.tscn" id="10_ed810"]
 [ext_resource type="AudioStream" uid="uid://bcvyh3sruf5vp" path="res://addons/Pixel_boy/theme-3b.ogg" id="11_0rwfl"]
 [ext_resource type="AudioStream" uid="uid://c2qho0xysuk3u" path="res://addons/sfx/Retro Negative Long 12.wav" id="12_4oigu"]
+[ext_resource type="PackedScene" uid="uid://dqc5wbfh6jqnu" path="res://scenes/characters/enemies/healing_drone.tscn" id="12_ulfxn"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_id0ps"]
 animations = [{
@@ -220,15 +221,14 @@ entity_name = "Offensive Drone 2"
 position = Vector2(1604, 387)
 entity_name = "Defensive Drone 1"
 
-[node name="defensive drone2" parent="Entity_manager" instance=ExtResource("8_h7r00")]
-position = Vector2(1603, 550)
-entity_name = "Defensive Drone 2"
-
 [node name="Drone" parent="Entity_manager" instance=ExtResource("7_epio6")]
 position = Vector2(1300, 468)
 
 [node name="swarm_controller" parent="Entity_manager" instance=ExtResource("10_ed810")]
-position = Vector2(998, 441)
+position = Vector2(1016, 556)
+
+[node name="healingDrone" parent="Entity_manager" instance=ExtResource("12_ulfxn")]
+position = Vector2(1623, 503)
 
 [node name="SelectionCircle" type="Sprite2D" parent="."]
 position = Vector2(584, 427)

@@ -41,7 +41,7 @@ func get_party()->Array[BattleEntity]:
 #returns a list of all alive foes
 func get_foes()->Array[BattleEntity]:
 	return entities.filter(func(entity): return not entity.is_player_controlled and entity.alive)
-	
+
 func _nudge_entites_from_eachother(enti:Array[BattleEntity],rect:Rect2):
 	for e in enti:
 		for ee in enti:
@@ -62,19 +62,27 @@ func _random_formation(team:Array[BattleEntity],rect:Rect2):
 		for i in range(8):_nudge_entites_from_eachother(team,rect)
 		for e in team: 
 			e.go_to_your_spot()
+func _count_entities_for_formation(team:Array[BattleEntity]):
+	var ans = 0
+	for e in team:
+		if not e.is_stationary:
+			ans += 1
+	return ans
 func _update_formation(team:Array[BattleEntity],rect:Rect2, mirror_x:bool = false)->void:
-	if team.size()>=FORMATIONS.size():
+	var e_count = _count_entities_for_formation(team)
+	if e_count>=FORMATIONS.size():
 		#there's no plan for this amount of entities! Chaos, chaos!
 		_random_formation(team,rect)
 		return
 		
 	var i:int = -1
-	for p in FORMATIONS[team.size()]:
+	for e in team:
+		if e.is_stationary: continue
 		i += 1
-		if team[i].is_stationary: continue
-		team[i].mySpot.x = rect.position.x + rect.size.x * ((1-p.x) if mirror_x else p.x)
-		team[i].mySpot.y = rect.position.y + rect.size.y * p.y
-		team[i].go_to_your_spot()
+		var p = FORMATIONS[e_count][i]
+		e.mySpot.x = rect.position.x + rect.size.x * ((1-p.x) if mirror_x else p.x)
+		e.mySpot.y = rect.position.y + rect.size.y * p.y
+		e.go_to_your_spot()
 #I think this is deprecated. I mean, if an entity is added or removed we should only update it's side of the battlefield, no?
 func update_entities_formations()->void:
 	_update_formation(get_party(),partyRect)

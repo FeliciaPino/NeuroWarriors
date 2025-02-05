@@ -7,10 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://cmccd8rxiyqab" path="res://scenes/characters/neuro_sama.tscn" id="4_8khh0"]
 [ext_resource type="PackedScene" uid="uid://b6410g70liyhb" path="res://scenes/characters/evil.tscn" id="5_ac2j2"]
 [ext_resource type="PackedScene" uid="uid://uwmc3sf7fq3o" path="res://scenes/characters/vedal.tscn" id="6_f3du0"]
-[ext_resource type="PackedScene" uid="uid://cshv2w6p6ypkr" path="res://scenes/characters/enemies/offensive_drone.tscn" id="7_k7pje"]
 [ext_resource type="Texture2D" uid="uid://duwanoipd03rk" path="res://assets/ui/selection_circle.png" id="8_4j60j"]
 [ext_resource type="PackedScene" uid="uid://c85gj43e28h10" path="res://scenes/characters/enemies/defensive_drone.tscn" id="8_esid3"]
 [ext_resource type="Script" path="res://scripts/end_screen.gd" id="9_f0h0f"]
+[ext_resource type="PackedScene" uid="uid://dqc5wbfh6jqnu" path="res://scenes/characters/enemies/healing_drone.tscn" id="9_hhidy"]
 [ext_resource type="AudioStream" uid="uid://cdbbs3cm1pli5" path="res://addons/Pixel_boy/theme-7.ogg" id="10_lebh2"]
 [ext_resource type="AudioStream" uid="uid://bcvyh3sruf5vp" path="res://addons/Pixel_boy/theme-3b.ogg" id="11_ngfs7"]
 [ext_resource type="AudioStream" uid="uid://c2qho0xysuk3u" path="res://addons/sfx/Retro Negative Long 12.wav" id="12_gbeah"]
@@ -206,11 +206,11 @@ position = Vector2(-109, 526)
 [node name="Vedal" parent="Entity_manager" instance=ExtResource("6_f3du0")]
 position = Vector2(-323, 524)
 
-[node name="offensiveDrone" parent="Entity_manager" instance=ExtResource("7_k7pje")]
-position = Vector2(1250, 451)
-
-[node name="defensive drone" parent="Entity_manager" instance=ExtResource("8_esid3")]
+[node name="defensive drone2" parent="Entity_manager" instance=ExtResource("8_esid3")]
 position = Vector2(1404, 527)
+
+[node name="healingDrone" parent="Entity_manager" instance=ExtResource("9_hhidy")]
+position = Vector2(1341, 353)
 
 [node name="SelectionCircle" type="Sprite2D" parent="."]
 position = Vector2(584, 427)

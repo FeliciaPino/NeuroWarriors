@@ -16,4 +16,4 @@ func execute (user:BattleEntity, target:BattleEntity):
 	super.execute(user,target)
 	_projectile_action(user,target,20)
 func _action_effect(user:BattleEntity, target:BattleEntity)->void:
-	target.receive_damage(user.attack * 2.5)
+	target.receive_damage(user.attack * 1.75)

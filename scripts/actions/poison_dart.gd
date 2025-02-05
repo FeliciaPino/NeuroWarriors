@@ -9,7 +9,7 @@ func _ready() -> void:
 	verb = "poison"
 	isMelee = false
 	isPositive = false
-	price = 2
+	price = 4
 	animationType = "throw"
 	_validate_values_are_initialized()
 

@@ -20,5 +20,5 @@ func execute (user:BattleEntity, target:BattleEntity):
 func _action_effect(user:BattleEntity, target:BattleEntity)->void:
 	var effect:StatusEffect = defense_effect.instantiate()
 	effect.set_turns_remaining(3)
-	effect.intensity = 10
+	effect.intensity = 15
 	target.add_effect(effect)

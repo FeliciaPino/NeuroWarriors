@@ -426,7 +426,6 @@ _data = {
 maxHealth = 45
 entity_name = "Basic Drone"
 entity_description = "Basic Drone"
-attack = 12
 speed = 2
 
 [node name="AnimatedSprite2D" parent="." index="1"]

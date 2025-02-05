@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://dl6b6ewaxaxom" path="res://assets/forest_background.png" id="2_hcg7c"]
 [ext_resource type="PackedScene" uid="uid://c0cerfjhi148m" path="res://scenes/entity_manager.tscn" id="3_2capw"]
 [ext_resource type="PackedScene" uid="uid://cmccd8rxiyqab" path="res://scenes/characters/neuro_sama.tscn" id="3_vbx8t"]
-[ext_resource type="PackedScene" uid="uid://du1rkche8wapa" path="res://scenes/characters/enemies/drone.tscn" id="4_3amo2"]
 [ext_resource type="PackedScene" uid="uid://uwmc3sf7fq3o" path="res://scenes/characters/vedal.tscn" id="4_v2psi"]
 [ext_resource type="Texture2D" uid="uid://duwanoipd03rk" path="res://assets/ui/selection_circle.png" id="5_arpgi"]
 [ext_resource type="Script" path="res://scripts/end_screen.gd" id="6_75v17"]
+[ext_resource type="PackedScene" uid="uid://cshv2w6p6ypkr" path="res://scenes/characters/enemies/offensive_drone.tscn" id="6_i8chc"]
 [ext_resource type="AudioStream" uid="uid://cdbbs3cm1pli5" path="res://addons/Pixel_boy/theme-7.ogg" id="7_bverm"]
 [ext_resource type="AudioStream" uid="uid://bcvyh3sruf5vp" path="res://addons/Pixel_boy/theme-3b.ogg" id="8_3baxp"]
 [ext_resource type="AudioStream" uid="uid://c2qho0xysuk3u" path="res://addons/sfx/Retro Negative Long 12.wav" id="9_t34sv"]
@@ -186,17 +186,11 @@ position = Vector2(-194, 500)
 [node name="Vedal" parent="Entity_manager" instance=ExtResource("4_v2psi")]
 position = Vector2(-91, 396)
 
-[node name="Drone" parent="Entity_manager" instance=ExtResource("4_3amo2")]
-position = Vector2(1293, 462)
-entity_name = "Basic Drone 1"
+[node name="offensiveDrone" parent="Entity_manager" instance=ExtResource("6_i8chc")]
+position = Vector2(1286, 494)
 
-[node name="Drone2" parent="Entity_manager" instance=ExtResource("4_3amo2")]
-position = Vector2(1418, 361)
-entity_name = "Basic Drone 2"
-
-[node name="Drone3" parent="Entity_manager" instance=ExtResource("4_3amo2")]
-position = Vector2(1438, 537)
-entity_name = "Basic Drone 3"
+[node name="offensiveDrone2" parent="Entity_manager" instance=ExtResource("6_i8chc")]
+position = Vector2(1286, 494)
 
 [node name="SelectionCircle" type="Sprite2D" parent="."]
 position = Vector2(584, 427)

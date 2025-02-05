@@ -86,8 +86,20 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="Animation" id="Animation_cmaog"]
-resource_name = "effect"
+[sub_resource type="Animation" id="Animation_g01pc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_r8gwd"]
 resource_name = "die"
@@ -193,6 +205,9 @@ tracks/7/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_cmaog"]
+resource_name = "effect"
+
 [sub_resource type="Animation" id="Animation_bnpaw"]
 resource_name = "idle"
 loop_mode = 1
@@ -207,6 +222,22 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [&"default"]
+}
+
+[sub_resource type="Animation" id="Animation_w8nrn"]
+resource_name = "throw"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 2.73208),
+"update": 0,
+"values": [0.0, -0.0872665, 0.436332, 0.0]
 }
 
 [sub_resource type="Animation" id="Animation_vyb3b"]
@@ -225,36 +256,6 @@ tracks/0/keys = {
 "values": [&"run"]
 }
 
-[sub_resource type="Animation" id="Animation_w8nrn"]
-resource_name = "throw"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.133333, 0.3, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 2.73208),
-"update": 0,
-"values": [0.0, -0.0872665, 0.436332, 0.0]
-}
-
-[sub_resource type="Animation" id="Animation_g01pc"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qahpv"]
 _data = {
 "RESET": SubResource("Animation_g01pc"),
@@ -268,7 +269,8 @@ _data = {
 [node name="healingDrone" instance=ExtResource("1_fcv86")]
 entity_name = "Healing Drone"
 entity_description = "It's the healing drone. It uh, it heals. n stuff"
-speed = 2
+defense = 10
+speed = 3
 
 [node name="AnimatedSprite2D" parent="." index="1"]
 sprite_frames = SubResource("SpriteFrames_j1xof")
@@ -277,9 +279,6 @@ animation = &"effect"
 [node name="repair" parent="Actions" index="0" instance=ExtResource("3_7uc1q")]
 
 [node name="Poison Dart" parent="Actions" index="1" instance=ExtResource("4_wl2h8")]
-
-[node name="HealthBar" parent="." index="3"]
-visible = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="8"]
 libraries = {

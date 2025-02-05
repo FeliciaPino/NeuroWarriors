@@ -442,11 +442,11 @@ _data = {
 }
 
 [node name="offensiveDrone" instance=ExtResource("1_05x1w")]
-health = 80
-maxHealth = 80
+health = 60
+maxHealth = 60
 entity_name = "Offensive Drone"
 entity_description = "More damage, less defence"
-attack = 20
+attack = 15
 speed = 2
 
 [node name="AnimatedSprite2D" parent="." index="1"]

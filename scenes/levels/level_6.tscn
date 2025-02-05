@@ -189,7 +189,9 @@ position = Vector2(-172, 492)
 
 [node name="Drone" parent="Entity_manager" instance=ExtResource("5_7rjcs")]
 position = Vector2(1321, 362)
-entity_name = "Basic Drone 1"
+
+[node name="Drone2" parent="Entity_manager" instance=ExtResource("5_7rjcs")]
+position = Vector2(1336, 439)
 
 [node name="defensive drone" parent="Entity_manager" instance=ExtResource("7_4nvvf")]
 position = Vector2(1351, 491)

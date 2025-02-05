@@ -15,5 +15,5 @@ func execute (user:BattleEntity, target:BattleEntity):
 	_meele_action(user,target)
 func _action_effect(user:BattleEntity, target:BattleEntity)->void:
 	super._action_effect(user,target)
-	target.receive_damage(user.attack*3.5)
+	target.receive_damage(user.attack*3)
 	
