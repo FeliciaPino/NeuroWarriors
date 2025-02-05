@@ -91,7 +91,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"attack",
-"speed": 15.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -453,6 +453,7 @@ speed = 2
 [node name="AnimatedSprite2D" parent="." index="1"]
 sprite_frames = SubResource("SpriteFrames_0eych")
 animation = &"default"
+frame_progress = 0.39482
 
 [node name="genericPunch" parent="Actions" index="0" instance=ExtResource("3_tmfss")]
 script = ExtResource("4_q2mtg")

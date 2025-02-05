@@ -175,6 +175,7 @@ _data = {
 script = ExtResource("1_1d4vy")
 
 [node name="Background" type="Sprite2D" parent="."]
+z_index = -10
 position = Vector2(576, 294)
 texture = ExtResource("2_f6o4n")
 
@@ -252,6 +253,7 @@ volume_db = -10.0
 
 [node name="TextureRect" type="TextureRect" parent="."]
 modulate = Color(0.827451, 0.843137, 0.737255, 1)
+z_index = -9
 offset_left = 902.0
 offset_top = 437.0
 offset_right = 1122.0

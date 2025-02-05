@@ -159,16 +159,18 @@ position = Vector2(1474, 413)
 position = Vector2(1055, 478)
 
 [node name="monocopter" parent="Entity_manager" instance=ExtResource("12_7oajt")]
-position = Vector2(1596, 485)
+position = Vector2(-714, 496)
 health = 5085
 speed = 156
 is_player_controlled = true
 
 [node name="offensiveDrone" parent="Entity_manager" instance=ExtResource("13_wds3u")]
-position = Vector2(1358, 525)
+position = Vector2(269, 323)
+is_player_controlled = true
 
 [node name="defensive drone" parent="Entity_manager" instance=ExtResource("14_m4usg")]
-position = Vector2(1358, 525)
+position = Vector2(-128, 366)
+is_player_controlled = true
 
 [node name="Background" type="AnimatedSprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.8)
