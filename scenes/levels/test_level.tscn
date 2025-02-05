@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://by2t4l3fto5ou"]
+[gd_scene load_steps=29 format=3 uid="uid://by2t4l3fto5ou"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_jt04v"]
 [ext_resource type="Texture2D" uid="uid://daakoqoug8tly" path="res://assets/destroyed_city_background1.png" id="2_7nwux"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://b3wy6ts3hkpc5" path="res://scenes/characters/enemies/monocopter.tscn" id="12_7oajt"]
 [ext_resource type="PackedScene" uid="uid://cshv2w6p6ypkr" path="res://scenes/characters/enemies/offensive_drone.tscn" id="13_wds3u"]
 [ext_resource type="PackedScene" uid="uid://c85gj43e28h10" path="res://scenes/characters/enemies/defensive_drone.tscn" id="14_m4usg"]
+[ext_resource type="PackedScene" uid="uid://dqc5wbfh6jqnu" path="res://scenes/characters/enemies/healing_drone.tscn" id="15_ov7ig"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qpqo2"]
 shader = ExtResource("4_a6i2a")
@@ -156,21 +157,22 @@ y_sort_enabled = false
 position = Vector2(1474, 413)
 
 [node name="swarm_controller" parent="Entity_manager" instance=ExtResource("10_omf2e")]
-position = Vector2(1055, 478)
+position = Vector2(1003, 478)
 
 [node name="monocopter" parent="Entity_manager" instance=ExtResource("12_7oajt")]
-position = Vector2(-714, 496)
+position = Vector2(449, 435)
 health = 5085
-speed = 156
-is_player_controlled = true
 
 [node name="offensiveDrone" parent="Entity_manager" instance=ExtResource("13_wds3u")]
-position = Vector2(269, 323)
+position = Vector2(1432, 262)
 is_player_controlled = true
 
 [node name="defensive drone" parent="Entity_manager" instance=ExtResource("14_m4usg")]
-position = Vector2(-128, 366)
-is_player_controlled = true
+position = Vector2(1035, 305)
+speed = 2
+
+[node name="healingDrone" parent="Entity_manager" instance=ExtResource("15_ov7ig")]
+position = Vector2(1010, 139)
 
 [node name="Background" type="AnimatedSprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.8)

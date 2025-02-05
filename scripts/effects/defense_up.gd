@@ -1,5 +1,5 @@
 extends StatusEffect
-class_name Status_Effect_Defense_Up
+class_name Status_Effect_Attack_Up
 func _init() -> void:
 	effect_name = "Defense Up"
 	description = "Increases defence, substracting damage taken" 

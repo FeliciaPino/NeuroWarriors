@@ -52,6 +52,8 @@ func _meele_action(user:BattleEntity, target:BattleEntity)->void:
 	if is_instance_valid(target):
 		target.got_on_your_personal_space(user)
 	user.animation_player.play(animationType)
+	animationPlayer.play("animation")
+	sprite.global_position = target.global_position
 	get_tree().create_timer(0.2).timeout.connect(func():sounds[0].play())
 	await user.animation_player.animation_finished
 	if is_instance_valid(target):

@@ -1,12 +1,11 @@
-[gd_scene load_steps=32 format=3 uid="uid://cshv2w6p6ypkr"]
+[gd_scene load_steps=31 format=3 uid="uid://cshv2w6p6ypkr"]
 
 [ext_resource type="PackedScene" uid="uid://dp2gnkbdq83n4" path="res://scenes/characters/battle_entity.tscn" id="1_05x1w"]
 [ext_resource type="Texture2D" uid="uid://br5ltd6b852fw" path="res://assets/offensive_drone.png" id="2_mjotf"]
 [ext_resource type="AudioStream" uid="uid://cp770b4kr8b5i" path="res://addons/sfx/Retro Vehicle Car 03.wav" id="3_7ocuk"]
 [ext_resource type="AudioStream" uid="uid://c4tfdbdvvf3ta" path="res://addons/sfx/Retro Weapon Laser 03.wav" id="3_m3aa3"]
-[ext_resource type="PackedScene" uid="uid://c0p02mr1a5wep" path="res://scenes/actions/action.tscn" id="3_tmfss"]
-[ext_resource type="Script" path="res://scripts/actions/generic_melee.gd" id="4_q2mtg"]
-[ext_resource type="PackedScene" uid="uid://bk30a0mgktx6r" path="res://scenes/actions/laser_shot.tscn" id="5_wn0x0"]
+[ext_resource type="PackedScene" uid="uid://e2g21mtkqscf" path="res://scenes/actions/generic_melee.tscn" id="3_ot38a"]
+[ext_resource type="PackedScene" uid="uid://i17xkiofe1vx" path="res://scenes/actions/increase_attack.tscn" id="4_7t65t"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jc05x"]
 atlas = ExtResource("2_mjotf")
@@ -213,7 +212,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("sound_effects/melee_attack:playing")
+tracks/6/path = NodePath("sound_effects/explosion:playing")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -225,14 +224,14 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("sound_effects/explosion:playing")
+tracks/7/path = NodePath("AnimatedSprite2D:rotation")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [0.0]
 }
 
 [sub_resource type="Animation" id="Animation_dsxnk"]
@@ -249,18 +248,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [&"attack"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("sound_effects/melee_attack:playing")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_3yoon"]
@@ -382,6 +369,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [&"effect", &"default"]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.261799, -0.261799, 0.0]
+}
 
 [sub_resource type="Animation" id="Animation_nypvj"]
 resource_name = "idle"
@@ -453,12 +452,10 @@ speed = 2
 [node name="AnimatedSprite2D" parent="." index="1"]
 sprite_frames = SubResource("SpriteFrames_0eych")
 animation = &"default"
-frame_progress = 0.39482
 
-[node name="genericPunch" parent="Actions" index="0" instance=ExtResource("3_tmfss")]
-script = ExtResource("4_q2mtg")
+[node name="generic_meele" parent="Actions" index="0" instance=ExtResource("3_ot38a")]
 
-[node name="laserShot" parent="Actions" index="1" instance=ExtResource("5_wn0x0")]
+[node name="increase attack" parent="Actions" index="1" instance=ExtResource("4_7t65t")]
 
 [node name="melee_attack" parent="sound_effects" index="2"]
 stream = ExtResource("3_7ocuk")

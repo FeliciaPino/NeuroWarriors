@@ -1,0 +1,287 @@
+[gd_scene load_steps=22 format=3 uid="uid://dqc5wbfh6jqnu"]
+
+[ext_resource type="PackedScene" uid="uid://dp2gnkbdq83n4" path="res://scenes/characters/battle_entity.tscn" id="1_fcv86"]
+[ext_resource type="Texture2D" uid="uid://c661tkesxsh0f" path="res://assets/green_drone.png" id="2_ek8eg"]
+[ext_resource type="PackedScene" uid="uid://cjwp37r4npd1c" path="res://scenes/actions/repair.tscn" id="3_7uc1q"]
+[ext_resource type="PackedScene" uid="uid://dwoectv3rk5u3" path="res://scenes/actions/poison_dart.tscn" id="4_wl2h8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_abn0i"]
+atlas = ExtResource("2_ek8eg")
+region = Rect2(0, 0, 100, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h6l3r"]
+atlas = ExtResource("2_ek8eg")
+region = Rect2(100, 0, 100, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k847l"]
+atlas = ExtResource("2_ek8eg")
+region = Rect2(200, 0, 100, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yopes"]
+atlas = ExtResource("2_ek8eg")
+region = Rect2(300, 0, 100, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2vyh0"]
+atlas = ExtResource("2_ek8eg")
+region = Rect2(200, 0, 100, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w56r8"]
+atlas = ExtResource("2_ek8eg")
+region = Rect2(0, 160, 100, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0nveu"]
+atlas = ExtResource("2_ek8eg")
+region = Rect2(100, 160, 100, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hsmik"]
+atlas = ExtResource("2_ek8eg")
+region = Rect2(200, 160, 100, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r5rab"]
+atlas = ExtResource("2_ek8eg")
+region = Rect2(300, 160, 100, 160)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j1xof"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_abn0i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h6l3r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k847l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yopes")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2vyh0")
+}],
+"loop": true,
+"name": &"effect",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w56r8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0nveu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hsmik")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r5rab")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_cmaog"]
+resource_name = "effect"
+
+[sub_resource type="Animation" id="Animation_r8gwd"]
+resource_name = "die"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("explosion:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("explosion:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"explosion"]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("explosion")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0666667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"", 1.0, false],
+"method": &"play"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("explosion:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.666667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AnimatedSprite2D:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("HealthBar:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("sound_effects/explosion:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_bnpaw"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
+
+[sub_resource type="Animation" id="Animation_vyb3b"]
+resource_name = "walking"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"run"]
+}
+
+[sub_resource type="Animation" id="Animation_w8nrn"]
+resource_name = "throw"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 2.73208),
+"update": 0,
+"values": [0.0, -0.0872665, 0.436332, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_g01pc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qahpv"]
+_data = {
+"RESET": SubResource("Animation_g01pc"),
+"die": SubResource("Animation_r8gwd"),
+"effect": SubResource("Animation_cmaog"),
+"idle": SubResource("Animation_bnpaw"),
+"throw": SubResource("Animation_w8nrn"),
+"walking": SubResource("Animation_vyb3b")
+}
+
+[node name="healingDrone" instance=ExtResource("1_fcv86")]
+entity_name = "Healing Drone"
+entity_description = "It's the healing drone. It uh, it heals. n stuff"
+speed = 2
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_j1xof")
+animation = &"effect"
+
+[node name="repair" parent="Actions" index="0" instance=ExtResource("3_7uc1q")]
+
+[node name="Poison Dart" parent="Actions" index="1" instance=ExtResource("4_wl2h8")]
+
+[node name="HealthBar" parent="." index="3"]
+visible = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="8"]
+libraries = {
+"": SubResource("AnimationLibrary_qahpv")
+}

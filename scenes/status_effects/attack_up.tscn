@@ -1,0 +1,15 @@
+[gd_scene load_steps=5 format=3 uid="uid://dv450g2qeftnf"]
+
+[ext_resource type="PackedScene" uid="uid://r1v5s6jc2e2g" path="res://scenes/status_effects/status_effect.tscn" id="1_q801b"]
+[ext_resource type="Script" path="res://scripts/effects/attack_up.gd" id="2_u1sgy"]
+[ext_resource type="Texture2D" uid="uid://gekifpob47eb" path="res://assets/ui/effect_icons.png" id="3_xt2od"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a7nbo"]
+atlas = ExtResource("3_xt2od")
+region = Rect2(0, 16, 16, 16)
+
+[node name="attack up" instance=ExtResource("1_q801b")]
+script = ExtResource("2_u1sgy")
+
+[node name="icon" parent="." index="0"]
+texture = SubResource("AtlasTexture_a7nbo")

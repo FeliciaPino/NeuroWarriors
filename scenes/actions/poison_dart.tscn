@@ -1,0 +1,59 @@
+[gd_scene load_steps=11 format=3 uid="uid://dwoectv3rk5u3"]
+
+[ext_resource type="PackedScene" uid="uid://c0p02mr1a5wep" path="res://scenes/actions/action.tscn" id="1_03j1x"]
+[ext_resource type="Texture2D" uid="uid://61lcotrehrl4" path="res://assets/poison_dart.png" id="2_5evah"]
+[ext_resource type="Script" path="res://scripts/actions/poison_dart.gd" id="2_6purc"]
+[ext_resource type="AudioStream" uid="uid://bymhdcicx5ap3" path="res://assets/audio/homemade/SFX/Woosh.mp3" id="4_6kwt5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u2gbk"]
+atlas = ExtResource("2_5evah")
+region = Rect2(0, 0, 40, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jcg5u"]
+atlas = ExtResource("2_5evah")
+region = Rect2(0, 20, 40, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mtvur"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u2gbk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jcg5u")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_vmeg4"]
+resource_name = "animation"
+length = 0.4
+loop_mode = 1
+
+[sub_resource type="Animation" id="Animation_2ehal"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e7ixk"]
+_data = {
+"RESET": SubResource("Animation_2ehal"),
+"animation": SubResource("Animation_vmeg4")
+}
+
+[node name="Poison Dart" instance=ExtResource("1_03j1x")]
+script = ExtResource("2_6purc")
+
+[node name="sprite" parent="." index="0"]
+texture_filter = 1
+rotation = -0.0523599
+sprite_frames = SubResource("SpriteFrames_mtvur")
+frame_progress = 0.849486
+
+[node name="sound" parent="." index="1"]
+stream = ExtResource("4_6kwt5")
+
+[node name="AnimationPlayer" parent="." index="2"]
+libraries = {
+"": SubResource("AnimationLibrary_e7ixk")
+}

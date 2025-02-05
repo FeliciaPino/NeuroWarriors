@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dp2gnkbdq83n4" path="res://scenes/characters/battle_entity.tscn" id="1_buc5j"]
 [ext_resource type="Texture2D" uid="uid://dcqap0grt8f6" path="res://assets/defensive_drone.png" id="2_uv6dg"]
-[ext_resource type="PackedScene" uid="uid://bk30a0mgktx6r" path="res://scenes/actions/laser_shot.tscn" id="5_n0drv"]
+[ext_resource type="PackedScene" uid="uid://d3t2ah38644av" path="res://scenes/actions/taze.tscn" id="4_rpbj7"]
 [ext_resource type="PackedScene" uid="uid://mweqpto0skb6" path="res://scenes/actions/force_field.tscn" id="6_7s8u7"]
 [ext_resource type="AudioStream" uid="uid://cp770b4kr8b5i" path="res://addons/sfx/Retro Vehicle Car 03.wav" id="6_e3eyn"]
 [ext_resource type="AudioStream" uid="uid://c4tfdbdvvf3ta" path="res://addons/sfx/Retro Weapon Laser 03.wav" id="7_2o42c"]
@@ -453,7 +453,7 @@ animation = &"default"
 
 [node name="forceField" parent="Actions" index="0" instance=ExtResource("6_7s8u7")]
 
-[node name="laserShot" parent="Actions" index="1" instance=ExtResource("5_n0drv")]
+[node name="Taze" parent="Actions" index="1" instance=ExtResource("4_rpbj7")]
 
 [node name="melee_attack" parent="sound_effects" index="2"]
 stream = ExtResource("6_e3eyn")
