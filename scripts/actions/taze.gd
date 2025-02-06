@@ -8,8 +8,8 @@ func _ready() -> void:
 	verb = "taze"
 	isMelee = true
 	isPositive = false
-	price = 3
-	animationType = "effect"
+	price = 2
+	animationType = "attack"
 	_validate_values_are_initialized()
 
 func execute (user:BattleEntity, target:BattleEntity):

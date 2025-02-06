@@ -211,6 +211,7 @@ func do_enemy_action():
 			do_an_action(thing_to_do["user"],thing_to_do["action"],thing_to_do["target"])
 """
 func enemy_turn():
+	print("doing enemy turn")
 	var foes_to_act = []
 	for f in foes: foes_to_act.append(f)
 	while not foes_to_act.is_empty():

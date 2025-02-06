@@ -11,7 +11,7 @@ func _ready() -> void:
 	verb = "summon"
 	isMelee = false
 	isPositive = true
-	price = 8
+	price = 6
 	animationType = "effect"
 	_validate_values_are_initialized()
 
@@ -21,11 +21,11 @@ func execute (user:BattleEntity, target:BattleEntity):
 func _action_effect(user:BattleEntity, target:BattleEntity)->void:
 	var random_number = randi()%100
 	var new_guy:BattleEntity
-	if random_number<= 40:
+	if random_number<= 45:
 		new_guy = drone_scene.instantiate()
-	elif random_number <= 65:
+	elif random_number <= 75:
 		new_guy = offensive_drone_scene.instantiate()
-	elif random_number <= 80:
+	elif random_number <= 90:
 		new_guy = defensive_drone_scene.instantiate()
 	else:
 		new_guy = healing_drone_scene.instantiate()

@@ -1,9 +1,10 @@
-[gd_scene load_steps=26 format=3 uid="uid://baw6pv13fsf0w"]
+[gd_scene load_steps=27 format=3 uid="uid://baw6pv13fsf0w"]
 
 [ext_resource type="PackedScene" uid="uid://dp2gnkbdq83n4" path="res://scenes/characters/battle_entity.tscn" id="1_mi723"]
 [ext_resource type="Texture2D" uid="uid://cn4cl6flutifh" path="res://assets/swarm_controls.png" id="2_cx1ph"]
 [ext_resource type="PackedScene" uid="uid://s8dyi6mkp2np" path="res://scenes/actions/summon_drone.tscn" id="3_ijl66"]
 [ext_resource type="Texture2D" uid="uid://1tntds6vgddk" path="res://assets/antenna.png" id="3_j4waa"]
+[ext_resource type="Texture2D" uid="uid://g04rqk377lfp" path="res://assets/ui/circle.png" id="5_po2kh"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vjs0u"]
 animations = [{
@@ -240,6 +241,42 @@ tracks/9/keys = {
 "update": 1,
 "values": [&"spinning"]
 }
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("wave:scale")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("wave:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("wave:modulate")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.443137, 0.215686, 0.588235, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_dsxnk"]
 resource_name = "attack"
@@ -376,6 +413,42 @@ tracks/1/keys = {
 "update": 1,
 "values": [&"spinning"]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("wave:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(5, 5)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("wave:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 2.92817),
+"update": 0,
+"values": [Color(0.443137, 0.215686, 0.588235, 1), Color(0.443137, 0.215686, 0.588235, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("wave:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
 
 [sub_resource type="Animation" id="Animation_lc5a1"]
 resource_name = "idle"
@@ -438,7 +511,7 @@ entity_name = "Swarm Controller"
 entity_description = "Sends signals to summon allies"
 defense = 20
 attack = 5
-speed = 6
+speed = 4
 is_stationary = true
 
 [node name="AnimatedSprite2D" parent="." index="1"]
@@ -461,3 +534,10 @@ offset_right = -37.0
 libraries = {
 "": SubResource("AnimationLibrary_8v7bq")
 }
+
+[node name="wave" type="Sprite2D" parent="." index="9"]
+visible = false
+modulate = Color(0.443137, 0.215686, 0.588235, 1)
+z_index = 1
+position = Vector2(0, -33)
+texture = ExtResource("5_po2kh")
