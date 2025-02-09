@@ -307,3 +307,6 @@ parameters/looping = true
 [node name="lose_sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_gbeah")
 volume_db = -10.0
+
+[connection signal="health_changed" from="Entity_manager/healingDrone" to="Entity_manager/healingDrone/HBoxContainer/HealthBar" method="_on_battle_entity_health_changed"]
+[connection signal="received_damage" from="Entity_manager/healingDrone" to="Entity_manager/healingDrone/HBoxContainer/HealthBar" method="_on_battle_entity_received_damage"]
