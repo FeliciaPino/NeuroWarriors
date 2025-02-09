@@ -12,4 +12,5 @@ region = Rect2(0, 16, 16, 16)
 script = ExtResource("2_u1sgy")
 
 [node name="icon" parent="." index="0"]
+tooltip_text = "Increases attack stat"
 texture = SubResource("AtlasTexture_a7nbo")

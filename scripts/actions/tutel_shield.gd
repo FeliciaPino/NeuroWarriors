@@ -5,7 +5,7 @@ var defense_effect = preload("res://scenes/status_effects/defense_up.tscn")
 func _ready() -> void:
 	super._ready()
 	action_name = "Tutel Shield"
-	description = "Summon a shield to protect your allies for the next 3 turns"
+	description = "Summon a shield to protect target for the next 3 turns"
 	verb = "defend"
 	isMelee = false
 	isPositive = true
