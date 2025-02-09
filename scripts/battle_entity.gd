@@ -123,6 +123,7 @@ func throw_text(text:String, color:Color = Color.WHITE):
 	label.modulate = color
 	self.add_child(label)
 	label.text = text
+	label.z_index = 3
 	label.position = Vector2()
 	label.scale = Vector2()
 	var tween = get_tree().create_tween()
@@ -130,7 +131,7 @@ func throw_text(text:String, color:Color = Color.WHITE):
 	tween.set_parallel()
 	tween.tween_property(label,"position:x",20,0.3).set_trans(Tween.TRANS_LINEAR)
 	tween.tween_property(label,"position:y",-50,0.3)
-	tween.tween_property(label,"scale",Vector2(1,1),0.2)
+	tween.tween_property(label,"scale",Vector2(2,2),0.2)
 	tween.chain().tween_property(label, "position:x", 50, 0.6).set_trans(Tween.TRANS_LINEAR)
 	tween.tween_property(label,"position:y",50,0.6)
 	tween.tween_property(label, "modulate", Color(1,1,1,0), 0.6)

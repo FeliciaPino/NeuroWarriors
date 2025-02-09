@@ -14,6 +14,6 @@ func _ready() -> void:
 
 func execute (user:BattleEntity, target:BattleEntity):
 	super.execute(user,target)
-	_projectile_action(user,target,15)
+	_projectile_action(user,target,10)
 func _action_effect(user:BattleEntity, target:BattleEntity)->void:
 	target.heal(30)
