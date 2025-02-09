@@ -195,7 +195,7 @@ func update_ap_label_text():
 	actions_left_display.get_child(0).size.x = len(actions_left_label.text)*9+27
 
 func update_info_panel() -> void:
-	var info_panel_info = [entity_name,str("Max Health: ",maxHealth),str("Health: ",health),str("Attack: ",attack),str("Defense: ",defense),str("AP regen: ",speed)]
+	var info_panel_info = [entity_name,str("Health: ",health,"/",maxHealth),str("Attack: ",attack),str("Defense: ",defense),str("AP regen: ",speed)]
 	for i in range(info_panel.get_child_count()):
 		info_panel.get_child(i).text = info_panel_info[i]
 func update_menu_actions():
