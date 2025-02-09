@@ -97,7 +97,7 @@ func _ready() -> void:
 	
 #removes the effect with the given name.
 func remove_effect(effectName:String):
-	for eff in effects_container.get_children():
+	for eff:StatusEffect in effects_container.get_children():
 		if eff.effect_name == effectName:
 			eff.end_effect()
 			eff.queue_free()
@@ -198,8 +198,6 @@ func update_info_panel() -> void:
 	for i in range(info_panel.get_child_count()):
 		info_panel.get_child(i).text = info_panel_info[i]
 func update_menu_actions():
-	if not is_player_controlled:
-		return
 	#action menu
 	for child in action_menu.get_children(): child.queue_free()
 	for action in actions:
@@ -207,7 +205,7 @@ func update_menu_actions():
 		button.text = action.action_name
 		button.pressed.connect(func():game_manager.set_selected_action(action))
 		button.tooltip_text = "AP:"+str(action.price)+" "+action.description
-		if ap < action.price:
+		if ap < action.price or not is_player_controlled:
 			button.disabled = true
 		action_menu.add_child(button)
 

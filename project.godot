@@ -26,6 +26,10 @@ window/size/mode=3
 window/stretch/mode="canvas_items"
 window/name="World War Swarm"
 
+[dotnet]
+
+project/assembly_name="Neuro Warriors"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/neuro-sdk/plugin.cfg")

@@ -488,11 +488,11 @@ is_player_controlled = true
 sprite_frames = SubResource("SpriteFrames_os5q3")
 animation = &"default"
 
-[node name="Shock" parent="Actions" index="0" instance=ExtResource("2_pd4qh")]
+[node name="Harpoon_throw" parent="Actions" index="0" instance=ExtResource("3_mwwba")]
 
-[node name="Harpoon_throw" parent="Actions" index="1" instance=ExtResource("3_mwwba")]
+[node name="katana_slash" parent="Actions" index="1" instance=ExtResource("5_sse4g")]
 
-[node name="katana_slash" parent="Actions" index="2" instance=ExtResource("5_sse4g")]
+[node name="Shock" parent="Actions" index="2" instance=ExtResource("2_pd4qh")]
 
 [node name="melee_attack" parent="sound_effects" index="2"]
 stream = ExtResource("7_qpb55")

@@ -4,7 +4,7 @@ extends BattleAction
 func _ready() -> void:
 	super._ready()
 	action_name = "Heart"
-	description = "Heals"
+	description = "Heals 30"
 	verb = "heal"
 	isMelee = false
 	isPositive = true
