@@ -5,7 +5,7 @@ var shocked_effect = preload("res://scenes/status_effects/shocked.tscn")
 func _ready() -> void:
 	super._ready()
 	action_name = "Shock"
-	description = "Damage distant target with power word shock. Causes enemies to be shocked for the next 2 turns. Removes target's accumulated AP"
+	description = "Damage distant target with power word shock. Causes target to earn half as much AP the next 2 turns."
 	verb = "shock"
 	isMelee = false
 	isPositive = false
@@ -21,5 +21,4 @@ func _action_effect(user:BattleEntity, target:BattleEntity)->void:
 	var effect:StatusEffect = shocked_effect.instantiate()
 	effect.set_turns_remaining(2)
 	target.add_effect(effect)
-	target.update_ap(0)
-	target.receive_damage(user.attack)
+	target.receive_damage(user.attack*2)
