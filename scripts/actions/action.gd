@@ -32,9 +32,6 @@ func _validate_values_are_initialized()->void:
 #each specific action must override this with it's effects
 func execute(user:BattleEntity, target:BattleEntity):
 	if not user.alive: return
-	#I don't think this should be here in this part, it should be when the character is already standing by the target
-	if isMelee:
-		target.got_on_your_personal_space(user)
 #so, this does what the action does, be it increase stats, apply effects, or whatever. Each specific action will have to override it
 func _action_effect(user:BattleEntity, target:BattleEntity)->void:
 	pass
@@ -109,6 +106,7 @@ func _ranged_non_projectile_action(user:BattleEntity, target:BattleEntity)->void
 	action_finished.emit()
 
 #deprecated
+"""
 func projectile(source:Node, bullet:Node2D, target:Node, speed):
 	bullet.visible = true
 	bullet.global_position = source.global_position
@@ -120,3 +118,4 @@ func walk_to(user:BattleEntity, target:Vector2):
 	var tween = get_tree().create_tween()
 	tween.tween_property(user, "global_position", target, 0.4)
 	await tween.finished
+"""

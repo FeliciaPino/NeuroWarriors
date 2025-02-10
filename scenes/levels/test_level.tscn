@@ -238,5 +238,4 @@ bus = &"Music"
 stream = ExtResource("11_qh83r")
 volume_db = -10.0
 
-[connection signal="health_changed" from="Entity_manager/healingDrone" to="Entity_manager/healingDrone/HBoxContainer/HealthBar" method="_on_battle_entity_health_changed"]
-[connection signal="received_damage" from="Entity_manager/healingDrone" to="Entity_manager/healingDrone/HBoxContainer/HealthBar" method="_on_battle_entity_received_damage"]
+[connection signal="pending_actions_updated" from="." to="." method="_on_pending_actions_updated"]

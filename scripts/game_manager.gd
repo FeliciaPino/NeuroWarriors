@@ -17,7 +17,14 @@ var highlighted_character:BattleEntity = null
 var selected_character:BattleEntity = null
 var selected_action:BattleAction = null
 
-var stand_by:bool = false #it's in standby when waiting for the animations to finish
+signal pending_actions_updated
+signal all_actions_finished
+var pending_actions = 0: #How many actions are being currently done
+	set(new_value):
+		pending_actions = new_value
+		pending_actions_updated.emit()
+		if new_value == 0:
+			all_actions_finished.emit()
 var is_player_turn:bool = true #is the player turn or the enemy turn.
 var is_game_over:bool
 
@@ -149,28 +156,36 @@ func battleEntityClicked(clicked_entity: BattleEntity):
 	
 
 func do_an_action(user:BattleEntity, action:BattleAction, target:BattleEntity):
-	action.action_finished.connect(func():on_action_finished(action))
-	_set_stand_by(true)
 	if not user or not target:
 		return
+	if not action.action_finished.is_connected(_on_action_finished):
+		action.action_finished.connect(_on_action_finished.bind(action))
+	print("action started ", action.action_name)
+	pending_actions += 1
 	action.execute(user,target)
 	
-func on_action_finished(action):
+func _on_action_finished(action):
+	print("actions finished ", action.action_name)
+	pending_actions -= 1
 	if is_game_over: return
-	_set_stand_by(false)
 	update_battle_entities()
 	if check_game_end(): return
 	if is_player_turn and  GameState.is_neuro_controlling:
 		make_neuro_play("it is still your turn")
 
-func _set_stand_by(value:bool):
-	stand_by = value
-	if stand_by:
-		instruction_label.text = "waiting for action to finish"
-		instruction_label.visible = true
-	else:
+
+func _on_pending_actions_updated() -> void:
+	instruction_label.visible = true
+	if pending_actions <0:
+		instruction_label.text = "What the hell! There a negative amount of actions going on! That's not supposed to happen! Someone tell Copper there's a problem with her game"
+		return
+	if pending_actions == 0:
 		instruction_label.text = " action finish"
 		instruction_label.visible = false
+	elif pending_actions == 1:
+		instruction_label.text = "Waiting for action to finish"
+	else:
+		instruction_label.text = str("Waiting for ", pending_actions, " actions to finish")
 
 func get_entity_by_name(entity_name:String)->BattleEntity:
 	for entity in foes:
@@ -191,6 +206,7 @@ func check_game_end():
 	return false
 	
 func finish(win_status:bool):
+	if is_game_over: return
 	print("finished "+str(win_status))
 	is_game_over = true
 	end_screen.set_win_status(win_status)
@@ -200,28 +216,23 @@ func finish(win_status:bool):
 			get_tree().change_scene_to_file("res://scenes/credits.tscn")
 	animation_player.play("show_end_screen")
 
-"""
-func do_enemy_action():
-		var thing_to_do = get_game_ai_action()
-		if thing_to_do["ended_turn"]:
-			is_player_turn = true
-			print("enemy ended turn")
-			start_turn()
-		else:
-			do_an_action(thing_to_do["user"],thing_to_do["action"],thing_to_do["target"])
-"""
 func enemy_turn():
 	print("doing enemy turn")
+	#Gotta wait for stuff to finish first, wouldn't want a player to kill an enemy on it's turn, that would just not be polite! and also crash the game
+	while pending_actions > 0:
+		await all_actions_finished
 	var foes_to_act = []
 	for f in foes: foes_to_act.append(f)
 	while not foes_to_act.is_empty():
 		var foe:BattleEntity = foes_to_act.pick_random()
 		var decision = foe.figure_out_something_to_do()
 		if decision["action"] == null:
+			#this guy is done for this turn
 			foes_to_act.erase(foe)
 			continue
 		do_an_action(foe, decision["action"], decision["target"])
 		await decision["action"].action_finished
+		await get_tree().create_timer(3).timeout#debug
 	is_player_turn = true
 	start_turn()
 	
