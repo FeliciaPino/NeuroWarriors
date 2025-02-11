@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://uyf2xv345f10"]
+[gd_scene load_steps=19 format=3 uid="uid://uyf2xv345f10"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_3ih0l"]
 [ext_resource type="AudioStream" uid="uid://d2d5vwfjxrhic" path="res://assets/audio/music/4.ogg" id="2_15ktm"]
@@ -20,18 +20,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [0.0]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("TextureRect:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [6.28319]
-}
 
 [sub_resource type="Animation" id="Animation_1doey"]
 resource_name = "moving_title"
@@ -48,18 +36,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [-0.0349066, 0.0349066]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("TextureRect:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 6.28319]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kqvf1"]
@@ -83,7 +59,7 @@ animations = [{
 }]
 
 [sub_resource type="Gradient" id="Gradient_65oio"]
-colors = PackedColorArray(0.454653, 0.2184, 0.52, 1, 0.626667, 0, 0.8, 1)
+colors = PackedColorArray(0.507015, 0.2793, 0.57, 1, 0.68874, 0.3588, 0.78, 1)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_5vb46"]
 frequency = 0.0053
@@ -94,6 +70,80 @@ width = 2000
 height = 2000
 color_ramp = SubResource("Gradient_65oio")
 noise = SubResource("FastNoiseLite_5vb46")
+
+[sub_resource type="Animation" id="Animation_fqlbf"]
+resource_name = "animation"
+length = 32.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 32),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 12.5664]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../TextureRect2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 32),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="Animation" id="Animation_plsn7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../TextureRect2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1wsp1"]
+_data = {
+"RESET": SubResource("Animation_plsn7"),
+"animation": SubResource("Animation_fqlbf")
+}
+
+[sub_resource type="Gradient" id="Gradient_d00tc"]
+colors = PackedColorArray(0, 0, 0, 0, 0.77, 0.5005, 0.698133, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_hha1p"]
+frequency = 0.0029
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3hj7a"]
+width = 2000
+height = 2000
+color_ramp = SubResource("Gradient_d00tc")
+noise = SubResource("FastNoiseLite_hha1p")
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -178,7 +228,7 @@ offset_bottom = 383.0
 pivot_offset = Vector2(400, 200)
 texture = ExtResource("4_seej8")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="moving title" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_kqvf1")
 }
@@ -201,16 +251,33 @@ offset_bottom = 628.0
 text = "Neuro control"
 
 [node name="TextureRect" type="TextureRect" parent="."]
-z_index = -10
+z_index = -11
 layout_mode = 0
-offset_left = -469.0
-offset_top = -669.0
-offset_right = 1531.0
-offset_bottom = 1331.0
-rotation = 6.28319
+offset_left = -431.0
+offset_top = -1015.0
+offset_right = 1569.0
+offset_bottom = 985.0
 pivot_offset = Vector2(1000, 1000)
 mouse_filter = 2
 texture = SubResource("NoiseTexture2D_jar63")
+
+[node name="background animation" type="AnimationPlayer" parent="TextureRect"]
+libraries = {
+"": SubResource("AnimationLibrary_1wsp1")
+}
+autoplay = "animation"
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.678431)
+z_index = -10
+layout_mode = 0
+offset_left = -429.0
+offset_top = -995.0
+offset_right = 1571.0
+offset_bottom = 1005.0
+pivot_offset = Vector2(1000, 1000)
+mouse_filter = 2
+texture = SubResource("NoiseTexture2D_3hj7a")
 
 [connection signal="value_changed" from="options_menu/musicVolume" to="." method="_on_music_volume_value_changed"]
 [connection signal="value_changed" from="options_menu/sound_effects_volume" to="." method="_on_sound_effects_volume_value_changed"]
