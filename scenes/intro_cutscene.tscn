@@ -304,7 +304,7 @@ offset_left = 982.0
 offset_top = 700.0
 offset_right = 1378.0
 offset_bottom = 738.0
-text = "Skip (but I worked so hard in the cutscene though)"
+text = "Skip"
 
 [node name="skip_button_timer" type="Timer" parent="."]
 wait_time = 3.0
