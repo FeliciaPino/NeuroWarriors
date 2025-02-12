@@ -232,7 +232,6 @@ func enemy_turn():
 			continue
 		do_an_action(foe, decision["action"], decision["target"])
 		await decision["action"].action_finished
-		await get_tree().create_timer(3).timeout#debug
 	is_player_turn = true
 	start_turn()
 	
