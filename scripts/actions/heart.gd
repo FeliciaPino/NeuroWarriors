@@ -4,7 +4,7 @@ extends BattleAction
 func _ready() -> void:
 	super._ready()
 	action_name = "Heart"
-	description = "Heals 30"
+	description = "Heals 33"
 	verb = "heal"
 	isMelee = false
 	isPositive = true
@@ -16,4 +16,4 @@ func execute (user:BattleEntity, target:BattleEntity):
 	super.execute(user,target)
 	_projectile_action(user,target,10)
 func _action_effect(user:BattleEntity, target:BattleEntity)->void:
-	target.heal(30)
+	target.heal(33)
