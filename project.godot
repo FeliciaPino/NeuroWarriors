@@ -36,6 +36,10 @@ project/assembly_name="Neuro Warriors"
 
 enabled=PackedStringArray("res://addons/neuro-sdk/plugin.cfg")
 
+[internationalization]
+
+locale/translations=PackedStringArray("res://translations/NeuroverseWarriors_Translations.en.translation", "res://translations/NeuroverseWarriors_Translations.es.translation")
+
 [rendering]
 
 renderer/rendering_method="mobile"

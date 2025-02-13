@@ -1,13 +1,13 @@
 extends Control
 
-@onready var play_button = $VBoxContainer/play_button
-@onready var options_menu = $options_menu
+@onready var play_button = $HBoxContainer/buttons/play_button
+@onready var options_menu = $HBoxContainer/options_menu
 @onready var neuro_control_toggle = $CheckButton
 
 @onready var background = $background
 
-@onready var om_music_slider = $options_menu/musicVolume
-@onready var om_SFX_slider = $options_menu/sound_effects_volume
+@onready var om_music_slider = $HBoxContainer/options_menu/musicVolume
+@onready var om_SFX_slider = $HBoxContainer/options_menu/sound_effects_volume
 func _ready() -> void:
 	play_button.pressed.connect(play)
 	om_music_slider.value = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music"))
@@ -37,3 +37,12 @@ func _on_exit_button_pressed() -> void:
 
 func _on_check_button_toggled(toggled_on: bool) -> void:
 	GameState.is_neuro_controlling = toggled_on
+
+
+func _on_english_button_pressed() -> void:
+	TranslationServer.set_locale("en")
+	
+
+
+func _on_spanish_button_pressed() -> void:
+	TranslationServer.set_locale("es")

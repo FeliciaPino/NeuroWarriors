@@ -154,64 +154,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3ih0l")
 
-[node name="options_menu" type="VBoxContainer" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 445.0
-offset_top = 459.0
-offset_right = 783.0
-offset_bottom = 594.0
-
-[node name="musicvolume" type="Label" parent="options_menu"]
-layout_mode = 2
-text = "Music volume"
-horizontal_alignment = 1
-
-[node name="musicVolume" type="HSlider" parent="options_menu"]
-layout_mode = 2
-min_value = -40.0
-max_value = 40.0
-
-[node name="effects volume" type="Label" parent="options_menu"]
-layout_mode = 2
-text = "Effects volume"
-horizontal_alignment = 1
-
-[node name="sound_effects_volume" type="HSlider" parent="options_menu"]
-layout_mode = 2
-min_value = -50.0
-max_value = 50.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 184.0
-offset_top = 447.0
-offset_right = 400.0
-offset_bottom = 609.0
-theme_override_constants/separation = 10
-
-[node name="play_button" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-text = "PLAY"
-
-[node name="howtoplay" type="Button" parent="VBoxContainer"]
-visible = false
-layout_mode = 2
-text = "HOW TO PLAY"
-
-[node name="options_button" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-toggle_mode = true
-text = "OPTIONS"
-
-[node name="exit_button" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-text = "EXIT
-(there's no saving, so watch out)"
-
 [node name="music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_15ktm")
 volume_db = -30.0
@@ -280,8 +222,81 @@ pivot_offset = Vector2(1000, 1000)
 mouse_filter = 2
 texture = SubResource("NoiseTexture2D_3hj7a")
 
-[connection signal="value_changed" from="options_menu/musicVolume" to="." method="_on_music_volume_value_changed"]
-[connection signal="value_changed" from="options_menu/sound_effects_volume" to="." method="_on_sound_effects_volume_value_changed"]
-[connection signal="toggled" from="VBoxContainer/options_button" to="." method="_on_options_button_toggled"]
-[connection signal="pressed" from="VBoxContainer/exit_button" to="." method="_on_exit_button_pressed"]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 442.0
+offset_right = 632.0
+offset_bottom = 567.0
+
+[node name="buttons" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="play_button" type="Button" parent="HBoxContainer/buttons"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "MAIN_MENU_PLAY_BUTTON"
+
+[node name="howtoplay" type="Button" parent="HBoxContainer/buttons"]
+visible = false
+layout_mode = 2
+text = "HOW TO PLAY"
+
+[node name="options_button" type="Button" parent="HBoxContainer/buttons"]
+layout_mode = 2
+size_flags_vertical = 3
+toggle_mode = true
+text = "MAIN_MENU_OPTIONS_BUTTON"
+
+[node name="exit_button" type="Button" parent="HBoxContainer/buttons"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "MAIN_MENU_EXIT_BUTTON"
+
+[node name="options_menu" type="VBoxContainer" parent="HBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/options_menu"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/options_menu/HBoxContainer"]
+layout_mode = 2
+text = "MAIN_MENU_LANGUAGE"
+
+[node name="english_button" type="Button" parent="HBoxContainer/options_menu/HBoxContainer"]
+layout_mode = 2
+text = "english"
+
+[node name="spanish_button" type="Button" parent="HBoxContainer/options_menu/HBoxContainer"]
+layout_mode = 2
+text = "español"
+
+[node name="musicvolume" type="Label" parent="HBoxContainer/options_menu"]
+layout_mode = 2
+text = "Music volume"
+horizontal_alignment = 1
+
+[node name="musicVolume" type="HSlider" parent="HBoxContainer/options_menu"]
+layout_mode = 2
+min_value = -40.0
+max_value = 40.0
+
+[node name="effects volume" type="Label" parent="HBoxContainer/options_menu"]
+layout_mode = 2
+text = "Effects volume"
+horizontal_alignment = 1
+
+[node name="sound_effects_volume" type="HSlider" parent="HBoxContainer/options_menu"]
+layout_mode = 2
+min_value = -50.0
+max_value = 50.0
+
 [connection signal="toggled" from="CheckButton" to="." method="_on_check_button_toggled"]
+[connection signal="toggled" from="HBoxContainer/buttons/options_button" to="." method="_on_options_button_toggled"]
+[connection signal="pressed" from="HBoxContainer/buttons/exit_button" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/options_menu/HBoxContainer/english_button" to="." method="_on_english_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/options_menu/HBoxContainer/spanish_button" to="." method="_on_spanish_button_pressed"]
+[connection signal="value_changed" from="HBoxContainer/options_menu/musicVolume" to="." method="_on_music_volume_value_changed"]
+[connection signal="value_changed" from="HBoxContainer/options_menu/sound_effects_volume" to="." method="_on_sound_effects_volume_value_changed"]

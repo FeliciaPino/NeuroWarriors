@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://c37ikpy6rxnyp"
+
+[deps]
+
+files=["res://translations/NeuroverseWarriors_Translations.en.translation", "res://translations/NeuroverseWarriors_Translations.es.translation"]
+
+source_file="res://translations/NeuroverseWarriors_Translations.csv"
+dest_files=["res://translations/NeuroverseWarriors_Translations.en.translation", "res://translations/NeuroverseWarriors_Translations.es.translation"]
+
+[params]
+
+compress=true
+delimiter=0
