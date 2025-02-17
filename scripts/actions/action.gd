@@ -41,7 +41,7 @@ func _meele_action(user:BattleEntity, target:BattleEntity)->void:
 	if user==target:
 		spotToAttackFrom = user.global_position
 	user.animation_player.play("walking")
-	user.animated_sprite.flip_h = target.global_position.x<user.global_position.x
+	user.visual_node.scale = Vector2(-1,1) if target.global_position.x<user.global_position.x else Vector2(1,1)
 	var tween = get_tree().create_tween()
 	tween.tween_property(user,"global_position",spotToAttackFrom, user.global_position.distance_to(spotToAttackFrom)/500)
 	await tween.finished
@@ -57,7 +57,7 @@ func _meele_action(user:BattleEntity, target:BattleEntity)->void:
 		_action_effect(user,target)
 		user.did_an_action(price)
 	user.animation_player.play("walking")
-	user.animated_sprite.flip_h = user.global_position.x > 550
+	user.visual_node.scale = Vector2(-1,1) if user.global_position.x > 550 else Vector2(1,1)
 	tween = get_tree().create_tween()
 	tween.tween_property(user,"global_position",user.mySpot,  user.global_position.distance_to(user.mySpot)/500)
 	await tween.finished

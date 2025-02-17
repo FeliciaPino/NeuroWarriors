@@ -1,7 +1,6 @@
-[gd_scene load_steps=27 format=3 uid="uid://dp2gnkbdq83n4"]
+[gd_scene load_steps=19 format=3 uid="uid://dp2gnkbdq83n4"]
 
 [ext_resource type="Script" path="res://scripts/battle_entity.gd" id="1_m46ik"]
-[ext_resource type="Texture2D" uid="uid://qn41g1ovgmc5" path="res://assets/charsprites_default.png" id="2_sdw82"]
 [ext_resource type="PackedScene" uid="uid://bcuvnhkfoa0u" path="res://scenes/ui/health_bar.tscn" id="3_b5iiw"]
 [ext_resource type="Texture2D" uid="uid://duwanoipd03rk" path="res://assets/ui/selection_circle.png" id="4_i6faa"]
 [ext_resource type="Texture2D" uid="uid://nxqruldg0w6s" path="res://assets/explosion.png" id="5_qnmwp"]
@@ -10,76 +9,6 @@
 [ext_resource type="AudioStream" uid="uid://c5cnketelr6mc" path="res://addons/sfx/Retro Blop 18.wav" id="7_5e4t5"]
 [ext_resource type="AudioStream" uid="uid://lnqaagn01gqm" path="res://assets/audio/homemade/SFX/bwoaa.wav" id="9_deo4h"]
 [ext_resource type="AudioStream" uid="uid://b22eiqdfnoyr" path="res://addons/sfx/Retro FootStep 03.wav" id="10_5ppgc"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bafwe"]
-atlas = ExtResource("2_sdw82")
-region = Rect2(320, 0, 80, 160)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_smxg1"]
-atlas = ExtResource("2_sdw82")
-region = Rect2(400, 0, 80, 160)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_i031b"]
-atlas = ExtResource("2_sdw82")
-region = Rect2(0, 0, 80, 160)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nglkk"]
-atlas = ExtResource("2_sdw82")
-region = Rect2(80, 0, 80, 160)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nvkvr"]
-atlas = ExtResource("2_sdw82")
-region = Rect2(160, 0, 80, 160)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_a8gkf"]
-atlas = ExtResource("2_sdw82")
-region = Rect2(240, 0, 80, 160)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_e8na7"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bafwe")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_smxg1")
-}],
-"loop": false,
-"name": &"attack",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_i031b")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nglkk")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}, {
-"frames": [],
-"loop": true,
-"name": &"effect",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nvkvr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_a8gkf")
-}],
-"loop": true,
-"name": &"run",
-"speed": 5.0
-}, {
-"frames": [],
-"loop": true,
-"name": &"throw",
-"speed": 5.0
-}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1xbm5"]
 radius = 45.0
@@ -151,13 +80,9 @@ defense = 0
 [node name="SelectionCircle" type="Sprite2D" parent="."]
 texture = ExtResource("4_i6faa")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-y_sort_enabled = true
-sprite_frames = SubResource("SpriteFrames_e8na7")
-animation = &"attack"
-autoplay = "default"
+[node name="visual" type="Node2D" parent="."]
 
-[node name="Actions" type="Node" parent="."]
+[node name="Actions" type="Node2D" parent="."]
 
 [node name="HealthBar" parent="." instance=ExtResource("3_b5iiw")]
 offset_left = -60.0
@@ -246,6 +171,7 @@ text = "ap regen"
 label_settings = SubResource("LabelSettings_qaj17")
 
 [node name="explosion" type="AnimatedSprite2D" parent="."]
+visible = false
 sprite_frames = SubResource("SpriteFrames_pjh8r")
 animation = &"explosion"
 

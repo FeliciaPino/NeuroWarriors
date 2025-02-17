@@ -1,14 +1,87 @@
-[gd_scene load_steps=4 format=3 uid="uid://criuo0gomqd7t"]
+[gd_scene load_steps=12 format=3 uid="uid://criuo0gomqd7t"]
 
 [ext_resource type="PackedScene" uid="uid://dp2gnkbdq83n4" path="res://scenes/characters/battle_entity.tscn" id="1_xwt0g"]
 [ext_resource type="PackedScene" uid="uid://e2g21mtkqscf" path="res://scenes/actions/generic_melee.tscn" id="2_fm84f"]
+[ext_resource type="Texture2D" uid="uid://qn41g1ovgmc5" path="res://assets/charsprites_default.png" id="2_yw14p"]
 [ext_resource type="Script" path="res://scripts/actions/throw_rock.gd" id="3_boi75"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bafwe"]
+atlas = ExtResource("2_yw14p")
+region = Rect2(320, 0, 80, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_smxg1"]
+atlas = ExtResource("2_yw14p")
+region = Rect2(400, 0, 80, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i031b"]
+atlas = ExtResource("2_yw14p")
+region = Rect2(0, 0, 80, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nglkk"]
+atlas = ExtResource("2_yw14p")
+region = Rect2(80, 0, 80, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nvkvr"]
+atlas = ExtResource("2_yw14p")
+region = Rect2(160, 0, 80, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8gkf"]
+atlas = ExtResource("2_yw14p")
+region = Rect2(240, 0, 80, 160)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e8na7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bafwe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_smxg1")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i031b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nglkk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"effect",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nvkvr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8gkf")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"throw",
+"speed": 5.0
+}]
 
 [node name="GenericGuy" instance=ExtResource("1_xwt0g")]
 entity_name = "guy"
 speed = 3
 
-[node name="AnimatedSprite2D" parent="." index="1"]
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." index="2"]
+y_sort_enabled = true
+sprite_frames = SubResource("SpriteFrames_e8na7")
 autoplay = "default"
 
 [node name="generic_punch" parent="Actions" index="0" instance=ExtResource("2_fm84f")]

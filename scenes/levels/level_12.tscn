@@ -5,13 +5,13 @@
 [ext_resource type="Texture2D" uid="uid://b1iw4xeonbkc0" path="res://assets/destroyed_city_background2.png" id="3_ksrm0"]
 [ext_resource type="PackedScene" uid="uid://c0cerfjhi148m" path="res://scenes/entity_manager.tscn" id="4_obpgy"]
 [ext_resource type="PackedScene" uid="uid://cmccd8rxiyqab" path="res://scenes/characters/neuro_sama.tscn" id="4_xo3i0"]
+[ext_resource type="PackedScene" uid="uid://baw6pv13fsf0w" path="res://scenes/characters/enemies/swarm_controller.tscn" id="5_de6yt"]
 [ext_resource type="PackedScene" uid="uid://b6410g70liyhb" path="res://scenes/characters/evil.tscn" id="5_mvmsc"]
 [ext_resource type="PackedScene" uid="uid://uwmc3sf7fq3o" path="res://scenes/characters/vedal.tscn" id="6_pbhy6"]
 [ext_resource type="PackedScene" uid="uid://c85gj43e28h10" path="res://scenes/characters/enemies/defensive_drone.tscn" id="8_h7r00"]
 [ext_resource type="Texture2D" uid="uid://duwanoipd03rk" path="res://assets/ui/selection_circle.png" id="8_rutx1"]
 [ext_resource type="Script" path="res://scripts/end_screen.gd" id="9_uwnp4"]
 [ext_resource type="AudioStream" uid="uid://cdbbs3cm1pli5" path="res://addons/Pixel_boy/theme-7.ogg" id="10_4h5s0"]
-[ext_resource type="PackedScene" uid="uid://baw6pv13fsf0w" path="res://scenes/characters/enemies/swarm_controller.tscn" id="10_ed810"]
 [ext_resource type="AudioStream" uid="uid://bcvyh3sruf5vp" path="res://addons/Pixel_boy/theme-3b.ogg" id="11_0rwfl"]
 [ext_resource type="AudioStream" uid="uid://c2qho0xysuk3u" path="res://addons/sfx/Retro Negative Long 12.wav" id="12_4oigu"]
 
@@ -210,8 +210,8 @@ position = Vector2(-310, 463)
 position = Vector2(1604, 387)
 entity_name = "Defensive Drone 1"
 
-[node name="swarm_controller" parent="Entity_manager" instance=ExtResource("10_ed810")]
-position = Vector2(1016, 556)
+[node name="swarm_controller" parent="Entity_manager" instance=ExtResource("5_de6yt")]
+position = Vector2(951, 564)
 
 [node name="SelectionCircle" type="Sprite2D" parent="."]
 position = Vector2(584, 427)

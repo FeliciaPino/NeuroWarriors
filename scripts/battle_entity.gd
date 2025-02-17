@@ -43,9 +43,8 @@ var ap:int #how many actions are left in a turn
 @onready var actions_left_display = $Menu/ApDisplay
 @onready var info_panel = $Menu/info_container/Info
 @onready var game_manager:GameManager = $"../.." #TODO: update this
-@onready var animated_sprite:AnimatedSprite2D = $AnimatedSprite2D
+@onready var visual_node = $visual
 @onready var animation_player:AnimationPlayer = $AnimationPlayer
-@onready var explosion_animated_sprite = $explosion
 
 @onready var sound_effects = $sound_effects
 @onready var sfx_menu_up = $sound_effects/menu_up
@@ -58,10 +57,8 @@ signal got_clicked_on
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	print(get_signal_connection_list("mouse_entered"))
-
 	print(entity_name+" is ready")
 	animation_player.play("idle")
-	explosion_animated_sprite.visible = false
 	is_hovered_over_with_the_mouse = false
 	for child in actions_node.get_children():
 		if child is BattleAction:
@@ -213,7 +210,7 @@ func update_menu_actions():
 func go_to_your_spot()->void:
 	var distance_to_spot = mySpot.distance_to(global_position)
 	if distance_to_spot < 1: return
-	animated_sprite.flip_h = mySpot.x < global_position.x
+	visual_node.scale = Vector2(-1,1) if mySpot.x < global_position.x else Vector2(1,1)
 	var tween = get_tree().create_tween()
 	animation_player.play("walking")
 	#maybe make the time depend on how far away they are from their spot?
@@ -222,7 +219,7 @@ func go_to_your_spot()->void:
 func settle_into_spot():
 	global_position = mySpot
 	animation_player.play("idle")
-	animated_sprite.flip_h = global_position.x > 550
+	visual_node.scale = Vector2(-1,1) if global_position.x > 550 else Vector2(1,1)
 	
 
 func toggle_menu():

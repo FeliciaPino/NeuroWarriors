@@ -136,7 +136,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/path = NodePath("visual/AnimatedSprite2D:animation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -148,7 +148,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = false
-tracks/2/path = NodePath("AnimatedSprite2D:flip_h")
+tracks/2/path = NodePath("visual/AnimatedSprite2D:flip_h")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -167,7 +167,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -196,7 +196,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = false
-tracks/6/path = NodePath("AnimatedSprite2D:visible")
+tracks/6/path = NodePath("visual/AnimatedSprite2D:visible")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -232,7 +232,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("AnimatedSprite2D/antenna_sprite:animation")
+tracks/9/path = NodePath("visual/AnimatedSprite2D/antenna_sprite:animation")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -352,7 +352,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("AnimatedSprite2D:visible")
+tracks/5/path = NodePath("visual/AnimatedSprite2D:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -392,7 +392,7 @@ length = 0.8
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/path = NodePath("visual/AnimatedSprite2D:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -404,7 +404,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D/antenna_sprite:animation")
+tracks/1/path = NodePath("visual/AnimatedSprite2D/antenna_sprite:animation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -456,7 +456,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/path = NodePath("visual/AnimatedSprite2D:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -468,7 +468,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D/antenna_sprite:animation")
+tracks/1/path = NodePath("visual/AnimatedSprite2D/antenna_sprite:animation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -484,7 +484,7 @@ length = 0.8
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/path = NodePath("visual/AnimatedSprite2D:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -514,15 +514,16 @@ attack = 5
 speed = 4
 is_stationary = true
 
-[node name="AnimatedSprite2D" parent="." index="1"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="visual" index="0"]
+y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_vjs0u")
-animation = &"default"
+autoplay = "default"
 
-[node name="antenna_sprite" type="AnimatedSprite2D" parent="AnimatedSprite2D" index="0"]
+[node name="antenna_sprite" type="AnimatedSprite2D" parent="visual/AnimatedSprite2D" index="0"]
 sprite_frames = SubResource("SpriteFrames_m4jya")
 animation = &"spinning"
 autoplay = "default"
-frame_progress = 0.601091
+frame_progress = 0.572094
 offset = Vector2(0, -30)
 
 [node name="summon drone" parent="Actions" index="0" instance=ExtResource("3_ijl66")]
@@ -530,12 +531,12 @@ offset = Vector2(0, -30)
 [node name="HealthBar" parent="." index="3"]
 offset_right = -37.0
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="8"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="7"]
 libraries = {
 "": SubResource("AnimationLibrary_8v7bq")
 }
 
-[node name="wave" type="Sprite2D" parent="." index="9"]
+[node name="wave" type="Sprite2D" parent="." index="8"]
 visible = false
 modulate = Color(0.443137, 0.215686, 0.588235, 1)
 z_index = 1
