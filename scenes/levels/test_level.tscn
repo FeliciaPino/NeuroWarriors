@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://by2t4l3fto5ou"]
+[gd_scene load_steps=20 format=3 uid="uid://by2t4l3fto5ou"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_jt04v"]
 [ext_resource type="Texture2D" uid="uid://daakoqoug8tly" path="res://assets/destroyed_city_background1.png" id="2_7nwux"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://cmccd8rxiyqab" path="res://scenes/characters/neuro_sama.tscn" id="5_gqr5d"]
 [ext_resource type="Texture2D" uid="uid://duwanoipd03rk" path="res://assets/ui/selection_circle.png" id="5_x2aaw"]
 [ext_resource type="PackedScene" uid="uid://b6410g70liyhb" path="res://scenes/characters/evil.tscn" id="7_4yh8k"]
-[ext_resource type="PackedScene" uid="uid://c85gj43e28h10" path="res://scenes/characters/enemies/defensive_drone.tscn" id="7_di33t"]
 [ext_resource type="AudioStream" uid="uid://cdbbs3cm1pli5" path="res://addons/Pixel_boy/theme-7.ogg" id="9_8kw85"]
 [ext_resource type="PackedScene" uid="uid://b3wy6ts3hkpc5" path="res://scenes/characters/enemies/monocopter.tscn" id="9_83j5g"]
 [ext_resource type="PackedScene" uid="uid://d4f0gy2sw12hv" path="res://scenes/ui/end_screen.tscn" id="10_46ql1"]
@@ -138,18 +137,15 @@ position = Vector2(1250, 386)
 
 [node name="monocopter" parent="Entity_manager" instance=ExtResource("9_83j5g")]
 position = Vector2(1273, 481)
+speed = 2
 
-[node name="defensive drone" parent="Entity_manager" instance=ExtResource("7_di33t")]
-position = Vector2(1375, 409)
+[node name="monocopter2" parent="Entity_manager" instance=ExtResource("9_83j5g")]
+position = Vector2(1273, 481)
+speed = 2
 
-[node name="defensive drone2" parent="Entity_manager" instance=ExtResource("7_di33t")]
-position = Vector2(1375, 409)
-
-[node name="defensive drone3" parent="Entity_manager" instance=ExtResource("7_di33t")]
-position = Vector2(1375, 409)
-
-[node name="defensive drone4" parent="Entity_manager" instance=ExtResource("7_di33t")]
-position = Vector2(1375, 409)
+[node name="monocopter3" parent="Entity_manager" instance=ExtResource("9_83j5g")]
+position = Vector2(1273, 481)
+speed = 2
 
 [node name="Background" type="AnimatedSprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.8)

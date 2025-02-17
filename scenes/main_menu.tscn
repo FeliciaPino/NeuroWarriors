@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://uyf2xv345f10"]
+[gd_scene load_steps=22 format=3 uid="uid://uyf2xv345f10"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_3ih0l"]
 [ext_resource type="AudioStream" uid="uid://d2d5vwfjxrhic" path="res://assets/audio/music/4.ogg" id="2_15ktm"]
@@ -71,6 +71,18 @@ height = 2000
 color_ramp = SubResource("Gradient_65oio")
 noise = SubResource("FastNoiseLite_5vb46")
 
+[sub_resource type="Gradient" id="Gradient_d00tc"]
+colors = PackedColorArray(0, 0, 0, 0, 0.77, 0.5005, 0.698133, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_hha1p"]
+frequency = 0.0029
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3hj7a"]
+width = 2000
+height = 2000
+color_ramp = SubResource("Gradient_d00tc")
+noise = SubResource("FastNoiseLite_hha1p")
+
 [sub_resource type="Animation" id="Animation_plsn7"]
 length = 0.001
 tracks/0/type = "value"
@@ -88,7 +100,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../TextureRect2:rotation")
+tracks/1/path = NodePath("Background2:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -117,7 +129,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../TextureRect2:rotation")
+tracks/1/path = NodePath("Background2:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -133,17 +145,317 @@ _data = {
 "animation": SubResource("Animation_fqlbf")
 }
 
-[sub_resource type="Gradient" id="Gradient_d00tc"]
-colors = PackedColorArray(0, 0, 0, 0, 0.77, 0.5005, 0.698133, 1)
+[sub_resource type="Animation" id="Animation_k25q4"]
+resource_name = "FadeToSaveSlots"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 1),
+"transitions": PackedFloat32Array(0.535887, 1.86607, 1),
+"update": 0,
+"values": [Vector2(161, 83), Vector2(161, 50), Vector2(161, -400)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Title:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.392157), Color(1, 1, 1, 0.0784314)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Title:z_index")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [-3, -6]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MenuMenus:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(39, 442), Vector2(0, 442), Vector2(-600, 442)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MenuMenus:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.392157), Color(1, 1, 1, 0.392157)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MenuMenus:z_index")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, -6]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Title:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.2, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.8, 0.8), Vector2(0.6, 0.6)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("MenuMenus:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.2, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.8, 0.8), Vector2(0.6, 0.6)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("SaveSlots/ReturnToMenuButton:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-450, 800), Vector2(-450, 340), Vector2(-450, 300)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("SaveSlots/ReturnToMenuButton:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.0784314), Color(1, 1, 1, 0.392157), Color(1, 1, 1, 1)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("SaveSlots/ReturnToMenuButton:z_index")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [-7, -6, 0]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("SaveSlots/ReturnToMenuButton:scale")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.6, 0.6), Vector2(0.8, 0.8), Vector2(1, 1)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("SaveSlots/Slots:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -450), Vector2(0, 30), Vector2(0, 70)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("SaveSlots/Slots:modulate")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.0784314), Color(1, 1, 1, 0.392157), Color(1, 1, 1, 1)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("SaveSlots/Slots:z_index")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [-7, -6, 0]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("SaveSlots/Slots:scale")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.6, 0.6), Vector2(0.8, 0.8), Vector2(1, 1)]
+}
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_hha1p"]
-frequency = 0.0029
+[sub_resource type="Animation" id="Animation_57ta3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(161, 83)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Title:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Title:z_index")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [-1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MenuMenus:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(39, 442)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MenuMenus:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MenuMenus:z_index")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Title:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("MenuMenus:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("SaveSlots/ReturnToMenuButton:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-550, 1600)]
+}
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3hj7a"]
-width = 2000
-height = 2000
-color_ramp = SubResource("Gradient_d00tc")
-noise = SubResource("FastNoiseLite_hha1p")
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_heiu7"]
+_data = {
+"FadeToSaveSlots": SubResource("Animation_k25q4"),
+"RESET": SubResource("Animation_57ta3")
+}
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -171,7 +483,8 @@ offset_bottom = 383.0
 pivot_offset = Vector2(400, 200)
 texture = ExtResource("4_seej8")
 
-[node name="moving title" type="AnimationPlayer" parent="."]
+[node name="moving title" type="AnimationPlayer" parent="Title"]
+root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_kqvf1")
 }
@@ -193,8 +506,8 @@ offset_right = 1084.0
 offset_bottom = 628.0
 text = "Neuro control"
 
-[node name="TextureRect" type="TextureRect" parent="."]
-z_index = -11
+[node name="Background1" type="TextureRect" parent="."]
+z_index = -10
 layout_mode = 0
 offset_left = -431.0
 offset_top = -1015.0
@@ -204,99 +517,153 @@ pivot_offset = Vector2(1000, 1000)
 mouse_filter = 2
 texture = SubResource("NoiseTexture2D_jar63")
 
-[node name="background animation" type="AnimationPlayer" parent="TextureRect"]
+[node name="Background2" type="TextureRect" parent="Background1"]
+modulate = Color(1, 1, 1, 0.678431)
+z_index = -5
+layout_mode = 0
+offset_left = 2.0
+offset_top = 20.0
+offset_right = 2002.0
+offset_bottom = 2020.0
+pivot_offset = Vector2(1000, 1000)
+mouse_filter = 2
+texture = SubResource("NoiseTexture2D_3hj7a")
+
+[node name="background animation" type="AnimationPlayer" parent="Background1"]
 libraries = {
 "": SubResource("AnimationLibrary_1wsp1")
 }
 autoplay = "animation"
 
-[node name="TextureRect2" type="TextureRect" parent="."]
-modulate = Color(1, 1, 1, 0.678431)
-z_index = -10
-layout_mode = 0
-offset_left = -429.0
-offset_top = -995.0
-offset_right = 1571.0
-offset_bottom = 1005.0
-pivot_offset = Vector2(1000, 1000)
-mouse_filter = 2
-texture = SubResource("NoiseTexture2D_3hj7a")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="MenuMenus" type="HBoxContainer" parent="."]
 layout_mode = 0
 offset_left = 39.0
 offset_top = 442.0
-offset_right = 632.0
+offset_right = 680.0
 offset_bottom = 567.0
+theme_override_constants/separation = 40
 
-[node name="buttons" type="VBoxContainer" parent="HBoxContainer"]
+[node name="MenuButtons" type="VBoxContainer" parent="MenuMenus"]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="play_button" type="Button" parent="HBoxContainer/buttons"]
+[node name="PlayButton" type="Button" parent="MenuMenus/MenuButtons"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 text = "MAIN_MENU_PLAY_BUTTON"
 
-[node name="howtoplay" type="Button" parent="HBoxContainer/buttons"]
+[node name="howtoplay" type="Button" parent="MenuMenus/MenuButtons"]
 visible = false
 layout_mode = 2
 text = "HOW TO PLAY"
 
-[node name="options_button" type="Button" parent="HBoxContainer/buttons"]
+[node name="OptionsButton" type="Button" parent="MenuMenus/MenuButtons"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 toggle_mode = true
 text = "MAIN_MENU_OPTIONS_BUTTON"
 
-[node name="exit_button" type="Button" parent="HBoxContainer/buttons"]
+[node name="ExitButton" type="Button" parent="MenuMenus/MenuButtons"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 text = "MAIN_MENU_EXIT_BUTTON"
 
-[node name="options_menu" type="VBoxContainer" parent="HBoxContainer"]
+[node name="OptionsMenu" type="VBoxContainer" parent="MenuMenus"]
+unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/options_menu"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MenuMenus/OptionsMenu"]
 layout_mode = 2
+theme_override_constants/separation = 10
 
-[node name="Label" type="Label" parent="HBoxContainer/options_menu/HBoxContainer"]
+[node name="Label" type="Label" parent="MenuMenus/OptionsMenu/HBoxContainer"]
 layout_mode = 2
 text = "MAIN_MENU_LANGUAGE"
 
-[node name="english_button" type="Button" parent="HBoxContainer/options_menu/HBoxContainer"]
+[node name="english_button" type="Button" parent="MenuMenus/OptionsMenu/HBoxContainer"]
 layout_mode = 2
 text = "english"
 
-[node name="spanish_button" type="Button" parent="HBoxContainer/options_menu/HBoxContainer"]
+[node name="spanish_button" type="Button" parent="MenuMenus/OptionsMenu/HBoxContainer"]
 layout_mode = 2
 text = "español"
 
-[node name="musicvolume" type="Label" parent="HBoxContainer/options_menu"]
+[node name="MusicSliderLabel" type="Label" parent="MenuMenus/OptionsMenu"]
 layout_mode = 2
 text = "Music volume"
 horizontal_alignment = 1
 
-[node name="musicVolume" type="HSlider" parent="HBoxContainer/options_menu"]
+[node name="MusicSlider" type="HSlider" parent="MenuMenus/OptionsMenu"]
+unique_name_in_owner = true
 layout_mode = 2
 min_value = -40.0
 max_value = 40.0
 
-[node name="effects volume" type="Label" parent="HBoxContainer/options_menu"]
+[node name="SFXSliderLabel" type="Label" parent="MenuMenus/OptionsMenu"]
 layout_mode = 2
 text = "Effects volume"
 horizontal_alignment = 1
 
-[node name="sound_effects_volume" type="HSlider" parent="HBoxContainer/options_menu"]
+[node name="SFXSlider" type="HSlider" parent="MenuMenus/OptionsMenu"]
+unique_name_in_owner = true
 layout_mode = 2
 min_value = -50.0
 max_value = 50.0
 
+[node name="SaveSlots" type="Control" parent="."]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_left = 550.0
+offset_top = 200.0
+offset_right = 590.0
+offset_bottom = 240.0
+
+[node name="Slots" type="VBoxContainer" parent="SaveSlots"]
+modulate = Color(1, 1, 1, 0.0784314)
+z_index = -7
+layout_mode = 0
+offset_top = -450.0
+offset_right = 40.0
+offset_bottom = -349.0
+scale = Vector2(0.6, 0.6)
+
+[node name="SaveSlot1" type="Button" parent="SaveSlots/Slots"]
+layout_mode = 2
+text = "aaa"
+
+[node name="SaveSlot2" type="Button" parent="SaveSlots/Slots"]
+layout_mode = 2
+text = "bbb"
+
+[node name="SaveSlot3" type="Button" parent="SaveSlots/Slots"]
+layout_mode = 2
+text = "ccc"
+
+[node name="ReturnToMenuButton" type="Button" parent="SaveSlots"]
+modulate = Color(1, 1, 1, 0.0784314)
+z_index = -7
+layout_mode = 0
+offset_left = -550.0
+offset_top = 1600.0
+offset_right = -496.0
+offset_bottom = 1631.0
+scale = Vector2(0.6, 0.6)
+text = "rrreet"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_heiu7")
+}
+speed_scale = 2.0
+
 [connection signal="toggled" from="CheckButton" to="." method="_on_check_button_toggled"]
-[connection signal="toggled" from="HBoxContainer/buttons/options_button" to="." method="_on_options_button_toggled"]
-[connection signal="pressed" from="HBoxContainer/buttons/exit_button" to="." method="_on_exit_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/options_menu/HBoxContainer/english_button" to="." method="_on_english_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/options_menu/HBoxContainer/spanish_button" to="." method="_on_spanish_button_pressed"]
-[connection signal="value_changed" from="HBoxContainer/options_menu/musicVolume" to="." method="_on_music_volume_value_changed"]
-[connection signal="value_changed" from="HBoxContainer/options_menu/sound_effects_volume" to="." method="_on_sound_effects_volume_value_changed"]
+[connection signal="toggled" from="MenuMenus/MenuButtons/OptionsButton" to="." method="_on_options_button_toggled"]
+[connection signal="pressed" from="MenuMenus/MenuButtons/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="MenuMenus/OptionsMenu/HBoxContainer/english_button" to="." method="_on_english_button_pressed"]
+[connection signal="pressed" from="MenuMenus/OptionsMenu/HBoxContainer/spanish_button" to="." method="_on_spanish_button_pressed"]
+[connection signal="value_changed" from="MenuMenus/OptionsMenu/MusicSlider" to="." method="_on_music_volume_value_changed"]
+[connection signal="value_changed" from="MenuMenus/OptionsMenu/SFXSlider" to="." method="_on_sound_effects_volume_value_changed"]
