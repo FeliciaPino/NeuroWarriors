@@ -25,6 +25,13 @@ func mark_level_complete(level_name: String):
 
 func is_level_completed(level_name: String) -> bool:
 	return completed_levels.get(level_name, false)
+const level_select_scene = preload("res://scenes/levels/level_select.tscn")
+const intro_cutscene_scene = preload("res://scenes/intro_cutscene.tscn")
+func start_game():
+	if flags["watched_intro_cutscene"]:
+		get_tree().change_scene_to_packed(level_select_scene)
+	else:
+		get_tree().change_scene_to_packed(intro_cutscene_scene)
 
 #called when the GameState is deleted, which should be never
 func _exit_tree():

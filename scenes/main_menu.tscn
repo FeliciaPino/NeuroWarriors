@@ -1,10 +1,11 @@
-[gd_scene load_steps=22 format=3 uid="uid://uyf2xv345f10"]
+[gd_scene load_steps=23 format=3 uid="uid://uyf2xv345f10"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_3ih0l"]
 [ext_resource type="AudioStream" uid="uid://d2d5vwfjxrhic" path="res://assets/audio/music/4.ogg" id="2_15ktm"]
 [ext_resource type="Texture2D" uid="uid://daakoqoug8tly" path="res://assets/destroyed_city_background1.png" id="4_71udx"]
 [ext_resource type="Texture2D" uid="uid://de15blxjgtt8w" path="res://assets/ui/title.png" id="4_seej8"]
 [ext_resource type="Texture2D" uid="uid://b1iw4xeonbkc0" path="res://assets/destroyed_city_background2.png" id="5_pp4yy"]
+[ext_resource type="PackedScene" uid="uid://cor1tnnf1b1t0" path="res://scenes/ui/save_slot.tscn" id="6_0ytnp"]
 
 [sub_resource type="Animation" id="Animation_wsd7x"]
 length = 0.001
@@ -630,27 +631,27 @@ offset_top = -450.0
 offset_right = 122.0
 offset_bottom = -349.0
 scale = Vector2(0.6, 0.6)
+theme_override_constants/separation = 50
 
-[node name="SaveSlot1" type="Button" parent="SaveSlots/Slots"]
+[node name="SaveSlot" parent="SaveSlots/Slots" instance=ExtResource("6_0ytnp")]
 layout_mode = 2
-text = "save slot 1"
 
-[node name="SaveSlot2" type="Button" parent="SaveSlots/Slots"]
+[node name="SaveSlot2" parent="SaveSlots/Slots" instance=ExtResource("6_0ytnp")]
 layout_mode = 2
-text = "save slot 2"
+slot_index = 2
 
-[node name="SaveSlot3" type="Button" parent="SaveSlots/Slots"]
+[node name="SaveSlot3" parent="SaveSlots/Slots" instance=ExtResource("6_0ytnp")]
 layout_mode = 2
-text = "save slot 3"
+slot_index = 3
 
 [node name="ReturnToMenuButton" type="Button" parent="SaveSlots"]
 modulate = Color(1, 1, 1, 0.0784314)
 z_index = -7
 layout_mode = 0
-offset_left = -550.0
-offset_top = 1600.0
-offset_right = -419.0
-offset_bottom = 1631.0
+offset_left = -450.0
+offset_top = 800.0
+offset_right = -319.0
+offset_bottom = 831.0
 scale = Vector2(0.6, 0.6)
 text = "Return to menu"
 

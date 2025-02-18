@@ -19,16 +19,12 @@ func _ready() -> void:
 	
 	return_to_main_menu_button.pressed.connect(animation_player.play_backwards.bind("FadeToSaveSlots"))
 	
-	#save slots
-	var n = 0
-	for slot_button:Button in save_slots.get_children():
-		n += 1
-		slot_button.pressed.connect(play.bind(n))
-		#TODO load the main information of the save file (maybe play time, completion status)
-		
 	
 func got_to_save_slots():
 	animation_player.play("FadeToSaveSlots")
+	for slot in save_slots.get_children():
+		slot.update_text()
+	
 func play(save_slot_index:int):
 	SaveManager.load_game(save_slot_index)
 	GameState.current_save_slot_index = save_slot_index
@@ -36,7 +32,7 @@ func play(save_slot_index:int):
 		get_tree().change_scene_to_file("res://scenes/levels/level_select.tscn")
 	else:
 		get_tree().change_scene_to_file("res://scenes/intro_cutscene.tscn")
-	
+
 
 
 func _on_options_button_toggled(toggled_on: bool) -> void:

@@ -52,4 +52,11 @@ func load_game(save_slot_index:int):
 		GameState.flags = loaded_dict
 	else:
 		GameState.flags = GameState.DEFAULT_VALUES["flags"].duplicate()
+		
+func delete_save(save_slot_index:int):
+	var directory_path = str("user://saves/slot",save_slot_index)
+	ensure_directory(directory_path)
+	var dir = DirAccess.open(directory_path)
+	for file in dir.get_files():
+		dir.remove(directory_path + "/" + file)
 	
