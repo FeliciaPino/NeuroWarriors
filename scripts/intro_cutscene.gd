@@ -4,8 +4,10 @@ extends Control
 @onready var skip_button = $skip_button
 @onready var skip_button_timer = $skip_button_timer
 @onready var button_animation_player = $buttonAnimation
+
+const level_select_scene = preload("res://scenes/levels/level_select.tscn")
 func _ready() -> void:
-	GameState.wached_intro_cutscene = true
+	GameState.flags["watched_intro_cutscene"] = true
 	for child in frames.get_children():
 		child.visible = false
 	skip_button.pressed.connect(return_to_level_select)
@@ -14,7 +16,7 @@ func _ready() -> void:
 	animation_player.play("intro_cutscene")
 	
 func return_to_level_select():
-	get_tree().change_scene_to_file("res://scenes/levels/level_select.tscn")
+	get_tree().change_scene_to_packed(level_select_scene)
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed and skip_button_timer.is_stopped():
 		print("show button")

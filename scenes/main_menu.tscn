@@ -29,7 +29,7 @@ tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("Title:rotation")
-tracks/0/interp = 4
+tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 2),
@@ -627,21 +627,21 @@ modulate = Color(1, 1, 1, 0.0784314)
 z_index = -7
 layout_mode = 0
 offset_top = -450.0
-offset_right = 40.0
+offset_right = 122.0
 offset_bottom = -349.0
 scale = Vector2(0.6, 0.6)
 
 [node name="SaveSlot1" type="Button" parent="SaveSlots/Slots"]
 layout_mode = 2
-text = "aaa"
+text = "save slot 1"
 
 [node name="SaveSlot2" type="Button" parent="SaveSlots/Slots"]
 layout_mode = 2
-text = "bbb"
+text = "save slot 2"
 
 [node name="SaveSlot3" type="Button" parent="SaveSlots/Slots"]
 layout_mode = 2
-text = "ccc"
+text = "save slot 3"
 
 [node name="ReturnToMenuButton" type="Button" parent="SaveSlots"]
 modulate = Color(1, 1, 1, 0.0784314)
@@ -649,10 +649,10 @@ z_index = -7
 layout_mode = 0
 offset_left = -550.0
 offset_top = 1600.0
-offset_right = -496.0
+offset_right = -419.0
 offset_bottom = 1631.0
 scale = Vector2(0.6, 0.6)
-text = "rrreet"
+text = "Return to menu"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

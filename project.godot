@@ -21,6 +21,7 @@ config/icon="res://assets/drone_logo.png"
 
 GameState="*res://scripts/GameState.gd"
 neuro_sdk="*res://addons/neuro-sdk/neuro_sdk.tscn"
+SaveManager="*res://scripts/SaveManager.gd"
 
 [debug]
 
