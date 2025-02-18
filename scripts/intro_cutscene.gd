@@ -46,7 +46,7 @@ func previous_frame():
 	await get_tree().create_tween().tween_property(fade,"modulate",Color(0,0,0,0),0.7).finished
 
 func return_to_level_select():
-	get_tree().change_scene_to_packed(level_select_scene)
+	GameState.start_game()
 func _input(event: InputEvent) -> void:
 	pass
 		

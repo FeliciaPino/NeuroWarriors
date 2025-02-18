@@ -19,3 +19,5 @@ CUTSCENE_FRAME_6,"With a brand new body and her first taste of sunlight, Neuro e
 CUTSCENE_NEXT,Next,Siguiente
 CUTSCENE_PREVIOUS,Previous,Anterior
 CUTSCENE_SKIP,Skip,Saltar
+LEVEL_SELECT_WATCH_CUTSCENE, Watch cutscene again, Ver cinematica de nuevo
+LEVEL_SELECT_RETURN_TO_MENU, Return to menu, Volver al menu

@@ -479,9 +479,9 @@ parameters/looping = true
 z_index = -1
 layout_mode = 0
 offset_left = 161.0
-offset_top = -400.0
+offset_top = 83.0
 offset_right = 961.0
-offset_bottom = -100.0
+offset_bottom = 383.0
 pivot_offset = Vector2(400, 200)
 texture = ExtResource("4_seej8")
 
@@ -539,9 +539,9 @@ autoplay = "animation"
 
 [node name="MenuMenus" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_left = -600.0
+offset_left = 60.0
 offset_top = 442.0
-offset_right = 41.0
+offset_right = 701.0
 offset_bottom = 592.0
 theme_override_constants/separation = 60
 
@@ -626,22 +626,28 @@ offset_right = 616.0
 offset_bottom = 240.0
 
 [node name="ReturnToMenuButton" type="Button" parent="SaveSlots"]
+modulate = Color(1, 1, 1, 0.117647)
+z_index = -7
 custom_minimum_size = Vector2(160, 30)
 layout_mode = 0
 offset_left = -500.0
-offset_top = 380.0
+offset_top = 800.0
 offset_right = -340.0
-offset_bottom = 411.0
+offset_bottom = 831.0
+scale = Vector2(0.6, 0.6)
 pivot_offset = Vector2(80, 0)
 text = "Return to menu"
 
 [node name="Slots" type="VBoxContainer" parent="SaveSlots"]
+modulate = Color(1, 1, 1, 0.0784314)
+z_index = -7
 custom_minimum_size = Vector2(600, 150)
 layout_mode = 0
-offset_left = -300.0
-offset_top = 70.0
-offset_right = 300.0
-offset_bottom = 220.0
+offset_left = -330.0
+offset_top = -450.0
+offset_right = 270.0
+offset_bottom = -300.0
+scale = Vector2(0.6, 0.6)
 pivot_offset = Vector2(300, 0)
 theme_override_constants/separation = 10
 alignment = 2
