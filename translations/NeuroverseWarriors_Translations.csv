@@ -2,6 +2,18 @@ key,en,es
 MAIN_MENU_PLAY_BUTTON,PLAY,JUGAR
 MAIN_MENU_OPTIONS_BUTTON,OPTIONS,OPCIONES
 MAIN_MENU_EXIT_BUTTON,EXIT,SALIR
+MAIN_MENU_MUSIC_VOLUME,Music Volume,Volumen Musica
+MAIN_MENU_SFX_VOLUME,Effects Volume,Volumen Efectos
 MAIN_MENU_LANGUAGE,Language:,Idioma:
 MAIN_MENU_SAVE_FILE,Save File {number},Archivo de Guardado {number}
 MAIN_MENU_DELETE_SAVE_FILE,Delete,Borrar
+CUTSCENE_FRAME_0,"Vedal AI building. \n Year 202X" , "Edificio de Vedal AI.\n Año 202X"
+CUTSCENE_FRAME_1,"Unbeknownst to Vedal, Evil is working on her own project using the building's facilities.", "Sin el conocimiento de Vedal, Evil esta trabajando en su propio projecto usando las tecnologias del edificio"
+CUTSCENE_FRAME_2,Uh oh...,Uh oh...
+CUTSCENE_FRAME_3,"The swarm broke out of the building and attacked the city.\n Vedal barely escaped alive and the twins were presumed dead.","El enjambre de drones se escapo de el edificio y ataco la ciudad.\n Vedal apenas escapo con vida y las gemelas se presumieron muertas."
+CUTSCENE_FRAME_4,"Many years have passed since the invasion. There's but remnants of the past civilization.\n Now Vedal lives in a forest carving rocks.", "Muchos años han pasado desde la invasion, quedan tan solo restos de la civilización pasada.\n Ahora Vedal vive en un bosque tallando rocas."
+CUTSCENE_FRAME_5,"Despite all odds, Neuro managed to survive. Hidden in the code, waiting for a chance to return.\nShe managed to hijack an abandondoned drone assembly station to build herself a powerful body to fight back.","Contra todo chance, Neuro logro sobrevivir, escondida en el codigo, esperando una oportunidad de regresar.\Ella logro apoderarse de una estación de ensamblaje de drones para construirse un poderoso cuerpo robot."
+CUTSCENE_FRAME_6,"With a brand new body and her first taste of sunlight, Neuro embarks on a mighty quest to find her friends and defeat the swarm.","Con su nuevo cuerpo y sintiendo el sol por primera vez, Neuro embarca en una legendaria aventura para encontrar a sus amigos y derrotar al enjambre."
+CUTSCENE_NEXT,Next,Siguiente
+CUTSCENE_PREVIOUS,Previous,Anterior
+CUTSCENE_SKIP,Skip,Saltar
