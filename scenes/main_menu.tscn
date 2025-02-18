@@ -148,6 +148,7 @@ _data = {
 
 [sub_resource type="Animation" id="Animation_k25q4"]
 resource_name = "FadeToSaveSlots"
+length = 1.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -155,7 +156,7 @@ tracks/0/path = NodePath("Title:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 1),
+"times": PackedFloat32Array(0, 0.2, 0.8),
 "transitions": PackedFloat32Array(0.535887, 1.86607, 1),
 "update": 0,
 "values": [Vector2(161, 83), Vector2(161, 50), Vector2(161, -400)]
@@ -167,7 +168,7 @@ tracks/1/path = NodePath("Title:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 1),
+"times": PackedFloat32Array(0, 0.2, 0.8),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.392157), Color(1, 1, 1, 0.0784314)]
@@ -191,10 +192,10 @@ tracks/3/path = NodePath("MenuMenus:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.2, 1),
+"times": PackedFloat32Array(0, 0.2, 0.8),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(39, 442), Vector2(0, 442), Vector2(-600, 442)]
+"values": [Vector2(60, 442), Vector2(0, 442), Vector2(-600, 442)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -203,7 +204,7 @@ tracks/4/path = NodePath("MenuMenus:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.2, 1),
+"times": PackedFloat32Array(0, 0.2, 0.8),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.392157), Color(1, 1, 1, 0.392157)]
@@ -227,7 +228,7 @@ tracks/6/path = NodePath("Title:scale")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.2, 1),
+"times": PackedFloat32Array(0, 0.2, 0.8),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(1, 1), Vector2(0.8, 0.8), Vector2(0.6, 0.6)]
@@ -239,7 +240,7 @@ tracks/7/path = NodePath("MenuMenus:scale")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0, 0.2, 1),
+"times": PackedFloat32Array(0, 0.2, 0.8),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(1, 1), Vector2(0.8, 0.8), Vector2(0.6, 0.6)]
@@ -251,10 +252,10 @@ tracks/8/path = NodePath("SaveSlots/ReturnToMenuButton:position")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0, 0.8, 1),
+"times": PackedFloat32Array(0.8, 1.4, 1.6),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(-450, 800), Vector2(-450, 340), Vector2(-450, 300)]
+"values": [Vector2(-500, 800), Vector2(-500, 420), Vector2(-500, 380)]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
@@ -263,10 +264,10 @@ tracks/9/path = NodePath("SaveSlots/ReturnToMenuButton:modulate")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(0, 0.8, 1),
+"times": PackedFloat32Array(0.8, 1.4, 1.6),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0.0784314), Color(1, 1, 1, 0.392157), Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 0.117647), Color(1, 1, 1, 0.392157), Color(1, 1, 1, 1)]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
@@ -275,7 +276,7 @@ tracks/10/path = NodePath("SaveSlots/ReturnToMenuButton:z_index")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
-"times": PackedFloat32Array(0, 0.8, 1),
+"times": PackedFloat32Array(0.8, 1.4, 1.6),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [-7, -6, 0]
@@ -287,7 +288,7 @@ tracks/11/path = NodePath("SaveSlots/ReturnToMenuButton:scale")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
-"times": PackedFloat32Array(0, 0.8, 1),
+"times": PackedFloat32Array(0.8, 1.4, 1.6),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(0.6, 0.6), Vector2(0.8, 0.8), Vector2(1, 1)]
@@ -295,50 +296,50 @@ tracks/11/keys = {
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("SaveSlots/Slots:position")
+tracks/12/path = NodePath("SaveSlots/Slots:scale")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
-"times": PackedFloat32Array(0, 0.8, 1),
+"times": PackedFloat32Array(0.8, 1.4, 1.6),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(0, -450), Vector2(0, 30), Vector2(0, 70)]
+"values": [Vector2(0.6, 0.6), Vector2(0.8, 0.8), Vector2(1, 1)]
 }
 tracks/13/type = "value"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("SaveSlots/Slots:modulate")
+tracks/13/path = NodePath("SaveSlots/Slots:z_index")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
-"times": PackedFloat32Array(0, 0.8, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0.0784314), Color(1, 1, 1, 0.392157), Color(1, 1, 1, 1)]
-}
-tracks/14/type = "value"
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/path = NodePath("SaveSlots/Slots:z_index")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/keys = {
-"times": PackedFloat32Array(0, 0.8, 1),
+"times": PackedFloat32Array(0.8, 1.4, 1.6),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [-7, -6, 0]
 }
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("SaveSlots/Slots:modulate")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0.8, 1.4, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.0784314), Color(1, 1, 1, 0.392157), Color(1, 1, 1, 1)]
+}
 tracks/15/type = "value"
 tracks/15/imported = false
 tracks/15/enabled = true
-tracks/15/path = NodePath("SaveSlots/Slots:scale")
+tracks/15/path = NodePath("SaveSlots/Slots:position")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
-"times": PackedFloat32Array(0, 0.8, 1),
+"times": PackedFloat32Array(0.8, 1.4, 1.6),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(0.6, 0.6), Vector2(0.8, 0.8), Vector2(1, 1)]
+"values": [Vector2(-330, -450), Vector2(-300, 30), Vector2(-300, 70)]
 }
 
 [sub_resource type="Animation" id="Animation_57ta3"]
@@ -478,9 +479,9 @@ parameters/looping = true
 z_index = -1
 layout_mode = 0
 offset_left = 161.0
-offset_top = 83.0
+offset_top = -400.0
 offset_right = 961.0
-offset_bottom = 383.0
+offset_bottom = -100.0
 pivot_offset = Vector2(400, 200)
 texture = ExtResource("4_seej8")
 
@@ -538,13 +539,14 @@ autoplay = "animation"
 
 [node name="MenuMenus" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 39.0
+offset_left = -600.0
 offset_top = 442.0
-offset_right = 680.0
-offset_bottom = 567.0
-theme_override_constants/separation = 40
+offset_right = 41.0
+offset_bottom = 592.0
+theme_override_constants/separation = 60
 
 [node name="MenuButtons" type="VBoxContainer" parent="MenuMenus"]
+custom_minimum_size = Vector2(256, 150)
 layout_mode = 2
 theme_override_constants/separation = 10
 
@@ -595,7 +597,7 @@ text = "español"
 
 [node name="MusicSliderLabel" type="Label" parent="MenuMenus/OptionsMenu"]
 layout_mode = 2
-text = "Music volume"
+text = "MAIN_MENU_MUSIC_VOLUME"
 horizontal_alignment = 1
 
 [node name="MusicSlider" type="HSlider" parent="MenuMenus/OptionsMenu"]
@@ -606,7 +608,7 @@ max_value = 40.0
 
 [node name="SFXSliderLabel" type="Label" parent="MenuMenus/OptionsMenu"]
 layout_mode = 2
-text = "Effects volume"
+text = "MAIN_MENU_SFX_VOLUME"
 horizontal_alignment = 1
 
 [node name="SFXSlider" type="HSlider" parent="MenuMenus/OptionsMenu"]
@@ -618,20 +620,31 @@ max_value = 50.0
 [node name="SaveSlots" type="Control" parent="."]
 unique_name_in_owner = true
 anchors_preset = 0
-offset_left = 550.0
+offset_left = 576.0
 offset_top = 200.0
-offset_right = 590.0
+offset_right = 616.0
 offset_bottom = 240.0
 
-[node name="Slots" type="VBoxContainer" parent="SaveSlots"]
-modulate = Color(1, 1, 1, 0.0784314)
-z_index = -7
+[node name="ReturnToMenuButton" type="Button" parent="SaveSlots"]
+custom_minimum_size = Vector2(160, 30)
 layout_mode = 0
-offset_top = -450.0
-offset_right = 122.0
-offset_bottom = -349.0
-scale = Vector2(0.6, 0.6)
-theme_override_constants/separation = 50
+offset_left = -500.0
+offset_top = 380.0
+offset_right = -340.0
+offset_bottom = 411.0
+pivot_offset = Vector2(80, 0)
+text = "Return to menu"
+
+[node name="Slots" type="VBoxContainer" parent="SaveSlots"]
+custom_minimum_size = Vector2(600, 150)
+layout_mode = 0
+offset_left = -300.0
+offset_top = 70.0
+offset_right = 300.0
+offset_bottom = 220.0
+pivot_offset = Vector2(300, 0)
+theme_override_constants/separation = 10
+alignment = 2
 
 [node name="SaveSlot" parent="SaveSlots/Slots" instance=ExtResource("6_0ytnp")]
 layout_mode = 2
@@ -643,17 +656,6 @@ slot_index = 2
 [node name="SaveSlot3" parent="SaveSlots/Slots" instance=ExtResource("6_0ytnp")]
 layout_mode = 2
 slot_index = 3
-
-[node name="ReturnToMenuButton" type="Button" parent="SaveSlots"]
-modulate = Color(1, 1, 1, 0.0784314)
-z_index = -7
-layout_mode = 0
-offset_left = -450.0
-offset_top = 800.0
-offset_right = -319.0
-offset_bottom = 831.0
-scale = Vector2(0.6, 0.6)
-text = "Return to menu"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

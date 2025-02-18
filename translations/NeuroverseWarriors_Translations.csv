@@ -7,6 +7,8 @@ MAIN_MENU_SFX_VOLUME,Effects Volume,Volumen Efectos
 MAIN_MENU_LANGUAGE,Language:,Idioma:
 MAIN_MENU_SAVE_FILE,Save File {number},Archivo de Guardado {number}
 MAIN_MENU_DELETE_SAVE_FILE,Delete,Borrar
+MAIN_MENU_NEW_GAME,New Game,Nuevo Juego
+MAIN_MENU_CONTINUE,Continue,Continuar
 CUTSCENE_FRAME_0,"Vedal AI building. \n Year 202X" , "Edificio de Vedal AI.\n Año 202X"
 CUTSCENE_FRAME_1,"Unbeknownst to Vedal, Evil is working on her own project using the building's facilities.", "Sin el conocimiento de Vedal, Evil esta trabajando en su propio projecto usando las tecnologias del edificio"
 CUTSCENE_FRAME_2,Uh oh...,Uh oh...

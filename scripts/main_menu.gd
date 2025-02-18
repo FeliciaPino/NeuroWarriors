@@ -5,7 +5,7 @@ extends Control
 @onready var options_menu = %OptionsMenu
 @onready var neuro_control_toggle = $CheckButton
 @onready var return_to_main_menu_button = $SaveSlots/ReturnToMenuButton
-@onready var save_slots = %SaveSlots/Slots
+@onready var save_slots = $SaveSlots/Slots
 @onready var background = $background
 
 @onready var om_music_slider = %MusicSlider

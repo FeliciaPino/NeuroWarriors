@@ -52,7 +52,14 @@ func load_game(save_slot_index:int):
 		GameState.flags = loaded_dict
 	else:
 		GameState.flags = GameState.DEFAULT_VALUES["flags"].duplicate()
-		
+func get_save_info(save_slot_index):
+	var directory_path = str("user://saves/slot",save_slot_index)
+	ensure_directory(directory_path)
+	var directory = DirAccess.open(directory_path)
+	var files = directory.get_files()
+	if files.size()==0:
+		return {}
+	return {"something":"something"}#I still don't really have any pertinent information for the saves to show
 func delete_save(save_slot_index:int):
 	var directory_path = str("user://saves/slot",save_slot_index)
 	ensure_directory(directory_path)

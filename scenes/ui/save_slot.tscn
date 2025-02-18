@@ -2,27 +2,25 @@
 
 [ext_resource type="Script" path="res://scripts/ui/save_slot.gd" id="1_0ksi3"]
 
-[node name="SaveSlot" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="SaveSlot" type="MarginContainer"]
+offset_right = 512.0
+offset_bottom = 40.0
 script = ExtResource("1_0ksi3")
 slot_index = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 0
-offset_right = 354.0
-offset_bottom = 40.0
+layout_mode = 2
+alignment = 1
 
 [node name="LoadButton" type="Button" parent="HBoxContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(256, 40)
 layout_mode = 2
+size_flags_horizontal = 3
 text = "loasdfas [n]"
 
 [node name="DeleteButton" type="Button" parent="HBoxContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(128, 40)
 layout_mode = 2
 text = "MAIN_MENU_DELETE_SAVE_FILE"
