@@ -12,6 +12,7 @@ extends Control
 @onready var om_SFX_slider = %SFXSlider
 func _ready() -> void:
 	play_button.pressed.connect(got_to_save_slots)
+	options_menu.visible = false
 	om_music_slider.value = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music"))
 	om_SFX_slider.value = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("SFX"))
 	background.play("default")

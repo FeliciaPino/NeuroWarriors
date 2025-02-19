@@ -1,9 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://bj5rs4y8fe2v2"]
+[gd_scene load_steps=11 format=3 uid="uid://bj5rs4y8fe2v2"]
 
 [ext_resource type="PackedScene" uid="uid://csb64tig53vlq" path="res://scenes/ui/map_button.tscn" id="1_577n0"]
 [ext_resource type="Script" path="res://scripts/level_select.gd" id="1_i8215"]
 [ext_resource type="Texture2D" uid="uid://dxheorleswbgf" path="res://assets/map.png" id="2_qpw07"]
 [ext_resource type="AudioStream" uid="uid://djsucf4dtk7aj" path="res://addons/Pixel_boy/theme-3.ogg" id="3_56r5g"]
+[ext_resource type="Texture2D" uid="uid://7irniqi17fl2" path="res://assets/neuro.png" id="5_fqbae"]
+[ext_resource type="Texture2D" uid="uid://cp5lh7r4ov0e7" path="res://assets/vedal.png" id="6_apniw"]
+[ext_resource type="Texture2D" uid="uid://dpp1wcbwarp13" path="res://assets/Evil.png" id="7_cr0ck"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j53ir"]
+atlas = ExtResource("5_fqbae")
+region = Rect2(5.85951, 8.91736, 95.0413, 152.893)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ayw1b"]
+atlas = ExtResource("6_apniw")
+region = Rect2(13.9001, 18.7, 84.7, 136.4)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2yepd"]
+atlas = ExtResource("7_cr0ck")
+region = Rect2(11.2001, 20.8, 90.2, 135.3)
 
 [node name="Level_select" type="Control"]
 layout_mode = 3
@@ -166,3 +181,33 @@ volume_db = -20.0
 autoplay = true
 bus = &"Music"
 parameters/looping = true
+
+[node name="TestButton" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 461.0
+offset_top = 352.0
+offset_right = 499.0
+offset_bottom = 383.0
+text = "test
+"
+
+[node name="TestCharactersDisplay" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 402.0
+offset_top = 415.0
+offset_right = 679.0
+offset_bottom = 567.0
+scale = Vector2(0.5, 0.5)
+
+[node name="Neuro-sama" type="TextureRect" parent="TestCharactersDisplay"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_j53ir")
+
+[node name="Vedal" type="TextureRect" parent="TestCharactersDisplay"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_ayw1b")
+
+[node name="Evil" type="TextureRect" parent="TestCharactersDisplay"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_2yepd")

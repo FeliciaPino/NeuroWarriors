@@ -1,12 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://bey518xhr4xwx"]
+[gd_scene load_steps=17 format=3 uid="uid://bey518xhr4xwx"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_hybvs"]
 [ext_resource type="Texture2D" uid="uid://daakoqoug8tly" path="res://assets/destroyed_city_background1.png" id="2_jqp6x"]
 [ext_resource type="Texture2D" uid="uid://b1iw4xeonbkc0" path="res://assets/destroyed_city_background2.png" id="3_cgnm8"]
 [ext_resource type="PackedScene" uid="uid://c0cerfjhi148m" path="res://scenes/entity_manager.tscn" id="4_6ngwi"]
-[ext_resource type="PackedScene" uid="uid://cmccd8rxiyqab" path="res://scenes/characters/neuro_sama.tscn" id="4_8khh0"]
-[ext_resource type="PackedScene" uid="uid://b6410g70liyhb" path="res://scenes/characters/evil.tscn" id="5_ac2j2"]
-[ext_resource type="PackedScene" uid="uid://uwmc3sf7fq3o" path="res://scenes/characters/vedal.tscn" id="6_f3du0"]
 [ext_resource type="Texture2D" uid="uid://duwanoipd03rk" path="res://assets/ui/selection_circle.png" id="8_4j60j"]
 [ext_resource type="PackedScene" uid="uid://c85gj43e28h10" path="res://scenes/characters/enemies/defensive_drone.tscn" id="8_esid3"]
 [ext_resource type="Script" path="res://scripts/end_screen.gd" id="9_f0h0f"]
@@ -197,15 +194,6 @@ sprite_frames = SubResource("SpriteFrames_id0ps")
 
 [node name="Entity_manager" parent="." instance=ExtResource("4_6ngwi")]
 
-[node name="NeuroSama" parent="Entity_manager" instance=ExtResource("4_8khh0")]
-position = Vector2(-220, 547)
-
-[node name="Evil" parent="Entity_manager" instance=ExtResource("5_ac2j2")]
-position = Vector2(-109, 526)
-
-[node name="Vedal" parent="Entity_manager" instance=ExtResource("6_f3du0")]
-position = Vector2(-323, 524)
-
 [node name="defensive drone2" parent="Entity_manager" instance=ExtResource("8_esid3")]
 position = Vector2(1404, 527)
 
@@ -307,6 +295,3 @@ parameters/looping = true
 [node name="lose_sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_gbeah")
 volume_db = -10.0
-
-[connection signal="health_changed" from="Entity_manager/healingDrone" to="Entity_manager/healingDrone/HBoxContainer/HealthBar" method="_on_battle_entity_health_changed"]
-[connection signal="received_damage" from="Entity_manager/healingDrone" to="Entity_manager/healingDrone/HBoxContainer/HealthBar" method="_on_battle_entity_received_damage"]

@@ -1,8 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://0ah4fkx76j5o"]
+[gd_scene load_steps=14 format=3 uid="uid://0ah4fkx76j5o"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_ckyeq"]
 [ext_resource type="Texture2D" uid="uid://dl6b6ewaxaxom" path="res://assets/forest_background.png" id="2_lh705"]
-[ext_resource type="PackedScene" uid="uid://cmccd8rxiyqab" path="res://scenes/characters/neuro_sama.tscn" id="3_h3egk"]
 [ext_resource type="PackedScene" uid="uid://c0cerfjhi148m" path="res://scenes/entity_manager.tscn" id="3_n6gxh"]
 [ext_resource type="PackedScene" uid="uid://du1rkche8wapa" path="res://scenes/characters/enemies/drone.tscn" id="4_ynct8"]
 [ext_resource type="Texture2D" uid="uid://duwanoipd03rk" path="res://assets/ui/selection_circle.png" id="5_i5ab7"]
@@ -178,9 +177,6 @@ position = Vector2(576, 294)
 texture = ExtResource("2_lh705")
 
 [node name="Entity_manager" parent="." instance=ExtResource("3_n6gxh")]
-
-[node name="NeuroSama" parent="Entity_manager" instance=ExtResource("3_h3egk")]
-position = Vector2(-95, 458)
 
 [node name="Drone" parent="Entity_manager" instance=ExtResource("4_ynct8")]
 position = Vector2(1439, 542)

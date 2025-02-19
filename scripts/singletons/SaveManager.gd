@@ -17,11 +17,12 @@ func save_dict(dict:Dictionary, file_path:String)->void:
 	file.store_string(JSON.stringify(dict))
 	
 func save_game(save_slot_index:int):
-	var directory = str("user://saves/slot",save_slot_index)
-	ensure_directory(directory)
+	var directory_path = str("user://saves/slot",save_slot_index)
+	ensure_directory(directory_path)
 	
-	save_dict(GameState.completed_levels,directory+"/levels.json")
-	save_dict(GameState.flags, directory+"/flags.json")
+	save_dict(GameState.completed_levels,directory_path+"/levels.json")
+	save_dict(GameState.flags, directory_path+"/flags.json")
+	save_dict(GameState.characters_save_info, directory_path+"/characters.json")
 
 #returns the loaded dictionary
 func load_dict(file_path:String):
@@ -46,12 +47,20 @@ func load_game(save_slot_index:int):
 	if loaded_dict != null:
 		GameState.completed_levels = loaded_dict
 	else:
-		GameState.completed_levels = GameState.DEFAULT_VALUES["completed_levels"].duplicate()
+		GameState.completed_levels = GameState.DEFAULT_VALUES["completed_levels"].duplicate(true)
+		
 	loaded_dict = load_dict(directory+"/flags.json")
 	if loaded_dict != null:
 		GameState.flags = loaded_dict
 	else:
-		GameState.flags = GameState.DEFAULT_VALUES["flags"].duplicate()
+		GameState.flags = GameState.DEFAULT_VALUES["flags"].duplicate(true)
+		
+	
+	loaded_dict = load_dict(directory+"/characters.json")
+	if loaded_dict != null:
+		GameState.characters_save_info = loaded_dict
+	else:
+		GameState.characters_save_info = GameState.DEFAULT_VALUES["characters_save_info"].duplicate(true)
 func get_save_info(save_slot_index):
 	var directory_path = str("user://saves/slot",save_slot_index)
 	ensure_directory(directory_path)

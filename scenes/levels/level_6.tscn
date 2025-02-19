@@ -1,10 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://fpabcmf0i62b"]
+[gd_scene load_steps=15 format=3 uid="uid://fpabcmf0i62b"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_vxa0n"]
 [ext_resource type="Texture2D" uid="uid://dl6b6ewaxaxom" path="res://assets/forest_background.png" id="2_kg6tm"]
 [ext_resource type="PackedScene" uid="uid://c0cerfjhi148m" path="res://scenes/entity_manager.tscn" id="3_45m0p"]
-[ext_resource type="PackedScene" uid="uid://cmccd8rxiyqab" path="res://scenes/characters/neuro_sama.tscn" id="3_j2vf3"]
-[ext_resource type="PackedScene" uid="uid://uwmc3sf7fq3o" path="res://scenes/characters/vedal.tscn" id="4_mh72k"]
 [ext_resource type="PackedScene" uid="uid://du1rkche8wapa" path="res://scenes/characters/enemies/drone.tscn" id="5_7rjcs"]
 [ext_resource type="PackedScene" uid="uid://c85gj43e28h10" path="res://scenes/characters/enemies/defensive_drone.tscn" id="7_4nvvf"]
 [ext_resource type="Texture2D" uid="uid://duwanoipd03rk" path="res://assets/ui/selection_circle.png" id="7_xonnl"]
@@ -180,12 +178,6 @@ position = Vector2(576, 294)
 texture = ExtResource("2_kg6tm")
 
 [node name="Entity_manager" parent="." instance=ExtResource("3_45m0p")]
-
-[node name="Vedal" parent="Entity_manager" instance=ExtResource("4_mh72k")]
-position = Vector2(-69, 388)
-
-[node name="NeuroSama" parent="Entity_manager" instance=ExtResource("3_j2vf3")]
-position = Vector2(-172, 492)
 
 [node name="Drone" parent="Entity_manager" instance=ExtResource("5_7rjcs")]
 position = Vector2(1321, 362)

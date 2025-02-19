@@ -25,7 +25,7 @@ func set_win_status(value:bool):
 		lose_sound.play()
 		var button = Button.new()
 		button.text = "retry"
-		button.pressed.connect(get_tree().reload_current_scene)
+		button.pressed.connect(BattleMaker.go_to_level.bind(GameState.current_level_path))
 		vBoxContainer.add_child(button)
 	#this is ugly
 	end_turn_button.disabled = true

@@ -1,13 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://b82kauwohbvun"]
+[gd_scene load_steps=12 format=3 uid="uid://b82kauwohbvun"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_5lrye"]
-[ext_resource type="Texture2D" uid="uid://dl6b6ewaxaxom" path="res://assets/forest_background.png" id="2_0p0hf"]
-[ext_resource type="PackedScene" uid="uid://du1rkche8wapa" path="res://scenes/characters/enemies/drone.tscn" id="4_gwsji"]
-[ext_resource type="PackedScene" uid="uid://cmccd8rxiyqab" path="res://scenes/characters/neuro_sama.tscn" id="5_p7tw6"]
+[ext_resource type="PackedScene" uid="uid://c0cerfjhi148m" path="res://scenes/entity_manager.tscn" id="3_iprcq"]
 [ext_resource type="Texture2D" uid="uid://duwanoipd03rk" path="res://assets/ui/selection_circle.png" id="6_ow8lb"]
-[ext_resource type="Script" path="res://scripts/end_screen.gd" id="6_y0bpe"]
 [ext_resource type="AudioStream" uid="uid://cdbbs3cm1pli5" path="res://addons/Pixel_boy/theme-7.ogg" id="7_qftdc"]
 [ext_resource type="AudioStream" uid="uid://bcvyh3sruf5vp" path="res://addons/Pixel_boy/theme-3b.ogg" id="8_i3x2h"]
+[ext_resource type="PackedScene" uid="uid://d4f0gy2sw12hv" path="res://scenes/ui/end_screen.tscn" id="9_s08fr"]
 [ext_resource type="AudioStream" uid="uid://c2qho0xysuk3u" path="res://addons/sfx/Retro Negative Long 12.wav" id="10_g6i48"]
 
 [sub_resource type="Animation" id="Animation_3mlxk"]
@@ -172,33 +170,25 @@ _data = {
 [node name="Game" type="Node2D"]
 script = ExtResource("1_5lrye")
 
-[node name="Background" type="Sprite2D" parent="."]
-position = Vector2(576, 294)
-texture = ExtResource("2_0p0hf")
+[node name="Background" type="Node2D" parent="."]
 
-[node name="Party" type="Node" parent="."]
-
-[node name="NeuroSama" parent="Party" instance=ExtResource("5_p7tw6")]
-position = Vector2(373, 394)
-
-[node name="Foes" type="Node" parent="."]
-
-[node name="Drone" parent="Foes" instance=ExtResource("4_gwsji")]
-position = Vector2(720, 462)
+[node name="Entity_manager" parent="." instance=ExtResource("3_iprcq")]
 
 [node name="SelectionCircle" type="Sprite2D" parent="."]
 position = Vector2(584, 427)
 texture = ExtResource("6_ow8lb")
 
 [node name="InstructionLabel" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 539.0
+offset_top = 74.0
+offset_right = 579.0
+offset_bottom = 97.0
 
 [node name="EndTurnButton" type="Button" parent="."]
-offset_left = 491.0
-offset_top = 575.0
-offset_right = 567.0
-offset_bottom = 606.0
+offset_left = 531.0
+offset_top = 584.0
+offset_right = 607.0
+offset_bottom = 615.0
 text = "end turn"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -214,54 +204,17 @@ offset_right = 617.0
 offset_bottom = 28.0
 text = "Your turn"
 
-[node name="EndScreen" type="Control" parent="."]
-visible = false
-z_index = 2
-layout_mode = 3
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 448.0
-offset_top = 14.0
-offset_right = 488.0
-offset_bottom = 54.0
-grow_horizontal = 2
-pivot_offset = Vector2(20, 0)
-script = ExtResource("6_y0bpe")
-
-[node name="PanelContainer" type="PanelContainer" parent="EndScreen"]
-layout_mode = 0
-offset_left = -300.0
-offset_right = 300.0
-offset_bottom = 400.0
-pivot_offset = Vector2(300, 0)
-
-[node name="MarginContainer" type="MarginContainer" parent="EndScreen/PanelContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 40
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 40
-theme_override_constants/margin_bottom = 20
-
-[node name="VBoxContainer" type="VBoxContainer" parent="EndScreen/PanelContainer/MarginContainer"]
-layout_mode = 2
-theme_override_constants/separation = 40
-alignment = 1
-
-[node name="Label" type="Label" parent="EndScreen/PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "you vicori. or defet?"
-horizontal_alignment = 1
-
-[node name="Button" type="Button" parent="EndScreen/PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Return to map"
+[node name="EndScreen" parent="." instance=ExtResource("9_s08fr")]
+offset_left = 589.0
+offset_top = 77.0
+offset_right = 629.0
+offset_bottom = 117.0
 
 [node name="Return" type="Button" parent="."]
-offset_left = 19.0
-offset_top = 610.0
-offset_right = 139.0
-offset_bottom = 641.0
+offset_left = 14.0
+offset_top = 605.0
+offset_right = 134.0
+offset_bottom = 636.0
 text = "Return to map
 "
 

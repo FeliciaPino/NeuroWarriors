@@ -42,7 +42,7 @@ var ap:int #how many actions are left in a turn
 @onready var actions_left_label = $Menu/ApDisplay/NinePatchRect/Label
 @onready var actions_left_display = $Menu/ApDisplay
 @onready var info_panel = $Menu/info_container/Info
-@onready var game_manager:GameManager = $"../.." #TODO: update this
+@onready var game_manager:GameManager = null
 @onready var visual_node = $visual
 @onready var animation_player:AnimationPlayer = $AnimationPlayer
 
@@ -58,6 +58,12 @@ signal got_clicked_on
 func _ready() -> void:
 	print(get_signal_connection_list("mouse_entered"))
 	print(entity_name+" is ready")
+	
+	game_manager = get_tree().get_first_node_in_group("GameManager")
+	while game_manager == null:
+		await get_tree().node_added
+		game_manager = get_tree().get_first_node_in_group("GameManager")
+		
 	animation_player.play("idle")
 	is_hovered_over_with_the_mouse = false
 	for child in actions_node.get_children():
@@ -85,12 +91,12 @@ func _ready() -> void:
 	if not is_player_controlled: selection_circle.modulate = Color.RED
 	selection_circle.modulate.a = 0.5
 	
-	mySpot = global_position#I'll probably change this later
 	settle_into_spot()
 	
 	update_menu_actions()
 	update_info_panel()
 	
+		
 	
 #removes the effect with the given name.
 func remove_effect(effectName:String):

@@ -84,6 +84,8 @@ sprite_frames = SubResource("SpriteFrames_luh64")
 
 [node name="sound" parent="." index="1"]
 stream = ExtResource("2_wy6sw")
+volume_db = -15.0
+bus = &"SFX"
 
 [node name="AnimationPlayer" parent="." index="2"]
 libraries = {

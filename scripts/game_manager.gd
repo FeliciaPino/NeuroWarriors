@@ -25,6 +25,7 @@ var pending_actions = 0: #How many actions are being currently done
 		pending_actions_updated.emit()
 		if new_value == 0:
 			all_actions_finished.emit()
+var turn_count = 0
 var is_player_turn:bool = true #is the player turn or the enemy turn.
 var is_game_over:bool
 
@@ -36,6 +37,7 @@ const end_turn_action := preload("res://scripts/neuro_actions/end_turn_action.gd
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	print("current scene: "+str(get_tree().current_scene))
+	add_to_group("GameManager")
 	if GameState.is_neuro_controlling:
 		Context.send("Battle started. Neuro and her allies face off against a swarm of enemies. ", true)
 
@@ -54,6 +56,7 @@ func _ready() -> void:
 	is_player_turn = true
 	is_game_over = false
 	print(str("neuro controlled: ",GameState.is_neuro_controlling))
+	turn_count = 0
 	start_turn()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -79,11 +82,13 @@ func start_turn():
 	if GameState.is_neuro_controlling:
 		give_neuro_battle_context()
 	update_battle_entities()
-	if check_game_end(): return
+	if turn_count != 0: if check_game_end(): return
 	for character in party: character.set_up_at_start_of_turn()
 	animation_player.play("start_player_turn")
+	turn_count += 1
 	if GameState.is_neuro_controlling: make_neuro_play("your turn has started")
 	print("your turn")
+	
 	
 #This is for neuro integration, unused so far
 func make_neuro_play(message:String):
@@ -235,7 +240,6 @@ func enemy_turn():
 	is_player_turn = true
 	start_turn()
 	
-
 func is_mouse_click_L(event: InputEvent):
 	return event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed
 

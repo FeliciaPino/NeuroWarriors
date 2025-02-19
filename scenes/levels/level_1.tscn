@@ -1,8 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://ds20ettima35s"]
+[gd_scene load_steps=15 format=3 uid="uid://ds20ettima35s"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_4r8mi"]
 [ext_resource type="Texture2D" uid="uid://dl6b6ewaxaxom" path="res://assets/forest_background.png" id="2_otcmt"]
-[ext_resource type="PackedScene" uid="uid://cmccd8rxiyqab" path="res://scenes/characters/neuro_sama.tscn" id="3_2nq7o"]
 [ext_resource type="PackedScene" uid="uid://c0cerfjhi148m" path="res://scenes/entity_manager.tscn" id="3_u2g1f"]
 [ext_resource type="PackedScene" uid="uid://du1rkche8wapa" path="res://scenes/characters/enemies/drone.tscn" id="4_g1jns"]
 [ext_resource type="Texture2D" uid="uid://duwanoipd03rk" path="res://assets/ui/selection_circle.png" id="5_g5ixa"]
@@ -180,9 +179,6 @@ texture = ExtResource("2_otcmt")
 
 [node name="Entity_manager" parent="." instance=ExtResource("3_u2g1f")]
 
-[node name="NeuroSama" parent="Entity_manager" instance=ExtResource("3_2nq7o")]
-position = Vector2(-70, 450)
-
 [node name="Drone" parent="Entity_manager" instance=ExtResource("4_g1jns")]
 position = Vector2(1304, 459)
 
@@ -298,5 +294,4 @@ one_shot = true
 stream = ExtResource("10_wvxwj")
 volume_db = -10.0
 
-[connection signal="got_clicked_on" from="Entity_manager/NeuroSama" to="tutorial" method="_on_neuro_sama_got_clicked_on"]
 [connection signal="pressed" from="EndTurnButton" to="tutorial" method="_on_end_turn_button_pressed"]
