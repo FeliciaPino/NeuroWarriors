@@ -25,10 +25,11 @@ func save_game(save_slot_index:int):
 	save_dict(GameState.characters_save_info, directory_path+"/characters.json")
 
 #returns the loaded dictionary
-func load_dict(file_path:String):
+func _load_dict(dict:Dictionary, default:Dictionary, file_path:String):
 	if not FileAccess.file_exists(file_path):
 		print("dictionary missing")
-		return null
+		for key in default:
+			dict[key] = default[key]
 	var file = FileAccess.open(file_path,FileAccess.READ)
 	var json_string = file.get_as_text()
 	file.close()
@@ -37,30 +38,23 @@ func load_dict(file_path:String):
 	if not parse_result == OK:
 		#I should have better error handling
 		print("JSON Parse Error: ", json.get_error_message(), " in ", json_string, " at line ", json.get_error_line())
-		return null
-	return json.data
+		return
+	for key in json.data:
+		dict[key] = json.data[key]
+	for key in default:
+		if not dict.has(key):
+			dict[key] = default[key]
 
 func load_game(save_slot_index:int):
 	var directory = str("user://saves/slot",save_slot_index)
 	ensure_directory(directory)
-	var loaded_dict = load_dict(directory+"/levels.json")
-	if loaded_dict != null:
-		GameState.completed_levels = loaded_dict
-	else:
-		GameState.completed_levels = GameState.DEFAULT_VALUES["completed_levels"].duplicate(true)
-		
-	loaded_dict = load_dict(directory+"/flags.json")
-	if loaded_dict != null:
-		GameState.flags = loaded_dict
-	else:
-		GameState.flags = GameState.DEFAULT_VALUES["flags"].duplicate(true)
-		
+	_load_dict(GameState.completed_levels, GameState.DEFAULT_VALUES["completed_levels"], directory+"/levels.json")
 	
-	loaded_dict = load_dict(directory+"/characters.json")
-	if loaded_dict != null:
-		GameState.characters_save_info = loaded_dict
-	else:
-		GameState.characters_save_info = GameState.DEFAULT_VALUES["characters_save_info"].duplicate(true)
+	_load_dict(GameState.flags, GameState.DEFAULT_VALUES["flags"], directory+"/flags.json")
+	print("value in gamestae: ")
+	print(GameState.flags)
+	_load_dict(GameState.characters_save_info,GameState.DEFAULT_VALUES["flags"], directory+"/characters.json")
+	
 func get_save_info(save_slot_index):
 	var directory_path = str("user://saves/slot",save_slot_index)
 	ensure_directory(directory_path)

@@ -9,9 +9,9 @@ func _ready() -> void:
 	cutscene_button.pressed.connect(get_tree().change_scene_to_packed.bind(cutscene))
 	#test, remove
 	var display = $TestCharactersDisplay
-	display.get_child(0).visible = GameState.characters_save_info["Neuro-sama"]["unlocked"]
-	display.get_child(1).visible = GameState.characters_save_info["Vedal"]["unlocked"]
-	display.get_child(2).visible = GameState.characters_save_info["Evil"]["unlocked"]
+	display.get_child(0).visible = "Neuro-sama" in GameState.characters_save_info["party"]
+	display.get_child(1).visible = "Vedal" in GameState.characters_save_info["party"]
+	display.get_child(2).visible = "Evil" in GameState.characters_save_info["party"]
 	
 func return_to_menu():
 	SaveManager.save_game(GameState.current_save_slot_index)

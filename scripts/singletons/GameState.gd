@@ -47,12 +47,14 @@ func _ready():
 
 func mark_level_complete(level_name: String):
 	completed_levels[level_name] = true
-	if level_name == "Vedal’s Refuge" and not characters_save_info["Vedal"]["unlocked"]:
+	if level_name == "Vedal’s Refuge":
 		characters_save_info["Vedal"]["unlocked"] = true
-		characters_save_info["party"].append("Vedal")
-	if level_name == "De-fence, HO, HO!" and not characters_save_info["Evil"]["unlocked"]:
+		if not "Vedal" in characters_save_info["party"]:
+			characters_save_info["party"].append("Vedal")
+	if level_name == "De-fence, HO, HO!":
 		characters_save_info["Evil"]["unlocked"] = true
-		characters_save_info["party"].append("Evil")
+		if not "Evil" in characters_save_info["party"]:
+			characters_save_info["party"].append("Evil")
 		
 	SaveManager.save_game(current_save_slot_index)
 func is_level_completed(level_name: String) -> bool:
