@@ -195,11 +195,13 @@ bus = &"SFX"
 [node name="bwoaa" type="AudioStreamPlayer" parent="sound_effects"]
 stream = ExtResource("9_deo4h")
 pitch_scale = 1.81
+bus = &"SFX"
 
 [node name="hit" type="AudioStreamPlayer" parent="sound_effects"]
 stream = ExtResource("10_5ppgc")
 volume_db = -10.0
 pitch_scale = 2.0
+bus = &"SFX"
 
 [connection signal="health_changed" from="." to="HealthBar" method="_on_battle_entity_health_changed"]
 [connection signal="received_damage" from="." to="HealthBar" method="_on_battle_entity_received_damage"]

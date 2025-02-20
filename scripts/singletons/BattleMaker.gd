@@ -17,6 +17,7 @@ func go_to_level(path:String):
 		party.append(CharacterDatabase.get_entity_scene(character_name).instantiate())
 	get_tree().change_scene_to_file(path)
 	while get_tree().current_scene == null:
+		print("awainting process secen in battlemaker")
 		await get_tree().process_frame
 	var game:GameManager = get_tree().current_scene
 	for member in party:
