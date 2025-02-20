@@ -89,6 +89,7 @@ sprite_frames = SubResource("SpriteFrames_ag4b6")
 stream = ExtResource("4_re06y")
 volume_db = -10.0
 pitch_scale = 0.42
+bus = &"SFX"
 
 [node name="AnimationPlayer" parent="." index="2"]
 libraries = {

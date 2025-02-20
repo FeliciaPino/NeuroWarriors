@@ -18,6 +18,7 @@ script = ExtResource("1_v63vm")
 [node name="sound" parent="." index="1"]
 stream = ExtResource("2_lc6iq")
 volume_db = -13.783
+bus = &"SFX"
 
 [node name="AnimationPlayer" parent="." index="2"]
 libraries = {

@@ -63,11 +63,13 @@ sprite_frames = SubResource("SpriteFrames_o4my3")
 
 [node name="sound" parent="." index="1"]
 stream = ExtResource("4_rpxqk")
+bus = &"SFX"
 
 [node name="sound2" type="AudioStreamPlayer" parent="." index="2"]
 stream = ExtResource("5_8nle4")
 volume_db = -5.0
 pitch_scale = 2.0
+bus = &"SFX"
 
 [node name="AnimationPlayer" parent="." index="3"]
 libraries = {

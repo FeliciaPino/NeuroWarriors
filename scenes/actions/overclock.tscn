@@ -50,6 +50,7 @@ frame_progress = 0.419983
 [node name="sound" parent="." index="1"]
 stream = ExtResource("4_buh5l")
 volume_db = -15.0
+bus = &"SFX"
 
 [node name="AnimationPlayer" parent="." index="2"]
 libraries = {
