@@ -3,7 +3,6 @@ extends Control
 @onready var animation_player = $AnimationPlayer
 @onready var play_button = %PlayButton
 @onready var options_menu = %OptionsMenu
-@onready var neuro_control_toggle = $CheckButton
 @onready var return_to_main_menu_button = $SaveSlots/ReturnToMenuButton
 @onready var save_slots = $SaveSlots/Slots
 @onready var background = $background
@@ -16,7 +15,6 @@ func _ready() -> void:
 	om_music_slider.value = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music"))
 	om_SFX_slider.value = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("SFX"))
 	background.play("default")
-	neuro_control_toggle.button_pressed = GameState.is_neuro_controlling
 	
 	return_to_main_menu_button.pressed.connect(animation_player.play_backwards.bind("FadeToSaveSlots"))
 	
@@ -48,10 +46,6 @@ func _on_sound_effects_volume_value_changed(value: float) -> void:
 
 func _on_exit_button_pressed() -> void:
 	get_tree().quit()
-
-
-func _on_check_button_toggled(toggled_on: bool) -> void:
-	GameState.is_neuro_controlling = toggled_on
 
 
 func _on_english_button_pressed() -> void:

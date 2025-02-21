@@ -29,18 +29,10 @@ var turn_count = 0
 var is_player_turn:bool = true #is the player turn or the enemy turn.
 var is_game_over:bool
 
-#neuro actions
-const control_neuro_action := preload("res://scripts/neuro_actions/control_neuro_action.gd")
-const control_vedal_action := preload("res://scripts/neuro_actions/control_vedal_action.gd")
-const control_evil_action := preload("res://scripts/neuro_actions/control_evil_action.gd")
-const end_turn_action := preload("res://scripts/neuro_actions/end_turn_action.gd")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	print("current scene: "+str(get_tree().current_scene))
 	add_to_group("GameManager")
-	if GameState.is_neuro_controlling:
-		Context.send("Battle started. Neuro and her allies face off against a swarm of enemies. ", true)
-
 	if background is AnimatedSprite2D:
 		background.play("default")
 		
@@ -55,7 +47,6 @@ func _ready() -> void:
 		
 	is_player_turn = true
 	is_game_over = false
-	print(str("neuro controlled: ",GameState.is_neuro_controlling))
 	turn_count = 0
 	start_turn()
 
@@ -79,33 +70,13 @@ func end_turn():
 	enemy_turn()
 func start_turn():
 	end_turn_buttton.disabled = false
-	if GameState.is_neuro_controlling:
-		give_neuro_battle_context()
 	update_battle_entities()
 	if turn_count != 0: if check_game_end(): return
 	for character in party: character.set_up_at_start_of_turn()
 	animation_player.play("start_player_turn")
 	turn_count += 1
-	if GameState.is_neuro_controlling: make_neuro_play("your turn has started")
 	print("your turn")
 	
-	
-#This is for neuro integration, unused so far
-func make_neuro_play(message:String):
-	print("finna make neuro play")
-	update_battle_entities()
-	var actionWindow := ActionWindow.new(self)
-	actionWindow.set_force(0, message, "", false)
-	
-	actionWindow.add_action(end_turn_action.new(actionWindow,self))
-	var ved = get_entity_by_name("Vedal")
-	if ved and ved.get_posible_actions().size() > 0: actionWindow.add_action(control_vedal_action.new(actionWindow,self))
-	var neu = get_entity_by_name("Neuro Sama")
-	if neu and neu.get_posible_actions().size() > 0: actionWindow.add_action(control_neuro_action.new(actionWindow, self))
-	var evi = get_entity_by_name("Evil")
-	if evi and evi.get_posible_actions().size() > 0: actionWindow.add_action(control_evil_action.new(actionWindow, self))
-	actionWindow.register()
-
 #This is for neuro integration, unused so far
 func give_neuro_battle_context():
 	var context = "Battlefield status:\n"
@@ -126,7 +97,6 @@ func give_neuro_battle_context():
 		for sta_eff in character.effects_container.get_children():
 			context += sta_eff.effect_name+","
 		context+="\n"
-	Context.send(context,true)
 func set_selected_character(character: BattleEntity):
 	if selected_character != null: selected_character.close_menu()
 	selected_character = character
@@ -175,8 +145,6 @@ func _on_action_finished(action):
 	if is_game_over: return
 	update_battle_entities()
 	if check_game_end(): return
-	if is_player_turn and  GameState.is_neuro_controlling:
-		make_neuro_play("it is still your turn")
 
 
 func _on_pending_actions_updated() -> void:

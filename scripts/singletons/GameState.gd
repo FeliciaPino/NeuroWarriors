@@ -36,7 +36,6 @@ const DEFAULT_VALUES = {
 var current_level:String = ""
 var current_level_path:String = ""
 var last_level = "The End"
-var is_neuro_controlling = false
 func _ready():
 	print("GameState is ready.")
 	completed_levels = DEFAULT_VALUES["completed_levels"].duplicate(true)

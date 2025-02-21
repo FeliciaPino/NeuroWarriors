@@ -20,7 +20,6 @@ config/icon="res://assets/drone_logo.png"
 [autoload]
 
 GameState="*res://scripts/singletons/GameState.gd"
-neuro_sdk="*res://addons/neuro-sdk/neuro_sdk.tscn"
 SaveManager="*res://scripts/singletons/SaveManager.gd"
 CharacterDatabase="*res://scripts/singletons/CharacterDatabase.gd"
 BattleMaker="*res://scripts/singletons/BattleMaker.gd"
@@ -41,7 +40,7 @@ project/assembly_name="Neuro Warriors"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/neuro-sdk/plugin.cfg")
+enabled=PackedStringArray()
 
 [input]
 
