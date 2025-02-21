@@ -3,10 +3,11 @@ extends Control
 @onready var skip_button = $leave
 func _ready() -> void:
 	print("credits ready")
-	GameState.watched_credits = true
+	GameState.flags["watched_credits"] = true
 	skip_button.visible = false
 	skip_button.pressed.connect(return_to_menu)
 	animation_player.play("credits_anim")
+	SaveManager.save_game(GameState.current_save_slot_index)
 	
 func return_to_menu():
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")

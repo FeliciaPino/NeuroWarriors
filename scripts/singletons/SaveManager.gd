@@ -24,13 +24,15 @@ func save_game(save_slot_index:int):
 	save_dict(GameState.flags, directory_path+"/flags.json")
 	save_dict(GameState.characters_save_info, directory_path+"/characters.json")
 
-#returns the loaded dictionary
 func _load_dict(dict:Dictionary, default:Dictionary, file_path:String):
 	if not FileAccess.file_exists(file_path):
 		print("dictionary missing")
 		for key in default:
 			dict[key] = default[key]
+		return
 	var file = FileAccess.open(file_path,FileAccess.READ)
+	if file == null:
+		print("there was an error opening the file" + file_path)
 	var json_string = file.get_as_text()
 	file.close()
 	var json = JSON.new()
@@ -49,10 +51,7 @@ func load_game(save_slot_index:int):
 	var directory = str("user://saves/slot",save_slot_index)
 	ensure_directory(directory)
 	_load_dict(GameState.completed_levels, GameState.DEFAULT_VALUES["completed_levels"], directory+"/levels.json")
-	
 	_load_dict(GameState.flags, GameState.DEFAULT_VALUES["flags"], directory+"/flags.json")
-	print("value in gamestae: ")
-	print(GameState.flags)
 	_load_dict(GameState.characters_save_info,GameState.DEFAULT_VALUES["flags"], directory+"/characters.json")
 	
 func get_save_info(save_slot_index):
