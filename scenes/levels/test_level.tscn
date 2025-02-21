@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://by2t4l3fto5ou"]
+[gd_scene load_steps=6 format=3 uid="uid://by2t4l3fto5ou"]
 
 [ext_resource type="PackedScene" uid="uid://b82kauwohbvun" path="res://scenes/levels/game.tscn" id="1_hhncd"]
 [ext_resource type="Texture2D" uid="uid://dl6b6ewaxaxom" path="res://assets/forest_background.png" id="2_tkf6i"]
 [ext_resource type="PackedScene" uid="uid://du1rkche8wapa" path="res://scenes/characters/enemies/drone.tscn" id="4_0l3y4"]
 [ext_resource type="PackedScene" uid="uid://cmccd8rxiyqab" path="res://scenes/characters/neuro_sama.tscn" id="5_gqr5d"]
+[ext_resource type="PackedScene" uid="uid://d3t2ah38644av" path="res://scenes/actions/taze.tscn" id="6_eaksy"]
 
 [node name="Game" instance=ExtResource("1_hhncd")]
 
@@ -16,6 +17,8 @@ texture = ExtResource("2_tkf6i")
 
 [node name="NeuroSama" parent="Entity_manager" index="0" instance=ExtResource("5_gqr5d")]
 position = Vector2(-130, 503)
+
+[node name="Taze" parent="Entity_manager/NeuroSama" index="9" instance=ExtResource("6_eaksy")]
 
 [node name="Drone" parent="Entity_manager" index="1" instance=ExtResource("4_0l3y4")]
 position = Vector2(1363, 506)

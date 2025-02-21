@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/intro_cutscene.gd" id="1_fl8qn"]
 [ext_resource type="Texture2D" uid="uid://c0yh4sjku8ha3" path="res://assets/solid_white_square.png" id="1_od4nq"]
 [ext_resource type="Texture2D" uid="uid://lv0x3urw78g2" path="res://assets/cutscenes/intro_cutscene_frame1.png" id="2_4evac"]
-[ext_resource type="Texture2D" uid="uid://cao04x45j5jjl" path="res://assets/cutscenes/intro_cutscene_frame_2.png.png" id="3_aup74"]
+[ext_resource type="Texture2D" uid="uid://nijykxnmtugx" path="res://assets/cutscenes/intro_cutscene_frame_2.png" id="4_icbu4"]
 [ext_resource type="Texture2D" uid="uid://csk8ptr4f2bw8" path="res://assets/cutscenes/intro_cutscene_frame_3.png" id="5_gk2fo"]
 [ext_resource type="Texture2D" uid="uid://cko88wjo7tewb" path="res://assets/cutscenes/intro_cutscene_frame_4.png" id="6_d8ujj"]
 [ext_resource type="Texture2D" uid="uid://bvuthcfovf1pg" path="res://assets/cutscenes/intro_cutscene_frame_5.png" id="7_yno0h"]
@@ -36,15 +36,15 @@ texture = ExtResource("1_od4nq")
 [node name="frames" type="Node" parent="."]
 
 [node name="frame1" type="Sprite2D" parent="frames"]
+visible = false
 position = Vector2(584, 319)
 scale = Vector2(0.84637, 0.771001)
 texture = ExtResource("2_4evac")
 
 [node name="frame2" type="Sprite2D" parent="frames"]
-visible = false
 position = Vector2(576, 328)
 scale = Vector2(0.836492, 0.783622)
-texture = ExtResource("3_aup74")
+texture = ExtResource("4_icbu4")
 
 [node name="frame3" type="Sprite2D" parent="frames"]
 visible = false
