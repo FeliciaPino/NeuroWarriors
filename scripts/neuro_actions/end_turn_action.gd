@@ -1,7 +1,5 @@
 extends NeuroAction
 
-const GameManager := preload("res://scripts/game_manager.gd")
-
 var _game_manager:GameManager
 
 func _init(window: ActionWindow, game_manager:GameManager):

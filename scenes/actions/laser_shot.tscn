@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bk30a0mgktx6r"]
 
-[ext_resource type="PackedScene" uid="uid://c0p02mr1a5wep" path="res://scenes/actions/action.tscn" id="1_6uchr"]
+[ext_resource type="PackedScene" uid="uid://c0p02mr1a5wep" path="res://scenes/actions/BattleAction.tscn" id="1_6uchr"]
 [ext_resource type="Script" path="res://scripts/actions/laser_shot.gd" id="1_7wgxe"]
 [ext_resource type="Texture2D" uid="uid://c0yh4sjku8ha3" path="res://assets/solid_white_square.png" id="2_4upev"]
 [ext_resource type="AudioStream" uid="uid://c4tfdbdvvf3ta" path="res://addons/sfx/Retro Weapon Laser 03.wav" id="3_e0r44"]

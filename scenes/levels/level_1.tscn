@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://ds20ettima35s"]
 
-[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_4r8mi"]
+[ext_resource type="Script" path="res://scripts/GameManager.gd" id="1_4r8mi"]
 [ext_resource type="Texture2D" uid="uid://dl6b6ewaxaxom" path="res://assets/forest_background.png" id="2_otcmt"]
 [ext_resource type="PackedScene" uid="uid://c0cerfjhi148m" path="res://scenes/entity_manager.tscn" id="3_u2g1f"]
 [ext_resource type="PackedScene" uid="uid://du1rkche8wapa" path="res://scenes/characters/enemies/drone.tscn" id="4_g1jns"]

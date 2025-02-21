@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://dwoectv3rk5u3"]
 
-[ext_resource type="PackedScene" uid="uid://c0p02mr1a5wep" path="res://scenes/actions/action.tscn" id="1_03j1x"]
+[ext_resource type="PackedScene" uid="uid://c0p02mr1a5wep" path="res://scenes/actions/BattleAction.tscn" id="1_03j1x"]
 [ext_resource type="Texture2D" uid="uid://61lcotrehrl4" path="res://assets/poison_dart.png" id="2_5evah"]
 [ext_resource type="Script" path="res://scripts/actions/poison_dart.gd" id="2_6purc"]
 [ext_resource type="AudioStream" uid="uid://bymhdcicx5ap3" path="res://assets/audio/homemade/SFX/Woosh.mp3" id="4_6kwt5"]

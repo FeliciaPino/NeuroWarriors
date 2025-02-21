@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://dp2gnkbdq83n4"]
 
-[ext_resource type="Script" path="res://scripts/battle_entity.gd" id="1_m46ik"]
+[ext_resource type="Script" path="res://scripts/BattleEntity.gd" id="1_m46ik"]
 [ext_resource type="PackedScene" uid="uid://bcuvnhkfoa0u" path="res://scenes/ui/health_bar.tscn" id="3_b5iiw"]
 [ext_resource type="Texture2D" uid="uid://duwanoipd03rk" path="res://assets/ui/selection_circle.png" id="4_i6faa"]
 [ext_resource type="Texture2D" uid="uid://nxqruldg0w6s" path="res://assets/explosion.png" id="5_qnmwp"]

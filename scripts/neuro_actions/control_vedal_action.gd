@@ -1,7 +1,5 @@
 extends NeuroAction
 
-const GameManager := preload("res://scripts/game_manager.gd")
-
 var _game_manager:GameManager
 var user:BattleEntity
 

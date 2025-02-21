@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://cjwp37r4npd1c"]
 
-[ext_resource type="PackedScene" uid="uid://c0p02mr1a5wep" path="res://scenes/actions/action.tscn" id="1_ewsih"]
+[ext_resource type="PackedScene" uid="uid://c0p02mr1a5wep" path="res://scenes/actions/BattleAction.tscn" id="1_ewsih"]
 [ext_resource type="Texture2D" uid="uid://n30nj6ognxmf" path="res://assets/wrench.png" id="2_t4jew"]
 [ext_resource type="Script" path="res://scripts/actions/repair.gd" id="2_wna17"]
 

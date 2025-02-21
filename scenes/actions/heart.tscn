@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://b36hf4y7sydbp"]
 
 [ext_resource type="Script" path="res://scripts/actions/heart.gd" id="1_ie21g"]
-[ext_resource type="PackedScene" uid="uid://c0p02mr1a5wep" path="res://scenes/actions/action.tscn" id="1_ixepv"]
+[ext_resource type="PackedScene" uid="uid://c0p02mr1a5wep" path="res://scenes/actions/BattleAction.tscn" id="1_ixepv"]
 [ext_resource type="Texture2D" uid="uid://bnfhmvrsa41qr" path="res://assets/heart.png" id="2_kdp55"]
 [ext_resource type="AudioStream" uid="uid://dqbx8vtoosd83" path="res://assets/audio/SFX/heart.wav" id="4_aikks"]
 

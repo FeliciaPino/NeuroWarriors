@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://dskhgf30rx6ai"]
 
-[ext_resource type="PackedScene" uid="uid://c0p02mr1a5wep" path="res://scenes/actions/action.tscn" id="1_4r42l"]
+[ext_resource type="PackedScene" uid="uid://c0p02mr1a5wep" path="res://scenes/actions/BattleAction.tscn" id="1_4r42l"]
 [ext_resource type="Script" path="res://scripts/actions/shock.gd" id="1_k7ikc"]
 [ext_resource type="Texture2D" uid="uid://b2jrcljcom4t1" path="res://assets/electricity.png" id="2_fwcj5"]
 [ext_resource type="AudioStream" uid="uid://cc2txgf62i1s5" path="res://addons/sfx/Retro Electric Short 17.wav" id="4_t876y"]

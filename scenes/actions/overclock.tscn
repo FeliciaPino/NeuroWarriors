@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://bt827bsp0jnmw"]
 
-[ext_resource type="PackedScene" uid="uid://c0p02mr1a5wep" path="res://scenes/actions/action.tscn" id="1_putr0"]
+[ext_resource type="PackedScene" uid="uid://c0p02mr1a5wep" path="res://scenes/actions/BattleAction.tscn" id="1_putr0"]
 [ext_resource type="Script" path="res://scripts/actions/overclock.gd" id="1_py1wo"]
 [ext_resource type="Texture2D" uid="uid://b2jrcljcom4t1" path="res://assets/electricity.png" id="2_lo6xi"]
 [ext_resource type="AudioStream" uid="uid://cbihur5nfjeb4" path="res://addons/sfx/Retro Charge Magic 11.wav" id="4_buh5l"]

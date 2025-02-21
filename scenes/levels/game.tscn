@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://b82kauwohbvun"]
 
-[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_5lrye"]
+[ext_resource type="Script" path="res://scripts/GameManager.gd" id="1_5lrye"]
 [ext_resource type="PackedScene" uid="uid://c0cerfjhi148m" path="res://scenes/entity_manager.tscn" id="3_iprcq"]
 [ext_resource type="Texture2D" uid="uid://duwanoipd03rk" path="res://assets/ui/selection_circle.png" id="6_ow8lb"]
 [ext_resource type="AudioStream" uid="uid://cdbbs3cm1pli5" path="res://addons/Pixel_boy/theme-7.ogg" id="7_qftdc"]
