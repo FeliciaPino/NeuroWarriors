@@ -7,6 +7,9 @@ var isMelee:bool
 var isPositive:bool#wether or not it's something you'd want on your allies. healing is good, attacking is bad
 var price:int #how much energy it takes to perform
 
+var user:BattleEntity = null
+var target:BattleEntity = null
+
 var animationType:String #either  "attack", "throw", or "effect". Or another if it's unique maybe? 
 @onready var sprite = $sprite
 @onready var sounds:Array[AudioStreamPlayer]

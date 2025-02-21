@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://bl855ggccmntd"]
+
+[ext_resource type="Script" path="res://scripts/overworld/overworld_character.gd" id="1_e0gxn"]
+[ext_resource type="Texture2D" uid="uid://dxmftxbyye7e7" path="res://assets/overworld/overworld_neuro.png" id="2_h5g6i"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kv4nh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_h5g6i")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_h5g6i")
+}],
+"loop": true,
+"name": &"moving",
+"speed": 8.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w2dh8"]
+radius = 14.0
+
+[node name="OverworldCharacter" type="CharacterBody2D"]
+script = ExtResource("1_e0gxn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_kv4nh")
+animation = &"moving"
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_w2dh8")
