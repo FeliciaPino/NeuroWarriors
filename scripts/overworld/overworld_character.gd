@@ -1,5 +1,7 @@
 extends CharacterBody2D
 class_name OverworldCharacter
+
+
 @onready var sprite = $AnimatedSprite2D
 
 var speed = 200
@@ -13,3 +15,4 @@ func _physics_process(delta: float) -> void:
 	else:
 		sprite.play("default")
 	move_and_slide()
+	

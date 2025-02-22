@@ -23,9 +23,11 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w2dh8"]
-radius = 14.0
+radius = 13.0
+height = 26.0
 
 [node name="OverworldCharacter" type="CharacterBody2D"]
+position = Vector2(0, -16)
 script = ExtResource("1_e0gxn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
