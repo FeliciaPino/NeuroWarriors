@@ -42,6 +42,10 @@ project/assembly_name="Neuro Warriors"
 
 enabled=PackedStringArray()
 
+[global_group]
+
+player=""
+
 [input]
 
 up={

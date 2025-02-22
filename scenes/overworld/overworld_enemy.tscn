@@ -1,45 +1,86 @@
-[gd_scene load_steps=6 format=3 uid="uid://bwv2hto833xa3"]
+[gd_scene load_steps=11 format=3 uid="uid://bwv2hto833xa3"]
 
 [ext_resource type="Script" path="res://scripts/overworld/overworld_enemy.gd" id="1_hnxng"]
 [ext_resource type="Texture2D" uid="uid://1icor4sve0wr" path="res://assets/overworld/drone.png" id="2_fnjog"]
+[ext_resource type="Texture2D" uid="uid://g04rqk377lfp" path="res://assets/ui/circle.png" id="2_syya0"]
 [ext_resource type="Script" path="res://scripts/states/StateMachine.gd" id="3_fuqus"]
+[ext_resource type="Script" path="res://scripts/states/OverworldEnemyIdle.gd" id="4_2j2lr"]
+[ext_resource type="Script" path="res://scripts/states/OverworldEnemyChase.gd" id="5_stw8k"]
 
 [sub_resource type="Curve2D" id="Curve2D_65jqn"]
 _data = {
-"points": PackedVector2Array(0, 0, 3.085, 0, -2, -26, -11.7725, 74.3471, 11.7725, -74.3471, -2, -27, 0, 0, 0, 0, 66, -64, 0, 0, 0, 0, 99, -28)
+"points": PackedVector2Array(-2.3811, 67.4645, 0, 0, 15, -66, -103.181, -66.6708, 103.181, 66.6708, 174, -237, 0, 0, 0, 0, 276, -82, 51.1937, -5.95275, -51.1937, 5.95275, 44, -10, 0, 0, 0, 0, 15, -66)
 }
-point_count = 4
+point_count = 5
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_maxnl"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_fnjog")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[sub_resource type="CircleShape2D" id="CircleShape2D_erwio"]
+radius = 8.25692
 
-[node name="OverworldEnemy" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_d4ba7"]
+radius = 100.422
 
-[node name="Path2D" type="Path2D" parent="."]
-position = Vector2(7, 24)
+[sub_resource type="CircleShape2D" id="CircleShape2D_hw7fj"]
+radius = 11.29
+
+[node name="Path" type="Path2D"]
 curve = SubResource("Curve2D_65jqn")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2(-2, -26)
-
-[node name="Enemy" type="CharacterBody2D" parent="Path2D/PathFollow2D"]
 script = ExtResource("1_hnxng")
 
-[node name="Sprite" type="AnimatedSprite2D" parent="Path2D/PathFollow2D/Enemy"]
-texture_filter = 1
-sprite_frames = SubResource("SpriteFrames_maxnl")
+[node name="PathFollow" type="PathFollow2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(43.7111, -151.156)
+rotation = -1.16046
+progress = 89.9647
 
-[node name="Collision" type="CollisionShape2D" parent="Path2D/PathFollow2D/Enemy"]
+[node name="EnemySpot" type="Node2D" parent="PathFollow"]
 
-[node name="Vision" type="CollisionShape2D" parent="Path2D/PathFollow2D/Enemy"]
+[node name="Sprite2D" type="Sprite2D" parent="PathFollow/EnemySpot"]
+scale = Vector2(0.127514, 0.146852)
+texture = ExtResource("2_syya0")
 
-[node name="StateMachine" type="Node" parent="Path2D/PathFollow2D/Enemy"]
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_fuqus")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("path_follow", "vision_area", "enemy", "enemy_spot")]
+script = ExtResource("4_2j2lr")
+path_follow = NodePath("../../PathFollow")
+movement_speed = 1.0
+vision_area = NodePath("../../Enemy/Vision")
+enemy = NodePath("../../Enemy")
+enemy_spot = NodePath("../../PathFollow/EnemySpot")
+
+[node name="Chasing" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy", "timer")]
+script = ExtResource("5_stw8k")
+speed = 100.0
+enemy = NodePath("../../Enemy")
+timer = NodePath("../../Timer")
+
+[node name="Enemy" type="CharacterBody2D" parent="."]
+position = Vector2(43.7111, -151.156)
+collision_layer = 0
+motion_mode = 1
+
+[node name="Sprite" type="Sprite2D" parent="Enemy"]
+texture_filter = 1
+texture = ExtResource("2_fnjog")
+
+[node name="BodyCollider" type="CollisionShape2D" parent="Enemy"]
+rotation = 1.5708
+shape = SubResource("CircleShape2D_erwio")
+
+[node name="Vision" type="Area2D" parent="Enemy"]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/Vision"]
+shape = SubResource("CircleShape2D_d4ba7")
+
+[node name="EncounterCollider" type="Area2D" parent="Enemy"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/EncounterCollider"]
+shape = SubResource("CircleShape2D_hw7fj")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="body_entered" from="Enemy/EncounterCollider" to="." method="_on_encounter_collider_body_entered"]
