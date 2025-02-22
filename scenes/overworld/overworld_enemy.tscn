@@ -70,6 +70,7 @@ rotation = 1.5708
 shape = SubResource("CircleShape2D_erwio")
 
 [node name="Vision" type="Area2D" parent="Enemy"]
+visible = false
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/Vision"]
