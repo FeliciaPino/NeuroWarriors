@@ -1,6 +1,7 @@
 extends CharacterBody2D
 class_name OverworldCharacter
 
+@export var camera_target:Node2D
 
 @onready var sprite = $AnimatedSprite2D
 
@@ -16,3 +17,5 @@ func _physics_process(delta: float) -> void:
 		sprite.play("default")
 	move_and_slide()
 	
+	if camera_target:
+		camera_target.position = velocity/4

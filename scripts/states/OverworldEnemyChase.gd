@@ -1,8 +1,8 @@
 extends State
 class_name  OverworldEnemyChase
-
-@export var speed:float
-@export var enemy:CharacterBody2D
+@export var enemy:OverworldEnemy
+@export var body:CharacterBody2D
+@export var chase_speed_multiplier:float
 @export var timer:Timer
 var player:CharacterBody2D
 func _ready() -> void:
@@ -13,7 +13,7 @@ func enter():
 	timer.start()
 	
 func physics_update():
-	var direction_of_the_player = (player.global_position-enemy.global_position).normalized()
-	enemy.velocity = direction_of_the_player*speed
-	enemy.move_and_slide()
+	var direction_of_the_player = (player.global_position-body.global_position).normalized()
+	body.velocity = direction_of_the_player*enemy.movement_speed
+	body.move_and_slide()
 	
