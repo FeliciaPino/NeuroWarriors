@@ -15,9 +15,9 @@ func _ready() -> void:
 
 func execute (user:BattleEntity, target:BattleEntity):
 	super.execute(user,target)
-	_projectile_action(user,target,15)
+	_projectile_action(600)
 	
-func _action_effect(user:BattleEntity, target:BattleEntity)->void:
+func _action_effect()->void:
 	var effect:StatusEffect = poisoned_effect.instantiate()
 	effect.intensity = user.attack
 	effect.turns_remaining = 4

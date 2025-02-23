@@ -15,9 +15,8 @@ func _ready() -> void:
 
 func execute (user:BattleEntity, target:BattleEntity):
 	super.execute(user,target)
-	_ranged_non_projectile_action(user,target)
-func _action_effect(user:BattleEntity, target:BattleEntity)->void:
-	
+	_ranged_non_projectile_action()
+func _action_effect()->void:
 	var effect:StatusEffect = shocked_effect.instantiate()
 	effect.set_turns_remaining(2)
 	target.add_effect(effect)

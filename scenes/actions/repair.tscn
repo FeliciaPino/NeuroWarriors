@@ -53,7 +53,7 @@ _data = {
 "animation": SubResource("Animation_qwqvv")
 }
 
-[node name="repair" instance=ExtResource("1_ewsih")]
+[node name="Repair" instance=ExtResource("1_ewsih")]
 script = ExtResource("2_wna17")
 
 [node name="sprite" parent="." index="0"]

@@ -24,7 +24,7 @@ _data = {
 "animation": SubResource("Animation_jp6ak")
 }
 
-[node name="Harpoon_throw" instance=ExtResource("1_qsrqi")]
+[node name="HarpoonThrow" instance=ExtResource("1_qsrqi")]
 script = ExtResource("1_iyune")
 
 [node name="sprite" parent="." index="0"]

@@ -14,7 +14,7 @@ func _ready() -> void:
 
 func execute (user:BattleEntity, target:BattleEntity):
 	super.execute(user,target)
-	_ranged_non_projectile_action(user,target)
-func _action_effect(user:BattleEntity, target:BattleEntity)->void:
+	_ranged_non_projectile_action()
+func _action_effect()->void:
 	target.reduce_health(1)
 	target.update_ap(target.ap + 2)

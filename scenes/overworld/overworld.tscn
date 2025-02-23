@@ -203,7 +203,7 @@ scale = Vector2(0.1, 0.1)
 texture = ExtResource("3_2cqbg")
 
 [node name="Enemy" parent="Path2D" node_paths=PackedStringArray("target_spot") instance=ExtResource("3_t5cvq")]
-position = Vector2(-1.52588e-05, 7.62939e-06)
+position = Vector2(-100, 70)
 level_path = "res://scenes/levels/level_1.tscn"
 target_spot = NodePath("../PathFollow2D")
 movement_speed = 100.0

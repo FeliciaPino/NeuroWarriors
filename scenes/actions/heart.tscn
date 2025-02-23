@@ -54,7 +54,7 @@ _data = {
 "animation": SubResource("Animation_k2kku")
 }
 
-[node name="heart" instance=ExtResource("1_ixepv")]
+[node name="Heart" instance=ExtResource("1_ixepv")]
 script = ExtResource("1_ie21g")
 
 [node name="sprite" parent="." index="0"]

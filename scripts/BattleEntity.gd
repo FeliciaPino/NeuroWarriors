@@ -26,6 +26,7 @@ signal speed_changed
 signal received_damage(amount:int, bypass_shield:bool)
 
 var mySpot:Vector2 #where the entity returns after moving and stuff. Y'know, their spot
+var is_facing_right:bool = true
 signal just_freaking_died_right_now
 var alive:bool = true
 var actions:Array[BattleAction] = [] #the actions the entity can take, such as active abilites or attacks
@@ -89,9 +90,25 @@ func _ready() -> void:
 	
 	update_menu_actions()
 	update_info_panel()
-	
-		
-	
+
+func face_left():
+	is_facing_right = false
+	visual_node.scale = Vector2(-1,1)
+func face_right():
+	is_facing_right = true
+	visual_node.scale = Vector2(1,1)
+signal finished_walking
+func walk_to(destination:Vector2, speed):
+	if destination.x < global_position.x:
+		face_left()
+	else:
+		face_right()
+	var distance = global_position.distance_to(destination)
+	animation_player.play("walking")
+	await get_tree().create_tween().tween_property(self,"global_position",destination,distance/speed).finished
+	finished_walking.emit()
+
+
 #removes the effect with the given name.
 func remove_effect(effectName:String):
 	for eff:StatusEffect in effects_container.get_children():
@@ -106,7 +123,7 @@ func add_effect(effect:StatusEffect):
 	effect.start_effect()
 	effects_container.add_child(effect)
 	
-func receive_damage(attack_power):
+func receive_damage(attack_power:int):
 	var damage_taken = max(0,attack_power-defense)
 	update_health(health - damage_taken)
 	emit_signal("received_damage",attack_power,false)

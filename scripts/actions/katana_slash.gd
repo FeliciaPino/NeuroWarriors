@@ -12,8 +12,7 @@ func _ready():
 	_validate_values_are_initialized()
 func execute (user:BattleEntity, target:BattleEntity):
 	super.execute(user,target)
-	_meele_action(user,target)
-func _action_effect(user:BattleEntity, target:BattleEntity)->void:
-	super._action_effect(user,target)
+	_meele_action()
+func _action_effect()->void:
 	target.receive_damage(user.attack*2.5)
 	

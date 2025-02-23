@@ -55,7 +55,7 @@ _data = {
 "animation": SubResource("Animation_2rdyp")
 }
 
-[node name="Rum_throw" instance=ExtResource("1_5mapb")]
+[node name="RumThrow" instance=ExtResource("1_5mapb")]
 script = ExtResource("1_5rjq5")
 
 [node name="sprite" parent="." index="0"]
@@ -63,7 +63,6 @@ sprite_frames = SubResource("SpriteFrames_o4my3")
 
 [node name="sound" parent="." index="1"]
 stream = ExtResource("4_rpxqk")
-bus = &"SFX"
 
 [node name="sound2" type="AudioStreamPlayer" parent="." index="2"]
 stream = ExtResource("5_8nle4")

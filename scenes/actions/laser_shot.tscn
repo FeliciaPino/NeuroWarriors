@@ -24,7 +24,7 @@ _data = {
 "animation": SubResource("Animation_i5g0q")
 }
 
-[node name="laserShot" instance=ExtResource("1_6uchr")]
+[node name="LaserShot" instance=ExtResource("1_6uchr")]
 script = ExtResource("1_7wgxe")
 
 [node name="sprite" parent="." index="0"]
@@ -35,7 +35,6 @@ sprite_frames = SubResource("SpriteFrames_ao5b8")
 [node name="sound" parent="." index="1"]
 stream = ExtResource("3_e0r44")
 volume_db = -20.0
-bus = &"SFX"
 
 [node name="AnimationPlayer" parent="." index="2"]
 libraries = {

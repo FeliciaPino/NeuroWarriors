@@ -89,6 +89,7 @@ func update_entities_formations()->void:
 	_update_formation(get_foes(),foesRect,true)
 	
 func spawn_entity(entity:BattleEntity):
+	print("Entity Spawner: spanwing: "+str(entity))
 	self.add_child(entity)
 	entities.append(entity)
 	entity.set_up_at_start_of_turn()

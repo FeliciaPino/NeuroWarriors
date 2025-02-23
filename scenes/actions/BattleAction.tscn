@@ -6,6 +6,8 @@
 script = ExtResource("1_unb5h")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
+z_index = 1
+y_sort_enabled = true
 
 [node name="sound" type="AudioStreamPlayer" parent="."]
 bus = &"SFX"

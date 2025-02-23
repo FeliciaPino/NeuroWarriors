@@ -27,13 +27,13 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_2ehal"]
+length = 0.001
+
 [sub_resource type="Animation" id="Animation_vmeg4"]
 resource_name = "animation"
 length = 0.4
 loop_mode = 1
-
-[sub_resource type="Animation" id="Animation_2ehal"]
-length = 0.001
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_e7ixk"]
 _data = {
@@ -41,7 +41,7 @@ _data = {
 "animation": SubResource("Animation_vmeg4")
 }
 
-[node name="Poison Dart" instance=ExtResource("1_03j1x")]
+[node name="PoisonDart" instance=ExtResource("1_03j1x")]
 script = ExtResource("2_6purc")
 
 [node name="sprite" parent="." index="0"]

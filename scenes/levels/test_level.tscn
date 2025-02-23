@@ -1,9 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://by2t4l3fto5ou"]
+[gd_scene load_steps=13 format=3 uid="uid://by2t4l3fto5ou"]
 
 [ext_resource type="PackedScene" uid="uid://b82kauwohbvun" path="res://scenes/levels/game.tscn" id="1_hhncd"]
 [ext_resource type="Texture2D" uid="uid://dl6b6ewaxaxom" path="res://assets/backgrounds/forest_background.png" id="2_tkf6i"]
 [ext_resource type="PackedScene" uid="uid://du1rkche8wapa" path="res://scenes/characters/enemies/drone.tscn" id="4_0l3y4"]
+[ext_resource type="PackedScene" uid="uid://i17xkiofe1vx" path="res://scenes/actions/increase_attack.tscn" id="4_2o53s"]
+[ext_resource type="PackedScene" uid="uid://bt827bsp0jnmw" path="res://scenes/actions/overclock.tscn" id="5_02ejt"]
 [ext_resource type="PackedScene" uid="uid://cmccd8rxiyqab" path="res://scenes/characters/neuro_sama.tscn" id="5_gqr5d"]
+[ext_resource type="PackedScene" uid="uid://b6410g70liyhb" path="res://scenes/characters/evil.tscn" id="5_kut6e"]
+[ext_resource type="PackedScene" uid="uid://uwmc3sf7fq3o" path="res://scenes/characters/vedal.tscn" id="5_wayw2"]
+[ext_resource type="PackedScene" uid="uid://dwoectv3rk5u3" path="res://scenes/actions/poison_dart.tscn" id="6_fllvt"]
+[ext_resource type="PackedScene" uid="uid://cjwp37r4npd1c" path="res://scenes/actions/repair.tscn" id="7_s0tpm"]
+[ext_resource type="PackedScene" uid="uid://c5fgqjhldruh1" path="res://scenes/actions/rum_throw.tscn" id="8_5itwy"]
+[ext_resource type="PackedScene" uid="uid://btq0qkod0rqo" path="res://scenes/actions/shadow_clone.tscn" id="10_lpe2c"]
 
 [node name="Game" instance=ExtResource("1_hhncd")]
 
@@ -13,7 +21,31 @@ offset_bottom = 900.0
 texture = ExtResource("2_tkf6i")
 
 [node name="NeuroSama" parent="Entity_manager" index="0" instance=ExtResource("5_gqr5d")]
-position = Vector2(-119, 319)
+position = Vector2(190, 332)
+speed = 12
 
-[node name="Drone" parent="Entity_manager" index="1" instance=ExtResource("4_0l3y4")]
+[node name="increase attack" parent="Entity_manager/NeuroSama" index="9" instance=ExtResource("4_2o53s")]
+
+[node name="overclock" parent="Entity_manager/NeuroSama" index="10" instance=ExtResource("5_02ejt")]
+
+[node name="Poison Dart" parent="Entity_manager/NeuroSama" index="11" instance=ExtResource("6_fllvt")]
+
+[node name="repair" parent="Entity_manager/NeuroSama" index="12" instance=ExtResource("7_s0tpm")]
+
+[node name="Rum_throw" parent="Entity_manager/NeuroSama" index="13" instance=ExtResource("8_5itwy")]
+
+[node name="Evil" parent="Entity_manager" index="1" instance=ExtResource("5_kut6e")]
+position = Vector2(-220, 444)
+
+[node name="ShadowClone" parent="Entity_manager/Evil" index="9" instance=ExtResource("10_lpe2c")]
+
+[node name="Drone" parent="Entity_manager" index="2" instance=ExtResource("4_0l3y4")]
+position = Vector2(-137, 407)
+is_player_controlled = true
+
+[node name="Drone2" parent="Entity_manager" index="3" instance=ExtResource("4_0l3y4")]
 position = Vector2(1374, 322)
+health = 1000
+maxHealth = 1000
+
+[node name="Vedal" parent="Entity_manager" index="4" instance=ExtResource("5_wayw2")]
