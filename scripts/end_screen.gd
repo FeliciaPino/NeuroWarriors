@@ -10,7 +10,7 @@ extends Control
 @onready var win_sound:AudioStreamPlayer = $"../win_sound"
 @onready var lose_sound:AudioStreamPlayer = $"../lose_sound"
 
-var level_select_scene = preload( "res://scenes/levels/level_select.tscn" )#I don't think I am using this
+const map_scene = preload("res://scenes/overworld/overworld.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	return_to_map_button.pressed.connect(leave)
@@ -31,4 +31,4 @@ func set_win_status(value:bool):
 	end_turn_button.disabled = true
 func leave():
 	GameState.current_level = ""
-	get_tree().change_scene_to_file("res://scenes/levels/level_select.tscn")
+	get_tree().change_scene_to_packed(map_scene)
