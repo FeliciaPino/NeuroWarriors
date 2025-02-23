@@ -6,6 +6,11 @@ class_name OverworldCharacter
 @onready var sprite = $AnimatedSprite2D
 
 var speed = 200
+
+func _ready() -> void:
+	global_position = GameState.get_player_map_position()
+func _exit_tree() -> void:
+	GameState.set_player_map_position(global_position)
 func _physics_process(delta: float) -> void:
 	var direction  = Input.get_vector("left","right","up","down")
 	velocity = direction*speed

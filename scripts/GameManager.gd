@@ -185,6 +185,7 @@ func finish(win_status:bool):
 	end_screen.set_win_status(win_status)
 	if win_status:
 		GameState.mark_level_complete(GameState.current_level)
+		GameState.mark_overworld_enemy_defeated(GameState.current_enemy_battle)
 		if GameState.current_level == GameState.last_level:
 			get_tree().change_scene_to_file("res://scenes/credits.tscn")
 	animation_player.play("show_end_screen")

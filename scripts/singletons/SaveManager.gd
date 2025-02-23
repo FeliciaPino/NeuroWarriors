@@ -23,12 +23,16 @@ func save_game(save_slot_index:int):
 	save_dict(GameState.completed_levels,directory_path+"/levels.json")
 	save_dict(GameState.flags, directory_path+"/flags.json")
 	save_dict(GameState.characters_save_info, directory_path+"/characters.json")
+	save_dict(GameState.overworld_info, directory_path+"/overworld_info.json")
 
 func _load_dict(dict:Dictionary, default:Dictionary, file_path:String):
 	if not FileAccess.file_exists(file_path):
-		print("dictionary missing")
+		print("dictionary missing, initializing values")
 		for key in default:
-			dict[key] = default[key]
+			if default[key] is Dictionary:
+				dict[key] = default[key].duplicate(true)
+			else:
+				dict[key] = default[key]
 		return
 	var file = FileAccess.open(file_path,FileAccess.READ)
 	if file == null:
@@ -42,7 +46,12 @@ func _load_dict(dict:Dictionary, default:Dictionary, file_path:String):
 		print("JSON Parse Error: ", json.get_error_message(), " in ", json_string, " at line ", json.get_error_line())
 		return
 	for key in json.data:
-		dict[key] = json.data[key]
+		if json.data[key] is Dictionary:
+			print(str(self)+": "+ key + " a sub dictionary")
+			dict[key] = json.data.duplicate(true)
+		else:
+			print(str(self)+": just a regular value")
+			dict[key] = json.data[key]
 	for key in default:
 		if not dict.has(key):
 			dict[key] = default[key]
@@ -53,6 +62,7 @@ func load_game(save_slot_index:int):
 	_load_dict(GameState.completed_levels, GameState.DEFAULT_VALUES["completed_levels"], directory+"/levels.json")
 	_load_dict(GameState.flags, GameState.DEFAULT_VALUES["flags"], directory+"/flags.json")
 	_load_dict(GameState.characters_save_info,GameState.DEFAULT_VALUES["flags"], directory+"/characters.json")
+	_load_dict(GameState.overworld_info,GameState.DEFAULT_VALUES["overworld_info"], directory+"/overworld_info.json")
 	
 func get_save_info(save_slot_index):
 	var directory_path = str("user://saves/slot",save_slot_index)

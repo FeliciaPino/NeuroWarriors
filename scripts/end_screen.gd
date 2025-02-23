@@ -24,11 +24,15 @@ func set_win_status(value:bool):
 		label.text = "Defeat"
 		lose_sound.play()
 		var button = Button.new()
-		button.text = "retry"
-		button.pressed.connect(BattleMaker.go_to_level.bind(GameState.current_level_path))
+		button.text = "Go back to last save point"
+		button.pressed.connect(reload_and_leave)
 		vBoxContainer.add_child(button)
 	#this is ugly
 	end_turn_button.disabled = true
+func reload_and_leave():
+	SaveManager.load_game(GameState.current_save_slot_index)
+	get_tree().change_scene_to_packed(map_scene)
 func leave():
 	GameState.current_level = ""
+	GameState.current_enemy_battle = ""
 	get_tree().change_scene_to_packed(map_scene)

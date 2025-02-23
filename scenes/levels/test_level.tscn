@@ -49,9 +49,3 @@ health = 1000
 maxHealth = 1000
 
 [node name="Vedal" parent="Entity_manager" index="4" instance=ExtResource("5_wayw2")]
-
-[node name="EndScreen" parent="." index="7"]
-offset_left = 448.0
-offset_top = 14.0
-offset_right = 488.0
-offset_bottom = 54.0
