@@ -13,13 +13,14 @@ offset_bottom = 40.0
 texture = ExtResource("2_otcmt")
 
 [node name="Drone" parent="Entity_manager" index="0" instance=ExtResource("4_g1jns")]
-position = Vector2(1302, 456)
+position = Vector2(1305, 375)
 
 [node name="tutorial" type="Label" parent="." index="12"]
-offset_left = 382.0
-offset_top = 511.0
-offset_right = 812.0
-offset_bottom = 678.0
+visible = false
+offset_left = 422.0
+offset_top = 214.0
+offset_right = 852.0
+offset_bottom = 381.0
 text = "AP is not lost over turns. Try saving up to make powerful attacks or combos"
 autowrap_mode = 3
 script = ExtResource("6_8gt2u")

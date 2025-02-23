@@ -96,11 +96,11 @@ func spawn_entity(entity:BattleEntity):
 	entity.just_freaking_died_right_now.connect(func():remove_entity(entity))
 	var window_size = DisplayServer.window_get_size()
 	if entity.is_player_controlled:
-		entity.global_position = Vector2(-50,window_size.y*0.6)
+		entity.global_position = Vector2(-50,window_size.y*0.4)
 		#entity.mySpot = entity.global_position
 		_update_formation(get_party(),partyRect)
 	else:
-		entity.global_position = Vector2(window_size.x-100,window_size.y*0.6)
+		entity.global_position = Vector2(window_size.x-100,window_size.y*0.4)
 		#entity.mySpot = entity.global_position
 		_update_formation(get_foes(),foesRect,true)
 		

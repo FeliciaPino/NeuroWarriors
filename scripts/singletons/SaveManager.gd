@@ -17,6 +17,7 @@ func save_dict(dict:Dictionary, file_path:String)->void:
 	file.store_string(JSON.stringify(dict))
 	
 func save_game(save_slot_index:int):
+	print(str(self)+": saving")
 	var directory_path = str("user://saves/slot",save_slot_index)
 	ensure_directory(directory_path)
 	
@@ -48,9 +49,9 @@ func _load_dict(dict:Dictionary, default:Dictionary, file_path:String):
 	for key in json.data:
 		if json.data[key] is Dictionary:
 			print(str(self)+": "+ key + " a sub dictionary")
-			dict[key] = json.data.duplicate(true)
+			dict[key] = json.data[key].duplicate(true)
 		else:
-			print(str(self)+": just a regular value")
+			print(str(self)+": "+key+" just a regular value")
 			dict[key] = json.data[key]
 	for key in default:
 		if not dict.has(key):
