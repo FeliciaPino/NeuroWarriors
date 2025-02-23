@@ -56,7 +56,7 @@ var is_menu_opened = false
 signal got_clicked_on
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print(get_signal_connection_list("mouse_entered"))
+	print(str("mouse connections:",get_signal_connection_list("mouse_entered")))
 	
 	animation_player.play("idle")
 	is_hovered_over_with_the_mouse = false

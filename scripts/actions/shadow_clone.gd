@@ -24,4 +24,4 @@ func _action_effect(user:BattleEntity, target:BattleEntity)->void:
 	entity_manager.spawn_entity(clone)
 	var material = ShaderMaterial.new()
 	material.shader = SHADOWSHADER
-	clone.animated_sprite.material = material
+	clone.visual_node.material = material

@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://dn6g5t83qchn1"]
 
 [ext_resource type="Script" path="res://scripts/GameManager.gd" id="1_ougu4"]
-[ext_resource type="Texture2D" uid="uid://dl6b6ewaxaxom" path="res://assets/forest_background.png" id="2_hcg7c"]
+[ext_resource type="Texture2D" uid="uid://dl6b6ewaxaxom" path="res://assets/backgrounds/forest_background.png" id="2_hcg7c"]
 [ext_resource type="PackedScene" uid="uid://c0cerfjhi148m" path="res://scenes/entity_manager.tscn" id="3_2capw"]
 [ext_resource type="Texture2D" uid="uid://duwanoipd03rk" path="res://assets/ui/selection_circle.png" id="5_arpgi"]
 [ext_resource type="Script" path="res://scripts/end_screen.gd" id="6_75v17"]

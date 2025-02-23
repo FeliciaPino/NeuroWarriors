@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://clcpepbmh3462"]
 
 [ext_resource type="Script" path="res://scripts/GameManager.gd" id="1_jiqrc"]
-[ext_resource type="Texture2D" uid="uid://dl6b6ewaxaxom" path="res://assets/forest_background.png" id="2_jimri"]
+[ext_resource type="Texture2D" uid="uid://dl6b6ewaxaxom" path="res://assets/backgrounds/forest_background.png" id="2_jimri"]
 [ext_resource type="PackedScene" uid="uid://c0cerfjhi148m" path="res://scenes/entity_manager.tscn" id="3_flf6w"]
 [ext_resource type="PackedScene" uid="uid://du1rkche8wapa" path="res://scenes/characters/enemies/drone.tscn" id="5_u00gj"]
 [ext_resource type="PackedScene" uid="uid://cshv2w6p6ypkr" path="res://scenes/characters/enemies/offensive_drone.tscn" id="6_eu02h"]
