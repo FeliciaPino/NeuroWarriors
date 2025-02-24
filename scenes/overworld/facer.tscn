@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cnetql8kspan7"]
+
+[ext_resource type="Script" path="res://scripts/overworld/facer.gd" id="1_7a5sr"]
+
+[node name="Facer" type="Node" node_paths=PackedStringArray("body", "sprite")]
+script = ExtResource("1_7a5sr")
+body = NodePath("")
+sprite = NodePath("")

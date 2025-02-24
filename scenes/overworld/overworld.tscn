@@ -185,6 +185,7 @@ tile_map_data = PackedByteArray("AADo//b/AgAFAAEAAQDo//f/AgAFAAEAAQDo//j/AgAFAAE
 tile_set = SubResource("TileSet_jtbe5")
 
 [node name="OverworldCharacter" parent="." node_paths=PackedStringArray("camera") groups=["player"] instance=ExtResource("1_eup4e")]
+position = Vector2(-43, -32)
 motion_mode = 1
 camera = NodePath("Camera2D")
 speed = 150
@@ -210,6 +211,7 @@ text = "story
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Path2D" type="Path2D" parent="Enemies"]
+position = Vector2(-5, -77)
 curve = SubResource("Curve2D_qelj1")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Enemies/Path2D"]
