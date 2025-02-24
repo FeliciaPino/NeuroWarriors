@@ -208,10 +208,10 @@ scale = Vector2(0.493437, 1.24687)
 text = "story
 "
 
-[node name="Enemies" type="Node2D" parent="."]
+[node name="Enemies" type="Node" parent="."]
 
 [node name="Path2D" type="Path2D" parent="Enemies"]
-position = Vector2(-5, -77)
+position = Vector2(15, 11)
 curve = SubResource("Curve2D_qelj1")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Enemies/Path2D"]
@@ -227,7 +227,7 @@ id = "enemy1"
 target_spot = NodePath("../PathFollow2D")
 
 [node name="Path2D2" type="Path2D" parent="Enemies"]
-position = Vector2(415, -230)
+position = Vector2(766, -544)
 curve = SubResource("Curve2D_4u5wa")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Enemies/Path2D2"]

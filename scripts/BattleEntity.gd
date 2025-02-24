@@ -45,6 +45,7 @@ var ap:int #how many actions are left in a turn
 @onready var info_panel = $Menu/info_container/Info
 @onready var game_manager:GameManager = $"../.."
 @onready var visual_node = $visual
+@onready var flipper = $visual/Flipper
 @onready var animation_player:AnimationPlayer = $AnimationPlayer
 
 @onready var sound_effects = $sound_effects
@@ -93,10 +94,10 @@ func _ready() -> void:
 
 func face_left():
 	is_facing_right = false
-	visual_node.scale = Vector2(-1,1)
+	flipper.play("face_left")
 func face_right():
 	is_facing_right = true
-	visual_node.scale = Vector2(1,1)
+	flipper.play("face_right")
 signal finished_walking
 func walk_to(destination:Vector2, speed):
 	if destination.x < global_position.x:
@@ -236,8 +237,10 @@ func go_to_your_spot()->void:
 func settle_into_spot():
 	global_position = mySpot
 	animation_player.play("idle")
-	visual_node.scale = Vector2(-1,1) if global_position.x > 550 else Vector2(1,1)
-	
+	if global_position.x > 550:
+		face_left()
+	else:
+		face_right()
 
 func toggle_menu():
 	close_menu() if is_menu_opened else open_menu()
