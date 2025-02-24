@@ -10,13 +10,14 @@
 radius = 8.25692
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d4ba7"]
-radius = 50.0
+radius = 100.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hw7fj"]
 radius = 11.29
 
 [node name="Enemy" type="Node2D"]
 script = ExtResource("1_hnxng")
+movement_speed = 130.0
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_fuqus")
@@ -59,6 +60,6 @@ shape = SubResource("CircleShape2D_d4ba7")
 shape = SubResource("CircleShape2D_hw7fj")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 3.0
 
 [connection signal="body_entered" from="Body/EncounterCollider" to="." method="_on_encounter_collider_body_entered"]
