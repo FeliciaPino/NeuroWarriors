@@ -11,10 +11,20 @@ func _figure_out_party():
 func _figure_out_background():
 	pass
 func go_to_level(path:String):
+	var fade:AnimationPlayer = get_tree().current_scene.get_node_or_null("%FadeAnimationPlayer")
+	if fade:
+		print(str(self)+": fading out")
+		fade.play("fade_out")
+	else:
+		print(str(self)+": not fading out")
+		
 	GameState.current_level_path = path
 	var party:Array[BattleEntity] = []
 	for character_name in GameState.characters_save_info["party"]:
 		party.append(CharacterDatabase.get_entity_scene(character_name).instantiate())
+	if fade:
+		print(str(self)+": waiting for fade")
+		await fade.animation_finished
 	get_tree().change_scene_to_file(path)
 	while get_tree().current_scene == null:
 		print("awainting process secen in battlemaker")

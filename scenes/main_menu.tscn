@@ -1,7 +1,6 @@
-[gd_scene load_steps=23 format=3 uid="uid://uyf2xv345f10"]
+[gd_scene load_steps=22 format=3 uid="uid://uyf2xv345f10"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_3ih0l"]
-[ext_resource type="AudioStream" uid="uid://d2d5vwfjxrhic" path="res://assets/audio/music/4.ogg" id="2_15ktm"]
 [ext_resource type="Texture2D" uid="uid://daakoqoug8tly" path="res://assets/backgrounds/destroyed_city_background1.png" id="4_71udx"]
 [ext_resource type="Texture2D" uid="uid://de15blxjgtt8w" path="res://assets/ui/title.png" id="4_seej8"]
 [ext_resource type="Texture2D" uid="uid://b1iw4xeonbkc0" path="res://assets/backgrounds/destroyed_city_background2.png" id="5_pp4yy"]
@@ -468,13 +467,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3ih0l")
 
-[node name="music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_15ktm")
-volume_db = -30.0
-autoplay = true
-bus = &"Music"
-parameters/looping = true
-
 [node name="Title" type="TextureRect" parent="."]
 z_index = -1
 layout_mode = 0
@@ -595,8 +587,8 @@ horizontal_alignment = 1
 [node name="MusicSlider" type="HSlider" parent="MenuMenus/OptionsMenu"]
 unique_name_in_owner = true
 layout_mode = 2
-min_value = -40.0
-max_value = 40.0
+min_value = -50.0
+max_value = 10.0
 
 [node name="SFXSliderLabel" type="Label" parent="MenuMenus/OptionsMenu"]
 layout_mode = 2

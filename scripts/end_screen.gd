@@ -6,23 +6,18 @@ extends Control
 @onready var end_turn_button = $"../EndTurnButton"
 
 
-@onready var music:AudioStreamPlayer =$"../music"
-@onready var win_sound:AudioStreamPlayer = $"../win_sound"
-@onready var lose_sound:AudioStreamPlayer = $"../lose_sound"
-
 const map_scene = preload("res://scenes/overworld/overworld.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	return_to_map_button.pressed.connect(leave)
 
 func set_win_status(value:bool):
-	music.stop()
 	if value:
 		label.text = "Victory"
-		win_sound.play()
+		MusicPlayer.play_music(load("res://addons/Pixel_boy/theme-3b.ogg"),0)
 	else:
 		label.text = "Defeat"
-		lose_sound.play()
+		MusicPlayer.play_music(load("res://addons/sfx/Retro Negative Long 12.wav"),0)
 		var button = Button.new()
 		button.text = "Go back to last save point"
 		button.pressed.connect(reload_and_leave)

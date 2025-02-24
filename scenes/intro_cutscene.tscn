@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c7pvv8itnf4b8"]
+[gd_scene load_steps=11 format=3 uid="uid://c7pvv8itnf4b8"]
 
 [ext_resource type="Script" path="res://scripts/intro_cutscene.gd" id="1_fl8qn"]
 [ext_resource type="Texture2D" uid="uid://c0yh4sjku8ha3" path="res://assets/solid_white_square.png" id="1_od4nq"]
@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://bvuthcfovf1pg" path="res://assets/cutscenes/intro_cutscene_frame_5.png" id="7_yno0h"]
 [ext_resource type="Texture2D" uid="uid://c5goroaw74wp7" path="res://assets/cutscenes/intro_cutscene_frame_6.png" id="8_oyqlf"]
 [ext_resource type="Texture2D" uid="uid://joqcli1fj7c8" path="res://assets/cutscenes/intro_cutscene_frame_7.png" id="9_1b46i"]
-[ext_resource type="AudioStream" uid="uid://si4n625xbwl7" path="res://addons/Pixel_boy/theme-4.ogg" id="10_ryk4i"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ucomv"]
 font_size = 24
@@ -75,13 +74,6 @@ visible = false
 position = Vector2(586, 347)
 scale = Vector2(0.855638, 0.791844)
 texture = ExtResource("9_1b46i")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("10_ryk4i")
-volume_db = -35.625
-autoplay = true
-bus = &"Music"
-parameters/looping = true
 
 [node name="TextPanel" type="PanelContainer" parent="."]
 z_index = 1

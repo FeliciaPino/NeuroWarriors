@@ -175,7 +175,6 @@ autoplay = "idle_s"
 frame_progress = 0.342087
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("CapsuleShape2D_w2dh8")
 
 [node name="Facer" parent="." node_paths=PackedStringArray("body", "sprite") instance=ExtResource("3_5phls")]

@@ -23,6 +23,7 @@ GameState="*res://scripts/singletons/GameState.gd"
 SaveManager="*res://scripts/singletons/SaveManager.gd"
 CharacterDatabase="*res://scripts/singletons/CharacterDatabase.gd"
 BattleMaker="*res://scripts/singletons/BattleMaker.gd"
+MusicPlayer="*res://scripts/singletons/MusicPlayer.gd"
 
 [debug]
 

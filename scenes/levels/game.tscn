@@ -1,12 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://b82kauwohbvun"]
+[gd_scene load_steps=9 format=3 uid="uid://b82kauwohbvun"]
 
 [ext_resource type="Script" path="res://scripts/GameManager.gd" id="1_5lrye"]
 [ext_resource type="PackedScene" uid="uid://c0cerfjhi148m" path="res://scenes/entity_manager.tscn" id="3_iprcq"]
 [ext_resource type="Texture2D" uid="uid://duwanoipd03rk" path="res://assets/ui/selection_circle.png" id="6_ow8lb"]
-[ext_resource type="AudioStream" uid="uid://cdbbs3cm1pli5" path="res://addons/Pixel_boy/theme-7.ogg" id="7_qftdc"]
-[ext_resource type="AudioStream" uid="uid://bcvyh3sruf5vp" path="res://addons/Pixel_boy/theme-3b.ogg" id="8_i3x2h"]
 [ext_resource type="PackedScene" uid="uid://d4f0gy2sw12hv" path="res://scenes/ui/end_screen.tscn" id="9_s08fr"]
-[ext_resource type="AudioStream" uid="uid://c2qho0xysuk3u" path="res://addons/sfx/Retro Negative Long 12.wav" id="10_g6i48"]
 
 [sub_resource type="Animation" id="Animation_3mlxk"]
 length = 0.001
@@ -219,20 +216,3 @@ offset_right = 145.0
 offset_bottom = 620.0
 text = "Return to map
 "
-
-[node name="music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_qftdc")
-volume_db = -30.0
-autoplay = true
-bus = &"Music"
-parameters/looping = true
-
-[node name="win_sound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_i3x2h")
-volume_db = -20.0
-bus = &"Music"
-parameters/looping = true
-
-[node name="lose_sound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("10_g6i48")
-volume_db = -10.0

@@ -57,9 +57,3 @@ is_player_controlled = true
 
 [node name="monocopter2" parent="Entity_manager" index="6" instance=ExtResource("13_87yxj")]
 position = Vector2(1184, 470)
-
-[node name="EndScreen" parent="." index="7"]
-offset_left = 448.0
-offset_top = 14.0
-offset_right = 488.0
-offset_bottom = 54.0

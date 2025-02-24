@@ -31,6 +31,7 @@ var is_game_over:bool
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	MusicPlayer.play_music(load("res://addons/Pixel_boy/theme-7.ogg"))
 	print("current scene: "+str(get_tree().current_scene))
 	add_to_group("GameManager")
 	if background is AnimatedSprite2D:

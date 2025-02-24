@@ -10,6 +10,7 @@ extends Control
 @onready var om_music_slider = %MusicSlider
 @onready var om_SFX_slider = %SFXSlider
 func _ready() -> void:
+	MusicPlayer.play_music(load("res://assets/audio/music/4.ogg"))
 	play_button.pressed.connect(got_to_save_slots)
 	options_menu.visible = false
 	om_music_slider.value = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music"))

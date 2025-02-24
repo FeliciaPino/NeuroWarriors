@@ -10,6 +10,7 @@ var current_frame_index = 0
 var frames:Array[Sprite2D] = []
 const level_select_scene = preload("res://scenes/levels/level_select.tscn")
 func _ready() -> void:
+	MusicPlayer.play_music(load("res://addons/Pixel_boy/theme-4.ogg"))
 	GameState.flags["watched_intro_cutscene"] = true
 	for child in frames_node.get_children():
 		frames.append(child)
