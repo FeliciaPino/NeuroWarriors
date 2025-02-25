@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dqjchuoiu3tej"]
+[gd_scene load_steps=7 format=3 uid="uid://dqjchuoiu3tej"]
 
 [ext_resource type="AudioStream" uid="uid://si4n625xbwl7" path="res://addons/Pixel_boy/theme-4.ogg" id="1_c3q3q"]
 [ext_resource type="Script" path="res://scripts/credits.gd" id="1_uyumk"]
+[ext_resource type="Texture2D" uid="uid://cdyfbvubj5pqq" path="res://assets/actions/harpoon.png" id="3_c5hc6"]
 
 [sub_resource type="Animation" id="Animation_d8u6k"]
 length = 0.001
@@ -74,7 +75,7 @@ layout_mode = 0
 offset_left = 214.0
 offset_top = 224.0
 offset_right = 814.0
-offset_bottom = 1313.0
+offset_bottom = 1469.0
 scale = Vector2(1.3, 1.3)
 text = "Congratulations!
 You saved the world!
@@ -86,6 +87,12 @@ Credits:
 I, CopperQueen29, have made this game.
  With love and passion
 Heart
+
+Sprite made by my dear friend, Angiex161:
+
+
+
+
 
  Stuff I downloaded online:
 
@@ -120,6 +127,12 @@ I hope you had as much fun playing this as I had making it.
 Heart <3"
 horizontal_alignment = 1
 autowrap_mode = 1
+
+[node name="Harpoon" type="Sprite2D" parent="Label"]
+texture_filter = 1
+position = Vector2(303.077, 353.077)
+scale = Vector2(2, 2)
+texture = ExtResource("3_c5hc6")
 
 [node name="leave" type="Button" parent="."]
 layout_mode = 0

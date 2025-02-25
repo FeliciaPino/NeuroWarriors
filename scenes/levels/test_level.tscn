@@ -37,6 +37,7 @@ speed = 12
 
 [node name="Evil" parent="Entity_manager" index="1" instance=ExtResource("5_kut6e")]
 position = Vector2(-220, 444)
+speed = 30
 
 [node name="ShadowClone" parent="Entity_manager/Evil" index="9" instance=ExtResource("10_lpe2c")]
 
