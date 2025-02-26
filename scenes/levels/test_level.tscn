@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://by2t4l3fto5ou"]
+[gd_scene load_steps=15 format=3 uid="uid://by2t4l3fto5ou"]
 
 [ext_resource type="PackedScene" uid="uid://b82kauwohbvun" path="res://scenes/levels/game.tscn" id="1_hhncd"]
 [ext_resource type="Texture2D" uid="uid://dl6b6ewaxaxom" path="res://assets/backgrounds/forest_background.png" id="2_tkf6i"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://c5fgqjhldruh1" path="res://scenes/actions/rum_throw.tscn" id="8_5itwy"]
 [ext_resource type="PackedScene" uid="uid://btq0qkod0rqo" path="res://scenes/actions/shadow_clone.tscn" id="10_lpe2c"]
 [ext_resource type="PackedScene" uid="uid://b3wy6ts3hkpc5" path="res://scenes/characters/enemies/monocopter.tscn" id="13_87yxj"]
+[ext_resource type="PackedScene" uid="uid://criuo0gomqd7t" path="res://scenes/characters/enemies/generic_guy.tscn" id="14_lvy8f"]
 
 [node name="Game" instance=ExtResource("1_hhncd")]
 
@@ -51,6 +52,7 @@ health = 1000
 maxHealth = 1000
 
 [node name="Vedal" parent="Entity_manager" index="4" instance=ExtResource("5_wayw2")]
+position = Vector2(-134, 386)
 
 [node name="monocopter" parent="Entity_manager" index="5" instance=ExtResource("13_87yxj")]
 position = Vector2(351, 572)
@@ -58,3 +60,14 @@ is_player_controlled = true
 
 [node name="monocopter2" parent="Entity_manager" index="6" instance=ExtResource("13_87yxj")]
 position = Vector2(1184, 470)
+
+[node name="GenericGuy" parent="Entity_manager" index="7" instance=ExtResource("14_lvy8f")]
+position = Vector2(-98, 413)
+speed = 110
+is_player_controlled = true
+
+[node name="EndScreen" parent="." index="7"]
+offset_left = 448.0
+offset_top = 14.0
+offset_right = 488.0
+offset_bottom = 54.0
