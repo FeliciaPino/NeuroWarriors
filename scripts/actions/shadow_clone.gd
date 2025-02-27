@@ -20,7 +20,7 @@ func _action_effect()->void:
 	#apparently using duplicate is a bit hacky. I'm not sure this entirye battle action should even exist. I'll keep it 'cause it's cool though
 	var clone:BattleEntity = target.duplicate(DUPLICATE_SCRIPTS | DUPLICATE_GROUPS | DUPLICATE_SIGNALS) 
 	clone.is_player_controlled = user.is_player_controlled
-	
+
 	entity_manager.spawn_entity(clone)
 	var material = ShaderMaterial.new()
 	material.shader = SHADOWSHADER

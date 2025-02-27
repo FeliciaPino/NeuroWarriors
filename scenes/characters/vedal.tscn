@@ -473,6 +473,7 @@ is_player_controlled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="visual" index="0"]
 y_sort_enabled = true
+use_parent_material = true
 sprite_frames = SubResource("SpriteFrames_gtx3c")
 autoplay = "default"
 

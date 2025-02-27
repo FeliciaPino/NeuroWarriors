@@ -273,6 +273,7 @@ speed = 3
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="visual" index="0"]
 y_sort_enabled = true
+use_parent_material = true
 sprite_frames = SubResource("SpriteFrames_j1xof")
 animation = &"effect"
 autoplay = "default"

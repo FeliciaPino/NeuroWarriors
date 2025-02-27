@@ -61,7 +61,7 @@ speed = 30
 position = Vector2(1713, 42)
 
 [node name="Evil2" parent="Entity_manager" index="3" instance=ExtResource("5_kut6e")]
-position = Vector2(-220, 444)
+position = Vector2(1803, 304)
 speed = 30
 is_player_controlled = false
 

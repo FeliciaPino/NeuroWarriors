@@ -528,6 +528,7 @@ texture = ExtResource("7_ray10")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="visual" index="1"]
 y_sort_enabled = true
+use_parent_material = true
 sprite_frames = SubResource("SpriteFrames_8s26f")
 autoplay = "default"
 

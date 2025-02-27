@@ -524,6 +524,8 @@ is_player_controlled = true
 
 [node name="body" type="AnimatedSprite2D" parent="visual" index="0"]
 y_sort_enabled = true
+texture_filter = 1
+use_parent_material = true
 sprite_frames = SubResource("SpriteFrames_os5q3")
 autoplay = "default"
 

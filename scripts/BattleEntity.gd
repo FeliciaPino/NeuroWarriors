@@ -184,6 +184,7 @@ func set_up_at_start_of_turn():
 	ap += get_speed()
 	for effect in effects_container.get_children():
 		if not effect is StatusEffect: continue
+		effect.affected = self#this shouln't be necessary maybe
 		effect.start_of_turn()
 		if effect.turns_remaining <= 0:
 			remove_effect(effect.effect_name)
@@ -226,14 +227,9 @@ func update_menu_actions():
 		action_menu.add_child(button)
 
 func go_to_your_spot()->void:
-	var distance_to_spot = mySpot.distance_to(global_position)
-	if distance_to_spot < 1: return
-	visual_node.scale = Vector2(-1,1) if mySpot.x < global_position.x else Vector2(1,1)
-	var tween = get_tree().create_tween()
-	animation_player.play("walking")
-	#maybe make the time depend on how far away they are from their spot?
-	tween.tween_property(self,"global_position",mySpot, distance_to_spot/500+0.1)
-	tween.finished.connect(settle_into_spot)
+	walk_to(mySpot,500)
+	await finished_walking
+	settle_into_spot()
 func settle_into_spot():
 	global_position = mySpot
 	animation_player.play("idle")
