@@ -412,6 +412,9 @@ sprite_frames = SubResource("SpriteFrames_e8na7")
 animation = &"attack"
 autoplay = "default"
 
+[node name="Actions" parent="." index="2"]
+visible = false
+
 [node name="GenericMelee" parent="Actions" index="0" instance=ExtResource("2_fm84f")]
 
 [node name="RumThrow" parent="Actions" index="1" instance=ExtResource("4_yeyqg")]

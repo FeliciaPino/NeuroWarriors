@@ -39,6 +39,8 @@ func _validate_values_are_initialized()->void:
 	assert(animationType != null)
 	
 func valid_target()->bool:
+	if target == null:
+		return false
 	if not is_instance_valid(target):
 		return false
 	if not target is BattleEntity:
@@ -47,6 +49,8 @@ func valid_target()->bool:
 		return false
 	return true
 func valid_user()->bool:
+	if user == null:
+		return false
 	if not is_instance_valid(user):
 		return false
 	if not user is BattleEntity:
@@ -128,7 +132,9 @@ func _ranged_non_projectile_action()->void:
 	if not valid_user():
 		return
 	user.animation_player.play(animationType)
-	await user.animation_player.animation_finished
+	print("wating for "+str(user)+" to finsih animation")
+	await user.animation_player.animation_changed
+	print(str(user)+"finished animation")
 	sounds[0].play()
 	#the animation instructs the action effect
 	animationPlayer.play("animation")
