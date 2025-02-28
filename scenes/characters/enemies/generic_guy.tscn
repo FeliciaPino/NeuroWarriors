@@ -25,11 +25,11 @@ region = Rect2(300, 160, 100, 160)
 atlas = ExtResource("3_jme6j")
 region = Rect2(400, 160, 100, 160)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1oivs"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_wswik"]
 atlas = ExtResource("3_jme6j")
 region = Rect2(0, 0, 100, 160)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xrety"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_cgpfg"]
 atlas = ExtResource("3_jme6j")
 region = Rect2(100, 0, 100, 160)
 
@@ -121,10 +121,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1oivs")
+"texture": SubResource("AtlasTexture_wswik")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xrety")
+"texture": SubResource("AtlasTexture_cgpfg")
 }],
 "loop": true,
 "name": &"default",
@@ -412,9 +412,6 @@ use_parent_material = true
 sprite_frames = SubResource("SpriteFrames_e8na7")
 animation = &"attack"
 autoplay = "default"
-
-[node name="Actions" parent="." index="2"]
-visible = false
 
 [node name="GenericMelee" parent="Actions" index="0" instance=ExtResource("2_fm84f")]
 

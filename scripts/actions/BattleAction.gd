@@ -24,8 +24,8 @@ func _ready() -> void:
 			sounds.append(c)
 	action_effect.connect(_do_action_effect)
 func _do_action_effect():
-	if not (valid_target() or valid_user()): 
-		print("somethings not valid")
+	if not valid_target() or not valid_user(): 
+		print(str(self,": somethings not valid"))
 		return
 	_action_effect()
 #gotta call this at the end of the sub-class initializer, to avoid me forgeting stuff. 
@@ -99,7 +99,11 @@ func _meele_action()->void:
 
 #does the throwing thing and calls _action_effect
 func _projectile_action(projectile_speed:float=10)->void:
-	if not valid_user(): return
+	if not valid_user() or not valid_target(): return
+	if target.global_position < user.global_position:
+		user.face_left()
+	else:
+		user.face_right()
 	user.animation_player.play(animationType)
 	await get_tree().create_timer(0.4).timeout #for the animation to get to about the throwing part
 	sounds[0].play()
@@ -125,6 +129,7 @@ func _projectile_action(projectile_speed:float=10)->void:
 		if sounds.size()>1:
 			sounds[1].play()
 	if valid_user():
+		#user.settle_into_spot()
 		user.animation_player.play("idle")
 	action_finished.emit()
 #plays the animation of the entity and calls _action_effect
