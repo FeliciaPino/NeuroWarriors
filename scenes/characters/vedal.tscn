@@ -1,13 +1,60 @@
-[gd_scene load_steps=51 format=3 uid="uid://uwmc3sf7fq3o"]
+[gd_scene load_steps=56 format=3 uid="uid://uwmc3sf7fq3o"]
 
 [ext_resource type="PackedScene" uid="uid://dp2gnkbdq83n4" path="res://scenes/characters/battle_entity.tscn" id="1_0fs3l"]
 [ext_resource type="Texture2D" uid="uid://cp5lh7r4ov0e7" path="res://assets/vedal.png" id="2_53on7"]
+[ext_resource type="Texture2D" uid="uid://darobappakqlr" path="res://assets/characters/vedal_laptop.png" id="2_om3sy"]
 [ext_resource type="Texture2D" uid="uid://d063m4xmuua74" path="res://assets/characters/vedal.png" id="3_h2cke"]
 [ext_resource type="PackedScene" uid="uid://cgpf6o36fg7r5" path="res://scenes/actions/tutel_shield.tscn" id="3_h108e"]
 [ext_resource type="PackedScene" uid="uid://c5fgqjhldruh1" path="res://scenes/actions/rum_throw.tscn" id="4_5pgk1"]
 [ext_resource type="PackedScene" uid="uid://bt827bsp0jnmw" path="res://scenes/actions/overclock.tscn" id="5_1wqd1"]
-[ext_resource type="AudioStream" uid="uid://cn087r6raiygd" path="res://assets/audio/SFX/soundslikerumenough.wav" id="5_pmu35"]
-[ext_resource type="AudioStream" uid="uid://cbihur5nfjeb4" path="res://addons/sfx/Retro Charge Magic 11.wav" id="7_qkolh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_66o0d"]
+atlas = ExtResource("2_om3sy")
+region = Rect2(150, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xwoxu"]
+atlas = ExtResource("2_om3sy")
+region = Rect2(100, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ma6fm"]
+atlas = ExtResource("2_om3sy")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_50dgg"]
+atlas = ExtResource("2_om3sy")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ma35"]
+atlas = ExtResource("2_om3sy")
+region = Rect2(50, 0, 50, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yyxfu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_66o0d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xwoxu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ma6fm")
+}],
+"loop": true,
+"name": &"appear",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_50dgg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ma35")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jakgj"]
 atlas = ExtResource("2_53on7")
@@ -354,6 +401,42 @@ tracks/6/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("visual/VedalLaptop:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("visual/VedalLaptop:animation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("visual/VedalLaptop:speed_scale")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
 
 [sub_resource type="Animation" id="Animation_dsxnk"]
 resource_name = "attack"
@@ -477,6 +560,7 @@ tracks/7/keys = {
 
 [sub_resource type="Animation" id="Animation_dqclt"]
 resource_name = "effect"
+length = 1.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -484,10 +568,46 @@ tracks/0/path = NodePath("visual/AnimatedSprite2D:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.001),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.133333, 1.16667),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [&"effect"]
+"values": [&"effect", &"default"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("visual/VedalLaptop:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.01, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("visual/VedalLaptop:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.95, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [&"appear", &"default", &"appear", &"default"]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("visual/VedalLaptop:speed_scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.95),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, -1.0]
 }
 
 [sub_resource type="Animation" id="Animation_ml5id"]
@@ -556,7 +676,13 @@ defense = 10
 speed = 2
 is_player_controlled = true
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="visual" index="0"]
+[node name="VedalLaptop" type="AnimatedSprite2D" parent="visual" index="0"]
+visible = false
+position = Vector2(47, -17)
+sprite_frames = SubResource("SpriteFrames_yyxfu")
+autoplay = "default"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="visual" index="1"]
 y_sort_enabled = true
 texture_filter = 1
 use_parent_material = true
@@ -568,15 +694,6 @@ autoplay = "default"
 [node name="Rum_throw" parent="Actions" index="1" instance=ExtResource("4_5pgk1")]
 
 [node name="overclock" parent="Actions" index="2" instance=ExtResource("5_1wqd1")]
-
-[node name="rum_hit" type="AudioStreamPlayer" parent="sound_effects" index="3"]
-stream = ExtResource("5_pmu35")
-volume_db = -20.0
-pitch_scale = 3.0
-bus = &"SFX"
-
-[node name="boost" type="AudioStreamPlayer" parent="sound_effects" index="4"]
-stream = ExtResource("7_qkolh")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="8"]
 libraries = {
