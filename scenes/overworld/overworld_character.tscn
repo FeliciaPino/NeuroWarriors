@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bl855ggccmntd"]
 
 [ext_resource type="Script" path="res://scripts/overworld/overworld_character.gd" id="1_e0gxn"]
-[ext_resource type="SpriteFrames" uid="uid://d35dbsvxhc3kd" path="res://assets/overworld/Evil_spriteframes.tres" id="2_bsymf"]
+[ext_resource type="SpriteFrames" uid="uid://cqxllai44u7r4" path="res://assets/overworld/Vedal_spriteframes.tres" id="2_eq1kx"]
 [ext_resource type="PackedScene" uid="uid://cnetql8kspan7" path="res://scenes/overworld/facer.tscn" id="3_5phls"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w2dh8"]
@@ -9,17 +9,21 @@ radius = 13.0
 height = 26.0
 
 [node name="OverworldCharacter" type="CharacterBody2D"]
+y_sort_enabled = true
 position = Vector2(0, -16)
 collision_layer = 2
 script = ExtResource("1_e0gxn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
 texture_filter = 1
-sprite_frames = ExtResource("2_bsymf")
-animation = &"moving_w"
+sprite_frames = ExtResource("2_eq1kx")
+animation = &"moving_e"
 autoplay = "idle_s"
+frame_progress = 0.134933
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CapsuleShape2D_w2dh8")
 
 [node name="Facer" parent="." node_paths=PackedStringArray("body", "sprite") instance=ExtResource("3_5phls")]

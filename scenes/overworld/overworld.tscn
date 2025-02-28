@@ -271,6 +271,7 @@ tile_map_data = PackedByteArray("AADo//b/AgAFAAEAAQDo//f/AgAFAAEAAQDo//j/AgAFAAE
 tile_set = SubResource("TileSet_jtbe5")
 
 [node name="Party" type="Node2D" parent="." node_paths=PackedStringArray("camera")]
+y_sort_enabled = true
 script = ExtResource("3_pyupe")
 camera = NodePath("Camera2D")
 

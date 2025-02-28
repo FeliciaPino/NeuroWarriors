@@ -3,7 +3,7 @@ extends Node
 @export var sprite:AnimatedSprite2D
 var facing:String = "s"
 func _process(delta: float) -> void:
-	if body.velocity.length() > 0:
+	if body.velocity.length() > 1:
 		if abs(body.velocity.x) > abs(body.velocity.y):
 			facing = "e" if body.velocity.x > 0 else "w"
 		else:
