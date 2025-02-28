@@ -98,6 +98,7 @@ func face_left():
 func face_right():
 	is_facing_right = true
 	flipper.play("face_right")
+var walking_tween:Tween = null
 signal finished_walking
 func walk_to(destination:Vector2, speed):
 	if destination.x < global_position.x:
@@ -106,7 +107,12 @@ func walk_to(destination:Vector2, speed):
 		face_right()
 	var distance = global_position.distance_to(destination)
 	animation_player.play("walking")
-	await get_tree().create_tween().tween_property(self,"global_position",destination,distance/speed).finished
+	if walking_tween:
+		if walking_tween.is_running():
+			walking_tween.kill()
+	walking_tween = get_tree().create_tween()
+	walking_tween.tween_property(self,"global_position",destination,distance/speed)
+	await walking_tween.finished
 	finished_walking.emit()
 
 
@@ -231,7 +237,7 @@ func go_to_your_spot()->void:
 	await finished_walking
 	settle_into_spot()
 func settle_into_spot():
-	global_position = mySpot
+	#global_position = mySpot
 	animation_player.play("idle")
 	if global_position.x > 550:
 		face_left()

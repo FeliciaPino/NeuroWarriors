@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bl855ggccmntd"]
 
 [ext_resource type="Script" path="res://scripts/overworld/overworld_character.gd" id="1_e0gxn"]
-[ext_resource type="SpriteFrames" path="res://scenes/overworld/Evil_spriteframes.tres" id="2_svbfh"]
+[ext_resource type="SpriteFrames" uid="uid://d35dbsvxhc3kd" path="res://assets/overworld/Evil_spriteframes.tres" id="2_bsymf"]
 [ext_resource type="PackedScene" uid="uid://cnetql8kspan7" path="res://scenes/overworld/facer.tscn" id="3_5phls"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w2dh8"]
@@ -15,7 +15,7 @@ script = ExtResource("1_e0gxn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-sprite_frames = ExtResource("2_svbfh")
+sprite_frames = ExtResource("2_bsymf")
 animation = &"moving_w"
 autoplay = "idle_s"
 

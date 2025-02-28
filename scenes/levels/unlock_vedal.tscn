@@ -22,9 +22,3 @@ flip_h = true
 
 [node name="monocopter" parent="Entity_manager" index="0" instance=ExtResource("4_inwn3")]
 position = Vector2(1433, 495)
-
-[node name="EndScreen" parent="." index="7"]
-offset_left = 448.0
-offset_top = 14.0
-offset_right = 488.0
-offset_bottom = 54.0
