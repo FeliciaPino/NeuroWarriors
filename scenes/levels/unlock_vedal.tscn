@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://bb678mloxr1s8"]
+
+[ext_resource type="PackedScene" uid="uid://b82kauwohbvun" path="res://scenes/levels/game.tscn" id="1_fygol"]
+[ext_resource type="Texture2D" uid="uid://dl6b6ewaxaxom" path="res://assets/backgrounds/forest_background.png" id="2_i0k85"]
+[ext_resource type="Texture2D" uid="uid://bqcfv1jmifejt" path="res://assets/sad_ved.png" id="3_brxkv"]
+[ext_resource type="PackedScene" uid="uid://b3wy6ts3hkpc5" path="res://scenes/characters/enemies/monocopter.tscn" id="4_inwn3"]
+
+[node name="Game" instance=ExtResource("1_fygol")]
+
+[node name="TextureRect" type="TextureRect" parent="Background" index="0"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_i0k85")
+
+[node name="TextureRect2" type="TextureRect" parent="Background" index="1"]
+offset_left = 933.0
+offset_top = 140.0
+offset_right = 1153.0
+offset_bottom = 340.0
+texture = ExtResource("3_brxkv")
+flip_h = true
+
+[node name="monocopter" parent="Entity_manager" index="0" instance=ExtResource("4_inwn3")]
+position = Vector2(1433, 495)
+
+[node name="EndScreen" parent="." index="7"]
+offset_left = 448.0
+offset_top = 14.0
+offset_right = 488.0
+offset_bottom = 54.0

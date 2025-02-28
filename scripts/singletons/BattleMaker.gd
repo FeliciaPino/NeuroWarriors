@@ -11,6 +11,7 @@ func _figure_out_party():
 func _figure_out_background():
 	pass
 func go_to_level(path:String):
+	get_tree().get_first_node_in_group("player").process_mode = PROCESS_MODE_DISABLED
 	var fade:AnimationPlayer = get_tree().current_scene.get_node_or_null("%FadeAnimationPlayer")
 	if fade:
 		print(str(self)+": fading out")

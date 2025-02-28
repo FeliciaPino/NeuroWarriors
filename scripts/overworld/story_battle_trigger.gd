@@ -2,8 +2,11 @@ extends Area2D
 @export var id:String
 @export var level_path:String
 func _ready() -> void:
+	visible = false
 	if GameState.is_level_completed(id):
 		queue_free()
+	else:
+		visible = true
 func _go_to_encounter():
 	GameState.current_level = id
 	BattleMaker.go_to_level(level_path)

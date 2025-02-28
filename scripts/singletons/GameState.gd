@@ -53,14 +53,10 @@ func _ready():
 
 func mark_level_complete(level_name: String):
 	completed_levels[level_name] = true
-	if level_name == "Vedal’s Refuge":
-		characters_save_info["Vedal"]["unlocked"] = true
-		if not "Vedal" in characters_save_info["party"]:
-			characters_save_info["party"].append("Vedal")
-	if level_name == "De-fence, HO, HO!":
-		characters_save_info["Evil"]["unlocked"] = true
-		if not "Evil" in characters_save_info["party"]:
-			characters_save_info["party"].append("Evil")
+	if level_name == "Vedal unlock":
+		unlock_character("Vedal")
+	if level_name == "Evil unlock":
+		unlock_character("Evil")
 	SaveManager.save_game(current_save_slot_index)
 func is_level_completed(level_name: String) -> bool:
 	return completed_levels.get(level_name, false)
@@ -70,7 +66,11 @@ func mark_overworld_enemy_defeated(enemy_id:String):
 	SaveManager.save_game(current_save_slot_index)
 func is_overworld_enemy_defeated(enemy_id:String):
 	return overworld_info["defeated_enemies"].get(enemy_id,false)
-	
+func unlock_character(character_name:String):
+	characters_save_info[character_name]["unlocked"] = true
+	#change this part when I add party select screen
+	if not character_name in characters_save_info["party"]:
+		characters_save_info["party"].append(character_name)
 func get_player_map_position():
 	return Vector2(overworld_info["player_position_x"],overworld_info["player_position_y"])
 func set_player_map_position(position:Vector2):

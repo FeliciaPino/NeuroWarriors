@@ -194,6 +194,7 @@ timer = NodePath("../../Timer")
 
 [node name="Body" type="CharacterBody2D" parent="."]
 collision_layer = 0
+collision_mask = 3
 motion_mode = 1
 
 [node name="BodyCollider" type="CollisionShape2D" parent="Body"]
@@ -202,11 +203,13 @@ shape = SubResource("CircleShape2D_erwio")
 
 [node name="Vision" type="Area2D" parent="Body"]
 collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Body/Vision"]
 shape = SubResource("CircleShape2D_d4ba7")
 
 [node name="EncounterCollider" type="Area2D" parent="Body"]
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Body/EncounterCollider"]
 shape = SubResource("CircleShape2D_hw7fj")
