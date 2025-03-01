@@ -194,7 +194,6 @@ timer = NodePath("../../Timer")
 
 [node name="Body" type="CharacterBody2D" parent="."]
 collision_layer = 0
-collision_mask = 3
 motion_mode = 1
 
 [node name="BodyCollider" type="CollisionShape2D" parent="Body"]
