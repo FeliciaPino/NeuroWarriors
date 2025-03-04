@@ -15,7 +15,7 @@ func get_description():
 	return "woopsie poopsie, forgor to overwrite get_description"
 func update_label()->void:
 	if turns_remaining_label and icon:
-		turns_remaining_label.text = str(turns_remaining)
+		turns_remaining_label.text = str(turns_remaining,"⌛")
 		icon.tooltip_text = get_description()
 	else:
 		#In case the label or icon is not ready yet try again later.

@@ -357,10 +357,10 @@ tracks/0/path = NodePath("visual/AnimatedSprite2D:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.0666667, 0.8),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0.0666667),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [&"effect", &"default"]
+"values": [&"effect"]
 }
 
 [sub_resource type="Animation" id="Animation_6ysvj"]
@@ -450,3 +450,4 @@ bus = &"SFX"
 libraries = {
 "": SubResource("AnimationLibrary_8v7bq")
 }
+next/effect = &"idle"

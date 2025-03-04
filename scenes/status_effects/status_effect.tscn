@@ -32,11 +32,12 @@ stretch_mode = 2
 
 [node name="turns_remaining_label" type="Label" parent="icon"]
 texture_filter = 1
-layout_mode = 0
+layout_mode = 2
+offset_top = 15.0
 offset_right = 16.0
-offset_bottom = 16.0
-text = "3
-"
+offset_bottom = 29.0
+scale = Vector2(0.8, 0.8)
+text = "3⌛"
 label_settings = SubResource("LabelSettings_2dtvr")
 horizontal_alignment = 1
 vertical_alignment = 1

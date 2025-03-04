@@ -68,9 +68,7 @@ position = Vector2(1803, 304)
 speed = 30
 is_player_controlled = false
 
-[node name="ShadowClone" parent="Entity_manager/Evil2" index="9" instance=ExtResource("10_lpe2c")]
-
-[node name="increase attack2" parent="Entity_manager/Evil2" index="10" instance=ExtResource("4_2o53s")]
+[node name="increase attack2" parent="Entity_manager/Evil2" index="9" instance=ExtResource("4_2o53s")]
 position = Vector2(1713, 42)
 
 [node name="Drone" parent="Entity_manager" index="4" instance=ExtResource("4_0l3y4")]
