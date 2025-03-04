@@ -139,7 +139,7 @@ func receive_damage(attack_power:int):
 	make_sound("hit", true)
 
 #makes some info be thrown from the entity. I'm thinking mostly using it to indicate damage
-func throw_text(text:String, color:Color = Color.WHITE):
+func throw_text(text:String, color:Color = Color.WHITE, size = 2):
 	var label = Label.new()
 	label.modulate = color
 	self.add_child(label)
@@ -152,7 +152,7 @@ func throw_text(text:String, color:Color = Color.WHITE):
 	tween.set_parallel()
 	tween.tween_property(label,"position:x",20,0.3).set_trans(Tween.TRANS_LINEAR)
 	tween.tween_property(label,"position:y",-50,0.3)
-	tween.tween_property(label,"scale",Vector2(2,2),0.2)
+	tween.tween_property(label,"scale",Vector2(size,size),0.2)
 	tween.chain().tween_property(label, "position:x", 50, 0.6).set_trans(Tween.TRANS_LINEAR)
 	tween.tween_property(label,"position:y",50,0.6)
 	tween.tween_property(label, "modulate", Color(1,1,1,0), 0.6)
@@ -217,7 +217,7 @@ func update_ap_label_text():
 	actions_left_display.get_child(0).size.x = len(actions_left_label.text)*9+27
 
 func update_info_panel() -> void:
-	var info_panel_info = [entity_name,str("Health: ",health,"/",maxHealth),str("Attack: ",attack),str("Defense: ",defense),str("AP regen: ",speed)]
+	var info_panel_info = [entity_name,str(tr("BATTLESTAT_HEALTH"),": ",health,"/",maxHealth),str(tr("BATTLESTAT_ATTACK"),": ",attack),str(tr("BATTLESTAT_DEFENSE"),": ",defense),str(tr("BATTLESTAT_AP_REGEN"),": ",speed)]
 	for i in range(info_panel.get_child_count()):
 		info_panel.get_child(i).text = info_panel_info[i]
 func update_menu_actions():

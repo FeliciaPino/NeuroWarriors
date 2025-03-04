@@ -4,9 +4,9 @@ var defense_effect = preload("res://scenes/status_effects/defense_up.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	super._ready()
-	action_name = "Tutel Shield"
-	description = "Summon a shield to protect target for the next 3 turns"
-	verb = "defend"
+	action_name = tr("BATTLE_ACTION_TUTEL_SHIELD_NAME")
+	description = tr("BATTLE_ACTION_TUTEL_SHIELD_DESCRIPTION").format({turn_amount=effect_duration})
+	verb = tr("BATTLE_ACTION_TUTEL_SHIELD_VERB")
 	isMelee = false
 	isPositive = true
 	price = 2

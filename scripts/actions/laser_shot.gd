@@ -3,9 +3,10 @@ extends BattleAction
 
 func _ready() -> void:
 	super._ready()
-	action_name = "Laser Shot"
-	description = "Shoots a laser"
-	verb = "shoot a laser at"
+	action_multiplier
+	action_name = tr("BATTLE_ACTION_LASER_SHOOT_NAME")
+	description = tr("BATTLE_ACTION_LASER_SHOOT_DESCRIPTION").format({multiplier=action_multiplier,stat=tr("BATTLESTAT_ATTACK")})
+	verb = tr("BATTLE_ACTION_LASER_SHOOT_VERB")
 	isMelee = false
 	isPositive = false
 	price = 1

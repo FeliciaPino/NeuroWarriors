@@ -430,7 +430,7 @@ speed = 40.0
 
 [node name="Enemy" parent="Enemies/Path2D" node_paths=PackedStringArray("target_spot") instance=ExtResource("3_t5cvq")]
 position = Vector2(166, 17)
-level_path = "res://scenes/levels/level_1.tscn"
+level_path = "res://scenes/levels/test_level.tscn"
 id = "enemy1"
 target_spot = NodePath("../PathFollow2D")
 

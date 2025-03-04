@@ -2,9 +2,9 @@ extends BattleAction
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	super._ready()
-	action_name = "Shadow Clone"
-	description = "Creates an identical shadow clone of the target that will fight for you"
-	verb = "clone"
+	action_name = tr("BATTLE_ACTION_SHADOW_CLONE_NAME")
+	description = tr("BATTLE_ACTION_SHADOW_CLONE_DESCRIPTION")
+	verb = tr("BATTLE_ACTION_SHADOW_CLONE_VERB")
 	isMelee = false
 	isPositive = false
 	price = 2

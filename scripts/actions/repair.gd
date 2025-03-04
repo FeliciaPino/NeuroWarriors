@@ -3,9 +3,9 @@ extends BattleAction
 
 func _ready() -> void:
 	super._ready()
-	action_name = "Repair"
-	description = "Heals"
-	verb = "heal"
+	action_name = tr("BATTLE_ACTION_REPAIR_NAME")
+	description = tr("BATTLE_ACTION_REPAIR_DESCRIPTION").format({amount=20})
+	verb = tr("BATTLE_ACTION_REPAIR_VERB")
 	isMelee = false
 	isPositive = true
 	price = 2

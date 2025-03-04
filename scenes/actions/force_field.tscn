@@ -96,7 +96,6 @@ script = ExtResource("1_l4pmk")
 
 [node name="sprite" parent="." index="0"]
 modulate = Color(1, 1, 1, 0.6)
-z_index = 1
 scale = Vector2(1e-05, 1e-05)
 sprite_frames = SubResource("SpriteFrames_dh5xu")
 

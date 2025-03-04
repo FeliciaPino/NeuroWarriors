@@ -6,9 +6,9 @@ const defensive_drone_scene = preload("res://scenes/characters/enemies/defensive
 const healing_drone_scene = preload("res://scenes/characters/enemies/healing_drone.tscn")
 func _ready() -> void:
 	super._ready()
-	action_name = "Summon drone"
-	description = "Summons an enemy drone."
-	verb = "summon"
+	action_name = tr("BATTLE_ACTION_SUMMON_DRONE_NAME")
+	description = tr("BATTLE_ACTION_SUMMON_DRONE_DESCRIPTION")
+	verb = tr("BATTLE_ACTION_SUMMON_DRONE_VERB")
 	isMelee = false
 	isPositive = true
 	price = 6

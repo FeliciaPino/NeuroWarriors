@@ -2,9 +2,10 @@ extends BattleAction
 
 func _ready():
 	super._ready()
-	action_name = "Robot Punch"
-	description = "Deliver a powerful blow with her robot actuators"
-	verb = "punch"
+	action_multiplier = 1.5
+	action_name = tr("BATTLE_ACTION_ROBOT_PUNCH_NAME")
+	description = tr("BATTLE_ACTION_ROBOT_PUNCH_DESCRIPTION").format({multiplier=action_multiplier,stat=tr("BATTLESTAT_ATTACK")})
+	verb = tr("BATTLE_ACTION_ROBOT_PUNCH_VERB")
 	isMelee = true
 	isPositive = false
 	price = 2
@@ -15,4 +16,4 @@ func execute (user:BattleEntity, target:BattleEntity):
 	_meele_action()
 func _action_effect()->void:
 	super._action_effect()
-	target.receive_damage(user.attack*1.5)
+	target.receive_damage(user.attack*action_multiplier)

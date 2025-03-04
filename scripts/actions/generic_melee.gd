@@ -2,9 +2,9 @@ extends BattleAction
 
 func _ready():
 	super._ready()
-	action_name = "Generic meele attack"
-	description = "does melee damage"
-	verb = "attack"
+	action_name = tr("BATTLE_ACTION_GENERIC_MELEE_NAME")
+	description = tr("BATTLE_ACTION_GENERIC_MELEE_DESCRIPTION")
+	verb = tr("BATTLE_ACTION_GENERIC_MELEE_VERB")
 	isMelee = true
 	isPositive = false
 	price = 2

@@ -4,9 +4,10 @@ var shocked_effect = preload("res://scenes/status_effects/shocked.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	super._ready()
-	action_name = "Shock"
-	description = "Damage distant target with power word shock. Causes target to earn half as much AP the next 2 turns."
-	verb = "shock"
+	action_multiplier = 2
+	action_name = tr("BATTLE_ACTION_SHOCK_NAME")
+	description = tr("BATTLE_ACTION_SHOCK_DESCRIPTION").format({multiplier=action_multiplier,stat=tr("BATTLESTAT_ATTACK"),turn_amount=effect_duration})
+	verb = tr("BATTLE_ACTION_SHOCK_VERB")
 	isMelee = false
 	isPositive = false
 	price = 4
@@ -20,4 +21,4 @@ func _action_effect()->void:
 	var effect:StatusEffect = shocked_effect.instantiate()
 	effect.set_turns_remaining(2)
 	target.add_effect(effect)
-	target.receive_damage(user.attack*2)
+	target.receive_damage(user.attack*action_multiplier)

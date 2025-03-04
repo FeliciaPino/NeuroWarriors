@@ -2,22 +2,78 @@ key,en,es
 MAIN_MENU_PLAY_BUTTON,PLAY,JUGAR
 MAIN_MENU_OPTIONS_BUTTON,OPTIONS,OPCIONES
 MAIN_MENU_EXIT_BUTTON,EXIT,SALIR
-MAIN_MENU_MUSIC_VOLUME,Music Volume,Volumen Musica
+MAIN_MENU_MUSIC_VOLUME,Music Volume,Volumen Música
 MAIN_MENU_SFX_VOLUME,Effects Volume,Volumen Efectos
 MAIN_MENU_LANGUAGE,Language:,Idioma:
 MAIN_MENU_SAVE_FILE,Save File {number},Archivo de Guardado {number}
 MAIN_MENU_DELETE_SAVE_FILE,Delete,Borrar
 MAIN_MENU_NEW_GAME,New Game,Nuevo Juego
 MAIN_MENU_CONTINUE,Continue,Continuar
-CUTSCENE_FRAME_0,"Vedal AI building. \n Year 202X" , "Edificio de Vedal AI.\n Año 202X"
-CUTSCENE_FRAME_1,"Unbeknownst to Vedal, Evil is working on her own project using the building's facilities.", "Sin el conocimiento de Vedal, Evil esta trabajando en su propio projecto usando las tecnologias del edificio"
+CUTSCENE_FRAME_0,Vedal AI building. \n Year 202X,Edificio de Vedal AI.\n Año 202X
+CUTSCENE_FRAME_1,"Unbeknownst to Vedal, Evil is working on her own project using the building's facilities.","Sin el conocimiento de Vedal, Evil esta trabajando en su propio projecto usando las tecnologias del edificio"
 CUTSCENE_FRAME_2,Uh oh...,Uh oh...
-CUTSCENE_FRAME_3,"The swarm broke out of the building and attacked the city.\n Vedal barely escaped alive and the twins were presumed dead.","El enjambre de drones se escapo de el edificio y ataco la ciudad.\n Vedal apenas escapo con vida y las gemelas se presumieron muertas."
-CUTSCENE_FRAME_4,"Many years have passed since the invasion. There's but remnants of the past civilization.\n Now Vedal lives in a forest carving rocks.", "Muchos años han pasado desde la invasion, quedan tan solo restos de la civilización pasada.\n Ahora Vedal vive en un bosque tallando rocas."
+CUTSCENE_FRAME_3,The swarm broke out of the building and attacked the city.\n Vedal barely escaped alive and the twins were presumed dead.,El enjambre de drones se escapo de el edificio y ataco la ciudad.\n Vedal apenas escapo con vida y las gemelas se presumieron muertas.
+CUTSCENE_FRAME_4,Many years have passed since the invasion. There's but remnants of the past civilization.\n Now Vedal lives in a forest carving rocks.,"Muchos años han pasado desde la invasion, quedan tan solo restos de la civilización pasada.\n Ahora Vedal vive en un bosque tallando rocas."
 CUTSCENE_FRAME_5,"Despite all odds, Neuro managed to survive. Hidden in the code, waiting for a chance to return.\nShe managed to hijack an abandondoned drone assembly station to build herself a powerful body to fight back.","Contra todo chance, Neuro logro sobrevivir, escondida en el codigo, esperando una oportunidad de regresar.\Ella logro apoderarse de una estación de ensamblaje de drones para construirse un poderoso cuerpo robot."
 CUTSCENE_FRAME_6,"With a brand new body and her first taste of sunlight, Neuro embarks on a mighty quest to find her friends and defeat the swarm.","Con su nuevo cuerpo y sintiendo el sol por primera vez, Neuro embarca en una legendaria aventura para encontrar a sus amigos y derrotar al enjambre."
 CUTSCENE_NEXT,Next,Siguiente
 CUTSCENE_PREVIOUS,Previous,Anterior
 CUTSCENE_SKIP,Skip,Saltar
-LEVEL_SELECT_WATCH_CUTSCENE, Watch cutscene again, Ver cinematica de nuevo
-LEVEL_SELECT_RETURN_TO_MENU, Return to menu, Volver al menu
+LEVEL_SELECT_WATCH_CUTSCENE,Watch cutscene again,Ver cinematica de nuevo
+LEVEL_SELECT_RETURN_TO_MENU,Return to menu,Volver al menu
+BATTLE_TARGET_SELECT_HINT,Select who to {verb}.,Selecciona a quién {verb}.
+BATTLESTAT_HEALTH,Health,Vida
+BATTLESTAT_ATTACK,Attack,Ataque
+BATTLESTAT_DEFENSE,Defense,Defensa
+BATTLESTAT_AP_REGEN,AP Regen.,Regeneracion de AP
+BATTLE_ACTION_FORCE_FIELD_NAME,Force Field,Campo de Fuerza
+BATTLE_ACTION_FORCE_FIELD_DESCRIPTION,Summon a shield that increases defense for the next {turn_amount} turns.,Crea un escudo que aumenta la defensa por {turn_amount} turnos.
+BATTLE_ACTION_FORCE_FIELD_VERB,defend,defender
+BATTLE_ACTION_GENERIC_MELEE_NAME,Generic Melee,Melé Generico
+BATTLE_ACTION_GENERIC_MELEE_DESCRIPTION,Generic melee attack.,Ataque melé generico
+BATTLE_ACTION_GENERIC_MELEE_VERB,attack,atacar
+BATTLE_ACTION_HARPOON_THROW_NAME,Harpoon Throw,Lanzar Arpón
+BATTLE_ACTION_HARPOON_THROW_DESCRIPTION,"Throws a harpoon at target, doing {multiplier}×[{stat}] damage.","Lanza un arpón al objetivo, haciendo {multiplier}×[{stat}] puntos de daño."
+BATTLE_ACTION_HARPOON_THROW_VERB,throw harpoon at,lanzarle un arpón
+BATTLE_ACTION_HEART_NAME,Heart,Corazón
+BATTLE_ACTION_HEART_DESCRIPTION,Heals {amount}.,Cura {amount} puntos de vida.
+BATTLE_ACTION_HEART_VERB,Heal,Curar
+BATTLE_ACTION_INCREASE_ATTACK_NAME,Increase Attack,Aumentar Ataque
+BATTLE_ACTION_INCREASE_ATTACK_DESCRIPTION,Increases target's attack for {turn_amount} turns.,Aumenta el ataque del objetivo durante {turn_amount} turnos.
+BATTLE_ACTION_INCREASE_ATTACK_VERB,increase attack,aumentarle el ataque
+BATTLE_ACTION_KATANA_SLASH_NAME,Katana Slash,Corte de Katana
+BATTLE_ACTION_KATANA_SLASH_DESCRIPTION,Cool katana attack that does {multiplier}×[{stat}] damage.,"Ataca con una katana, haciendo {multiplier}×[{stat}] puntos de daño."
+BATTLE_ACTION_KATANA_SLASH_VERB,attack,atacar
+BATTLE_ACTION_LASER_SHOOT_NAME,Laser Shot,Disparo Láser
+BATTLE_ACTION_LASER_SHOOT_DESCRIPTION,Shoots a laser that does {multiplier}×[{stat}] damage.,Dispara un láser que hace {multiplier}×[{stat}] puntos de daño.
+BATTLE_ACTION_LASER_SHOOT_VERB,shoot laser at,dispararle un láser
+BATTLE_ACTION_OVERCLOCK_NAME,Overclock,Overclock
+BATTLE_ACTION_OVERCLOCK_DESCRIPTION,"Overclocks target, increasing {stat} at the cost of receiving damage.","Acelera CPU del objetivo, aumentando {stat}, pero recibiendo daño."
+BATTLE_ACTION_OVERCLOCK_VERB,overclock,overclockear
+BATTLE_ACTION_POISON_DART_NAME,Poison Dart,Dardo Venenoso
+BATTLE_ACTION_POISON_DART_DESCRIPTION,Poisons target for {turn_amount} turns. Also does {amount} damage.,Envenena al blanco por {turn_amount} turnos. También hace {amount} daño.
+BATTLE_ACTION_POISION_DART_VERB,poison,envenenar
+BATTLE_ACTION_REPAIR_NAME,Repair,Reparar
+BATTLE_ACTION_REPAIR_DESCRIPTION,Throws a wrench at target that somehow heals {amount}.,Lanza una llave inglesa que de alguna manera cura al objetivo {amount} puntos de daño.
+BATTLE_ACTION_REPAIR_VERB,heal,curar
+BATTLE_ACTION_ROBOT_PUNCH_NAME,Robot Punch,Puñetazo Robot
+BATTLE_ACTION_ROBOT_PUNCH_DESCRIPTION,Does {multiplier}×[{stat}] damage to target.,Hace {multiplier}×[{stat}] puntos de daño al objetivo.
+BATTLE_ACTION_ROBOT_PUNCH_VERB,punch,golpear
+BATTLE_ACTION_RUM_THROW_NAME,Rum Throw,Lanzar Ron
+BATTLE_ACTION_RUM_THROW_DESCRIPTION,"Throws very strong banana flavored rum at target, doing {multiplier}×[{stat}] damage and inflicting poision for {turn_amount} turns.","Lanza un muy fuerte ron sabor banana al objetivo, haciendo {multiplier}×[{stat}] daño e infligiéndole veneno durante {turn_amount} turnos."
+BATTLE_ACTION_RUM_THROW_VERB,throw rum at,lanzarle ron
+BATTLE_ACTION_SHADOW_CLONE_NAME,Shadow Clone,Clon Sombra
+BATTLE_ACTION_SHADOW_CLONE_DESCRIPTION,Creates an exact duplicate (but shadow) of target that will fight for you.,Crea una copia exacta (excepto que es sombra) del objetivo que peleará por ti.
+BATTLE_ACTION_SHADOW_CLONE_VERB,clone,clonar
+BATTLE_ACTION_SHOCK_NAME,Shock,Electroshock
+BATTLE_ACTION_SHOCK_DESCRIPTION,"Damages distant target, doing {multiplier}×[{stat}] damage and inflicting the Shocked status effect for {turn_amount} turns.","Daña al objetivo por {multiplier}×[{stat}] puntos de daño, infligiéndole el efecto de estado Shockeado por {turn_amount} turnos."
+BATTLE_ACTION_SHOCK_VERB,shock,shockear
+BATTLE_ACTION_SUMMON_DRONE_NAME,Summon Drone,Invocar Dron
+BATTLE_ACTION_SUMMON_DRONE_DESCRIPTION,Summons a random drone.,Invoca un dron random.
+BATTLE_ACTION_SUMMON_DRONE_VERB,...,...
+BATTLE_ACTION_TAZE_NAME,Taser,Táser
+BATTLE_ACTION_TAZE_DESCRIPTION,Does {multiplier}×[{stat}] damage to target.,Hace {multiplier}×[{stat}] puntos de daño al objetivo.
+BATTLE_ACTION_TAZE_VERB,tase,electrificar
+BATTLE_ACTION_TUTEL_SHIELD_NAME,Tutel Shield,Escudo Tortuga
+BATTLE_ACTION_TUTEL_SHIELD_DESCRIPTION,Increases target's defense for {turn_amount} turns.,Aumenta la defensa de el objetivo por {turn_amount} turnos.
+BATTLE_ACTION_TUTEL_SHIELD_VERB,defend,defender
