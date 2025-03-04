@@ -77,3 +77,11 @@ BATTLE_ACTION_TAZE_VERB,tase,electrificar
 BATTLE_ACTION_TUTEL_SHIELD_NAME,Tutel Shield,Escudo Tortuga
 BATTLE_ACTION_TUTEL_SHIELD_DESCRIPTION,Increases target's defense for {turn_amount} turns.,Aumenta la defensa de el objetivo por {turn_amount} turnos.
 BATTLE_ACTION_TUTEL_SHIELD_VERB,defend,defender
+STATUS_EFFECT_ATTACK_UP_NAME,Attack Up,Aumento de Ataque
+STATUS_EFFECT_ATTACK_UP_DESCRIPTION,Increases attack by {amount} points.,Aumenta el ataque por {amount} puntos.
+STATUS_EFFECT_DEFENSE_UP_NAME,Defense Up,Aumento de Defensa
+STATUS_EFFECT_DEFENSE_UP_DESCRIPTION,Increases defense by {amount} points.,Aumenta la defensa por {amount} puntos.
+STATUS_EFFECT_POISONED_NAME,Poisoned,Envenenado
+STATUS_EFFECT_POISONED_DESCRIPTION,Receives {amount} damage at the start of each turn.,Recibe {amount} puntos de daño al comienzo de cada turno.
+STATUS_EFFECT_SHOCKED_NAME,Shocked,Shockeado
+STATUS_EFFECT_SHOCKED_DESCRIPTION,Recieves half as much AP at the start of each turn.,Recibe la mitad de AP al comienzo de cada turno

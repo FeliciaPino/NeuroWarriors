@@ -1,11 +1,8 @@
 extends StatusEffect
-class_name Status_Effect_Attack_Up
 func _init() -> void:
-	effect_name = "Defense Up"
-	description = "Increases defence, substracting damage taken" 
-	turns_remaining = 3
-	intensity = 3
-
+	effect_name = tr("STATUS_EFFECT_DEFENSE_UP_NAME")
+func get_description():
+	return tr("STATUS_EFFECT_DEFENSE_UP_DESCRIPTION").format({amount=intensity})
 
 func start_effect():
 	super.start_effect()
