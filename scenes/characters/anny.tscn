@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://be7cg2gxou6i2"]
+[gd_scene load_steps=30 format=3 uid="uid://be7cg2gxou6i2"]
 
 [ext_resource type="PackedScene" uid="uid://dp2gnkbdq83n4" path="res://scenes/characters/battle_entity.tscn" id="1_rdaju"]
 [ext_resource type="Texture2D" uid="uid://1lwgelvhc8ox" path="res://assets/characters/Anny.png" id="2_h758m"]
@@ -10,6 +10,22 @@ region = Rect2(0, 0, 100, 160)
 [sub_resource type="AtlasTexture" id="AtlasTexture_kaowk"]
 atlas = ExtResource("2_h758m")
 region = Rect2(100, 0, 100, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_krbj4"]
+atlas = ExtResource("2_h758m")
+region = Rect2(100, 0, 100, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idtc3"]
+atlas = ExtResource("2_h758m")
+region = Rect2(300, 0, 100, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i21he"]
+atlas = ExtResource("2_h758m")
+region = Rect2(400, 0, 100, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q848m"]
+atlas = ExtResource("2_h758m")
+region = Rect2(500, 0, 100, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xsc2p"]
 atlas = ExtResource("2_h758m")
@@ -51,6 +67,26 @@ region = Rect2(300, 480, 100, 160)
 atlas = ExtResource("2_h758m")
 region = Rect2(400, 480, 100, 160)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_vbf1e"]
+atlas = ExtResource("2_h758m")
+region = Rect2(0, 640, 100, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dea3j"]
+atlas = ExtResource("2_h758m")
+region = Rect2(100, 640, 100, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7f5nl"]
+atlas = ExtResource("2_h758m")
+region = Rect2(200, 640, 100, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_drh4b"]
+atlas = ExtResource("2_h758m")
+region = Rect2(300, 640, 100, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_45us4"]
+atlas = ExtResource("2_h758m")
+region = Rect2(400, 640, 100, 160)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_orvai"]
 animations = [{
 "frames": [{
@@ -63,6 +99,32 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_krbj4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_idtc3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i21he")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q848m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q848m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_idtc3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_krbj4")
+}],
+"loop": true,
+"name": &"effect",
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -98,10 +160,30 @@ animations = [{
 "loop": true,
 "name": &"run",
 "speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vbf1e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dea3j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7f5nl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_drh4b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_45us4")
+}],
+"loop": true,
+"name": &"throw",
+"speed": 8.0
 }]
 
-[sub_resource type="Animation" id="Animation_isrij"]
-resource_name = "idle"
+[sub_resource type="Animation" id="Animation_072j8"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -115,8 +197,24 @@ tracks/0/keys = {
 "values": [&"default"]
 }
 
-[sub_resource type="Animation" id="Animation_072j8"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_fmxlm"]
+resource_name = "effect"
+length = 0.9
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("visual/AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"effect"]
+}
+
+[sub_resource type="Animation" id="Animation_isrij"]
+resource_name = "idle"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -149,6 +247,7 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kqinv"]
 _data = {
 "RESET": SubResource("Animation_072j8"),
+"effect": SubResource("Animation_fmxlm"),
 "idle": SubResource("Animation_isrij"),
 "walking": SubResource("Animation_lscnb")
 }
@@ -163,3 +262,4 @@ autoplay = "default"
 libraries = {
 "": SubResource("AnimationLibrary_kqinv")
 }
+next/effect = &"idle"
