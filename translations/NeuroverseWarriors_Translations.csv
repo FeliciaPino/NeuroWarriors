@@ -78,11 +78,14 @@ BATTLE_ACTION_TUTEL_SHIELD_NAME,Tutel Shield,Escudo Tortuga
 BATTLE_ACTION_TUTEL_SHIELD_DESCRIPTION,Increases target's defense for {turn_amount} turns.,Aumenta la defensa de el objetivo por {turn_amount} turnos.
 BATTLE_ACTION_TUTEL_SHIELD_VERB,defend,defender
 BATTLE_ACTION_HYPE_UP_NAME,Hype Up,Motivar
-BATTLE_ACTION_HYPE_UP_DESCRIPTION,"Hypes up the target, giving them [{status_effect_name}]for {turn_amount} turns.","Motiva all objetivo, dandole [{status_effect_name}] por {turn_amount} turnos."
+BATTLE_ACTION_HYPE_UP_DESCRIPTION,"Hypes up the target, giving them [{status_effect_name}] for {turn_amount} turns.","Motiva all objetivo, dandole [{status_effect_name}] por {turn_amount} turnos."
 BATTLE_ACTION_HYPE_UP_VERB,hype,motivar
 BATTLE_ACTION_FLUSTER_NAME,Fluster,Coquetear
 BATTLE_ACTION_FLUSTER_DESCRIPTION,Flirtatious teasing that reduces target's defense and attack.,Reduce el ataque y la defensa del objetivo.
 BATTLE_ACTION_FLUSTER_VERB,fluster,avergonzar
+BATTLE_ACTION_SLAP_NAME,Slap,Bofetada
+BATTLE_ACTION_SLAP_DESCRIPTION,Does {multiplier}×[{stat}] damage to target.,Hace {multiplier}×[{stat}] puntos de daño al objetivo.
+BATTLE_ACTION_SLAP_VERB,slap,dar una bofetada
 STATUS_EFFECT_ATTACK_UP_NAME,Attack Up,Aumento de Ataque
 STATUS_EFFECT_ATTACK_UP_DESCRIPTION,Increases attack by {amount} points.,Aumenta el ataque por {amount} puntos.
 STATUS_EFFECT_DEFENSE_UP_NAME,Defense Up,Aumento de Defensa

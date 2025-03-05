@@ -560,7 +560,7 @@ _data = {
 }
 
 [node name="NeuroSama" instance=ExtResource("1_k2s26")]
-entity_name = "Neuro Sama"
+entity_name = "Neuro-sama"
 entity_description = "Neuro sama is very cool and I love her so much and she's cute and funny and smart"
 defense = 5
 speed = 3

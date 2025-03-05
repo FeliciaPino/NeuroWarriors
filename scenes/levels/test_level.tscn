@@ -104,8 +104,6 @@ is_player_controlled = true
 position = Vector2(-142, 513)
 speed = 10
 
-[node name="GenericMelee" parent="Entity_manager/Anny" index="9" instance=ExtResource("13_betw8")]
-
 [node name="EndScreen" parent="." index="7"]
 offset_left = 448.0
 offset_top = 14.0

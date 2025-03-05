@@ -147,6 +147,9 @@ func throw_text(text:String, color:Color = Color.WHITE, size = 2):
 	label.z_index = 3
 	label.position = Vector2()
 	label.scale = Vector2()
+	label.add_theme_color_override("font_shadow_color", Color(0, 0, 0, 1))
+	label.add_theme_constant_override("shadow_offset_x", 2)
+	label.add_theme_constant_override("shadow_offset_y", 2)
 	var tween = get_tree().create_tween()
 	tween.set_trans(Tween.TRANS_SINE)
 	tween.set_parallel()
