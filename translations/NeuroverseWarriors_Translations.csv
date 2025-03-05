@@ -80,6 +80,9 @@ BATTLE_ACTION_TUTEL_SHIELD_VERB,defend,defender
 BATTLE_ACTION_HYPE_UP_NAME,Hype Up,Motivar
 BATTLE_ACTION_HYPE_UP_DESCRIPTION,"Hypes up the target, giving them [{status_effect_name}]for {turn_amount} turns.","Motiva all objetivo, dandole [{status_effect_name}] por {turn_amount} turnos."
 BATTLE_ACTION_HYPE_UP_VERB,hype,motivar
+BATTLE_ACTION_FLUSTER_NAME,Fluster,Coquetear
+BATTLE_ACTION_FLUSTER_DESCRIPTION,Flirtatious teasing that reduces target's defense and attack.,Reduce el ataque y la defensa del objetivo.
+BATTLE_ACTION_FLUSTER_VERB,fluster,avergonzar
 STATUS_EFFECT_ATTACK_UP_NAME,Attack Up,Aumento de Ataque
 STATUS_EFFECT_ATTACK_UP_DESCRIPTION,Increases attack by {amount} points.,Aumenta el ataque por {amount} puntos.
 STATUS_EFFECT_DEFENSE_UP_NAME,Defense Up,Aumento de Defensa
@@ -90,3 +93,5 @@ STATUS_EFFECT_SHOCKED_NAME,Shocked,Shockeado
 STATUS_EFFECT_SHOCKED_DESCRIPTION,Recieves half as much AP at the start of each turn.,Recibe la mitad de AP al comienzo de cada turno
 STATUS_EFFECT_HYPED_NAME,Hyped,Motivacíon
 STATUS_EFFECT_HYPED_DESCRIPTION,Increases attack by {amount} and at the start of each turn heals {amount2}.,Aumenta el ataque en {amount} y al comienzo de cada turno cura {amount2}.
+STATUS_EFFECT_FLUSHED_NAME,Flushed,Vergüenza
+STATUS_EFFECT_FLUSHED_DESCRIPTION,Reduces both defense and attack by {amount}.,Reduce la defensa y el attaque en {amount} puntos.
