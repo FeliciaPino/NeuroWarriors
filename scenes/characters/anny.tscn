@@ -1,7 +1,8 @@
-[gd_scene load_steps=30 format=3 uid="uid://be7cg2gxou6i2"]
+[gd_scene load_steps=31 format=3 uid="uid://be7cg2gxou6i2"]
 
 [ext_resource type="PackedScene" uid="uid://dp2gnkbdq83n4" path="res://scenes/characters/battle_entity.tscn" id="1_rdaju"]
 [ext_resource type="Texture2D" uid="uid://1lwgelvhc8ox" path="res://assets/characters/Anny.png" id="2_h758m"]
+[ext_resource type="PackedScene" uid="uid://qn8gedpj1hv5" path="res://scenes/actions/hype_up.tscn" id="3_a386r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p34lf"]
 atlas = ExtResource("2_h758m")
@@ -124,7 +125,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"effect",
-"speed": 8.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -253,10 +254,16 @@ _data = {
 }
 
 [node name="Anny" instance=ExtResource("1_rdaju")]
+entity_name = "Anny"
+speed = 2
+is_player_controlled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="visual" index="1"]
+texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_orvai")
 autoplay = "default"
+
+[node name="HypeUp" parent="Actions" index="0" instance=ExtResource("3_a386r")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="8"]
 libraries = {

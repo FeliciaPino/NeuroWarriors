@@ -145,13 +145,10 @@ func _ranged_non_projectile_action()->void:
 	#the animation instructs the action effect
 	animationPlayer.play("animation")
 	animationPlayer.seek(0.0,true)
-	sprite.play()
 	if valid_target():
 		sprite.global_position = target.global_position
-	sprite.visible = true
 	if valid_user():
 		user.did_an_action(price)
 	await animationPlayer.animation_finished
-	sprite.visible = false
 	user.animation_player.play("idle")
 	action_finished.emit()

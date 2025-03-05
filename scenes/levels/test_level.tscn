@@ -103,11 +103,8 @@ is_player_controlled = true
 [node name="Anny" parent="Entity_manager" index="10" instance=ExtResource("16_de82h")]
 position = Vector2(-142, 513)
 speed = 10
-is_player_controlled = true
 
 [node name="GenericMelee" parent="Entity_manager/Anny" index="9" instance=ExtResource("13_betw8")]
-
-[node name="IncreaseAttack" parent="Entity_manager/Anny" index="10" instance=ExtResource("4_2o53s")]
 
 [node name="EndScreen" parent="." index="7"]
 offset_left = 448.0

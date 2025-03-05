@@ -77,6 +77,9 @@ BATTLE_ACTION_TAZE_VERB,tase,electrificar
 BATTLE_ACTION_TUTEL_SHIELD_NAME,Tutel Shield,Escudo Tortuga
 BATTLE_ACTION_TUTEL_SHIELD_DESCRIPTION,Increases target's defense for {turn_amount} turns.,Aumenta la defensa de el objetivo por {turn_amount} turnos.
 BATTLE_ACTION_TUTEL_SHIELD_VERB,defend,defender
+BATTLE_ACTION_HYPE_UP_NAME,Hype Up,Motivar
+BATTLE_ACTION_HYPE_UP_DESCRIPTION,"Hypes up the target, giving them [{status_effect_name}]for {turn_amount} turns.","Motiva all objetivo, dandole [{status_effect_name}] por {turn_amount} turnos."
+BATTLE_ACTION_HYPE_UP_VERB,hype,motivar
 STATUS_EFFECT_ATTACK_UP_NAME,Attack Up,Aumento de Ataque
 STATUS_EFFECT_ATTACK_UP_DESCRIPTION,Increases attack by {amount} points.,Aumenta el ataque por {amount} puntos.
 STATUS_EFFECT_DEFENSE_UP_NAME,Defense Up,Aumento de Defensa
@@ -85,3 +88,5 @@ STATUS_EFFECT_POISONED_NAME,Poisoned,Envenenado
 STATUS_EFFECT_POISONED_DESCRIPTION,Receives {amount} damage at the start of each turn.,Recibe {amount} puntos de daño al comienzo de cada turno.
 STATUS_EFFECT_SHOCKED_NAME,Shocked,Shockeado
 STATUS_EFFECT_SHOCKED_DESCRIPTION,Recieves half as much AP at the start of each turn.,Recibe la mitad de AP al comienzo de cada turno
+STATUS_EFFECT_HYPED_NAME,Hyped,Motivacíon
+STATUS_EFFECT_HYPED_DESCRIPTION,Increases attack by {amount} and at the start of each turn heals {amount2}.,Aumenta el ataque en {amount} y al comienzo de cada turno cura {amount2}.

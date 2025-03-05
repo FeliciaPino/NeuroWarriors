@@ -29,6 +29,18 @@ animations = [{
 
 [sub_resource type="Animation" id="Animation_28twq"]
 length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_dmf2h"]
 resource_name = "animation"
@@ -47,6 +59,18 @@ tracks/0/keys = {
 "method": &"emit_signal"
 }]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333333, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1wemy"]
 _data = {
@@ -58,7 +82,9 @@ _data = {
 script = ExtResource("1_py1wo")
 
 [node name="sprite" parent="." index="0"]
+visible = false
 sprite_frames = SubResource("SpriteFrames_lr2va")
+autoplay = "default"
 frame_progress = 0.419983
 
 [node name="sound" parent="." index="1"]

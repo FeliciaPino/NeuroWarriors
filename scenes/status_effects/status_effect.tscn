@@ -23,6 +23,7 @@ grow_vertical = 2
 script = ExtResource("1_i1u13")
 
 [node name="icon" type="TextureRect" parent="."]
+texture_filter = 1
 layout_mode = 0
 offset_right = 16.0
 offset_bottom = 16.0

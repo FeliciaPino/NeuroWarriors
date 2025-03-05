@@ -1,0 +1,164 @@
+[gd_scene load_steps=11 format=3 uid="uid://qn8gedpj1hv5"]
+
+[ext_resource type="PackedScene" uid="uid://c0p02mr1a5wep" path="res://scenes/actions/BattleAction.tscn" id="1_lp1ij"]
+[ext_resource type="AudioStream" uid="uid://5xync26rqcgo" path="res://assets/audio/SFX/cheer.mp3" id="2_7upt3"]
+[ext_resource type="Script" path="res://scripts/actions/hype_up.gd" id="2_aivlv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4prew"]
+
+[sub_resource type="Curve" id="Curve_6t7lt"]
+_data = [Vector2(0.0136364, 0.984906), 0.0, 0.0, 0, 0, Vector2(0.859091, 0.939623), 0.0, 0.0, 0, 0, Vector2(1, 0.0490566), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_lik2l"]
+curve = SubResource("Curve_6t7lt")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6bktj"]
+particle_flag_disable_z = true
+spread = 15.0
+initial_velocity_min = 400.0
+initial_velocity_max = 600.0
+gravity = Vector3(0, 1500, 0)
+scale_min = 4.0
+scale_max = 4.0
+color = Color(1, 0.33, 0.33, 1)
+alpha_curve = SubResource("CurveTexture_lik2l")
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+
+[sub_resource type="Animation" id="Animation_52bk0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite/GPUParticles2D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sound:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("sprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_36jxy"]
+resource_name = "animation"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite/GPUParticles2D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.01),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sound:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.01),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"action_effect"],
+"method": &"emit_signal"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("sprite:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("sprite/GPUParticles2D")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"restart"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o0v2l"]
+_data = {
+"RESET": SubResource("Animation_52bk0"),
+"animation": SubResource("Animation_36jxy")
+}
+
+[node name="HypeUp" instance=ExtResource("1_lp1ij")]
+script = ExtResource("2_aivlv")
+
+[node name="sprite" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_4prew")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="sprite" index="0"]
+rotation = -1.5708
+emitting = false
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_6bktj")
+lifetime = 0.85
+one_shot = true
+explosiveness = 0.85
+
+[node name="sound" parent="." index="1"]
+stream = ExtResource("2_7upt3")
+volume_db = -10.0
+
+[node name="AnimationPlayer" parent="." index="2"]
+libraries = {
+"": SubResource("AnimationLibrary_o0v2l")
+}

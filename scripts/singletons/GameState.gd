@@ -30,6 +30,11 @@ const DEFAULT_VALUES = {
 			"unlocked":false,
 			"level":1,
 			"experience":0
+		},
+		"Anny":{
+			"unlocked":false,
+			"level":1,
+			"experience":0
 		}
 	},
 	"overworld_info":{
