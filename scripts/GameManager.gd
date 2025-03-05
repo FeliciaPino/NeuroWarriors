@@ -2,11 +2,11 @@ extends Node2D
 class_name GameManager
 @onready var entity_manager:EntityManager = $Entity_manager
 @onready var selection_circle = $SelectionCircle #get rid of this
-@onready var instruction_label = $InstructionLabel
-@onready var end_turn_buttton:Button = $EndTurnButton
+@onready var instruction_label = %InstructionLabel
+@onready var end_turn_buttton:Button = %EndTurnButton
 @onready var animation_player = $AnimationPlayer
 @onready var end_screen = $EndScreen
-@onready var return_to_map_button:Button = $Return
+@onready var return_to_map_button:Button = %Return
 @onready var background = $Background
 var level_select_scene = preload("res://scenes/levels/level_select.tscn")
 
@@ -115,7 +115,7 @@ func set_selected_action(action: BattleAction):
 	if selected_action == null:
 		instruction_label.visible = false
 		return
-	instruction_label.text = "select who to "+selected_action.verb
+	instruction_label.text = tr("BATTLE_TARGET_SELECT_HINT").format({verb=selected_action.verb})
 	instruction_label.visible = true
 #called by a battle entity when it is clicked
 func battleEntityClicked(clicked_entity: BattleEntity):

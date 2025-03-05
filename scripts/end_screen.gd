@@ -3,7 +3,7 @@ extends Control
 @onready var label = $PanelContainer/MarginContainer/VBoxContainer/Label
 @onready var return_to_map_button = $PanelContainer/MarginContainer/VBoxContainer/Button
 @onready var vBoxContainer = $PanelContainer/MarginContainer/VBoxContainer
-@onready var end_turn_button = $"../EndTurnButton"
+@onready var end_turn_button = %EndTurnButton
 
 
 const map_scene = preload("res://scenes/overworld/overworld.tscn")

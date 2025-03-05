@@ -6,7 +6,7 @@ func _ready() -> void:
 	effect_duration = 4
 	action_name = tr("BATTLE_ACTION_FLUSTER_NAME")
 	description = tr("BATTLE_ACTION_FLUSTER_DESCRIPTION")
-	verb = tr("BATTLE_FLUSTER_VERB")
+	verb = tr("BATTLE_ACTION_FLUSTER_VERB")
 	isMelee = false
 	isPositive = false
 	price = 3
