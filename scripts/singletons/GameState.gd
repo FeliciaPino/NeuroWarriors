@@ -15,7 +15,7 @@ const DEFAULT_VALUES = {
 		"watched_credits" : false
 	},
 	"characters_save_info":{
-		"party":["Neuro-sama","Vedal","Evil"],
+		"party":["Neuro-sama","Vedal"],
 		"Neuro-sama":{
 			"unlocked":true,
 			"level":1,

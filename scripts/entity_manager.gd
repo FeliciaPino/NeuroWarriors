@@ -88,18 +88,22 @@ func update_entities_formations()->void:
 	_update_formation(get_party(),partyRect)
 	_update_formation(get_foes(),foesRect,true)
 	
-func spawn_entity(entity:BattleEntity):
+func spawn_entity(entity:BattleEntity, keep_position:bool = false):
 	print("Entity Spawner: spanwing: "+str(entity))
 	self.add_child(entity)
 	entities.append(entity)
 	entity.set_up_at_start_of_turn()
 	entity.just_freaking_died_right_now.connect(func():remove_entity(entity))
 	var window_size = DisplayServer.window_get_size()
+	if not keep_position:
+		if entity.is_player_controlled:
+			entity.global_position = Vector2(-50,window_size.y*0.4)
+		else:
+			entity.global_position = Vector2(window_size.x-100,window_size.y*0.4)
+			
 	if entity.is_player_controlled:
-		entity.global_position = Vector2(-50,window_size.y*0.4)
 		_update_formation(get_party(),partyRect)
 	else:
-		entity.global_position = Vector2(window_size.x-100,window_size.y*0.4)
 		_update_formation(get_foes(),foesRect,true)
 		
 	

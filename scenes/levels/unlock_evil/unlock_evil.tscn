@@ -1,0 +1,324 @@
+[gd_scene load_steps=30 format=3 uid="uid://c2p0eeuc6b3re"]
+
+[ext_resource type="PackedScene" uid="uid://b82kauwohbvun" path="res://scenes/levels/game.tscn" id="1_i4cdn"]
+[ext_resource type="Texture2D" uid="uid://dl6b6ewaxaxom" path="res://assets/backgrounds/forest_background.png" id="2_u5jnf"]
+[ext_resource type="Texture2D" uid="uid://b4ldo6pam4ska" path="res://scenes/levels/unlock_evil/assembly_station_background.png" id="3_g3xpp"]
+[ext_resource type="Script" path="res://scenes/levels/unlock_evil/assembling_evil_controller.gd" id="4_6cil1"]
+[ext_resource type="Texture2D" uid="uid://dju6yh1wm6yo2" path="res://scenes/levels/unlock_evil/half-built_evil.png" id="4_capdy"]
+[ext_resource type="PackedScene" uid="uid://c85gj43e28h10" path="res://scenes/characters/enemies/defensive_drone.tscn" id="4_vkc8h"]
+[ext_resource type="Texture2D" uid="uid://c8ffvkryw8ol0" path="res://scenes/levels/unlock_evil/assembly_arm.png" id="6_tmnle"]
+[ext_resource type="AudioStream" uid="uid://dcn1o42m7jt2q" path="res://scenes/levels/unlock_evil/guitar.mp3" id="7_jqcjf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_orb0x"]
+atlas = ExtResource("4_capdy")
+region = Rect2(0, 0, 100, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pc83b"]
+atlas = ExtResource("4_capdy")
+region = Rect2(100, 0, 100, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1ly1"]
+atlas = ExtResource("4_capdy")
+region = Rect2(200, 0, 100, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ldiv"]
+atlas = ExtResource("4_capdy")
+region = Rect2(300, 0, 100, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kvvct"]
+atlas = ExtResource("4_capdy")
+region = Rect2(400, 0, 100, 160)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mk1aw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_orb0x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pc83b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1ly1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ldiv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kvvct")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SkeletonModification2DCCDIK" id="SkeletonModification2DCCDIK_xkayj"]
+execution_mode = 1
+target_nodepath = NodePath("../IK target")
+tip_nodepath = NodePath("Bone2D/Bone2D/Bone2D/Bone2D")
+ccdik_data_chain_length = 3
+joint_data/0/bone_index = 2
+joint_data/0/bone2d_node = NodePath("Bone2D/Bone2D/Bone2D")
+joint_data/0/rotate_from_joint = false
+joint_data/0/enable_constraint = true
+joint_data/0/constraint_angle_min = 261.333
+joint_data/0/constraint_angle_max = 360.0
+joint_data/0/constraint_angle_invert = false
+joint_data/0/constraint_in_localspace = true
+joint_data/0/editor_draw_gizmo = true
+joint_data/1/bone_index = 1
+joint_data/1/bone2d_node = NodePath("Bone2D/Bone2D")
+joint_data/1/rotate_from_joint = false
+joint_data/1/enable_constraint = false
+joint_data/1/editor_draw_gizmo = true
+joint_data/2/bone_index = 0
+joint_data/2/bone2d_node = NodePath("Bone2D")
+joint_data/2/rotate_from_joint = false
+joint_data/2/enable_constraint = true
+joint_data/2/constraint_angle_min = 80.001
+joint_data/2/constraint_angle_max = 269.298
+joint_data/2/constraint_angle_invert = true
+joint_data/2/constraint_in_localspace = true
+joint_data/2/editor_draw_gizmo = true
+
+[sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_i8ffo"]
+enabled = true
+modification_count = 1
+modifications/0 = SubResource("SkeletonModification2DCCDIK_xkayj")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_53neq"]
+atlas = ExtResource("6_tmnle")
+region = Rect2(0, 32, 24, 24)
+
+[sub_resource type="Gradient" id="Gradient_vfiow"]
+colors = PackedColorArray(1, 0.35, 0, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_nke06"]
+gradient = SubResource("Gradient_vfiow")
+
+[sub_resource type="Gradient" id="Gradient_cymmp"]
+colors = PackedColorArray(1, 0.986167, 0.17, 1, 1, 1, 1, 0.215686)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_wx7x5"]
+gradient = SubResource("Gradient_cymmp")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vlg71"]
+particle_flag_disable_z = true
+direction = Vector3(1, -1, 0)
+initial_velocity_min = 40.0
+initial_velocity_max = 70.0
+gravity = Vector3(0, 98, 0)
+color_ramp = SubResource("GradientTexture1D_wx7x5")
+color_initial_ramp = SubResource("GradientTexture1D_nke06")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hklrg"]
+atlas = ExtResource("6_tmnle")
+region = Rect2(32, 32, 48, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3yxsx"]
+atlas = ExtResource("6_tmnle")
+region = Rect2(88, 32, 24, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_enxhs"]
+atlas = ExtResource("6_tmnle")
+region = Rect2(64, 128, 72, 40)
+
+[sub_resource type="Animation" id="Animation_45cai"]
+resource_name = "start_working"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Arm/hand/GPUParticles2D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_oeqds"]
+resource_name = "working"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skeleton2D/Bone2D/Bone2D/Bone2D/RemoteTransform2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-11, 1), Vector2(-11, -1)]
+}
+
+[sub_resource type="Animation" id="Animation_5737p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Arm/hand/GPUParticles2D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Skeleton2D/Bone2D/Bone2D/Bone2D/RemoteTransform2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-11.18, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5ns4k"]
+_data = {
+"RESET": SubResource("Animation_5737p"),
+"start_working": SubResource("Animation_45cai"),
+"working": SubResource("Animation_oeqds")
+}
+
+[node name="Game" instance=ExtResource("1_i4cdn")]
+
+[node name="TextureRect" type="TextureRect" parent="Background" index="0"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_u5jnf")
+
+[node name="AssemblyStationBackground" type="Sprite2D" parent="Background" index="1" node_paths=PackedStringArray("sfx")]
+texture_filter = 1
+position = Vector2(607, 115)
+texture = ExtResource("3_g3xpp")
+script = ExtResource("4_6cil1")
+sfx = NodePath("guitarsfx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Background/AssemblyStationBackground" index="0"]
+position = Vector2(-57, 50)
+sprite_frames = SubResource("SpriteFrames_mk1aw")
+
+[node name="AssemblyArm" type="Node2D" parent="Background/AssemblyStationBackground" index="1"]
+
+[node name="IK target" type="Node2D" parent="Background/AssemblyStationBackground/AssemblyArm" index="0"]
+position = Vector2(-2, -1)
+
+[node name="Skeleton2D" type="Skeleton2D" parent="Background/AssemblyStationBackground/AssemblyArm" index="1"]
+visible = false
+modification_stack = SubResource("SkeletonModificationStack2D_i8ffo")
+
+[node name="Bone2D" type="Bone2D" parent="Background/AssemblyStationBackground/AssemblyArm/Skeleton2D" index="0"]
+position = Vector2(36, 80)
+rotation = 0.203755
+scale = Vector2(1, 1)
+rest = Transform2D(1, 0, 0, 1, 36, 80)
+metadata/_local_pose_override_enabled_ = true
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Background/AssemblyStationBackground/AssemblyArm/Skeleton2D/Bone2D" index="0"]
+position = Vector2(1, -43)
+remote_path = NodePath("../../../Arm/arm")
+
+[node name="Bone2D" type="Bone2D" parent="Background/AssemblyStationBackground/AssemblyArm/Skeleton2D/Bone2D" index="1"]
+position = Vector2(2.00031, -75.0001)
+rotation = 0.308192
+scale = Vector2(1, 1)
+rest = Transform2D(1, 0, 0, 1, 2, -75)
+metadata/_local_pose_override_enabled_ = true
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Background/AssemblyStationBackground/AssemblyArm/Skeleton2D/Bone2D/Bone2D" index="0"]
+position = Vector2(-34, 0)
+remote_path = NodePath("../../../../Arm/arm2")
+
+[node name="Bone2D" type="Bone2D" parent="Background/AssemblyStationBackground/AssemblyArm/Skeleton2D/Bone2D/Bone2D" index="1"]
+position = Vector2(-53.0004, 0.000137329)
+rotation = -1.72206
+scale = Vector2(1, 1)
+rest = Transform2D(1, 0, 0, 1, -53, 0)
+metadata/_local_pose_override_enabled_ = true
+
+[node name="Bone2D" type="Bone2D" parent="Background/AssemblyStationBackground/AssemblyArm/Skeleton2D/Bone2D/Bone2D/Bone2D" index="0"]
+position = Vector2(-20, -2)
+rest = Transform2D(1, 0, 0, 1, -20, -2)
+auto_calculate_length_and_angle = false
+length = 16.0
+bone_angle = 180.0
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Background/AssemblyStationBackground/AssemblyArm/Skeleton2D/Bone2D/Bone2D/Bone2D" index="1"]
+position = Vector2(-11.18, 0)
+remote_path = NodePath("../../../../../Arm/hand")
+
+[node name="Arm" type="Node2D" parent="Background/AssemblyStationBackground/AssemblyArm" index="2"]
+
+[node name="hand" type="Sprite2D" parent="Background/AssemblyStationBackground/AssemblyArm/Arm" index="0"]
+position = Vector2(2.98413, -8.54655)
+rotation = -1.2101
+scale = Vector2(0.999997, 0.999997)
+texture = SubResource("AtlasTexture_53neq")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Background/AssemblyStationBackground/AssemblyArm/Arm/hand" index="0"]
+position = Vector2(-8.19807, 0.324024)
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_vlg71")
+
+[node name="arm2" type="Sprite2D" parent="Background/AssemblyStationBackground/AssemblyArm/Arm" index="1"]
+position = Vector2(23.4934, -9.69966)
+rotation = 0.511941
+scale = Vector2(0.999999, 0.999999)
+texture = SubResource("AtlasTexture_hklrg")
+
+[node name="arm" type="Sprite2D" parent="Background/AssemblyStationBackground/AssemblyArm/Arm" index="2"]
+position = Vector2(45.6796, 38.0918)
+rotation = 0.203739
+scale = Vector2(0.999999, 0.999999)
+texture = SubResource("AtlasTexture_3yxsx")
+
+[node name="base" type="Sprite2D" parent="Background/AssemblyStationBackground/AssemblyArm/Arm" index="3"]
+position = Vector2(36, 80)
+texture = SubResource("AtlasTexture_enxhs")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Background/AssemblyStationBackground/AssemblyArm" index="3"]
+libraries = {
+"": SubResource("AnimationLibrary_5ns4k")
+}
+next/start_working = &"working"
+
+[node name="Assembly Points" type="Node2D" parent="Background/AssemblyStationBackground" index="2"]
+position = Vector2(-34, 4)
+
+[node name="LeftArm" type="Node2D" parent="Background/AssemblyStationBackground/Assembly Points" index="0"]
+position = Vector2(-14, 34)
+
+[node name="Knee" type="Node2D" parent="Background/AssemblyStationBackground/Assembly Points" index="1"]
+position = Vector2(-27, 66)
+
+[node name="RightArm" type="Node2D" parent="Background/AssemblyStationBackground/Assembly Points" index="2"]
+position = Vector2(-44, 29)
+
+[node name="Face" type="Node2D" parent="Background/AssemblyStationBackground/Assembly Points" index="3"]
+position = Vector2(-29, 5)
+
+[node name="Timer" type="Timer" parent="Background/AssemblyStationBackground" index="3"]
+wait_time = 2.0
+
+[node name="guitarsfx" type="AudioStreamPlayer" parent="Background/AssemblyStationBackground" index="4"]
+stream = ExtResource("7_jqcjf")
+bus = &"SFX"
+
+[node name="defensive drone" parent="Entity_manager" index="0" instance=ExtResource("4_vkc8h")]
+position = Vector2(1313, 329)
+
+[node name="defensive drone2" parent="Entity_manager" index="1" instance=ExtResource("4_vkc8h")]
+position = Vector2(1313, 329)
+
+[connection signal="player_turn_ended" from="." to="Background/AssemblyStationBackground" method="_on_game_player_turn_ended"]
+[connection signal="timeout" from="Background/AssemblyStationBackground/Timer" to="Background/AssemblyStationBackground" method="_on_timer_timeout"]

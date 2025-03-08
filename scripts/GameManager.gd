@@ -19,6 +19,7 @@ var selected_action:BattleAction = null
 
 signal pending_actions_updated
 signal all_actions_finished
+signal player_turn_ended
 var pending_actions = 0: #How many actions are being currently done
 	set(new_value):
 		pending_actions = new_value
@@ -66,6 +67,7 @@ func end_turn():
 	if is_game_over or not is_player_turn: return
 	update_battle_entities()
 	print("turn ended")
+	player_turn_ended.emit()
 	is_player_turn = false
 	for foe in foes: foe.set_up_at_start_of_turn()
 	enemy_turn()
