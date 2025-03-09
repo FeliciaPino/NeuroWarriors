@@ -7,10 +7,9 @@ class_name OverworldCharacter
 @export var inspector_spriteframes:SpriteFrames#debug
 @onready var sprite = $AnimatedSprite2D
 @onready var collider = $CollisionShape2D
-
+@onready var facer := $Facer
 @export var following_target:OverworldCharacter = null
 func _ready() -> void:
-	print(str(self,": I am a character, getting ready"))
 	global_position = GameState.get_player_map_position()
 	if inspector_spriteframes != null:
 		print(str(self,":setting sprite frames"))
@@ -36,5 +35,10 @@ func _physics_process(delta: float) -> void:
 			velocity = Vector2()
 		if distance_to_target>80:
 			global_position += difference_to_target/5
+	elif velocity.length()>1:
+		if abs(velocity.x) > abs(velocity.y):
+			facer.facing = "e" if velocity.x > 0 else "w"
+		else:
+			facer.facing = "s" if velocity.y > 0 else "n"
 	move_and_slide()
 	
