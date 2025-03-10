@@ -321,7 +321,7 @@ animations = [{
 
 [sub_resource type="Curve2D" id="Curve2D_qelj1"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 167, 31, 0, 0, 0, 0, 161, -210, 0, 0, 0, 0, 165, 34)
+"points": PackedVector2Array(0, 0, 0, 0, 167, 31, 0, 0, 0, 0, -69, 34, 0, 0, 0, 0, 165, 34)
 }
 point_count = 3
 
@@ -505,7 +505,7 @@ curve = SubResource("Curve2D_qelj1")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Enemies/Path2D"]
 position = Vector2(167, 31)
-rotation = -1.59569
+rotation = 3.12888
 script = ExtResource("5_avstv")
 speed = 40.0
 
@@ -513,6 +513,22 @@ speed = 40.0
 position = Vector2(166, 17)
 level_path = "res://scenes/levels/test_level.tscn"
 id = "enemy1"
+target_spot = NodePath("../PathFollow2D")
+
+[node name="Path2D3" type="Path2D" parent="Enemies"]
+position = Vector2(258, -1554)
+curve = SubResource("Curve2D_qelj1")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Enemies/Path2D3"]
+position = Vector2(167, 31)
+rotation = 3.12888
+script = ExtResource("5_avstv")
+speed = 40.0
+
+[node name="Enemy" parent="Enemies/Path2D3" node_paths=PackedStringArray("target_spot") instance=ExtResource("3_t5cvq")]
+position = Vector2(166, 17)
+level_path = "res://scenes/levels/city/city_1.tscn"
+id = "enemy3"
 target_spot = NodePath("../PathFollow2D")
 
 [node name="Path2D2" type="Path2D" parent="Enemies"]
