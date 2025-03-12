@@ -156,7 +156,7 @@ explosiveness = 0.85
 
 [node name="sound" parent="." index="1"]
 stream = ExtResource("2_7upt3")
-volume_db = -10.0
+volume_db = -12.0
 
 [node name="AnimationPlayer" parent="." index="2"]
 libraries = {
