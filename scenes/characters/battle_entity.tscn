@@ -142,17 +142,24 @@ libraries = {
 [node name="Actions" type="Node2D" parent="."]
 
 [node name="HealthBar" parent="." instance=ExtResource("3_b5iiw")]
-offset_left = -60.0
-offset_top = -120.0
-offset_right = 76.0
-offset_bottom = -90.0
+unique_name_in_owner = true
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -50.0
+offset_top = -110.0
+offset_right = 50.0
+offset_bottom = -100.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="StatusEffects" type="HBoxContainer" parent="HealthBar"]
+unique_name_in_owner = true
 layout_mode = 0
-offset_left = 2.0
-offset_top = 27.0
-offset_right = 77.0
-offset_bottom = 47.0
+offset_top = 12.0
+offset_bottom = 12.0
 mouse_filter = 2
 theme_override_constants/separation = 20
 
@@ -163,6 +170,7 @@ position = Vector2(1, -1)
 shape = SubResource("CapsuleShape2D_1xbm5")
 
 [node name="Menu" type="Control" parent="."]
+unique_name_in_owner = true
 z_index = 2
 layout_mode = 3
 anchors_preset = 0
@@ -170,6 +178,7 @@ offset_right = 54.0
 offset_bottom = 40.0
 
 [node name="ActionMenu" type="BoxContainer" parent="Menu"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 68.0
 offset_top = -60.0
@@ -195,6 +204,7 @@ offset_right = -81.0
 offset_bottom = 15.0
 
 [node name="Info" type="VBoxContainer" parent="Menu/info_container"]
+unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 2
 alignment = 1

@@ -13,3 +13,4 @@ texture = ExtResource("2_x0bh1")
 
 [node name="offensiveDrone" parent="Entity_manager" index="0" instance=ExtResource("3_v2s6b")]
 position = Vector2(1330, 369)
+health = 100

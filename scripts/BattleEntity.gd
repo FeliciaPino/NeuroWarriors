@@ -35,14 +35,14 @@ var ap:int #how many actions are left in a turn
 @export var is_stationary:bool
 
 @onready var actions_node = $Actions
-@onready var healthBar = $HealthBar
+@onready var healthBar = %HealthBar
 @onready var selection_circle = $SelectionCircle
-@onready var action_menu = $Menu/ActionMenu
-@onready var menu = $Menu
-@onready var effects_container = $HealthBar/StatusEffects
+@onready var action_menu = %ActionMenu
+@onready var menu = %Menu
+@onready var effects_container = %StatusEffects
 @onready var actions_left_label = $Menu/ApDisplay/NinePatchRect/Label
 @onready var actions_left_display = $Menu/ApDisplay
-@onready var info_panel = $Menu/info_container/Info
+@onready var info_panel = %Info
 @onready var game_manager:GameManager = $"../.."
 @onready var visual_node = $visual
 @onready var flipper = $visual/Flipper

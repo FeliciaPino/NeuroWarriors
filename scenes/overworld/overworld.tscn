@@ -683,16 +683,16 @@ shape = SubResource("RectangleShape2D_eoinu")
 
 [node name="dronesprite" type="TextureRect" parent="StoryBattleTriggers/AnnyUnlock"]
 offset_left = -19.0
-offset_top = -55.0
+offset_top = -50.2518
 offset_right = 21.0
-offset_bottom = -15.0
+offset_bottom = -10.2518
 texture = SubResource("AtlasTexture_job1k")
 
 [node name="dronesprite2" type="TextureRect" parent="StoryBattleTriggers/AnnyUnlock"]
 offset_left = -19.0
-offset_top = -55.0
+offset_top = 15.2518
 offset_right = 21.0
-offset_bottom = -15.0
+offset_bottom = 55.2518
 texture = SubResource("AtlasTexture_ubo6g")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="StoryBattleTriggers/AnnyUnlock"]
