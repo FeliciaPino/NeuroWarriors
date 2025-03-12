@@ -15,7 +15,7 @@ const DEFAULT_VALUES = {
 		"watched_credits" : false
 	},
 	"characters_save_info":{
-		"party":["Neuro-sama","Vedal","Evil","Anny"],
+		"party":["Neuro-sama","Vedal","Evil"],
 		"Neuro-sama":{
 			"unlocked":true,
 			"level":1,
@@ -38,7 +38,7 @@ const DEFAULT_VALUES = {
 		}
 	},
 	"overworld_info":{
-		"player_position_x":600,
+		"player_position_x":300,
 		"player_position_y":-1600,
 		"defeated_enemies":{}
 	}
@@ -57,11 +57,14 @@ func _ready():
 
 
 func mark_level_complete(level_name: String):
+	print(str(self,": level completed: ",level_name))
 	completed_levels[level_name] = true
 	if level_name == "Vedal unlock":
 		unlock_character("Vedal")
 	if level_name == "Evil unlock":
 		unlock_character("Evil")
+	if level_name == "Anny unlock":
+		unlock_character("Anny")
 	SaveManager.save_game(current_save_slot_index)
 func is_level_completed(level_name: String) -> bool:
 	return completed_levels.get(level_name, false)
@@ -72,6 +75,7 @@ func mark_overworld_enemy_defeated(enemy_id:String):
 func is_overworld_enemy_defeated(enemy_id:String):
 	return overworld_info["defeated_enemies"].get(enemy_id,false)
 func unlock_character(character_name:String):
+	print(str(self,":unlocked ",character_name))
 	characters_save_info[character_name]["unlocked"] = true
 	#change this part when I add party select screen
 	if not character_name in characters_save_info["party"]:

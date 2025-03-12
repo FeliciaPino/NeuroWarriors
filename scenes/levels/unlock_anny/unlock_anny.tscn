@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://d3gvuj8q41ph0"]
+
+[ext_resource type="PackedScene" uid="uid://b82kauwohbvun" path="res://scenes/levels/game.tscn" id="1_k64e4"]
+[ext_resource type="Texture2D" uid="uid://eko0bmmx7htt" path="res://assets/backgrounds/city_background.png" id="2_ua5ud"]
+[ext_resource type="Texture2D" uid="uid://ckwtk2qoeemcv" path="res://scenes/levels/unlock_anny/weakened_anny.png" id="3_ehlyh"]
+[ext_resource type="PackedScene" uid="uid://du1rkche8wapa" path="res://scenes/characters/enemies/drone.tscn" id="5_or4li"]
+
+[node name="Game" instance=ExtResource("1_k64e4")]
+
+[node name="background" type="TextureRect" parent="Background" index="0"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_ua5ud")
+
+[node name="anny" type="TextureRect" parent="Background" index="1"]
+texture_filter = 1
+offset_left = 532.0
+offset_top = 114.0
+offset_right = 652.0
+offset_bottom = 254.0
+texture = ExtResource("3_ehlyh")
+
+[node name="Drone" parent="Entity_manager" index="0" instance=ExtResource("5_or4li")]
+position = Vector2(1289, 394)

@@ -12,13 +12,8 @@ class_name OverworldCharacter
 func _ready() -> void:
 	global_position = GameState.get_player_map_position()
 	if inspector_spriteframes != null:
-		print(str(self,":setting sprite frames"))
 		set_sprite_frames(inspector_spriteframes)
-	else:
-		print(str(self,":not setting sprite frames"))
 	if following_target:
-		print(str(self,":i am a follower, disabling collisions"))
-		
 		set_collision_layer_value(1, false)  
 func set_sprite_frames(new_frames:SpriteFrames):
 	sprite.sprite_frames = new_frames

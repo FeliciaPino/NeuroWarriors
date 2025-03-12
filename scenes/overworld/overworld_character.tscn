@@ -18,8 +18,7 @@ script = ExtResource("1_e0gxn")
 y_sort_enabled = true
 texture_filter = 1
 sprite_frames = ExtResource("2_f6c2w")
-animation = &"moving_e"
-frame_progress = 0.756397
+animation = &"moving_w"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

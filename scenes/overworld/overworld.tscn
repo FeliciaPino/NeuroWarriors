@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://bpbb157lbnats"]
+[gd_scene load_steps=47 format=4 uid="uid://bpbb157lbnats"]
 
 [ext_resource type="Script" path="res://scripts/overworld/overworld.gd" id="1_a6uxc"]
 [ext_resource type="Texture2D" uid="uid://o5sq0tkkglam" path="res://assets/overworld/tiles.png" id="1_t2akb"]
@@ -8,8 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://cjs37nc0sh54n" path="res://assets/overworld/Assembly_station.png" id="3_tj4ld"]
 [ext_resource type="Script" path="res://scripts/overworld/path_follow_2d.gd" id="5_avstv"]
 [ext_resource type="PackedScene" uid="uid://d1542r6f3ougb" path="res://scenes/overworld/story_battle_trigger.tscn" id="6_ph1n3"]
+[ext_resource type="Texture2D" uid="uid://c782q0dp1s8f1" path="res://assets/overworld/overworld_anny.png" id="8_8e6a6"]
 [ext_resource type="AudioStream" uid="uid://ckiqmemr4mvcu" path="res://assets/audio/homemade/SFX/kchchchch.mp3" id="8_8k8fn"]
 [ext_resource type="Texture2D" uid="uid://cac6j2bibn05c" path="res://assets/overworld/overworld_vedal.png" id="8_xgi21"]
+[ext_resource type="Texture2D" uid="uid://c52xkvbaurxua" path="res://assets/overworld/overworld_enemy.png" id="9_7a21x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y01nt"]
 texture = ExtResource("1_t2akb")
@@ -319,6 +321,160 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ugqak"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0qm2b"]
+atlas = ExtResource("8_8e6a6")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4yg2n"]
+atlas = ExtResource("8_8e6a6")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7g5mq"]
+atlas = ExtResource("8_8e6a6")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0vwha"]
+atlas = ExtResource("8_8e6a6")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1h06v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0qm2b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4yg2n")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7g5mq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0vwha")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_e0qx8"]
+resource_name = "animation"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("annysprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [&"default", &"up"]
+}
+
+[sub_resource type="Animation" id="Animation_f0vee"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("annysprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"up"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ykmkh"]
+_data = {
+"RESET": SubResource("Animation_f0vee"),
+"animation": SubResource("Animation_e0qx8")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eoinu"]
+size = Vector2(78, 296)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_job1k"]
+atlas = ExtResource("9_7a21x")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ubo6g"]
+atlas = ExtResource("9_7a21x")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="Animation" id="Animation_6fa6g"]
+resource_name = "animation"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("dronesprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-19, -50), Vector2(-19, -52)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("dronesprite2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-19, 15), Vector2(-19, 17)]
+}
+
+[sub_resource type="Animation" id="Animation_n7kmq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("dronesprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-19, -55)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("dronesprite2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-19, -55)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ursq6"]
+_data = {
+"RESET": SubResource("Animation_n7kmq"),
+"animation": SubResource("Animation_6fa6g")
+}
+
 [sub_resource type="Curve2D" id="Curve2D_qelj1"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 167, 31, 0, 0, 0, 0, -69, 34, 0, 0, 0, 0, 165, 34)
@@ -454,39 +610,33 @@ zoom = Vector2(1.8, 1.8)
 position_smoothing_enabled = true
 position_smoothing_speed = 3.0
 
-[node name="StoryBattleTrigger" parent="." instance=ExtResource("6_ph1n3")]
-position = Vector2(-355, 198)
-scale = Vector2(5.87387, 2.08845)
-id = "testtrigger"
-level_path = "res://scenes/levels/level_1.tscn"
-
-[node name="Label" type="Label" parent="StoryBattleTrigger"]
-offset_left = -10.0445
-offset_top = -17.2377
-offset_right = 49.9555
-offset_bottom = 5.7623
-scale = Vector2(0.493437, 1.24687)
-text = "story
-"
-
 [node name="StoryBattleTriggers" type="Node" parent="."]
 
-[node name="VedalUnlock" parent="StoryBattleTriggers" instance=ExtResource("6_ph1n3")]
+[node name="VedalUnlock" parent="StoryBattleTriggers" node_paths=PackedStringArray("collider") instance=ExtResource("6_ph1n3")]
 position = Vector2(814, -747)
 scale = Vector2(10, 4)
 id = "Vedal unlock"
 level_path = "res://scenes/levels/unlock_vedal.tscn"
+collider = NodePath("Area2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="StoryBattleTriggers/VedalUnlock"]
 texture_filter = 1
 scale = Vector2(0.1, 0.25)
 sprite_frames = SubResource("SpriteFrames_je2h4")
 
-[node name="EvilUnlock" parent="StoryBattleTriggers" instance=ExtResource("6_ph1n3")]
+[node name="Area2D" type="Area2D" parent="StoryBattleTriggers/VedalUnlock"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StoryBattleTriggers/VedalUnlock/Area2D"]
+shape = SubResource("RectangleShape2D_ugqak")
+
+[node name="EvilUnlock" parent="StoryBattleTriggers" node_paths=PackedStringArray("collider") instance=ExtResource("6_ph1n3")]
 position = Vector2(-30, -226)
 scale = Vector2(5.87387, 2.08845)
 id = "Evil unlock"
 level_path = "res://scenes/levels/unlock_evil/unlock_evil.tscn"
+collider = NodePath("Area2D")
 
 [node name="Label" type="Label" parent="StoryBattleTriggers/EvilUnlock"]
 offset_left = -10.0445
@@ -496,6 +646,60 @@ offset_bottom = 5.7623
 scale = Vector2(0.493437, 1.24687)
 text = "story
 "
+
+[node name="Area2D" type="Area2D" parent="StoryBattleTriggers/EvilUnlock"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StoryBattleTriggers/EvilUnlock/Area2D"]
+shape = SubResource("RectangleShape2D_ugqak")
+
+[node name="AnnyUnlock" parent="StoryBattleTriggers" node_paths=PackedStringArray("collider") instance=ExtResource("6_ph1n3")]
+position = Vector2(-83, -1592)
+id = "Anny unlock"
+level_path = "res://scenes/levels/unlock_anny/unlock_anny.tscn"
+collider = NodePath("Area2D")
+
+[node name="annysprite" type="AnimatedSprite2D" parent="StoryBattleTriggers/AnnyUnlock"]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_1h06v")
+animation = &"up"
+autoplay = "default"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="StoryBattleTriggers/AnnyUnlock/annysprite"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_ykmkh")
+}
+autoplay = "animation"
+
+[node name="Area2D" type="Area2D" parent="StoryBattleTriggers/AnnyUnlock"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StoryBattleTriggers/AnnyUnlock/Area2D"]
+position = Vector2(4, 8)
+shape = SubResource("RectangleShape2D_eoinu")
+
+[node name="dronesprite" type="TextureRect" parent="StoryBattleTriggers/AnnyUnlock"]
+offset_left = -19.0
+offset_top = -55.0
+offset_right = 21.0
+offset_bottom = -15.0
+texture = SubResource("AtlasTexture_job1k")
+
+[node name="dronesprite2" type="TextureRect" parent="StoryBattleTriggers/AnnyUnlock"]
+offset_left = -19.0
+offset_top = -55.0
+offset_right = 21.0
+offset_bottom = -15.0
+texture = SubResource("AtlasTexture_ubo6g")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="StoryBattleTriggers/AnnyUnlock"]
+libraries = {
+"": SubResource("AnimationLibrary_ursq6")
+}
+autoplay = "animation"
 
 [node name="Enemies" type="Node" parent="."]
 
