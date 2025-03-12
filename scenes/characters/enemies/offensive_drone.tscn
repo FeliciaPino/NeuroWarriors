@@ -471,3 +471,5 @@ bus = &"SFX"
 libraries = {
 "": SubResource("AnimationLibrary_8v7bq")
 }
+next/attack = &"idle"
+next/effect = &"idle"

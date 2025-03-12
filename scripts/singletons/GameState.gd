@@ -15,7 +15,7 @@ const DEFAULT_VALUES = {
 		"watched_credits" : false
 	},
 	"characters_save_info":{
-		"party":["Neuro-sama","Vedal","Evil"],
+		"party":["Neuro-sama"],
 		"Neuro-sama":{
 			"unlocked":true,
 			"level":1,
@@ -38,8 +38,8 @@ const DEFAULT_VALUES = {
 		}
 	},
 	"overworld_info":{
-		"player_position_x":300,
-		"player_position_y":-1600,
+		"player_position_x":1000,
+		"player_position_y":-64,
 		"defeated_enemies":{}
 	}
 }

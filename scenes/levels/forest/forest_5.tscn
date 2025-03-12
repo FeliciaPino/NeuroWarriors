@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cus55x31juaug"]
+
+[ext_resource type="PackedScene" uid="uid://djcp7mod6jgvh" path="res://scenes/levels/forest/forest.tscn" id="1_p0crp"]
+[ext_resource type="PackedScene" uid="uid://cshv2w6p6ypkr" path="res://scenes/characters/enemies/offensive_drone.tscn" id="2_hfobh"]
+
+[node name="Game" instance=ExtResource("1_p0crp")]
+
+[node name="offensiveDrone" parent="Entity_manager" index="0" instance=ExtResource("2_hfobh")]
+position = Vector2(1372, 414)
+
+[node name="offensiveDrone2" parent="Entity_manager" index="1" instance=ExtResource("2_hfobh")]
+position = Vector2(1372, 414)

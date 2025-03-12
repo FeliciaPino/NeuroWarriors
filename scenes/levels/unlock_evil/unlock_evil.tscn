@@ -257,9 +257,9 @@ remote_path = NodePath("../../../../../Arm/hand")
 [node name="Arm" type="Node2D" parent="Background/AssemblyStationBackground/AssemblyArm" index="2"]
 
 [node name="hand" type="Sprite2D" parent="Background/AssemblyStationBackground/AssemblyArm/Arm" index="0"]
-position = Vector2(2.98413, -8.54655)
+position = Vector2(2.98407, -8.54659)
 rotation = -1.2101
-scale = Vector2(0.999997, 0.999997)
+scale = Vector2(0.999999, 0.999999)
 texture = SubResource("AtlasTexture_53neq")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Background/AssemblyStationBackground/AssemblyArm/Arm/hand" index="0"]
@@ -268,14 +268,14 @@ emitting = false
 process_material = SubResource("ParticleProcessMaterial_vlg71")
 
 [node name="arm2" type="Sprite2D" parent="Background/AssemblyStationBackground/AssemblyArm/Arm" index="1"]
-position = Vector2(23.4934, -9.69966)
-rotation = 0.511941
-scale = Vector2(0.999999, 0.999999)
+position = Vector2(23.4948, -9.6993)
+rotation = 0.511942
+scale = Vector2(1, 1)
 texture = SubResource("AtlasTexture_hklrg")
 
 [node name="arm" type="Sprite2D" parent="Background/AssemblyStationBackground/AssemblyArm/Arm" index="2"]
-position = Vector2(45.6796, 38.0918)
-rotation = 0.203739
+position = Vector2(45.6803, 38.0919)
+rotation = 0.203756
 scale = Vector2(0.999999, 0.999999)
 texture = SubResource("AtlasTexture_3yxsx")
 

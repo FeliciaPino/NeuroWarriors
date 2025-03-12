@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://di0euvr0nfmf2"]
+
+[ext_resource type="PackedScene" uid="uid://djcp7mod6jgvh" path="res://scenes/levels/forest/forest.tscn" id="1_14mkn"]
+[ext_resource type="PackedScene" uid="uid://du1rkche8wapa" path="res://scenes/characters/enemies/drone.tscn" id="2_p00jw"]
+[ext_resource type="PackedScene" uid="uid://b3wy6ts3hkpc5" path="res://scenes/characters/enemies/monocopter.tscn" id="3_rmorn"]
+
+[node name="Game" instance=ExtResource("1_14mkn")]
+
+[node name="Drone" parent="Entity_manager" index="0" instance=ExtResource("2_p00jw")]
+position = Vector2(1396, 387)
+
+[node name="monocopter" parent="Entity_manager" index="1" instance=ExtResource("3_rmorn")]
+position = Vector2(1487, 555)
