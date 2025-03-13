@@ -270,7 +270,6 @@ process_material = SubResource("ParticleProcessMaterial_vlg71")
 [node name="arm2" type="Sprite2D" parent="Background/AssemblyStationBackground/AssemblyArm/Arm" index="1"]
 position = Vector2(23.4948, -9.6993)
 rotation = 0.511942
-scale = Vector2(1, 1)
 texture = SubResource("AtlasTexture_hklrg")
 
 [node name="arm" type="Sprite2D" parent="Background/AssemblyStationBackground/AssemblyArm/Arm" index="2"]

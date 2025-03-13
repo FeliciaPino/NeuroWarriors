@@ -2,14 +2,14 @@
 
 [ext_resource type="Script" path="res://scripts/actions/heart.gd" id="1_ie21g"]
 [ext_resource type="PackedScene" uid="uid://c0p02mr1a5wep" path="res://scenes/actions/BattleAction.tscn" id="1_ixepv"]
-[ext_resource type="Texture2D" uid="uid://bnfhmvrsa41qr" path="res://assets/heart.png" id="2_kdp55"]
+[ext_resource type="Texture2D" uid="uid://wutm5en1rqjf" path="res://assets/actions/RedHeart.png" id="3_endp1"]
 [ext_resource type="AudioStream" uid="uid://dqbx8vtoosd83" path="res://assets/audio/SFX/heart.wav" id="4_aikks"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7yr44"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_kdp55")
+"texture": ExtResource("3_endp1")
 }],
 "loop": true,
 "name": &"default",
