@@ -60,8 +60,14 @@ func valid_user()->bool:
 		return false
 	return true
 	
-	
-	
+func make_user_play_animation() -> bool:
+	if not valid_user(): return false
+	if user.animation_player.has_animation(animationType):
+		user.animation_player.play(animationType)
+		return true
+	else:
+		return false
+
 #each specific action must override this with it's effects
 func execute(user:BattleEntity, target:BattleEntity):
 	self.user = user

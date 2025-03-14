@@ -1,0 +1,109 @@
+[gd_scene load_steps=7 format=3 uid="uid://c5ykioygv4mrj"]
+
+[ext_resource type="PackedScene" uid="uid://c0p02mr1a5wep" path="res://scenes/actions/BattleAction.tscn" id="1_jy8vj"]
+[ext_resource type="Script" path="res://scripts/actions/pipes.gd" id="2_13bvw"]
+[ext_resource type="AudioStream" uid="uid://rf2y8u0ttqxw" path="res://addons/sfx/Retro Impact Punch 07.wav" id="3_51kw6"]
+
+[sub_resource type="Animation" id="Animation_hoge8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sound2:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sound:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_qteqj"]
+resource_name = "animation"
+length = 1.9
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.3, 0.6, 0.9, 1.2, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"values": [{
+"args": [&"action_effect"],
+"method": &"emit_signal"
+}, {
+"args": [],
+"method": &"make_user_play_animation"
+}, {
+"args": [&"action_effect"],
+"method": &"emit_signal"
+}, {
+"args": [],
+"method": &"make_user_play_animation"
+}, {
+"args": [&"action_effect"],
+"method": &"emit_signal"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sound2:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.866667),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("sound:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.3, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bawqv"]
+_data = {
+"RESET": SubResource("Animation_hoge8"),
+"animation": SubResource("Animation_qteqj")
+}
+
+[node name="Pipes" instance=ExtResource("1_jy8vj")]
+script = ExtResource("2_13bvw")
+
+[node name="sound" parent="." index="1"]
+stream = ExtResource("3_51kw6")
+volume_db = -5.0
+
+[node name="sound2" type="AudioStreamPlayer" parent="." index="2"]
+stream = ExtResource("3_51kw6")
+volume_db = -5.0
+bus = &"SFX"
+
+[node name="AnimationPlayer" parent="." index="3"]
+libraries = {
+"": SubResource("AnimationLibrary_bawqv")
+}
