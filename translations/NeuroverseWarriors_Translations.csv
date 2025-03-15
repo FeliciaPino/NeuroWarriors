@@ -108,3 +108,5 @@ STATUS_EFFECT_FLUSHED_NAME,Flushed,Vergüenza
 STATUS_EFFECT_FLUSHED_DESCRIPTION,Reduces both defense and attack by {amount}.,Reduce la defensa y el attaque en {amount} puntos.
 STATUS_EFFECT_SONIC_WEAKNESS_NAME,Sonic Weakness,Debilidad sónica
 STATUS_EFFECT_SONIC_WEAKNESS_DESCRIPTION,Reduces defense by {amount}.,Reduce la defensa en {amount}.
+STATUS_EFFECT_OVERCLOCKED_NAME,Overclocked,Overclockeado
+STATUS_EFFECT_OVERCLOCKED_DESCRIPTION,"Increases {stat} by {amount}, but takes {amount2} damage per turn.","Aumenta {stat} en {amount}, pero recibe {amount2} daño por turno."
