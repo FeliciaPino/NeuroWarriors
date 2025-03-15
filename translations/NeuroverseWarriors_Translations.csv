@@ -80,7 +80,7 @@ BATTLE_ACTION_TUTEL_SHIELD_NAME,Tutel Shield,Escudo Tortuga
 BATTLE_ACTION_TUTEL_SHIELD_DESCRIPTION,Increases target's defense for {turn_amount} turns.,Aumenta la defensa de el objetivo por {turn_amount} turnos.
 BATTLE_ACTION_TUTEL_SHIELD_VERB,defend,defender
 BATTLE_ACTION_HYPE_UP_NAME,Hype Up,Motivar
-BATTLE_ACTION_HYPE_UP_DESCRIPTION,"Hypes up the target, giving them [{status_effect_name}] for {turn_amount} turns.","Motiva all objetivo, dandole [{status_effect_name}] por {turn_amount} turnos."
+BATTLE_ACTION_HYPE_UP_DESCRIPTION,"Hypes up the target, giving them [{status_effect_name}] for {turn_amount} turns.","Motiva al objetivo, dandole [{status_effect_name}] por {turn_amount} turnos."
 BATTLE_ACTION_HYPE_UP_VERB,hype,motivar
 BATTLE_ACTION_FLUSTER_NAME,Fluster,Coquetear
 BATTLE_ACTION_FLUSTER_DESCRIPTION,Flirtatious teasing that reduces target's defense and attack.,Reduce el ataque y la defensa del objetivo.
@@ -88,6 +88,12 @@ BATTLE_ACTION_FLUSTER_VERB,fluster,avergonzar
 BATTLE_ACTION_SLAP_NAME,Slap,Bofetada
 BATTLE_ACTION_SLAP_DESCRIPTION,Does {multiplier}×[{stat}] damage to target.,Hace {multiplier}×[{stat}] puntos de daño al objetivo.
 BATTLE_ACTION_SLAP_VERB,slap,dar una bofetada
+BATTLE_ACTION_PIPES_NAME,Pipes,Tubo de Metal
+BATTLE_ACTION_PIPES_DESCRIPTION,"Hits target with metal pipe {amount} times, doing {multiplier}×[{stat}] damage to target each time.","Golpea al objetivo {amount} veces, haciendo {multiplier}×[{stat}] daño cada golpe."
+BATTLE_ACTION_PIPES_VERB,hit with a pipe,golpear
+BATTLE_ACTION_SCREECH_NAME,Screech,Grito
+BATTLE_ACTION_SCREECH_DESCRIPTION,Loud scream that does {multiplier}×[{stat}] damage and reduces defense.,Fuerte grito que causa {multiplicador}×[{stat}] de daño y reduce la defensa.
+BATTLE_ACTION_SCREECH_VERB,scream at,gritar
 STATUS_EFFECT_ATTACK_UP_NAME,Attack Up,Aumento de Ataque
 STATUS_EFFECT_ATTACK_UP_DESCRIPTION,Increases attack by {amount} points.,Aumenta el ataque por {amount} puntos.
 STATUS_EFFECT_DEFENSE_UP_NAME,Defense Up,Aumento de Defensa
@@ -100,3 +106,5 @@ STATUS_EFFECT_HYPED_NAME,Hyped,Motivacíon
 STATUS_EFFECT_HYPED_DESCRIPTION,Increases attack by {amount} and at the start of each turn heals {amount2}.,Aumenta el ataque en {amount} y al comienzo de cada turno cura {amount2}.
 STATUS_EFFECT_FLUSHED_NAME,Flushed,Vergüenza
 STATUS_EFFECT_FLUSHED_DESCRIPTION,Reduces both defense and attack by {amount}.,Reduce la defensa y el attaque en {amount} puntos.
+STATUS_EFFECT_SONIC_WEAKNESS_NAME,Sonic Weakness,Debilidad sónica
+STATUS_EFFECT_SONIC_WEAKNESS_DESCRIPTION,Reduces defense by {amount}.,Reduce la defensa en {amount}.

@@ -3,7 +3,7 @@ extends BattleAction
 
 func _ready() -> void:
 	super._ready()
-	effect_duration = 4
+	effect_duration = 3
 	action_name = tr("BATTLE_ACTION_FLUSTER_NAME")
 	description = tr("BATTLE_ACTION_FLUSTER_DESCRIPTION")
 	verb = tr("BATTLE_ACTION_FLUSTER_VERB")

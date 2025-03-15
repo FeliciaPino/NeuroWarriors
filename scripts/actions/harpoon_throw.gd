@@ -2,13 +2,13 @@ extends BattleAction
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	super._ready()
-	action_multiplier = 1.75
+	action_multiplier = 1.5
 	action_name = tr("BATTLE_ACTION_HARPOON_THROW_NAME")
 	description = tr("BATTLE_ACTION_HARPOON_THROW_DESCRIPTION").format({multiplier=action_multiplier,stat=tr("BATTLESTAT_ATTACK")})
 	verb = tr("BATTLE_ACTION_HARPOON_THROW_VERB")
 	isMelee = false
 	isPositive = false
-	price = 3
+	price = 2
 	animationType = "throw"
 	_validate_values_are_initialized()
 

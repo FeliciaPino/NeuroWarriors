@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://c2p0eeuc6b3re"]
+[gd_scene load_steps=31 format=3 uid="uid://c2p0eeuc6b3re"]
 
 [ext_resource type="PackedScene" uid="uid://b82kauwohbvun" path="res://scenes/levels/game.tscn" id="1_i4cdn"]
 [ext_resource type="Texture2D" uid="uid://dl6b6ewaxaxom" path="res://assets/backgrounds/forest_background.png" id="2_u5jnf"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c85gj43e28h10" path="res://scenes/characters/enemies/defensive_drone.tscn" id="4_vkc8h"]
 [ext_resource type="Texture2D" uid="uid://c8ffvkryw8ol0" path="res://scenes/levels/unlock_evil/assembly_arm.png" id="6_tmnle"]
 [ext_resource type="AudioStream" uid="uid://dcn1o42m7jt2q" path="res://scenes/levels/unlock_evil/guitar.mp3" id="7_jqcjf"]
+[ext_resource type="PackedScene" uid="uid://du1rkche8wapa" path="res://scenes/characters/enemies/drone.tscn" id="9_0pb1n"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_orb0x"]
 atlas = ExtResource("4_capdy")
@@ -257,7 +258,7 @@ remote_path = NodePath("../../../../../Arm/hand")
 [node name="Arm" type="Node2D" parent="Background/AssemblyStationBackground/AssemblyArm" index="2"]
 
 [node name="hand" type="Sprite2D" parent="Background/AssemblyStationBackground/AssemblyArm/Arm" index="0"]
-position = Vector2(2.98407, -8.54659)
+position = Vector2(2.98413, -8.54662)
 rotation = -1.2101
 scale = Vector2(0.999999, 0.999999)
 texture = SubResource("AtlasTexture_53neq")
@@ -268,14 +269,15 @@ emitting = false
 process_material = SubResource("ParticleProcessMaterial_vlg71")
 
 [node name="arm2" type="Sprite2D" parent="Background/AssemblyStationBackground/AssemblyArm/Arm" index="1"]
-position = Vector2(23.4948, -9.6993)
-rotation = 0.511942
+position = Vector2(23.4947, -9.69954)
+rotation = 0.511946
+scale = Vector2(0.999999, 0.999999)
 texture = SubResource("AtlasTexture_hklrg")
 
 [node name="arm" type="Sprite2D" parent="Background/AssemblyStationBackground/AssemblyArm/Arm" index="2"]
-position = Vector2(45.6803, 38.0919)
-rotation = 0.203756
-scale = Vector2(0.999999, 0.999999)
+position = Vector2(45.6804, 38.0919)
+rotation = 0.203757
+scale = Vector2(1, 1)
 texture = SubResource("AtlasTexture_3yxsx")
 
 [node name="base" type="Sprite2D" parent="Background/AssemblyStationBackground/AssemblyArm/Arm" index="3"]
@@ -315,6 +317,8 @@ position = Vector2(1313, 329)
 
 [node name="defensive drone2" parent="Entity_manager" index="1" instance=ExtResource("4_vkc8h")]
 position = Vector2(1313, 329)
+
+[node name="Drone" parent="Entity_manager" index="2" instance=ExtResource("9_0pb1n")]
 
 [connection signal="player_turn_ended" from="." to="Background/AssemblyStationBackground" method="_on_game_player_turn_ended"]
 [connection signal="timeout" from="Background/AssemblyStationBackground/Timer" to="Background/AssemblyStationBackground" method="_on_timer_timeout"]

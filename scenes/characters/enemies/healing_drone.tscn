@@ -269,6 +269,7 @@ _data = {
 [node name="healingDrone" instance=ExtResource("1_fcv86")]
 entity_name = "Healing Drone"
 entity_description = "It's the healing drone. It uh, it heals. n stuff"
+defense = 3
 speed = 3
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="visual" index="0"]

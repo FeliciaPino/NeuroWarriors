@@ -2,7 +2,7 @@ extends BattleAction
 
 func _ready():
 	super._ready()
-	action_multiplier = 2.5
+	action_multiplier = 2.75
 	action_name = tr("BATTLE_ACTION_KATANA_SLASH_NAME")
 	description = tr("BATTLE_ACTION_KATANA_SLASH_DESCRIPTION").format({multiplier=action_multiplier,stat=tr("BATTLESTAT_ATTACK")})
 	verb = "attack"

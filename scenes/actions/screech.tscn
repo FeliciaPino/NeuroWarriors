@@ -1,0 +1,44 @@
+[gd_scene load_steps=9 format=3 uid="uid://cw8myvw1tqj80"]
+
+[ext_resource type="PackedScene" uid="uid://c0p02mr1a5wep" path="res://scenes/actions/BattleAction.tscn" id="1_m5tg8"]
+[ext_resource type="Script" path="res://scripts/actions/screech.gd" id="2_a7m2n"]
+[ext_resource type="Texture2D" uid="uid://dbdt1xky53at4" path="res://assets/actions/sound_wave.png" id="2_rxi0n"]
+[ext_resource type="AudioStream" uid="uid://dfe87vpt5orv0" path="res://assets/audio/homemade/clips/evil_screech_1.mp3" id="3_y7jul"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wh8aw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_rxi0n")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_fy5ix"]
+resource_name = "animation"
+
+[sub_resource type="Animation" id="Animation_g0mkl"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jiqcs"]
+_data = {
+"RESET": SubResource("Animation_g0mkl"),
+"animation": SubResource("Animation_fy5ix")
+}
+
+[node name="Screech" instance=ExtResource("1_m5tg8")]
+position = Vector2(0, -30)
+script = ExtResource("2_a7m2n")
+
+[node name="sprite" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_wh8aw")
+
+[node name="sound" parent="." index="1"]
+stream = ExtResource("3_y7jul")
+
+[node name="AnimationPlayer" parent="." index="2"]
+libraries = {
+"": SubResource("AnimationLibrary_jiqcs")
+}

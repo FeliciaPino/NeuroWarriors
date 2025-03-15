@@ -3,9 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://b82kauwohbvun" path="res://scenes/levels/game.tscn" id="1_hhncd"]
 [ext_resource type="Texture2D" uid="uid://dl6b6ewaxaxom" path="res://assets/backgrounds/forest_background.png" id="2_tkf6i"]
 [ext_resource type="PackedScene" uid="uid://du1rkche8wapa" path="res://scenes/characters/enemies/drone.tscn" id="4_0l3y4"]
-[ext_resource type="PackedScene" uid="uid://c5ykioygv4mrj" path="res://scenes/actions/pipes.tscn" id="4_t5m3n"]
 [ext_resource type="PackedScene" uid="uid://cmccd8rxiyqab" path="res://scenes/characters/neuro_sama.tscn" id="5_gqr5d"]
 [ext_resource type="PackedScene" uid="uid://cjwp37r4npd1c" path="res://scenes/actions/repair.tscn" id="6_d5038"]
+[ext_resource type="PackedScene" uid="uid://b6410g70liyhb" path="res://scenes/characters/evil.tscn" id="7_xude7"]
 [ext_resource type="PackedScene" uid="uid://be7cg2gxou6i2" path="res://scenes/characters/anny.tscn" id="16_de82h"]
 
 [node name="Game" instance=ExtResource("1_hhncd")]
@@ -18,8 +18,6 @@ texture = ExtResource("2_tkf6i")
 [node name="NeuroSama" parent="Entity_manager" index="0" instance=ExtResource("5_gqr5d")]
 position = Vector2(-182, 378)
 speed = 30
-
-[node name="Pipes" parent="Entity_manager/NeuroSama" index="9" instance=ExtResource("4_t5m3n")]
 
 [node name="Drone2" parent="Entity_manager" index="1" instance=ExtResource("4_0l3y4")]
 position = Vector2(1374, 322)
@@ -43,3 +41,6 @@ speed = 10
 [node name="Anny2" parent="Entity_manager" index="5" instance=ExtResource("16_de82h")]
 position = Vector2(-142, 513)
 speed = 10
+
+[node name="Evil" parent="Entity_manager" index="6" instance=ExtResource("7_xude7")]
+position = Vector2(167, 415)
