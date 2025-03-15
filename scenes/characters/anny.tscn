@@ -434,11 +434,11 @@ texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_orvai")
 autoplay = "default"
 
-[node name="HypeUp" parent="Actions" index="0" instance=ExtResource("3_a386r")]
+[node name="Slap" parent="Actions" index="0" instance=ExtResource("5_rgmvh")]
 
-[node name="Fluster" parent="Actions" index="1" instance=ExtResource("4_yu4h7")]
+[node name="HypeUp" parent="Actions" index="1" instance=ExtResource("3_a386r")]
 
-[node name="Slap" parent="Actions" index="2" instance=ExtResource("5_rgmvh")]
+[node name="Fluster" parent="Actions" index="2" instance=ExtResource("4_yu4h7")]
 
 [node name="explosion" parent="." index="6"]
 autoplay = "explosion"

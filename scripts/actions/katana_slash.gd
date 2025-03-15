@@ -9,7 +9,7 @@ func _ready():
 	isMelee = true
 	isPositive = false
 	price = 4
-	animationType = "attack"
+	animationType = "throw"
 	_validate_values_are_initialized()
 func execute (user:BattleEntity, target:BattleEntity):
 	super.execute(user,target)
