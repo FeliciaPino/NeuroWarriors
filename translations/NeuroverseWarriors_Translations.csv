@@ -24,6 +24,10 @@ LEVEL_SELECT_RETURN_TO_MENU,Return to menu,Volver al menu
 BATTLE_TARGET_SELECT_HINT,Select who to {verb}.,Selecciona a quién {verb}.
 BATTLE_NEXT_TURN_BUTTON,End turn,Terminar turno
 BATTLE_YOUR_TURN,Your turn,Tu turno
+BATTLE_VICTORY,Victory,Victoria
+BATTLE_RETURN_TO_MAP,Return to map,Volver al mapa
+BATTLE_DEFEAT,Defeat,Derrota
+BATTLE_RELOAD,Reload from last checkpoint.,Volver a cargar desde ultimo checkpoint.
 BATTLESTAT_HEALTH,Health,Vida
 BATTLESTAT_ATTACK,Attack,Ataque
 BATTLESTAT_DEFENSE,Defense,Defensa
@@ -80,7 +84,7 @@ BATTLE_ACTION_TUTEL_SHIELD_NAME,Tutel Shield,Escudo Tortuga
 BATTLE_ACTION_TUTEL_SHIELD_DESCRIPTION,Increases target's defense for {turn_amount} turns.,Aumenta la defensa de el objetivo por {turn_amount} turnos.
 BATTLE_ACTION_TUTEL_SHIELD_VERB,defend,defender
 BATTLE_ACTION_HYPE_UP_NAME,Hype Up,Motivar
-BATTLE_ACTION_HYPE_UP_DESCRIPTION,"Hypes up the target, giving them [{status_effect_name}] for {turn_amount} turns.","Motiva al objetivo, dandole [{status_effect_name}] por {turn_amount} turnos."
+BATTLE_ACTION_HYPE_UP_DESCRIPTION,"Hypes up the target, increasing attack and regenerating health for {turn_amount} turns.","Motiva al objetivo, aumentando el ataque y regenerando vida por {turn_amount} turnos."
 BATTLE_ACTION_HYPE_UP_VERB,hype,motivar
 BATTLE_ACTION_FLUSTER_NAME,Fluster,Coquetear
 BATTLE_ACTION_FLUSTER_DESCRIPTION,Flirtatious teasing that reduces target's defense and attack.,Reduce el ataque y la defensa del objetivo.
@@ -110,3 +114,21 @@ STATUS_EFFECT_SONIC_WEAKNESS_NAME,Sonic Weakness,Debilidad sónica
 STATUS_EFFECT_SONIC_WEAKNESS_DESCRIPTION,Reduces defense by {amount}.,Reduce la defensa en {amount}.
 STATUS_EFFECT_OVERCLOCKED_NAME,Overclocked,Overclockeado
 STATUS_EFFECT_OVERCLOCKED_DESCRIPTION,"Increases {stat} by {amount}, but takes {amount2} damage per turn.","Aumenta {stat} en {amount}, pero recibe {amount2} daño por turno."
+CREDITS_LINE_1,Congratulations! You have finished the game.,Felicitaciones! Haz completado el juego.
+CREDITS_LINE_2,Credits:,Creditos:
+CREDITS_LINE_3,"Made by CopperQueen29, with love and passion. \n Heart <3","Hecho por CopperQueen29, con amor y pasión. \n <3."
+CREDITS_LINE_4,Sprites made by my dear friend Angiex161:,Sprites hechos por mi querida amiga Angiex161:
+CREDITS_LINE_5,Next up is the things I downloaded online,De aqui en adelante estan las cosas que descarge de internet.
+CREDITS_LINE_6,Music,Musica
+CREDITS_LINE_7,The CC0 music was made by Pixel-boy at Sparklin Labs,La musica CC0 fue hecha por Pixel-boy en Sparklin Labs
+CREDITS_LINE_8,SFX,Effectos de sonido
+CREDITS_LINE_9,I found some a pack of free sound effects here: https://kronbits.itch.io/freesfx,Encontré un pack de effectos de sonido gratis aquí: https://kronbits.itch.io/freesfx
+CREDITS_LINE_10,"The rest I got from https://freesound.org/, recorded audio from streams' clips, or simply made myself.","El resto los saqué de https://freesound.org/, grabe audio de clips de streams, o simplemente los hize yo misma"
+CREDITS_LINE_11,Special Thanks:,
+CREDITS_LINE_12,To my mom for being so great.,A mi madre por ser tan buena.
+CREDITS_LINE_13,To the Neuro twins for being the cutest AIs on the planet.,A las gemelas Neuro y Evil por ser las IAs mas lindas del planeta.
+CREDITS_LINE_14,To Vedal for giving them life.,A Vedal por darles vida.
+CREDITS_LINE_15,To Anny for being their mom.,A Anny por ser su madre.
+CREDITS_LINE_16,"To ChatGPT for tirelessly listening to me ramble about the mechanics of my game, and rarely suggesting good ideas.","A ChatGPT por escuchar incansablemente mis divagaciones sobre la como funciona mi juego, y por rara vez sugerir buenas ideas."
+CREDITS_LINE_17,And to you!,Y a ti!
+CREDITS_LINE_18,I hope you had as much fun playing this as I had making it., Espero que la hayas pasado tan bien jugando este juego como yo haciéndolo. 

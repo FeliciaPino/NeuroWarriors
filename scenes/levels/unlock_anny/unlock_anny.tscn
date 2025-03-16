@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://d3gvuj8q41ph0"]
+[gd_scene load_steps=6 format=3 uid="uid://d3gvuj8q41ph0"]
 
 [ext_resource type="PackedScene" uid="uid://b82kauwohbvun" path="res://scenes/levels/game.tscn" id="1_k64e4"]
 [ext_resource type="Texture2D" uid="uid://eko0bmmx7htt" path="res://assets/backgrounds/city_background.png" id="2_ua5ud"]
 [ext_resource type="Texture2D" uid="uid://ckwtk2qoeemcv" path="res://scenes/levels/unlock_anny/weakened_anny.png" id="3_ehlyh"]
+[ext_resource type="PackedScene" uid="uid://cshv2w6p6ypkr" path="res://scenes/characters/enemies/offensive_drone.tscn" id="5_4nsak"]
 [ext_resource type="PackedScene" uid="uid://du1rkche8wapa" path="res://scenes/characters/enemies/drone.tscn" id="5_or4li"]
 
 [node name="Game" instance=ExtResource("1_k64e4")]
@@ -22,3 +23,12 @@ texture = ExtResource("3_ehlyh")
 
 [node name="Drone" parent="Entity_manager" index="0" instance=ExtResource("5_or4li")]
 position = Vector2(1289, 394)
+
+[node name="offensiveDrone" parent="Entity_manager" index="1" instance=ExtResource("5_4nsak")]
+position = Vector2(1464, 325)
+
+[node name="offensiveDrone2" parent="Entity_manager" index="2" instance=ExtResource("5_4nsak")]
+position = Vector2(1464, 325)
+
+[node name="offensiveDrone3" parent="Entity_manager" index="3" instance=ExtResource("5_4nsak")]
+position = Vector2(1464, 325)

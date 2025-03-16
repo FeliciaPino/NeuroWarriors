@@ -40,7 +40,3 @@ alignment = 1
 layout_mode = 2
 text = "you vicori. or defet?"
 horizontal_alignment = 1
-
-[node name="Button" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Return to map"

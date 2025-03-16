@@ -1,25 +1,25 @@
 extends Control
 
 @onready var label = $PanelContainer/MarginContainer/VBoxContainer/Label
-@onready var return_to_map_button = $PanelContainer/MarginContainer/VBoxContainer/Button
 @onready var vBoxContainer = $PanelContainer/MarginContainer/VBoxContainer
 @onready var end_turn_button = %EndTurnButton
 
 
 const map_scene = preload("res://scenes/overworld/overworld.tscn")
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	return_to_map_button.pressed.connect(leave)
 
 func set_win_status(value:bool):
 	if value:
-		label.text = "Victory"
+		label.text = tr("BATTLE_VICTORY")
 		MusicPlayer.play_music(load("res://addons/Pixel_boy/theme-3b.ogg"),0)
+		var button = Button.new()
+		button.text = tr("BATTLE_RETURN_TO_MAP")
+		button.pressed.connect(reload_and_leave)
+		vBoxContainer.add_child(button)
 	else:
-		label.text = "Defeat"
+		label.text = tr("BATTLE_DEFEAT")
 		MusicPlayer.play_music(load("res://addons/sfx/Retro Negative Long 12.wav"),0)
 		var button = Button.new()
-		button.text = "Go back to last save point"
+		button.text = tr("BATTLE_RELOAD")
 		button.pressed.connect(reload_and_leave)
 		vBoxContainer.add_child(button)
 	#this is ugly

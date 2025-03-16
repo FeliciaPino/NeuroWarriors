@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://cw8myvw1tqj80"]
+[gd_scene load_steps=11 format=3 uid="uid://cw8myvw1tqj80"]
 
 [ext_resource type="PackedScene" uid="uid://c0p02mr1a5wep" path="res://scenes/actions/BattleAction.tscn" id="1_m5tg8"]
 [ext_resource type="Script" path="res://scripts/actions/screech.gd" id="2_a7m2n"]
 [ext_resource type="Texture2D" uid="uid://dbdt1xky53at4" path="res://assets/actions/sound_wave.png" id="2_rxi0n"]
 [ext_resource type="AudioStream" uid="uid://dfe87vpt5orv0" path="res://assets/audio/homemade/clips/evil_screech_1.mp3" id="3_y7jul"]
+[ext_resource type="AudioStream" uid="uid://cv18ik7l0c5la" path="res://assets/audio/homemade/clips/evil_screech_2.mp3" id="4_c4ude"]
+[ext_resource type="AudioStream" uid="uid://ciq0fwd0mud0i" path="res://assets/audio/homemade/clips/evil_screech_3.mp3" id="6_wny4q"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wh8aw"]
 animations = [{
@@ -16,11 +18,11 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="Animation" id="Animation_fy5ix"]
-resource_name = "animation"
-
 [sub_resource type="Animation" id="Animation_g0mkl"]
 length = 0.001
+
+[sub_resource type="Animation" id="Animation_fy5ix"]
+resource_name = "animation"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jiqcs"]
 _data = {
@@ -36,9 +38,20 @@ script = ExtResource("2_a7m2n")
 sprite_frames = SubResource("SpriteFrames_wh8aw")
 
 [node name="sound" parent="." index="1"]
-stream = ExtResource("3_y7jul")
+stream = ExtResource("4_c4ude")
+volume_db = -5.0
 
-[node name="AnimationPlayer" parent="." index="2"]
+[node name="sound2" type="AudioStreamPlayer" parent="." index="2"]
+stream = ExtResource("3_y7jul")
+volume_db = -13.0
+bus = &"SFX"
+
+[node name="sound3" type="AudioStreamPlayer" parent="." index="3"]
+stream = ExtResource("6_wny4q")
+volume_db = 2.0
+bus = &"SFX"
+
+[node name="AnimationPlayer" parent="." index="4"]
 libraries = {
 "": SubResource("AnimationLibrary_jiqcs")
 }

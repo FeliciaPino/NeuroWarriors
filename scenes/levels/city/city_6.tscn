@@ -25,12 +25,3 @@ position = Vector2(1397, 383)
 
 [node name="Drone7" parent="Entity_manager" index="6" instance=ExtResource("2_4oytw")]
 position = Vector2(1397, 383)
-
-[node name="Drone8" parent="Entity_manager" index="7" instance=ExtResource("2_4oytw")]
-position = Vector2(1397, 383)
-
-[node name="Drone9" parent="Entity_manager" index="8" instance=ExtResource("2_4oytw")]
-position = Vector2(1397, 383)
-
-[node name="Drone10" parent="Entity_manager" index="9" instance=ExtResource("2_4oytw")]
-position = Vector2(1397, 383)

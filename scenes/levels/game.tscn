@@ -203,6 +203,7 @@ grow_horizontal = 2
 
 [node name="Return" type="Button" parent="CanvasLayer"]
 unique_name_in_owner = true
+visible = false
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -211,5 +212,4 @@ offset_top = -45.0
 offset_right = 130.0
 offset_bottom = -14.0
 grow_vertical = 0
-text = "Return to map
-"
+text = "BATTLE_RETURN_TO_MAP"

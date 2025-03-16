@@ -258,7 +258,7 @@ remote_path = NodePath("../../../../../Arm/hand")
 [node name="Arm" type="Node2D" parent="Background/AssemblyStationBackground/AssemblyArm" index="2"]
 
 [node name="hand" type="Sprite2D" parent="Background/AssemblyStationBackground/AssemblyArm/Arm" index="0"]
-position = Vector2(2.98407, -8.54663)
+position = Vector2(2.98407, -8.54662)
 rotation = -1.21011
 scale = Vector2(1, 1)
 texture = SubResource("AtlasTexture_53neq")
@@ -269,15 +269,13 @@ emitting = false
 process_material = SubResource("ParticleProcessMaterial_vlg71")
 
 [node name="arm2" type="Sprite2D" parent="Background/AssemblyStationBackground/AssemblyArm/Arm" index="1"]
-position = Vector2(23.4946, -9.69946)
-rotation = 0.511949
-scale = Vector2(0.999999, 0.999999)
+position = Vector2(23.4943, -9.69949)
+rotation = 0.511943
 texture = SubResource("AtlasTexture_hklrg")
 
 [node name="arm" type="Sprite2D" parent="Background/AssemblyStationBackground/AssemblyArm/Arm" index="2"]
-position = Vector2(45.6806, 38.0919)
-rotation = 0.203763
-scale = Vector2(1, 1)
+position = Vector2(45.6804, 38.0919)
+rotation = 0.203758
 texture = SubResource("AtlasTexture_3yxsx")
 
 [node name="base" type="Sprite2D" parent="Background/AssemblyStationBackground/AssemblyArm/Arm" index="3"]
@@ -319,6 +317,7 @@ position = Vector2(1313, 329)
 position = Vector2(1313, 329)
 
 [node name="Drone" parent="Entity_manager" index="2" instance=ExtResource("9_0pb1n")]
+position = Vector2(1416, 501)
 
 [connection signal="player_turn_ended" from="." to="Background/AssemblyStationBackground" method="_on_game_player_turn_ended"]
 [connection signal="timeout" from="Background/AssemblyStationBackground/Timer" to="Background/AssemblyStationBackground" method="_on_timer_timeout"]

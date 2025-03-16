@@ -24,6 +24,9 @@ func _ready() -> void:
 		if c is AudioStreamPlayer:
 			sounds.append(c)
 	action_effect.connect(_do_action_effect)
+func _random_sound():
+	if sounds.size()<1:return
+	sounds.pick_random().play()
 func _do_action_effect():
 	if not valid_target() or not valid_user(): 
 		print(str(self,": somethings not valid"))
