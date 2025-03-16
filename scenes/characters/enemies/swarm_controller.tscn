@@ -525,7 +525,6 @@ use_parent_material = true
 sprite_frames = SubResource("SpriteFrames_m4jya")
 animation = &"spinning"
 autoplay = "default"
-frame_progress = 0.572094
 offset = Vector2(0, -30)
 
 [node name="summon drone" parent="Actions" index="0" instance=ExtResource("3_ijl66")]
@@ -537,6 +536,7 @@ offset_right = -37.0
 libraries = {
 "": SubResource("AnimationLibrary_8v7bq")
 }
+next/effect = &"idle"
 
 [node name="wave" type="Sprite2D" parent="." index="8"]
 visible = false

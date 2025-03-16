@@ -7,6 +7,7 @@ func _ready() -> void:
 	skip_button.visible = false
 	skip_button.pressed.connect(return_to_menu)
 	animation_player.play("credits_anim")
+	animation_player.seek(0)
 	SaveManager.save_game(GameState.current_save_slot_index)
 	
 func return_to_menu():

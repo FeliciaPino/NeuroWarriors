@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://0gtiu3qnyxd1"]
+
+[ext_resource type="PackedScene" uid="uid://b82kauwohbvun" path="res://scenes/levels/game.tscn" id="1_ewa0g"]
+[ext_resource type="Texture2D" uid="uid://eko0bmmx7htt" path="res://assets/backgrounds/city_background.png" id="2_x0bh1"]
+
+[node name="Game" instance=ExtResource("1_ewa0g")]
+
+[node name="TextureRect" type="TextureRect" parent="Background" index="0"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_x0bh1")

@@ -15,7 +15,7 @@ const DEFAULT_VALUES = {
 		"watched_credits" : false
 	},
 	"characters_save_info":{
-		"party":["Neuro-sama"],
+		"party":["Neuro-sama", "Vedal", "Evil", "Anny"],
 		"Neuro-sama":{
 			"unlocked":true,
 			"level":1,
@@ -38,8 +38,8 @@ const DEFAULT_VALUES = {
 		}
 	},
 	"overworld_info":{
-		"player_position_x":1600,
-		"player_position_y":-100,
+		"player_position_x":3400,
+		"player_position_y":-4864,
 		"defeated_enemies":{}
 	}
 }
@@ -47,7 +47,7 @@ const DEFAULT_VALUES = {
 var current_level:String = ""
 var current_enemy_battle:String = ""
 var current_level_path:String = ""
-var last_level = "The End"
+var last_level = "City Boss"
 func _ready():
 	print("GameState is ready.")
 	completed_levels = DEFAULT_VALUES["completed_levels"].duplicate(true)

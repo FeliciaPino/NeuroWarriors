@@ -1,23 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://0gtiu3qnyxd1"]
+[gd_scene load_steps=4 format=3 uid="uid://3cyvip7qrlfb"]
 
-[ext_resource type="PackedScene" uid="uid://b82kauwohbvun" path="res://scenes/levels/game.tscn" id="1_ewa0g"]
-[ext_resource type="Texture2D" uid="uid://eko0bmmx7htt" path="res://assets/backgrounds/city_background.png" id="2_x0bh1"]
+[ext_resource type="PackedScene" uid="uid://0gtiu3qnyxd1" path="res://scenes/levels/city/city.tscn" id="1_465l1"]
 [ext_resource type="PackedScene" uid="uid://cshv2w6p6ypkr" path="res://scenes/characters/enemies/offensive_drone.tscn" id="3_v2s6b"]
-[ext_resource type="PackedScene" uid="uid://c85gj43e28h10" path="res://scenes/characters/enemies/defensive_drone.tscn" id="4_ry4ah"]
+[ext_resource type="PackedScene" uid="uid://du1rkche8wapa" path="res://scenes/characters/enemies/drone.tscn" id="3_y4tl8"]
 
-[node name="Game" instance=ExtResource("1_ewa0g")]
-
-[node name="TextureRect" type="TextureRect" parent="Background" index="0"]
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("2_x0bh1")
+[node name="Game" instance=ExtResource("1_465l1")]
 
 [node name="offensiveDrone" parent="Entity_manager" index="0" instance=ExtResource("3_v2s6b")]
-position = Vector2(1330, 369)
-health = 100
+position = Vector2(1522, 375)
 
-[node name="defensive drone" parent="Entity_manager" index="1" instance=ExtResource("4_ry4ah")]
-position = Vector2(1346, 511)
+[node name="offensiveDrone2" parent="Entity_manager" index="1" instance=ExtResource("3_v2s6b")]
+position = Vector2(1522, 375)
 
-[node name="defensive drone2" parent="Entity_manager" index="2" instance=ExtResource("4_ry4ah")]
-position = Vector2(1346, 511)
+[node name="Drone" parent="Entity_manager" index="2" instance=ExtResource("3_y4tl8")]
+position = Vector2(1522, 375)
