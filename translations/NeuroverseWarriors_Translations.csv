@@ -9,18 +9,30 @@ MAIN_MENU_SAVE_FILE,Save File {number},Archivo de Guardado {number}
 MAIN_MENU_DELETE_SAVE_FILE,Delete,Borrar
 MAIN_MENU_NEW_GAME,New Game,Nuevo Juego
 MAIN_MENU_CONTINUE,Continue,Continuar
-CUTSCENE_FRAME_0,Vedal AI building. \n Year 202X,Edificio de Vedal AI.\n Año 202X
-CUTSCENE_FRAME_1,"Unbeknownst to Vedal, Evil is working on her own project using the building's facilities.","Sin el conocimiento de Vedal, Evil esta trabajando en su propio projecto usando las tecnologias del edificio"
+CUTSCENE_FRAME_0,Vedal AI building. \n Year 202X,Edificio de Vedal AI.\n Año 202X.
+CUTSCENE_FRAME_1,"Unbeknownst to Vedal, Evil is working on her own project using the building's facilities.","Sin que Vedal lo sepa, Evil está trabajando en su propio proyecto usando las tecnologías del edificio."
 CUTSCENE_FRAME_2,Uh oh...,Uh oh...
-CUTSCENE_FRAME_3,The swarm broke out of the building and attacked the city.\n Vedal barely escaped alive and the twins were presumed dead.,El enjambre de drones se escapo de el edificio y ataco la ciudad.\n Vedal apenas escapo con vida y las gemelas se presumieron muertas.
-CUTSCENE_FRAME_4,Many years have passed since the invasion. There's but remnants of the past civilization.\n Now Vedal lives in a forest carving rocks.,"Muchos años han pasado desde la invasion, quedan tan solo restos de la civilización pasada.\n Ahora Vedal vive en un bosque tallando rocas."
-CUTSCENE_FRAME_5,"Despite all odds, Neuro managed to survive. Hidden in the code, waiting for a chance to return.\nShe managed to hijack an abandondoned drone assembly station to build herself a powerful body to fight back.","Contra todo chance, Neuro logro sobrevivir, escondida en el codigo, esperando una oportunidad de regresar.\Ella logro apoderarse de una estación de ensamblaje de drones para construirse un poderoso cuerpo robot."
-CUTSCENE_FRAME_6,"With a brand new body and her first taste of sunlight, Neuro embarks on a mighty quest to find her friends and defeat the swarm.","Con su nuevo cuerpo y sintiendo el sol por primera vez, Neuro embarca en una legendaria aventura para encontrar a sus amigos y derrotar al enjambre."
+CUTSCENE_FRAME_3,The swarm broke out of the building and attacked the city.\n Vedal barely escaped alive and the twins were presumed dead.,"El enjambre de drones se escapó del edificio y atacó la ciudad. \n
+Vedal apenas escapó con vida, y las gemelas fueron dadas por muertas."
+CUTSCENE_FRAME_4,Many years have passed since the invasion. There's but remnants of the past civilization.\n Now Vedal lives in a forest carving rocks.,"Han pasado muchos años desde la invasión; solo quedan restos de la civilización pasada.
+Ahora, Vedal vive en un bosque tallando rocas."
+CUTSCENE_FRAME_5,"Despite all odds, Neuro managed to survive. Hidden in the code, waiting for a chance to return.\nShe managed to hijack an abandondoned drone assembly station to build herself a powerful body to fight back.","Contra todo pronóstico, Neuro logró sobrevivir, escondida en el código, esperando una oportunidad para regresar \n Logró apoderarse de una estación de ensamblaje de drones para construirse un poderoso cuerpo robótico."
+CUTSCENE_FRAME_6,"With a brand new body and her first taste of sunlight, Neuro embarks on a mighty quest to find her friends and defeat the swarm.","Con su nuevo cuerpo y sintiendo el sol por primera vez, Neuro se embarca en una legendaria aventura para encontrar a sus amigos y derrotar al Enjambre."
 CUTSCENE_NEXT,Next,Siguiente
 CUTSCENE_PREVIOUS,Previous,Anterior
 CUTSCENE_SKIP,Skip,Saltar
 LEVEL_SELECT_WATCH_CUTSCENE,Watch cutscene again,Ver cinematica de nuevo
 LEVEL_SELECT_RETURN_TO_MENU,Return to menu,Volver al menu
+MOVEMENT_PROMPT,Use WASD or the arrow keys to move.,Usa WASD o las teclas de flecha para moverte.
+TUTORIAL_1,Battles are turn-based. Click on Neuro to open her menu.,Las batallas son por turnos. Haz clic en Neuro para abrir su menú.
+TUTORIAL_2,"Here you can see see stats, abilities, and Action Points (AP for short).\n You gain some AP at the start of each turn. \n Hover over an ability to see its AP cost and description. When you're ready to continue just click on any action.","Aquí puedes ver estadísticas, habilidades y Puntos de Acción (AP, por sus siglas en inglés). Obtienes AP al comienzo de cada turno. \n Mantén el cursor sobre una habilidad para ver su costo de AP y su descripción.
+Cuando quieras continuar, simplemente haz clic en cualquier acción."
+TUTORIAL_2_B,You didn't even try to read to read the descriptions.,Ni siquiera intentaste leer las descripciones.
+TUTORIAL_3,"To use an ability, after having selected it from the character's menu, click on the target you want to use it on.\n If you change your mind, you can right-click to deselect it. \n Alternatively, you can end your turn early and save up your AP. There is no limit to how much AP you can store.","Para usar una habilidad, después de seleccionarla desde el menú, haz clic sobre el objetivo en el que quieras usarla.\n Si cambias de opinión al tener una habilidad ya seleccionada, puedes hacer clic derecho para deseleccionarla.
+También puedes terminar tu turno antes y ahorrar tus AP. No hay límite para la cantidad de AP que puedes almacenar."
+TUTORIAL_4,"You can also click on enemies to open their menu. While you can't control them, you can read their stats and abilities to plan ahead. Click on this enemy drone to continue.","También puedes hacer clic en los enemigos para abrir su menú. Aunque no puedes controlarlos, puedes leer sus estadísticas y habilidades para planificar tu estrategia.
+Haz clic en este enemigo para terminar continuar."
+TUTORIAL_5,Status effects are visible right bellow the health bar. The have an icon along with the amount of turns remaining. You can hover over them to see their description. \n Try using Shock to see by yourself.,Los efectos de estado son visibles justo debajo de la barra de salud. Tienen un icono junto con la cantidad de turnos restantes. Puedes pasar el cursor sobre ellos para ver su descripción. \n Trata de usar Electroshock para verlo por tu cuenta.
 BATTLE_TARGET_SELECT_HINT,Select who to {verb}.,Selecciona a quién {verb}.
 BATTLE_NEXT_TURN_BUTTON,End turn,Terminar turno
 BATTLE_YOUR_TURN,Your turn,Tu turno
@@ -31,12 +43,12 @@ BATTLE_RELOAD,Reload from last checkpoint.,Volver a cargar desde ultimo checkpoi
 BATTLESTAT_HEALTH,Health,Vida
 BATTLESTAT_ATTACK,Attack,Ataque
 BATTLESTAT_DEFENSE,Defense,Defensa
-BATTLESTAT_AP_REGEN,AP Regen.,Regeneracion de AP
+BATTLESTAT_AP_REGEN,AP Regen.,Regeneración de AP
 BATTLE_ACTION_FORCE_FIELD_NAME,Force Field,Campo de Fuerza
 BATTLE_ACTION_FORCE_FIELD_DESCRIPTION,Summon a shield that increases defense for the next {turn_amount} turns.,Crea un escudo que aumenta la defensa por {turn_amount} turnos.
 BATTLE_ACTION_FORCE_FIELD_VERB,defend,defender
-BATTLE_ACTION_GENERIC_MELEE_NAME,Generic Melee,Melé Generico
-BATTLE_ACTION_GENERIC_MELEE_DESCRIPTION,Generic melee attack.,Ataque melé generico
+BATTLE_ACTION_GENERIC_MELEE_NAME,Generic Melee,Melé Genérico
+BATTLE_ACTION_GENERIC_MELEE_DESCRIPTION,Generic melee attack.,Ataque melé genérico
 BATTLE_ACTION_GENERIC_MELEE_VERB,attack,atacar
 BATTLE_ACTION_HARPOON_THROW_NAME,Harpoon Throw,Lanzar Arpón
 BATTLE_ACTION_HARPOON_THROW_DESCRIPTION,"Throws a harpoon at target, doing {multiplier}×[{stat}] damage.","Lanza un arpón al objetivo, haciendo {multiplier}×[{stat}] puntos de daño."
@@ -72,7 +84,7 @@ BATTLE_ACTION_SHADOW_CLONE_NAME,Shadow Clone,Clon Sombra
 BATTLE_ACTION_SHADOW_CLONE_DESCRIPTION,Creates an exact duplicate (but shadow) of target that will fight for you.,Crea una copia exacta (excepto que es sombra) del objetivo que peleará por ti.
 BATTLE_ACTION_SHADOW_CLONE_VERB,clone,clonar
 BATTLE_ACTION_SHOCK_NAME,Shock,Electroshock
-BATTLE_ACTION_SHOCK_DESCRIPTION,"Damages distant target, doing {multiplier}×[{stat}] damage and inflicting the Shocked status effect for {turn_amount} turns.","Daña al objetivo por {multiplier}×[{stat}] puntos de daño, infligiéndole el efecto de estado Shockeado por {turn_amount} turnos."
+BATTLE_ACTION_SHOCK_DESCRIPTION,"Damages distant target, doing {multiplier}×[{stat}] damage and inflicting the Shocked status effect for {turn_amount} turns.","Daña a un objetivo distante, lo que le provoca {multiplier}×[{stat}] de daño e inflige el efecto de estado Shockeado durante {turn_amount} turnos."
 BATTLE_ACTION_SHOCK_VERB,shock,shockear
 BATTLE_ACTION_SUMMON_DRONE_NAME,Summon Drone,Invocar Dron
 BATTLE_ACTION_SUMMON_DRONE_DESCRIPTION,Summons a random drone.,Invoca un dron random.
@@ -96,7 +108,7 @@ BATTLE_ACTION_PIPES_NAME,Pipes,Tubo de Metal
 BATTLE_ACTION_PIPES_DESCRIPTION,"Hits target with metal pipe {amount} times, doing {multiplier}×[{stat}] damage to target each time.","Golpea al objetivo {amount} veces, haciendo {multiplier}×[{stat}] daño cada golpe."
 BATTLE_ACTION_PIPES_VERB,hit with a pipe,golpear
 BATTLE_ACTION_SCREECH_NAME,Screech,Grito
-BATTLE_ACTION_SCREECH_DESCRIPTION,Loud scream that does {multiplier}×[{stat}] damage and reduces defense.,Fuerte grito que causa {multiplicador}×[{stat}] de daño y reduce la defensa.
+BATTLE_ACTION_SCREECH_DESCRIPTION,Loud scream that does {multiplier}×[{stat}] damage and reduces defense.,Fuerte grito que causa {multiplier}×[{stat}] de daño y reduce la defensa.
 BATTLE_ACTION_SCREECH_VERB,scream at,gritar
 STATUS_EFFECT_ATTACK_UP_NAME,Attack Up,Aumento de Ataque
 STATUS_EFFECT_ATTACK_UP_DESCRIPTION,Increases attack by {amount} points.,Aumenta el ataque por {amount} puntos.
@@ -114,21 +126,21 @@ STATUS_EFFECT_SONIC_WEAKNESS_NAME,Sonic Weakness,Debilidad sónica
 STATUS_EFFECT_SONIC_WEAKNESS_DESCRIPTION,Reduces defense by {amount}.,Reduce la defensa en {amount}.
 STATUS_EFFECT_OVERCLOCKED_NAME,Overclocked,Overclockeado
 STATUS_EFFECT_OVERCLOCKED_DESCRIPTION,"Increases {stat} by {amount}, but takes {amount2} damage per turn.","Aumenta {stat} en {amount}, pero recibe {amount2} daño por turno."
-CREDITS_LINE_1,Congratulations! You have finished the game.,Felicitaciones! Haz completado el juego.
-CREDITS_LINE_2,Credits:,Creditos:
+CREDITS_LINE_1,Congratulations! You have finished the game.,Felicitaciones! Haz completado el juego.¡Felicitaciones! Has completado el juego.
+CREDITS_LINE_2,Credits:,Créditos:
 CREDITS_LINE_3,"Made by CopperQueen29, with love and passion. \n Heart <3","Hecho por CopperQueen29, con amor y pasión. \n <3."
-CREDITS_LINE_4,Sprites made by my dear friend Angiex161:,Sprites hechos por mi querida amiga Angiex161:
-CREDITS_LINE_5,Next up is the things I downloaded online,De aqui en adelante estan las cosas que descarge de internet.
-CREDITS_LINE_6,Music,Musica
-CREDITS_LINE_7,The CC0 music was made by Pixel-boy at Sparklin Labs,La musica CC0 fue hecha por Pixel-boy en Sparklin Labs
-CREDITS_LINE_8,SFX,Effectos de sonido
-CREDITS_LINE_9,I found some a pack of free sound effects here: https://kronbits.itch.io/freesfx,Encontré un pack de effectos de sonido gratis aquí: https://kronbits.itch.io/freesfx
-CREDITS_LINE_10,"The rest I got from https://freesound.org/, recorded audio from streams' clips, or simply made myself.","El resto los saqué de https://freesound.org/, grabe audio de clips de streams, o simplemente los hize yo misma"
-CREDITS_LINE_11,Special Thanks:,
-CREDITS_LINE_12,To my mom for being so great.,A mi madre por ser tan buena.
-CREDITS_LINE_13,To the Neuro twins for being the cutest AIs on the planet.,A las gemelas Neuro y Evil por ser las IAs mas lindas del planeta.
-CREDITS_LINE_14,To Vedal for giving them life.,A Vedal por darles vida.
-CREDITS_LINE_15,To Anny for being their mom.,A Anny por ser su madre.
-CREDITS_LINE_16,"To ChatGPT for tirelessly listening to me ramble about the mechanics of my game, and rarely suggesting good ideas.","A ChatGPT por escuchar incansablemente mis divagaciones sobre la como funciona mi juego, y por rara vez sugerir buenas ideas."
-CREDITS_LINE_17,And to you!,Y a ti!
-CREDITS_LINE_18,I hope you had as much fun playing this as I had making it., Espero que la hayas pasado tan bien jugando este juego como yo haciéndolo. 
+CREDITS_LINE_4,Sprites made by my dear friend Angiex161:,Sprites hechos por mi querida amiga Angiex161.
+CREDITS_LINE_5,Next up is the things I downloaded online:,De aquí en adelante están los recursos que descargué de internet:
+CREDITS_LINE_6,Music,Música
+CREDITS_LINE_7,The CC0 music was made by Pixel-boy at Sparklin Labs,La música CC0 fue hecha por Pixel-boy en Sparklin Labs.
+CREDITS_LINE_8,SFX,Efectos de sonido
+CREDITS_LINE_9,I found a pack of free sound effects here: https://kronbits.itch.io/freesfx,Encontré un pack de efectos de sonido gratis aquí: https://kronbits.itch.io/freesfx.
+CREDITS_LINE_10,"The rest I got from https://freesound.org/, recorded audio from streams' clips, or simply made myself.","El resto los saqué de https://freesound.org/, grabé audio de clips de streams o simplemente los hice yo misma."
+CREDITS_LINE_11,Special Thanks:,Agradecimientos especiales:
+CREDITS_LINE_12,To my mom for being so great.,"A mi madre, por ser tan buena."
+CREDITS_LINE_13,To the Neuro twins for being the cutest AIs on the planet.,"A las gemelas Neuro y Evil, por ser las IAs más lindas del planeta."
+CREDITS_LINE_14,To Vedal for giving them life.,"A Vedal, por darles vida."
+CREDITS_LINE_15,To Anny for being their mom.,"A Anny, por ser su madre."
+CREDITS_LINE_16,"To ChatGPT for tirelessly listening to me ramble about the mechanics of my game, and rarely suggesting good ideas.","A ChatGPT, por escuchar incansablemente mis divagaciones sobre cómo funciona mi juego y por rara vez sugerir buenas ideas."
+CREDITS_LINE_17,And to you!,¡Y a ti!
+CREDITS_LINE_18,I hope you had as much fun playing this as I had making it.,Espero que la hayas pasado tan bien jugando este juego como yo haciéndolo.

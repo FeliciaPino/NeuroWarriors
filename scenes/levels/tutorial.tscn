@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://c0mjbdngbvxmw"]
+
+[ext_resource type="PackedScene" uid="uid://b82kauwohbvun" path="res://scenes/levels/game.tscn" id="1_jevbs"]
+[ext_resource type="Texture2D" uid="uid://dl6b6ewaxaxom" path="res://assets/backgrounds/forest_background.png" id="2_hwxvb"]
+[ext_resource type="PackedScene" uid="uid://b3wy6ts3hkpc5" path="res://scenes/characters/enemies/monocopter.tscn" id="3_wcjib"]
+[ext_resource type="Script" path="res://scripts/tutorial.gd" id="5_u27sd"]
+
+[node name="Game" instance=ExtResource("1_jevbs")]
+
+[node name="TextureRect" type="TextureRect" parent="Background" index="0"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_hwxvb")
+
+[node name="monocopter" parent="Entity_manager" index="0" instance=ExtResource("3_wcjib")]
+position = Vector2(1459, 315)
+
+[node name="Tutorial" type="Label" parent="." index="7"]
+offset_right = 400.0
+offset_bottom = 200.0
+horizontal_alignment = 1
+autowrap_mode = 3
+script = ExtResource("5_u27sd")
+
+[node name="Timer" type="Timer" parent="Tutorial" index="0"]
+wait_time = 5.0
+
+[node name="ShortTimer" type="Timer" parent="Tutorial" index="1"]
+
+[connection signal="got_clicked_on" from="Entity_manager/monocopter" to="Tutorial" method="_on_monocopter_got_clicked_on"]

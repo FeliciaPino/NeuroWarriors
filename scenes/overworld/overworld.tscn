@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=4 uid="uid://bpbb157lbnats"]
+[gd_scene load_steps=88 format=4 uid="uid://bpbb157lbnats"]
 
 [ext_resource type="Script" path="res://scripts/overworld/overworld.gd" id="1_a6uxc"]
 [ext_resource type="Texture2D" uid="uid://o5sq0tkkglam" path="res://assets/overworld/tiles.png" id="1_t2akb"]
@@ -378,6 +378,31 @@ pattern_2 = SubResource("TileMapPattern_vk2n0")
 pattern_3 = SubResource("TileMapPattern_2w4lr")
 pattern_4 = SubResource("TileMapPattern_foxij")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ugqak"]
+size = Vector2(252, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wxlvy"]
+atlas = ExtResource("9_7a21x")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7xyfk"]
+atlas = ExtResource("9_7a21x")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i6e5g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wxlvy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7xyfk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_qgrb6"]
 atlas = ExtResource("8_xgi21")
 region = Rect2(64, 0, 32, 32)
@@ -399,9 +424,6 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ugqak"]
-size = Vector2(202, 56)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kvkx4"]
 size = Vector2(156, 267)
@@ -866,6 +888,38 @@ position_smoothing_enabled = true
 position_smoothing_speed = 3.0
 
 [node name="StoryBattleTriggers" type="Node" parent="."]
+
+[node name="Tutorial" parent="StoryBattleTriggers" node_paths=PackedStringArray("collider") instance=ExtResource("6_ph1n3")]
+position = Vector2(5, 86)
+id = "Tutorial"
+level_path = "res://scenes/levels/tutorial.tscn"
+collider = NodePath("Area2D")
+
+[node name="Area2D" type="Area2D" parent="StoryBattleTriggers/Tutorial"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StoryBattleTriggers/Tutorial/Area2D"]
+position = Vector2(24, 7)
+shape = SubResource("RectangleShape2D_ugqak")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="StoryBattleTriggers/Tutorial"]
+position = Vector2(9, 7)
+sprite_frames = SubResource("SpriteFrames_i6e5g")
+autoplay = "default"
+frame_progress = 0.812796
+
+[node name="Label" type="Label" parent="StoryBattleTriggers/Tutorial"]
+anchors_preset = -1
+offset_left = -82.5
+offset_top = -11.5
+offset_right = 82.5
+offset_bottom = -179.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "MOVEMENT_PROMPT"
+horizontal_alignment = 1
+autowrap_mode = 2
 
 [node name="VedalUnlock" parent="StoryBattleTriggers" node_paths=PackedStringArray("collider") instance=ExtResource("6_ph1n3")]
 position = Vector2(1641, 27)

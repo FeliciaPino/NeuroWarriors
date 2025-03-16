@@ -15,7 +15,11 @@ var party:Array[BattleEntity]
 var foes:Array[BattleEntity]
 var highlighted_character:BattleEntity = null
 var selected_character:BattleEntity = null
-var selected_action:BattleAction = null
+signal selected_action_changed
+var selected_action:BattleAction = null:
+	set(new_value):
+		selected_action = new_value
+		selected_action_changed.emit()
 
 signal pending_actions_updated
 signal all_actions_finished

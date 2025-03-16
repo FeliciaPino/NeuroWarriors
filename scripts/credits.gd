@@ -3,6 +3,8 @@ extends Control
 @onready var skip_button = $leave
 func _ready() -> void:
 	print("credits ready")
+	MusicPlayer.play_music(load("res://addons/Pixel_boy/theme-4.ogg"))
+
 	GameState.flags["watched_credits"] = true
 	skip_button.visible = false
 	skip_button.pressed.connect(return_to_menu)

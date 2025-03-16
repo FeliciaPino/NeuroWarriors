@@ -38,9 +38,11 @@ func next_frame():
 func previous_frame():
 	current_frame_index -= 1
 	if current_frame_index < 0:
+		current_frame_index = 0
 		return
 		
 	await get_tree().create_tween().tween_property(fade,"modulate",Color(0,0,0,1),0.6).finished
+	#TODO: fix this, if the button is spammed it doesn't make the in-between frames invisible.
 	frames[current_frame_index+1].visible = false
 	frames[current_frame_index].visible = true
 	label.text = tr(str("CUTSCENE_FRAME_",current_frame_index))
