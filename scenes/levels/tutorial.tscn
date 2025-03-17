@@ -14,6 +14,8 @@ texture = ExtResource("2_hwxvb")
 
 [node name="monocopter" parent="Entity_manager" index="0" instance=ExtResource("3_wcjib")]
 position = Vector2(1459, 315)
+health = 40
+maxHealth = 40
 
 [node name="Tutorial" type="Label" parent="." index="7"]
 offset_right = 400.0

@@ -2,25 +2,25 @@
 
 [ext_resource type="PackedScene" uid="uid://c0p02mr1a5wep" path="res://scenes/actions/BattleAction.tscn" id="1_putr0"]
 [ext_resource type="Script" path="res://scripts/actions/overclock.gd" id="1_py1wo"]
-[ext_resource type="Texture2D" uid="uid://b2jrcljcom4t1" path="res://assets/electricity.png" id="2_lo6xi"]
+[ext_resource type="Texture2D" uid="uid://dddg12jifbdpc" path="res://assets/actions/Thunder2.png" id="3_qjkbo"]
 [ext_resource type="AudioStream" uid="uid://cbihur5nfjeb4" path="res://addons/sfx/Retro Charge Magic 11.wav" id="4_buh5l"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nmql1"]
-atlas = ExtResource("2_lo6xi")
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3rcc"]
+atlas = ExtResource("3_qjkbo")
 region = Rect2(0, 0, 100, 160)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_onyuh"]
-atlas = ExtResource("2_lo6xi")
+[sub_resource type="AtlasTexture" id="AtlasTexture_70l3n"]
+atlas = ExtResource("3_qjkbo")
 region = Rect2(100, 0, 100, 160)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lr2va"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_nmql1")
+"texture": SubResource("AtlasTexture_o3rcc")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_onyuh")
+"texture": SubResource("AtlasTexture_70l3n")
 }],
 "loop": true,
 "name": &"default",
@@ -85,7 +85,7 @@ script = ExtResource("1_py1wo")
 visible = false
 sprite_frames = SubResource("SpriteFrames_lr2va")
 autoplay = "default"
-frame_progress = 0.419983
+frame_progress = 0.197364
 
 [node name="sound" parent="." index="1"]
 stream = ExtResource("4_buh5l")

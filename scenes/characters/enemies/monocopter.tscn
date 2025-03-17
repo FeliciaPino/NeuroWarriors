@@ -1,44 +1,13 @@
-[gd_scene load_steps=28 format=3 uid="uid://b3wy6ts3hkpc5"]
+[gd_scene load_steps=23 format=3 uid="uid://b3wy6ts3hkpc5"]
 
 [ext_resource type="PackedScene" uid="uid://dp2gnkbdq83n4" path="res://scenes/characters/battle_entity.tscn" id="1_hi2w3"]
-[ext_resource type="Texture2D" uid="uid://bant0s7tn53im" path="res://assets/monocopter.png" id="2_1v1sd"]
 [ext_resource type="PackedScene" uid="uid://bk30a0mgktx6r" path="res://scenes/actions/laser_shot.tscn" id="3_i3cgb"]
-[ext_resource type="Texture2D" uid="uid://dyaqhg54jl366" path="res://assets/characters/monocopter.png" id="3_kv14a"]
+[ext_resource type="Texture2D" uid="uid://do3tfkcmbjss0" path="res://assets/characters/monocopter.png" id="3_kv14a"]
 [ext_resource type="Texture2D" uid="uid://cq0dreymclt1v" path="res://assets/characters/spinning_blade_a.png" id="3_nfca0"]
 [ext_resource type="PackedScene" uid="uid://e2g21mtkqscf" path="res://scenes/actions/generic_melee.tscn" id="4_xgbm6"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_j6wi1"]
-atlas = ExtResource("2_1v1sd")
-region = Rect2(0, 160, 100, 160)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ul2fy"]
-atlas = ExtResource("2_1v1sd")
-region = Rect2(100, 160, 100, 160)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0jwrd"]
-atlas = ExtResource("2_1v1sd")
-region = Rect2(0, 160, 100, 160)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_05hha"]
-atlas = ExtResource("2_1v1sd")
-region = Rect2(0, 160, 100, 160)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_xhfjx"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_j6wi1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ul2fy")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0jwrd")
-}],
-"loop": false,
-"name": &"attack",
-"speed": 2.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("3_kv14a")
@@ -46,14 +15,6 @@ animations = [{
 "loop": false,
 "name": &"default",
 "speed": 12.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_05hha")
-}],
-"loop": true,
-"name": &"run",
-"speed": 5.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_act4p"]

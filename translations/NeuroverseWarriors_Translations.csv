@@ -36,7 +36,7 @@ TUTORIAL_5,Status effects are visible right bellow the health bar. The have an i
 BATTLE_TARGET_SELECT_HINT,Select who to {verb}.,Selecciona a quién {verb}.
 BATTLE_NEXT_TURN_BUTTON,End turn,Terminar turno
 BATTLE_YOUR_TURN,Your turn,Tu turno
-BATTLE_VICTORY,Victory,Victoria
+BATTLE_VICTORY,"Victory, progress saved.","Victoria, progreso guardado."
 BATTLE_RETURN_TO_MAP,Return to map,Volver al mapa
 BATTLE_DEFEAT,Defeat,Derrota
 BATTLE_RELOAD,Reload from last checkpoint.,Volver a cargar desde ultimo checkpoint.
@@ -93,7 +93,7 @@ BATTLE_ACTION_TAZE_NAME,Taser,Táser
 BATTLE_ACTION_TAZE_DESCRIPTION,Does {multiplier}×[{stat}] damage to target.,Hace {multiplier}×[{stat}] puntos de daño al objetivo.
 BATTLE_ACTION_TAZE_VERB,tase,electrificar
 BATTLE_ACTION_TUTEL_SHIELD_NAME,Tutel Shield,Escudo Tortuga
-BATTLE_ACTION_TUTEL_SHIELD_DESCRIPTION,Increases target's defense for {turn_amount} turns.,Aumenta la defensa de el objetivo por {turn_amount} turnos.
+BATTLE_ACTION_TUTEL_SHIELD_DESCRIPTION,Increases target's defense for {turn_amount} turns.,Aumenta la defensa del objetivo por {turn_amount} turnos.
 BATTLE_ACTION_TUTEL_SHIELD_VERB,defend,defender
 BATTLE_ACTION_HYPE_UP_NAME,Hype Up,Motivar
 BATTLE_ACTION_HYPE_UP_DESCRIPTION,"Hypes up the target, increasing attack and regenerating health for {turn_amount} turns.","Motiva al objetivo, aumentando el ataque y regenerando vida por {turn_amount} turnos."

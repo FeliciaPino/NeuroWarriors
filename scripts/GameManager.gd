@@ -49,12 +49,14 @@ func _ready() -> void:
 	
 	end_turn_buttton.pressed.connect(end_turn)
 	
-	return_to_map_button.pressed.connect(end_screen.leave)
+	return_to_map_button.pressed.connect(return_to_menu)
 		
 	is_player_turn = true
 	is_game_over = false
 	turn_count = 0
 	start_turn()
+func return_to_menu():
+	get_tree().change_scene_to_packed(load("res://scenes/main_menu.tscn"))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

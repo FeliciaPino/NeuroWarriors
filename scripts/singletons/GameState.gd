@@ -38,8 +38,8 @@ const DEFAULT_VALUES = {
 		}
 	},
 	"overworld_info":{
-		"player_position_x":3800,
-		"player_position_y":-4800,
+		"player_position_x":0,
+		"player_position_y":-64,
 		"defeated_enemies":{}
 	}
 }

@@ -910,7 +910,6 @@ autoplay = "default"
 frame_progress = 0.812796
 
 [node name="Label" type="Label" parent="StoryBattleTriggers/Tutorial"]
-anchors_preset = -1
 offset_left = -82.5
 offset_top = -11.5
 offset_right = 82.5
@@ -989,10 +988,10 @@ offset_bottom = -15.0
 texture = SubResource("AtlasTexture_job1k")
 
 [node name="dronesprite2" type="TextureRect" parent="StoryBattleTriggers/AnnyUnlock"]
-offset_left = -21.0
-offset_top = 24.0
-offset_right = 19.0
-offset_bottom = 64.0
+offset_left = -19.0
+offset_top = -55.0
+offset_right = 21.0
+offset_bottom = -15.0
 texture = SubResource("AtlasTexture_ubo6g")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="StoryBattleTriggers/AnnyUnlock"]

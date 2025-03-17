@@ -2,25 +2,25 @@
 
 [ext_resource type="PackedScene" uid="uid://c0p02mr1a5wep" path="res://scenes/actions/BattleAction.tscn" id="1_55xsy"]
 [ext_resource type="Script" path="res://scripts/actions/taze.gd" id="2_5uyue"]
-[ext_resource type="Texture2D" uid="uid://b2jrcljcom4t1" path="res://assets/electricity.png" id="3_5j8r1"]
+[ext_resource type="Texture2D" uid="uid://dddg12jifbdpc" path="res://assets/actions/Thunder2.png" id="3_b1fxt"]
 [ext_resource type="AudioStream" uid="uid://cc2txgf62i1s5" path="res://addons/sfx/Retro Electric Short 17.wav" id="4_3wars"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pt01x"]
-atlas = ExtResource("3_5j8r1")
+[sub_resource type="AtlasTexture" id="AtlasTexture_ic7wh"]
+atlas = ExtResource("3_b1fxt")
 region = Rect2(0, 0, 100, 160)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kwqod"]
-atlas = ExtResource("3_5j8r1")
+[sub_resource type="AtlasTexture" id="AtlasTexture_iye3g"]
+atlas = ExtResource("3_b1fxt")
 region = Rect2(100, 0, 100, 160)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_twskx"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_pt01x")
+"texture": SubResource("AtlasTexture_ic7wh")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_kwqod")
+"texture": SubResource("AtlasTexture_iye3g")
 }],
 "loop": true,
 "name": &"default",
@@ -108,7 +108,6 @@ script = ExtResource("2_5uyue")
 [node name="sprite" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_twskx")
 autoplay = "default"
-frame = 1
 frame_progress = 1.0
 
 [node name="sound" parent="." index="1"]
