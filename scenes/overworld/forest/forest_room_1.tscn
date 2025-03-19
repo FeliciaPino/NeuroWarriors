@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=3 uid="uid://clh6tvnoesjq8"]
+
+[ext_resource type="PackedScene" uid="uid://c4knnckwwejji" path="res://scenes/overworld/room.tscn" id="1_2a6in"]
+[ext_resource type="PackedScene" uid="uid://bkpwf2lqtm1jy" path="res://scenes/overworld/passage.tscn" id="2_ooqsy"]
+[ext_resource type="Texture2D" uid="uid://d0l22epralmcv" path="res://icon.svg" id="3_lo1ym"]
+[ext_resource type="Texture2D" uid="uid://dl6b6ewaxaxom" path="res://assets/backgrounds/forest_background.png" id="4_g3nh6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_skwqn"]
+size = Vector2(123, 124)
+
+[node name="Room" instance=ExtResource("1_2a6in")]
+
+[node name="ForestBackground" type="Sprite2D" parent="." index="1"]
+position = Vector2(-352, 524)
+texture = ExtResource("4_g3nh6")
+
+[node name="Passage" parent="Passages" index="0" node_paths=PackedStringArray("collision_area") instance=ExtResource("2_ooqsy")]
+position = Vector2(-327, 3)
+collision_area = NodePath("Area2D")
+scene_path = "res://scenes/overworld/forest/forest_room_2.tscn"
+arriving_passage_name = "Passage"
+
+[node name="Area2D" type="Area2D" parent="Passages/Passage" index="0"]
+position = Vector2(-88, 0)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Passages/Passage/Area2D" index="0"]
+position = Vector2(2.5, 0)
+shape = SubResource("RectangleShape2D_skwqn")
+
+[node name="Sprite2D" type="Sprite2D" parent="Passages/Passage" index="1"]
+position = Vector2(-88, 0)
+texture = ExtResource("3_lo1ym")
+
+[node name="Passage2" parent="Passages" index="1" node_paths=PackedStringArray("collision_area") instance=ExtResource("2_ooqsy")]
+position = Vector2(12, 224)
+collision_area = NodePath("Area2D")
+scene_path = "res://scenes/overworld/forest/starting_room.tscn"
+arriving_passage_name = "Passage"
+
+[node name="Area2D" type="Area2D" parent="Passages/Passage2" index="0"]
+position = Vector2(5, 105)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Passages/Passage2/Area2D" index="0"]
+position = Vector2(2.5, 0)
+shape = SubResource("RectangleShape2D_skwqn")
+
+[node name="Sprite2D" type="Sprite2D" parent="Passages/Passage2" index="1"]
+position = Vector2(5, 105)
+texture = ExtResource("3_lo1ym")
+
+[node name="UI" parent="." index="5"]
+visible = false

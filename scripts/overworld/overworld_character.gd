@@ -11,6 +11,7 @@ class_name OverworldCharacter
 @export var following_target:OverworldCharacter = null
 func _ready() -> void:
 	global_position = GameState.get_player_map_position()
+	print(str(self,": set pos as ",global_position))
 	if inspector_spriteframes != null:
 		set_sprite_frames(inspector_spriteframes)
 	if following_target:

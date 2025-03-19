@@ -46,6 +46,7 @@ func _load_dict(dict:Dictionary, default:Dictionary, file_path:String):
 		#I should have better error handling
 		print("JSON Parse Error: ", json.get_error_message(), " in ", json_string, " at line ", json.get_error_line())
 		return
+	#I *think* I could change this for just a .duplicate(true). I'm not sure how Dictionarys work tho. and this works so...
 	for key in json.data:
 		if json.data[key] is Dictionary:
 			print(str(self)+": "+ key + " a sub dictionary")
@@ -64,7 +65,7 @@ func load_game(save_slot_index:int):
 	_load_dict(GameState.flags, GameState.DEFAULT_VALUES["flags"], directory+"/flags.json")
 	_load_dict(GameState.characters_save_info,GameState.DEFAULT_VALUES["flags"], directory+"/characters.json")
 	_load_dict(GameState.overworld_info,GameState.DEFAULT_VALUES["overworld_info"], directory+"/overworld_info.json")
-	
+	GameState.current_room_scene = load(GameState.overworld_info["current_room_path"])
 func get_save_info(save_slot_index):
 	var directory_path = str("user://saves/slot",save_slot_index)
 	ensure_directory(directory_path)

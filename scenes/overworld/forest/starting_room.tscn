@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://dlwot3m4cadna"]
+
+[ext_resource type="PackedScene" uid="uid://c4knnckwwejji" path="res://scenes/overworld/room.tscn" id="1_nrr3p"]
+[ext_resource type="Texture2D" uid="uid://sh8d13r4odpy" path="res://assets/characters/neuro-sama.png" id="2_eukya"]
+[ext_resource type="PackedScene" uid="uid://bkpwf2lqtm1jy" path="res://scenes/overworld/passage.tscn" id="2_kka8d"]
+[ext_resource type="Texture2D" uid="uid://d0l22epralmcv" path="res://icon.svg" id="3_bh25u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uwshg"]
+size = Vector2(132, 126)
+
+[node name="Room" instance=ExtResource("1_nrr3p")]
+
+[node name="Passage" parent="Passages" index="0" node_paths=PackedStringArray("collision_area") instance=ExtResource("2_kka8d")]
+position = Vector2(5, -80)
+collision_area = NodePath("Area2D")
+scene_path = "res://scenes/overworld/forest/forest_room_1.tscn"
+arriving_passage_name = "Passage2"
+
+[node name="Area2D" type="Area2D" parent="Passages/Passage" index="0"]
+position = Vector2(0, -87)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Passages/Passage/Area2D" index="0"]
+shape = SubResource("RectangleShape2D_uwshg")
+
+[node name="Sprite2D" type="Sprite2D" parent="Passages/Passage" index="1"]
+position = Vector2(0, -87)
+texture = ExtResource("3_bh25u")
+
+[node name="UI" parent="." index="4"]
+visible = false
+
+[node name="Neuro-sama" type="Sprite2D" parent="." index="5"]
+position = Vector2(14, -595)
+texture = ExtResource("2_eukya")

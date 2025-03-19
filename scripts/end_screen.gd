@@ -26,7 +26,7 @@ func set_win_status(value:bool):
 	end_turn_button.disabled = true
 func reload_and_leave():
 	SaveManager.load_game(GameState.current_save_slot_index)
-	get_tree().change_scene_to_packed(map_scene)
+	GameState.go_to_map()
 func leave():
 	GameState.current_level = ""
 	GameState.current_enemy_battle = ""

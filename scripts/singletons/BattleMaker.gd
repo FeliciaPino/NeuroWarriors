@@ -15,7 +15,7 @@ func go_to_level(path:String):
 	var fade:AnimationPlayer = get_tree().current_scene.get_node_or_null("%FadeAnimationPlayer")
 	if fade:
 		print(str(self)+": fading out")
-		fade.play("fade_out")
+		fade.play("battle_fade")
 	else:
 		print(str(self)+": not fading out")
 		

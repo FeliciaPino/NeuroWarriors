@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bkpwf2lqtm1jy"]
+
+[ext_resource type="Script" path="res://scripts/overworld/passage.gd" id="1_yr5xr"]
+
+[node name="Passage" type="Node2D"]
+script = ExtResource("1_yr5xr")

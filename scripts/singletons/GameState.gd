@@ -40,9 +40,13 @@ const DEFAULT_VALUES = {
 	"overworld_info":{
 		"player_position_x":0,
 		"player_position_y":-64,
-		"defeated_enemies":{}
+		"defeated_enemies":{},
+		"current_room_path":"res://scenes/overworld/overworld.tscn"
 	}
 }
+
+var current_room_scene:PackedScene
+var arrival_passage_name:String = "" #whihc passage entered the current room from (node name)
 
 var current_level:String = ""
 var current_enemy_battle:String = ""
@@ -54,7 +58,7 @@ func _ready():
 	flags = DEFAULT_VALUES["flags"].duplicate(true)
 	characters_save_info = DEFAULT_VALUES["characters_save_info"].duplicate(true)
 	overworld_info = DEFAULT_VALUES["overworld_info"].duplicate(true)
-
+	
 
 func mark_level_complete(level_name: String):
 	print(str(self,": level completed: ",level_name))
@@ -85,12 +89,15 @@ func get_player_map_position():
 func set_player_map_position(position:Vector2):
 	overworld_info["player_position_x"] = position.x
 	overworld_info["player_position_y"] = position.y
+	
+func go_to_map():
+	get_tree().change_scene_to_packed(current_room_scene)
 const level_select_scene = preload("res://scenes/levels/level_select.tscn")
 const map_scene = preload("res://scenes/overworld/overworld.tscn")
 const intro_cutscene_scene = preload("res://scenes/intro_cutscene.tscn")
 func start_game():
 	if flags["watched_intro_cutscene"]:
-		get_tree().change_scene_to_packed(map_scene)
+		go_to_map()
 	else:
 		get_tree().change_scene_to_packed(intro_cutscene_scene)
 
