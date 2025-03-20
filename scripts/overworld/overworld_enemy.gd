@@ -6,19 +6,22 @@ class_name OverworldEnemy
 @export var target_spot:Node2D
 @export var movement_speed:float
 
+var global_id:String
+
 @onready var enemy_body = $Body
 @onready var sprite = $Body/Sprite
 
 func _ready() -> void:
 	visible = false
-	if GameState.is_overworld_enemy_defeated(id):
+	global_id = get_tree().current_scene.name+"_"+id
+	if GameState.is_overworld_enemy_defeated(global_id):
 		queue_free()
 	else:
 		visible = true
 
 func encounter():
 	GameState.current_level = ""
-	GameState.current_enemy_battle = id
+	GameState.current_enemy_battle = global_id
 	BattleMaker.go_to_level(level_path)
 func disable():
 	process_mode = PROCESS_MODE_DISABLED

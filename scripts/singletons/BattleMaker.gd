@@ -18,8 +18,11 @@ func go_to_level(path:String):
 		fade.play("battle_fade")
 	else:
 		print(str(self)+": not fading out")
-		
+	
 	GameState.current_level_path = path
+	
+	GameState.arrival_passage_name = ""
+	
 	var party:Array[BattleEntity] = []
 	for character_name in GameState.characters_save_info["party"]:
 		party.append(CharacterDatabase.get_entity_scene(character_name).instantiate())

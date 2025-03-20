@@ -34,5 +34,6 @@ func fade_to_room(new_room:PackedScene, arrival_passage_name:String):
 	GameState.set_player_map_position(Vector2())
 	GameState.arrival_passage_name = arrival_passage_name
 	GameState.current_room_scene = new_room
+	GameState.overworld_info["current_room_path"]
 	get_tree().change_scene_to_packed(new_room)
 	

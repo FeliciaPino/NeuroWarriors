@@ -13,7 +13,7 @@ func set_win_status(value:bool):
 		MusicPlayer.play_music(load("res://addons/Pixel_boy/theme-3b.ogg"),0)
 		var button = Button.new()
 		button.text = tr("BATTLE_RETURN_TO_MAP")
-		button.pressed.connect(reload_and_leave)
+		button.pressed.connect(leave)
 		vBoxContainer.add_child(button)
 	else:
 		label.text = tr("BATTLE_DEFEAT")
@@ -30,4 +30,4 @@ func reload_and_leave():
 func leave():
 	GameState.current_level = ""
 	GameState.current_enemy_battle = ""
-	get_tree().change_scene_to_packed(map_scene)
+	GameState.go_to_map()

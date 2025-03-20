@@ -58,7 +58,7 @@ func _ready():
 	flags = DEFAULT_VALUES["flags"].duplicate(true)
 	characters_save_info = DEFAULT_VALUES["characters_save_info"].duplicate(true)
 	overworld_info = DEFAULT_VALUES["overworld_info"].duplicate(true)
-	
+	current_room_scene = load(overworld_info["current_room_path"])
 
 func mark_level_complete(level_name: String):
 	print(str(self,": level completed: ",level_name))
@@ -91,6 +91,7 @@ func set_player_map_position(position:Vector2):
 	overworld_info["player_position_y"] = position.y
 	
 func go_to_map():
+	print(str(self,": going to map, loading scene ",current_room_scene))
 	get_tree().change_scene_to_packed(current_room_scene)
 const level_select_scene = preload("res://scenes/levels/level_select.tscn")
 const map_scene = preload("res://scenes/overworld/overworld.tscn")

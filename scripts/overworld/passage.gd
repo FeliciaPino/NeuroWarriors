@@ -1,5 +1,6 @@
 extends Node2D
 
+class_name Passage
 
 @export var collision_area:Area2D
 @export var scene_path:String

@@ -7,6 +7,3 @@
 
 [node name="monocopter" parent="Entity_manager" index="0" instance=ExtResource("2_pmsf0")]
 position = Vector2(1406, 414)
-
-[node name="monocopter2" parent="Entity_manager" index="1" instance=ExtResource("2_pmsf0")]
-position = Vector2(1446, 599)
