@@ -5,7 +5,7 @@ class_name OverworldEnemy
 @export var id:String
 @export var target_spot:Node2D
 @export var movement_speed:float
-
+@export var enemy_respawns:bool = false
 var global_id:String
 
 @onready var enemy_body = $Body
@@ -14,10 +14,15 @@ var global_id:String
 func _ready() -> void:
 	visible = false
 	global_id = get_tree().current_scene.name+"_"+id
+	if enemy_respawns and GameState.arrival_passage_name != "":
+		GameState.remove_overworld_enemy_defeated(global_id)
 	if GameState.is_overworld_enemy_defeated(global_id):
 		queue_free()
 	else:
 		visible = true
+	if GameState.arrival_passage_name=="":
+		
+		pass 
 
 func encounter():
 	GameState.current_level = ""

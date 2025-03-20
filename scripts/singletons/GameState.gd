@@ -78,6 +78,8 @@ func mark_overworld_enemy_defeated(enemy_id:String):
 	SaveManager.save_game(current_save_slot_index)
 func is_overworld_enemy_defeated(enemy_id:String):
 	return overworld_info["defeated_enemies"].get(enemy_id,false)
+func remove_overworld_enemy_defeated(enemy_id:String):
+	overworld_info["defeated_enemies"][enemy_id]=false
 func unlock_character(character_name:String):
 	print(str(self,":unlocked ",character_name))
 	characters_save_info[character_name]["unlocked"] = true

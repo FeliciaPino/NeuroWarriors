@@ -73,3 +73,19 @@ speed = 50.0
 level_path = "res://scenes/levels/forest/forest_1.tscn"
 id = "enemy1"
 target_spot = NodePath("../PathFollow2D")
+
+[node name="Path2D2" type="Path2D" parent="Enemies" index="1"]
+position = Vector2(-115, -3)
+curve = SubResource("Curve2D_flfrs")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Enemies/Path2D2" index="0"]
+position = Vector2(0, 1)
+rotation = 1.57981
+script = ExtResource("3_nq1n5")
+speed = 50.0
+
+[node name="Enemy" parent="Enemies/Path2D2" index="1" node_paths=PackedStringArray("target_spot") instance=ExtResource("4_tfs5m")]
+level_path = "res://scenes/levels/forest/forest_1.tscn"
+id = "enemy2"
+target_spot = NodePath("../PathFollow2D")
+enemy_respawns = true
