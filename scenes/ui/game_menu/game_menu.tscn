@@ -1,0 +1,258 @@
+[gd_scene load_steps=6 format=3 uid="uid://bbxpxysb4lgqt"]
+
+[ext_resource type="Theme" uid="uid://cchp864k50mvc" path="res://ui_theme.tres" id="1_c2e5g"]
+[ext_resource type="Texture2D" uid="uid://sh8d13r4odpy" path="res://assets/characters/neuro-sama.png" id="2_dfior"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8l6cd"]
+atlas = ExtResource("2_dfior")
+region = Rect2(0, 0, 100, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_egyey"]
+atlas = ExtResource("2_dfior")
+region = Rect2(100, 0, 100, 160)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y24ke"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8l6cd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_egyey")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.9
+offset_left = 0.271988
+offset_top = 0.303986
+offset_right = 0.271973
+offset_bottom = 0.263947
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_c2e5g")
+tab_alignment = 1
+current_tab = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Party" type="Control" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Party"]
+layout_mode = 0
+offset_left = 92.528
+offset_top = 73.896
+offset_right = 400.528
+offset_bottom = 233.896
+
+[node name="Panel2" type="Panel" parent="TabContainer/Party/HBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(100, 160)
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TabContainer/Party/HBoxContainer/Panel2"]
+position = Vector2(44, 75)
+sprite_frames = SubResource("SpriteFrames_y24ke")
+autoplay = "default"
+frame_progress = 0.057862
+
+[node name="Panel3" type="Panel" parent="TabContainer/Party/HBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TabContainer/Party/HBoxContainer/Panel3"]
+position = Vector2(44, 75)
+sprite_frames = SubResource("SpriteFrames_y24ke")
+autoplay = "default"
+frame_progress = 0.057862
+
+[node name="Panel4" type="Panel" parent="TabContainer/Party/HBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TabContainer/Party/HBoxContainer/Panel4"]
+position = Vector2(44, 75)
+sprite_frames = SubResource("SpriteFrames_y24ke")
+autoplay = "default"
+frame_progress = 0.057862
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Party"]
+custom_minimum_size = Vector2(310, 170)
+layout_mode = 0
+offset_left = 76.528
+offset_top = 256.896
+offset_right = 386.528
+offset_bottom = 426.896
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="TabContainer/Party/ScrollContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="Panel2" type="Panel" parent="TabContainer/Party/ScrollContainer/HBoxContainer2"]
+clip_contents = true
+custom_minimum_size = Vector2(100, 160)
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TabContainer/Party/ScrollContainer/HBoxContainer2/Panel2"]
+position = Vector2(44, 75)
+sprite_frames = SubResource("SpriteFrames_y24ke")
+autoplay = "default"
+frame_progress = 0.057862
+
+[node name="Panel3" type="Panel" parent="TabContainer/Party/ScrollContainer/HBoxContainer2"]
+clip_contents = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TabContainer/Party/ScrollContainer/HBoxContainer2/Panel3"]
+position = Vector2(44, 75)
+sprite_frames = SubResource("SpriteFrames_y24ke")
+autoplay = "default"
+frame_progress = 0.057862
+
+[node name="Panel4" type="Panel" parent="TabContainer/Party/ScrollContainer/HBoxContainer2"]
+clip_contents = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TabContainer/Party/ScrollContainer/HBoxContainer2/Panel4"]
+position = Vector2(44, 75)
+sprite_frames = SubResource("SpriteFrames_y24ke")
+autoplay = "default"
+frame_progress = 0.057862
+
+[node name="Panel5" type="Panel" parent="TabContainer/Party/ScrollContainer/HBoxContainer2"]
+clip_contents = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TabContainer/Party/ScrollContainer/HBoxContainer2/Panel5"]
+position = Vector2(44, 75)
+sprite_frames = SubResource("SpriteFrames_y24ke")
+autoplay = "default"
+frame_progress = 0.057862
+
+[node name="Panel6" type="Panel" parent="TabContainer/Party/ScrollContainer/HBoxContainer2"]
+clip_contents = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TabContainer/Party/ScrollContainer/HBoxContainer2/Panel6"]
+position = Vector2(44, 75)
+sprite_frames = SubResource("SpriteFrames_y24ke")
+autoplay = "default"
+frame_progress = 0.057862
+
+[node name="Panel7" type="Panel" parent="TabContainer/Party/ScrollContainer/HBoxContainer2"]
+clip_contents = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TabContainer/Party/ScrollContainer/HBoxContainer2/Panel7"]
+position = Vector2(44, 75)
+sprite_frames = SubResource("SpriteFrames_y24ke")
+autoplay = "default"
+frame_progress = 0.057862
+
+[node name="HScrollBar" type="HScrollBar" parent="TabContainer/Party"]
+layout_mode = 0
+offset_left = 458.0
+offset_top = 240.0
+offset_right = 572.0
+offset_bottom = 274.0
+value = 10.0
+
+[node name="Character" type="Control" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Panel" type="Panel" parent="TabContainer/Character"]
+clip_contents = true
+layout_mode = 0
+offset_left = 60.0
+offset_top = 40.0
+offset_right = 147.0
+offset_bottom = 186.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TabContainer/Character/Panel"]
+position = Vector2(44, 75)
+sprite_frames = SubResource("SpriteFrames_y24ke")
+autoplay = "default"
+frame_progress = 0.929207
+
+[node name="Config" type="Control" parent="TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Config"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.1
+anchor_right = 0.5
+anchor_bottom = 0.1
+offset_left = -0.363586
+offset_right = -0.236389
+offset_bottom = 0.197998
+grow_horizontal = 2
+theme_override_constants/separation = 30
+
+[node name="Button" type="Button" parent="TabContainer/Config/VBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "leave
+"
+
+[node name="Button2" type="Button" parent="TabContainer/Config/VBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "save?
+"
+
+[node name="PanelContainer" type="PanelContainer" parent="TabContainer/Config/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Config/VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Config/VBoxContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="TabContainer/Config/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "asdf"
+
+[node name="Button2" type="Button" parent="TabContainer/Config/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "asdf"
+
+[node name="Button3" type="Button" parent="TabContainer/Config/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "asdf"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b82kauwohbvun"]
+[gd_scene load_steps=11 format=3 uid="uid://b82kauwohbvun"]
 
 [ext_resource type="Script" path="res://scripts/GameManager.gd" id="1_5lrye"]
 [ext_resource type="PackedScene" uid="uid://c0cerfjhi148m" path="res://scenes/entity_manager.tscn" id="3_iprcq"]
@@ -140,6 +140,14 @@ _data = {
 "start_player_turn": SubResource("Animation_puse5")
 }
 
+[sub_resource type="InputEventKey" id="InputEventKey_fvtbi"]
+device = -1
+keycode = 32
+unicode = 32
+
+[sub_resource type="Shortcut" id="Shortcut_di83f"]
+events = [SubResource("InputEventKey_fvtbi")]
+
 [node name="Game" type="Node2D"]
 script = ExtResource("1_5lrye")
 
@@ -188,6 +196,7 @@ offset_right = 118.0
 offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 0
+shortcut = SubResource("Shortcut_di83f")
 text = "BATTLE_NEXT_TURN_BUTTON"
 
 [node name="InstructionLabel" type="Label" parent="CanvasLayer"]

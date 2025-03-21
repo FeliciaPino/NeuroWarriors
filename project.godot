@@ -47,6 +47,10 @@ enabled=PackedStringArray()
 
 player=""
 
+[gui]
+
+theme/custom="res://ui_theme.tres"
+
 [input]
 
 up={
