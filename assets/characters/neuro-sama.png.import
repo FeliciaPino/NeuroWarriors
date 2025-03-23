@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://sh8d13r4odpy"
-path="res://.godot/imported/neuro-sama.png-2a54592854b21672d0fd518fd32e6ddd.ctex"
+path="res://.godot/imported/Neuro-sama.png-38701a4daedb912909b739857975a6ad.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/neuro-sama.png"
-dest_files=["res://.godot/imported/neuro-sama.png-2a54592854b21672d0fd518fd32e6ddd.ctex"]
+source_file="res://assets/characters/Neuro-sama.png"
+dest_files=["res://.godot/imported/Neuro-sama.png-38701a4daedb912909b739857975a6ad.ctex"]
 
 [params]
 

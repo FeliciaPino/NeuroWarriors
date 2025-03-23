@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cnpbuybm4ib8l"]
+
+[ext_resource type="Script" path="res://scenes/ui/character_portrait.gd" id="1_vmxyi"]
+[ext_resource type="Texture2D" uid="uid://vqj2vmedouth" path="res://assets/characters/evil.png" id="2_8lw80"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vw8cv"]
+atlas = ExtResource("2_8lw80")
+region = Rect2(0, 0, 100, 160)
+
+[node name="CharacterPortrait" type="Control"]
+custom_minimum_size = Vector2(100, 160)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_vmxyi")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("AtlasTexture_vw8cv")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d063m4xmuua74"
-path="res://.godot/imported/Vedal.png-c8629d9c75dc561514b75099afdad701.ctex"
+uid="uid://cysvrf3te3pum"
+path="res://.godot/imported/corners.png-5206780ca135f5cc7e74a5349fa59b84.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/Vedal.png"
-dest_files=["res://.godot/imported/Vedal.png-c8629d9c75dc561514b75099afdad701.ctex"]
+source_file="res://assets/ui/corners.png"
+dest_files=["res://.godot/imported/corners.png-5206780ca135f5cc7e74a5349fa59b84.ctex"]
 
 [params]
 

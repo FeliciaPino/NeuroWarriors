@@ -1,7 +1,7 @@
 [gd_scene load_steps=48 format=3 uid="uid://cmccd8rxiyqab"]
 
 [ext_resource type="PackedScene" uid="uid://dp2gnkbdq83n4" path="res://scenes/characters/battle_entity.tscn" id="1_k2s26"]
-[ext_resource type="Texture2D" uid="uid://sh8d13r4odpy" path="res://assets/characters/neuro-sama.png" id="3_lt8kj"]
+[ext_resource type="Texture2D" uid="uid://sh8d13r4odpy" path="res://assets/characters/Neuro-sama.png" id="3_lt8kj"]
 [ext_resource type="PackedScene" uid="uid://c4ii0hbadpfiv" path="res://scenes/actions/robot_punch.tscn" id="3_pp2ar"]
 [ext_resource type="PackedScene" uid="uid://b36hf4y7sydbp" path="res://scenes/actions/heart.tscn" id="4_nbi4w"]
 [ext_resource type="PackedScene" uid="uid://dskhgf30rx6ai" path="res://scenes/actions/shock.tscn" id="6_5fem2"]

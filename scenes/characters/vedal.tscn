@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dp2gnkbdq83n4" path="res://scenes/characters/battle_entity.tscn" id="1_0fs3l"]
 [ext_resource type="Texture2D" uid="uid://cp5lh7r4ov0e7" path="res://assets/vedal.png" id="2_53on7"]
 [ext_resource type="Texture2D" uid="uid://darobappakqlr" path="res://assets/characters/vedal_laptop.png" id="2_om3sy"]
-[ext_resource type="Texture2D" uid="uid://d063m4xmuua74" path="res://assets/characters/vedal.png" id="3_h2cke"]
+[ext_resource type="Texture2D" uid="uid://d063m4xmuua74" path="res://assets/characters/Vedal.png" id="3_h2cke"]
 [ext_resource type="PackedScene" uid="uid://cgpf6o36fg7r5" path="res://scenes/actions/tutel_shield.tscn" id="3_h108e"]
 [ext_resource type="PackedScene" uid="uid://c5fgqjhldruh1" path="res://scenes/actions/rum_throw.tscn" id="4_5pgk1"]
 [ext_resource type="PackedScene" uid="uid://bt827bsp0jnmw" path="res://scenes/actions/overclock.tscn" id="5_1wqd1"]

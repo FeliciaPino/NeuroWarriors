@@ -1,24 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://bbxpxysb4lgqt"]
+[gd_scene load_steps=7 format=3 uid="uid://bbxpxysb4lgqt"]
 
 [ext_resource type="Theme" uid="uid://cchp864k50mvc" path="res://ui_theme.tres" id="1_c2e5g"]
-[ext_resource type="Texture2D" uid="uid://sh8d13r4odpy" path="res://assets/characters/neuro-sama.png" id="2_dfior"]
+[ext_resource type="Texture2D" uid="uid://sh8d13r4odpy" path="res://assets/characters/Neuro-sama.png" id="2_dfior"]
+[ext_resource type="PackedScene" uid="uid://cnpbuybm4ib8l" path="res://scenes/ui/character_portrait.tscn" id="3_v0iou"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_og2r2"]
+color = Color(0, 0, 0, 0.25098)
+thickness = 2
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8l6cd"]
 atlas = ExtResource("2_dfior")
 region = Rect2(0, 0, 100, 160)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_egyey"]
-atlas = ExtResource("2_dfior")
-region = Rect2(100, 0, 100, 160)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_y24ke"]
 animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8l6cd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_egyey")
 }],
 "loop": true,
 "name": &"default",
@@ -48,139 +46,62 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_c2e5g")
 tab_alignment = 1
-current_tab = 2
+current_tab = 0
 metadata/_edit_use_anchors_ = true
 
 [node name="Party" type="Control" parent="TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Party"]
-layout_mode = 0
-offset_left = 92.528
-offset_top = 73.896
-offset_right = 400.528
-offset_bottom = 233.896
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Party"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
 
-[node name="Panel2" type="Panel" parent="TabContainer/Party/HBoxContainer"]
-clip_contents = true
-custom_minimum_size = Vector2(100, 160)
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Party/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="CharacterPortrait" parent="TabContainer/Party/VBoxContainer/HBoxContainer" instance=ExtResource("3_v0iou")]
 layout_mode = 2
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TabContainer/Party/HBoxContainer/Panel2"]
-position = Vector2(44, 75)
-sprite_frames = SubResource("SpriteFrames_y24ke")
-autoplay = "default"
-frame_progress = 0.057862
-
-[node name="Panel3" type="Panel" parent="TabContainer/Party/HBoxContainer"]
-clip_contents = true
-custom_minimum_size = Vector2(100, 0)
+[node name="CharacterPortrait2" parent="TabContainer/Party/VBoxContainer/HBoxContainer" instance=ExtResource("3_v0iou")]
 layout_mode = 2
+associated_character = "Evil"
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TabContainer/Party/HBoxContainer/Panel3"]
-position = Vector2(44, 75)
-sprite_frames = SubResource("SpriteFrames_y24ke")
-autoplay = "default"
-frame_progress = 0.057862
-
-[node name="Panel4" type="Panel" parent="TabContainer/Party/HBoxContainer"]
-clip_contents = true
-custom_minimum_size = Vector2(100, 0)
+[node name="CharacterPortrait3" parent="TabContainer/Party/VBoxContainer/HBoxContainer" instance=ExtResource("3_v0iou")]
 layout_mode = 2
+associated_character = "Vedal"
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TabContainer/Party/HBoxContainer/Panel4"]
-position = Vector2(44, 75)
-sprite_frames = SubResource("SpriteFrames_y24ke")
-autoplay = "default"
-frame_progress = 0.057862
+[node name="HSeparator" type="HSeparator" parent="TabContainer/Party/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/separator = SubResource("StyleBoxLine_og2r2")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Party"]
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Party/VBoxContainer"]
+clip_contents = false
 custom_minimum_size = Vector2(310, 170)
-layout_mode = 0
-offset_left = 76.528
-offset_top = 256.896
-offset_right = 386.528
-offset_bottom = 426.896
+layout_mode = 2
+size_flags_horizontal = 4
+follow_focus = true
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="TabContainer/Party/ScrollContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="TabContainer/Party/VBoxContainer/ScrollContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+size_flags_horizontal = 6
+theme_override_constants/separation = 20
+alignment = 2
 
-[node name="Panel2" type="Panel" parent="TabContainer/Party/ScrollContainer/HBoxContainer2"]
-clip_contents = true
-custom_minimum_size = Vector2(100, 160)
+[node name="CharacterPortrait" parent="TabContainer/Party/VBoxContainer/ScrollContainer/HBoxContainer2" instance=ExtResource("3_v0iou")]
 layout_mode = 2
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TabContainer/Party/ScrollContainer/HBoxContainer2/Panel2"]
-position = Vector2(44, 75)
-sprite_frames = SubResource("SpriteFrames_y24ke")
-autoplay = "default"
-frame_progress = 0.057862
-
-[node name="Panel3" type="Panel" parent="TabContainer/Party/ScrollContainer/HBoxContainer2"]
-clip_contents = true
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TabContainer/Party/ScrollContainer/HBoxContainer2/Panel3"]
-position = Vector2(44, 75)
-sprite_frames = SubResource("SpriteFrames_y24ke")
-autoplay = "default"
-frame_progress = 0.057862
-
-[node name="Panel4" type="Panel" parent="TabContainer/Party/ScrollContainer/HBoxContainer2"]
-clip_contents = true
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TabContainer/Party/ScrollContainer/HBoxContainer2/Panel4"]
-position = Vector2(44, 75)
-sprite_frames = SubResource("SpriteFrames_y24ke")
-autoplay = "default"
-frame_progress = 0.057862
-
-[node name="Panel5" type="Panel" parent="TabContainer/Party/ScrollContainer/HBoxContainer2"]
-clip_contents = true
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TabContainer/Party/ScrollContainer/HBoxContainer2/Panel5"]
-position = Vector2(44, 75)
-sprite_frames = SubResource("SpriteFrames_y24ke")
-autoplay = "default"
-frame_progress = 0.057862
-
-[node name="Panel6" type="Panel" parent="TabContainer/Party/ScrollContainer/HBoxContainer2"]
-clip_contents = true
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TabContainer/Party/ScrollContainer/HBoxContainer2/Panel6"]
-position = Vector2(44, 75)
-sprite_frames = SubResource("SpriteFrames_y24ke")
-autoplay = "default"
-frame_progress = 0.057862
-
-[node name="Panel7" type="Panel" parent="TabContainer/Party/ScrollContainer/HBoxContainer2"]
-clip_contents = true
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TabContainer/Party/ScrollContainer/HBoxContainer2/Panel7"]
-position = Vector2(44, 75)
-sprite_frames = SubResource("SpriteFrames_y24ke")
-autoplay = "default"
-frame_progress = 0.057862
-
-[node name="HScrollBar" type="HScrollBar" parent="TabContainer/Party"]
-layout_mode = 0
-offset_left = 458.0
-offset_top = 240.0
-offset_right = 572.0
-offset_bottom = 274.0
-value = 10.0
+associated_character = "Anny"
 
 [node name="Character" type="Control" parent="TabContainer"]
 visible = false
@@ -202,6 +123,7 @@ autoplay = "default"
 frame_progress = 0.929207
 
 [node name="Config" type="Control" parent="TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 

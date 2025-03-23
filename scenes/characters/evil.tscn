@@ -1,7 +1,7 @@
 [gd_scene load_steps=46 format=3 uid="uid://b6410g70liyhb"]
 
 [ext_resource type="PackedScene" uid="uid://dp2gnkbdq83n4" path="res://scenes/characters/battle_entity.tscn" id="1_m0h1s"]
-[ext_resource type="Texture2D" uid="uid://vqj2vmedouth" path="res://assets/characters/evil.png" id="3_6ogi0"]
+[ext_resource type="Texture2D" uid="uid://vqj2vmedouth" path="res://assets/characters/Evil.png" id="3_6ogi0"]
 [ext_resource type="PackedScene" uid="uid://cj1hdugjo18ff" path="res://scenes/actions/harpoon_throw.tscn" id="3_mwwba"]
 [ext_resource type="PackedScene" uid="uid://c5ykioygv4mrj" path="res://scenes/actions/pipes.tscn" id="4_pobnv"]
 [ext_resource type="AudioStream" uid="uid://cn087r6raiygd" path="res://assets/audio/SFX/soundslikerumenough.wav" id="5_e2apg"]
