@@ -70,6 +70,7 @@ func mark_level_complete(level_name: String):
 	if level_name == "Anny unlock":
 		unlock_character("Anny")
 	SaveManager.save_game(current_save_slot_index)
+	
 func is_level_completed(level_name: String) -> bool:
 	return completed_levels.get(level_name, false)
 	
@@ -80,14 +81,20 @@ func is_overworld_enemy_defeated(enemy_id:String):
 	return overworld_info["defeated_enemies"].get(enemy_id,false)
 func remove_overworld_enemy_defeated(enemy_id:String):
 	overworld_info["defeated_enemies"][enemy_id]=false
+
 func unlock_character(character_name:String):
 	print(str(self,":unlocked ",character_name))
 	characters_save_info[character_name]["unlocked"] = true
-	#change this part when I add party select screen
-	if not character_name in characters_save_info["party"]:
-		characters_save_info["party"].append(character_name)
+	
+func is_character_in_party(character_name):
+	return character_name in characters_save_info["party"]
+	
+func set_party(party:Array[String]):
+	characters_save_info["party"] = party
+	
 func get_player_map_position():
 	return Vector2(overworld_info["player_position_x"],overworld_info["player_position_y"])
+	
 func set_player_map_position(position:Vector2):
 	overworld_info["player_position_x"] = position.x
 	overworld_info["player_position_y"] = position.y

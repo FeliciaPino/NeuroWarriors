@@ -1,12 +1,27 @@
-[gd_scene load_steps=7 format=3 uid="uid://bbxpxysb4lgqt"]
+[gd_scene load_steps=12 format=3 uid="uid://bbxpxysb4lgqt"]
 
 [ext_resource type="Theme" uid="uid://cchp864k50mvc" path="res://ui_theme.tres" id="1_c2e5g"]
 [ext_resource type="Texture2D" uid="uid://sh8d13r4odpy" path="res://assets/characters/Neuro-sama.png" id="2_dfior"]
+[ext_resource type="Script" path="res://scenes/ui/game_menu/party.gd" id="2_p6mcn"]
 [ext_resource type="PackedScene" uid="uid://cnpbuybm4ib8l" path="res://scenes/ui/character_portrait.tscn" id="3_v0iou"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_og2r2"]
 color = Color(0, 0, 0, 0.25098)
 thickness = 2
+
+[sub_resource type="Gradient" id="Gradient_lmlpm"]
+offsets = PackedFloat32Array(0.75, 0.95)
+colors = PackedColorArray(0.8, 0.639216, 0.431373, 1, 0.8, 0.640533, 0.432, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_bhc1j"]
+gradient = SubResource("Gradient_lmlpm")
+
+[sub_resource type="Gradient" id="Gradient_6t6db"]
+offsets = PackedFloat32Array(0.05, 0.25)
+colors = PackedColorArray(0.8, 0.640533, 0.432, 0, 0.8, 0.639216, 0.431373, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_fjlim"]
+gradient = SubResource("Gradient_6t6db")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8l6cd"]
 atlas = ExtResource("2_dfior")
@@ -49,33 +64,32 @@ tab_alignment = 1
 current_tab = 0
 metadata/_edit_use_anchors_ = true
 
-[node name="Party" type="Control" parent="TabContainer"]
+[node name="Party" type="MarginContainer" parent="TabContainer"]
+clip_contents = true
 layout_mode = 2
+theme_override_constants/margin_top = 20
+script = ExtResource("2_p6mcn")
 metadata/_tab_index = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Party"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 20
+layout_mode = 2
+theme_override_constants/separation = 40
 alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Party/VBoxContainer"]
+[node name="InParty" type="HBoxContainer" parent="TabContainer/Party/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="CharacterPortrait" parent="TabContainer/Party/VBoxContainer/HBoxContainer" instance=ExtResource("3_v0iou")]
+[node name="CharacterPortrait" parent="TabContainer/Party/VBoxContainer/InParty" instance=ExtResource("3_v0iou")]
 layout_mode = 2
 
-[node name="CharacterPortrait2" parent="TabContainer/Party/VBoxContainer/HBoxContainer" instance=ExtResource("3_v0iou")]
+[node name="CharacterPortrait2" parent="TabContainer/Party/VBoxContainer/InParty" instance=ExtResource("3_v0iou")]
 layout_mode = 2
 associated_character = "Evil"
 
-[node name="CharacterPortrait3" parent="TabContainer/Party/VBoxContainer/HBoxContainer" instance=ExtResource("3_v0iou")]
+[node name="CharacterPortrait3" parent="TabContainer/Party/VBoxContainer/InParty" instance=ExtResource("3_v0iou")]
 layout_mode = 2
 associated_character = "Vedal"
 
@@ -85,23 +99,59 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_styles/separator = SubResource("StyleBoxLine_og2r2")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Party/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="TabContainer/Party/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="TabContainer/Party/VBoxContainer/HBoxContainer2"]
+z_index = 1
+custom_minimum_size = Vector2(0, 210)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+texture = SubResource("GradientTexture1D_bhc1j")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Party/VBoxContainer/HBoxContainer2"]
 clip_contents = false
-custom_minimum_size = Vector2(310, 170)
+custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 8
 follow_focus = true
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="TabContainer/Party/VBoxContainer/ScrollContainer"]
+[node name="NotInParty" type="HBoxContainer" parent="TabContainer/Party/VBoxContainer/HBoxContainer2/ScrollContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 6
+size_flags_vertical = 2
 theme_override_constants/separation = 20
-alignment = 2
+alignment = 1
 
-[node name="CharacterPortrait" parent="TabContainer/Party/VBoxContainer/ScrollContainer/HBoxContainer2" instance=ExtResource("3_v0iou")]
+[node name="CharacterPortrait" parent="TabContainer/Party/VBoxContainer/HBoxContainer2/ScrollContainer/NotInParty" instance=ExtResource("3_v0iou")]
 layout_mode = 2
 associated_character = "Anny"
+
+[node name="CharacterPortrait2" parent="TabContainer/Party/VBoxContainer/HBoxContainer2/ScrollContainer/NotInParty" instance=ExtResource("3_v0iou")]
+layout_mode = 2
+associated_character = "Vedal"
+
+[node name="CharacterPortrait3" parent="TabContainer/Party/VBoxContainer/HBoxContainer2/ScrollContainer/NotInParty" instance=ExtResource("3_v0iou")]
+layout_mode = 2
+
+[node name="CharacterPortrait4" parent="TabContainer/Party/VBoxContainer/HBoxContainer2/ScrollContainer/NotInParty" instance=ExtResource("3_v0iou")]
+layout_mode = 2
+associated_character = "Evil"
+
+[node name="CharacterPortrait5" parent="TabContainer/Party/VBoxContainer/HBoxContainer2/ScrollContainer/NotInParty" instance=ExtResource("3_v0iou")]
+layout_mode = 2
+associated_character = "Anny"
+
+[node name="TextureRect2" type="TextureRect" parent="TabContainer/Party/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(0, 210)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+texture = SubResource("GradientTexture1D_fjlim")
 
 [node name="Character" type="Control" parent="TabContainer"]
 visible = false
