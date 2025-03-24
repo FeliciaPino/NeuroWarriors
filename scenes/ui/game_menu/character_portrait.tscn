@@ -1,6 +1,6 @@
-[gd_scene load_steps=23 format=3 uid="uid://cnpbuybm4ib8l"]
+[gd_scene load_steps=25 format=3 uid="uid://cnpbuybm4ib8l"]
 
-[ext_resource type="Script" path="res://scenes/ui/character_portrait.gd" id="1_vmxyi"]
+[ext_resource type="Script" path="res://scenes/ui/game_menu/character_portrait.gd" id="1_vmxyi"]
 [ext_resource type="Texture2D" uid="uid://cysvrf3te3pum" path="res://assets/ui/corners.png" id="1_wnssw"]
 [ext_resource type="Texture2D" uid="uid://vqj2vmedouth" path="res://assets/characters/Evil.png" id="2_8lw80"]
 [ext_resource type="AudioStream" uid="uid://dhlm5bhwq1c4t" path="res://assets/audio/homemade/SFX/pop.mp3" id="4_4mhq2"]
@@ -14,10 +14,10 @@ texture_margin_left = 9.0
 texture_margin_top = 9.0
 texture_margin_right = 9.0
 texture_margin_bottom = 9.0
-expand_margin_left = 12.0
-expand_margin_top = 12.0
-expand_margin_right = 12.0
-expand_margin_bottom = 12.0
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n2ncc"]
 bg_color = Color(0.49, 0.39445, 0.2695, 1)
@@ -77,6 +77,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PanelContainer:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_6pixq"]
 resource_name = "focus"
@@ -94,10 +106,57 @@ tracks/0/keys = {
 "values": [0.0, 0.0349066, -0.0174533, 0.0]
 }
 
+[sub_resource type="Animation" id="Animation_1tuc4"]
+resource_name = "select"
+length = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PanelContainer:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.15),
+"transitions": PackedFloat32Array(1, 0.5, 0.5),
+"update": 0,
+"values": [Vector2(0.9, 0.9), Vector2(1.15, 1.15), Vector2(1.1, 1.1)]
+}
+
+[sub_resource type="Animation" id="Animation_esmic"]
+resource_name = "selected"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PanelContainer:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [-0.0872665, 0.0872665]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PanelContainer:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xnnei"]
 _data = {
 "RESET": SubResource("Animation_d0xoq"),
-"focus": SubResource("Animation_6pixq")
+"focus": SubResource("Animation_6pixq"),
+"select": SubResource("Animation_1tuc4"),
+"selected": SubResource("Animation_esmic")
 }
 
 [node name="CharacterPortrait" type="Button"]
@@ -208,6 +267,7 @@ bus = &"SFX"
 libraries = {
 "": SubResource("AnimationLibrary_xnnei")
 }
+next/select = &"selected"
 
 [node name="buttons_up" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_byxqf")
@@ -219,5 +279,8 @@ bus = &"SFX"
 [connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
 [connection signal="focus_exited" from="." to="." method="_on_focus_exited"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]
 [connection signal="pressed" from="Buttons/MoveLeft" to="." method="_on_move_left_pressed"]
+[connection signal="pressed" from="Buttons/Add" to="." method="_on_add_pressed"]
+[connection signal="pressed" from="Buttons/Remove" to="." method="_on_remove_pressed"]
 [connection signal="pressed" from="Buttons/MoveRight" to="." method="_on_move_right_pressed"]

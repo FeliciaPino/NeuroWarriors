@@ -2,26 +2,28 @@
 
 [ext_resource type="Theme" uid="uid://cchp864k50mvc" path="res://ui_theme.tres" id="1_c2e5g"]
 [ext_resource type="Texture2D" uid="uid://sh8d13r4odpy" path="res://assets/characters/Neuro-sama.png" id="2_dfior"]
-[ext_resource type="Script" path="res://scenes/ui/game_menu/party.gd" id="2_p6mcn"]
-[ext_resource type="PackedScene" uid="uid://cnpbuybm4ib8l" path="res://scenes/ui/character_portrait.tscn" id="3_v0iou"]
+[ext_resource type="Script" path="res://scenes/ui/game_menu/party_menu.gd" id="2_p6mcn"]
+[ext_resource type="PackedScene" uid="uid://cnpbuybm4ib8l" path="res://scenes/ui/game_menu/character_portrait.tscn" id="3_v0iou"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_og2r2"]
 color = Color(0, 0, 0, 0.25098)
 thickness = 2
 
 [sub_resource type="Gradient" id="Gradient_lmlpm"]
-offsets = PackedFloat32Array(0.75, 0.95)
+offsets = PackedFloat32Array(0.9, 1)
 colors = PackedColorArray(0.8, 0.639216, 0.431373, 1, 0.8, 0.640533, 0.432, 0)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_bhc1j"]
 gradient = SubResource("Gradient_lmlpm")
+width = 200
 
 [sub_resource type="Gradient" id="Gradient_6t6db"]
-offsets = PackedFloat32Array(0.05, 0.25)
+offsets = PackedFloat32Array(0, 0.1)
 colors = PackedColorArray(0.8, 0.640533, 0.432, 0, 0.8, 0.639216, 0.431373, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_fjlim"]
 gradient = SubResource("Gradient_6t6db")
+width = 200
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8l6cd"]
 atlas = ExtResource("2_dfior")
@@ -61,10 +63,12 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_c2e5g")
 tab_alignment = 1
-current_tab = 0
+current_tab = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Party" type="MarginContainer" parent="TabContainer"]
+unique_name_in_owner = true
+visible = false
 clip_contents = true
 layout_mode = 2
 theme_override_constants/margin_top = 20
@@ -104,18 +108,20 @@ layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="TabContainer/Party/VBoxContainer/HBoxContainer2"]
 z_index = 1
-custom_minimum_size = Vector2(0, 210)
+custom_minimum_size = Vector2(0, 220)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
 texture = SubResource("GradientTexture1D_bhc1j")
+expand_mode = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Party/VBoxContainer/HBoxContainer2"]
 clip_contents = false
-custom_minimum_size = Vector2(200, 200)
+custom_minimum_size = Vector2(200, 190)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
+size_flags_horizontal = 3
+size_flags_vertical = 4
+size_flags_stretch_ratio = 2.0
 follow_focus = true
 
 [node name="NotInParty" type="HBoxContainer" parent="TabContainer/Party/VBoxContainer/HBoxContainer2/ScrollContainer"]
@@ -129,32 +135,29 @@ alignment = 1
 
 [node name="CharacterPortrait" parent="TabContainer/Party/VBoxContainer/HBoxContainer2/ScrollContainer/NotInParty" instance=ExtResource("3_v0iou")]
 layout_mode = 2
-associated_character = "Anny"
+associated_character = ""
 
 [node name="CharacterPortrait2" parent="TabContainer/Party/VBoxContainer/HBoxContainer2/ScrollContainer/NotInParty" instance=ExtResource("3_v0iou")]
 layout_mode = 2
-associated_character = "Vedal"
+associated_character = ""
 
 [node name="CharacterPortrait3" parent="TabContainer/Party/VBoxContainer/HBoxContainer2/ScrollContainer/NotInParty" instance=ExtResource("3_v0iou")]
 layout_mode = 2
+associated_character = ""
 
 [node name="CharacterPortrait4" parent="TabContainer/Party/VBoxContainer/HBoxContainer2/ScrollContainer/NotInParty" instance=ExtResource("3_v0iou")]
-layout_mode = 2
-associated_character = "Evil"
-
-[node name="CharacterPortrait5" parent="TabContainer/Party/VBoxContainer/HBoxContainer2/ScrollContainer/NotInParty" instance=ExtResource("3_v0iou")]
 layout_mode = 2
 associated_character = "Anny"
 
 [node name="TextureRect2" type="TextureRect" parent="TabContainer/Party/VBoxContainer/HBoxContainer2"]
-custom_minimum_size = Vector2(0, 210)
+custom_minimum_size = Vector2(0, 220)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
 texture = SubResource("GradientTexture1D_fjlim")
+expand_mode = 2
 
 [node name="Character" type="Control" parent="TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
@@ -171,6 +174,42 @@ position = Vector2(44, 75)
 sprite_frames = SubResource("SpriteFrames_y24ke")
 autoplay = "default"
 frame_progress = 0.929207
+
+[node name="Label" type="Label" parent="TabContainer/Character"]
+layout_mode = 0
+offset_left = 63.528
+offset_top = 217.896
+offset_right = 194.528
+offset_bottom = 240.896
+text = "lebel: one gillion!"
+
+[node name="Label2" type="Label" parent="TabContainer/Character"]
+layout_mode = 0
+offset_left = 59.528
+offset_top = 267.896
+offset_right = 190.528
+offset_bottom = 290.896
+text = "xp: oh, u about to level up
+"
+
+[node name="Label3" type="Label" parent="TabContainer/Character"]
+layout_mode = 0
+offset_left = 305.528
+offset_top = 105.896
+offset_right = 572.528
+offset_bottom = 128.896
+text = "equiped abilities: punch, heart, etc
+"
+
+[node name="Label4" type="Label" parent="TabContainer/Character"]
+layout_mode = 0
+offset_left = 301.528
+offset_top = 173.896
+offset_right = 568.528
+offset_bottom = 196.896
+text = "unequiped abilites: many more
+
+"
 
 [node name="Config" type="Control" parent="TabContainer"]
 visible = false

@@ -12,28 +12,49 @@ var is_buttons_open:bool = false
 @onready var button_move_right := $Buttons/MoveRight
 @onready var animation_player := $AnimationPlayer
 var _is_being_dragged:bool = false
-var _dragging_mouse_offset:Vector2 = Vector2()
+var _dragging_mouse_offset:Vector2 = Vector2(0,0)
+
+var in_party_node
+var not_in_party_node
+var party_menu_controller
+
 func _ready() -> void:
-	print(str(self,": ",associated_character))
-	var new_texture:AtlasTexture = AtlasTexture.new()
-	new_texture.atlas = load("res://assets/characters/"+associated_character+".png")
-	new_texture.region = Rect2(0,0,100,160)
-	if texture_rect:
+	print(str(self,": associated_character:",associated_character))
+	if associated_character != "":
+		var new_texture:AtlasTexture = AtlasTexture.new()
+		new_texture.atlas = load("res://assets/characters/"+associated_character+".png")
+		new_texture.region = Rect2(0,0,100,160)
 		texture_rect.texture = new_texture 
+	else:
+		panel.visible = false
 	button_move_left.pressed.connect(_any_button_pressed)
 	button_add_to_party.pressed.connect(_any_button_pressed)
 	button_remove_from_party.pressed.connect(_any_button_pressed)
 	button_move_right.pressed.connect(_any_button_pressed)
-	
+	in_party_node = get_tree().current_scene.get_node_or_null("%InParty")
+	not_in_party_node = get_tree().current_scene.get_node_or_null("%NotInParty")
+	party_menu_controller = get_tree().current_scene.get_node_or_null("%Party")
 func _process(_delta: float) -> void:
 	#if someone else has focus close the buttons
 	var focus_owner = get_viewport().gui_get_focus_owner()
 	if focus_owner:
-		if not self.is_ancestor_of(focus_owner):
+		if not self.is_ancestor_of(focus_owner) and not focus_owner==self:
 			_close_buttons()
 func _any_button_pressed():
 	$pop.play()
-	
+func set_associated_character(new_character:String):
+	print(str(self,": setting character to ",new_character))
+	associated_character = new_character
+	if new_character=="":
+		panel.visible = false
+		return
+	panel.visible = true
+	var new_texture:AtlasTexture = AtlasTexture.new()
+	new_texture.atlas = load("res://assets/characters/"+associated_character+".png")
+	new_texture.region = Rect2(0,0,100,160)
+	texture_rect.texture = new_texture 
+
+
 var in_party:bool = false
 
 func update_buttons():
@@ -46,6 +67,11 @@ func update_buttons():
 	
 func _open_buttons():
 	if is_buttons_open:return
+	if associated_character=="":
+		return
+	else:
+		print(self,": associated character is not nothing, it's ",associated_character)
+	print(str(self,": opening buttons"))
 	update_buttons()
 	is_buttons_open = true
 	$buttons_up.play()
@@ -90,7 +116,7 @@ func _get_drag_data(at_position: Vector2) -> Variant:
 	return self
 func _can_drop_data(_pos, data):
 	return data is CharacterPortrait
-func _swap(character_portrait_1:CharacterPortrait,character_portrait_2:CharacterPortrait):
+func swap(character_portrait_1:CharacterPortrait,character_portrait_2:CharacterPortrait, keep_focus=false):
 	var pos_1 = character_portrait_1.global_position
 	var pos_2 = character_portrait_2.global_position
 	
@@ -120,9 +146,11 @@ func _swap(character_portrait_1:CharacterPortrait,character_portrait_2:Character
 	parent_2.move_child(character_portrait_1,index_2)
 	panel_1.position = Vector2(-5,-5)
 	panel_2.position = Vector2(-5,-5)
+	if not keep_focus:
+		character_portrait_1.grab_focus()
 	
 func _drop_data(_pos, data):
-	_swap(self,data)
+	swap(data,self)
 	data.grab_focus()
 
 func _input(event):
@@ -139,11 +167,15 @@ func _on_focus_entered() -> void:
 	animation_player.play("focus")
 
 func _on_button_up() -> void:
-	_open_buttons()
+	#_open_buttons()
+	pass
 
+func _on_pressed():
+	_open_buttons()
+	party_menu_controller.character_portrait_pressed(self)
 func _on_move_left_pressed() -> void:
 	var other:CharacterPortrait = get_parent().get_child(get_index()-1)
-	_swap(self, other)
+	swap(self, other, true)
 
 func _on_move_right_pressed() -> void:
 	var other:CharacterPortrait
@@ -151,4 +183,34 @@ func _on_move_right_pressed() -> void:
 		other = get_parent().get_child(0)
 	else:
 		other = get_parent().get_child(get_index()+1)
-	_swap(self, other)
+	swap(self, other, true)
+const character_portrait_scene = preload("res://scenes/ui/game_menu/character_portrait.tscn")
+func _on_remove_pressed():
+	for c:CharacterPortrait in not_in_party_node.get_children():
+		if c.associated_character=="":
+			_close_buttons()
+			swap(self,c)
+			return
+	var new_portrait:CharacterPortrait = character_portrait_scene.instantiate()
+	in_party_node.add_child(new_portrait)
+	in_party_node.move_child(new_portrait,self.get_index())
+	new_portrait.set_associated_character("")
+	in_party_node.remove_child(self)
+	not_in_party_node.add_child(self)
+	not_in_party_node.move_child(self,0)
+	await get_tree().process_frame
+	_end_being_dragged(new_portrait.global_positionon)
+	_close_buttons()
+	self.grab_focus()
+
+func _on_add_pressed():
+	print(str(self,": adding to party"))
+	var empty_spot_or_last = null
+	for c:CharacterPortrait in in_party_node.get_children():
+		empty_spot_or_last = c
+		if c.associated_character=="":
+			break
+	animation_player.play("select")
+	_close_buttons()
+	empty_spot_or_last.grab_focus()
+	party_menu_controller.currently_selected_character = self
