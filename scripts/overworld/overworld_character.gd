@@ -4,16 +4,19 @@ class_name OverworldCharacter
 @export var speed = 150
 
 
-@export var inspector_spriteframes:SpriteFrames#debug
+@export var associated_character:String = "":
+	set(new_value):
+		associated_character = new_value
+		if is_inside_tree():
+			update_sprite_frames_from_character_name(new_value)
 @onready var sprite = $AnimatedSprite2D
 @onready var collider = $CollisionShape2D
 @onready var facer := $Facer
 @export var following_target:OverworldCharacter = null
 func _ready() -> void:
-	global_position = GameState.get_player_map_position()
 	print(str(self,": set pos as ",global_position))
-	if inspector_spriteframes != null:
-		set_sprite_frames(inspector_spriteframes)
+	if associated_character != "null":
+		update_sprite_frames_from_character_name(associated_character)
 	if following_target:
 		set_collision_layer_value(1, false)  
 func update_sprite_frames_from_character_name(character_name:String):

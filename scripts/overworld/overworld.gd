@@ -41,7 +41,6 @@ func fade_to_room(new_room:PackedScene, arrival_passage_name:String):
 	GameState.current_room_scene = new_room
 	GameState.overworld_info["current_room_path"]
 	get_tree().change_scene_to_packed(new_room)
-
 	print(str(self,": toggled, now it's visibiliy is: ",game_menu.visible))
 func _unhandled_input(event):
 	if event is InputEventKey:

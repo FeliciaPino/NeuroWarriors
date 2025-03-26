@@ -17,11 +17,11 @@ func _ready() -> void:
 		if previous_character == null:
 			camera.reparent(new_character)
 			new_character.add_to_group("player")
+			new_character.global_position = GameState.get_player_map_position()
 		else:
-			new_character.global_position = previous_character.global_position
+			new_character.global_position = previous_character.global_position+Vector2(0,-10)
 		new_character.following_target = previous_character
-		var spriteframes = load("res://assets/overworld/"+character_name+"_spriteframes.tres")
-		new_character.inspector_spriteframes = spriteframes
+		new_character.associated_character = character_name
 		self.add_child(new_character)
 		previous_character = new_character
 	if camera:
@@ -31,29 +31,97 @@ func _ready() -> void:
 		camera.position_smoothing_enabled = true
 #makes the overworld characters reflect the current party stored in gamestate
 func update_characters():
+	
 	#this whole function feels pretty messy
 	print(str(self,": updating characters"))
-	var party = GameState.get_party()
-	while get_child_count()-1 > party.size():
-		print(str(self,": child count of ",get_child_count()," means that there's too many chars in world, deleting ",get_child(-1)))
-		get_child(-1).queue_free()
-		await get_tree().process_frame
-	print(str(self,": iterating through ",party.size()," characters in party"))
-	var i:int = 0
-	while i<party.size():
-		if get_child_count() > i+1:
-			print(str(self,": since ",get_child_count()," is more than ",i+2," we can just re-skin ",get_child(i+1)))
-			get_child(i+1).update_sprite_frames_from_character_name(party[i])
-			i += 1
-			continue
-		print(str(self,": not enough current chars, creating a new one to represent ",party[i]))
-		var new_char:OverworldCharacter = overworld_character_scene.instantiate()
-		new_char.inspector_spriteframes = load("res://assets/overworld/"+party[i]+"_spriteframes.tres")
+	var party:Array = GameState.get_party()
+	#there has to be a better way of getting rid of the empty character names
+	party.erase("")
+	party.erase("")
+	party.erase("")
+	var characters:Array[OverworldCharacter]
+	print(str(self,": party:",party))
+	for c in get_children():
+		if c is OverworldCharacter:
+			characters.append(c)
+	print(str(self,": characters in world currently:",characters))
+	var updated_characters:Array[OverworldCharacter]
+	for i in range(party.size()):
+		var char:OverworldCharacter
+		if i < characters.size():
+			char = characters[i]
+			char.update_sprite_frames_from_character_name(party[i])
+		else:
+			char = overworld_character_scene.instantiate()
+			char.associated_character = party[i]
+			if i>0:
+				char.global_position = updated_characters[i-1].global_position + Vector2(0,-10)
+			add_child(char)
+		updated_characters.append(char)
+		print(str(self,"updated characters:",updated_characters))
 		if i>0:
-			new_char.following_target = get_child(i)
-		add_child(new_char)
-		i += 1
-	if get_child_count()<=1: return
-	if not get_child(1).is_in_group("player"):
-		get_child(1).add_to_group("player")
+			char.following_target = updated_characters[i-1]
+	print(str(self, ": old character count: ",characters.size()," party count: ",party.size()))
+	for i in range(updated_characters.size(),characters.size()):
+		characters[i].queue_free()
+
+#this one is made by chatgpt
+func chats_update_characters() -> void:
+	# Get the current party list from GameState
+	var party = GameState.get_party()
+	
+	# Gather current OverworldCharacter nodes (ignoring the camera and other nodes)
+	var current_chars := []
+	for child in get_children():
+		if child is OverworldCharacter:
+			current_chars.append(child)
+	
+	var previous_character: OverworldCharacter = null
+	var updated_chars := []
+	
+	# Loop through the party and update/create nodes
+	for i in range(party.size()):
+		var char_name = party[i]
+		# Skip empty names
+		if char_name == "":
+			continue
 		
+		var char: OverworldCharacter
+		# If an existing node is available, update it
+		if i < current_chars.size():
+			char = current_chars[i]
+			char.update_sprite_frames_from_character_name(char_name)
+		else:
+			# Otherwise, instantiate a new node and update it
+			char = overworld_character_scene.instantiate()
+			char.update_sprite_frames_from_character_name(char_name)
+			add_child(char)
+		
+		# Update following chain and align position if needed
+		if previous_character:
+			char.global_position = previous_character.global_position
+		char.following_target = previous_character
+		previous_character = char
+		
+		updated_chars.append(char)
+	
+	# Remove extra nodes if the party size has decreased
+	for i in range(updated_chars.size(), current_chars.size()):
+		current_chars[i].queue_free()
+	
+	# Update the camera:
+	# Reparent to the first character if exists, otherwise attach it to self
+	if updated_chars.size() > 0:
+		camera.reparent(updated_chars[0])
+		# Ensure the primary character is in the "player" group
+		if not updated_chars[0].is_in_group("player"):
+			updated_chars[0].add_to_group("player")
+	else:
+		# No party: detach camera from any character (leaving it as child of self)
+		camera.reparent(self)
+	
+	# Reset camera position and smoothing settings
+	camera.position = Vector2.ZERO
+	camera.position_smoothing_enabled = false
+	await get_tree().process_frame
+	camera.position_smoothing_enabled = true
