@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://d4f0gy2sw12hv"]
 
-[ext_resource type="Script" path="res://scripts/end_screen.gd" id="1_iqvlg"]
+[ext_resource type="Script" uid="uid://dayll084jybxg" path="res://scripts/end_screen.gd" id="1_iqvlg"]
 
 [node name="EndScreen" type="Control"]
 visible = false

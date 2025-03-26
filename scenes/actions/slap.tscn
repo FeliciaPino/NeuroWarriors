@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://c5qewxuc3kb2w"]
 
 [ext_resource type="PackedScene" uid="uid://c0p02mr1a5wep" path="res://scenes/actions/BattleAction.tscn" id="1_wjjuq"]
-[ext_resource type="Script" path="res://scripts/actions/slap.gd" id="2_ifd2y"]
+[ext_resource type="Script" uid="uid://dpff35nufo23b" path="res://scripts/actions/slap.gd" id="2_ifd2y"]
 [ext_resource type="Texture2D" uid="uid://dbus1atkuxj1m" path="res://assets/actions/slap.png" id="2_vdgk2"]
 [ext_resource type="AudioStream" uid="uid://cwutocbji8h2a" path="res://assets/audio/homemade/SFX/slap.mp3" id="3_nkso7"]
 
@@ -122,8 +122,8 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6omvi"]
 _data = {
-"RESET": SubResource("Animation_5obae"),
-"animation": SubResource("Animation_2duyn")
+&"RESET": SubResource("Animation_5obae"),
+&"animation": SubResource("Animation_2duyn")
 }
 
 [node name="Slap" instance=ExtResource("1_wjjuq")]

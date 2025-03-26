@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://dqjchuoiu3tej"]
 
-[ext_resource type="Script" path="res://scripts/credits.gd" id="1_uyumk"]
+[ext_resource type="Script" uid="uid://43s4ggoiw6qc" path="res://scripts/credits.gd" id="1_uyumk"]
 [ext_resource type="Texture2D" uid="uid://cdyfbvubj5pqq" path="res://assets/actions/harpoon.png" id="3_c5hc6"]
 [ext_resource type="Texture2D" uid="uid://wutm5en1rqjf" path="res://assets/actions/RedHeart.png" id="4_m0uks"]
 [ext_resource type="Texture2D" uid="uid://cuiyr20gbaupr" path="res://assets/actions/PinkHeart.png" id="5_xpg2e"]
@@ -50,8 +50,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yo4ax"]
 _data = {
-"RESET": SubResource("Animation_d8u6k"),
-"credits_anim": SubResource("Animation_oyfup")
+&"RESET": SubResource("Animation_d8u6k"),
+&"credits_anim": SubResource("Animation_oyfup")
 }
 
 [node name="credits" type="Control"]

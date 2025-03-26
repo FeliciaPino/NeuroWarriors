@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://c4knnckwwejji"]
 
-[ext_resource type="Script" path="res://scenes/overworld/overworld_party.gd" id="1_47ymd"]
-[ext_resource type="Script" path="res://scripts/overworld/overworld.gd" id="1_eb5g4"]
+[ext_resource type="Script" uid="uid://c7idah1du5a0p" path="res://scenes/overworld/overworld_party.gd" id="1_47ymd"]
+[ext_resource type="Script" uid="uid://cu14dpq8i23cb" path="res://scripts/overworld/overworld.gd" id="1_eb5g4"]
 [ext_resource type="PackedScene" uid="uid://bbxpxysb4lgqt" path="res://scenes/ui/game_menu/game_menu.tscn" id="3_jq8hu"]
 [ext_resource type="AudioStream" uid="uid://ckiqmemr4mvcu" path="res://assets/audio/homemade/SFX/kchchchch.mp3" id="3_rdp7m"]
 
@@ -117,10 +117,10 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vshbj"]
 _data = {
-"RESET": SubResource("Animation_nadat"),
-"battle_fade": SubResource("Animation_i4au7"),
-"fade_in": SubResource("Animation_cxq0r"),
-"fade_out": SubResource("Animation_bthyh")
+&"RESET": SubResource("Animation_nadat"),
+&"battle_fade": SubResource("Animation_i4au7"),
+&"fade_in": SubResource("Animation_cxq0r"),
+&"fade_out": SubResource("Animation_bthyh")
 }
 
 [node name="Room" type="Node2D"]
@@ -151,7 +151,7 @@ color = Color(0, 0, 0, 1)
 [node name="FadeAnimationPlayer" type="AnimationPlayer" parent="UI/Fade"]
 unique_name_in_owner = true
 libraries = {
-"": SubResource("AnimationLibrary_vshbj")
+&"": SubResource("AnimationLibrary_vshbj")
 }
 autoplay = "fade_in"
 

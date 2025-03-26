@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://btq0qkod0rqo"]
 
 [ext_resource type="PackedScene" uid="uid://c0p02mr1a5wep" path="res://scenes/actions/BattleAction.tscn" id="1_l74rf"]
-[ext_resource type="Script" path="res://scripts/actions/shadow_clone.gd" id="2_6gk5n"]
+[ext_resource type="Script" uid="uid://xc8qv4g7mlta" path="res://scripts/actions/shadow_clone.gd" id="2_6gk5n"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_j22uc"]
 
@@ -25,7 +25,7 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sc2f5"]
 _data = {
-"animation": SubResource("Animation_e52a4")
+&"animation": SubResource("Animation_e52a4")
 }
 
 [node name="ShadowClone" instance=ExtResource("1_l74rf")]

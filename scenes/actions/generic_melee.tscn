@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://e2g21mtkqscf"]
 
 [ext_resource type="PackedScene" uid="uid://c0p02mr1a5wep" path="res://scenes/actions/BattleAction.tscn" id="1_06rwy"]
-[ext_resource type="Script" path="res://scripts/actions/generic_melee.gd" id="1_sh0rd"]
+[ext_resource type="Script" uid="uid://ck3l8b4fab57b" path="res://scripts/actions/generic_melee.gd" id="1_sh0rd"]
 [ext_resource type="AudioStream" uid="uid://cp770b4kr8b5i" path="res://addons/sfx/Retro Vehicle Car 03.wav" id="3_a20eu"]
 
 [sub_resource type="Animation" id="Animation_cvhxb"]
@@ -50,8 +50,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pfl2x"]
 _data = {
-"RESET": SubResource("Animation_cvhxb"),
-"animation": SubResource("Animation_k80g0")
+&"RESET": SubResource("Animation_cvhxb"),
+&"animation": SubResource("Animation_k80g0")
 }
 
 [node name="GenericMelee" instance=ExtResource("1_06rwy")]

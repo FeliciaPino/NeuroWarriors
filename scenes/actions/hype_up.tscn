@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c0p02mr1a5wep" path="res://scenes/actions/BattleAction.tscn" id="1_lp1ij"]
 [ext_resource type="AudioStream" uid="uid://5xync26rqcgo" path="res://assets/audio/SFX/cheer.mp3" id="2_7upt3"]
-[ext_resource type="Script" path="res://scripts/actions/hype_up.gd" id="2_aivlv"]
+[ext_resource type="Script" uid="uid://bk1osxpp8qam5" path="res://scripts/actions/hype_up.gd" id="2_aivlv"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4prew"]
 
@@ -135,8 +135,8 @@ tracks/4/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_o0v2l"]
 _data = {
-"RESET": SubResource("Animation_52bk0"),
-"animation": SubResource("Animation_36jxy")
+&"RESET": SubResource("Animation_52bk0"),
+&"animation": SubResource("Animation_36jxy")
 }
 
 [node name="HypeUp" instance=ExtResource("1_lp1ij")]

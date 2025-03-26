@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://c5ykioygv4mrj"]
 
 [ext_resource type="PackedScene" uid="uid://c0p02mr1a5wep" path="res://scenes/actions/BattleAction.tscn" id="1_jy8vj"]
-[ext_resource type="Script" path="res://scripts/actions/pipes.gd" id="2_13bvw"]
+[ext_resource type="Script" uid="uid://ciravs1ibbwim" path="res://scripts/actions/pipes.gd" id="2_13bvw"]
 [ext_resource type="AudioStream" uid="uid://ulsx6bs1jbvr" path="res://assets/audio/SFX/metal-pipe-clang.mp3" id="3_meww8"]
 
 [sub_resource type="Animation" id="Animation_hoge8"]
@@ -87,8 +87,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bawqv"]
 _data = {
-"RESET": SubResource("Animation_hoge8"),
-"animation": SubResource("Animation_qteqj")
+&"RESET": SubResource("Animation_hoge8"),
+&"animation": SubResource("Animation_qteqj")
 }
 
 [node name="Pipes" instance=ExtResource("1_jy8vj")]

@@ -416,12 +416,12 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kqinv"]
 _data = {
-"RESET": SubResource("Animation_072j8"),
-"die": SubResource("Animation_8k5fv"),
-"effect": SubResource("Animation_fmxlm"),
-"idle": SubResource("Animation_isrij"),
-"throw": SubResource("Animation_0fypp"),
-"walking": SubResource("Animation_lscnb")
+&"RESET": SubResource("Animation_072j8"),
+&"die": SubResource("Animation_8k5fv"),
+&"effect": SubResource("Animation_fmxlm"),
+&"idle": SubResource("Animation_isrij"),
+&"throw": SubResource("Animation_0fypp"),
+&"walking": SubResource("Animation_lscnb")
 }
 
 [node name="Anny" instance=ExtResource("1_rdaju")]

@@ -136,9 +136,9 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bi0e0"]
 _data = {
-"RESET": SubResource("Animation_86g3m"),
-"face_left": SubResource("Animation_s367o"),
-"face_right": SubResource("Animation_272yu")
+&"RESET": SubResource("Animation_86g3m"),
+&"face_left": SubResource("Animation_s367o"),
+&"face_right": SubResource("Animation_272yu")
 }
 
 [sub_resource type="Animation" id="Animation_ceur5"]
@@ -420,12 +420,12 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_b731o"]
 _data = {
-"RESET": SubResource("Animation_ceur5"),
-"attack": SubResource("Animation_3s4rj"),
-"die": SubResource("Animation_oe4dc"),
-"effect": SubResource("Animation_os75q"),
-"idle": SubResource("Animation_sngej"),
-"walking": SubResource("Animation_7r033")
+&"RESET": SubResource("Animation_ceur5"),
+&"attack": SubResource("Animation_3s4rj"),
+&"die": SubResource("Animation_oe4dc"),
+&"effect": SubResource("Animation_os75q"),
+&"idle": SubResource("Animation_sngej"),
+&"walking": SubResource("Animation_7r033")
 }
 
 [node name="monocopter" instance=ExtResource("1_hi2w3")]

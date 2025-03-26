@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=4 uid="uid://duil1xs7picit"]
 
 [ext_resource type="PackedScene" uid="uid://ds7mmdtobydfi" path="res://scenes/overworld/forest/forest_room.tscn" id="1_mgfgl"]
-[ext_resource type="Script" path="res://scripts/overworld/passage.gd" id="2_gjjv2"]
+[ext_resource type="Script" uid="uid://b25jy6devp0ix" path="res://scripts/overworld/passage.gd" id="2_gjjv2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wlthr"]
 size = Vector2(90, 78)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cor1tnnf1b1t0"]
 
-[ext_resource type="Script" path="res://scripts/ui/save_slot.gd" id="1_0ksi3"]
+[ext_resource type="Script" uid="uid://dsv7wqb737kbx" path="res://scripts/ui/save_slot.gd" id="1_0ksi3"]
 
 [node name="SaveSlot" type="MarginContainer"]
 offset_right = 512.0

@@ -1,9 +1,9 @@
 [gd_scene load_steps=11 format=3 uid="uid://bbxpxysb4lgqt"]
 
 [ext_resource type="Theme" uid="uid://cchp864k50mvc" path="res://ui_theme.tres" id="1_c2e5g"]
-[ext_resource type="Script" path="res://scenes/ui/game_menu/game_menu.gd" id="1_i4ld5"]
+[ext_resource type="Script" uid="uid://bs4n11f0d5nf0" path="res://scenes/ui/game_menu/game_menu.gd" id="1_i4ld5"]
 [ext_resource type="Texture2D" uid="uid://sh8d13r4odpy" path="res://assets/characters/Neuro-sama.png" id="2_dfior"]
-[ext_resource type="Script" path="res://scenes/ui/game_menu/party_menu.gd" id="2_p6mcn"]
+[ext_resource type="Script" uid="uid://18ssjpdw7vtg" path="res://scenes/ui/game_menu/party_menu.gd" id="2_p6mcn"]
 
 [sub_resource type="Gradient" id="Gradient_j53y3"]
 offsets = PackedFloat32Array(0.9, 1)

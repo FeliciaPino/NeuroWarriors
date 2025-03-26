@@ -496,12 +496,12 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8v7bq"]
 _data = {
-"RESET": SubResource("Animation_2bga6"),
-"attack": SubResource("Animation_dsxnk"),
-"die": SubResource("Animation_3yoon"),
-"effect": SubResource("Animation_dqclt"),
-"idle": SubResource("Animation_lc5a1"),
-"throw": SubResource("Animation_bn40e")
+&"RESET": SubResource("Animation_2bga6"),
+&"attack": SubResource("Animation_dsxnk"),
+&"die": SubResource("Animation_3yoon"),
+&"effect": SubResource("Animation_dqclt"),
+&"idle": SubResource("Animation_lc5a1"),
+&"throw": SubResource("Animation_bn40e")
 }
 
 [node name="swarm_controller" instance=ExtResource("1_mi723")]

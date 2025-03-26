@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://c8t4s5ny552ss"]
 
 [ext_resource type="PackedScene" uid="uid://r1v5s6jc2e2g" path="res://scenes/status_effects/status_effect.tscn" id="1_skg8v"]
-[ext_resource type="Script" path="res://scripts/effects/hyped.gd" id="2_fx1n0"]
+[ext_resource type="Script" uid="uid://tpg3guovnpw4" path="res://scripts/effects/hyped.gd" id="2_fx1n0"]
 [ext_resource type="Texture2D" uid="uid://gekifpob47eb" path="res://assets/ui/effect_icons.png" id="3_x1yow"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sv14m"]

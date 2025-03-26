@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://8y32ijl0g07n"]
 
 [ext_resource type="PackedScene" uid="uid://c0p02mr1a5wep" path="res://scenes/actions/BattleAction.tscn" id="1_no5x0"]
-[ext_resource type="Script" path="res://scripts/actions/fluster.gd" id="2_24y7i"]
+[ext_resource type="Script" uid="uid://cmmeisd7dniyy" path="res://scripts/actions/fluster.gd" id="2_24y7i"]
 [ext_resource type="Texture2D" uid="uid://cuiyr20gbaupr" path="res://assets/actions/PinkHeart.png" id="3_vx2do"]
 [ext_resource type="AudioStream" uid="uid://qjkrupbb8ine" path="res://assets/audio/SFX/rizz.mp3" id="4_xix12"]
 
@@ -15,6 +15,21 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="Animation" id="Animation_aaeco"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_quntx"]
 resource_name = "animation"
@@ -33,25 +48,10 @@ tracks/0/keys = {
 "values": [Vector2(0.9, 0.9), Vector2(1.1, 1.1)]
 }
 
-[sub_resource type="Animation" id="Animation_aaeco"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("sprite:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_btcke"]
 _data = {
-"RESET": SubResource("Animation_aaeco"),
-"animation": SubResource("Animation_quntx")
+&"RESET": SubResource("Animation_aaeco"),
+&"animation": SubResource("Animation_quntx")
 }
 
 [node name="Fluster" instance=ExtResource("1_no5x0")]

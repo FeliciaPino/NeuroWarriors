@@ -1,12 +1,12 @@
 [gd_scene load_steps=92 format=4 uid="uid://bpbb157lbnats"]
 
-[ext_resource type="Script" path="res://scripts/overworld/overworld.gd" id="1_a6uxc"]
+[ext_resource type="Script" uid="uid://cu14dpq8i23cb" path="res://scripts/overworld/overworld.gd" id="1_a6uxc"]
 [ext_resource type="Texture2D" uid="uid://o5sq0tkkglam" path="res://assets/overworld/tiles.png" id="1_t2akb"]
 [ext_resource type="Texture2D" uid="uid://c2bq58th4ub5" path="res://assets/overworld/city_tiles.png" id="3_2leis"]
-[ext_resource type="Script" path="res://scenes/overworld/overworld_party.gd" id="3_pyupe"]
+[ext_resource type="Script" uid="uid://c7idah1du5a0p" path="res://scenes/overworld/overworld_party.gd" id="3_pyupe"]
 [ext_resource type="PackedScene" uid="uid://bwv2hto833xa3" path="res://scenes/overworld/overworld_enemy.tscn" id="3_t5cvq"]
 [ext_resource type="Texture2D" uid="uid://cjs37nc0sh54n" path="res://assets/overworld/Assembly_station.png" id="3_tj4ld"]
-[ext_resource type="Script" path="res://scripts/overworld/path_follow_2d.gd" id="5_avstv"]
+[ext_resource type="Script" uid="uid://pjiq0iue7f4y" path="res://scripts/overworld/path_follow_2d.gd" id="5_avstv"]
 [ext_resource type="PackedScene" uid="uid://d1542r6f3ougb" path="res://scenes/overworld/story_battle_trigger.tscn" id="6_ph1n3"]
 [ext_resource type="Texture2D" uid="uid://c782q0dp1s8f1" path="res://assets/overworld/overworld_anny.png" id="8_8e6a6"]
 [ext_resource type="AudioStream" uid="uid://ckiqmemr4mvcu" path="res://assets/audio/homemade/SFX/kchchchch.mp3" id="8_8k8fn"]
@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://c52xkvbaurxua" path="res://assets/overworld/overworld_enemy.png" id="9_7a21x"]
 [ext_resource type="Texture2D" uid="uid://by2hpelwcg8l0" path="res://assets/overworld/swarm_controller.png" id="10_vae6y"]
 [ext_resource type="PackedScene" uid="uid://bbxpxysb4lgqt" path="res://scenes/ui/game_menu/game_menu.tscn" id="14_5sadv"]
-[ext_resource type="Script" path="res://scripts/overworld/passage.gd" id="14_duv1i"]
+[ext_resource type="Script" uid="uid://b25jy6devp0ix" path="res://scripts/overworld/passage.gd" id="14_duv1i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3fdp1"]
 texture = ExtResource("1_t2akb")
@@ -505,8 +505,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ykmkh"]
 _data = {
-"RESET": SubResource("Animation_f0vee"),
-"animation": SubResource("Animation_e0qx8")
+&"RESET": SubResource("Animation_f0vee"),
+&"animation": SubResource("Animation_e0qx8")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eoinu"]
@@ -578,8 +578,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ursq6"]
 _data = {
-"RESET": SubResource("Animation_n7kmq"),
-"animation": SubResource("Animation_6fa6g")
+&"RESET": SubResource("Animation_n7kmq"),
+&"animation": SubResource("Animation_6fa6g")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mix4a"]
@@ -862,9 +862,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vshbj"]
 _data = {
-"RESET": SubResource("Animation_nadat"),
-"battle_fade": SubResource("Animation_i4au7"),
-"fade_out": SubResource("Animation_xsbfg")
+&"RESET": SubResource("Animation_nadat"),
+&"battle_fade": SubResource("Animation_i4au7"),
+&"fade_out": SubResource("Animation_xsbfg")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mb3b3"]
@@ -991,7 +991,7 @@ frame_progress = 0.206686
 [node name="AnimationPlayer" type="AnimationPlayer" parent="StoryBattleTriggers/AnnyUnlock/annysprite"]
 root_node = NodePath("../..")
 libraries = {
-"": SubResource("AnimationLibrary_ykmkh")
+&"": SubResource("AnimationLibrary_ykmkh")
 }
 autoplay = "animation"
 
@@ -1019,7 +1019,7 @@ texture = SubResource("AtlasTexture_ubo6g")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="StoryBattleTriggers/AnnyUnlock"]
 libraries = {
-"": SubResource("AnimationLibrary_ursq6")
+&"": SubResource("AnimationLibrary_ursq6")
 }
 autoplay = "animation"
 
@@ -1729,7 +1729,7 @@ color = Color(0, 0, 0, 1)
 [node name="FadeAnimationPlayer" type="AnimationPlayer" parent="UI/Fade"]
 unique_name_in_owner = true
 libraries = {
-"": SubResource("AnimationLibrary_vshbj")
+&"": SubResource("AnimationLibrary_vshbj")
 }
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="UI/Fade"]

@@ -492,13 +492,13 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8v7bq"]
 _data = {
-"RESET": SubResource("Animation_2bga6"),
-"attack": SubResource("Animation_dsxnk"),
-"die": SubResource("Animation_3yoon"),
-"effect": SubResource("Animation_dqclt"),
-"idle": SubResource("Animation_kfpj6"),
-"throw": SubResource("Animation_bn40e"),
-"walking": SubResource("Animation_rp16j")
+&"RESET": SubResource("Animation_2bga6"),
+&"attack": SubResource("Animation_dsxnk"),
+&"die": SubResource("Animation_3yoon"),
+&"effect": SubResource("Animation_dqclt"),
+&"idle": SubResource("Animation_kfpj6"),
+&"throw": SubResource("Animation_bn40e"),
+&"walking": SubResource("Animation_rp16j")
 }
 
 [node name="defensive drone" instance=ExtResource("1_buc5j")]

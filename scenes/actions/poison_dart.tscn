@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c0p02mr1a5wep" path="res://scenes/actions/BattleAction.tscn" id="1_03j1x"]
 [ext_resource type="Texture2D" uid="uid://61lcotrehrl4" path="res://assets/poison_dart.png" id="2_5evah"]
-[ext_resource type="Script" path="res://scripts/actions/poison_dart.gd" id="2_6purc"]
+[ext_resource type="Script" uid="uid://uvpvhbs0od7x" path="res://scripts/actions/poison_dart.gd" id="2_6purc"]
 [ext_resource type="AudioStream" uid="uid://bymhdcicx5ap3" path="res://assets/audio/homemade/SFX/Woosh.mp3" id="4_6kwt5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u2gbk"]
@@ -37,8 +37,8 @@ loop_mode = 1
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_e7ixk"]
 _data = {
-"RESET": SubResource("Animation_2ehal"),
-"animation": SubResource("Animation_vmeg4")
+&"RESET": SubResource("Animation_2ehal"),
+&"animation": SubResource("Animation_vmeg4")
 }
 
 [node name="PoisonDart" instance=ExtResource("1_03j1x")]

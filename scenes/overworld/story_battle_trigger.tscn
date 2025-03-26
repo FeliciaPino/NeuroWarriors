@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://d1542r6f3ougb"]
 
-[ext_resource type="Script" path="res://scripts/overworld/story_battle_trigger.gd" id="1_m38g1"]
+[ext_resource type="Script" uid="uid://mh6u2sqopqtp" path="res://scripts/overworld/story_battle_trigger.gd" id="1_m38g1"]
 
 [node name="StoryBattleTrigger" type="Node2D"]
 script = ExtResource("1_m38g1")

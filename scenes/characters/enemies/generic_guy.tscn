@@ -393,13 +393,13 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_eh5c5"]
 _data = {
-"RESET": SubResource("Animation_t63tf"),
-"attack": SubResource("Animation_pq0u8"),
-"die": SubResource("Animation_advy6"),
-"effect": SubResource("Animation_sarns"),
-"idle": SubResource("Animation_frqrj"),
-"throw": SubResource("Animation_5iao7"),
-"walking": SubResource("Animation_gp2nt")
+&"RESET": SubResource("Animation_t63tf"),
+&"attack": SubResource("Animation_pq0u8"),
+&"die": SubResource("Animation_advy6"),
+&"effect": SubResource("Animation_sarns"),
+&"idle": SubResource("Animation_frqrj"),
+&"throw": SubResource("Animation_5iao7"),
+&"walking": SubResource("Animation_gp2nt")
 }
 
 [node name="GenericGuy" instance=ExtResource("1_xwt0g")]

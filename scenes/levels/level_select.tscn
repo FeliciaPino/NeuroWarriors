@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://bj5rs4y8fe2v2"]
 
 [ext_resource type="PackedScene" uid="uid://csb64tig53vlq" path="res://scenes/ui/map_button.tscn" id="1_577n0"]
-[ext_resource type="Script" path="res://scripts/level_select.gd" id="1_i8215"]
+[ext_resource type="Script" uid="uid://djugre4sr7xo3" path="res://scripts/level_select.gd" id="1_i8215"]
 [ext_resource type="Texture2D" uid="uid://dxheorleswbgf" path="res://assets/map.png" id="2_qpw07"]
 [ext_resource type="AudioStream" uid="uid://djsucf4dtk7aj" path="res://addons/Pixel_boy/theme-3.ogg" id="3_56r5g"]
 [ext_resource type="Texture2D" uid="uid://7irniqi17fl2" path="res://assets/neuro.png" id="5_fqbae"]

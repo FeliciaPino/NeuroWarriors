@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bl855ggccmntd"]
 
-[ext_resource type="Script" path="res://scripts/overworld/overworld_character.gd" id="1_e0gxn"]
+[ext_resource type="Script" uid="uid://d10mc2vvlxef" path="res://scripts/overworld/overworld_character.gd" id="1_e0gxn"]
 [ext_resource type="SpriteFrames" uid="uid://dmtcf7hjrpnt1" path="res://assets/overworld/Anny_spriteframes.tres" id="2_f6c2w"]
 [ext_resource type="PackedScene" uid="uid://cnetql8kspan7" path="res://scenes/overworld/facer.tscn" id="3_5phls"]
 

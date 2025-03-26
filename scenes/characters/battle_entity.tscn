@@ -1,6 +1,6 @@
 [gd_scene load_steps=23 format=3 uid="uid://dp2gnkbdq83n4"]
 
-[ext_resource type="Script" path="res://scripts/BattleEntity.gd" id="1_m46ik"]
+[ext_resource type="Script" uid="uid://dxs6vaw1rnav4" path="res://scripts/BattleEntity.gd" id="1_m46ik"]
 [ext_resource type="PackedScene" uid="uid://bcuvnhkfoa0u" path="res://scenes/ui/health_bar.tscn" id="3_b5iiw"]
 [ext_resource type="Texture2D" uid="uid://duwanoipd03rk" path="res://assets/ui/selection_circle.png" id="4_i6faa"]
 [ext_resource type="Texture2D" uid="uid://nxqruldg0w6s" path="res://assets/explosion.png" id="5_qnmwp"]
@@ -57,9 +57,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_meimr"]
 _data = {
-"RESET": SubResource("Animation_nv0nl"),
-"face_left": SubResource("Animation_8twhj"),
-"face_right": SubResource("Animation_xh3tb")
+&"RESET": SubResource("Animation_nv0nl"),
+&"face_left": SubResource("Animation_8twhj"),
+&"face_right": SubResource("Animation_xh3tb")
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1xbm5"]

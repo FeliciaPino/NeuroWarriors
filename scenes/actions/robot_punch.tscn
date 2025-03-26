@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://c4ii0hbadpfiv"]
 
 [ext_resource type="PackedScene" uid="uid://c0p02mr1a5wep" path="res://scenes/actions/BattleAction.tscn" id="1_f5awo"]
-[ext_resource type="Script" path="res://scripts/actions/robot_punch.gd" id="1_v63vm"]
+[ext_resource type="Script" uid="uid://c4ytkwwlstiwf" path="res://scripts/actions/robot_punch.gd" id="1_v63vm"]
 [ext_resource type="AudioStream" uid="uid://rf2y8u0ttqxw" path="res://addons/sfx/Retro Impact Punch 07.wav" id="2_lc6iq"]
 
 [sub_resource type="Animation" id="Animation_wretn"]
@@ -50,8 +50,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wv84h"]
 _data = {
-"RESET": SubResource("Animation_wretn"),
-"animation": SubResource("Animation_d67lq")
+&"RESET": SubResource("Animation_wretn"),
+&"animation": SubResource("Animation_d67lq")
 }
 
 [node name="RobotPunch" instance=ExtResource("1_f5awo")]

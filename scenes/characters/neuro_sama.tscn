@@ -272,9 +272,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bqi5e"]
 _data = {
-"RESET": SubResource("Animation_igv31"),
-"face_left": SubResource("Animation_l0xcp"),
-"face_right": SubResource("Animation_wxsey")
+&"RESET": SubResource("Animation_igv31"),
+&"face_left": SubResource("Animation_l0xcp"),
+&"face_right": SubResource("Animation_wxsey")
 }
 
 [sub_resource type="Animation" id="Animation_2bga6"]
@@ -550,13 +550,13 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8v7bq"]
 _data = {
-"RESET": SubResource("Animation_2bga6"),
-"attack": SubResource("Animation_dsxnk"),
-"die": SubResource("Animation_3yoon"),
-"effect": SubResource("Animation_dqclt"),
-"idle": SubResource("Animation_4lcyj"),
-"throw": SubResource("Animation_bn40e"),
-"walking": SubResource("Animation_rp16j")
+&"RESET": SubResource("Animation_2bga6"),
+&"attack": SubResource("Animation_dsxnk"),
+&"die": SubResource("Animation_3yoon"),
+&"effect": SubResource("Animation_dqclt"),
+&"idle": SubResource("Animation_4lcyj"),
+&"throw": SubResource("Animation_bn40e"),
+&"walking": SubResource("Animation_rp16j")
 }
 
 [node name="NeuroSama" instance=ExtResource("1_k2s26")]

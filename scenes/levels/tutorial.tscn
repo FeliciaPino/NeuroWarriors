@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://b82kauwohbvun" path="res://scenes/levels/game.tscn" id="1_jevbs"]
 [ext_resource type="Texture2D" uid="uid://dl6b6ewaxaxom" path="res://assets/backgrounds/forest_background.png" id="2_hwxvb"]
 [ext_resource type="PackedScene" uid="uid://b3wy6ts3hkpc5" path="res://scenes/characters/enemies/monocopter.tscn" id="3_wcjib"]
-[ext_resource type="Script" path="res://scripts/tutorial.gd" id="5_u27sd"]
+[ext_resource type="Script" uid="uid://dgewtytq3kf5k" path="res://scripts/tutorial.gd" id="5_u27sd"]
 
 [node name="Game" instance=ExtResource("1_jevbs")]
 

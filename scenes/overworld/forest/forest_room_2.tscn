@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=4 uid="uid://caon2se8dtabu"]
 
 [ext_resource type="PackedScene" uid="uid://ds7mmdtobydfi" path="res://scenes/overworld/forest/forest_room.tscn" id="1_v8b85"]
-[ext_resource type="Script" path="res://scripts/overworld/passage.gd" id="2_e600n"]
-[ext_resource type="Script" path="res://scripts/overworld/path_follow_2d.gd" id="3_krsky"]
+[ext_resource type="Script" uid="uid://b25jy6devp0ix" path="res://scripts/overworld/passage.gd" id="2_e600n"]
+[ext_resource type="Script" uid="uid://pjiq0iue7f4y" path="res://scripts/overworld/path_follow_2d.gd" id="3_krsky"]
 [ext_resource type="PackedScene" uid="uid://bwv2hto833xa3" path="res://scenes/overworld/overworld_enemy.tscn" id="4_xwxmh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ls4xo"]

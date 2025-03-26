@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://cjwp37r4npd1c"]
 
 [ext_resource type="PackedScene" uid="uid://c0p02mr1a5wep" path="res://scenes/actions/BattleAction.tscn" id="1_ewsih"]
-[ext_resource type="Script" path="res://scripts/actions/repair.gd" id="2_wna17"]
+[ext_resource type="Script" uid="uid://dtf3hr2ouo155" path="res://scripts/actions/repair.gd" id="2_wna17"]
 [ext_resource type="Texture2D" uid="uid://cujhxbqxfivtm" path="res://assets/actions/wrench.png" id="3_51vs2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jysq1"]
@@ -49,8 +49,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_85bc1"]
 _data = {
-"RESET": SubResource("Animation_e4bkx"),
-"animation": SubResource("Animation_qwqvv")
+&"RESET": SubResource("Animation_e4bkx"),
+&"animation": SubResource("Animation_qwqvv")
 }
 
 [node name="Repair" instance=ExtResource("1_ewsih")]

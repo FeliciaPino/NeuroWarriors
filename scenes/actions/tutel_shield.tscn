@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://cgpf6o36fg7r5"]
 
 [ext_resource type="PackedScene" uid="uid://c0p02mr1a5wep" path="res://scenes/actions/BattleAction.tscn" id="1_7wytg"]
-[ext_resource type="Script" path="res://scripts/actions/tutel_shield.gd" id="2_3xrb5"]
+[ext_resource type="Script" uid="uid://c6bwcvlcadmqh" path="res://scripts/actions/tutel_shield.gd" id="2_3xrb5"]
 [ext_resource type="Texture2D" uid="uid://bdltdynro0s8x" path="res://assets/tutel_shield.png" id="2_x81h4"]
 [ext_resource type="AudioStream" uid="uid://h0dkp76w84xe" path="res://assets/audio/homemade/SFX/ting.wav" id="4_re06y"]
 
@@ -111,8 +111,8 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jem67"]
 _data = {
-"RESET": SubResource("Animation_jsk2m"),
-"animation": SubResource("Animation_a2p80")
+&"RESET": SubResource("Animation_jsk2m"),
+&"animation": SubResource("Animation_a2p80")
 }
 
 [node name="TutelShield" instance=ExtResource("1_7wytg")]

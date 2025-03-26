@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://b82kauwohbvun" path="res://scenes/levels/game.tscn" id="1_i4cdn"]
 [ext_resource type="Texture2D" uid="uid://dl6b6ewaxaxom" path="res://assets/backgrounds/forest_background.png" id="2_u5jnf"]
 [ext_resource type="Texture2D" uid="uid://b4ldo6pam4ska" path="res://scenes/levels/unlock_evil/assembly_station_background.png" id="3_g3xpp"]
-[ext_resource type="Script" path="res://scenes/levels/unlock_evil/assembling_evil_controller.gd" id="4_6cil1"]
+[ext_resource type="Script" uid="uid://f758iv8kdo6j" path="res://scenes/levels/unlock_evil/assembling_evil_controller.gd" id="4_6cil1"]
 [ext_resource type="Texture2D" uid="uid://dju6yh1wm6yo2" path="res://scenes/levels/unlock_evil/half-built_evil.png" id="4_capdy"]
 [ext_resource type="PackedScene" uid="uid://c85gj43e28h10" path="res://scenes/characters/enemies/defensive_drone.tscn" id="4_vkc8h"]
 [ext_resource type="Texture2D" uid="uid://c8ffvkryw8ol0" path="res://scenes/levels/unlock_evil/assembly_arm.png" id="6_tmnle"]
@@ -186,9 +186,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5ns4k"]
 _data = {
-"RESET": SubResource("Animation_5737p"),
-"start_working": SubResource("Animation_45cai"),
-"working": SubResource("Animation_oeqds")
+&"RESET": SubResource("Animation_5737p"),
+&"start_working": SubResource("Animation_45cai"),
+&"working": SubResource("Animation_oeqds")
 }
 
 [node name="Game" instance=ExtResource("1_i4cdn")]

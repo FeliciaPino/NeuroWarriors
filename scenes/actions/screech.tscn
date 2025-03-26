@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://cw8myvw1tqj80"]
 
 [ext_resource type="PackedScene" uid="uid://c0p02mr1a5wep" path="res://scenes/actions/BattleAction.tscn" id="1_m5tg8"]
-[ext_resource type="Script" path="res://scripts/actions/screech.gd" id="2_a7m2n"]
+[ext_resource type="Script" uid="uid://c2184w0wb52rp" path="res://scripts/actions/screech.gd" id="2_a7m2n"]
 [ext_resource type="Texture2D" uid="uid://dbdt1xky53at4" path="res://assets/actions/sound_wave.png" id="2_rxi0n"]
 [ext_resource type="AudioStream" uid="uid://dfe87vpt5orv0" path="res://assets/audio/homemade/clips/evil_screech_1.mp3" id="3_y7jul"]
 [ext_resource type="AudioStream" uid="uid://cv18ik7l0c5la" path="res://assets/audio/homemade/clips/evil_screech_2.mp3" id="4_c4ude"]
@@ -26,8 +26,8 @@ resource_name = "animation"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jiqcs"]
 _data = {
-"RESET": SubResource("Animation_g0mkl"),
-"animation": SubResource("Animation_fy5ix")
+&"RESET": SubResource("Animation_g0mkl"),
+&"animation": SubResource("Animation_fy5ix")
 }
 
 [node name="Screech" instance=ExtResource("1_m5tg8")]

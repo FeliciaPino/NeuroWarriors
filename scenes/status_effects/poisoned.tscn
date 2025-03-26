@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://d3w0po52e6d6b"]
 
 [ext_resource type="PackedScene" uid="uid://r1v5s6jc2e2g" path="res://scenes/status_effects/status_effect.tscn" id="1_hf62e"]
-[ext_resource type="Script" path="res://scripts/effects/poisoned.gd" id="2_aegse"]
+[ext_resource type="Script" uid="uid://ctdoc5202v2cw" path="res://scripts/effects/poisoned.gd" id="2_aegse"]
 [ext_resource type="Texture2D" uid="uid://gekifpob47eb" path="res://assets/ui/effect_icons.png" id="3_14mbi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ej6xx"]

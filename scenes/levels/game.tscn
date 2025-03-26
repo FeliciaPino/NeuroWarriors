@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://b82kauwohbvun"]
 
-[ext_resource type="Script" path="res://scripts/GameManager.gd" id="1_5lrye"]
+[ext_resource type="Script" uid="uid://mmu44ppqby8v" path="res://scripts/GameManager.gd" id="1_5lrye"]
 [ext_resource type="PackedScene" uid="uid://c0cerfjhi148m" path="res://scenes/entity_manager.tscn" id="3_iprcq"]
 [ext_resource type="Texture2D" uid="uid://duwanoipd03rk" path="res://assets/ui/selection_circle.png" id="6_ow8lb"]
 [ext_resource type="PackedScene" uid="uid://d4f0gy2sw12hv" path="res://scenes/ui/end_screen.tscn" id="9_s08fr"]
@@ -135,9 +135,9 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xsa6o"]
 _data = {
-"RESET": SubResource("Animation_3mlxk"),
-"show_end_screen": SubResource("Animation_yj4cw"),
-"start_player_turn": SubResource("Animation_puse5")
+&"RESET": SubResource("Animation_3mlxk"),
+&"show_end_screen": SubResource("Animation_yj4cw"),
+&"start_player_turn": SubResource("Animation_puse5")
 }
 
 [sub_resource type="InputEventKey" id="InputEventKey_fvtbi"]
@@ -163,7 +163,7 @@ texture = ExtResource("6_ow8lb")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_xsa6o")
+&"": SubResource("AnimationLibrary_xsa6o")
 }
 
 [node name="TurnLabel" type="Label" parent="."]

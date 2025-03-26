@@ -1,11 +1,11 @@
 [gd_scene load_steps=27 format=3 uid="uid://bwv2hto833xa3"]
 
-[ext_resource type="Script" path="res://scripts/overworld/overworld_enemy.gd" id="1_hnxng"]
-[ext_resource type="Script" path="res://scripts/states/StateMachine.gd" id="3_fuqus"]
-[ext_resource type="Script" path="res://scripts/states/OverworldEnemyIdle.gd" id="4_2j2lr"]
+[ext_resource type="Script" uid="uid://cs5vaqgvmugdq" path="res://scripts/overworld/overworld_enemy.gd" id="1_hnxng"]
+[ext_resource type="Script" uid="uid://ddkiywi4jnykn" path="res://scripts/states/StateMachine.gd" id="3_fuqus"]
+[ext_resource type="Script" uid="uid://duestli038ve6" path="res://scripts/states/OverworldEnemyIdle.gd" id="4_2j2lr"]
 [ext_resource type="PackedScene" uid="uid://cnetql8kspan7" path="res://scenes/overworld/facer.tscn" id="5_5y8x6"]
 [ext_resource type="Texture2D" uid="uid://c52xkvbaurxua" path="res://assets/overworld/overworld_enemy.png" id="5_k41yc"]
-[ext_resource type="Script" path="res://scripts/states/OverworldEnemyChase.gd" id="5_stw8k"]
+[ext_resource type="Script" uid="uid://3h6qg67rmqx8" path="res://scripts/states/OverworldEnemyChase.gd" id="5_stw8k"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_erwio"]
 radius = 8.25692

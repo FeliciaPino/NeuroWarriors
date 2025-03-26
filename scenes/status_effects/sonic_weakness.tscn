@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://ndr0mskxy7cv"]
 
 [ext_resource type="PackedScene" uid="uid://r1v5s6jc2e2g" path="res://scenes/status_effects/status_effect.tscn" id="1_qqko0"]
-[ext_resource type="Script" path="res://scripts/effects/sonic_weakness.gd" id="2_8k1fd"]
+[ext_resource type="Script" uid="uid://cmaycqoaii0y3" path="res://scripts/effects/sonic_weakness.gd" id="2_8k1fd"]
 [ext_resource type="Texture2D" uid="uid://gekifpob47eb" path="res://assets/ui/effect_icons.png" id="3_ibbt4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8c5fv"]

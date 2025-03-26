@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://mweqpto0skb6"]
 
 [ext_resource type="PackedScene" uid="uid://c0p02mr1a5wep" path="res://scenes/actions/BattleAction.tscn" id="1_c7syv"]
-[ext_resource type="Script" path="res://scripts/actions/force_field.gd" id="1_l4pmk"]
+[ext_resource type="Script" uid="uid://b8abcl75ii0wf" path="res://scripts/actions/force_field.gd" id="1_l4pmk"]
 [ext_resource type="Texture2D" uid="uid://cfddrf68kdhe8" path="res://assets/bubble.png" id="2_njlen"]
 [ext_resource type="AudioStream" uid="uid://bc27pq7l68110" path="res://assets/audio/homemade/SFX/booaa.mp3" id="4_0ydc3"]
 
@@ -111,8 +111,8 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_neydj"]
 _data = {
-"RESET": SubResource("Animation_8cqg7"),
-"animation": SubResource("Animation_814ga")
+&"RESET": SubResource("Animation_8cqg7"),
+&"animation": SubResource("Animation_814ga")
 }
 
 [node name="forceField" instance=ExtResource("1_c7syv")]

@@ -258,12 +258,12 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qahpv"]
 _data = {
-"RESET": SubResource("Animation_g01pc"),
-"die": SubResource("Animation_r8gwd"),
-"effect": SubResource("Animation_cmaog"),
-"idle": SubResource("Animation_bnpaw"),
-"throw": SubResource("Animation_w8nrn"),
-"walking": SubResource("Animation_vyb3b")
+&"RESET": SubResource("Animation_g01pc"),
+&"die": SubResource("Animation_r8gwd"),
+&"effect": SubResource("Animation_cmaog"),
+&"idle": SubResource("Animation_bnpaw"),
+&"throw": SubResource("Animation_w8nrn"),
+&"walking": SubResource("Animation_vyb3b")
 }
 
 [node name="healingDrone" instance=ExtResource("1_fcv86")]
