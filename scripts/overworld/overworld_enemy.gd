@@ -19,6 +19,9 @@ func _ready() -> void:
 	if GameState.is_overworld_enemy_defeated(global_id):
 		queue_free()
 	else:
+		process_mode = PROCESS_MODE_DISABLED
+		await get_tree().create_timer(0.3)#grace time of 300ms
+		process_mode = PROCESS_MODE_INHERIT
 		visible = true
 	if GameState.arrival_passage_name=="":
 		
