@@ -25,6 +25,7 @@ func go_to_level(path:String):
 	
 	var party:Array[BattleEntity] = []
 	for character_name in GameState.characters_save_info["party"]:
+		if character_name == "":continue
 		party.append(CharacterDatabase.get_entity_scene(character_name).instantiate())
 	if fade:
 		print(str(self)+": waiting for fade")

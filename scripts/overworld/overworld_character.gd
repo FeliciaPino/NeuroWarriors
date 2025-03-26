@@ -16,6 +16,8 @@ func _ready() -> void:
 		set_sprite_frames(inspector_spriteframes)
 	if following_target:
 		set_collision_layer_value(1, false)  
+func update_sprite_frames_from_character_name(character_name:String):
+	set_sprite_frames(load("res://assets/overworld/"+character_name+"_spriteframes.tres"))
 func set_sprite_frames(new_frames:SpriteFrames):
 	sprite.sprite_frames = new_frames
 func _physics_process(delta: float) -> void:

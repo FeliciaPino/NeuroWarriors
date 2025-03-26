@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://c4knnckwwejji"]
+[gd_scene load_steps=10 format=3 uid="uid://c4knnckwwejji"]
 
 [ext_resource type="Script" path="res://scenes/overworld/overworld_party.gd" id="1_47ymd"]
 [ext_resource type="Script" path="res://scripts/overworld/overworld.gd" id="1_eb5g4"]
+[ext_resource type="PackedScene" uid="uid://bbxpxysb4lgqt" path="res://scenes/ui/game_menu/game_menu.tscn" id="3_jq8hu"]
 [ext_resource type="AudioStream" uid="uid://ckiqmemr4mvcu" path="res://assets/audio/homemade/SFX/kchchchch.mp3" id="3_rdp7m"]
 
 [sub_resource type="Animation" id="Animation_nadat"]
@@ -130,6 +131,7 @@ script = ExtResource("1_eb5g4")
 [node name="Passages" type="Node2D" parent="."]
 
 [node name="Party" type="Node2D" parent="." node_paths=PackedStringArray("camera")]
+y_sort_enabled = true
 script = ExtResource("1_47ymd")
 camera = NodePath("Camera2D")
 
@@ -166,3 +168,5 @@ offset_top = 12.0
 offset_right = 276.0
 offset_bottom = 43.0
 text = "LEVEL_SELECT_RETURN_TO_MENU"
+
+[node name="GameMenu" parent="UI" instance=ExtResource("3_jq8hu")]

@@ -22,12 +22,12 @@ const DEFAULT_VALUES = {
 			"experience":0
 		},
 		"Vedal":{
-			"unlocked":false,
+			"unlocked":true,
 			"level":1,
 			"experience":0
 		},
 		"Evil":{
-			"unlocked":false,
+			"unlocked":true,
 			"level":1,
 			"experience":0
 		},
@@ -85,13 +85,15 @@ func remove_overworld_enemy_defeated(enemy_id:String):
 func unlock_character(character_name:String):
 	print(str(self,":unlocked ",character_name))
 	characters_save_info[character_name]["unlocked"] = true
-	
+func is_character_unlocked(character_name:String):
+	return characters_save_info[character_name]["unlocked"]
 func is_character_in_party(character_name):
 	return character_name in characters_save_info["party"]
 	
 func set_party(party:Array[String]):
 	characters_save_info["party"] = party
-	
+func get_party():
+	return characters_save_info["party"]
 func get_player_map_position():
 	return Vector2(overworld_info["player_position_x"],overworld_info["player_position_y"])
 	

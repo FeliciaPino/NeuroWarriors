@@ -54,6 +54,9 @@ collision_mask = 2
 position = Vector2(2, 6.5)
 shape = SubResource("RectangleShape2D_ej0jp")
 
+[node name="Party" parent="." index="2"]
+y_sort_enabled = false
+
 [node name="Camera2D" parent="Party" index="0"]
 position = Vector2(36, 5)
 limit_left = -300
@@ -89,3 +92,15 @@ level_path = "res://scenes/levels/forest/forest_1.tscn"
 id = "enemy2"
 target_spot = NodePath("../PathFollow2D")
 enemy_respawns = true
+
+[node name="UI" parent="." index="4"]
+visible = true
+
+[node name="ReturnButton" parent="UI" index="1"]
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 272.0
+offset_bottom = 31.0
+
+[node name="GameMenu" parent="UI" index="2"]
+visible = false

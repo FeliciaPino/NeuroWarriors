@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=4 uid="uid://bpbb157lbnats"]
+[gd_scene load_steps=92 format=4 uid="uid://bpbb157lbnats"]
 
 [ext_resource type="Script" path="res://scripts/overworld/overworld.gd" id="1_a6uxc"]
 [ext_resource type="Texture2D" uid="uid://o5sq0tkkglam" path="res://assets/overworld/tiles.png" id="1_t2akb"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://cac6j2bibn05c" path="res://assets/overworld/overworld_vedal.png" id="8_xgi21"]
 [ext_resource type="Texture2D" uid="uid://c52xkvbaurxua" path="res://assets/overworld/overworld_enemy.png" id="9_7a21x"]
 [ext_resource type="Texture2D" uid="uid://by2hpelwcg8l0" path="res://assets/overworld/swarm_controller.png" id="10_vae6y"]
+[ext_resource type="PackedScene" uid="uid://bbxpxysb4lgqt" path="res://scenes/ui/game_menu/game_menu.tscn" id="14_5sadv"]
 [ext_resource type="Script" path="res://scripts/overworld/passage.gd" id="14_duv1i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3fdp1"]
@@ -1744,6 +1745,8 @@ offset_top = 12.0
 offset_right = 276.0
 offset_bottom = 43.0
 text = "LEVEL_SELECT_RETURN_TO_MENU"
+
+[node name="GameMenu" parent="UI" instance=ExtResource("14_5sadv")]
 
 [node name="Passages" type="Node2D" parent="."]
 

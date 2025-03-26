@@ -1,9 +1,15 @@
 extends AudioStreamPlayer
 
 var current_music:AudioStream = null
+
+
 func _ready() -> void:
 	bus = "Music"
-	
+	process_mode = PROCESS_MODE_ALWAYS
+func muffle():
+	volume_db -= 10
+func un_muffle():
+	volume_db += 10
 func play_music(new_music:AudioStream, fade_time:float = 0.5):
 	if new_music == current_music:
 		return

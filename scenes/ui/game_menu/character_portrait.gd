@@ -14,12 +14,13 @@ var is_buttons_open:bool = false
 var _is_being_dragged:bool = false
 var _dragging_mouse_offset:Vector2 = Vector2(0,0)
 
-var in_party_node
-var not_in_party_node
-var party_menu_controller
+var in_party_node #set on creation
+var not_in_party_node #set on creation
+var party_menu_controller #set on creation
 
 func _ready() -> void:
 	print(str(self,": associated_character:",associated_character))
+	print(str(self,": party meny controler: ",party_menu_controller))
 	if associated_character != "":
 		var new_texture:AtlasTexture = AtlasTexture.new()
 		new_texture.atlas = load("res://assets/characters/"+associated_character+".png")
@@ -31,9 +32,6 @@ func _ready() -> void:
 	button_add_to_party.pressed.connect(_any_button_pressed)
 	button_remove_from_party.pressed.connect(_any_button_pressed)
 	button_move_right.pressed.connect(_any_button_pressed)
-	in_party_node = get_tree().current_scene.get_node_or_null("%InParty")
-	not_in_party_node = get_tree().current_scene.get_node_or_null("%NotInParty")
-	party_menu_controller = get_tree().current_scene.get_node_or_null("%Party")
 func _process(_delta: float) -> void:
 	#if someone else has focus close the buttons
 	var focus_owner = get_viewport().gui_get_focus_owner()
@@ -77,7 +75,7 @@ func _open_buttons():
 	$buttons_up.play()
 	buttons_container.visible = true
 	buttons_container.position = Vector2(10,140)
-	var tween = get_tree().create_tween()
+	var tween = create_tween()
 	tween.tween_property(buttons_container,"position",Vector2(10,170),0.05)
 	if in_party:
 		button_remove_from_party.grab_focus()
@@ -86,6 +84,9 @@ func _open_buttons():
 func _close_buttons():
 	if not is_buttons_open: return
 	is_buttons_open = false
+	var tween = create_tween()
+	tween.tween_property(buttons_container,"position",Vector2(10,140),0.05)
+	await tween.finished
 	buttons_container.visible = false
 	
 func _start_being_dragged(mouse_offset):
@@ -99,7 +100,7 @@ func _end_being_dragged(at_position_global:Vector2):
 	panel.modulate = Color.WHITE
 	_is_being_dragged = false
 	panel.z_index += 3
-	var tween:Tween = get_tree().create_tween()
+	var tween:Tween = create_tween()
 	tween.tween_property(panel,"position",Vector2(-5,-5),0.15).set_ease(Tween.EASE_IN)
 	await tween.finished
 	panel.z_index -= 3
@@ -125,7 +126,7 @@ func swap(character_portrait_1:CharacterPortrait,character_portrait_2:CharacterP
 	var panel_2:PanelContainer = character_portrait_2.panel
 	panel_1.z_index += 3
 	panel_2.z_index += 3
-	var tween = get_tree().create_tween()
+	var tween = create_tween()
 	tween.set_parallel()
 	tween.tween_property(panel_1,"global_position",pos_2-Vector2(5,5),0.15)
 	tween.tween_property(panel_2,"global_position",pos_1-Vector2(5,5),0.15)
@@ -214,3 +215,8 @@ func _on_add_pressed():
 	_close_buttons()
 	empty_spot_or_last.grab_focus()
 	party_menu_controller.currently_selected_character = self
+
+func _unhandled_input(event):
+	if event.is_action_pressed("ui_cancel") and is_buttons_open:
+		_close_buttons()
+		grab_focus()
