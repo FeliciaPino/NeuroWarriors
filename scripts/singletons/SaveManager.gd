@@ -17,8 +17,8 @@ func save_dict(dict:Dictionary, file_path:String)->void:
 	file.store_string(JSON.stringify(dict))
 	
 func save_game(save_slot_index:int):
-	print(str(self)+": saving")
 	var directory_path = str("user://saves/slot",save_slot_index)
+	print(str(self)+": saving to ", ProjectSettings.globalize_path(directory_path))
 	ensure_directory(directory_path)
 	
 	save_dict(GameState.completed_levels,directory_path+"/levels.json")

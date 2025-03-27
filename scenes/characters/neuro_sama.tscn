@@ -574,7 +574,7 @@ autoplay = "default"
 
 [node name="Flipper" parent="visual" index="1"]
 libraries = {
-"": SubResource("AnimationLibrary_bqi5e")
+&"": SubResource("AnimationLibrary_bqi5e")
 }
 
 [node name="RobotPunch" parent="Actions" index="0" instance=ExtResource("3_pp2ar")]
@@ -601,7 +601,7 @@ bus = &"SFX"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="8"]
 libraries = {
-"": SubResource("AnimationLibrary_8v7bq")
+&"": SubResource("AnimationLibrary_8v7bq")
 }
 next/attack = &"idle"
 next/effect = &"idle"

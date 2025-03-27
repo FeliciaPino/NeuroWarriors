@@ -41,14 +41,18 @@ func update_characters():
 		if i>0:
 			char.following_target = updated_characters[i-1]
 	print(str(self, ": old character count: ",characters.size()," party count: ",party.size()))
+	camera.reparent(self)
+	var old_camera_global_position = camera.global_position
 	for i in range(updated_characters.size(),characters.size()):
 		characters[i].queue_free()
 	if updated_characters.size()>0:
 		updated_characters[0].add_to_group("player")
 		camera.reparent(updated_characters[0])
 		camera.position = Vector2()
-		camera.position_smoothing_enabled = false
-		await get_tree().process_frame
-		camera.position_smoothing_enabled = true
+	else:
+		camera.global_position = old_camera_global_position
+	camera.position_smoothing_enabled = false
+	await get_tree().process_frame
+	camera.position_smoothing_enabled = true
 	for i in range(1,updated_characters.size()):
 		updated_characters[i].remove_from_group("player")

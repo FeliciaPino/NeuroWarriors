@@ -1,5 +1,8 @@
 extends Node2D
 class_name GameManager
+
+@export var xp_reward:int = 0 #the amount of xp to be split among the party when winning
+
 @onready var entity_manager:EntityManager = $Entity_manager
 @onready var selection_circle = $SelectionCircle #get rid of this
 @onready var instruction_label = %InstructionLabel

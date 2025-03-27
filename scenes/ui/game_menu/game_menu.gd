@@ -27,6 +27,10 @@ func close_menu():
 	if menu_opened:
 		MusicPlayer.un_muffle()
 		menu_has_just_closed.emit()
+	
+	#keep processing for a little while, to finish animations and whatnot
+	process_mode = PROCESS_MODE_ALWAYS
+	get_tree().create_timer(0.25).timeout.connect(func():process_mode = PROCESS_MODE_WHEN_PAUSED)
 	get_tree().paused = false
 	visible = false
 	menu_opened = false
@@ -36,6 +40,6 @@ func make_tab_grab_focus():
 
 func _unhandled_input(event):
 	if event is InputEventKey:
-		if event.pressed and event.keycode == KEY_E:
+		if event.pressed and event.keycode == KEY_E or event.is_action_pressed("ui_cancel"):
 			print(str(self,"toggling"))
 			toggle()

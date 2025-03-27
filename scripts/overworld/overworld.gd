@@ -8,7 +8,6 @@ class_name  Room
 @onready var game_menu := $UI/GameMenu
 
 func _ready() -> void:
-	
 	print(str(self,": arrival_passage_name: ",GameState.arrival_passage_name))
 	ui.visible = true
 	MusicPlayer.play_music(load("res://addons/Pixel_boy/theme-3.ogg"))

@@ -20,6 +20,7 @@ signal defense_changed
 signal attack_changed
 @export var attack:int = 10 
 #how many ap is earned at the start of each turn
+#TODO: refactor name, it's supposed to be calld ap_regen, not speed. speed doesn't make sense
 signal speed_changed
 @export var speed:int = 1 
 
