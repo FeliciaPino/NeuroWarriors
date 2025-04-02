@@ -18,15 +18,15 @@ const DEFAULT_VALUES = {
 		"party":["Neuro-sama","Vedal"],
 		"Neuro-sama":{
 			"unlocked":true,
-			"level":0,
-			"experience":0,
+			"level":33,
+			"experience":10940,
 			"equiped_abilities":["Robot Punch"],
 			"unlocked_abilities":["Robot Punch","Heart"]
 		},
 		"Vedal":{
 			"unlocked":true,
 			"level":0,
-			"experience":0,
+			"experience":80,
 			"equiped_abilities":[],
 			"unlocked_abilities":[]
 		},

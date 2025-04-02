@@ -22,4 +22,5 @@ func _on_area_body_entered(body:Node2D):
 	print(str(self,"collided with something"))
 	if body.is_in_group("player"):
 		print(str(self,": collided with player"))
+		GameState.overworld_info["current_room_path"] = scene_path
 		room.fade_to_room(scene, arriving_passage_name)

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxmftxbyye7e7"
-path="res://.godot/imported/overworld_neuro.png-38a1e465ba11f8f97047c3d994744ff1.ctex"
+uid="uid://cwbw7y4v8pe51"
+path="res://.godot/imported/overworld_Evil.png-8c18003120a1fcf80fef7ed38a400437.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/overworld/overworld_neuro.png"
-dest_files=["res://.godot/imported/overworld_neuro.png-38a1e465ba11f8f97047c3d994744ff1.ctex"]
+source_file="res://assets/overworld/overworld_Evil.png"
+dest_files=["res://.godot/imported/overworld_Evil.png-8c18003120a1fcf80fef7ed38a400437.ctex"]
 
 [params]
 

@@ -27,14 +27,15 @@ func apply_level(battle_entity:BattleEntity,level:int)->void:
 func level_up_if_needed(character_name:String)->bool:
 	var current_level = GameState.characters_save_info[character_name]["level"]
 	var current_xp = GameState.characters_save_info[character_name]["experience"]
-	var xp_cost_to_level_up = 10*current_level*current_level+100
+	var xp_cost_to_level_up = xp_needed_to_level_up(current_level)
 	if current_xp >= xp_cost_to_level_up:
-		GameState.characters_save_info[character_name]["level"] = current_level + 1
-		GameState.characters_save_info[character_name]["experience"] = current_xp-xp_cost_to_level_up
+		GameState.characters_save_info[character_name]["level"] = int(current_level + 1)
+		GameState.characters_save_info[character_name]["experience"] = int(current_xp-xp_cost_to_level_up)
 		return true
 	return false
-
+func xp_needed_to_level_up(current_level:int)->int:
+	return 10*current_level*current_level+100
 #gives the character the amount of experience and checks for level up
-func gain_xp(character_name:String, xp_amount:int)->void:
+func gain_xp(character_name:String, xp_amount:int)->bool:
 	GameState.characters_save_info[character_name]["experience"] += xp_amount
-	level_up_if_needed(character_name)
+	return level_up_if_needed(character_name)

@@ -7,3 +7,9 @@
 
 [node name="monocopter" parent="Entity_manager" index="0" instance=ExtResource("2_pmsf0")]
 position = Vector2(1406, 414)
+
+[node name="EndScreen" parent="." index="5"]
+offset_left = 448.0
+offset_top = 14.0
+offset_right = 488.0
+offset_bottom = 54.0

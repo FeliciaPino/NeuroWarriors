@@ -8,9 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://cjs37nc0sh54n" path="res://assets/overworld/Assembly_station.png" id="3_tj4ld"]
 [ext_resource type="Script" uid="uid://pjiq0iue7f4y" path="res://scripts/overworld/path_follow_2d.gd" id="5_avstv"]
 [ext_resource type="PackedScene" uid="uid://d1542r6f3ougb" path="res://scenes/overworld/story_battle_trigger.tscn" id="6_ph1n3"]
-[ext_resource type="Texture2D" uid="uid://c782q0dp1s8f1" path="res://assets/overworld/overworld_anny.png" id="8_8e6a6"]
+[ext_resource type="Texture2D" uid="uid://c782q0dp1s8f1" path="res://assets/overworld/overworld_Anny.png" id="8_8e6a6"]
 [ext_resource type="AudioStream" uid="uid://ckiqmemr4mvcu" path="res://assets/audio/homemade/SFX/kchchchch.mp3" id="8_8k8fn"]
-[ext_resource type="Texture2D" uid="uid://cac6j2bibn05c" path="res://assets/overworld/overworld_vedal.png" id="8_xgi21"]
+[ext_resource type="Texture2D" uid="uid://cac6j2bibn05c" path="res://assets/overworld/overworld_Vedal.png" id="8_xgi21"]
 [ext_resource type="Texture2D" uid="uid://c52xkvbaurxua" path="res://assets/overworld/overworld_enemy.png" id="9_7a21x"]
 [ext_resource type="Texture2D" uid="uid://by2hpelwcg8l0" path="res://assets/overworld/swarm_controller.png" id="10_vae6y"]
 [ext_resource type="PackedScene" uid="uid://bbxpxysb4lgqt" path="res://scenes/ui/game_menu/game_menu.tscn" id="14_5sadv"]
@@ -954,7 +954,7 @@ texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_je2h4")
 
 [node name="Area2D" type="Area2D" parent="StoryBattleTriggers/VedalUnlock"]
-collision_layer = 2
+collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StoryBattleTriggers/VedalUnlock/Area2D"]
@@ -968,8 +968,8 @@ level_path = "res://scenes/levels/unlock_evil/unlock_evil.tscn"
 collider = NodePath("Area2D")
 
 [node name="Area2D" type="Area2D" parent="StoryBattleTriggers/EvilUnlock"]
-collision_layer = 2
-collision_mask = 7
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StoryBattleTriggers/EvilUnlock/Area2D"]
 position = Vector2(-38, -2.5)

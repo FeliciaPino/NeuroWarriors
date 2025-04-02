@@ -195,8 +195,6 @@ func finish(win_status:bool):
 	print("finished "+str(win_status))
 	is_game_over = true
 	if win_status:
-		for p in party:
-			CharacterDatabase.gain_xp(p.entity_name,xp_reward/party.size())
 		GameState.mark_level_complete(GameState.current_level)
 		GameState.mark_overworld_enemy_defeated(GameState.current_enemy_battle)
 		if GameState.current_level == GameState.last_level:

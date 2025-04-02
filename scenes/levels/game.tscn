@@ -176,11 +176,13 @@ offset_right = 702.0
 offset_bottom = 28.0
 text = "BATTLE_YOUR_TURN"
 
-[node name="EndScreen" parent="." instance=ExtResource("9_s08fr")]
-offset_left = 448.0
-offset_top = 14.0
-offset_right = 488.0
-offset_bottom = 54.0
+[node name="EndScreen" parent="." node_paths=PackedStringArray("game_manager") instance=ExtResource("9_s08fr")]
+visible = false
+offset_left = 596.0
+offset_top = 90.0
+offset_right = 636.0
+offset_bottom = 130.0
+game_manager = NodePath("..")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

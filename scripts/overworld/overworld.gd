@@ -18,6 +18,7 @@ func _ready() -> void:
 			GameState.set_player_map_position(p.global_position)
 	party_node.update_characters()
 	game_menu.menu_has_just_closed.connect(party_node.update_characters)
+	
 const main_menu_scene = preload("res://scenes/main_menu.tscn")
 @onready var fade = %FadeAnimationPlayer
 func return_to_menu():
@@ -30,9 +31,7 @@ func fade_to_room(new_room:PackedScene, arrival_passage_name:String):
 	GameState.set_player_map_position(Vector2())
 	GameState.arrival_passage_name = arrival_passage_name
 	GameState.current_room_scene = new_room
-	GameState.overworld_info["current_room_path"]
 	get_tree().change_scene_to_packed(new_room)
-	print(str(self,": toggled, now it's visibiliy is: ",game_menu.visible))
 func _unhandled_input(event):
 	if event is InputEventKey:
 		if event.pressed and event.keycode == KEY_E and not game_menu.menu_opened:
