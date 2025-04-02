@@ -136,7 +136,7 @@ texture = ExtResource("4_i6faa")
 
 [node name="Flipper" type="AnimationPlayer" parent="visual"]
 libraries = {
-"": SubResource("AnimationLibrary_meimr")
+&"": SubResource("AnimationLibrary_meimr")
 }
 
 [node name="Actions" type="Node2D" parent="."]
@@ -274,6 +274,12 @@ stream = ExtResource("10_5ppgc")
 volume_db = -10.0
 pitch_scale = 2.0
 bus = &"SFX"
+
+[node name="level label" type="Label" parent="."]
+offset_left = -18.0
+offset_top = -151.0
+offset_right = 22.0
+offset_bottom = -128.0
 
 [connection signal="health_changed" from="." to="HealthBar" method="_on_battle_entity_health_changed"]
 [connection signal="received_damage" from="." to="HealthBar" method="_on_battle_entity_received_damage"]

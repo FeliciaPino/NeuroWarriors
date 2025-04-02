@@ -554,7 +554,7 @@ bus = &"SFX"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="8"]
 libraries = {
-"": SubResource("AnimationLibrary_8v7bq")
+&"": SubResource("AnimationLibrary_8v7bq")
 }
 next/attack = &"idle"
 next/effect = &"idle"

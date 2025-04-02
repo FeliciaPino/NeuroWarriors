@@ -92,7 +92,10 @@ func _ready() -> void:
 	
 	update_menu_actions()
 	update_info_panel()
-
+	
+	#debug
+	if entity_name in CharacterDatabase.ALL_CHARACTERS:
+		$"level label".text = str("LEvel:",GameState.characters_save_info[entity_name]["level"],"  xp:",GameState.characters_save_info[entity_name]["experience"])
 func face_left():
 	is_facing_right = false
 	flipper.play("face_left")

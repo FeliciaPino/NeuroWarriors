@@ -18,35 +18,35 @@ const DEFAULT_VALUES = {
 		"party":["Neuro-sama","Vedal"],
 		"Neuro-sama":{
 			"unlocked":true,
-			"level":1,
+			"level":0,
 			"experience":0,
 			"equiped_abilities":["Robot Punch"],
 			"unlocked_abilities":["Robot Punch","Heart"]
 		},
 		"Vedal":{
 			"unlocked":true,
-			"level":1,
+			"level":0,
 			"experience":0,
 			"equiped_abilities":[],
 			"unlocked_abilities":[]
 		},
 		"Evil":{
 			"unlocked":true,
-			"level":1,
+			"level":0,
 			"experience":0,
 			"equiped_abilities":[],
 			"unlocked_abilities":[]
 		},
 		"Anny":{
 			"unlocked":true,
-			"level":1,
+			"level":0,
 			"experience":0,
 			"equiped_abilities":[],
 			"unlocked_abilities":[]
 		}
 	},
 	"overworld_info":{
-		"player_position_x":450,
+		"player_position_x":0,
 		"player_position_y":64,
 		"defeated_enemies":{},
 		"current_room_path":"res://scenes/overworld/overworld.tscn"
