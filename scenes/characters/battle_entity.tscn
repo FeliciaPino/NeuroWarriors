@@ -127,7 +127,6 @@ animations = [{
 [node name="BattleEntity" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_m46ik")
-defense = 0
 
 [node name="SelectionCircle" type="Sprite2D" parent="."]
 texture = ExtResource("4_i6faa")

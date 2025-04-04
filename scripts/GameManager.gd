@@ -1,7 +1,7 @@
 extends Node2D
 class_name GameManager
 
-@export var xp_reward:int = 0 #the amount of xp to be split among the party when winning
+@export var xp_reward = 0 #the amount of xp to be split among the party when winning
 
 @onready var entity_manager:EntityManager = $Entity_manager
 @onready var selection_circle = $SelectionCircle #get rid of this
@@ -48,15 +48,18 @@ func _ready() -> void:
 	update_battle_entities()
 	for party_member in party:
 		party_member.is_player_controlled = true
+	for enemy in foes:
+		xp_reward += enemy.challenge_rating * 10
+	
 	selection_circle.visible = false
 	
 	end_turn_buttton.pressed.connect(end_turn)
-	
 	return_to_map_button.pressed.connect(return_to_menu)
 		
 	is_player_turn = true
 	is_game_over = false
 	turn_count = 0
+	
 	start_turn()
 func return_to_menu():
 	get_tree().change_scene_to_packed(load("res://scenes/main_menu.tscn"))

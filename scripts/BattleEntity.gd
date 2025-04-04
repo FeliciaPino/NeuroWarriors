@@ -1,6 +1,7 @@
 extends Node2D
 
 class_name BattleEntity
+@export var challenge_rating:float #How hard an enemy is. (used to calculate xp reward), picked by hand, pretty vibe-based methinks
 #stats. they are set in the inspector, so these default values shouldn't ever do anything
 signal health_changed
 @export var health:int = 100:
@@ -12,7 +13,7 @@ signal maxHealth_changed
 @export var entity_name:String = "default name"
 @export var entity_description:String = "default description"
 signal defense_changed
-@export var defense:int = 2:
+@export var defense:int = 0:
 	set(new_value):
 		defense = new_value
 		defense_changed.emit()

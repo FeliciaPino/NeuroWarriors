@@ -77,8 +77,6 @@ func mark_level_complete(level_name: String):
 		unlock_character("Evil")
 	if level_name == "Anny unlock":
 		unlock_character("Anny")
-	SaveManager.save_game(current_save_slot_index)
-	
 func is_level_completed(level_name: String) -> bool:
 	return completed_levels.get(level_name, false)
 	

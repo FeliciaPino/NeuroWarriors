@@ -21,6 +21,7 @@ func set_win_status(value:bool):
 			new_xp_indicator.associated_character = p.entity_name
 			new_xp_indicator.xp_added = xp_per_character
 			xp_indicators.add_child(new_xp_indicator)
+		SaveManager.save_game(GameState.current_save_slot_index)
 	else:#lost
 		MusicPlayer.play_music(load("res://addons/sfx/Retro Negative Long 12.wav"),0)
 		lose_screen.visible = true

@@ -419,7 +419,7 @@ autoplay = "default"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="8"]
 libraries = {
-"": SubResource("AnimationLibrary_eh5c5")
+&"": SubResource("AnimationLibrary_eh5c5")
 }
 next/attack = &"idle"
 next/throw = &"idle"

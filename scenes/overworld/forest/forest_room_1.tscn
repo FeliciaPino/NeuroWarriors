@@ -73,6 +73,7 @@ speed = 50.0
 level_path = "res://scenes/levels/forest/forest_1.tscn"
 id = "enemy1"
 target_spot = NodePath("../PathFollow2D")
+enemy_respawns = true
 
 [node name="Path2D2" type="Path2D" parent="Enemies" index="1"]
 position = Vector2(-115, -3)

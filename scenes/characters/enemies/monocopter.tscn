@@ -429,6 +429,7 @@ _data = {
 }
 
 [node name="monocopter" instance=ExtResource("1_hi2w3")]
+challenge_rating = 0.4
 health = 30
 maxHealth = 30
 entity_name = "Monocopter"
@@ -456,7 +457,7 @@ offset = Vector2(0, -26.435)
 
 [node name="Flipper" parent="visual" index="1"]
 libraries = {
-"": SubResource("AnimationLibrary_bi0e0")
+&"": SubResource("AnimationLibrary_bi0e0")
 }
 
 [node name="laserShot" parent="Actions" index="0" instance=ExtResource("3_i3cgb")]
@@ -465,6 +466,6 @@ libraries = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="8"]
 libraries = {
-"": SubResource("AnimationLibrary_b731o")
+&"": SubResource("AnimationLibrary_b731o")
 }
 autoplay = "idle"

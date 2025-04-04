@@ -16,6 +16,9 @@ func _ready() -> void:
 	for p in passages_node.get_children():
 		if p.name == GameState.arrival_passage_name:
 			GameState.set_player_map_position(p.global_position)
+			SaveManager.save_game(GameState.current_save_slot_index)
+			break
+
 	party_node.update_characters()
 	game_menu.menu_has_just_closed.connect(party_node.update_characters)
 	

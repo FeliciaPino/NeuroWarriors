@@ -267,6 +267,7 @@ _data = {
 }
 
 [node name="healingDrone" instance=ExtResource("1_fcv86")]
+challenge_rating = 1.0
 entity_name = "Healing Drone"
 entity_description = "It's the healing drone. It uh, it heals. n stuff"
 defense = 3
@@ -285,5 +286,5 @@ autoplay = "default"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="8"]
 libraries = {
-"": SubResource("AnimationLibrary_qahpv")
+&"": SubResource("AnimationLibrary_qahpv")
 }

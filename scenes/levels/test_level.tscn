@@ -16,21 +16,21 @@ texture = ExtResource("2_tkf6i")
 
 [node name="NeuroSama" parent="Entity_manager" index="0" instance=ExtResource("5_gqr5d")]
 position = Vector2(-182, 378)
-health = 1
 speed = 30
+health = 1
 
 [node name="Drone2" parent="Entity_manager" index="1" instance=ExtResource("4_0l3y4")]
 position = Vector2(1374, 322)
-health = 600
 maxHealth = 300
+health = 600
 
 [node name="Drone" parent="Entity_manager" index="2" instance=ExtResource("4_0l3y4")]
 position = Vector2(1383, 478)
 
 [node name="Drone3" parent="Entity_manager" index="3" instance=ExtResource("4_0l3y4")]
 position = Vector2(1374, 322)
-health = 1000
 maxHealth = 501
+health = 1000
 
 [node name="Evil" parent="Entity_manager" index="4" instance=ExtResource("5_oeaud")]
 speed = 42343

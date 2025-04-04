@@ -1,6 +1,6 @@
 extends HBoxContainer
 
-@export var xp_added = 0 #set from outside
+@export var xp_added:int = 0 #set from outside
 var leveled_up:bool = false #set from outside
 @export var associated_character:String = "" #set from outside
 @onready var xp_added_label = $Panel/Label
