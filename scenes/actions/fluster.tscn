@@ -65,5 +65,5 @@ stream = ExtResource("4_xix12")
 
 [node name="AnimationPlayer" parent="." index="2"]
 libraries = {
-"": SubResource("AnimationLibrary_btcke")
+&"": SubResource("AnimationLibrary_btcke")
 }

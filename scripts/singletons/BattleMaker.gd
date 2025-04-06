@@ -37,6 +37,7 @@ func go_to_level(path:String):
 		print("awainting process secen in battlemaker")
 		await get_tree().process_frame
 	var game:GameManager = get_tree().current_scene
+	print(str(self,": loading characters in party: ",party))
 	for member in party:
 		game.entity_manager.spawn_entity(member)
 const battle_scene = preload("res://scenes/levels/game.tscn")

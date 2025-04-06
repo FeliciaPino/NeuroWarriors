@@ -1175,22 +1175,6 @@ level_path = "res://scenes/levels/forest/forest_4.tscn"
 id = "enemy8"
 target_spot = NodePath("../PathFollow2D")
 
-[node name="Path2D9" type="Path2D" parent="Enemies"]
-position = Vector2(1164, -289)
-curve = SubResource("Curve2D_fn5cp")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Enemies/Path2D9"]
-position = Vector2(27, 5)
-rotation = -3.10734
-script = ExtResource("5_avstv")
-speed = 60.0
-
-[node name="Enemy" parent="Enemies/Path2D9" node_paths=PackedStringArray("target_spot") instance=ExtResource("3_t5cvq")]
-position = Vector2(-32, -6)
-level_path = "res://scenes/levels/forest/forest_5.tscn"
-id = "enemy9"
-target_spot = NodePath("../PathFollow2D")
-
 [node name="Path2D12" type="Path2D" parent="Enemies"]
 position = Vector2(1164, -289)
 curve = SubResource("Curve2D_fn5cp")

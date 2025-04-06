@@ -12,7 +12,7 @@ func _ready():
 		_set_portrait_initial_values(portrait)
 		in_party_node.add_child(portrait)
 		portrait.set_associated_character(character)
-	while in_party_node.get_child_count()<3:
+	while in_party_node.get_child_count()<CharacterDatabase.MAX_PARTY_SIZE:
 		var portrait:CharacterPortrait = character_portrait_scene.instantiate()
 		_set_portrait_initial_values(portrait)
 		in_party_node.add_child(portrait)

@@ -105,5 +105,5 @@ bus = &"SFX"
 
 [node name="AnimationPlayer" parent="." index="3"]
 libraries = {
-"": SubResource("AnimationLibrary_bawqv")
+&"": SubResource("AnimationLibrary_bawqv")
 }

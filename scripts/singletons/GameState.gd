@@ -15,30 +15,30 @@ const DEFAULT_VALUES = {
 		"watched_credits" : false
 	},
 	"characters_save_info":{
-		"party":["Neuro-sama","Vedal"],
+		"party":["Neuro-sama"],
 		"Neuro-sama":{
 			"unlocked":true,
-			"level":33,
-			"experience":10940,
+			"level":0,
+			"experience":0,
 			"equiped_abilities":["Robot Punch"],
 			"unlocked_abilities":["Robot Punch","Heart"]
 		},
 		"Vedal":{
-			"unlocked":true,
+			"unlocked":false,
 			"level":0,
-			"experience":80,
+			"experience":0,
 			"equiped_abilities":[],
 			"unlocked_abilities":[]
 		},
 		"Evil":{
-			"unlocked":true,
+			"unlocked":false,
 			"level":0,
 			"experience":0,
 			"equiped_abilities":[],
 			"unlocked_abilities":[]
 		},
 		"Anny":{
-			"unlocked":true,
+			"unlocked":false,
 			"level":0,
 			"experience":0,
 			"equiped_abilities":[],
@@ -47,7 +47,7 @@ const DEFAULT_VALUES = {
 	},
 	"overworld_info":{
 		"player_position_x":0,
-		"player_position_y":64,
+		"player_position_y":-64,
 		"defeated_enemies":{},
 		"current_room_path":"res://scenes/overworld/overworld.tscn"
 	}
@@ -91,6 +91,9 @@ func remove_overworld_enemy_defeated(enemy_id:String):
 func unlock_character(character_name:String):
 	print(str(self,":unlocked ",character_name))
 	characters_save_info[character_name]["unlocked"] = true
+	if characters_save_info["party"].size() < CharacterDatabase.MAX_PARTY_SIZE:
+		characters_save_info["party"].append(character_name)
+	
 func is_character_unlocked(character_name:String):
 	return characters_save_info[character_name]["unlocked"]
 func is_character_in_party(character_name):

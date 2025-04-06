@@ -37,3 +37,4 @@ func _on_encounter_collider_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		call_deferred("encounter")
 		call_deferred("disable")
+		print(str(self,": player collided with enemy:",global_id))

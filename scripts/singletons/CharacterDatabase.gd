@@ -12,6 +12,7 @@ const ALL_CHARACTERS = [
 	"Evil",
 	"Anny"
 ]
+const MAX_PARTY_SIZE = 3
 
 func get_entity_scene(name:String) -> PackedScene:
 	print(str(self,": loading ",name))
