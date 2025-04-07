@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmaxfmfr4tb2k"]
+
+[ext_resource type="PackedScene" uid="uid://egb0qrfm4whr" path="res://scenes/ui/skill_tree/skill_tree_node.tscn" id="1_hxcju"]
+
+[node name="SkillTree" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SkillTreeNode" parent="." instance=ExtResource("1_hxcju")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_right = 0.0
+offset_left = 316.0
+offset_top = 153.0
+offset_right = 512.0
+offset_bottom = 226.0
+
+[node name="SkillTreeNode2" parent="." instance=ExtResource("1_hxcju")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_right = 0.0
+offset_left = 901.0
+offset_top = 327.0
+offset_right = 1097.0
+offset_bottom = 400.0
+text = "epic cool upgrade 2
+"

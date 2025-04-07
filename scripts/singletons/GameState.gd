@@ -20,8 +20,9 @@ const DEFAULT_VALUES = {
 			"unlocked":true,
 			"level":0,
 			"experience":0,
-			"equiped_abilities":["Robot Punch"],
-			"unlocked_abilities":["Robot Punch","Heart"]
+			"equiped_abilities":["robot_punch"],
+			"unlocked_abilities":["robot_punch","heart"],
+			"active_upgrades":[]
 		},
 		"Vedal":{
 			"unlocked":false,
@@ -46,6 +47,7 @@ const DEFAULT_VALUES = {
 		}
 	},
 	"overworld_info":{
+		"tungesten":0,
 		"player_position_x":0,
 		"player_position_y":-64,
 		"defeated_enemies":{},

@@ -14,9 +14,15 @@ const ALL_CHARACTERS = [
 ]
 const MAX_PARTY_SIZE = 3
 
+
 func get_entity_scene(name:String) -> PackedScene:
 	print(str(self,": loading ",name))
 	return load(CHARACTER_SCENE_PATHS[name])
+	
+func get_upgrade(upgrade_name:String) -> Upgrade:
+	#TODO
+	return null
+	
 	
 #called when instantiating a character, to modify their stats according to their level
 func apply_level(battle_entity:BattleEntity,level:int)->void:
@@ -40,3 +46,5 @@ func xp_needed_to_level_up(current_level:int)->int:
 func gain_xp(character_name:String, xp_amount:int)->bool:
 	GameState.characters_save_info[character_name]["experience"] += xp_amount
 	return level_up_if_needed(character_name)
+	
+	
