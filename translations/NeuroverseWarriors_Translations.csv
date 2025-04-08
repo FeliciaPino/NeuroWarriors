@@ -35,7 +35,7 @@ TUTORIAL_3,"To use an ability, after having selected it from the character's men
 También puedes terminar tu turno antes y ahorrar tus AP. No hay límite para la cantidad de AP que puedes almacenar."
 TUTORIAL_4,"You can also click on enemies to open their menu. While you can't control them, you can read their stats and abilities to plan ahead. Click on this enemy drone to continue.","También puedes hacer clic en los enemigos para abrir su menú. Aunque no puedes controlarlos, puedes leer sus estadísticas y habilidades para planificar tu estrategia.
 Haz clic en este enemigo para terminar continuar."
-TUTORIAL_5,Status effects are visible right bellow the health bar. The have an icon along with the amount of turns remaining. You can hover over them to see their description. \n Try using Shock to see by yourself.,Los efectos de estado son visibles justo debajo de la barra de salud. Tienen un icono junto con la cantidad de turnos restantes. Puedes pasar el cursor sobre ellos para ver su descripción. \n Trata de usar Electroshock para verlo por tu cuenta.
+TUTORIAL_5,Status effects are visible right bellow the health bar. They have an icon along with the amount of turns remaining. You can hover over them to see their description. \n Try using Shock to see by yourself.,Los efectos de estado son visibles justo debajo de la barra de salud. Tienen un icono junto con la cantidad de turnos restantes. Puedes pasar el cursor sobre ellos para ver su descripción. \n Trata de usar Electroshock para verlo por tu cuenta.
 BATTLE_TARGET_SELECT_HINT,Select who to {verb}.,Selecciona a quién {verb}.
 BATTLE_NEXT_TURN_BUTTON,End turn,Terminar turno
 BATTLE_YOUR_TURN,Your turn,Tu turno
@@ -48,6 +48,7 @@ BATTLESTAT_HEALTH,Health,Vida
 BATTLESTAT_ATTACK,Attack,Ataque
 BATTLESTAT_DEFENSE,Defense,Defensa
 BATTLESTAT_AP_REGEN,AP Regen.,Regeneración de AP
+BATTLESTAT_LEVEL,LV,
 BATTLE_ACTION_FORCE_FIELD_NAME,Force Field,Campo de Fuerza
 BATTLE_ACTION_FORCE_FIELD_DESCRIPTION,Summon a shield that increases defense for the next {turn_amount} turns.,Crea un escudo que aumenta la defensa por {turn_amount} turnos.
 BATTLE_ACTION_FORCE_FIELD_VERB,defend,defender
@@ -130,6 +131,14 @@ STATUS_EFFECT_SONIC_WEAKNESS_NAME,Sonic Weakness,Debilidad sónica
 STATUS_EFFECT_SONIC_WEAKNESS_DESCRIPTION,Reduces defense by {amount}.,Reduce la defensa en {amount}.
 STATUS_EFFECT_OVERCLOCKED_NAME,Overclocked,Overclockeado
 STATUS_EFFECT_OVERCLOCKED_DESCRIPTION,"Increases {stat} by {amount}, but takes {amount2} damage per turn.","Aumenta {stat} en {amount}, pero recibe {amount2} daño por turno."
+TUNGESTEN,tungesten,tungesteno
+COST,cost,costo
+SKILL_TREE_UPGRADE_REINFORCED_PLATING_NAME,Reinforced Plating,Revestimiento Reforzado
+SKILL_TREE_UPGRADE_REINFORCED_PLATING_DESCRIPTION,Increases defense by {amount} points.,Aumenta la defensa en {amount} puntos.
+SKILL_TREE_UPGRADE_VITALITY_NAME,Vitality,Vitalidad
+SKILL_TREE_UPGRADE_VITALITY_DESCRIPTION,Increases max health by {amount} points.,Aumenta la vida maxima en {amount} puntos.
+SKILL_TREE_UPGRADE_UNLOCK_SHOCK_NAME,Shock,Electroshock
+SKILL_TREE_UPGRADE_UNLOCK_SHOCK_DESCRIPTION,Unlocks the Shock ability. It deals a good amount a damage and paralyzes enemies,"Desbloquea la abilidad Electroshock, hace daño y paraliza enemigos"
 CREDITS_LINE_1,Congratulations! You have finished the game.,Felicitaciones! Haz completado el juego.¡Felicitaciones! Has completado el juego.
 CREDITS_LINE_2,Credits:,Créditos:
 CREDITS_LINE_3,"Made by CopperQueen29, with love and passion. \n Heart <3","Hecho por CopperQueen29, con amor y pasión. \n <3."

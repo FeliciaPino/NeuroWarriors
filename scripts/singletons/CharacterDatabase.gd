@@ -1,5 +1,5 @@
 extends Node
-
+signal character_leveled_up(character_name)
 const CHARACTER_SCENE_PATHS = {
 	"Neuro-sama":"res://scenes/characters/neuro_sama.tscn",
 	"Vedal":"res://scenes/characters/vedal.tscn",
@@ -14,14 +14,19 @@ const ALL_CHARACTERS = [
 ]
 const MAX_PARTY_SIZE = 3
 
-
+const UPGRADE_PATHS = {
+	"reinforced_plating":"res://scripts/upgrades/reinforced_plating.gd",
+	"vitality":"res://scripts/upgrades/vitality.gd",
+	"unlock_shock":"res://scripts/upgrades/unlock_shock.gd"
+}
 func get_entity_scene(name:String) -> PackedScene:
 	print(str(self,": loading ",name))
 	return load(CHARACTER_SCENE_PATHS[name])
 	
 func get_upgrade(upgrade_name:String) -> Upgrade:
-	#TODO
-	return null
+	var path = UPGRADE_PATHS.get(upgrade_name,"")
+	if path=="": return null
+	return load(path).new()
 	
 	
 #called when instantiating a character, to modify their stats according to their level
@@ -36,6 +41,7 @@ func level_up_if_needed(character_name:String)->bool:
 	var current_xp = GameState.characters_save_info[character_name]["experience"]
 	var xp_cost_to_level_up = xp_needed_to_level_up(current_level)
 	if current_xp >= xp_cost_to_level_up:
+		character_leveled_up.emit(character_name)
 		GameState.characters_save_info[character_name]["level"] = int(current_level + 1)
 		GameState.characters_save_info[character_name]["experience"] = int(current_xp-xp_cost_to_level_up)
 		return true

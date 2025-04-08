@@ -22,7 +22,9 @@ const DEFAULT_VALUES = {
 			"experience":0,
 			"equiped_abilities":["robot_punch"],
 			"unlocked_abilities":["robot_punch","heart"],
-			"active_upgrades":[]
+			"max_equiped_abilites":3,
+			"active_upgrades":[],
+			"unlocked_upgrades":[]
 		},
 		"Vedal":{
 			"unlocked":false,
@@ -95,11 +97,43 @@ func unlock_character(character_name:String):
 	characters_save_info[character_name]["unlocked"] = true
 	if characters_save_info["party"].size() < CharacterDatabase.MAX_PARTY_SIZE:
 		characters_save_info["party"].append(character_name)
-	
+func unlock_ability(character_name:String,ability_name:String):
+	if not ability_name in characters_save_info[character_name]["unlocked_abilities"]:
+		characters_save_info[character_name]["unlocked_abilities"]
+		if characters_save_info[character_name]["equiped_abilities"].size()<characters_save_info[character_name]["max_equiped_abilites"]:
+			characters_save_info[character_name]["equiped_abilities"].append(ability_name)
 func is_character_unlocked(character_name:String):
 	return characters_save_info[character_name]["unlocked"]
 func is_character_in_party(character_name):
 	return character_name in characters_save_info["party"]
+
+func character_has_upgrade(character_name:String,upgrade_name:String)->bool:
+	var ans = false
+	if upgrade_name in characters_save_info[character_name]["active_upgrades"]: ans = true
+	if upgrade_name in characters_save_info[character_name]["unlocked_upgrades"]: ans = true
+	return ans
+func is_upgrade_active(character_name:String,upgrade_name:String)->bool:
+	return upgrade_name in characters_save_info[character_name]["active_upgrades"]
+func activate_upgrade(character_name:String, upgrade_name:String):
+	if not character_has_upgrade(character_name,upgrade_name): return
+	var active_upgrades = characters_save_info[character_name]["active_upgrades"]
+	var unlocked_upgrades = characters_save_info[character_name]["unlocked_upgrades"]
+	if upgrade_name in unlocked_upgrades:
+		unlocked_upgrades.erase(upgrade_name)
+	if not upgrade_name in active_upgrades:
+		active_upgrades.append(upgrade_name)
+func deactivate_upgrade(character_name:String, upgrade_name:String):
+	if not character_has_upgrade(character_name,upgrade_name): return
+	var active_upgrades = characters_save_info[character_name]["active_upgrades"]
+	var unlocked_upgrades = characters_save_info[character_name]["unlocked_upgrades"]
+	if not upgrade_name in unlocked_upgrades:
+		unlocked_upgrades.append(upgrade_name)
+	if upgrade_name in active_upgrades:
+		active_upgrades.append(upgrade_name)
+func unlock_upgrade(character_name:String, upgrade_name:String):
+	var unlocked_upgrades = characters_save_info[character_name]["unlocked_upgrades"]
+	if not upgrade_name in unlocked_upgrades:
+		unlocked_upgrades.append(upgrade_name)
 	
 func set_party(party:Array[String]):
 	characters_save_info["party"] = party
@@ -111,7 +145,13 @@ func get_player_map_position():
 func set_player_map_position(position:Vector2):
 	overworld_info["player_position_x"] = position.x
 	overworld_info["player_position_y"] = position.y
-	
+func get_tungesten_amount()->int:
+	return overworld_info["tungesten"]
+func set_tungesten_amount(new_value:int):
+	overworld_info["tungesten"] = new_value
+func increase_tungesten_amount(amount:int):
+	overworld_info["tungesten"] += amount
+
 func go_to_map():
 	print(str(self,": going to map, loading scene ",current_room_scene))
 	get_tree().change_scene_to_packed(current_room_scene)

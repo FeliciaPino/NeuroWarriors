@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://bmaxfmfr4tb2k"]
+[gd_scene load_steps=3 format=3 uid="uid://bmaxfmfr4tb2k"]
 
+[ext_resource type="Script" uid="uid://iusv63tuixs2" path="res://scenes/ui/skill_tree/skill_tree.gd" id="1_7mom5"]
 [ext_resource type="PackedScene" uid="uid://egb0qrfm4whr" path="res://scenes/ui/skill_tree/skill_tree_node.tscn" id="1_hxcju"]
 
 [node name="SkillTree" type="Control"]
@@ -9,25 +10,55 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_7mom5")
+associated_character = "Neuro-sama"
 
 [node name="SkillTreeNode" parent="." instance=ExtResource("1_hxcju")]
 layout_mode = 0
 anchors_preset = 0
 anchor_left = 0.0
 anchor_right = 0.0
-offset_left = 316.0
-offset_top = 153.0
-offset_right = 512.0
-offset_bottom = 226.0
+offset_left = 92.0
+offset_top = 165.0
+offset_right = 288.0
+offset_bottom = 238.0
 
-[node name="SkillTreeNode2" parent="." instance=ExtResource("1_hxcju")]
+[node name="SkillTreeNode2" parent="." node_paths=PackedStringArray("prerequisites") instance=ExtResource("1_hxcju")]
 layout_mode = 0
 anchors_preset = 0
 anchor_left = 0.0
 anchor_right = 0.0
-offset_left = 901.0
-offset_top = 327.0
-offset_right = 1097.0
-offset_bottom = 400.0
+offset_left = 453.0
+offset_top = 366.0
+offset_right = 649.0
+offset_bottom = 439.0
 text = "epic cool upgrade 2
 "
+prerequisites = [NodePath("../SkillTreeNode")]
+associated_upgrade_name = "vitality"
+
+[node name="debugton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 226.0
+offset_top = 493.0
+offset_right = 238.0
+offset_bottom = 501.0
+
+[node name="debugton2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 415.0
+offset_top = 554.0
+offset_right = 427.0
+offset_bottom = 562.0
+
+[node name="SkillTreeNode3" parent="." node_paths=PackedStringArray("prerequisites") instance=ExtResource("1_hxcju")]
+layout_mode = 1
+offset_left = 659.216
+offset_top = 160.0
+offset_right = 915.216
+offset_bottom = 220.0
+prerequisites = [NodePath("../SkillTreeNode"), NodePath("../SkillTreeNode2")]
+associated_upgrade_name = "unlock_shock"
+
+[connection signal="pressed" from="debugton" to="." method="_on_debugton_pressed"]
+[connection signal="pressed" from="debugton2" to="." method="_on_debugton_2_pressed"]

@@ -8,13 +8,14 @@ var name_id:String #The unique string identifier of this upgrade.
 var display_name:String #the name, but translated into the apropiate language
 var description:String
 var type:UpgradeType
+var level_requirement:int
+var tungesten_cost:int
 
+var associated_ability:String #for ABILTY_UNLOCK and ABILITY_MOD Upgrades
 #for ENTITY_MOD Upgrades. Please don't use on other ones.
 func apply_to_entity(entity:BattleEntity):
 	pass
-#these two fucntions are for changes the the upgrade does the moment it's, well, activated. such as unlocking a new ability
-func activate():
-	pass
-func deactive():
+#for ABILITY_UNLOCK Upgrades
+func purchased_effect():
 	pass
 	
