@@ -147,8 +147,8 @@ func _ranged_non_projectile_action()->void:
 	if not valid_user():
 		return
 	user.animation_player.play(animationType)
-	print("wating for "+str(user)+" to finsih animation")
-	await user.animation_player.animation_changed
+	print(str(self,": wating for ",user," to finish animation ",user.animation_player.current_animation))
+	await user.animation_player.animation_changed #sometimes is not
 	print(str(user)+"finished animation")
 	sounds[0].play()
 	#the animation instructs the action effect

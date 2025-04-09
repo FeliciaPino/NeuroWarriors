@@ -22,7 +22,8 @@ const UPGRADE_PATHS = {
 func get_entity_scene(name:String) -> PackedScene:
 	print(str(self,": loading ",name))
 	return load(CHARACTER_SCENE_PATHS[name])
-	
+
+#returns an instance of the upgrade by name
 func get_upgrade(upgrade_name:String) -> Upgrade:
 	var path = UPGRADE_PATHS.get(upgrade_name,"")
 	if path=="": return null

@@ -29,6 +29,10 @@ func go_to_level(path:String):
 		party.append(CharacterDatabase.get_entity_scene(character_name).instantiate())
 	for p in party:
 		CharacterDatabase.apply_level(p,GameState.characters_save_info[p.entity_name]["level"])
+		for up_name in GameState.characters_save_info[p.entity_name]["active_upgrades"]:
+			var upgrade = CharacterDatabase.get_upgrade(up_name)
+			if upgrade.type == Upgrade.UpgradeType.ENTITY_MOD:
+				upgrade.apply_to_entity(p)
 	if fade:
 		print(str(self)+": waiting for fade")
 		await fade.animation_finished

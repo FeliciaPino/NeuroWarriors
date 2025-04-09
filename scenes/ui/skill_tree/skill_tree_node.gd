@@ -41,6 +41,8 @@ func check_availability():
 		description_label.text = str(associated_upgrade.description,"\npurchased:",purchased,"\n available:",available,"\nactive:",active)
 	else:
 		description_label.text = str("uug u cant, u need dis stuff:\n",)
+		if GameState.characters_save_info[skill_tree.associated_character]["level"] < associated_upgrade.level_requirement:
+			description_label.text += str("haz to b levl ",associated_upgrade.level_requirement,"\n")
 		for prereq in prerequisites: if not prereq.purchased:
 			description_label.text += prereq.associated_upgrade.display_name + "\n"
 func show_info():
@@ -57,11 +59,13 @@ func hide_info():
 	await tween.finished
 	info_panel.visible = false
 func throw_text(text_to_throw:String):
-	print(str(self,":throwing text"))
 	var label = Label.new()
 	label.text = text_to_throw
 	self.add_child(label)
-	label.global_position = get_global_mouse_position()
+	label.position = Vector2(0,-20)
+	print(str(self,":throwing text, sizex:",label.size.x))
+	label.position.x -= label.size.x/2
+	label.position.x += size.x/2
 	var tween = get_tree().create_tween().set_parallel()
 	tween.tween_property(label,"position",Vector2(label.position.x,-60),1.2).set_ease(Tween.EASE_OUT)
 	tween.tween_property(label,"modulate",Color(1,1,1,0),1.2).set_ease(Tween.EASE_OUT)

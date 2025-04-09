@@ -87,6 +87,7 @@ script = ExtResource("3_krsky")
 speed = 50.0
 
 [node name="Enemy" parent="Enemies/Path2D" index="1" node_paths=PackedStringArray("target_spot") instance=ExtResource("4_xwxmh")]
-level_path = "res://scenes/levels/forest/forest_1.tscn"
+level_path = "res://scenes/levels/forest/forest_5.tscn"
 id = "enemy1"
 target_spot = NodePath("../PathFollow2D")
+enemy_respawns = true

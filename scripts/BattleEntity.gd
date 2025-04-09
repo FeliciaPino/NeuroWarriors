@@ -246,7 +246,8 @@ func go_to_your_spot()->void:
 	settle_into_spot()
 func settle_into_spot():
 	#global_position = mySpot
-	animation_player.play("idle")
+	if animation_player.current_animation == "walking":
+		animation_player.play("idle")
 	if global_position.x > 550:
 		face_left()
 	else:

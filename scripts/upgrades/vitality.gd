@@ -10,3 +10,4 @@ func _init():
 	
 func apply_to_entity(entity:BattleEntity):
 	entity.maxHealth += HEALTH_INCREASE
+	entity.health += HEALTH_INCREASE

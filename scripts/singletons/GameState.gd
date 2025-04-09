@@ -31,21 +31,30 @@ const DEFAULT_VALUES = {
 			"level":0,
 			"experience":0,
 			"equiped_abilities":[],
-			"unlocked_abilities":[]
+			"unlocked_abilities":[],
+			"max_equiped_abilites":3,
+			"active_upgrades":[],
+			"unlocked_upgrades":[]
 		},
 		"Evil":{
 			"unlocked":false,
 			"level":0,
 			"experience":0,
 			"equiped_abilities":[],
-			"unlocked_abilities":[]
+			"unlocked_abilities":[],
+			"max_equiped_abilites":3,
+			"active_upgrades":[],
+			"unlocked_upgrades":[]
 		},
 		"Anny":{
 			"unlocked":false,
 			"level":0,
 			"experience":0,
 			"equiped_abilities":[],
-			"unlocked_abilities":[]
+			"unlocked_abilities":[],
+			"max_equiped_abilites":3,
+			"active_upgrades":[],
+			"unlocked_upgrades":[]
 		}
 	},
 	"overworld_info":{
@@ -129,7 +138,7 @@ func deactivate_upgrade(character_name:String, upgrade_name:String):
 	if not upgrade_name in unlocked_upgrades:
 		unlocked_upgrades.append(upgrade_name)
 	if upgrade_name in active_upgrades:
-		active_upgrades.append(upgrade_name)
+		active_upgrades.erase(upgrade_name)
 func unlock_upgrade(character_name:String, upgrade_name:String):
 	var unlocked_upgrades = characters_save_info[character_name]["unlocked_upgrades"]
 	if not upgrade_name in unlocked_upgrades:
