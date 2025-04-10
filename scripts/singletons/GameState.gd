@@ -15,14 +15,14 @@ const DEFAULT_VALUES = {
 		"watched_credits" : false
 	},
 	"characters_save_info":{
-		"party":["Neuro-sama"],
+		"party":["Neuro-sama","Vedal","Evil","Anny"],
 		"Neuro-sama":{
 			"unlocked":true,
 			"level":0,
 			"experience":0,
 			"equiped_abilities":["robot_punch"],
-			"unlocked_abilities":["robot_punch","heart"],
-			"max_equiped_abilites":3,
+			"not_equiped_abilities":["heart"],
+			"max_equiped_abilities":3,
 			"active_upgrades":[],
 			"unlocked_upgrades":[]
 		},
@@ -30,9 +30,9 @@ const DEFAULT_VALUES = {
 			"unlocked":false,
 			"level":0,
 			"experience":0,
-			"equiped_abilities":[],
-			"unlocked_abilities":[],
-			"max_equiped_abilites":3,
+			"equiped_abilities":["tutel_shield","rum_throw","overclock"],
+			"not_equiped_abilities":[],
+			"max_equiped_abilities":3,
 			"active_upgrades":[],
 			"unlocked_upgrades":[]
 		},
@@ -40,9 +40,9 @@ const DEFAULT_VALUES = {
 			"unlocked":false,
 			"level":0,
 			"experience":0,
-			"equiped_abilities":[],
-			"unlocked_abilities":[],
-			"max_equiped_abilites":3,
+			"equiped_abilities":["harpoon_throw","pipes","screech","katana_slash"],
+			"not_equiped_abilities":[],
+			"max_equiped_abilities":3,
 			"active_upgrades":[],
 			"unlocked_upgrades":[]
 		},
@@ -50,9 +50,9 @@ const DEFAULT_VALUES = {
 			"unlocked":false,
 			"level":0,
 			"experience":0,
-			"equiped_abilities":[],
-			"unlocked_abilities":[],
-			"max_equiped_abilites":3,
+			"equiped_abilities":["slap","hype_up","fluster"],
+			"not_equiped_abilities":[],
+			"max_equiped_abilities":3,
 			"active_upgrades":[],
 			"unlocked_upgrades":[]
 		}
@@ -107,9 +107,10 @@ func unlock_character(character_name:String):
 	if characters_save_info["party"].size() < CharacterDatabase.MAX_PARTY_SIZE:
 		characters_save_info["party"].append(character_name)
 func unlock_ability(character_name:String,ability_name:String):
-	if not ability_name in characters_save_info[character_name]["unlocked_abilities"]:
-		characters_save_info[character_name]["unlocked_abilities"]
-		if characters_save_info[character_name]["equiped_abilities"].size()<characters_save_info[character_name]["max_equiped_abilites"]:
+	print(str(self,":unlocking ability"))
+	if not ability_name in characters_save_info[character_name]["not_equiped_abilities"]:
+		characters_save_info[character_name]["not_equiped_abilities"]
+		if characters_save_info[character_name]["equiped_abilities"].size()<characters_save_info[character_name]["max_equiped_abilities"]:
 			characters_save_info[character_name]["equiped_abilities"].append(ability_name)
 func is_character_unlocked(character_name:String):
 	return characters_save_info[character_name]["unlocked"]

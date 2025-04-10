@@ -63,5 +63,5 @@ volume_db = -13.783
 
 [node name="AnimationPlayer" parent="." index="2"]
 libraries = {
-"": SubResource("AnimationLibrary_wv84h")
+&"": SubResource("AnimationLibrary_wv84h")
 }

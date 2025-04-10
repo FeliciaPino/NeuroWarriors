@@ -7,4 +7,4 @@ func _init():
 	description = tr("SKILL_TREE_UPGRADE_UNLOCK_SHOCK_DESCRIPTION")
 	level_requirement = 20
 	tungesten_cost = 20
-	associated_ability = "Shock"
+	associated_ability = "shock"

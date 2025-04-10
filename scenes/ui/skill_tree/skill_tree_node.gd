@@ -105,5 +105,5 @@ func _on_pressed():
 		active = true
 		GameState.activate_upgrade(skill_tree.associated_character,associated_upgrade.name_id)
 	else:
-		pass
+		GameState.unlock_ability(skill_tree.associated_character,associated_upgrade.associated_ability)
 	check_availability()#I just do this to update description, probably change it later

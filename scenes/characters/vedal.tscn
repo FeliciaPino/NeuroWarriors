@@ -1,12 +1,9 @@
-[gd_scene load_steps=57 format=3 uid="uid://uwmc3sf7fq3o"]
+[gd_scene load_steps=54 format=3 uid="uid://uwmc3sf7fq3o"]
 
 [ext_resource type="PackedScene" uid="uid://dp2gnkbdq83n4" path="res://scenes/characters/battle_entity.tscn" id="1_0fs3l"]
 [ext_resource type="Texture2D" uid="uid://cp5lh7r4ov0e7" path="res://assets/vedal.png" id="2_53on7"]
 [ext_resource type="Texture2D" uid="uid://darobappakqlr" path="res://assets/characters/vedal_laptop.png" id="2_om3sy"]
 [ext_resource type="Texture2D" uid="uid://d063m4xmuua74" path="res://assets/characters/Vedal.png" id="3_h2cke"]
-[ext_resource type="PackedScene" uid="uid://cgpf6o36fg7r5" path="res://scenes/actions/tutel_shield.tscn" id="3_h108e"]
-[ext_resource type="PackedScene" uid="uid://c5fgqjhldruh1" path="res://scenes/actions/rum_throw.tscn" id="4_5pgk1"]
-[ext_resource type="PackedScene" uid="uid://bt827bsp0jnmw" path="res://scenes/actions/overclock.tscn" id="5_1wqd1"]
 [ext_resource type="AudioStream" uid="uid://geyk300th0la" path="res://assets/audio/homemade/SFX/typing_1.mp3" id="8_rnccr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_66o0d"]
@@ -714,12 +711,6 @@ use_parent_material = true
 sprite_frames = SubResource("SpriteFrames_gtx3c")
 autoplay = "default"
 
-[node name="Tutel_shield" parent="Actions" index="0" instance=ExtResource("3_h108e")]
-
-[node name="Rum_throw" parent="Actions" index="1" instance=ExtResource("4_5pgk1")]
-
-[node name="overclock" parent="Actions" index="2" instance=ExtResource("5_1wqd1")]
-
 [node name="typing" type="AudioStreamPlayer" parent="sound_effects" index="5"]
 stream = ExtResource("8_rnccr")
 volume_db = -13.75
@@ -728,7 +719,7 @@ bus = &"SFX"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="8"]
 libraries = {
-"": SubResource("AnimationLibrary_8v7bq")
+&"": SubResource("AnimationLibrary_8v7bq")
 }
 next/effect = &"idle"
 next/throw = &"idle"

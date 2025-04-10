@@ -33,6 +33,9 @@ func go_to_level(path:String):
 			var upgrade = CharacterDatabase.get_upgrade(up_name)
 			if upgrade.type == Upgrade.UpgradeType.ENTITY_MOD:
 				upgrade.apply_to_entity(p)
+		for ability_name in GameState.characters_save_info[p.entity_name]["equiped_abilities"]:
+			var ability:BattleAction = CharacterDatabase.get_battle_action_scene(ability_name).instantiate()
+			p.get_node("Actions").add_child(ability)
 	if fade:
 		print(str(self)+": waiting for fade")
 		await fade.animation_finished
