@@ -20,8 +20,8 @@ const DEFAULT_VALUES = {
 			"unlocked":true,
 			"level":0,
 			"experience":0,
-			"equiped_abilities":["robot_punch"],
-			"not_equiped_abilities":["heart"],
+			"equiped_abilities":["robot_punch","heart","harpoon_throw"],
+			"not_equiped_abilities":[],
 			"max_equiped_abilities":3,
 			"active_upgrades":[],
 			"unlocked_upgrades":[]
@@ -108,10 +108,14 @@ func unlock_character(character_name:String):
 		characters_save_info["party"].append(character_name)
 func unlock_ability(character_name:String,ability_name:String):
 	print(str(self,":unlocking ability"))
-	if not ability_name in characters_save_info[character_name]["not_equiped_abilities"]:
-		characters_save_info[character_name]["not_equiped_abilities"]
+	var character_unlocked_abilities = characters_save_info[character_name]["equiped_abilities"]
+	character_unlocked_abilities.append_array(characters_save_info[character_name]["not_equiped_abilities"])
+	if not ability_name in character_unlocked_abilities:
 		if characters_save_info[character_name]["equiped_abilities"].size()<characters_save_info[character_name]["max_equiped_abilities"]:
 			characters_save_info[character_name]["equiped_abilities"].append(ability_name)
+		else:
+			characters_save_info[character_name]["not_equiped_abilities"].append(ability_name)
+			
 func is_character_unlocked(character_name:String):
 	return characters_save_info[character_name]["unlocked"]
 func is_character_in_party(character_name):
