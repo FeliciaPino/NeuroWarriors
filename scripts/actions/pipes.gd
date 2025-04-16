@@ -2,9 +2,10 @@ extends BattleAction
 
 func _ready():
 	super._ready()
+	hits = 3#so, right now the multihits are hard-coded in the animation. 
 	action_multiplier = 0.75
 	action_name = tr("BATTLE_ACTION_PIPES_NAME")
-	description = tr("BATTLE_ACTION_PIPES_DESCRIPTION").format({amount=3,multiplier=action_multiplier,stat=tr("BATTLESTAT_ATTACK")})
+	description = tr("BATTLE_ACTION_PIPES_DESCRIPTION").format({amount=hits,multiplier=action_multiplier,stat=tr("BATTLESTAT_ATTACK")})
 	verb = tr("BATTLE_ACTION_PIPES_VERB")
 	isMelee = true
 	isPositive = false

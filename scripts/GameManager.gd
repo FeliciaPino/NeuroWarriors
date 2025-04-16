@@ -122,7 +122,7 @@ func set_selected_character(character: BattleEntity):
 		#selection_circle.visible = true
 		selection_circle.position = selected_character.position
 
-	
+	 
 func set_selected_action(action: BattleAction):
 	selected_action = action
 	if selected_character != null: selected_character.close_menu()

@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=37 format=4 uid="uid://1t6fqlgau1qd"]
+[gd_resource type="Theme" load_steps=39 format=4 uid="uid://1t6fqlgau1qd"]
 
 [ext_resource type="Texture2D" uid="uid://cysvrf3te3pum" path="res://assets/ui/corners.png" id="1_cccjv"]
 
@@ -51,6 +51,12 @@ bg_color = Color(0.61, 0.461973, 0.2684, 1)
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_fs3tw"]
 color = Color(0, 0, 0, 0.156863)
 thickness = 6
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_touxu"]
+color = Color(0.560784, 0.45098, 0.309804, 1)
+grow_begin = -2.0
+grow_end = -2.0
+thickness = 2
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_115xm"]
 bg_color = Color(0.8, 0.639216, 0.431373, 1)
@@ -3466,6 +3472,13 @@ corner_radius_top_right = 15
 expand_margin_bottom = 5.0
 anti_aliasing = false
 
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_2pn01"]
+color = Color(0.560784, 0.45098, 0.309804, 1)
+grow_begin = -2.0
+grow_end = -2.0
+thickness = 2
+vertical = true
+
 [resource]
 default_base_scale = 0.74
 Button/colors/font_outline_color = Color(0.15, 0.15, 0.15, 1)
@@ -3475,6 +3488,7 @@ Button/styles/hover = SubResource("StyleBoxFlat_tyadu")
 Button/styles/normal = SubResource("StyleBoxFlat_hue2u")
 HScrollBar/styles/grabber = SubResource("StyleBoxFlat_auxt0")
 HScrollBar/styles/scroll = SubResource("StyleBoxLine_fs3tw")
+HSeparator/styles/separator = SubResource("StyleBoxLine_touxu")
 Label/colors/font_outline_color = Color(0.14902, 0.14902, 0.14902, 1)
 Label/constants/outline_size = 2
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_115xm")
@@ -3508,3 +3522,5 @@ TabContainer/styles/panel = SubResource("StyleBoxFlat_a8rmf")
 TabContainer/styles/tab_hovered = SubResource("StyleBoxFlat_ino0q")
 TabContainer/styles/tab_selected = SubResource("StyleBoxFlat_rwj5l")
 TabContainer/styles/tab_unselected = SubResource("StyleBoxFlat_ino0q")
+VSeparator/constants/separation = 4
+VSeparator/styles/separator = SubResource("StyleBoxLine_2pn01")

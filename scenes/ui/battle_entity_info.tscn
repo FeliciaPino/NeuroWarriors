@@ -1,0 +1,102 @@
+[gd_scene load_steps=4 format=3 uid="uid://dswe4b60aebu5"]
+
+[ext_resource type="Script" uid="uid://cxcouiyll8424" path="res://scenes/ui/battle_entity_info.gd" id="1_wpbbg"]
+[ext_resource type="Texture2D" uid="uid://sh8d13r4odpy" path="res://assets/characters/Neuro-sama.png" id="2_pdtoj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d1o3i"]
+atlas = ExtResource("2_pdtoj")
+region = Rect2(0, 0, 100, 160)
+
+[node name="Battle Entity Info" type="Control"]
+custom_minimum_size = Vector2(500, 150)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 500.0
+offset_bottom = 150.0
+script = ExtResource("1_wpbbg")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Name_Label" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 5)
+layout_mode = 2
+text = "namey mc nameface"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Description_Label" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "lorem ipsum dolor sit amet consectetur edipiscin elit sed do eiusmod tempor insididunt"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="VSeparator" type="VSeparator" parent="PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(80, 128)
+layout_mode = 2
+texture = SubResource("AtlasTexture_d1o3i")
+expand_mode = 5
+
+[node name="VSeparator2" type="VSeparator" parent="PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+
+[node name="Health_Label" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 14
+text = "stat:99"
+
+[node name="Attack_Label" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 14
+text = "stat:99"
+
+[node name="Defense_Label" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 14
+text = "stat:99"
+
+[node name="AP_Regen_Label" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 14
+text = "stat:99"

@@ -7,6 +7,7 @@ var isMelee:bool
 var isPositive:bool#wether or not it's something you'd want on your allies. healing is good, attacking is bad
 var price:int #how much energy it takes to perform
 var action_multiplier:float = 1 #value that multiplies the appropiate stat to decide the intencity of the action
+var hits = 1 #This is only changed of actions that attack the same target multiple times (like pipes)
 var effect_duration:int = 2 #how many turns the applied effect lasts
 var user:BattleEntity = null
 var target:BattleEntity = null
