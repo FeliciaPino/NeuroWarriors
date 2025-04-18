@@ -115,6 +115,9 @@ func give_neuro_battle_context():
 func set_selected_character(character: BattleEntity):
 	if selected_character != null: selected_character.close_menu()
 	selected_character = character
+	var info_panel = get_node_or_null("CanvasLayer/HBoxContainer/Battle Entity Info")
+	if info_panel:
+		info_panel.set_entity_displayed(character)
 	if selected_character == null:
 		selection_circle.visible = false
 	else:

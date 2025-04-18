@@ -1,11 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://dswe4b60aebu5"]
+[gd_scene load_steps=2 format=3 uid="uid://dswe4b60aebu5"]
 
 [ext_resource type="Script" uid="uid://cxcouiyll8424" path="res://scenes/ui/battle_entity_info.gd" id="1_wpbbg"]
-[ext_resource type="Texture2D" uid="uid://sh8d13r4odpy" path="res://assets/characters/Neuro-sama.png" id="2_pdtoj"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d1o3i"]
-atlas = ExtResource("2_pdtoj")
-region = Rect2(0, 0, 100, 160)
 
 [node name="Battle Entity Info" type="Control"]
 custom_minimum_size = Vector2(500, 150)
@@ -33,11 +28,12 @@ theme_override_constants/margin_bottom = 5
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer"]
+[node name="Name_And_Description" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Name_Label" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Name_Label" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/Name_And_Description"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(40, 5)
 layout_mode = 2
@@ -45,10 +41,10 @@ text = "namey mc nameface"
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="HSeparator" type="HSeparator" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/MarginContainer/HBoxContainer/Name_And_Description"]
 layout_mode = 2
 
-[node name="Description_Label" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Description_Label" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/Name_And_Description"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 80)
 layout_mode = 2
@@ -60,43 +56,82 @@ autowrap_mode = 3
 [node name="VSeparator" type="VSeparator" parent="PanelContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(80, 128)
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/MarginContainer/HBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
-texture = SubResource("AtlasTexture_d1o3i")
-expand_mode = 5
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="PanelContainer/MarginContainer/HBoxContainer/PanelContainer"]
+clip_contents = true
+layout_mode = 2
+
+[node name="Entity_Viewport" type="SubViewport" parent="PanelContainer/MarginContainer/HBoxContainer/PanelContainer/SubViewportContainer"]
+unique_name_in_owner = true
+disable_3d = true
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(80, 120)
+render_target_update_mode = 4
+
+[node name="Entity_Viewport_Camera" type="Camera2D" parent="PanelContainer/MarginContainer/HBoxContainer/PanelContainer/SubViewportContainer/Entity_Viewport"]
+unique_name_in_owner = true
+position = Vector2(83, 255)
+zoom = Vector2(0.7, 0.7)
 
 [node name="VSeparator2" type="VSeparator" parent="PanelContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 
-[node name="Health_Label" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+[node name="Stats_Container" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/ScrollContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Health_Label" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/ScrollContainer/Stats_Container"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 14
 text = "stat:99"
 
-[node name="Attack_Label" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+[node name="Attack_Label" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/ScrollContainer/Stats_Container"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 14
 text = "stat:99"
 
-[node name="Defense_Label" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+[node name="Defense_Label" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/ScrollContainer/Stats_Container"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 14
 text = "stat:99"
 
-[node name="AP_Regen_Label" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+[node name="AP_Regen_Label" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/ScrollContainer/Stats_Container"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 14
 text = "stat:99"
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/ScrollContainer/Stats_Container"]
+layout_mode = 2
+text = "jimbolarity:4"
+
+[node name="Label2" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/ScrollContainer/Stats_Container"]
+layout_mode = 2
+text = "skonging: 5"
+
+[node name="Label3" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/ScrollContainer/Stats_Container"]
+layout_mode = 2
+text = "morple:7"
+
+[node name="Label4" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/ScrollContainer/Stats_Container"]
+layout_mode = 2
+text = "khjl"

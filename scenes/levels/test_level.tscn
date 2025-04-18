@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://by2t4l3fto5ou"]
+[gd_scene load_steps=11 format=3 uid="uid://by2t4l3fto5ou"]
 
 [ext_resource type="PackedScene" uid="uid://b82kauwohbvun" path="res://scenes/levels/game.tscn" id="1_hhncd"]
 [ext_resource type="Texture2D" uid="uid://dl6b6ewaxaxom" path="res://assets/backgrounds/forest_background.png" id="2_tkf6i"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://uwmc3sf7fq3o" path="res://scenes/characters/vedal.tscn" id="6_t7qt4"]
 [ext_resource type="PackedScene" uid="uid://c5ykioygv4mrj" path="res://scenes/actions/pipes.tscn" id="7_2mu0v"]
 [ext_resource type="PackedScene" uid="uid://dswe4b60aebu5" path="res://scenes/ui/battle_entity_info.tscn" id="7_cyt5c"]
+[ext_resource type="PackedScene" uid="uid://b36hf4y7sydbp" path="res://scenes/actions/heart.tscn" id="9_2mu0v"]
 
 [node name="Game" instance=ExtResource("1_hhncd")]
 
@@ -47,8 +48,12 @@ speed = 42343
 
 [node name="Pipes" parent="Entity_manager/Evil" index="10" instance=ExtResource("7_2mu0v")]
 
+[node name="RobotPunch" parent="Entity_manager/Evil" index="11" instance=ExtResource("4_hfwtw")]
+
 [node name="Vedal" parent="Entity_manager" index="5" instance=ExtResource("6_t7qt4")]
 speed = 30
+
+[node name="Heart" parent="Entity_manager/Vedal" index="10" instance=ExtResource("9_2mu0v")]
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer" index="3"]
 anchors_preset = 12
@@ -61,9 +66,8 @@ grow_vertical = 0
 size_flags_vertical = 8
 theme_override_constants/separation = -5
 
-[node name="Battle Entity Info" parent="CanvasLayer/HBoxContainer" index="0" node_paths=PackedStringArray("battle_entity") instance=ExtResource("7_cyt5c")]
+[node name="Battle Entity Info" parent="CanvasLayer/HBoxContainer" index="0" instance=ExtResource("7_cyt5c")]
 layout_mode = 2
-battle_entity = NodePath("../../../Entity_manager/Evil")
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/HBoxContainer" index="1"]
 layout_mode = 2
@@ -86,6 +90,5 @@ text = "end turn"
 layout_mode = 2
 text = "menu"
 
-[node name="Battle Entity Info2" parent="CanvasLayer/HBoxContainer" index="2" node_paths=PackedStringArray("battle_entity") instance=ExtResource("7_cyt5c")]
+[node name="Battle Entity Info2" parent="CanvasLayer/HBoxContainer" index="2" instance=ExtResource("7_cyt5c")]
 layout_mode = 2
-battle_entity = NodePath("../../../Entity_manager/Drone3")
