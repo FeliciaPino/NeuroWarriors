@@ -141,7 +141,7 @@ func _projectile_action(projectile_speed:float=10)->void:
 			sounds[1].play()
 	if valid_user():
 		user.settle_into_spot()
-		user.animation_player.play("idle")
+		#user.animation_player.play("idle")
 	action_finished.emit()
 #plays the animation of the entity and calls _action_effect
 func _ranged_non_projectile_action()->void:
