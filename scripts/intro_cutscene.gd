@@ -19,7 +19,7 @@ func _ready() -> void:
 	skip_button.pressed.connect(return_to_level_select)
 	next_button.pressed.connect(next_frame)
 	previous_button.pressed.connect(previous_frame)
-	print("playing intro cutscene")
+	print_debug("playing intro cutscene")
 	fade.visible = true
 	get_tree().create_tween().tween_property(fade,"modulate",Color(0,0,0,0),0.6)
 func next_frame():

@@ -74,7 +74,7 @@ var current_enemy_battle:String = ""
 var current_level_path:String = ""
 var last_level = "City Boss"
 func _ready():
-	print("GameState is ready.")
+	print_debug("GameState is ready.")
 	completed_levels = DEFAULT_VALUES["completed_levels"].duplicate(true)
 	flags = DEFAULT_VALUES["flags"].duplicate(true)
 	characters_save_info = DEFAULT_VALUES["characters_save_info"].duplicate(true)
@@ -82,7 +82,7 @@ func _ready():
 	current_room_scene = load(overworld_info["current_room_path"])
 
 func mark_level_complete(level_name: String):
-	print(str(self,": level completed: ",level_name))
+	print_debug(str(self,": level completed: ",level_name))
 	completed_levels[level_name] = true
 	if level_name == "Vedal unlock":
 		unlock_character("Vedal")
@@ -102,12 +102,12 @@ func remove_overworld_enemy_defeated(enemy_id:String):
 	overworld_info["defeated_enemies"][enemy_id]=false
 
 func unlock_character(character_name:String):
-	print(str(self,":unlocked ",character_name))
+	print_debug(str(self,":unlocked ",character_name))
 	characters_save_info[character_name]["unlocked"] = true
 	if characters_save_info["party"].size() < CharacterDatabase.MAX_PARTY_SIZE:
 		characters_save_info["party"].append(character_name)
 func unlock_ability(character_name:String,ability_name:String):
-	print(str(self,":unlocking ability"))
+	print_debug(str(self,":unlocking ability"))
 	var character_unlocked_abilities = characters_save_info[character_name]["equiped_abilities"]
 	character_unlocked_abilities.append_array(characters_save_info[character_name]["not_equiped_abilities"])
 	if not ability_name in character_unlocked_abilities:
@@ -167,7 +167,7 @@ func increase_tungesten_amount(amount:int):
 	overworld_info["tungesten"] += amount
 
 func go_to_map():
-	print(str(self,": going to map, loading scene ",current_room_scene))
+	print_debug(str(self,": going to map, loading scene ",current_room_scene))
 	get_tree().change_scene_to_packed(current_room_scene)
 const level_select_scene = preload("res://scenes/levels/level_select.tscn")
 const map_scene = preload("res://scenes/overworld/overworld.tscn")
@@ -180,5 +180,5 @@ func start_game():
 
 #called when the GameState is deleted, which should be never
 func _exit_tree():
-	print("GameState is trying to exit the tree!")
+	print_debug("GameState is trying to exit the tree!")
 	#self.duplicate(false)  # Ensures it's not accidentally freed

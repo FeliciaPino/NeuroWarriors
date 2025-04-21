@@ -14,7 +14,7 @@ func toggle():
 	else:
 		open_menu()
 func open_menu():
-	print(str(self,": opening menu"))
+	print_debug(str(self,": opening menu"))
 	if not menu_opened:
 		MusicPlayer.muffle()
 		menu_has_just_opened.emit()
@@ -23,7 +23,7 @@ func open_menu():
 	menu_opened = true
 	get_viewport().set_input_as_handled()
 func close_menu():
-	print(str(self,": closing menu"))
+	print_debug(str(self,": closing menu"))
 	if menu_opened:
 		MusicPlayer.un_muffle()
 		menu_has_just_closed.emit()
@@ -41,5 +41,5 @@ func make_tab_grab_focus():
 func _unhandled_input(event):
 	if event is InputEventKey:
 		if event.pressed and event.keycode == KEY_E or event.is_action_pressed("ui_cancel"):
-			print(str(self,"toggling"))
+			print_debug(str(self,"toggling"))
 			toggle()

@@ -10,18 +10,18 @@ func _ready() -> void:
 #makes the overworld characters reflect the current party stored in gamestate
 func update_characters():
 	#this whole function feels pretty messy
-	print(str(self,": updating characters"))
+	print_debug(str(self,": updating characters"))
 	var party:Array = GameState.get_party()
 	#there has to be a better way of getting rid of the empty character names
 	party.erase("")
 	party.erase("")
 	party.erase("")
 	var characters:Array[OverworldCharacter]
-	print(str(self,": party:",party))
+	print_debug(str(self,": party:",party))
 	for c in get_children():
 		if c is OverworldCharacter:
 			characters.append(c)
-	print(str(self,": characters in world currently:",characters))
+	print_debug(str(self,": characters in world currently:",characters))
 	var updated_characters:Array[OverworldCharacter]
 	for i in range(party.size()):
 		var char:OverworldCharacter
@@ -37,10 +37,10 @@ func update_characters():
 				char.global_position = GameState.get_player_map_position()
 			add_child(char)
 		updated_characters.append(char)
-		print(str(self,"updated characters:",updated_characters))
+		print_debug(str(self,"updated characters:",updated_characters))
 		if i>0:
 			char.following_target = updated_characters[i-1]
-	print(str(self, ": old character count: ",characters.size()," party count: ",party.size()))
+	print_debug(str(self, ": old character count: ",characters.size()," party count: ",party.size()))
 	camera.reparent(self)
 	var old_camera_global_position = camera.global_position
 	for i in range(updated_characters.size(),characters.size()):

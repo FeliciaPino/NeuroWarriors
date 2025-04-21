@@ -19,7 +19,7 @@ const UPGRADE_PATHS = {
 	"unlock_shock":"res://scripts/upgrades/unlock_shock.gd"
 }
 func get_entity_scene(entity_name:String) -> PackedScene:
-	print(str(self,": loading ",entity_name))
+	print_debug(str(self,": loading ",entity_name))
 	return load(CHARACTER_SCENE_PATHS[entity_name])
 func get_battle_action_scene(ability_name:String) -> PackedScene:
 	return load("res://scenes/actions/"+ability_name+".tscn")

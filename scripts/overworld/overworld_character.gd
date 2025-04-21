@@ -14,7 +14,7 @@ class_name OverworldCharacter
 @onready var facer := $Facer
 @export var following_target:OverworldCharacter = null
 func _ready() -> void:
-	print(str(self,": set pos as ",global_position))
+	print_debug(str(self,": set pos as ",global_position))
 	if associated_character != "null":
 		update_sprite_frames_from_character_name(associated_character)
 	if following_target:

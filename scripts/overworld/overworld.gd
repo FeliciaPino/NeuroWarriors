@@ -8,7 +8,7 @@ class_name  Room
 @onready var game_menu := $UI/GameMenu
 
 func _ready() -> void:
-	print(str(self,": arrival_passage_name: ",GameState.arrival_passage_name))
+	print_debug(str(self,": arrival_passage_name: ",GameState.arrival_passage_name))
 	ui.visible = true
 	MusicPlayer.play_music(load("res://addons/Pixel_boy/theme-3.ogg"))
 	return_to_menu_button.pressed.connect(return_to_menu)
@@ -38,5 +38,5 @@ func fade_to_room(new_room:PackedScene, arrival_passage_name:String):
 func _unhandled_input(event):
 	if event is InputEventKey:
 		if event.pressed and event.keycode == KEY_E and not game_menu.menu_opened:
-			print(str(self,": room opening menu"))
+			print_debug(str(self,": room opening menu"))
 			game_menu.open_menu()

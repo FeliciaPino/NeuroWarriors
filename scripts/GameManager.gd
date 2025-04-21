@@ -40,7 +40,7 @@ var is_game_over:bool
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	MusicPlayer.play_music(load("res://addons/Pixel_boy/theme-7.ogg"))
-	print("current scene: "+str(get_tree().current_scene))
+	print_debug("current scene: "+str(get_tree().current_scene))
 	add_to_group("GameManager")
 	if background is AnimatedSprite2D:
 		background.play("default")
@@ -78,7 +78,7 @@ func end_turn():
 	end_turn_buttton.disabled = true
 	if is_game_over or not is_player_turn: return
 	update_battle_entities()
-	print("turn ended")
+	print_debug("turn ended")
 	player_turn_ended.emit()
 	is_player_turn = false
 	for foe in foes: foe.set_up_at_start_of_turn()
@@ -90,7 +90,7 @@ func start_turn():
 	for character in party: character.set_up_at_start_of_turn()
 	animation_player.play("start_player_turn")
 	turn_count += 1
-	print("your turn")
+	print_debug("your turn")
 	
 #This is for neuro integration, unused so far
 func give_neuro_battle_context():
@@ -153,12 +153,12 @@ func do_an_action(user:BattleEntity, action:BattleAction, target:BattleEntity):
 		return
 	if not action.action_finished.is_connected(_on_action_finished):
 		action.action_finished.connect(_on_action_finished.bind(action))
-	print("action started ", action.action_name)
+	print_debug("action started ", action.action_name)
 	pending_actions += 1
 	action.execute(user,target)
 	
 func _on_action_finished(action):
-	print("actions finished ", action.action_name)
+	print_debug("actions finished ", action.action_name)
 	pending_actions -= 1
 	if is_game_over: return
 	update_battle_entities()
@@ -198,7 +198,7 @@ func check_game_end():
 	
 func finish(win_status:bool):
 	if is_game_over: return
-	print("finished "+str(win_status))
+	print_debug("finished "+str(win_status))
 	is_game_over = true
 	if win_status:
 		GameState.mark_level_complete(GameState.current_level)
@@ -210,7 +210,7 @@ func finish(win_status:bool):
 	animation_player.play("show_end_screen")
 
 func enemy_turn():
-	print("doing enemy turn")
+	print_debug("doing enemy turn")
 	#Gotta wait for stuff to finish first, wouldn't want a player to kill an enemy on it's turn, that would just not be polite! and also crash the game
 	while pending_actions > 0:
 		await all_actions_finished

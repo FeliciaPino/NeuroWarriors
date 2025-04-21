@@ -30,7 +30,7 @@ func _random_sound():
 	sounds.pick_random().play()
 func _do_action_effect():
 	if not valid_target() or not valid_user(): 
-		print(str(self,": somethings not valid"))
+		print_debug(str(self,": somethings not valid"))
 		return
 	_action_effect()
 #gotta call this at the end of the sub-class initializer, to avoid me forgeting stuff. 
@@ -86,9 +86,9 @@ func _meele_action()->void:
 		spotToAttackFrom = user.global_position
 	user.walk_to(spotToAttackFrom,500)
 	await user.finished_walking
-	print(str(self)+": approaching target")
+	print_debug(str(self)+": approaching target")
 	if not valid_user():
-		print("invalid user on action "+str(self))
+		print_debug("invalid user on action "+str(self))
 		action_finished.emit()
 		return
 	if valid_target():
@@ -100,7 +100,7 @@ func _meele_action()->void:
 	animationPlayer.play("animation") #the animation calls the effect and makes the sounds
 	user.animation_player.play(animationType)
 	user.did_an_action(price)
-	print(str(self)+": waiting for action effect to finish")
+	print_debug(str(self)+": waiting for action effect to finish")
 	await animationPlayer.animation_finished
 	user.walk_to(user.mySpot,500)
 	await user.finished_walking
@@ -129,7 +129,7 @@ func _projectile_action(projectile_speed:float=10)->void:
 	if user != target:
 		tween.tween_property(sprite,"global_position",target.global_position, sprite.global_position.distance_to(target.global_position)/(projectile_speed))
 	else:
-		print("self projectile")
+		print_debug("self projectile")
 		tween.tween_property(sprite,"global_position",user.global_position+Vector2(0,-100),100.0/projectile_speed).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 		tween.tween_property(sprite,"global_position",user.global_position,100.0/projectile_speed).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
 	await tween.finished
@@ -148,9 +148,9 @@ func _ranged_non_projectile_action()->void:
 	if not valid_user():
 		return
 	user.animation_player.play(animationType)
-	print(str(self,": wating for ",user," to finish animation ",user.animation_player.current_animation))
+	print_debug(str(self,": wating for ",user," to finish animation ",user.animation_player.current_animation))
 	await user.animation_player.animation_changed #sometimes is not
-	print(str(user)+"finished animation")
+	print_debug(str(user)+"finished animation")
 	sounds[0].play()
 	#the animation instructs the action effect
 	animationPlayer.play("animation")

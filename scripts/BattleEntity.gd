@@ -60,7 +60,7 @@ var is_menu_opened = false
 signal got_clicked_on
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print(str("mouse connections:",get_signal_connection_list("mouse_entered")))
+	print_debug(str("mouse connections:",get_signal_connection_list("mouse_entered")))
 	
 	animation_player.play("idle")
 	is_hovered_over_with_the_mouse = false
@@ -128,7 +128,7 @@ func remove_effect(effectName:String):
 			eff.end_effect()
 			eff.queue_free()
 func add_effect(effect:StatusEffect):
-	print("adding effect "+effect.effect_name)
+	print_debug("adding effect "+effect.effect_name)
 	#if entity already has this effect, remove it. that way it's replace by the new one
 	remove_effect(effect.effect_name)
 	effect.set_affected(self)
@@ -308,7 +308,7 @@ func get_strongest_posible_action():
 	for act in pa: if act.price > m:  ans = act
 	return ans
 func got_on_your_personal_space(other:BattleEntity):
-	print(entity_name+": Hey! " + other.entity_name + " got all up in my personal space!")
+	print_debug(entity_name+": Hey! " + other.entity_name + " got all up in my personal space!")
 	pass
 
 func _on_area_2d_mouse_entered() -> void:

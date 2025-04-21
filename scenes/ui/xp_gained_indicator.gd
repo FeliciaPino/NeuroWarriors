@@ -16,7 +16,7 @@ func _process(_delta):
 func _ready():
 	get_tree().create_timer(0.8+get_index()*0.5).timeout.connect(decrease_xp_added_number)
 	if associated_character=="":
-		print(str(self,": ERROR! Character not set"))
+		print_debug(str(self,": ERROR! Character not set"))
 		return
 	
 	var new_texture:AtlasTexture = AtlasTexture.new()

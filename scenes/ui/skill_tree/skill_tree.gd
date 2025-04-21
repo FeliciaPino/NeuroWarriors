@@ -14,5 +14,5 @@ func _on_debugton_2_pressed():
 	CharacterDatabase.character_leveled_up.emit(character_name)
 
 func _on_debugton_3_pressed():
-	print(str(self,": debugton pressed"))
+	print_debug(str(self,": debugton pressed"))
 	GameState.go_to_map()

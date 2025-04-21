@@ -14,10 +14,10 @@ func go_to_level(path:String):
 	get_tree().get_first_node_in_group("player").process_mode = PROCESS_MODE_DISABLED
 	var fade:AnimationPlayer = get_tree().current_scene.get_node_or_null("%FadeAnimationPlayer")
 	if fade:
-		print(str(self)+": fading out")
+		print_debug(str(self)+": fading out")
 		fade.play("battle_fade")
 	else:
-		print(str(self)+": not fading out")
+		print_debug(str(self)+": not fading out")
 	
 	GameState.current_level_path = path
 	
@@ -37,14 +37,14 @@ func go_to_level(path:String):
 			var ability:BattleAction = CharacterDatabase.get_battle_action_scene(ability_name).instantiate()
 			p.get_node("Actions").add_child(ability)
 	if fade:
-		print(str(self)+": waiting for fade")
+		print_debug(str(self)+": waiting for fade")
 		await fade.animation_finished
 	get_tree().change_scene_to_file(path)
 	while get_tree().current_scene == null:
-		print("awainting process secen in battlemaker")
+		print_debug("awainting process secen in battlemaker")
 		await get_tree().process_frame
 	var game:GameManager = get_tree().current_scene
-	print(str(self,": loading characters in party: ",party))
+	print_debug(str(self,": loading characters in party: ",party))
 	for member in party:
 		game.entity_manager.spawn_entity(member)
 const battle_scene = preload("res://scenes/levels/game.tscn")

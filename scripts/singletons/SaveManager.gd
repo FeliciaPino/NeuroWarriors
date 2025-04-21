@@ -12,13 +12,13 @@ func ensure_directory(path:String):
 func save_dict(dict:Dictionary, file_path:String)->void:
 	var file = FileAccess.open(file_path,FileAccess.WRITE)
 	if not file:
-		print("error saving, could not open file")
+		print_debug("error saving, could not open file")
 		return
 	file.store_string(JSON.stringify(dict))
 	
 func save_game(save_slot_index:int):
 	var directory_path = str("user://saves/slot",save_slot_index)
-	print(str(self)+": saving to ", ProjectSettings.globalize_path(directory_path))
+	print_debug(str(self)+": saving to ", ProjectSettings.globalize_path(directory_path))
 	ensure_directory(directory_path)
 	
 	save_dict(GameState.completed_levels,directory_path+"/levels.json")
@@ -28,7 +28,7 @@ func save_game(save_slot_index:int):
 
 func _load_dict(dict:Dictionary, default:Dictionary, file_path:String):
 	if not FileAccess.file_exists(file_path):
-		print("dictionary missing, initializing values")
+		print_debug("dictionary missing, initializing values")
 		for key in default:
 			if default[key] is Dictionary:
 				dict[key] = default[key].duplicate(true)
@@ -37,22 +37,22 @@ func _load_dict(dict:Dictionary, default:Dictionary, file_path:String):
 		return
 	var file = FileAccess.open(file_path,FileAccess.READ)
 	if file == null:
-		print("there was an error opening the file" + file_path)
+		print_debug("there was an error opening the file" + file_path)
 	var json_string = file.get_as_text()
 	file.close()
 	var json = JSON.new()
 	var parse_result = json.parse(json_string)
 	if not parse_result == OK:
 		#I should have better error handling
-		print("JSON Parse Error: ", json.get_error_message(), " in ", json_string, " at line ", json.get_error_line())
+		print_debug("JSON Parse Error: ", json.get_error_message(), " in ", json_string, " at line ", json.get_error_line())
 		return
 	#I *think* I could change this for just a .duplicate(true). I'm not sure how Dictionarys work tho. and this works so...
 	for key in json.data:
 		if json.data[key] is Dictionary:
-			print(str(self)+": "+ key + " a sub dictionary")
+			print_debug(str(self)+": "+ key + " a sub dictionary")
 			dict[key] = json.data[key].duplicate(true)
 		else:
-			print(str(self)+": "+key+" just a regular value")
+			print_debug(str(self)+": "+key+" just a regular value")
 			dict[key] = json.data[key]
 	for key in default:
 		if not dict.has(key):
@@ -65,7 +65,7 @@ func load_game(save_slot_index:int):
 	_load_dict(GameState.flags, GameState.DEFAULT_VALUES["flags"], directory+"/flags.json")
 	_load_dict(GameState.characters_save_info,GameState.DEFAULT_VALUES["flags"], directory+"/characters.json")
 	_load_dict(GameState.overworld_info,GameState.DEFAULT_VALUES["overworld_info"], directory+"/overworld_info.json")
-	print(str(self,": loading into room: ",GameState.overworld_info["current_room_path"]))
+	print_debug(str(self,": loading into room: ",GameState.overworld_info["current_room_path"]))
 	GameState.current_room_scene = load(GameState.overworld_info["current_room_path"])
 func get_save_info(save_slot_index):
 	var directory_path = str("user://saves/slot",save_slot_index)

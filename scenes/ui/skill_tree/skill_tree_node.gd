@@ -25,13 +25,13 @@ func _ready():
 	for prereq in prerequisites:
 		prereq.just_got_purchased.connect(check_availability)
 	CharacterDatabase.character_leveled_up.connect(func(character_name):if character_name==skill_tree.associated_character:check_availability())
-	CharacterDatabase.character_leveled_up.connect(func(character_name):print(str("I heard someone leveled up")))
+	CharacterDatabase.character_leveled_up.connect(func(character_name):print_debug(str("I heard someone leveled up")))
 	call_deferred("check_availability")
 func check_availability():
-	print(str(self,": checking availability for the amount of prereqs ",prerequisites.size()))
+	print_debug(str(self,": checking availability for the amount of prereqs ",prerequisites.size()))
 	available = true
 	for prereq in prerequisites:
-		print(str(self,": checking prerequisite:",prereq))
+		print_debug(str(self,": checking prerequisite:",prereq))
 		if not prereq.purchased:
 			available = false
 	if GameState.characters_save_info[skill_tree.associated_character]["level"] < associated_upgrade.level_requirement:
@@ -63,7 +63,7 @@ func throw_text(text_to_throw:String):
 	label.text = text_to_throw
 	self.add_child(label)
 	label.position = Vector2(0,-20)
-	print(str(self,":throwing text, sizex:",label.size.x))
+	print_debug(str(self,":throwing text, sizex:",label.size.x))
 	label.position.x -= label.size.x/2
 	label.position.x += size.x/2
 	var tween = get_tree().create_tween().set_parallel()

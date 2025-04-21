@@ -19,8 +19,8 @@ var not_in_party_node #set on creation
 var party_menu_controller #set on creation
 
 func _ready() -> void:
-	print(str(self,": associated_character:",associated_character))
-	print(str(self,": party meny controler: ",party_menu_controller))
+	print_debug(str(self,": associated_character:",associated_character))
+	print_debug(str(self,": party meny controler: ",party_menu_controller))
 	if associated_character != "":
 		var new_texture:AtlasTexture = AtlasTexture.new()
 		new_texture.atlas = load("res://assets/characters/"+associated_character+".png")
@@ -41,7 +41,7 @@ func _process(_delta: float) -> void:
 func _any_button_pressed():
 	$pop.play()
 func set_associated_character(new_character:String):
-	print(str(self,": setting character to ",new_character))
+	print_debug(str(self,": setting character to ",new_character))
 	associated_character = new_character
 	if new_character=="":
 		panel.visible = false
@@ -68,8 +68,8 @@ func _open_buttons():
 	if associated_character=="":
 		return
 	else:
-		print(self,": associated character is not nothing, it's ",associated_character)
-	print(str(self,": opening buttons"))
+		print_debug(self,": associated character is not nothing, it's ",associated_character)
+	print_debug(str(self,": opening buttons"))
 	update_buttons()
 	is_buttons_open = true
 	$buttons_up.play()
@@ -113,7 +113,7 @@ func _get_drag_data(at_position: Vector2) -> Variant:
 	preview.position = -at_position
 	set_drag_preview(preview_control)
 	_start_being_dragged(-at_position)
-	print(str(self,": dragging"))
+	print_debug(str(self,": dragging"))
 	return self
 func _can_drop_data(_pos, data):
 	return data is CharacterPortrait
@@ -205,7 +205,7 @@ func _on_remove_pressed():
 	self.grab_focus()
 
 func _on_add_pressed():
-	print(str(self,": adding to party"))
+	print_debug(str(self,": adding to party"))
 	var empty_spot_or_last = null
 	for c:CharacterPortrait in in_party_node.get_children():
 		empty_spot_or_last = c

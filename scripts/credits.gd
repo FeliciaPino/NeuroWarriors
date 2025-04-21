@@ -2,7 +2,7 @@ extends Control
 @onready var animation_player  = $AnimationPlayer
 @onready var skip_button = $leave
 func _ready() -> void:
-	print("credits ready")
+	print_debug("credits ready")
 	MusicPlayer.play_music(load("res://addons/Pixel_boy/theme-4.ogg"))
 
 	GameState.flags["watched_credits"] = true

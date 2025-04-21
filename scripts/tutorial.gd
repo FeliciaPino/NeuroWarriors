@@ -51,7 +51,7 @@ func _neuro_got_clicked_on():
 		advance()
 		timer.start()
 func _a_neuro_button_got_clicked():
-	print(str(self,": neuro button got clicked"))
+	print_debug(str(self,": neuro button got clicked"))
 	if index==1:
 		if timer.time_left > timer.wait_time - 2:
 			advance(2)

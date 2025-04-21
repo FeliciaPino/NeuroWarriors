@@ -18,9 +18,9 @@ func execute (user:BattleEntity, target:BattleEntity):
 	_projectile_action(600)
 const flushed_status_scene = preload("res://scenes/status_effects/flushed.tscn")
 func _action_effect()->void:
-	print(str(self,": attemtping to fluster ",target.entity_name))
+	print_debug(str(self,": attemtping to fluster ",target.entity_name))
 	if user.entity_name=="Anny" and (target.entity_name=="Neuro-sama" or target.entity_name=="Evil"):
-		print(str(self,": target is immune"))
+		print_debug(str(self,": target is immune"))
 		target.throw_text("Immune",Color.DARK_GRAY,1.5)
 		return
 	if user.entity_name=="Anny" and target.entity_name=="Vedal":
