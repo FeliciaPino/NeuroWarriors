@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://mmu44ppqby8v" path="res://scripts/GameManager.gd" id="1_5lrye"]
 [ext_resource type="PackedScene" uid="uid://c0cerfjhi148m" path="res://scenes/entity_manager.tscn" id="3_iprcq"]
-[ext_resource type="Texture2D" uid="uid://duwanoipd03rk" path="res://assets/ui/selection_circle.png" id="6_ow8lb"]
+[ext_resource type="PackedScene" uid="uid://dswe4b60aebu5" path="res://scenes/ui/battle_entity_info.tscn" id="4_riktp"]
 [ext_resource type="PackedScene" uid="uid://d4f0gy2sw12hv" path="res://scenes/ui/end_screen.tscn" id="9_s08fr"]
 
 [sub_resource type="Animation" id="Animation_3mlxk"]
@@ -142,8 +142,8 @@ _data = {
 
 [sub_resource type="InputEventKey" id="InputEventKey_fvtbi"]
 device = -1
-keycode = 32
-unicode = 32
+keycode = 75
+unicode = 107
 
 [sub_resource type="Shortcut" id="Shortcut_di83f"]
 events = [SubResource("InputEventKey_fvtbi")]
@@ -157,10 +157,6 @@ xp_reward = 100
 [node name="Entity_manager" parent="." instance=ExtResource("3_iprcq")]
 partyRect = Rect2(100, 200, 450, 300)
 foesRect = Rect2(600, 200, 450, 300)
-
-[node name="SelectionCircle" type="Sprite2D" parent="."]
-position = Vector2(584, 427)
-texture = ExtResource("6_ow8lb")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -187,7 +183,6 @@ game_manager = NodePath("..")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="EndTurnButton" type="Button" parent="CanvasLayer"]
-unique_name_in_owner = true
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -223,3 +218,48 @@ anchor_bottom = 0.01
 offset_right = -0.416016
 offset_bottom = -0.104
 text = "LEVEL_SELECT_RETURN_TO_MENU"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -150.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
+theme_override_constants/separation = -5
+
+[node name="CharacterInfoPanel" parent="CanvasLayer/HBoxContainer" instance=ExtResource("4_riktp")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/HBoxContainer"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HBoxContainer/PanelContainer"]
+clip_contents = true
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HBoxContainer/PanelContainer/MarginContainer"]
+clip_contents = true
+layout_mode = 2
+alignment = 1
+
+[node name="EndTurnButton" type="Button" parent="CanvasLayer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "BATTLE_NEXT_TURN_BUTTON"
+autowrap_mode = 1
+
+[node name="Button2" type="Button" parent="CanvasLayer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "menu"
+
+[node name="TargetInfoPanel" parent="CanvasLayer/HBoxContainer" instance=ExtResource("4_riktp")]
+unique_name_in_owner = true
+layout_mode = 2

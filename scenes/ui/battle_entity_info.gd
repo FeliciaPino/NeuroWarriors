@@ -1,5 +1,5 @@
 extends Control
-
+class_name BattleEntityInfoPanel
 @export var battle_entity:BattleEntity
 var battle_entity_preview:BattleEntity#Ususally null, when set shows the differences from battle_entity, (used to display the predicted effects of actions)
 @onready var name_label := %Name_Label

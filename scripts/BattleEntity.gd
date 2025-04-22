@@ -38,7 +38,7 @@ var ap:int #how many actions are left in a turn
 
 @onready var actions_node = $Actions
 @onready var healthBar = %HealthBar
-@onready var selection_circle = $SelectionCircle
+@onready var button:TextureButton = $TextureButton
 @onready var action_menu = %ActionMenu
 @onready var menu = %Menu
 @onready var effects_container = %StatusEffects
@@ -53,17 +53,13 @@ var ap:int #how many actions are left in a turn
 @onready var sound_effects = $sound_effects
 @onready var sfx_menu_up = $sound_effects/menu_up
 
-var is_selected:bool = false
-var is_hovered_over_with_the_mouse = false
 var is_menu_opened = false
 
 signal got_clicked_on
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	print_debug(str("mouse connections:",get_signal_connection_list("mouse_entered")))
-	
 	animation_player.play("idle")
-	is_hovered_over_with_the_mouse = false
 	for child in actions_node.get_children():
 		if child is BattleAction:
 			actions.append(child)
@@ -85,9 +81,6 @@ func _ready() -> void:
 	#healthBar.min_value = -1 #Same as with the max, one less than 0 so it doesn't look empty when the value is 1
 	healthBar.setup(maxHealth,defense)
 	
-	selection_circle.visible = false
-	if not is_player_controlled: selection_circle.modulate = Color.RED
-	selection_circle.modulate.a = 0.5
 	mySpot = global_position
 	settle_into_spot()
 	
@@ -256,6 +249,8 @@ func settle_into_spot():
 func toggle_menu():
 	close_menu() if is_menu_opened else open_menu()
 func open_menu():
+	if is_menu_opened: return
+	print_debug(str(self,": opening menu"))
 	update_ap_label_text()
 	update_info_panel()
 	
@@ -265,14 +260,16 @@ func open_menu():
 	var tween = get_tree().create_tween().set_parallel()
 	tween.tween_property(menu, "modulate", Color(1,1,1,1) , 0.02)
 	tween.tween_property(menu, "scale", Vector2(1,1), 0.2)
-	#tween.tween_property(menu,"rotation",0,0.25)
+	action_menu.get_child(0).grab_focus()
+	
 	
 func close_menu():
+	if not is_menu_opened: return
+	print_debug(str(self,": closing menu"))
 	is_menu_opened = false
 	var tween = get_tree().create_tween().set_parallel()
 	tween.tween_property(menu, "modulate", Color(1,1,1,0) , 0.2)
 	tween.tween_property(menu, "scale", Vector2(), 0.2)
-	#tween.tween_property(menu,"rotation",3.14159,0.25)
 
 #returns a dictionoray like this ["action":BattleAction,"target",BattleEntity]
 func figure_out_something_to_do():
@@ -311,17 +308,13 @@ func got_on_your_personal_space(other:BattleEntity):
 	print_debug(entity_name+": Hey! " + other.entity_name + " got all up in my personal space!")
 	pass
 
-func _on_area_2d_mouse_entered() -> void:
-	is_hovered_over_with_the_mouse = true
-	selection_circle.visible = true
-	
+func _on_texture_button_button_down() -> void:
+	game_manager.battleEntityClicked(self)
+	got_clicked_on.emit()
 
-func _on_area_2d_mouse_exited() -> void:
-	is_hovered_over_with_the_mouse = false
-	selection_circle.visible = false
+func _on_texture_button_mouse_entered() -> void:
+	button.grab_focus()
 
-func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		is_selected = true
-		game_manager.battleEntityClicked(self)
-		got_clicked_on.emit()
+
+func _on_texture_button_focus_entered() -> void:
+	game_manager.battle_entity_grabbed_focus(self)

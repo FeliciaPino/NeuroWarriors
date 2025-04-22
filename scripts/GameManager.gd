@@ -4,9 +4,10 @@ class_name GameManager
 @export var xp_reward = 0 #the amount of xp to be split among the party when winning
 
 @onready var entity_manager:EntityManager = $Entity_manager
-@onready var selection_circle = $SelectionCircle #get rid of this
 @onready var instruction_label = %InstructionLabel
 @onready var end_turn_buttton:Button = %EndTurnButton
+@onready var character_info_panel:BattleEntityInfoPanel = %CharacterInfoPanel
+@onready var target_info_panel:BattleEntityInfoPanel = %TargetInfoPanel
 @onready var animation_player = $AnimationPlayer
 @onready var end_screen = $EndScreen
 @onready var return_to_map_button:Button = %Return
@@ -51,7 +52,6 @@ func _ready() -> void:
 	for enemy in foes:
 		xp_reward += enemy.challenge_rating * 10
 	
-	selection_circle.visible = false
 	
 	end_turn_buttton.pressed.connect(end_turn)
 	return_to_map_button.pressed.connect(return_to_menu)
@@ -64,13 +64,6 @@ func _ready() -> void:
 func return_to_menu():
 	get_tree().change_scene_to_packed(load("res://scenes/main_menu.tscn"))
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	return
-	if selected_character==null: # if there's no selected character we display the hovered one
-		highlighted_character = null
-		for character in party: if character.is_hovered_over_with_the_mouse:
-			highlighted_character = character
 func update_battle_entities():
 	party = entity_manager.get_party()
 	foes = entity_manager.get_foes()
@@ -91,62 +84,58 @@ func start_turn():
 	animation_player.play("start_player_turn")
 	turn_count += 1
 	print_debug("your turn")
-	
-#This is for neuro integration, unused so far
-func give_neuro_battle_context():
-	var context = "Battlefield status:\n"
-	for character in party:
-		context += str("-",character.entity_name," AP:",character.ap,", HP:",character.health,", Actions:")
-		for action in character.actions:
-			context += str(action.action_name,":",action.price," ")
-		context += " "
-		for sta_eff in character.effects_container.get_children():
-			context += sta_eff.effect_name+","
-		context+="\n"
-	context += "foes:\n"
-	for character in foes:
-		context += str("-",character.entity_name," AP:",character.ap,", HP:",character.health,", Actions:")
-		for action in character.actions:
-			context += str(action.action_name,":",action.price)
-		context += " "
-		for sta_eff in character.effects_container.get_children():
-			context += sta_eff.effect_name+","
-		context+="\n"
 func set_selected_character(character: BattleEntity):
-	if selected_character != null: selected_character.close_menu()
+	if character == selected_character: return
+	print_debug("setting selected character to "+(character.entity_name if character else "null"))
+	#close the menu if emptying selection
+	if selected_character and not character: selected_character.close_menu()
 	selected_character = character
-	var info_panel = get_node_or_null("CanvasLayer/HBoxContainer/Battle Entity Info")
-	if info_panel:
-		info_panel.set_entity_displayed(character)
-	if selected_character == null:
-		selection_circle.visible = false
-	else:
-		selected_character.open_menu()
-		#selection_circle.visible = true
-		selection_circle.position = selected_character.position
-
-	 
+	character_info_panel.set_entity_displayed(character)
+	#When selecting a new character, clear previous target
+	if selected_character:
+		target_info_panel.set_entity_displayed(null)
+	
 func set_selected_action(action: BattleAction):
+	if is_game_over: return
 	selected_action = action
 	if selected_character != null: selected_character.close_menu()
-	if selected_action == null:
+	if not selected_action:
 		instruction_label.visible = false
 		return
 	instruction_label.text = tr("BATTLE_TARGET_SELECT_HINT").format({verb=selected_action.verb})
 	instruction_label.visible = true
+	
+	if action.isPositive:
+		if selected_character:#this should always be true when selecting an action
+			selected_character.button.grab_focus()
+	else:
+		foes[0].button.grab_focus()
 #called by a battle entity when it is clicked
 func battleEntityClicked(clicked_entity: BattleEntity):
-	if selected_action != null:
+	print_debug(clicked_entity.entity_name + " got clicked")
+	#close the menu of all other entities
+	for e in foes: if e != clicked_entity: e.close_menu()
+	for e in party: if e != clicked_entity: e.close_menu()
+	#if there's an action selected, then clicking on an entity executes it.
+	if selected_action:
 		#did an action!
 		var act = selected_action
 		set_selected_action(null)
 		do_an_action(selected_character,act,clicked_entity)
 		set_selected_character(null)
-	elif selected_character == null and clicked_entity.is_player_controlled:
-		set_selected_character(clicked_entity)
-	elif not clicked_entity.is_player_controlled:
-		clicked_entity.toggle_menu()
-	
+	else:
+		if clicked_entity.is_player_controlled:
+			set_selected_character(clicked_entity)
+		clicked_entity.open_menu()
+#called by battle entity
+func battle_entity_grabbed_focus(focused_entity:BattleEntity):
+	#Update the the entity(ies) displayed in info panel(s)
+	if not selected_action:
+		#only change it if there is no character already selected (selected character takes priority over hovered
+		if not selected_character:
+			character_info_panel.set_entity_displayed(focused_entity)
+	else:
+		target_info_panel.set_entity_displayed(focused_entity)
 
 func do_an_action(user:BattleEntity, action:BattleAction, target:BattleEntity):
 	if not user or not target:
@@ -236,16 +225,23 @@ func is_mouse_click_R(event: InputEvent):
 
 func _unhandled_input(event: InputEvent) -> void:
 	if is_mouse_click_L(event):
-		if selected_action == null:
-			for foe in foes:
-				if not foe.is_hovered_over_with_the_mouse: foe.close_menu()
+		set_selected_character(null)
+		for e in foes: e.close_menu()
+	if event.is_action_pressed("ui_cancel"):
+		print_debug(str(self,": ui cancel pressed"))
+		#if theres an entity's menu opened, close it and make it grab focus
+		var exited_a_menu = false
+		for e in foes+party:
+			if e.is_menu_opened:
+				e.close_menu()
+				e.button.grab_focus()
+				exited_a_menu = true
+		#if the ui_cancel wasn't used to leave a m
+		if not exited_a_menu:
+			pass
 		
-		if selected_character != null:
-			if not selected_character.is_hovered_over_with_the_mouse and selected_action == null:
-				set_selected_character(null)
 func _input(event: InputEvent) -> void:
-	if is_mouse_click_R(event):
+	if is_mouse_click_R(event):#clear selection
 		for f in foes: f.close_menu()
 		set_selected_action(null)
 		set_selected_character(null)
-			

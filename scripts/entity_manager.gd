@@ -87,7 +87,6 @@ func _update_formation(team:Array[BattleEntity],rect:Rect2, mirror_x:bool = fals
 func update_entities_formations()->void:
 	_update_formation(get_party(),partyRect)
 	_update_formation(get_foes(),foesRect,true)
-	
 func spawn_entity(entity:BattleEntity, keep_position:bool = false):
 	print_debug("Entity Spawner: spanwing: "+str(entity))
 	self.add_child(entity)
