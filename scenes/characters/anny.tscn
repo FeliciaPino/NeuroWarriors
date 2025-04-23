@@ -431,7 +431,7 @@ texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_orvai")
 autoplay = "default"
 
-[node name="explosion" parent="." index="6"]
+[node name="explosion" parent="." index="5"]
 autoplay = "explosion"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="8"]

@@ -97,41 +97,43 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 14
-text = "stat:99"
+text = "healht:x"
 
 [node name="Attack_Label" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/ScrollContainer/Stats_Container"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 14
-text = "stat:99"
+text = "atack:x"
 
 [node name="Defense_Label" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/ScrollContainer/Stats_Container"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 14
-text = "stat:99"
+text = "defens:x"
 
 [node name="AP_Regen_Label" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/ScrollContainer/Stats_Container"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 14
-text = "stat:99"
+text = "ap reggie:x"
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/ScrollContainer/Stats_Container"]
 layout_mode = 2
-text = "jimbolarity:4"
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 14
+text = "jimbolarity:99"
 
 [node name="Label2" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/ScrollContainer/Stats_Container"]
 layout_mode = 2
-text = "skonging: 5"
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 14
+text = "skonging: 73"
 
 [node name="Label3" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/ScrollContainer/Stats_Container"]
 layout_mode = 2
-text = "morple:7"
-
-[node name="Label4" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/ScrollContainer/Stats_Container"]
-layout_mode = 2
-text = "khjl"
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 14
+text = "grunkation:34"

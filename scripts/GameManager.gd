@@ -9,7 +9,7 @@ class_name GameManager
 @onready var character_info_panel:BattleEntityInfoPanel = %CharacterInfoPanel
 @onready var target_info_panel:BattleEntityInfoPanel = %TargetInfoPanel
 @onready var animation_player = $AnimationPlayer
-@onready var end_screen = $EndScreen
+@onready var end_screen = %EndScreen
 @onready var return_to_map_button:Button = %Return
 @onready var background = $Background
 var level_select_scene = preload("res://scenes/levels/level_select.tscn")
@@ -59,8 +59,13 @@ func _ready() -> void:
 	is_player_turn = true
 	is_game_over = false
 	turn_count = 0
-	
 	start_turn()
+	#this should always be true
+	if foes.size()>0:
+		target_info_panel.set_entity_displayed(foes[0])
+	#this should only happen on the test level, the starting character displayed will be set from battlemaker methinks
+	if party.size()>0:
+		character_info_panel.set_entity_displayed(party[0])
 func return_to_menu():
 	get_tree().change_scene_to_packed(load("res://scenes/main_menu.tscn"))
 
@@ -90,10 +95,11 @@ func set_selected_character(character: BattleEntity):
 	#close the menu if emptying selection
 	if selected_character and not character: selected_character.close_menu()
 	selected_character = character
-	character_info_panel.set_entity_displayed(character)
-	#When selecting a new character, clear previous target
+	#When selecting a new character, clear previous displayed target
 	if selected_character:
-		target_info_panel.set_entity_displayed(null)
+		character_info_panel.set_entity_displayed(selected_character)
+		#target_info_panel.set_entity_displayed(null)
+		pass
 	
 func set_selected_action(action: BattleAction):
 	if is_game_over: return
@@ -126,14 +132,22 @@ func battleEntityClicked(clicked_entity: BattleEntity):
 	else:
 		if clicked_entity.is_player_controlled:
 			set_selected_character(clicked_entity)
+		else:
+			set_selected_character(null)
 		clicked_entity.open_menu()
 #called by battle entity
 func battle_entity_grabbed_focus(focused_entity:BattleEntity):
 	#Update the the entity(ies) displayed in info panel(s)
 	if not selected_action:
-		#only change it if there is no character already selected (selected character takes priority over hovered
-		if not selected_character:
-			character_info_panel.set_entity_displayed(focused_entity)
+		#If there's already a character selected (with their menu up), show the info in the target panel (This should just happen with the mouse I reckon)
+		if selected_character:
+			target_info_panel.set_entity_displayed(focused_entity)
+		else:
+			#if there's no selected character already, display enemies on the right and teammates on the left
+			if focused_entity.is_player_controlled:
+				character_info_panel.set_entity_displayed(focused_entity)
+			else:
+				target_info_panel.set_entity_displayed(focused_entity)
 	else:
 		target_info_panel.set_entity_displayed(focused_entity)
 
@@ -224,7 +238,7 @@ func is_mouse_click_R(event: InputEvent):
 	return event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.pressed
 
 func _unhandled_input(event: InputEvent) -> void:
-	if is_mouse_click_L(event):
+	if is_mouse_click_L(event) and not selected_action:
 		set_selected_character(null)
 		for e in foes: e.close_menu()
 	if event.is_action_pressed("ui_cancel"):

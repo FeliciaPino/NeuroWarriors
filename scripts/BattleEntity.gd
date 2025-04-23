@@ -44,7 +44,6 @@ var ap:int #how many actions are left in a turn
 @onready var effects_container = %StatusEffects
 @onready var actions_left_label = $Menu/ApDisplay/NinePatchRect/Label
 @onready var actions_left_display = $Menu/ApDisplay
-@onready var info_panel = %Info
 @onready var game_manager:GameManager = $"../.."
 @onready var visual_node = $visual
 @onready var flipper = $visual/Flipper
@@ -85,7 +84,6 @@ func _ready() -> void:
 	settle_into_spot()
 	
 	update_menu_actions()
-	update_info_panel()
 	
 	#debug
 	if entity_name in CharacterDatabase.ALL_CHARACTERS:
@@ -164,7 +162,6 @@ func reduce_health(value:int):
 	emit_signal("received_damage",value,true)
 	throw_text(str(value))
 func update_health(value):
-	update_info_panel()
 	health = value
 	if health>maxHealth: health=maxHealth
 	health_changed.emit()
@@ -217,10 +214,6 @@ func update_ap_label_text():
 	actions_left_label.text = str(ap)
 	actions_left_display.get_child(0).size.x = len(actions_left_label.text)*9+27
 
-func update_info_panel() -> void:
-	var info_panel_info = [entity_name,str(tr("BATTLESTAT_HEALTH"),": ",health,"/",maxHealth),str(tr("BATTLESTAT_ATTACK"),": ",attack),str(tr("BATTLESTAT_DEFENSE"),": ",defense),str(tr("BATTLESTAT_AP_REGEN"),": ",speed)]
-	for i in range(info_panel.get_child_count()):
-		info_panel.get_child(i).text = info_panel_info[i]
 func update_menu_actions():
 	#action menu
 	for child in action_menu.get_children(): child.queue_free()
@@ -252,7 +245,6 @@ func open_menu():
 	if is_menu_opened: return
 	print_debug(str(self,": opening menu"))
 	update_ap_label_text()
-	update_info_panel()
 	
 	is_menu_opened = true
 	if is_player_controlled:
@@ -260,7 +252,8 @@ func open_menu():
 	var tween = get_tree().create_tween().set_parallel()
 	tween.tween_property(menu, "modulate", Color(1,1,1,1) , 0.02)
 	tween.tween_property(menu, "scale", Vector2(1,1), 0.2)
-	action_menu.get_child(0).grab_focus()
+	if action_menu.get_child_count()>0:
+		action_menu.get_child(0).grab_focus()
 	
 	
 func close_menu():
