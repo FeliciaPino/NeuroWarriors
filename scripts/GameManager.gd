@@ -66,10 +66,12 @@ func _ready() -> void:
 	#this should only happen on the test level, the starting character displayed will be set from battlemaker methinks
 	if party.size()>0:
 		character_info_panel.set_entity_displayed(party[0])
+
 func return_to_menu():
 	get_tree().change_scene_to_packed(load("res://scenes/main_menu.tscn"))
 
 func update_battle_entities():
+	entity_manager.update_focus_neighbours()
 	party = entity_manager.get_party()
 	foes = entity_manager.get_foes()
 func end_turn():

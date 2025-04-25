@@ -83,10 +83,41 @@ func _update_formation(team:Array[BattleEntity],rect:Rect2, mirror_x:bool = fals
 		e.mySpot.x = rect.position.x + rect.size.x * ((1-p.x) if mirror_x else p.x)
 		e.mySpot.y = rect.position.y + rect.size.y * p.y
 		e.go_to_your_spot()
-#I think this is deprecated. I mean, if an entity is added or removed we should only update it's side of the battlefield, no?
+		
 func update_entities_formations()->void:
 	_update_formation(get_party(),partyRect)
 	_update_formation(get_foes(),foesRect,true)
+
+#I should have probbbably made this based on their  spots rather than their dynamic positions. Oh well
+func update_focus_neighbours()->void:
+	var closest_to_end_turn_button:BattleEntity=entities[0]
+	for node in entities:
+		if closest_to_end_turn_button.mySpot.distance_squared_to(game_manager.end_turn_buttton.global_position) > node.mySpot.distance_squared_to(game_manager.end_turn_buttton.global_position):
+			closest_to_end_turn_button = node
+		#up down left right neighbors, the closest node in that direction
+		var neighbors:Array[BattleEntity] = [null,null,null,null]
+		for other in entities:
+			if other==node: continue
+			var dy:int = other.mySpot.y - node.mySpot.y
+			var dx:int = other.mySpot.x - node.mySpot.x
+			var q = -1 #the quadrant the other node is
+			if dy < dx and dy < -dx: q = 0 #up quadrant
+			if dy > dx and dy > -dx: q = 1 #down quadrant
+			if dy > dx and dy < -dx: q = 2 #left quadrant
+			if dy < dx and dy > -dx: q = 3 #right quadrant
+			if not neighbors[q]:
+				neighbors[q] = other
+			elif other.mySpot.distance_squared_to(node.mySpot) < neighbors[q].mySpot.distance_squared_to(node.mySpot):
+				neighbors[q] = other
+		
+		if neighbors[0]: node.button.focus_neighbor_top = neighbors[0].button.get_path()
+		if neighbors[1]: node.button.focus_neighbor_bottom = neighbors[1].button.get_path()
+		else: node.button.focus_neighbor_bottom = game_manager.end_turn_buttton.get_path()
+		if neighbors[2]: node.button.focus_neighbor_left = neighbors[2].button.get_path()
+		if neighbors[3]: node.button.focus_neighbor_right = neighbors[3].button.get_path()
+	#connect end turn button to closest entity (don't have to worry about direction sicnce the button is at the bottom already)
+	game_manager.end_turn_buttton.focus_neighbor_top = closest_to_end_turn_button.button.get_path()
+	
 func spawn_entity(entity:BattleEntity, keep_position:bool = false):
 	print_debug("Entity Spawner: spanwing: "+str(entity))
 	self.add_child(entity)
@@ -104,6 +135,7 @@ func spawn_entity(entity:BattleEntity, keep_position:bool = false):
 		_update_formation(get_party(),partyRect)
 	else:
 		_update_formation(get_foes(),foesRect,true)
+	
 		
 	
 	
