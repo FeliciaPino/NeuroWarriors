@@ -620,6 +620,7 @@ offset_right = -390.0
 offset_bottom = 1631.0
 scale = Vector2(0.6, 0.6)
 pivot_offset = Vector2(80, 0)
+focus_neighbor_left = NodePath(".")
 text = "Return to menu"
 
 [node name="Slots" type="VBoxContainer" parent="SaveSlots"]

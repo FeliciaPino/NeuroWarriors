@@ -42,6 +42,7 @@ text = "BATTLE_DEFEAT"
 horizontal_alignment = 1
 
 [node name="ReloadButton" type="Button" parent="LoseScreen/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "BATTLE_RELOAD"
 
@@ -75,6 +76,7 @@ layout_mode = 2
 alignment = 1
 
 [node name="LeaveButton" type="Button" parent="WinScreen/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "BATTLE_RETURN_TO_MAP"
 

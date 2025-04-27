@@ -18,6 +18,11 @@ const UPGRADE_PATHS = {
 	"vitality":"res://scripts/upgrades/vitality.gd",
 	"unlock_shock":"res://scripts/upgrades/unlock_shock.gd"
 }
+const BATTLE_ACTION_PATHS = {
+	"robot_punch":"res://scenes/actions/robot_punch.tscn",
+	"heart":"res://scenes/actions/heart.tscn"
+	#TODO: add the rest of the actions
+}
 func get_entity_scene(entity_name:String) -> PackedScene:
 	print_debug(str(self,": loading ",entity_name))
 	return load(CHARACTER_SCENE_PATHS[entity_name])

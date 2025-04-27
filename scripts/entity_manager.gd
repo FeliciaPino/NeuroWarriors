@@ -28,12 +28,12 @@ func _ready() -> void:
 	
 func remove_entity(entity:BattleEntity):
 	entities.erase(entity)
-	"""
-	if entity.is_player_controlled:
-		_update_formation(get_party(),partyRect)
-	else:
-		_update_formation(get_foes(),foesRect,true)
-	"""
+	#Since we're removing it, have to give focus to one if it's neighbors
+	for d in [SIDE_BOTTOM,SIDE_LEFT,SIDE_RIGHT,SIDE_TOP]:
+		var possible_neighbor = get_node_or_null(entity.button.get_focus_neighbor(d))
+		if possible_neighbor:
+			possible_neighbor.grab_focus()
+			break
 	game_manager.update_battle_entities()
 #returns a list of all alive player-controlled characters
 func get_party()->Array[BattleEntity]:
@@ -92,12 +92,13 @@ func update_entities_formations()->void:
 func update_focus_neighbours()->void:
 	var closest_to_end_turn_button:BattleEntity=entities[0]
 	for node in entities:
+		if not node.alive: continue
 		if closest_to_end_turn_button.mySpot.distance_squared_to(game_manager.end_turn_buttton.global_position) > node.mySpot.distance_squared_to(game_manager.end_turn_buttton.global_position):
 			closest_to_end_turn_button = node
 		#up down left right neighbors, the closest node in that direction
 		var neighbors:Array[BattleEntity] = [null,null,null,null]
 		for other in entities:
-			if other==node: continue
+			if other==node or not other.alive: continue
 			var dy:int = other.mySpot.y - node.mySpot.y
 			var dx:int = other.mySpot.x - node.mySpot.x
 			var q = -1 #the quadrant the other node is

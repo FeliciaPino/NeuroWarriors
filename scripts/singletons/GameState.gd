@@ -74,6 +74,7 @@ var current_enemy_battle:String = ""
 var current_level_path:String = ""
 var last_level = "City Boss"
 func _ready():
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	print_debug("GameState is ready.")
 	completed_levels = DEFAULT_VALUES["completed_levels"].duplicate(true)
 	flags = DEFAULT_VALUES["flags"].duplicate(true)
@@ -83,13 +84,10 @@ func _ready():
 
 var controlling_with_the_mouse:bool = true
 func _input(event: InputEvent) -> void:
-	print_debug(str("there was an input: ",event, " and contr_w_t_mous is:",controlling_with_the_mouse))
 	if (event is InputEventMouse) and (not controlling_with_the_mouse):
-		print_debug("changing input to mouse")
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		controlling_with_the_mouse = true
 	if (event is InputEventKey) and controlling_with_the_mouse:
-		print_debug("changing input to keys")
 		Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 		controlling_with_the_mouse = false
 		

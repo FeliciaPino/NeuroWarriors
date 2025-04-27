@@ -21,6 +21,7 @@ func open_menu():
 	get_tree().paused = true
 	visible = true
 	menu_opened = true
+	$TabContainer.get_tab_bar().grab_focus()
 	get_viewport().set_input_as_handled()
 func close_menu():
 	print_debug(str(self,": closing menu"))

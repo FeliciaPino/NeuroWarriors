@@ -12,6 +12,7 @@ extends Control
 func _ready() -> void:
 	MusicPlayer.play_music(load("res://assets/audio/music/4.ogg"))
 	play_button.pressed.connect(got_to_save_slots)
+	play_button.grab_focus()
 	options_menu.visible = false
 	om_music_slider.value = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music"))
 	om_SFX_slider.value = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("SFX"))
@@ -22,6 +23,7 @@ func _ready() -> void:
 	
 func got_to_save_slots():
 	animation_player.play("FadeToSaveSlots")
+	save_slots.get_child(0).load_button.grab_focus()
 	for slot in save_slots.get_children():
 		slot.update_text()
 	

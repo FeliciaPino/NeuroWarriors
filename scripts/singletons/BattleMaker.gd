@@ -49,6 +49,7 @@ func go_to_level(path:String):
 		game.entity_manager.spawn_entity(member)
 	game.update_battle_entities()
 	game.character_info_panel.set_entity_displayed(party[0])
+	party[0].button.grab_focus()
 const battle_scene = preload("res://scenes/levels/game.tscn")
 func start_battle():
 	pass

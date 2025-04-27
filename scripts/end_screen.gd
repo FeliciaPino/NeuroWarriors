@@ -6,6 +6,9 @@ extends Control
 @onready var xp_indicators := %CharactersLevelup
 @onready var lose_screen := $LoseScreen
 
+@onready var leave_button := %LeaveButton
+@onready var reload_button := %ReloadButton
+
 const map_scene = preload("res://scenes/overworld/overworld.tscn")
 
 const xp_indicator_scene = preload("res://scenes/ui/xp_gained_indicator.tscn")
@@ -22,10 +25,12 @@ func set_win_status(value:bool):
 			new_xp_indicator.xp_added = xp_per_character
 			xp_indicators.add_child(new_xp_indicator)
 		SaveManager.save_game(GameState.current_save_slot_index)
+		leave_button.grab_focus()
 	else:#lost
 		MusicPlayer.play_music(load("res://addons/sfx/Retro Negative Long 12.wav"),0)
 		lose_screen.visible = true
 		win_screen.visible = false
+		reload_button.grab_focus()
 	game_manager.end_turn_buttton.visible = false
 func reload_and_leave():
 	SaveManager.load_game(GameState.current_save_slot_index)

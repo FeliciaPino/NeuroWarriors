@@ -225,7 +225,10 @@ func update_menu_actions():
 		if ap < action.price or not is_player_controlled:
 			button.disabled = true
 		action_menu.add_child(button)
-
+	await get_tree().process_frame
+	if is_menu_opened:
+		print_debug(str("Entity menu updated while open, giving focus to ",action_menu.get_child(0)))
+		action_menu.get_child(0).grab_focus()
 func go_to_your_spot()->void:
 	walk_to(mySpot,500)
 	await finished_walking
