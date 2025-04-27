@@ -18,6 +18,7 @@ func _ready() -> void:
 	frames[current_frame_index].visible = true
 	skip_button.pressed.connect(return_to_level_select)
 	next_button.pressed.connect(next_frame)
+	next_button.grab_focus()
 	previous_button.pressed.connect(previous_frame)
 	print_debug("playing intro cutscene")
 	fade.visible = true

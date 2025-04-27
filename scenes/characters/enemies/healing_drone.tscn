@@ -267,7 +267,7 @@ _data = {
 }
 
 [node name="healingDrone" instance=ExtResource("1_fcv86")]
-challenge_rating = 1.0
+challenge_rating = 1.5
 entity_name = "Healing Drone"
 entity_description = "It's the healing drone. It uh, it heals. n stuff"
 defense = 3

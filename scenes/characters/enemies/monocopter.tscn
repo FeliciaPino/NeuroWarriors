@@ -429,13 +429,13 @@ _data = {
 }
 
 [node name="monocopter" instance=ExtResource("1_hi2w3")]
-challenge_rating = 0.4
+challenge_rating = 0.3
 health = 30
 maxHealth = 30
 entity_name = "Monocopter"
 entity_description = "Moncopter monocpter. "
 
-[node name="visual" parent="." index="1"]
+[node name="visual" parent="." index="0"]
 scale = Vector2(-1, 1)
 
 [node name="body" type="AnimatedSprite2D" parent="visual" index="0"]

@@ -50,7 +50,7 @@ func _ready() -> void:
 	for party_member in party:
 		party_member.is_player_controlled = true
 	for enemy in foes:
-		xp_reward += enemy.challenge_rating * 10
+		xp_reward += enemy.challenge_rating * 50
 	
 	
 	end_turn_buttton.pressed.connect(end_turn)
