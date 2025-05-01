@@ -446,7 +446,7 @@ challenge_rating = 1.2
 health = 60
 maxHealth = 60
 entity_name = "Offensive Drone"
-entity_description = "More damage, less defence"
+entity_description = "A slightly stonger variant of the basic drone with higher damage and the ability of boosting attack."
 attack = 15
 speed = 2
 

@@ -433,7 +433,7 @@ challenge_rating = 0.3
 health = 30
 maxHealth = 30
 entity_name = "Monocopter"
-entity_description = "Moncopter monocpter. "
+entity_description = "Lightweight drone with a single rotor. It can shoot a laser and occasionally slam into enemies."
 
 [node name="visual" parent="." index="0"]
 scale = Vector2(-1, 1)

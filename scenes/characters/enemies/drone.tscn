@@ -426,7 +426,7 @@ _data = {
 challenge_rating = 0.6
 maxHealth = 45
 entity_name = "Basic Drone"
-entity_description = "Basic Drone"
+entity_description = "Standard drone scout. Shoots lasers and cuts into enemies with it's rotor blades."
 speed = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="visual" index="0"]

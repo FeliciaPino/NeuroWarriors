@@ -558,7 +558,7 @@ _data = {
 
 [node name="NeuroSama" instance=ExtResource("1_k2s26")]
 entity_name = "Neuro-sama"
-entity_description = "Neuro sama is very cool and I love her so much and she's cute and funny and smart"
+entity_description = "Cute, clever, and extremely witty. An AI designed to entertain. She's got a bit of an ego."
 speed = 3
 is_player_controlled = true
 

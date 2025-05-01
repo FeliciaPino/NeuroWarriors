@@ -28,12 +28,17 @@ theme_override_constants/margin_bottom = 5
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="Name_And_Description" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer"]
+[node name="ScrollContainer2" type="ScrollContainer" parent="PanelContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="Name_And_Description" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/ScrollContainer2"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Name_Label" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/Name_And_Description"]
+[node name="Name_Label" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/ScrollContainer2/Name_And_Description"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(40, 5)
 layout_mode = 2
@@ -41,10 +46,10 @@ text = "namey mc nameface"
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="HSeparator" type="HSeparator" parent="PanelContainer/MarginContainer/HBoxContainer/Name_And_Description"]
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/MarginContainer/HBoxContainer/ScrollContainer2/Name_And_Description"]
 layout_mode = 2
 
-[node name="Description_Label" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/Name_And_Description"]
+[node name="Description_Label" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/ScrollContainer2/Name_And_Description"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 80)
 layout_mode = 2

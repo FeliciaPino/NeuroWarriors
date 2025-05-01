@@ -693,7 +693,7 @@ _data = {
 
 [node name="Vedal" instance=ExtResource("1_0fs3l")]
 entity_name = "Vedal"
-entity_description = "Overworked single father"
+entity_description = "Workaholic with a deadpan personality. This British avid alcohol fan became an unexpected father of two AIs."
 defense = 10
 speed = 2
 is_player_controlled = true
