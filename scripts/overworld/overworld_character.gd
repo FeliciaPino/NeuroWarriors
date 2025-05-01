@@ -9,9 +9,10 @@ class_name OverworldCharacter
 		associated_character = new_value
 		if is_inside_tree():
 			update_sprite_frames_from_character_name(new_value)
-@onready var sprite = $AnimatedSprite2D
-@onready var collider = $CollisionShape2D
+@onready var sprite := $AnimatedSprite2D
+@onready var collider := $Body
 @onready var facer := $Facer
+@onready var interacter := $interacter #collider that detects interactions with the world (such as inspecting, activating something, or talking with an npc)
 @export var following_target:OverworldCharacter = null
 func _ready() -> void:
 	print_debug(str(self,": set pos as ",global_position))
@@ -19,10 +20,13 @@ func _ready() -> void:
 		update_sprite_frames_from_character_name(associated_character)
 	if following_target:
 		set_collision_layer_value(1, false)  
+		
 func update_sprite_frames_from_character_name(character_name:String):
 	set_sprite_frames(load("res://assets/overworld/"+character_name+"_spriteframes.tres"))
+	
 func set_sprite_frames(new_frames:SpriteFrames):
 	sprite.sprite_frames = new_frames
+	
 func _physics_process(delta: float) -> void:
 	GameState.set_player_map_position(global_position)
 	var direction  = Input.get_vector("left","right","up","down")
@@ -43,3 +47,13 @@ func _physics_process(delta: float) -> void:
 			facer.facing = "s" if velocity.y > 0 else "n"
 	move_and_slide()
 	
+func _on_animated_sprite_2d_animation_changed() -> void:
+	if "moving_w"==sprite.animation or "idle_w"==sprite.animation:
+		interacter.position = Vector2(-16,5)
+	if "moving_n"==sprite.animation or "idle_n"==sprite.animation:
+		interacter.position = Vector2(0,-16)
+	if "moving_e"==sprite.animation or "idle_e"==sprite.animation:
+		interacter.position = Vector2(15,5)
+	if "moving_s"==sprite.animation or "idle_s"==sprite.animation:
+		interacter.position = Vector2(0,16)
+		

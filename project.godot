@@ -106,6 +106,12 @@ cancel={
 
 locale/translations=PackedStringArray("res://translations/NeuroverseWarriors_Translations.en.translation", "res://translations/NeuroverseWarriors_Translations.es.translation")
 
+[layer_names]
+
+2d_physics/layer_1="environment"
+2d_physics/layer_2="player"
+2d_physics/layer_3="player_interaction"
+
 [rendering]
 
 renderer/rendering_method="mobile"

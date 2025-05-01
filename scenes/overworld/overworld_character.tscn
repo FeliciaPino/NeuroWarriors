@@ -1,12 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://bl855ggccmntd"]
+[gd_scene load_steps=7 format=3 uid="uid://bl855ggccmntd"]
 
 [ext_resource type="Script" uid="uid://d10mc2vvlxef" path="res://scripts/overworld/overworld_character.gd" id="1_e0gxn"]
 [ext_resource type="SpriteFrames" uid="uid://dmtcf7hjrpnt1" path="res://assets/overworld/Anny_spriteframes.tres" id="2_f6c2w"]
 [ext_resource type="PackedScene" uid="uid://cnetql8kspan7" path="res://scenes/overworld/facer.tscn" id="3_5phls"]
+[ext_resource type="Texture2D" uid="uid://g04rqk377lfp" path="res://assets/ui/circle.png" id="4_w5tcu"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w2dh8"]
 radius = 11.0
 height = 28.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q5ocj"]
+size = Vector2(11, 10)
 
 [node name="OverworldCharacter" type="CharacterBody2D"]
 y_sort_enabled = true
@@ -20,11 +24,25 @@ texture_filter = 1
 sprite_frames = ExtResource("2_f6c2w")
 animation = &"moving_w"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
+[node name="Body" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)
 shape = SubResource("CapsuleShape2D_w2dh8")
 
 [node name="Facer" parent="." node_paths=PackedStringArray("body", "sprite") instance=ExtResource("3_5phls")]
 body = NodePath("..")
 sprite = NodePath("../AnimatedSprite2D")
+
+[node name="interacter" type="Area2D" parent="."]
+position = Vector2(0, -16)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interacter"]
+shape = SubResource("RectangleShape2D_q5ocj")
+
+[node name="Sprite2D" type="Sprite2D" parent="interacter"]
+position = Vector2(0, -1.90735e-06)
+scale = Vector2(0.12, 0.1)
+texture = ExtResource("4_w5tcu")
+
+[connection signal="animation_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_changed"]

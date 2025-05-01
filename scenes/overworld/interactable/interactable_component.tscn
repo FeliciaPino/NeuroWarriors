@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bu7ouujuhbdw2"]
+
+[ext_resource type="Script" uid="uid://dmsmx8vif8s57" path="res://scenes/overworld/interactable/interactable_component.gd" id="1_hvjjf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8vjla"]
+
+[node name="InteractableComponent" type="Area2D"]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_hvjjf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_8vjla")

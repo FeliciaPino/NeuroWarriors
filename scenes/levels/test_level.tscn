@@ -33,7 +33,6 @@ speed = 30
 position = Vector2(1374, 322)
 health = 600
 maxHealth = 300
-entity_description = "Standard drone scout. Shoots lasers and cuts into enemies with it's rotor blades."
 
 [node name="Evil" parent="Entity_manager" index="2" instance=ExtResource("5_oeaud")]
 speed = 42343
@@ -52,7 +51,5 @@ speed = 30
 [node name="Anny" parent="Entity_manager" index="4" instance=ExtResource("10_2mu0v")]
 
 [node name="monocopter" parent="Entity_manager" index="5" instance=ExtResource("12_a5rnb")]
-entity_description = "Lightweight drone with a single rotor. It can shoot a laser and occasionally slam into enemies."
 
 [node name="offensiveDrone" parent="Entity_manager" index="6" instance=ExtResource("13_fqldq")]
-entity_description = "A slightly stonger variant of the basic drone with higher damage and the ability of boosting attack."
