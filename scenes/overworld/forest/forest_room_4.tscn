@@ -1,16 +1,10 @@
-[gd_scene load_steps=8 format=4 uid="uid://dgwexmts8tsxt"]
+[gd_scene load_steps=4 format=4 uid="uid://dgwexmts8tsxt"]
 
 [ext_resource type="PackedScene" uid="uid://ds7mmdtobydfi" path="res://scenes/overworld/forest/forest_room.tscn" id="1_jdg3j"]
 [ext_resource type="Script" uid="uid://b25jy6devp0ix" path="res://scripts/overworld/passage.gd" id="2_tk20a"]
-[ext_resource type="Script" uid="uid://ba1rbjqs1nmgt" path="res://scenes/overworld/interactable/rock/rock.gd" id="3_1aspw"]
-[ext_resource type="Texture2D" uid="uid://g04rqk377lfp" path="res://assets/ui/circle.png" id="4_a7nxl"]
-[ext_resource type="PackedScene" uid="uid://bu7ouujuhbdw2" path="res://scenes/overworld/interactable/interactable_component.tscn" id="5_a7nxl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ou1y"]
 size = Vector2(113, 75)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_a7nxl"]
-size = Vector2(44, 42)
 
 [node name="ForestRoom4" instance=ExtResource("1_jdg3j")]
 
@@ -56,21 +50,5 @@ shape = SubResource("RectangleShape2D_2ou1y")
 position = Vector2(3, 281)
 limit_bottom = 300
 
-[node name="Node2D" type="Node2D" parent="." index="5" node_paths=PackedStringArray("sprite", "interactable_component")]
-script = ExtResource("3_1aspw")
-sprite = NodePath("Sprite2D")
-interactable_component = NodePath("InteractableComponent")
-
-[node name="Sprite2D" type="Sprite2D" parent="Node2D" index="0"]
-texture = ExtResource("4_a7nxl")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Node2D" index="1"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D" index="0"]
-shape = SubResource("RectangleShape2D_a7nxl")
-
-[node name="InteractableComponent" parent="Node2D" index="2" instance=ExtResource("5_a7nxl")]
-scale = Vector2(2.22739, 2.16148)
-
-[connection signal="area_entered" from="Node2D/InteractableComponent" to="Node2D/InteractableComponent" method="_on_area_entered"]
-[connection signal="area_exited" from="Node2D/InteractableComponent" to="Node2D/InteractableComponent" method="_on_area_exited"]
+[node name="UI" parent="." index="4"]
+visible = true

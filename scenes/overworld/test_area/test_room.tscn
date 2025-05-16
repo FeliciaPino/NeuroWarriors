@@ -1,0 +1,101 @@
+[gd_scene load_steps=17 format=3 uid="uid://db6vwqoodof3o"]
+
+[ext_resource type="PackedScene" uid="uid://c4knnckwwejji" path="res://scenes/overworld/room.tscn" id="1_o6j7m"]
+[ext_resource type="Script" uid="uid://cee085tws7h0y" path="res://scenes/ui/dialogue/dialogue_manager.gd" id="2_cmg84"]
+[ext_resource type="Script" uid="uid://ba1rbjqs1nmgt" path="res://scenes/overworld/interactable/rock/rock.gd" id="2_csp3m"]
+[ext_resource type="Texture2D" uid="uid://g04rqk377lfp" path="res://assets/ui/circle.png" id="3_c1vcw"]
+[ext_resource type="PackedScene" uid="uid://bu7ouujuhbdw2" path="res://scenes/overworld/interactable/interactable_component.tscn" id="4_tvv83"]
+[ext_resource type="Texture2D" uid="uid://l71gewe0yuvu" path="res://assets/chroma.png" id="5_tvv83"]
+[ext_resource type="Script" uid="uid://b0brp80tajola" path="res://scenes/ui/dialogue/dialogue_trigger.gd" id="6_cmg84"]
+[ext_resource type="PackedScene" uid="uid://lid4f4jxk5j2" path="res://scenes/ui/dialogue/dialogue_display.tscn" id="6_yjh1c"]
+[ext_resource type="Texture2D" uid="uid://c2bq58th4ub5" path="res://assets/overworld/city_tiles.png" id="8_qy337"]
+[ext_resource type="Texture2D" uid="uid://btuw23k4ok34i" path="res://assets/overworld/32x32neuro.png" id="9_yjh1c"]
+[ext_resource type="Texture2D" uid="uid://o5sq0tkkglam" path="res://assets/overworld/tiles.png" id="10_17a1n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cmg84"]
+size = Vector2(44, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bl62h"]
+atlas = ExtResource("5_tvv83")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_witrt"]
+atlas = ExtResource("5_tvv83")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2m8nb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bl62h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_witrt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_421en"]
+
+[node name="TestRoom" instance=ExtResource("1_o6j7m")]
+
+[node name="Background" type="Node2D" parent="." index="0"]
+
+[node name="CityTiles" type="Sprite2D" parent="Background" index="0"]
+position = Vector2(-277, -237)
+texture = ExtResource("8_qy337")
+
+[node name="32x32Neuro" type="Sprite2D" parent="Background" index="1"]
+position = Vector2(-91, -188)
+texture = ExtResource("9_yjh1c")
+
+[node name="Tiles" type="Sprite2D" parent="Background" index="2"]
+position = Vector2(121, -252)
+texture = ExtResource("10_17a1n")
+
+[node name="DialogueManager" type="Node" parent="." index="5"]
+unique_name_in_owner = true
+script = ExtResource("2_cmg84")
+
+[node name="DialogueDisplay" parent="UI" index="3" instance=ExtResource("6_yjh1c")]
+unique_name_in_owner = true
+visible = false
+
+[node name="Node2D" type="Node2D" parent="." index="7" node_paths=PackedStringArray("sprite", "interactable_component")]
+script = ExtResource("2_csp3m")
+sprite = NodePath("Sprite2D")
+interactable_component = NodePath("InteractableComponent")
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D" index="0"]
+texture = ExtResource("3_c1vcw")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node2D" index="1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D" index="0"]
+shape = SubResource("RectangleShape2D_cmg84")
+
+[node name="InteractableComponent" parent="Node2D" index="2" instance=ExtResource("4_tvv83")]
+scale = Vector2(2.22739, 2.16148)
+
+[node name="dialogueTest" type="AnimatedSprite2D" parent="." index="8" node_paths=PackedStringArray("interactable_component")]
+texture_filter = 1
+position = Vector2(-158, -47)
+sprite_frames = SubResource("SpriteFrames_2m8nb")
+script = ExtResource("6_cmg84")
+interactable_component = NodePath("InteractableComponent")
+path_to_dialogue_sequence = "res://scenes/overworld/test_area/dialogue_test_1.txt"
+
+[node name="InteractableComponent" parent="dialogueTest" index="0" instance=ExtResource("4_tvv83")]
+scale = Vector2(1.43831, 1.30994)
+
+[node name="Area2D" type="Area2D" parent="dialogueTest" index="1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dialogueTest/Area2D" index="0"]
+shape = SubResource("RectangleShape2D_421en")
+
+[connection signal="area_entered" from="Node2D/InteractableComponent" to="Node2D/InteractableComponent" method="_on_area_entered"]
+[connection signal="area_exited" from="Node2D/InteractableComponent" to="Node2D/InteractableComponent" method="_on_area_exited"]
+[connection signal="area_entered" from="dialogueTest/InteractableComponent" to="dialogueTest/InteractableComponent" method="_on_area_entered"]
+[connection signal="area_exited" from="dialogueTest/InteractableComponent" to="dialogueTest/InteractableComponent" method="_on_area_exited"]
