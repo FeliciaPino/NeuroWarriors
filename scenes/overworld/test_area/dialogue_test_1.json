@@ -1,0 +1,37 @@
+[
+	{
+		"id":"start",
+		"speaker":"Narrator",
+		"expression":"Neutral",
+		"text_key":"the cromatic aberration",
+		"next":"line2"
+	},
+	{
+		"id":"line2",
+		"speaker":"Neuro-sama",
+		"expression":"Happy",
+		"text_key":"Waaoh, so cool",
+		"next":"line3"
+	},
+	{
+		"id":"line3",
+		"speaker":"Vedal",
+		"expression":"Neutral",
+		"text_key":"Hello, yes, I am Vedal",
+		"next":"line4"
+	},
+	{
+		"id":"line4",
+		"speaker":"Vedal",
+		"expression":"Neutral",
+		"text_key":"What are you looking at, Neuro?",
+		"next":"line5"
+	},
+	{
+		"id":"line5",
+		"speaker":"Neuro-sama",
+		"expression":"Happy",
+		"text_key":"This wicked orb I found."
+	}
+	
+]

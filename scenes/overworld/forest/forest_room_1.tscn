@@ -55,6 +55,7 @@ position = Vector2(2, 6.5)
 shape = SubResource("RectangleShape2D_ej0jp")
 
 [node name="Camera2D" parent="Party" index="0"]
+process_mode = 0
 position = Vector2(36, 5)
 limit_left = -300
 limit_right = 550

@@ -42,3 +42,4 @@ size_flags_vertical = 8
 [node name="Label" type="Label" parent="MarginContainer/PanelContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+text = "sdfgsdfg"

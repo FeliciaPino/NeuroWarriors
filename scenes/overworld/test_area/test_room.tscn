@@ -57,35 +57,44 @@ texture = ExtResource("10_17a1n")
 
 [node name="DialogueManager" type="Node" parent="." index="5"]
 unique_name_in_owner = true
+process_mode = 2
 script = ExtResource("2_cmg84")
+
+[node name="Timer" type="Timer" parent="DialogueManager" index="0"]
+wait_time = 0.1
+one_shot = true
 
 [node name="DialogueDisplay" parent="UI" index="3" instance=ExtResource("6_yjh1c")]
 unique_name_in_owner = true
+process_mode = 2
 visible = false
 
-[node name="Node2D" type="Node2D" parent="." index="7" node_paths=PackedStringArray("sprite", "interactable_component")]
+[node name="boudler" type="Node2D" parent="." index="7" node_paths=PackedStringArray("sprite", "interactable_component")]
+position = Vector2(118, -97)
 script = ExtResource("2_csp3m")
 sprite = NodePath("Sprite2D")
 interactable_component = NodePath("InteractableComponent")
 
-[node name="Sprite2D" type="Sprite2D" parent="Node2D" index="0"]
+[node name="Sprite2D" type="Sprite2D" parent="boudler" index="0"]
 texture = ExtResource("3_c1vcw")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Node2D" index="1"]
+[node name="StaticBody2D" type="StaticBody2D" parent="boudler" index="1"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="boudler/StaticBody2D" index="0"]
 shape = SubResource("RectangleShape2D_cmg84")
 
-[node name="InteractableComponent" parent="Node2D" index="2" instance=ExtResource("4_tvv83")]
+[node name="InteractableComponent" parent="boudler" index="2" instance=ExtResource("4_tvv83")]
 scale = Vector2(2.22739, 2.16148)
 
 [node name="dialogueTest" type="AnimatedSprite2D" parent="." index="8" node_paths=PackedStringArray("interactable_component")]
+z_index = -1
 texture_filter = 1
 position = Vector2(-158, -47)
 sprite_frames = SubResource("SpriteFrames_2m8nb")
+autoplay = "default"
 script = ExtResource("6_cmg84")
 interactable_component = NodePath("InteractableComponent")
-path_to_dialogue_sequence = "res://scenes/overworld/test_area/dialogue_test_1.txt"
+path_to_dialogue_sequence = "res://scenes/overworld/test_area/dialogue_test_1.json"
 
 [node name="InteractableComponent" parent="dialogueTest" index="0" instance=ExtResource("4_tvv83")]
 scale = Vector2(1.43831, 1.30994)
@@ -95,7 +104,8 @@ scale = Vector2(1.43831, 1.30994)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="dialogueTest/Area2D" index="0"]
 shape = SubResource("RectangleShape2D_421en")
 
-[connection signal="area_entered" from="Node2D/InteractableComponent" to="Node2D/InteractableComponent" method="_on_area_entered"]
-[connection signal="area_exited" from="Node2D/InteractableComponent" to="Node2D/InteractableComponent" method="_on_area_exited"]
+[connection signal="timeout" from="DialogueManager/Timer" to="DialogueManager" method="_on_timer_timeout"]
+[connection signal="area_entered" from="boudler/InteractableComponent" to="boudler/InteractableComponent" method="_on_area_entered"]
+[connection signal="area_exited" from="boudler/InteractableComponent" to="boudler/InteractableComponent" method="_on_area_exited"]
 [connection signal="area_entered" from="dialogueTest/InteractableComponent" to="dialogueTest/InteractableComponent" method="_on_area_entered"]
 [connection signal="area_exited" from="dialogueTest/InteractableComponent" to="dialogueTest/InteractableComponent" method="_on_area_exited"]

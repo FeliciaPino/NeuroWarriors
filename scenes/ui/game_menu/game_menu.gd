@@ -4,6 +4,7 @@ var menu_opened:bool = false
 
 signal menu_has_just_opened
 signal menu_has_just_closed
+@onready var room:Room = $"../.."
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	visible = false
@@ -15,6 +16,7 @@ func toggle():
 		open_menu()
 func open_menu():
 	print_debug(str(self,": opening menu"))
+	room.current_mode = Room.Mode.MENU
 	if not menu_opened:
 		MusicPlayer.muffle()
 		menu_has_just_opened.emit()
@@ -25,6 +27,7 @@ func open_menu():
 	get_viewport().set_input_as_handled()
 func close_menu():
 	print_debug(str(self,": closing menu"))
+	room.current_mode = Room.Mode.GAMEPLAY
 	if menu_opened:
 		MusicPlayer.un_muffle()
 		menu_has_just_closed.emit()
@@ -39,8 +42,11 @@ func close_menu():
 func make_tab_grab_focus():
 	$TabContainer.grab_focus()
 
-func _unhandled_input(event):
+func _input(event):
+	if not room.current_mode == Room.Mode.MENU: return
 	if event is InputEventKey:
-		if event.pressed and event.keycode == KEY_E or event.is_action_pressed("ui_cancel"):
+		if event.pressed and event.keycode == KEY_E :
 			print_debug(str(self,"toggling"))
 			toggle()
+		if event.is_action_pressed("ui_cancel"):
+			close_menu()

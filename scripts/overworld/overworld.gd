@@ -6,7 +6,12 @@ class_name  Room
 @onready var passages_node = $Passages
 
 @onready var game_menu := $UI/GameMenu
-
+enum Mode {
+	GAMEPLAY,
+	MENU,
+	DIALOGUE
+}
+var current_mode = Mode.GAMEPLAY
 func _ready() -> void:
 	print_debug(str(self,": arrival_passage_name: ",GameState.arrival_passage_name))
 	ui.visible = true
@@ -37,6 +42,6 @@ func fade_to_room(new_room:PackedScene, arrival_passage_name:String):
 	get_tree().change_scene_to_packed(new_room)
 func _unhandled_input(event):
 	if event is InputEventKey:
-		if event.pressed and event.keycode == KEY_E and not game_menu.menu_opened:
+		if event.pressed and event.keycode == KEY_E and not game_menu.menu_opened and current_mode == Mode.GAMEPLAY:
 			print_debug(str(self,": room opening menu"))
 			game_menu.open_menu()

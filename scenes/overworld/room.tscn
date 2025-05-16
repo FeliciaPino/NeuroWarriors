@@ -136,6 +136,7 @@ script = ExtResource("1_47ymd")
 camera = NodePath("Camera2D")
 
 [node name="Camera2D" type="Camera2D" parent="Party"]
+process_mode = 3
 zoom = Vector2(1.8, 1.8)
 
 [node name="Enemies" type="Node2D" parent="."]
