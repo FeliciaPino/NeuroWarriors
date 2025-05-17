@@ -31,7 +31,14 @@
 		"id":"line5",
 		"speaker":"Neuro-sama",
 		"expression":"Happy",
-		"text_key":"This wicked orb I found."
+		"text_key":"This wicked orb I found.",
+		"next":"line6"
+	},
+	{
+		"id":"line6",
+		"speaker":"Vedal",
+		"expression":"Neutral",
+		"text_key":"aight, coo."
 	}
 	
 ]

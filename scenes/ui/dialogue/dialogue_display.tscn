@@ -1,8 +1,12 @@
 [gd_scene load_steps=4 format=3 uid="uid://lid4f4jxk5j2"]
 
 [ext_resource type="Script" uid="uid://brjfvcrhyx4jc" path="res://scenes/ui/dialogue/dialogue_display.gd" id="1_hmxxr"]
-[ext_resource type="Texture2D" uid="uid://7bd4j3bns7wd" path="res://scenes/ui/dialogue/Neuro-sama_dialogue_sprites.png" id="2_2u6jq"]
-[ext_resource type="Texture2D" uid="uid://clcxfkwtg4v7o" path="res://scenes/ui/dialogue/Vedal_dialogue_sprites.png" id="3_jjb4s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2u6jq"]
+region = Rect2(0, 0, 300, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jjb4s"]
+region = Rect2(0, 0, 300, 400)
 
 [node name="DialogueDisplay" type="Control"]
 layout_mode = 3
@@ -24,20 +28,36 @@ theme_override_constants/margin_left = 100
 theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 30
 
-[node name="LeftSpeaker" type="TextureRect" parent="MarginContainer"]
-unique_name_in_owner = true
+[node name="LeftSpeakerControl" type="Control" parent="MarginContainer"]
+custom_minimum_size = Vector2(300, 400)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
-texture = ExtResource("2_2u6jq")
+
+[node name="LeftSpeaker" type="TextureRect" parent="MarginContainer/LeftSpeakerControl"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 400.0
+size_flags_horizontal = 0
+size_flags_vertical = 8
+texture = SubResource("AtlasTexture_2u6jq")
 stretch_mode = 2
 
-[node name="RightSpeaker" type="TextureRect" parent="MarginContainer"]
-unique_name_in_owner = true
+[node name="RightSpeakerControl" type="Control" parent="MarginContainer"]
+custom_minimum_size = Vector2(300, 400)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
-texture = ExtResource("3_jjb4s")
+
+[node name="RightSpeaker" type="TextureRect" parent="MarginContainer/RightSpeakerControl"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 400.0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+texture = SubResource("AtlasTexture_jjb4s")
 stretch_mode = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
@@ -46,7 +66,14 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 
-[node name="Label" type="Label" parent="MarginContainer/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "sdfgsdfg"
+text = "this text shouldn't be seen ever"

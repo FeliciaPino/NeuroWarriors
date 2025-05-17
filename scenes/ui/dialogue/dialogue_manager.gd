@@ -28,7 +28,6 @@ func start_dialogue(path_to_dialogue_sequence_json:String):
 	sequence = {}
 	print_debug("building sequence")
 	for line in json.data:
-		print_debug("aaaaaa")
 		var id = line.get("id","")
 		if id != "":
 			if sequence.has("id"):push_error("Duplicate dialogue id: " + id)
@@ -66,11 +65,11 @@ func end_dialogue():
 	sequence = {}
 	current_line = {}
 	dialogue_display.visible = false
+	dialogue_display.clear()
 	get_tree().paused = false
 	
 func _input(event):
 	if not room.current_mode == Room.Mode.DIALOGUE: return
-	print_debug("bwaa")
 	if event is InputEventKey:
 		if event.pressed and event.is_action_pressed("cancel"):
 			end_dialogue()
@@ -79,5 +78,4 @@ func _input(event):
 
 
 func _on_timer_timeout() -> void:
-	print_debug("timer timeout")
 	ready_for_next_line = true

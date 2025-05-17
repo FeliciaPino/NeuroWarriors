@@ -1,0 +1,29 @@
+[
+	{
+		"id":"start",
+		"speaker":"Vedal",
+		"expression":"Neutral",
+		"text_key":"Hey, I was wondering if you got your photos printed",
+		"next":"line2"
+	},
+	{
+		"id":"line2",
+		"speaker":"Neuro-sama",
+		"expression":"Neutral",
+		"text_key":"bogos binted?",
+		"next":"line3"
+	},
+	{
+		"id":"line3",
+		"speaker":"Vedal",
+		"expression":"Confused",
+		"text_key":"What",
+		"next":"line4"
+	},
+	{
+		"id":"line4",
+		"speaker":"Neuro-sama",
+		"expression":"Smug",
+		"text_key":"👽"
+	}
+]
