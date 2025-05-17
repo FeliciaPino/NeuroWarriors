@@ -13,8 +13,9 @@ func _ready() -> void:
 	if interactable_component:
 		interactable_component.interacted.connect(dialogue_triggered.emit)
 	if area_trigger:
-		area_trigger.body_entered.connect(_on_area_2d_body_entered)
+		area_trigger.body_entered.connect(_on_area_entered)
 	dialogue_triggered.connect(dialogue_manager.start_dialogue.bind(path_to_dialogue_sequence))
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
+func _on_area_entered(body: Node2D) -> void:
 	print_debug("dialogue area entered")
+	dialogue_triggered.emit()

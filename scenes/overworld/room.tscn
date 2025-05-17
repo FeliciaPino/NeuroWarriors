@@ -124,6 +124,7 @@ _data = {
 }
 
 [node name="Room" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_eb5g4")
 
 [node name="TileLayers" type="Node2D" parent="."]

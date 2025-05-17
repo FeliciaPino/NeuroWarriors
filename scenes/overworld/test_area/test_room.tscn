@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://db6vwqoodof3o"]
+[gd_scene load_steps=18 format=3 uid="uid://db6vwqoodof3o"]
 
 [ext_resource type="PackedScene" uid="uid://c4knnckwwejji" path="res://scenes/overworld/room.tscn" id="1_o6j7m"]
 [ext_resource type="Script" uid="uid://cee085tws7h0y" path="res://scenes/ui/dialogue/dialogue_manager.gd" id="2_cmg84"]
@@ -37,7 +37,11 @@ animations = [{
 "speed": 3.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_421en"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yjh1c"]
+size = Vector2(83, 69)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_17a1n"]
+size = Vector2(17, 17)
 
 [node name="TestRoom" instance=ExtResource("1_o6j7m")]
 
@@ -47,11 +51,7 @@ animations = [{
 position = Vector2(-277, -237)
 texture = ExtResource("8_qy337")
 
-[node name="32x32Neuro" type="Sprite2D" parent="Background" index="1"]
-position = Vector2(-91, -188)
-texture = ExtResource("9_yjh1c")
-
-[node name="Tiles" type="Sprite2D" parent="Background" index="2"]
+[node name="Tiles" type="Sprite2D" parent="Background" index="1"]
 position = Vector2(121, -252)
 texture = ExtResource("10_17a1n")
 
@@ -100,9 +100,28 @@ path_to_dialogue_sequence = "res://scenes/overworld/test_area/dialogue_test_1.js
 scale = Vector2(1.43831, 1.30994)
 
 [node name="Area2D" type="Area2D" parent="dialogueTest" index="1"]
+collision_layer = 0
+collision_mask = 255
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="dialogueTest/Area2D" index="0"]
-shape = SubResource("RectangleShape2D_421en")
+position = Vector2(-1.5, 3.5)
+shape = SubResource("RectangleShape2D_yjh1c")
+
+[node name="32x32Neuro" type="Sprite2D" parent="." index="9"]
+y_sort_enabled = true
+texture_filter = 1
+position = Vector2(-91, -188)
+texture = ExtResource("9_yjh1c")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="32x32Neuro" index="0"]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="32x32Neuro/StaticBody2D" index="0"]
+position = Vector2(0.5, 7.5)
+shape = SubResource("RectangleShape2D_17a1n")
+
+[node name="InteractableComponent" parent="32x32Neuro" index="1" instance=ExtResource("4_tvv83")]
+position = Vector2(1, 6)
 
 [connection signal="timeout" from="DialogueManager/Timer" to="DialogueManager" method="_on_timer_timeout"]
 [connection signal="area_entered" from="boudler/InteractableComponent" to="boudler/InteractableComponent" method="_on_area_entered"]
