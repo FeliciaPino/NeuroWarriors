@@ -10,6 +10,11 @@ signal dialogue_triggered
 @export var path_to_dialogue_sequence:String
 
 func _ready() -> void:
+	for c in get_children():
+		if c is InteractableComponent:
+			interactable_component = c
+		if c is Area2D:
+			area_trigger = c
 	if interactable_component:
 		interactable_component.interacted.connect(dialogue_triggered.emit)
 	if area_trigger:
