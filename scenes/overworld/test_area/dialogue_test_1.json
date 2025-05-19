@@ -4,7 +4,14 @@
 		"speaker":"Narrator",
 		"expression":"Neutral",
 		"text_key":"the cromatic aberration",
-		"next":"line2"
+		"next":"line1"
+	},
+	{
+		"id":"line1",
+		"speaker":"Neuro-sama",
+		"expression":"Confused",
+		"text_key":"uwu, what's this?",
+		"next":"line2"	
 	},
 	{
 		"id":"line2",
@@ -23,14 +30,14 @@
 	{
 		"id":"line4",
 		"speaker":"Vedal",
-		"expression":"Neutral",
+		"expression":"Confused",
 		"text_key":"What are you looking at, Neuro?",
 		"next":"line5"
 	},
 	{
 		"id":"line5",
 		"speaker":"Neuro-sama",
-		"expression":"Happy",
+		"expression":"Smug",
 		"text_key":"This wicked orb I found.",
 		"next":"line6"
 	},
