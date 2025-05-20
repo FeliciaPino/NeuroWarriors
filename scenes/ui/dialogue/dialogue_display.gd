@@ -106,6 +106,16 @@ func display_line(speaker:String, expression:String, text:String):
 	label.parse_bbcode(text)
 	label.visible_characters = 0
 	text_tween.tween_property(label,"visible_characters",label.get_parsed_text().length(),float(label.get_parsed_text().length())/typing_speed)
+func show_whole_text():
+	if text_tween:
+		text_tween.stop()
+	label.visible_ratio = 1.0
+func is_whole_text_visible():
+	var ans = true
+	if text_tween:
+		if text_tween.is_running():
+			ans = false
+	return ans
 func clear():
 	left_speaker = ""
 	right_speaker = ""

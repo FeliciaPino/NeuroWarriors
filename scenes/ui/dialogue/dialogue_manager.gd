@@ -6,7 +6,6 @@ signal dialogue_ended
 @onready var dialogue_display := %DialogueDisplay
 @onready var timer:Timer = $Timer
 @onready var room:Room = $".."
-var ready_for_next_line:bool = false
 var sequence = {}
 var current_line = {}
 #This is called by the dialogue triggers
@@ -38,7 +37,6 @@ func start_dialogue(path_to_dialogue_sequence_json:String):
 	dialogue_display.visible = true
 	_next_line()
 	_show_current_line()
-	ready_for_next_line = false
 	timer.start()
 	get_tree().paused = true
 func _show_current_line():
@@ -94,7 +92,6 @@ func _next_line():
 	if not current_line:
 		push_error("Non existant dialogue id")
 	_show_current_line()
-	ready_for_next_line = false
 	timer.start()
 func end_dialogue():
 	room.current_mode = Room.Mode.GAMEPLAY
@@ -108,12 +105,16 @@ func _input(event):
 	if event is InputEventKey:
 		if event.pressed and event.is_action_pressed("cancel"):
 			end_dialogue()
-		if event.pressed and event.is_action_pressed("accept") and ready_for_next_line:
-			_next_line()
-
-func _on_timer_timeout() -> void:
-	ready_for_next_line = true
-
+		if event.pressed and event.is_action_pressed("accept"):
+			if ready_for_next_line():
+				_next_line()
+			elif timer.is_stopped():
+				dialogue_display.show_whole_text()
+func ready_for_next_line():
+	var ans = true
+	if not timer.is_stopped(): ans = false
+	if not dialogue_display.is_whole_text_visible(): ans = false
+	return ans
 
 
 #functions for the condition expressions to use
