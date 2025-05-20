@@ -1,0 +1,13 @@
+[
+	{
+		"id":"start",
+		"next":"line1"
+	},
+	{
+		"id":"line1",
+		"speaker":"Neuro-sama",
+		"expression":"Neutral",
+		"speed":20,
+		"text_key":"My sister has a very [color=red]special attack[/color]."
+	}
+]

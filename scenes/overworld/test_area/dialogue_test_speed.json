@@ -1,0 +1,44 @@
+[
+	{
+		"id":"start",
+		"next":"line1"
+	},
+	{
+		"id":"line1",
+		"speaker":"Neuro-sama",
+		"expression":"Neutral",
+		"text_key":"Do you want to see how fast I can speak?",
+		"next":"line2"
+	},
+	{
+		"id":"line2",
+		"speaker":"Neuro-sama",
+		"expression":"Neutral",
+		"speed":75,
+		"text_key":"Look at how quickly I am speaking!",
+		"next":"line3"
+	},
+	{
+		"id":"line3",
+		"speaker":"Neuro-sama",
+		"expression":"Neutral",
+		"speed":75,
+		"text_key":"I am just a bundle of energy! I could say a thousand things in just a second",
+		"next":"line4"
+	},
+	{
+		"id":"line3",
+		"speaker":"Neuro-sama",
+		"expression":"Neutral",
+		"speed":125,
+		"text_key":"Isn't it neat! Aren't I super amazing! Hey, vedal. Veedal! Vedal isn't this cool? Aren't you proud of me?",
+		"next":"line4"
+	},
+	{
+		"id":"line4",
+		"speaker":"Vedal",
+		"expression":"Neutral",
+		"speed":4,
+		"text_key":"What?",
+	}
+]

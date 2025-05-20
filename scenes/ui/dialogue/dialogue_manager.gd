@@ -44,6 +44,7 @@ func start_dialogue(path_to_dialogue_sequence_json:String):
 func _show_current_line():
 	print_debug(str("showing line: ",current_line["id"]))
 	var speaker_to_display = _get_speaker_from_line(current_line)
+	dialogue_display.typing_speed = current_line.get("speed",dialogue_display.DEFAULT_TYPING_SPEED)
 	dialogue_display.display_line(speaker_to_display,current_line.get("expression",""),tr(current_line["text_key"]))
 	
 func _get_speaker_from_line(dialogue_line):
@@ -59,7 +60,7 @@ func _get_speaker_from_line(dialogue_line):
 		#If none of the options are in the party, default to first one (possibly more logic later down the line)
 		if speaker == "":
 			speaker = options[0]
-	#update it to make further queries more efficient
+	#update it to make further queries more efficientt
 	current_line["speaker"] = speaker
 	return speaker
 func _next_line():

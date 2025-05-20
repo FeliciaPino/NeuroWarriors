@@ -1,12 +1,15 @@
 extends Control
 
-@onready var label:Label = %Label
+
+@onready var label:RichTextLabel = %RichTextLabel
 @onready var left_speaker_portrait:TextureRect = %LeftSpeaker
 @onready var right_speaker_portrait:TextureRect = %RightSpeaker
+@onready var dialgoue_bleeps:AudioStreamPlayer = %DialogueBleeps
 var left_speaker:String = ""
 var right_speaker:String = ""
 
 var active_speaker:String = ""
+
 
 var sprites = {
 	"Neuro-sama":{
@@ -23,8 +26,25 @@ var sprites = {
 		"Neutral":preload("res://scenes/ui/dialogue/portraits/Evil/Neutral.png")
 	}
 }
+const voices ={
+	"Neuro-sama":preload("res://assets/audio/homemade/clips/neuro_blip.wav")
+}
 	
 enum Side{LEFT, RIGHT}
+
+const DEFAULT_TYPING_SPEED = 25.0
+var typing_speed
+var text_tween:Tween = null
+
+func _ready() -> void:
+	typing_speed = DEFAULT_TYPING_SPEED
+	
+var previous_label_visible_characters = 0
+func _process(delta: float) -> void:
+	if label.visible_characters != previous_label_visible_characters:
+		if label.get_parsed_text()[label.visible_characters-1] != ' ':
+			dialgoue_bleeps.play()
+	previous_label_visible_characters = label.visible_characters
 func _set_speaker(speaker:String, expression:String, side):
 	var portrait
 	if side == Side.LEFT:
@@ -77,9 +97,15 @@ func display_line(speaker:String, expression:String, text:String):
 	elif "" != left_speaker and "" == right_speaker:
 		_set_speaker(active_speaker, expression, Side.RIGHT)
 		_dim_speaker(Side.LEFT)
-		
 	
-	label.text = text
+	dialgoue_bleeps.stream = voices["Neuro-sama"]
+	if text_tween:
+		if text_tween.is_running():
+			text_tween.stop()
+	text_tween = create_tween()
+	label.parse_bbcode(text)
+	label.visible_characters = 0
+	text_tween.tween_property(label,"visible_characters",label.get_parsed_text().length(),float(label.get_parsed_text().length())/typing_speed)
 func clear():
 	left_speaker = ""
 	right_speaker = ""

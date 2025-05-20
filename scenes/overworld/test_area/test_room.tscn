@@ -92,7 +92,7 @@ sprite_frames = SubResource("SpriteFrames_2m8nb")
 autoplay = "default"
 script = ExtResource("6_cmg84")
 interactable_component = NodePath("InteractableComponent")
-path_to_dialogue_sequence = "res://scenes/overworld/test_area/dialogue_test_1.json"
+path_to_dialogue_sequence = "res://scenes/overworld/test_area/dialogue_test_speed.json"
 
 [node name="InteractableComponent" parent="dialogueTest" index="0" instance=ExtResource("4_tvv83")]
 
@@ -103,7 +103,7 @@ position = Vector2(-91, -188)
 texture = ExtResource("9_yjh1c")
 script = ExtResource("6_cmg84")
 interactable_component = NodePath("InteractableComponent")
-path_to_dialogue_sequence = "res://scenes/overworld/test_area/dialogue_test_conditions.json"
+path_to_dialogue_sequence = "res://scenes/overworld/test_area/dialogue_test_color.json"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="32x32Neuro" index="0"]
 collision_mask = 0
