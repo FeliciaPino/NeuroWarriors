@@ -11,7 +11,6 @@ var sequence = {}
 var current_line = {}
 #This is called by the dialogue triggers
 func start_dialogue(path_to_dialogue_sequence_json:String):
-	
 	dialogue_started.emit()
 	room.current_mode = Room.Mode.DIALOGUE
 	var file = FileAccess.open(path_to_dialogue_sequence_json,FileAccess.READ)
@@ -37,27 +36,63 @@ func start_dialogue(path_to_dialogue_sequence_json:String):
 	if not current_line:
 		push_error("Dialogue JSON missing start line")
 	dialogue_display.visible = true
-	show_current_line()
+	_next_line()
+	_show_current_line()
 	ready_for_next_line = false
 	timer.start()
 	get_tree().paused = true
-func show_current_line():
+func _show_current_line():
 	print_debug(str("showing line: ",current_line["id"]))
-	dialogue_display.display_line(current_line["speaker"],current_line["expression"],tr(current_line["text_key"]))
+	var speaker_to_display = _get_speaker_from_line(current_line)
+	dialogue_display.display_line(speaker_to_display,current_line.get("expression",""),tr(current_line["text_key"]))
 	
-
-func next_line():
+func _get_speaker_from_line(dialogue_line):
+	var speaker = current_line.get("speaker","")
+	if speaker is Array:
+		var options = speaker
+		speaker = ""
+		#select first character from list in party
+		for possible_speaker in options:
+			if character_in_party(possible_speaker):
+				speaker = possible_speaker
+				break
+		#If none of the options are in the party, default to first one (possibly more logic later down the line)
+		if speaker == "":
+			speaker = options[0]
+	#update it to make further queries more efficient
+	current_line["speaker"] = speaker
+	return speaker
+func _next_line():
 	print_debug("next line")
 	if not current_line: return
-	
+	#get the id of the following line
 	var next_id = current_line.get("next",null)
+	#if instead of an id there's an array, it means its a list of conditional options for the dialogue to continue with
+	if next_id is Array:
+		#store the list in options
+		var options = next_id
+		#iterate the list of options and set next_id as the first option evaluated as true
+		for branch in options:
+			var condition_string = branch.get("condition",null)
+			#if an option does not have a condition, then it's considered a fall back and considered true
+			if not condition_string:
+				next_id = branch.get("next",null)
+				break
+			var expression = Expression.new()
+			expression.parse(condition_string)
+			var result = expression.execute([],self)
+			if result:
+				next_id = branch["next"]
+				break
+	
 	if not next_id:
 		end_dialogue()
 		return
+		
 	current_line = sequence.get(next_id, null)
 	if not current_line:
 		push_error("Non existant dialogue id")
-	show_current_line()
+	_show_current_line()
 	ready_for_next_line = false
 	timer.start()
 func end_dialogue():
@@ -67,15 +102,22 @@ func end_dialogue():
 	dialogue_display.visible = false
 	dialogue_display.clear()
 	get_tree().paused = false
-	
 func _input(event):
 	if not room.current_mode == Room.Mode.DIALOGUE: return
 	if event is InputEventKey:
 		if event.pressed and event.is_action_pressed("cancel"):
 			end_dialogue()
 		if event.pressed and event.is_action_pressed("accept") and ready_for_next_line:
-			next_line()
-
+			_next_line()
 
 func _on_timer_timeout() -> void:
 	ready_for_next_line = true
+
+
+
+#functions for the condition expressions to use
+
+func character_in_party(character_name):
+	return GameState.is_character_in_party(character_name)
+func get_index_in_party(character_name):
+	return GameState.get_party().find(character_name)

@@ -27,7 +27,7 @@ const DEFAULT_VALUES = {
 			"unlocked_upgrades":[]
 		},
 		"Vedal":{
-			"unlocked":false,
+			"unlocked":true,
 			"level":0,
 			"experience":0,
 			"equiped_abilities":["tutel_shield","rum_throw","overclock"],
@@ -37,7 +37,7 @@ const DEFAULT_VALUES = {
 			"unlocked_upgrades":[]
 		},
 		"Evil":{
-			"unlocked":false,
+			"unlocked":true,
 			"level":0,
 			"experience":0,
 			"equiped_abilities":["harpoon_throw","pipes","screech","katana_slash"],

@@ -1,6 +1,10 @@
 [
 	{
 		"id":"start",
+		"next":"line1"
+	},
+	{
+		"id":"line1",	
 		"speaker":"Vedal",
 		"expression":"Neutral",
 		"text_key":"Hey, I was wondering if you got your photos printed",

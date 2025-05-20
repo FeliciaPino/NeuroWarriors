@@ -1,0 +1,38 @@
+[
+	{
+		"id":"start",
+		"next":"line1"
+	},
+	{
+		"id":"line1",
+		"speaker":["Evil","Neuro-sama"],
+		"expression":"Smug",
+		"text_key":"Vedal is a dum dum",
+		"next":[
+			{"condition":"character_in_party('Vedal')","next":"line2"},
+			{"next":null}
+		]
+	},
+	{
+		"id":"line2",
+		"speaker":["Evil","Neuro-sama"],
+		"expression":"erm",
+		"text_key":"Erm, he's right behind me, isn't he?",
+		"next":[
+			{"condition":"get_index_in_party('Vedal') < get_index_in_party(_get_speaker_from_line(current_line))","next":"line4"},
+			{"next":"line3"}
+		]
+	},
+	{
+		"id":"line3",
+		"speaker":"Vedal",
+		"expression":"Angry",
+		"text_key":"How dare you."
+	},
+	{
+		"id":"line4",
+		"speaker":"Vedal",
+		"expression":"Angry",
+		"text_key":"Actually, I am in front of you."
+	}
+]

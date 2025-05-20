@@ -1,9 +1,12 @@
 [
 	{
 		"id":"start",
+		"next":"line0"
+	},
+	{
+		"id":"line0",
 		"speaker":"Narrator",
-		"expression":"Neutral",
-		"text_key":"the cromatic aberration",
+		"text_key":"The chromatic aberration",
 		"next":"line1"
 	},
 	{

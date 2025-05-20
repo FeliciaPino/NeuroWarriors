@@ -18,6 +18,9 @@ var sprites = {
 	"Vedal":{
 		"Neutral":preload("res://scenes/ui/dialogue/portraits/Vedal/Neutral.png"),
 		"Confused":preload("res://scenes/ui/dialogue/portraits/Vedal/Confused.png")
+	},
+	"Evil":{
+		"Neutral":preload("res://scenes/ui/dialogue/portraits/Evil/Neutral.png")
 	}
 }
 	

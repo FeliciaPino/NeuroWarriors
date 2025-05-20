@@ -129,5 +129,5 @@ pitch_scale = 1.34
 
 [node name="AnimationPlayer" parent="." index="2"]
 libraries = {
-"": SubResource("AnimationLibrary_neydj")
+&"": SubResource("AnimationLibrary_neydj")
 }
