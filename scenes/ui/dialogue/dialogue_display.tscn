@@ -1,12 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://lid4f4jxk5j2"]
+[gd_scene load_steps=5 format=3 uid="uid://lid4f4jxk5j2"]
 
 [ext_resource type="Script" uid="uid://brjfvcrhyx4jc" path="res://scenes/ui/dialogue/dialogue_display.gd" id="1_hmxxr"]
+[ext_resource type="Theme" uid="uid://1t6fqlgau1qd" path="res://ui_theme.tres" id="2_2u6jq"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2u6jq"]
-region = Rect2(0, 0, 300, 400)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jjb4s"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jjb4s"]
-region = Rect2(0, 0, 300, 400)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2u6jq"]
 
 [node name="DialogueDisplay" type="Control"]
 layout_mode = 3
@@ -24,15 +23,15 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 100
-theme_override_constants/margin_right = 100
+theme_override_constants/margin_left = 150
+theme_override_constants/margin_right = 150
 theme_override_constants/margin_bottom = 30
 
 [node name="LeftSpeakerControl" type="Control" parent="MarginContainer"]
 custom_minimum_size = Vector2(300, 400)
 layout_mode = 2
 size_flags_horizontal = 0
-size_flags_vertical = 8
+size_flags_vertical = 4
 
 [node name="LeftSpeaker" type="TextureRect" parent="MarginContainer/LeftSpeakerControl"]
 unique_name_in_owner = true
@@ -41,14 +40,44 @@ offset_right = 300.0
 offset_bottom = 400.0
 size_flags_horizontal = 0
 size_flags_vertical = 8
-texture = SubResource("AtlasTexture_2u6jq")
 stretch_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/LeftSpeakerControl"]
+layout_mode = 2
+offset_left = 112.0
+offset_top = 325.0
+offset_right = 188.0
+offset_bottom = 359.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxEmpty_jjb4s")
+
+[node name="NameLabelLeft" type="RichTextLabel" parent="MarginContainer/LeftSpeakerControl/PanelContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.552941)
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_offset_x = -2
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/bold_italics_font_size = 24
+theme_override_font_sizes/italics_font_size = 24
+theme_override_font_sizes/mono_font_size = 24
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+text = "name"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="RightSpeakerControl" type="Control" parent="MarginContainer"]
 custom_minimum_size = Vector2(300, 400)
 layout_mode = 2
 size_flags_horizontal = 8
-size_flags_vertical = 8
+size_flags_vertical = 4
 
 [node name="RightSpeaker" type="TextureRect" parent="MarginContainer/RightSpeakerControl"]
 unique_name_in_owner = true
@@ -57,14 +86,41 @@ offset_right = 300.0
 offset_bottom = 400.0
 size_flags_horizontal = 8
 size_flags_vertical = 8
-texture = SubResource("AtlasTexture_jjb4s")
 stretch_mode = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
-custom_minimum_size = Vector2(600, 150)
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/RightSpeakerControl"]
 layout_mode = 2
-size_flags_horizontal = 4
+offset_left = 112.0
+offset_top = 325.0
+offset_right = 188.0
+offset_bottom = 359.0
 size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxEmpty_2u6jq")
+
+[node name="NameLabelRight" type="RichTextLabel" parent="MarginContainer/RightSpeakerControl/PanelContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.552941)
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_offset_x = -2
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/bold_italics_font_size = 24
+theme_override_font_sizes/italics_font_size = 24
+theme_override_font_sizes/mono_font_size = 24
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+text = "name"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(800, 150)
+layout_mode = 2
+size_flags_vertical = 8
+theme = ExtResource("2_2u6jq")
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer"]
 layout_mode = 2
@@ -76,12 +132,14 @@ theme_override_constants/margin_bottom = 10
 [node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/PanelContainer/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_constants/outline_size = 2
-theme_override_font_sizes/bold_italics_font_size = 16
-theme_override_font_sizes/italics_font_size = 16
-theme_override_font_sizes/mono_font_size = 16
-theme_override_font_sizes/normal_font_size = 18
-theme_override_font_sizes/bold_font_size = 16
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.882353)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/bold_italics_font_size = 20
+theme_override_font_sizes/italics_font_size = 20
+theme_override_font_sizes/mono_font_size = 20
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 20
+bbcode_enabled = true
 text = "this text shouldn't be seen ever"
 
 [node name="DialogueBleeps" type="AudioStreamPlayer" parent="."]

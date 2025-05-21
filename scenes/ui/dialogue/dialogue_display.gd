@@ -3,8 +3,10 @@ extends Control
 
 @onready var label:RichTextLabel = %RichTextLabel
 @onready var left_speaker_portrait:TextureRect = %LeftSpeaker
+@onready var left_speaker_name := %NameLabelLeft
 @onready var right_speaker_portrait:TextureRect = %RightSpeaker
-@onready var dialgoue_bleeps:AudioStreamPlayer = %DialogueBleeps
+@onready var right_speaker_name := %NameLabelRight
+@onready var dialogue_bleeps:AudioStreamPlayer = %DialogueBleeps
 var left_speaker:String = ""
 var right_speaker:String = ""
 
@@ -42,43 +44,58 @@ var previous_label_visible_characters = 0
 func _process(delta: float) -> void:
 	if label.visible_characters != previous_label_visible_characters:
 		if label.get_parsed_text()[label.visible_characters-1] != ' ':
-			dialgoue_bleeps.play()
+			dialogue_bleeps.pitch_scale = 0.9 + randf()/5.0
+			dialogue_bleeps.play()
 	previous_label_visible_characters = label.visible_characters
 func _set_speaker(speaker:String, expression:String, side):
 	var portrait
+	var name_label
 	if side == Side.LEFT:
 		portrait = left_speaker_portrait
+		name_label = left_speaker_name
 		left_speaker = speaker
 	else:
 		portrait = right_speaker_portrait
+		name_label = right_speaker_name
 		right_speaker = speaker
 	portrait.visible = true
+	name_label.visible = true
+	name_label.text = tr(speaker)
 	print_debug(str("setting expression ",expression," for ",speaker))
 	portrait.texture = sprites[speaker].get(expression,sprites[speaker]["Neutral"])
 	var tween = create_tween().set_parallel(true)
 	tween.tween_property(portrait,"modulate",Color(1,1,1,1),0.1)
 	tween.tween_property(portrait, "scale", Vector2(1,1), 0.1)
 	tween.tween_property(portrait,"position",Vector2(0,-20),0.1).set_ease(Tween.EASE_OUT)
+	tween.tween_property(name_label.get_parent(),"position:y",320,0.1)
 	tween.set_parallel(false)
 	tween.tween_property(portrait,"position",Vector2(0,0),0.1).set_ease(Tween.EASE_IN)
 func _dim_speaker(side):
 	var portrait
+	var name_label
 	if side == Side.LEFT:
 		portrait = left_speaker_portrait
+		name_label = left_speaker_name
 	if side == Side.RIGHT:
 		portrait = right_speaker_portrait
+		name_label = right_speaker_name
 	var tween = create_tween().set_parallel()
 	tween.tween_property(portrait,"position",Vector2(0,40),0.2)
 	tween.tween_property(portrait,"scale",Vector2(0.9,0.9),0.2)
 	tween.tween_property(portrait,"modulate",Color(0.7,0.7,0.7),0.2)
+	tween.tween_property(name_label.get_parent(),"position:y",380,0.1)
 	
 func display_line(speaker:String, expression:String, text:String):
 	active_speaker = speaker
 	if speaker=="Narrator":
 		left_speaker_portrait.visible = false
 		left_speaker = ""
-		right_speaker = ""
+		left_speaker_name.visible = false
+		
 		right_speaker_portrait.visible = false
+		right_speaker = ""
+		right_speaker_name.visible = false
+		
 	elif "" == left_speaker and "" == right_speaker:
 		if active_speaker in CharacterDatabase.ALL_CHARACTERS:
 			_set_speaker(active_speaker, expression, Side.LEFT)
@@ -97,7 +114,7 @@ func display_line(speaker:String, expression:String, text:String):
 		_set_speaker(active_speaker, expression, Side.RIGHT)
 		_dim_speaker(Side.LEFT)
 	
-	dialgoue_bleeps.stream = voices.get(active_speaker,voices["Neuro-sama"])
+	dialogue_bleeps.stream = voices.get(active_speaker,voices["Neuro-sama"])
 	if text_tween:
 		if text_tween.is_running():
 			text_tween.stop()
@@ -119,5 +136,8 @@ func clear():
 	left_speaker = ""
 	right_speaker = ""
 	left_speaker_portrait.visible = false
+	left_speaker_name.visible = false
 	right_speaker_portrait.visible = false
+	right_speaker_name.visible = false
+	
 	

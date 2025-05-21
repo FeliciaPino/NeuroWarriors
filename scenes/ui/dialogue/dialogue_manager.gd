@@ -12,6 +12,7 @@ var current_line = {}
 func start_dialogue(path_to_dialogue_sequence_json:String):
 	dialogue_started.emit()
 	room.current_mode = Room.Mode.DIALOGUE
+	dialogue_display.clear()
 	var file = FileAccess.open(path_to_dialogue_sequence_json,FileAccess.READ)
 	if file == null:
 		print_debug("there was an error opening the file" + path_to_dialogue_sequence_json)

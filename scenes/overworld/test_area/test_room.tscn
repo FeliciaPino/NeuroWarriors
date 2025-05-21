@@ -41,6 +41,7 @@ animations = [{
 size = Vector2(17, 17)
 
 [node name="TestRoom" instance=ExtResource("1_o6j7m")]
+texture_filter = 1
 
 [node name="Background" type="Node2D" parent="." index="0"]
 z_index = -1
