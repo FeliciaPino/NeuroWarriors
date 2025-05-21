@@ -27,17 +27,16 @@ var sprites = {
 	}
 }
 const voices ={
-	"Neuro-sama":preload("res://assets/audio/homemade/clips/neuro_blip.wav")
+	"Neuro-sama":preload("res://assets/audio/homemade/clips/neuro_blip.mp3"),
+	"Vedal":preload("res://assets/audio/homemade/clips/vedal_blip.mp3")
 }
 	
 enum Side{LEFT, RIGHT}
 
 const DEFAULT_TYPING_SPEED = 25.0
-var typing_speed
+var typing_speed = DEFAULT_TYPING_SPEED
 var text_tween:Tween = null
 
-func _ready() -> void:
-	typing_speed = DEFAULT_TYPING_SPEED
 	
 var previous_label_visible_characters = 0
 func _process(delta: float) -> void:
@@ -98,7 +97,7 @@ func display_line(speaker:String, expression:String, text:String):
 		_set_speaker(active_speaker, expression, Side.RIGHT)
 		_dim_speaker(Side.LEFT)
 	
-	dialgoue_bleeps.stream = voices["Neuro-sama"]
+	dialgoue_bleeps.stream = voices.get(active_speaker,voices["Neuro-sama"])
 	if text_tween:
 		if text_tween.is_running():
 			text_tween.stop()

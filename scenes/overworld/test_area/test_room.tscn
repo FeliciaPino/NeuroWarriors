@@ -92,7 +92,7 @@ sprite_frames = SubResource("SpriteFrames_2m8nb")
 autoplay = "default"
 script = ExtResource("6_cmg84")
 interactable_component = NodePath("InteractableComponent")
-path_to_dialogue_sequence = "res://scenes/overworld/test_area/dialogue_test_speed.json"
+path_to_dialogue_sequence = "res://scenes/overworld/test_area/dialogue_test_1.json"
 
 [node name="InteractableComponent" parent="dialogueTest" index="0" instance=ExtResource("4_tvv83")]
 
@@ -103,7 +103,7 @@ position = Vector2(-91, -188)
 texture = ExtResource("9_yjh1c")
 script = ExtResource("6_cmg84")
 interactable_component = NodePath("InteractableComponent")
-path_to_dialogue_sequence = "res://scenes/overworld/test_area/dialogue_test_color.json"
+path_to_dialogue_sequence = "res://scenes/overworld/test_area/dialogue_test_bogos.json"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="32x32Neuro" index="0"]
 collision_mask = 0
@@ -113,6 +113,63 @@ position = Vector2(0.5, 7.5)
 shape = SubResource("RectangleShape2D_17a1n")
 
 [node name="InteractableComponent" parent="32x32Neuro" index="1" instance=ExtResource("4_tvv83")]
+position = Vector2(1, 6)
+
+[node name="32x32Neuro2" type="Sprite2D" parent="." index="10" node_paths=PackedStringArray("interactable_component")]
+y_sort_enabled = true
+texture_filter = 1
+position = Vector2(-9, -188)
+texture = ExtResource("9_yjh1c")
+script = ExtResource("6_cmg84")
+interactable_component = NodePath("InteractableComponent")
+path_to_dialogue_sequence = "res://scenes/overworld/test_area/dialogue_test_conditions.json"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="32x32Neuro2" index="0"]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="32x32Neuro2/StaticBody2D" index="0"]
+position = Vector2(0.5, 7.5)
+shape = SubResource("RectangleShape2D_17a1n")
+
+[node name="InteractableComponent" parent="32x32Neuro2" index="1" instance=ExtResource("4_tvv83")]
+position = Vector2(1, 6)
+
+[node name="32x32Neuro3" type="Sprite2D" parent="." index="11" node_paths=PackedStringArray("interactable_component")]
+y_sort_enabled = true
+texture_filter = 1
+position = Vector2(58, -187)
+texture = ExtResource("9_yjh1c")
+script = ExtResource("6_cmg84")
+interactable_component = NodePath("InteractableComponent")
+path_to_dialogue_sequence = "res://scenes/overworld/test_area/dialogue_test_speed.json"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="32x32Neuro3" index="0"]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="32x32Neuro3/StaticBody2D" index="0"]
+position = Vector2(0.5, 7.5)
+shape = SubResource("RectangleShape2D_17a1n")
+
+[node name="InteractableComponent" parent="32x32Neuro3" index="1" instance=ExtResource("4_tvv83")]
+position = Vector2(1, 6)
+
+[node name="32x32Neuro4" type="Sprite2D" parent="." index="12" node_paths=PackedStringArray("interactable_component")]
+y_sort_enabled = true
+texture_filter = 1
+position = Vector2(116, -192)
+texture = ExtResource("9_yjh1c")
+script = ExtResource("6_cmg84")
+interactable_component = NodePath("InteractableComponent")
+path_to_dialogue_sequence = "res://scenes/overworld/test_area/dialogue_test_color.json"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="32x32Neuro4" index="0"]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="32x32Neuro4/StaticBody2D" index="0"]
+position = Vector2(0.5, 7.5)
+shape = SubResource("RectangleShape2D_17a1n")
+
+[node name="InteractableComponent" parent="32x32Neuro4" index="1" instance=ExtResource("4_tvv83")]
 position = Vector2(1, 6)
 
 [connection signal="timeout" from="DialogueManager/Timer" to="DialogueManager" method="_on_timer_timeout"]

@@ -86,5 +86,5 @@ text = "this text shouldn't be seen ever"
 
 [node name="DialogueBleeps" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
-volume_db = -10.0
+volume_db = -5.0
 bus = &"SFX"
