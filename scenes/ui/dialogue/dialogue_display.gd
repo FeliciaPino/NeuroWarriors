@@ -47,6 +47,24 @@ func _process(delta: float) -> void:
 			dialogue_bleeps.pitch_scale = 0.9 + randf()/5.0
 			dialogue_bleeps.play()
 	previous_label_visible_characters = label.visible_characters
+func _hide_screen(side):
+	if side == Side.LEFT:
+		$MarginContainer/LeftSpeakerControl/ScreenBackgroundBack.visible = false
+		$MarginContainer/LeftSpeakerControl/ScreenBackgroundFront.visible = false
+		$MarginContainer/LeftSpeakerControl/ScreenOutline.visible = false
+	else:
+		$MarginContainer/RightSpeakerControl/ScreenBackgroundBack.visible = false
+		$MarginContainer/RightSpeakerControl/ScreenBackgroundFront.visible = false
+		$MarginContainer/RightSpeakerControl/ScreenOutline.visible = false
+func _show_screen(side):
+	if side==Side.LEFT:
+		$MarginContainer/LeftSpeakerControl/ScreenBackgroundBack.visible = true
+		$MarginContainer/LeftSpeakerControl/ScreenBackgroundFront.visible = true
+		$MarginContainer/LeftSpeakerControl/ScreenOutline.visible = true
+	else:
+		$MarginContainer/RightSpeakerControl/ScreenBackgroundBack.visible = true
+		$MarginContainer/RightSpeakerControl/ScreenBackgroundFront.visible = true
+		$MarginContainer/RightSpeakerControl/ScreenOutline.visible = true
 func _set_speaker(speaker:String, expression:String, side):
 	var portrait
 	var name_label
@@ -61,6 +79,10 @@ func _set_speaker(speaker:String, expression:String, side):
 	portrait.visible = true
 	name_label.visible = true
 	name_label.text = tr(speaker)
+	if GameState.is_character_in_party(speaker):
+		_hide_screen(side)
+	else:
+		_show_screen(side)
 	print_debug(str("setting expression ",expression," for ",speaker))
 	portrait.texture = sprites[speaker].get(expression,sprites[speaker]["Neutral"])
 	var tween = create_tween().set_parallel(true)
@@ -134,10 +156,12 @@ func is_whole_text_visible():
 	return ans
 func clear():
 	left_speaker = ""
-	right_speaker = ""
 	left_speaker_portrait.visible = false
 	left_speaker_name.visible = false
+	_hide_screen(Side.LEFT)
+	right_speaker = ""
 	right_speaker_portrait.visible = false
 	right_speaker_name.visible = false
+	_hide_screen(Side.RIGHT)
 	
 	

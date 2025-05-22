@@ -1,7 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://lid4f4jxk5j2"]
+[gd_scene load_steps=11 format=3 uid="uid://lid4f4jxk5j2"]
 
 [ext_resource type="Script" uid="uid://brjfvcrhyx4jc" path="res://scenes/ui/dialogue/dialogue_display.gd" id="1_hmxxr"]
 [ext_resource type="Theme" uid="uid://1t6fqlgau1qd" path="res://ui_theme.tres" id="2_2u6jq"]
+[ext_resource type="Texture2D" uid="uid://caj6jyxcy6slq" path="res://scenes/ui/dialogue/portraits/screen_background.png" id="2_jjvmu"]
+[ext_resource type="Texture2D" uid="uid://cmpwrqok67af1" path="res://scenes/ui/dialogue/portraits/Neuro-sama/Neutral.png" id="3_2vphs"]
+[ext_resource type="Texture2D" uid="uid://c0dytdre3q042" path="res://scenes/ui/dialogue/portraits/screen_outline.png" id="3_tgwhc"]
+[ext_resource type="Shader" uid="uid://b1nn347vdr56x" path="res://assets/shaders/v_scroll.gdshader" id="4_2vphs"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2vphs"]
+shader = ExtResource("4_2vphs")
+shader_parameter/scroll_speed = -0.01
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qunbn"]
+shader = ExtResource("4_2vphs")
+shader_parameter/scroll_speed = 0.05
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jjb4s"]
 
@@ -33,15 +45,67 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 
-[node name="LeftSpeaker" type="TextureRect" parent="MarginContainer/LeftSpeakerControl"]
+[node name="ScreenBackgroundBack" type="TextureRect" parent="MarginContainer/LeftSpeakerControl"]
+modulate = Color(1, 1, 1, 0.196078)
+texture_repeat = 2
+material = SubResource("ShaderMaterial_2vphs")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -201.0
+offset_right = 150.0
+offset_bottom = 201.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_jjvmu")
+
+[node name="SpriteControl" type="Control" parent="MarginContainer/LeftSpeakerControl"]
+clip_contents = true
+custom_minimum_size = Vector2(300, 400)
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LeftSpeaker" type="TextureRect" parent="MarginContainer/LeftSpeakerControl/SpriteControl"]
 unique_name_in_owner = true
-layout_mode = 0
-offset_right = 300.0
-offset_bottom = 400.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.303333
+anchor_top = -0.11
+anchor_right = 0.303333
+anchor_bottom = -0.11
+offset_left = -90.9999
+offset_top = 44.0
+offset_right = 209.0
+offset_bottom = 444.0
+pivot_offset = Vector2(150, 0)
 size_flags_horizontal = 0
 size_flags_vertical = 8
+texture = ExtResource("3_2vphs")
 stretch_mode = 2
 metadata/_edit_use_anchors_ = true
+
+[node name="ScreenBackgroundFront" type="TextureRect" parent="MarginContainer/LeftSpeakerControl"]
+modulate = Color(1, 1, 1, 0.0392157)
+texture_repeat = 2
+material = SubResource("ShaderMaterial_qunbn")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -201.0
+offset_right = 150.0
+offset_bottom = 201.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_jjvmu")
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer/LeftSpeakerControl"]
 layout_mode = 2
@@ -73,20 +137,104 @@ autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 2
 
+[node name="ScreenOutline" type="TextureRect" parent="MarginContainer/LeftSpeakerControl"]
+modulate = Color(1, 1, 1, 0.784314)
+custom_minimum_size = Vector2(300, 400)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -170.0
+offset_top = -220.0
+offset_right = 170.0
+offset_bottom = 220.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("3_tgwhc")
+
 [node name="RightSpeakerControl" type="Control" parent="MarginContainer"]
 custom_minimum_size = Vector2(300, 400)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
 
-[node name="RightSpeaker" type="TextureRect" parent="MarginContainer/RightSpeakerControl"]
+[node name="ScreenBackgroundBack" type="TextureRect" parent="MarginContainer/RightSpeakerControl"]
+modulate = Color(1, 1, 1, 0.196078)
+texture_repeat = 2
+material = SubResource("ShaderMaterial_2vphs")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -201.0
+offset_right = 150.0
+offset_bottom = 201.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_jjvmu")
+
+[node name="SpriteControl" type="Control" parent="MarginContainer/RightSpeakerControl"]
+clip_contents = true
+custom_minimum_size = Vector2(300, 400)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 300.0
+offset_bottom = 400.0
+
+[node name="RightSpeaker" type="TextureRect" parent="MarginContainer/RightSpeakerControl/SpriteControl"]
 unique_name_in_owner = true
 layout_mode = 0
 offset_right = 300.0
 offset_bottom = 400.0
+pivot_offset = Vector2(150, 0)
 size_flags_horizontal = 8
 size_flags_vertical = 8
+texture = ExtResource("3_2vphs")
 stretch_mode = 2
+
+[node name="ScreenBackgroundFront" type="TextureRect" parent="MarginContainer/RightSpeakerControl"]
+modulate = Color(1, 1, 1, 0.0392157)
+texture_repeat = 2
+material = SubResource("ShaderMaterial_qunbn")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -201.0
+offset_right = 150.0
+offset_bottom = 201.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_jjvmu")
+
+[node name="ScreenOutline" type="TextureRect" parent="MarginContainer/RightSpeakerControl"]
+modulate = Color(1, 1, 1, 0.784314)
+custom_minimum_size = Vector2(300, 400)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -170.0
+offset_top = -220.0
+offset_right = 170.0
+offset_bottom = 220.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("3_tgwhc")
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer/RightSpeakerControl"]
 layout_mode = 2
