@@ -65,6 +65,11 @@ func _show_screen(side):
 		$MarginContainer/RightSpeakerControl/ScreenBackgroundBack.visible = true
 		$MarginContainer/RightSpeakerControl/ScreenBackgroundFront.visible = true
 		$MarginContainer/RightSpeakerControl/ScreenOutline.visible = true
+
+#This might seem trivial, but consider a playable character that's in the world before joining the party. This function might prove useful then
+func is_character_in_the_room_with_us_now(character_name):
+	return GameState.is_character_in_party(character_name)
+
 func _set_speaker(speaker:String, expression:String, side):
 	var portrait
 	var name_label
@@ -79,7 +84,7 @@ func _set_speaker(speaker:String, expression:String, side):
 	portrait.visible = true
 	name_label.visible = true
 	name_label.text = tr(speaker)
-	if GameState.is_character_in_party(speaker):
+	if is_character_in_the_room_with_us_now(speaker):
 		_hide_screen(side)
 	else:
 		_show_screen(side)
