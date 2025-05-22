@@ -1,10 +1,10 @@
 [gd_scene load_steps=17 format=3 uid="uid://db6vwqoodof3o"]
 
 [ext_resource type="PackedScene" uid="uid://c4knnckwwejji" path="res://scenes/overworld/room.tscn" id="1_o6j7m"]
-[ext_resource type="Script" uid="uid://cee085tws7h0y" path="res://scenes/ui/dialogue/dialogue_manager.gd" id="2_cmg84"]
 [ext_resource type="Script" uid="uid://ba1rbjqs1nmgt" path="res://scenes/overworld/interactable/rock/rock.gd" id="2_csp3m"]
 [ext_resource type="Texture2D" uid="uid://g04rqk377lfp" path="res://assets/ui/circle.png" id="3_c1vcw"]
 [ext_resource type="PackedScene" uid="uid://bu7ouujuhbdw2" path="res://scenes/overworld/interactable/interactable_component.tscn" id="4_tvv83"]
+[ext_resource type="PackedScene" uid="uid://chub0oea1rtve" path="res://scenes/ui/dialogue/dialogue_manager.tscn" id="4_yjh1c"]
 [ext_resource type="Texture2D" uid="uid://l71gewe0yuvu" path="res://assets/chroma.png" id="5_tvv83"]
 [ext_resource type="Script" uid="uid://b0brp80tajola" path="res://scenes/ui/dialogue/dialogue_trigger.gd" id="6_cmg84"]
 [ext_resource type="PackedScene" uid="uid://lid4f4jxk5j2" path="res://scenes/ui/dialogue/dialogue_display.tscn" id="6_yjh1c"]
@@ -54,14 +54,8 @@ texture = ExtResource("8_qy337")
 position = Vector2(121, -252)
 texture = ExtResource("10_17a1n")
 
-[node name="DialogueManager" type="Node" parent="." index="5"]
+[node name="DialogueManager" parent="." index="5" instance=ExtResource("4_yjh1c")]
 unique_name_in_owner = true
-process_mode = 2
-script = ExtResource("2_cmg84")
-
-[node name="Timer" type="Timer" parent="DialogueManager" index="0"]
-wait_time = 0.1
-one_shot = true
 
 [node name="DialogueDisplay" parent="UI" index="3" instance=ExtResource("6_yjh1c")]
 unique_name_in_owner = true
@@ -172,5 +166,3 @@ shape = SubResource("RectangleShape2D_17a1n")
 
 [node name="InteractableComponent" parent="32x32Neuro4" index="1" instance=ExtResource("4_tvv83")]
 position = Vector2(1, 6)
-
-[connection signal="timeout" from="DialogueManager/Timer" to="DialogueManager" method="_on_timer_timeout"]
