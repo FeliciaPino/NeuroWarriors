@@ -29,7 +29,7 @@
 	{
 		"id":"line3",
 		"speaker":"Neuro-sama",
-		"expression":"Neutral",
+		"expression":"Happy",
 		"speed":125,
 		"text_key":"Isn't it neat! Aren't I super amazing! Hey, vedal. Veedal! Vedal isn't this cool? Aren't you proud of me?",
 		"next":"line4"
