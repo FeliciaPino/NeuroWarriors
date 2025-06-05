@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://db6vwqoodof3o"]
+[gd_scene load_steps=15 format=3 uid="uid://db6vwqoodof3o"]
 
 [ext_resource type="PackedScene" uid="uid://c4knnckwwejji" path="res://scenes/overworld/room.tscn" id="1_o6j7m"]
 [ext_resource type="Script" uid="uid://ba1rbjqs1nmgt" path="res://scenes/overworld/interactable/rock/rock.gd" id="2_csp3m"]
@@ -6,39 +6,35 @@
 [ext_resource type="PackedScene" uid="uid://bu7ouujuhbdw2" path="res://scenes/overworld/interactable/interactable_component.tscn" id="4_tvv83"]
 [ext_resource type="PackedScene" uid="uid://chub0oea1rtve" path="res://scenes/ui/dialogue/dialogue_manager.tscn" id="4_yjh1c"]
 [ext_resource type="Texture2D" uid="uid://l71gewe0yuvu" path="res://assets/chroma.png" id="5_tvv83"]
-[ext_resource type="Script" uid="uid://b0brp80tajola" path="res://scenes/ui/dialogue/dialogue_trigger.gd" id="6_cmg84"]
 [ext_resource type="PackedScene" uid="uid://lid4f4jxk5j2" path="res://scenes/ui/dialogue/dialogue_display.tscn" id="6_yjh1c"]
 [ext_resource type="Texture2D" uid="uid://c2bq58th4ub5" path="res://assets/overworld/city_tiles.png" id="8_qy337"]
-[ext_resource type="Texture2D" uid="uid://btuw23k4ok34i" path="res://assets/overworld/32x32neuro.png" id="9_yjh1c"]
 [ext_resource type="Texture2D" uid="uid://o5sq0tkkglam" path="res://assets/overworld/tiles.png" id="10_17a1n"]
+[ext_resource type="PackedScene" uid="uid://bi30e7q4hmdo" path="res://scenes/ui/dialogue/dialogue_trigger.tscn" id="12_ekpo1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cmg84"]
 size = Vector2(44, 42)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bl62h"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_qy337"]
 atlas = ExtResource("5_tvv83")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_witrt"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_yjh1c"]
 atlas = ExtResource("5_tvv83")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_2m8nb"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_17a1n"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bl62h")
+"texture": SubResource("AtlasTexture_qy337")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_witrt")
+"texture": SubResource("AtlasTexture_yjh1c")
 }],
 "loop": true,
 "name": &"default",
 "speed": 3.0
 }]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_17a1n"]
-size = Vector2(17, 17)
 
 [node name="TestRoom" instance=ExtResource("1_o6j7m")]
 texture_filter = 1
@@ -56,6 +52,9 @@ texture = ExtResource("10_17a1n")
 
 [node name="DialogueManager" parent="." index="5" instance=ExtResource("4_yjh1c")]
 unique_name_in_owner = true
+
+[node name="ReturnButton" parent="UI" index="1"]
+visible = false
 
 [node name="DialogueDisplay" parent="UI" index="3" instance=ExtResource("6_yjh1c")]
 unique_name_in_owner = true
@@ -79,90 +78,93 @@ shape = SubResource("RectangleShape2D_cmg84")
 [node name="InteractableComponent" parent="boudler" index="2" instance=ExtResource("4_tvv83")]
 scale = Vector2(2.22739, 2.16148)
 
-[node name="dialogueTest" type="AnimatedSprite2D" parent="." index="8" node_paths=PackedStringArray("interactable_component")]
-z_index = -1
-texture_filter = 1
-position = Vector2(-158, -47)
-sprite_frames = SubResource("SpriteFrames_2m8nb")
-autoplay = "default"
-script = ExtResource("6_cmg84")
-interactable_component = NodePath("InteractableComponent")
-path_to_dialogue_sequence = "res://scenes/overworld/test_area/dialogue_test_1.json"
-
-[node name="InteractableComponent" parent="dialogueTest" index="0" instance=ExtResource("4_tvv83")]
-
-[node name="32x32Neuro" type="Sprite2D" parent="." index="9" node_paths=PackedStringArray("interactable_component")]
-y_sort_enabled = true
-texture_filter = 1
-position = Vector2(-91, -188)
-texture = ExtResource("9_yjh1c")
-script = ExtResource("6_cmg84")
-interactable_component = NodePath("InteractableComponent")
+[node name="DialogueTrigger" parent="." index="8" instance=ExtResource("12_ekpo1")]
+position = Vector2(-70, -187)
 path_to_dialogue_sequence = "res://scenes/overworld/test_area/dialogue_test_bogos.json"
 
-[node name="StaticBody2D" type="StaticBody2D" parent="32x32Neuro" index="0"]
-collision_mask = 0
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DialogueTrigger" index="0"]
+sprite_frames = SubResource("SpriteFrames_17a1n")
+autoplay = "default"
+frame_progress = 0.396804
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="32x32Neuro/StaticBody2D" index="0"]
-position = Vector2(0.5, 7.5)
-shape = SubResource("RectangleShape2D_17a1n")
+[node name="InteractableComponent" parent="DialogueTrigger" index="1" instance=ExtResource("4_tvv83")]
 
-[node name="InteractableComponent" parent="32x32Neuro" index="1" instance=ExtResource("4_tvv83")]
-position = Vector2(1, 6)
+[node name="Label" type="Label" parent="DialogueTrigger" index="2"]
+offset_left = -25.0
+offset_top = -30.0
+offset_right = 55.0
+offset_bottom = -7.0
+scale = Vector2(0.585679, 0.643512)
+text = "dialogue"
 
-[node name="32x32Neuro2" type="Sprite2D" parent="." index="10" node_paths=PackedStringArray("interactable_component")]
-y_sort_enabled = true
-texture_filter = 1
-position = Vector2(-9, -188)
-texture = ExtResource("9_yjh1c")
-script = ExtResource("6_cmg84")
-interactable_component = NodePath("InteractableComponent")
+[node name="DialogueTrigger2" parent="." index="9" instance=ExtResource("12_ekpo1")]
+position = Vector2(-260, -165)
+path_to_dialogue_sequence = "res://scenes/overworld/test_area/dialogue_test_2.json"
+
+[node name="InteractableComponent" parent="DialogueTrigger2" index="0" instance=ExtResource("4_tvv83")]
+scale = Vector2(5.06798, 5.6583)
+
+[node name="Label" type="Label" parent="DialogueTrigger2" index="1"]
+offset_left = -21.0
+offset_top = -32.0
+offset_right = 19.0
+offset_bottom = -9.0
+scale = Vector2(0.964737, 0.713777)
+text = "building"
+
+[node name="DialogueTrigger3" parent="." index="10" instance=ExtResource("12_ekpo1")]
+position = Vector2(-16, -187)
 path_to_dialogue_sequence = "res://scenes/overworld/test_area/dialogue_test_conditions.json"
 
-[node name="StaticBody2D" type="StaticBody2D" parent="32x32Neuro2" index="0"]
-collision_mask = 0
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DialogueTrigger3" index="0"]
+sprite_frames = SubResource("SpriteFrames_17a1n")
+autoplay = "default"
+frame_progress = 0.0790493
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="32x32Neuro2/StaticBody2D" index="0"]
-position = Vector2(0.5, 7.5)
-shape = SubResource("RectangleShape2D_17a1n")
+[node name="InteractableComponent" parent="DialogueTrigger3" index="1" instance=ExtResource("4_tvv83")]
 
-[node name="InteractableComponent" parent="32x32Neuro2" index="1" instance=ExtResource("4_tvv83")]
-position = Vector2(1, 6)
+[node name="Label" type="Label" parent="DialogueTrigger3" index="2"]
+offset_left = -21.0
+offset_top = -28.0
+offset_right = 60.0
+offset_bottom = -5.0
+scale = Vector2(0.616619, 0.576124)
+text = "conditions"
 
-[node name="32x32Neuro3" type="Sprite2D" parent="." index="11" node_paths=PackedStringArray("interactable_component")]
-y_sort_enabled = true
-texture_filter = 1
-position = Vector2(58, -187)
-texture = ExtResource("9_yjh1c")
-script = ExtResource("6_cmg84")
-interactable_component = NodePath("InteractableComponent")
+[node name="DialogueTrigger4" parent="." index="11" instance=ExtResource("12_ekpo1")]
+position = Vector2(54, -186)
 path_to_dialogue_sequence = "res://scenes/overworld/test_area/dialogue_test_speed.json"
 
-[node name="StaticBody2D" type="StaticBody2D" parent="32x32Neuro3" index="0"]
-collision_mask = 0
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DialogueTrigger4" index="0"]
+sprite_frames = SubResource("SpriteFrames_17a1n")
+autoplay = "default"
+frame_progress = 0.0790493
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="32x32Neuro3/StaticBody2D" index="0"]
-position = Vector2(0.5, 7.5)
-shape = SubResource("RectangleShape2D_17a1n")
+[node name="InteractableComponent" parent="DialogueTrigger4" index="1" instance=ExtResource("4_tvv83")]
 
-[node name="InteractableComponent" parent="32x32Neuro3" index="1" instance=ExtResource("4_tvv83")]
-position = Vector2(1, 6)
+[node name="Label" type="Label" parent="DialogueTrigger4" index="2"]
+offset_left = -15.0
+offset_top = -28.0
+offset_right = 32.0
+offset_bottom = -5.0
+scale = Vector2(0.632969, 0.600498)
+text = "speed"
 
-[node name="32x32Neuro4" type="Sprite2D" parent="." index="12" node_paths=PackedStringArray("interactable_component")]
-y_sort_enabled = true
-texture_filter = 1
-position = Vector2(116, -192)
-texture = ExtResource("9_yjh1c")
-script = ExtResource("6_cmg84")
-interactable_component = NodePath("InteractableComponent")
+[node name="DialogueTrigger5" parent="." index="12" instance=ExtResource("12_ekpo1")]
+position = Vector2(115, -189)
 path_to_dialogue_sequence = "res://scenes/overworld/test_area/dialogue_test_color.json"
 
-[node name="StaticBody2D" type="StaticBody2D" parent="32x32Neuro4" index="0"]
-collision_mask = 0
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DialogueTrigger5" index="0"]
+sprite_frames = SubResource("SpriteFrames_17a1n")
+autoplay = "default"
+frame_progress = 0.0790493
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="32x32Neuro4/StaticBody2D" index="0"]
-position = Vector2(0.5, 7.5)
-shape = SubResource("RectangleShape2D_17a1n")
+[node name="InteractableComponent" parent="DialogueTrigger5" index="1" instance=ExtResource("4_tvv83")]
 
-[node name="InteractableComponent" parent="32x32Neuro4" index="1" instance=ExtResource("4_tvv83")]
-position = Vector2(1, 6)
+[node name="Label" type="Label" parent="DialogueTrigger5" index="2"]
+offset_left = -16.0
+offset_top = -29.0
+offset_right = 24.0
+offset_bottom = -6.0
+scale = Vector2(0.755018, 0.699237)
+text = "color"

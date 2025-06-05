@@ -1,0 +1,14 @@
+[
+	{"id":"start","next":"line1"},
+	{
+		"id":"line1",
+		"speaker":"Narrator",
+		"text_key":"You stand in front of some tall, partly destroyed, buildings.",
+		"next":"line2"
+	},
+	{
+		"id":"line2",
+		"speaker":["Neuro-sama","Evil"],
+		"text_key":"Why is it called a building, if it's already built?"
+	}
+]

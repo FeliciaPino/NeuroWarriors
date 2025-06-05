@@ -47,7 +47,7 @@ const DEFAULT_VALUES = {
 			"unlocked_upgrades":[]
 		},
 		"Anny":{
-			"unlocked":false,
+			"unlocked":true,
 			"level":0,
 			"experience":0,
 			"equiped_abilities":["slap","hype_up","fluster"],

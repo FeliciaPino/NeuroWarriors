@@ -30,12 +30,14 @@ var sprites = {
 }
 const voices ={
 	"Neuro-sama":preload("res://assets/audio/homemade/clips/neuro_blip.mp3"),
-	"Vedal":preload("res://assets/audio/homemade/clips/vedal_blip.mp3")
+	"Vedal":preload("res://assets/audio/homemade/clips/vedal_blip.mp3"),
+	"Evil":preload("res://assets/audio/homemade/clips/evil_blip.mp3"),
+	"Narrator":preload("res://assets/audio/homemade/SFX/narrator_blip.mp3")
 }
 	
 enum Side{LEFT, RIGHT}
 
-const DEFAULT_TYPING_SPEED = 25.0
+const DEFAULT_TYPING_SPEED = 30.0
 var typing_speed = DEFAULT_TYPING_SPEED
 var text_tween:Tween = null
 
