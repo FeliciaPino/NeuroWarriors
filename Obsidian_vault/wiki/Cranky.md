@@ -1,0 +1,2 @@
+#StatusEffect 
+Gains +n attack

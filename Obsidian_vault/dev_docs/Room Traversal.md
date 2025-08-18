@@ -1,0 +1,3 @@
+Each room is a different scene.  Setting up ways for the player to move between those scenes is made using a Passage. For a Passage to work, you only need to set up 3 things. The area2d that will detect the player, the path to the scene of the room this passage will lead to, and the name of the passage you will arrive in in the other room. (the name of the node)
+For example, a  room A could have a passage called door_east, and it's connected to room B, to a passage called room_west. 
+Important thing to take in mind! Don't forget to set the mask of the Area2d to detect the player. 
