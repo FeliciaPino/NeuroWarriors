@@ -92,3 +92,6 @@ level_path = "res://scenes/levels/forest/forest_5.tscn"
 id = "enemy1"
 target_spot = NodePath("../PathFollow2D")
 enemy_respawns = true
+
+[node name="Fade" parent="UI" index="0"]
+visible = true

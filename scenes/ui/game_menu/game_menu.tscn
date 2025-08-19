@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://bbxpxysb4lgqt"]
+[gd_scene load_steps=13 format=3 uid="uid://bbxpxysb4lgqt"]
 
 [ext_resource type="Theme" uid="uid://cchp864k50mvc" path="res://scenes/overworld/ui_theme.tres" id="1_c2e5g"]
 [ext_resource type="Script" uid="uid://bs4n11f0d5nf0" path="res://scenes/ui/game_menu/game_menu.gd" id="1_i4ld5"]
 [ext_resource type="Texture2D" uid="uid://sh8d13r4odpy" path="res://assets/characters/Neuro-sama.png" id="2_dfior"]
 [ext_resource type="Script" uid="uid://18ssjpdw7vtg" path="res://scenes/ui/game_menu/party_menu.gd" id="2_p6mcn"]
 [ext_resource type="Script" uid="uid://dtd6vh75crj5e" path="res://scenes/ui/game_menu/character_config.gd" id="4_t8iaa"]
+[ext_resource type="Script" uid="uid://dk7kp5kwxgj5i" path="res://scenes/ui/game_menu/options.gd" id="6_88hgd"]
 
 [sub_resource type="Gradient" id="Gradient_j53y3"]
 offsets = PackedFloat32Array(0.9, 1)
@@ -64,7 +65,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_c2e5g")
 tab_alignment = 1
-current_tab = 1
+current_tab = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="Party" type="MarginContainer" parent="TabContainer"]
@@ -136,6 +137,7 @@ texture = SubResource("GradientTexture1D_fjlim")
 expand_mode = 2
 
 [node name="Character" type="Control" parent="TabContainer"]
+visible = false
 layout_mode = 2
 script = ExtResource("4_t8iaa")
 metadata/_tab_index = 1
@@ -197,8 +199,8 @@ offset_bottom = 8.0
 text = "go to neur's skiltre"
 
 [node name="Options" type="Control" parent="TabContainer"]
-visible = false
 layout_mode = 2
+script = ExtResource("6_88hgd")
 metadata/_tab_index = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Options"]
@@ -214,12 +216,11 @@ offset_bottom = 0.197998
 grow_horizontal = 2
 theme_override_constants/separation = 30
 
-[node name="Button" type="Button" parent="TabContainer/Options/VBoxContainer"]
+[node name="Return To Menu" type="Button" parent="TabContainer/Options/VBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-text = "leave
-"
+text = "LEVEL_SELECT_RETURN_TO_MENU"
 
 [node name="Button2" type="Button" parent="TabContainer/Options/VBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
@@ -256,3 +257,4 @@ layout_mode = 2
 text = "asdf"
 
 [connection signal="pressed" from="TabContainer/Character/debugton" to="TabContainer/Character" method="_on_debugton_pressed"]
+[connection signal="pressed" from="TabContainer/Options/VBoxContainer/Return To Menu" to="TabContainer/Options" method="_on_return_to_menu_pressed"]
