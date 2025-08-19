@@ -1,3 +1,5 @@
+These are the properties [[Battle Actions]] may have. They are not necessarily mutually exclusive. 
+
 ## #BattleAction/Melee
 The user walks up to the target to do the action (Possibly giving them an opportunity to attack back)
 ## #BattleAction/Projectile

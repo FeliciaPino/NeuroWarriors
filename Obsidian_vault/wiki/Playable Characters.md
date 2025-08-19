@@ -1,4 +1,6 @@
-[[Neuro-sama]]: Starter character
-[[Vedal]]: First character unlocked, found early in the forest
-[[Evil]]:  Found later in the forest, after loss woods
-[[Anny]]: Anny joins the party in the city
+These are the characters that you may be able to choose to have in your party, to take into battle. 
+
+[[Neuro-sama]]
+[[Vedal]]
+[[Evil]]
+[[Anny]]

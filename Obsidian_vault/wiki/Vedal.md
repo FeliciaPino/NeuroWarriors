@@ -1,5 +1,5 @@
-#Character
-[[Neuro-sama]] and [[Evil]]'s father. 
+#BattleEntity/PlayableCharacter
+[Neuro](Neuro-sama) and [[Evil]]'s father. 
 
 He's can defend and has many tactical abilities
 Base stats:

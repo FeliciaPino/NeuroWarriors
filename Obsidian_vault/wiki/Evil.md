@@ -1,4 +1,4 @@
-#Character 
+#BattleEntity/PlayableCharacter
 
 Evil is [[Neuro-sama]]'s twin sister. 
 
@@ -7,7 +7,7 @@ She plays as the team's glass cannon, doing great damage but having low health a
 ## Abilities
 [[Harpoon Throw]]
 [[Pipes]]
-[[Scream]]
+[[Screech]]
 [[Deep Breath]]
 [[Rocket Punch]]
 [[Clap]]
