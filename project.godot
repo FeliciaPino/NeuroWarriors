@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Neuroverse Warriors"
 run/main_scene="res://scenes/main_menu.tscn"
-config/features=PackedStringArray("4.4", "Mobile")
+config/features=PackedStringArray("4.5", "Mobile")
 boot_splash/bg_color=Color(0.0755101, 0.0755101, 0.0755101, 1)
 boot_splash/image="res://splash.png"
 config/icon="res://assets/drone_logo.png"
