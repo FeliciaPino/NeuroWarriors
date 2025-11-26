@@ -1,6 +1,7 @@
 # Godot 4+ specific ignores
-.godot/
-/android/
+NeuroverseWarriors/.godot/
+NeuroverseWarriors/android/
+NeuroverseWarriors/export_presets.cfg
 
 #obsidian
 Obsidian_vault/.obsidian/
