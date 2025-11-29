@@ -63,7 +63,7 @@ func load_game(save_slot_index:int):
 	ensure_directory(directory)
 	_load_dict(GameState.completed_levels, GameState.DEFAULT_VALUES["completed_levels"], directory+"/levels.json")
 	_load_dict(GameState.flags, GameState.DEFAULT_VALUES["flags"], directory+"/flags.json")
-	_load_dict(GameState.characters_save_info,GameState.DEFAULT_VALUES["flags"], directory+"/characters.json")
+	_load_dict(GameState.characters_save_info,GameState.DEFAULT_VALUES["characters_save_info"], directory+"/characters.json")
 	_load_dict(GameState.overworld_info,GameState.DEFAULT_VALUES["overworld_info"], directory+"/overworld_info.json")
 	print_debug(str(self,": loading into room: ",GameState.overworld_info["current_room_path"]))
 	GameState.current_room_scene = load(GameState.overworld_info["current_room_path"])
