@@ -47,11 +47,12 @@ func _ready() -> void:
 		background.play("default")
 		
 	update_battle_entities()
-	for party_member in party:
+	for party_member in entity_manager.get_party():
 		party_member.is_player_controlled = true
-	for enemy in foes:
+	for enemy in entity_manager.get_foes():
 		xp_reward += enemy.challenge_rating * 50
-	
+	for e:BattleEntity in entity_manager.entities:
+		e.just_freaking_died_right_now.connect(_on_entity_defeated)
 	
 	end_turn_buttton.pressed.connect(end_turn)
 	return_to_map_button.pressed.connect(return_to_menu)
@@ -191,7 +192,10 @@ func get_entity_by_name(entity_name:String)->BattleEntity:
 		if entity.entity_name == entity_name:
 			return entity
 	return null
-
+	
+func _on_entity_defeated(entity:BattleEntity):
+	print_debug("somebody died! I, the game manager, saw that! and it was",entity.name)
+	
 func check_game_end():
 	if foes.size()<=0:
 		finish(true)

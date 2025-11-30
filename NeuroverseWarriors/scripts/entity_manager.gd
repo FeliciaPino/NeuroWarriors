@@ -23,7 +23,7 @@ func _ready() -> void:
 	for child in get_children():
 		if child is BattleEntity:
 			entities.append(child)
-			child.just_freaking_died_right_now.connect(func():remove_entity(child))
+			child.just_freaking_died_right_now.connect(remove_entity)
 	update_entities_formations()
 	
 func remove_entity(entity:BattleEntity):

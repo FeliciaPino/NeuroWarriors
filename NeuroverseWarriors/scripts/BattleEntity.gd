@@ -29,7 +29,7 @@ signal received_damage(amount:int, bypass_shield:bool)
 
 var mySpot:Vector2 #where the entity returns after moving and stuff. Y'know, their spot
 var is_facing_right:bool = true
-signal just_freaking_died_right_now
+signal just_freaking_died_right_now(entity,killer)
 var alive:bool = true
 var actions:Array[BattleAction] = [] #the actions the entity can take, such as active abilites or attacks
 var ap:int #how many actions are left in a turn
@@ -167,7 +167,7 @@ func update_health(value):
 	health_changed.emit()
 	alive = health>0
 	if not alive:
-		just_freaking_died_right_now.emit()
+		just_freaking_died_right_now.emit(self)
 		animation_player.play("die")
 func update_ap(value:int):
 	ap = value
