@@ -12,16 +12,15 @@ const ALL_CHARACTERS = [
 	"Evil",
 	"Anny"
 ]
+const NEURO_SAMA = "Neuro-sama"
+const VEDAL = "Vedal"
+const EVIL = "Evil"
+const ANNY = "Anny"
 const MAX_PARTY_SIZE = 3
 const UPGRADE_PATHS = {
 	"reinforced_plating":"res://scripts/upgrades/reinforced_plating.gd",
 	"vitality":"res://scripts/upgrades/vitality.gd",
 	"unlock_shock":"res://scripts/upgrades/unlock_shock.gd"
-}
-const BATTLE_ACTION_PATHS = {
-	"robot_punch":"res://scenes/actions/robot_punch.tscn",
-	"heart":"res://scenes/actions/heart.tscn"
-	#TODO: add the rest of the actions
 }
 func get_entity_scene(entity_name:String) -> PackedScene:
 	print_debug(str(self,": loading ",entity_name))
