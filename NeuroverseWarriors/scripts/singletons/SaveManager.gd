@@ -3,11 +3,11 @@ extends Node
 func _ready():
 	#Check if save directories exist
 	ensure_directory("user://saves")
-		
+
 	#Posibly check if the saves aren't corrupted or anything. Maybe. In the future
 func ensure_directory(path:String):
 	if not DirAccess.dir_exists_absolute(path): DirAccess.make_dir_absolute(path)
-	
+
 
 func save_dict(dict:Dictionary, file_path:String)->void:
 	var file = FileAccess.open(file_path,FileAccess.WRITE)
@@ -15,12 +15,12 @@ func save_dict(dict:Dictionary, file_path:String)->void:
 		print_debug("error saving, could not open file")
 		return
 	file.store_string(JSON.stringify(dict))
-	
+
 func save_game(save_slot_index:int):
 	var directory_path = str("user://saves/slot",save_slot_index)
 	print_debug(str(self)+": saving to ", ProjectSettings.globalize_path(directory_path))
 	ensure_directory(directory_path)
-	
+
 	save_dict(GameState.completed_levels,directory_path+"/levels.json")
 	save_dict(GameState.flags, directory_path+"/flags.json")
 	save_dict(GameState.characters_save_info, directory_path+"/characters.json")
@@ -81,4 +81,3 @@ func delete_save(save_slot_index:int):
 	var dir = DirAccess.open(directory_path)
 	for file in dir.get_files():
 		dir.remove(directory_path + "/" + file)
-	

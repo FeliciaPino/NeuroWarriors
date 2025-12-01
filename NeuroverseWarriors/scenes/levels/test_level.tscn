@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://by2t4l3fto5ou"]
+[gd_scene load_steps=15 format=3 uid="uid://by2t4l3fto5ou"]
 
 [ext_resource type="PackedScene" uid="uid://b82kauwohbvun" path="res://scenes/levels/game.tscn" id="1_hhncd"]
 [ext_resource type="Texture2D" uid="uid://dl6b6ewaxaxom" path="res://assets/backgrounds/forest_background.png" id="2_tkf6i"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b6410g70liyhb" path="res://scenes/characters/evil.tscn" id="5_oeaud"]
 [ext_resource type="PackedScene" uid="uid://uwmc3sf7fq3o" path="res://scenes/characters/vedal.tscn" id="6_t7qt4"]
 [ext_resource type="PackedScene" uid="uid://c5ykioygv4mrj" path="res://scenes/actions/pipes.tscn" id="7_2mu0v"]
+[ext_resource type="PackedScene" uid="uid://cj1hdugjo18ff" path="res://scenes/actions/harpoon_throw.tscn" id="8_hppjq"]
 [ext_resource type="PackedScene" uid="uid://b36hf4y7sydbp" path="res://scenes/actions/heart.tscn" id="9_2mu0v"]
 [ext_resource type="PackedScene" uid="uid://be7cg2gxou6i2" path="res://scenes/characters/anny.tscn" id="10_2mu0v"]
 [ext_resource type="PackedScene" uid="uid://c5qewxuc3kb2w" path="res://scenes/actions/slap.tscn" id="10_jmx14"]
@@ -25,12 +26,14 @@ texture = ExtResource("2_tkf6i")
 [node name="NeuroSama" parent="Entity_manager" index="0" instance=ExtResource("5_gqr5d")]
 position = Vector2(-182, 378)
 health = 1
+attack = 100
 speed = 30
 
 [node name="RobotPunch" parent="Entity_manager/NeuroSama" index="8" instance=ExtResource("4_hfwtw")]
 
 [node name="Drone2" parent="Entity_manager" index="1" instance=ExtResource("4_0l3y4")]
 position = Vector2(1374, 322)
+challenge_rating = 20.0
 health = 600
 maxHealth = 300
 
@@ -40,6 +43,8 @@ speed = 42343
 [node name="Pipes" parent="Entity_manager/Evil" index="8" instance=ExtResource("7_2mu0v")]
 
 [node name="RobotPunch" parent="Entity_manager/Evil" index="9" instance=ExtResource("4_hfwtw")]
+
+[node name="HarpoonThrow" parent="Entity_manager/Evil" index="11" instance=ExtResource("8_hppjq")]
 
 [node name="Vedal" parent="Entity_manager" index="3" instance=ExtResource("6_t7qt4")]
 speed = 30
@@ -51,5 +56,7 @@ speed = 30
 [node name="Anny" parent="Entity_manager" index="4" instance=ExtResource("10_2mu0v")]
 
 [node name="monocopter" parent="Entity_manager" index="5" instance=ExtResource("12_a5rnb")]
+challenge_rating = 3.0
 
 [node name="offensiveDrone" parent="Entity_manager" index="6" instance=ExtResource("13_fqldq")]
+challenge_rating = 15.0

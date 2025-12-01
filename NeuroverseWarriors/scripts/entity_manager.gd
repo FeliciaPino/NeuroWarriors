@@ -99,7 +99,9 @@ func update_focus_neighbours()->void:
 		var neighbors:Array[BattleEntity] = [null,null,null,null]
 		for other in entities:
 			if other==node or not other.alive: continue
+			@warning_ignore("narrowing_conversion")
 			var dy:int = other.mySpot.y - node.mySpot.y
+			@warning_ignore("narrowing_conversion")
 			var dx:int = other.mySpot.x - node.mySpot.x
 			var q = -1 #the quadrant the other node is
 			if dy < dx and dy < -dx: q = 0 #up quadrant

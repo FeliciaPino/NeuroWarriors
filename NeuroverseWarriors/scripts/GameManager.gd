@@ -12,6 +12,7 @@ class_name GameManager
 @onready var end_screen = %EndScreen
 @onready var return_to_map_button:Button = %Return
 @onready var background = $Background
+@onready var tungesten_counter = %Tungesten_counter
 var level_select_scene = preload("res://scenes/levels/level_select.tscn")
 
 
@@ -49,8 +50,7 @@ func _ready() -> void:
 	update_battle_entities()
 	for party_member in entity_manager.get_party():
 		party_member.is_player_controlled = true
-	for enemy in entity_manager.get_foes():
-		xp_reward += enemy.challenge_rating * 50
+	xp_reward = 0 #it increases for each enemy defeated
 	for e:BattleEntity in entity_manager.entities:
 		e.just_freaking_died_right_now.connect(_on_entity_defeated)
 	
@@ -192,10 +192,18 @@ func get_entity_by_name(entity_name:String)->BattleEntity:
 		if entity.entity_name == entity_name:
 			return entity
 	return null
-	
+
 func _on_entity_defeated(entity:BattleEntity):
-	print_debug("somebody died! I, the game manager, saw that! and it was",entity.name)
-	
+	if !entity.is_player_controlled:
+		var tung_reward = _calc_tungesten_reward(entity)
+		GameState.increase_tungesten_amount(tung_reward)
+		
+		xp_reward += _calc_xp_reward(entity)
+		tungesten_counter.spawn_tungesten(entity.global_position,tung_reward)
+func _calc_xp_reward(entity:BattleEntity):
+	return entity.challenge_rating*50
+func _calc_tungesten_reward(entity:BattleEntity):
+	return entity.challenge_rating*4*randfn(1,0.15)
 func check_game_end():
 	if foes.size()<=0:
 		finish(true)

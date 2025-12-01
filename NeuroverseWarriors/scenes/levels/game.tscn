@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://b82kauwohbvun"]
+[gd_scene load_steps=12 format=3 uid="uid://b82kauwohbvun"]
 
 [ext_resource type="Script" uid="uid://mmu44ppqby8v" path="res://scripts/GameManager.gd" id="1_5lrye"]
 [ext_resource type="PackedScene" uid="uid://c0cerfjhi148m" path="res://scenes/entity_manager.tscn" id="3_iprcq"]
 [ext_resource type="PackedScene" uid="uid://dswe4b60aebu5" path="res://scenes/ui/battle_entity_info.tscn" id="4_riktp"]
+[ext_resource type="PackedScene" uid="uid://f0gydn2c2inx" path="res://scenes/ui/tungesten_counter.tscn" id="5_a1osm"]
 [ext_resource type="PackedScene" uid="uid://d4f0gy2sw12hv" path="res://scenes/ui/end_screen.tscn" id="9_s08fr"]
 
 [sub_resource type="Animation" id="Animation_3mlxk"]
@@ -266,3 +267,10 @@ offset_top = 5.0
 offset_right = 702.0
 offset_bottom = 28.0
 text = "BATTLE_YOUR_TURN"
+
+[node name="Tungesten_counter" parent="CanvasLayer" instance=ExtResource("5_a1osm")]
+unique_name_in_owner = true
+offset_left = 459.0
+offset_top = -294.0
+offset_right = 459.0
+offset_bottom = -294.0
