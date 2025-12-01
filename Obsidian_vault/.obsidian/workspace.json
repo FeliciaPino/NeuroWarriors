@@ -55,12 +55,123 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "wiki/Neuro-sama.md",
+                "file": "wiki/Cranky.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Neuro-sama"
+              "title": "Cranky"
+            }
+          },
+          {
+            "id": "d8bc47205cbbe579",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "wiki/Cookie.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Cookie"
+            }
+          },
+          {
+            "id": "e1426056ce4232ca",
+            "type": "leaf",
+            "state": {
+              "type": "bases",
+              "state": {
+                "file": "Base.base",
+                "viewName": "Table"
+              },
+              "icon": "lucide-table",
+              "title": "Base"
+            }
+          },
+          {
+            "id": "3fd656aed4e1c24f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "wiki/Cookie.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Cookie"
+            }
+          },
+          {
+            "id": "7c072d14dd8ca6ae",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "wiki/Energy drink.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Energy drink"
+            }
+          },
+          {
+            "id": "4c4aa65fdc3a83fb",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "wiki/Beans.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Beans"
+            }
+          },
+          {
+            "id": "da62599237c9c179",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "wiki/Beeble.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Beeble"
+            }
+          },
+          {
+            "id": "200ca247b56fe954",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "wiki/Shock.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Shock"
+            }
+          },
+          {
+            "id": "0e84786dddcd5c90",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Anti Entropy Wire.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Anti Entropy Wire"
             }
           },
           {
@@ -78,7 +189,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 11
       }
     ],
     "direction": "vertical"
@@ -110,7 +221,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#BattleEntity/PlayableCharacter",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -131,8 +242,7 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -200,13 +310,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "wiki/Neuro-sama.md",
+                "file": "Anti Entropy Wire.md",
                 "followCursor": false,
-                "showSearch": false,
-                "searchQuery": ""
+                "showSearch": true,
+                "searchQuery": "#Consumable"
               },
               "icon": "lucide-list",
-              "title": "Outline of Neuro-sama"
+              "title": "Outline of Anti Entropy Wire"
             }
           }
         ],
@@ -227,36 +337,37 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "59d09fda5b1d9f86",
+  "active": "0e84786dddcd5c90",
   "lastOpenFiles": [
-    "wiki/Heart.md",
-    "wiki/Neuro-sama.md",
-    "wiki/Robot Punch.md",
-    "wiki/Playable Characters.md",
-    "wiki/Battle Actions.md",
+    "wiki/Shock.md",
+    "Anti Entropy Wire.md",
+    "wiki/Programmer Socks.md",
     "wiki/Types of Battle Actions.md",
-    "wiki/Action Points.md",
+    "wiki/Battle Actions.md",
     "wiki/Game Mechanics.md",
     "wiki/Wiki Index.md",
-    "wiki/Slap.md",
-    "Action.md",
-    "wiki/Anny.md",
-    "wiki/Evil.md",
-    "wiki/Pipes.md",
-    "wiki/Vedal.md",
     "Base.base",
-    "wiki/Monocopter.md",
-    "wiki/List of Enemies.md",
-    "wiki/Enemies.md",
-    "wiki/Explodobug.md",
-    "wiki/Tutel Shield.md",
+    "wiki/Beeble.md",
+    "wiki/Beans.md",
+    "wiki/Cookie.md",
+    "wiki/Evil Bread.md",
+    "wiki/Vedal.md",
+    "wiki/Energy drink.md",
+    "wiki/Anny.md",
     "Untitled.md",
-    "wiki/The forest.md",
-    "Untitled.base",
-    "images/forst_puzles.png.import",
+    "Untitled",
+    "River Puzzles.md",
+    "lore stuff.md",
     "Game Design Document.md",
-    "dev_docs/Dialogue System.md",
+    "wiki/Brittle.md",
     "wiki/Cranky.md",
-    "wiki/Rum Throw.md"
+    "wiki/Neuro-sama.md",
+    "wiki/Heart.md",
+    "wiki/Robot Punch.md",
+    "wiki/Playable Characters.md",
+    "wiki/Action Points.md",
+    "wiki/Slap.md",
+    "Untitled.base",
+    "images/forst_puzles.png.import"
   ]
 }
