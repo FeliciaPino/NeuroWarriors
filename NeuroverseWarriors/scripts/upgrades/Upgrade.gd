@@ -1,4 +1,4 @@
-extends Node
+extends Resource
 class_name Upgrade
 enum UpgradeType {ENTITY_MOD,ABILITY_UNLOCK,ABILITY_MOD}
 #ENTITY_MOD upgrades modify the associated battle entity at the start of battle (usally just increasing stats (like +5hp or something))
@@ -13,7 +13,7 @@ var tungesten_cost:int
 
 var associated_ability:String #for ABILTY_UNLOCK and ABILITY_MOD Upgrades
 #for ENTITY_MOD Upgrades. Please don't use on other ones.
-func apply_to_entity(entity:BattleEntity):
+func apply_to_entity(_entity:BattleEntity):
 	pass
 #for ABILITY_UNLOCK Upgrades
 func purchased_effect():
