@@ -5,6 +5,6 @@ func _init():
 	name_id = "unlock_shock"
 	display_name = tr("SKILL_TREE_UPGRADE_UNLOCK_SHOCK_NAME")
 	description = tr("SKILL_TREE_UPGRADE_UNLOCK_SHOCK_DESCRIPTION")
-	level_requirement = 20
+	level_requirement = 10
 	tungesten_cost = 20
 	associated_ability = "shock"

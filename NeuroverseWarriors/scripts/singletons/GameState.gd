@@ -2,6 +2,7 @@ extends Node
 
 var current_save_slot_index:int
 
+signal party_changed
 
 var completed_levels: Dictionary
 var flags:Dictionary
@@ -20,7 +21,7 @@ const DEFAULT_VALUES = {
 			"unlocked":true,
 			"level":0,
 			"experience":0,
-			"equiped_abilities":["robot_punch","heart","harpoon_throw"],
+			"equiped_abilities":["robot_punch","heart"],
 			"not_equiped_abilities":[],
 			"max_equiped_abilities":3,
 			"active_upgrades":[],
@@ -28,7 +29,7 @@ const DEFAULT_VALUES = {
 		},
 		"Vedal":{
 			"unlocked":true,
-			"level":0,
+			"level":2,
 			"experience":0,
 			"equiped_abilities":["tutel_shield","rum_throw","overclock"],
 			"not_equiped_abilities":[],
@@ -48,7 +49,7 @@ const DEFAULT_VALUES = {
 		},
 		"Anny":{
 			"unlocked":true,
-			"level":0,
+			"level":5,
 			"experience":0,
 			"equiped_abilities":["slap","hype_up","fluster"],
 			"not_equiped_abilities":[],
@@ -154,15 +155,31 @@ func deactivate_upgrade(character_name:String, upgrade_name:String):
 		unlocked_upgrades.append(upgrade_name)
 	if upgrade_name in active_upgrades:
 		active_upgrades.erase(upgrade_name)
+func get_character_active_upgrades(character_name:String):
+	var result = []
+	for up_name in characters_save_info[character_name]["active_upgrades"]:
+		result.append(CharacterDatabase.get_upgrade(up_name))
+	return result
 func unlock_upgrade(character_name:String, upgrade_name:String):
 	var unlocked_upgrades = characters_save_info[character_name]["unlocked_upgrades"]
 	if not upgrade_name in unlocked_upgrades:
 		unlocked_upgrades.append(upgrade_name)
 	
 func set_party(party:Array[String]):
+	var previous_party = characters_save_info["party"]
 	characters_save_info["party"] = party
+	if previous_party.hash() != party.hash():
+		party_changed.emit()
 func get_party():
 	return characters_save_info["party"]
+func get_character_level(character_name) -> int:
+	if !characters_save_info.has(character_name):
+		return -1
+	return characters_save_info[character_name]["level"]
+func get_character_xp(character_name):
+	if !characters_save_info.has(character_name):
+		return -1
+	return characters_save_info[character_name]["experience"]
 func get_player_map_position():
 	return Vector2(overworld_info["player_position_x"],overworld_info["player_position_y"])
 	

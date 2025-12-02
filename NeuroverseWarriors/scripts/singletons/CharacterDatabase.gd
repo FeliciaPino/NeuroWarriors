@@ -17,11 +17,6 @@ const VEDAL = "Vedal"
 const EVIL = "Evil"
 const ANNY = "Anny"
 const MAX_PARTY_SIZE = 3
-const UPGRADE_PATHS = {
-	"reinforced_plating":"res://scripts/upgrades/reinforced_plating.gd",
-	"vitality":"res://scripts/upgrades/vitality.gd",
-	"unlock_shock":"res://scripts/upgrades/unlock_shock.gd"
-}
 func get_entity_scene(entity_name:String) -> PackedScene:
 	print_debug(str(self,": loading ",entity_name))
 	return load(CHARACTER_SCENE_PATHS[entity_name])
@@ -29,9 +24,7 @@ func get_battle_action_scene(ability_name:String) -> PackedScene:
 	return load("res://scenes/actions/"+ability_name+".tscn")
 #returns an instance of the upgrade by name
 func get_upgrade(upgrade_name:String) -> Upgrade:
-	var path = UPGRADE_PATHS.get(upgrade_name,"")
-	if path=="": return null
-	return load(path).new()
+	return load("res://scripts/upgrades/"+upgrade_name+".gd").new()
 	
 	
 #called when instantiating a character, to modify their stats according to their level

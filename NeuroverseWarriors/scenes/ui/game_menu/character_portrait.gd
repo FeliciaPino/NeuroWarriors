@@ -4,6 +4,7 @@ class_name CharacterPortrait
 @export var associated_character:String
 @onready var texture_rect := $PanelContainer/VBoxContainer/TextureRect
 @onready var panel := $PanelContainer
+@onready var name_label := %NameLabel
 @onready var buttons_container := $Buttons
 var is_buttons_open:bool = false
 @onready var button_move_left := $Buttons/MoveLeft
@@ -26,6 +27,7 @@ func _ready() -> void:
 		new_texture.atlas = load("res://assets/characters/"+associated_character+".png")
 		new_texture.region = Rect2(0,0,100,160)
 		texture_rect.texture = new_texture 
+		name_label.text = associated_character
 	else:
 		panel.visible = false
 	button_move_left.pressed.connect(_any_button_pressed)
@@ -51,6 +53,7 @@ func set_associated_character(new_character:String):
 	new_texture.atlas = load("res://assets/characters/"+associated_character+".png")
 	new_texture.region = Rect2(0,0,100,160)
 	texture_rect.texture = new_texture 
+	name_label.text = new_character
 
 
 var in_party:bool = false
@@ -149,7 +152,8 @@ func swap(character_portrait_1:CharacterPortrait,character_portrait_2:CharacterP
 	panel_2.position = Vector2(-5,-5)
 	if not keep_focus:
 		character_portrait_1.grab_focus()
-	
+
+
 func _drop_data(_pos, data):
 	swap(data,self)
 	data.grab_focus()

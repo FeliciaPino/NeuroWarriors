@@ -25,6 +25,8 @@ LEVEL_SELECT_WATCH_CUTSCENE,Watch cutscene again,Ver cinematica de nuevo
 LEVEL_SELECT_RETURN_TO_MENU,Return to menu,Volver al menu
 GAME_MENU_PARTY,Party,Equipo
 GAME_MENU_CHARACTER,Character,Personaje
+GAME_MENU_CHARACTER_SKILL_TREE,Go to {character}'s skill tree,Ir a arbol de abilidades de {character}
+GAME_MENU_CHARACTER_XP,"Level:{level}, {remaining} until next level","Nivel:{level}, {remaining} para el siguiente nivel"
 GAME_MENU_CONFIG,Config,Configuracion
 MOVEMENT_PROMPT,Use WASD or the arrow keys to move.,Usa WASD o las teclas de flecha para moverte.
 TUTORIAL_1,Battles are turn-based. Click on Neuro to open her menu.,Las batallas son por turnos. Haz clic en Neuro para abrir su menú.

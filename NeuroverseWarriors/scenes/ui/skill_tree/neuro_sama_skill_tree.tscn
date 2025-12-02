@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://cd5a0fwn0couv"]
+
+[ext_resource type="PackedScene" uid="uid://bmaxfmfr4tb2k" path="res://scenes/ui/skill_tree/skill_tree.tscn" id="1_u4e1c"]
+[ext_resource type="PackedScene" uid="uid://egb0qrfm4whr" path="res://scenes/ui/skill_tree/skill_tree_node.tscn" id="2_sp1xc"]
+
+[node name="Neuro-sama_skill_tree" instance=ExtResource("1_u4e1c")]
+
+[node name="ReinforcePlating" parent="." index="4" instance=ExtResource("2_sp1xc")]
+layout_mode = 1
+offset_left = -67.784
+offset_top = 280.0
+offset_right = 188.216
+offset_bottom = 340.0
+
+[node name="Vitality" parent="." index="5" node_paths=PackedStringArray("prerequisites") instance=ExtResource("2_sp1xc")]
+layout_mode = 1
+offset_left = 196.216
+offset_top = 280.0
+offset_right = 452.216
+offset_bottom = 340.0
+prerequisites = [NodePath("../ReinforcePlating")]
+associated_upgrade_name = "vitality"

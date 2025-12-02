@@ -16,6 +16,8 @@ var active:bool = false
 
 func _ready():
 	associated_upgrade = CharacterDatabase.get_upgrade(associated_upgrade_name)
+	if associated_upgrade == null:
+		print_debug("ERRROR: could not load upgrade:",associated_upgrade_name)
 	text = associated_upgrade.display_name
 	description_label.text = associated_upgrade.description
 	purchased = GameState.character_has_upgrade(skill_tree.associated_character,associated_upgrade.name_id)

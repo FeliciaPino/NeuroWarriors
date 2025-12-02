@@ -1,1 +1,33 @@
- 
+[
+	{
+		"id":"start",
+		"next":"line1"
+	},
+	{
+		"id":"line1",
+		"speaker":"Vedal",
+		"expression":"happy",
+		"text_key":"Hey, I see you've been collecting tungesten cubes",
+		"next":"line2"
+	},
+	{
+		"id":"line2",
+		"speaker":"Neuro-sama",
+		"expression":"Confused",
+		"text_key":"tungesten cubes? Don't you mean tungsten?",
+		"next":"line3"
+	},
+	{
+		"id":"line3",
+		"speaker":"Vedal",
+		"expression":"Neutral",
+		"text_key":"No. Tungesten is this new materials robots use. It can store energy, it is strong and light. Extremely versatile."  ,
+		"next":"line4"
+	},
+	{
+		"id":"line4",
+		"speaker":"Vedal",
+		"expression":"Happy",
+		"text_key":"I bet I could use it to upgrade you or make some equipment for me"
+	}
+]

@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://c4knnckwwejji"]
+[gd_scene load_steps=11 format=3 uid="uid://c4knnckwwejji"]
 
 [ext_resource type="Script" uid="uid://c7idah1du5a0p" path="res://scenes/overworld/overworld_party.gd" id="1_47ymd"]
 [ext_resource type="Script" uid="uid://cu14dpq8i23cb" path="res://scripts/overworld/overworld.gd" id="1_eb5g4"]
 [ext_resource type="PackedScene" uid="uid://bbxpxysb4lgqt" path="res://scenes/ui/game_menu/game_menu.tscn" id="3_jq8hu"]
 [ext_resource type="AudioStream" uid="uid://ckiqmemr4mvcu" path="res://assets/audio/homemade/SFX/kchchchch.mp3" id="3_rdp7m"]
+[ext_resource type="PackedScene" uid="uid://f0gydn2c2inx" path="res://scenes/ui/tungesten_counter.tscn" id="5_upclc"]
 
 [sub_resource type="Animation" id="Animation_nadat"]
 length = 0.001
@@ -172,4 +173,11 @@ offset_right = 276.0
 offset_bottom = 43.0
 text = "LEVEL_SELECT_RETURN_TO_MENU"
 
-[node name="GameMenu" parent="UI" instance=ExtResource("3_jq8hu")]
+[node name="GameMenu" parent="UI" node_paths=PackedStringArray("tungesten_counter") instance=ExtResource("3_jq8hu")]
+tungesten_counter = NodePath("../Tungesten_counter")
+
+[node name="Tungesten_counter" parent="UI" instance=ExtResource("5_upclc")]
+offset_left = 494.0
+offset_top = -292.0
+offset_right = 494.0
+offset_bottom = -292.0

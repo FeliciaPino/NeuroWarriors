@@ -178,7 +178,7 @@ offset_bottom = -20.0
 vertical = true
 
 [node name="ApDisplay" parent="Menu" instance=ExtResource("5_wqjtl")]
-layout_mode = 2
+layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0

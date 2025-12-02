@@ -1,11 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://bbxpxysb4lgqt"]
+[gd_scene load_steps=16 format=3 uid="uid://bbxpxysb4lgqt"]
 
 [ext_resource type="Theme" uid="uid://cchp864k50mvc" path="res://scenes/overworld/ui_theme.tres" id="1_c2e5g"]
 [ext_resource type="Script" uid="uid://bs4n11f0d5nf0" path="res://scenes/ui/game_menu/game_menu.gd" id="1_i4ld5"]
-[ext_resource type="Texture2D" uid="uid://sh8d13r4odpy" path="res://assets/characters/Neuro-sama.png" id="2_dfior"]
 [ext_resource type="Script" uid="uid://18ssjpdw7vtg" path="res://scenes/ui/game_menu/party_menu.gd" id="2_p6mcn"]
 [ext_resource type="Script" uid="uid://dtd6vh75crj5e" path="res://scenes/ui/game_menu/character_config.gd" id="4_t8iaa"]
+[ext_resource type="Texture2D" uid="uid://b82dfmy46isp3" path="res://assets/ui/character_portrait_buttons.png" id="6_45a32"]
 [ext_resource type="Script" uid="uid://dk7kp5kwxgj5i" path="res://scenes/ui/game_menu/options.gd" id="6_88hgd"]
+[ext_resource type="PackedScene" uid="uid://cnpbuybm4ib8l" path="res://scenes/ui/game_menu/character_portrait.tscn" id="6_n4xiy"]
 
 [sub_resource type="Gradient" id="Gradient_j53y3"]
 offsets = PackedFloat32Array(0.9, 1)
@@ -23,20 +24,21 @@ colors = PackedColorArray(0.8, 0.640533, 0.432, 0, 0.8, 0.639216, 0.431373, 1)
 gradient = SubResource("Gradient_3m5rg")
 width = 200
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8l6cd"]
-atlas = ExtResource("2_dfior")
-region = Rect2(0, 0, 100, 160)
+[sub_resource type="AtlasTexture" id="AtlasTexture_075ci"]
+atlas = ExtResource("6_45a32")
+region = Rect2(32, 16, 16, 16)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_y24ke"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8l6cd")
-}],
-"loop": true,
-"name": &"default",
-"speed": 2.0
-}]
+[sub_resource type="AtlasTexture" id="AtlasTexture_58q04"]
+atlas = ExtResource("6_45a32")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ex2pj"]
+atlas = ExtResource("6_45a32")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5qn1y"]
+atlas = ExtResource("6_45a32")
+region = Rect2(32, 0, 16, 16)
 
 [node name="GameMenu" type="Control"]
 process_mode = 2
@@ -65,7 +67,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_c2e5g")
 tab_alignment = 1
-current_tab = 2
+current_tab = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Party" type="MarginContainer" parent="TabContainer"]
@@ -137,41 +139,9 @@ texture = SubResource("GradientTexture1D_fjlim")
 expand_mode = 2
 
 [node name="Character" type="Control" parent="TabContainer"]
-visible = false
 layout_mode = 2
 script = ExtResource("4_t8iaa")
 metadata/_tab_index = 1
-
-[node name="Panel" type="Panel" parent="TabContainer/Character"]
-clip_contents = true
-layout_mode = 0
-offset_left = 60.0
-offset_top = 40.0
-offset_right = 147.0
-offset_bottom = 186.0
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TabContainer/Character/Panel"]
-position = Vector2(44, 75)
-sprite_frames = SubResource("SpriteFrames_y24ke")
-autoplay = "default"
-frame_progress = 0.929207
-
-[node name="Label" type="Label" parent="TabContainer/Character"]
-layout_mode = 0
-offset_left = 63.528
-offset_top = 217.896
-offset_right = 194.528
-offset_bottom = 240.896
-text = "lebel: one gillion!"
-
-[node name="Label2" type="Label" parent="TabContainer/Character"]
-layout_mode = 0
-offset_left = 59.528
-offset_top = 267.896
-offset_right = 190.528
-offset_bottom = 290.896
-text = "xp: oh, u about to level up
-"
 
 [node name="Label3" type="Label" parent="TabContainer/Character"]
 layout_mode = 0
@@ -192,13 +162,166 @@ text = "unequiped abilites: many more
 
 "
 
-[node name="debugton" type="Button" parent="TabContainer/Character"]
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Character"]
 layout_mode = 0
-offset_right = 12.0
-offset_bottom = 8.0
-text = "go to neur's skiltre"
+offset_right = 910.528
+offset_bottom = 479.896
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Character/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Character/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="PartyCarousel" type="Control" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(250, 220)
+layout_mode = 2
+
+[node name="CharacterPortraitLeft" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer/PartyCarousel" instance=ExtResource("6_n4xiy")]
+unique_name_in_owner = true
+modulate = Color(0.8, 0.8, 0.8, 0.9411765)
+z_index = 3
+layout_mode = 0
+offset_left = 22.52801
+offset_top = 11.896015
+offset_right = 122.52801
+offset_bottom = 171.89601
+scale = Vector2(0.8, 0.8)
+focus_mode = 0
+disabled = true
+associated_character = "Vedal"
+
+[node name="CharacterPortraitRight" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer/PartyCarousel" instance=ExtResource("6_n4xiy")]
+unique_name_in_owner = true
+modulate = Color(0.8, 0.8, 0.8, 0.9411765)
+z_index = 3
+layout_mode = 0
+offset_left = 146.52802
+offset_top = 11.896015
+offset_right = 246.52802
+offset_bottom = 171.89601
+scale = Vector2(0.8, 0.8)
+focus_mode = 0
+disabled = true
+associated_character = "Evil"
+
+[node name="CharacterPortraitFront" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer/PartyCarousel" instance=ExtResource("6_n4xiy")]
+unique_name_in_owner = true
+z_index = 5
+layout_mode = 0
+offset_left = 68.52801
+offset_top = 37.89601
+offset_right = 168.52802
+offset_bottom = 197.89601
+focus_mode = 0
+disabled = true
+
+[node name="CarouselLeft" type="TextureButton" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer/PartyCarousel"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 0
+offset_left = 26.528
+offset_top = 165.0
+offset_right = 42.528
+offset_bottom = 181.0
+scale = Vector2(2, 2)
+focus_neighbor_left = NodePath("../CarouselRight")
+focus_neighbor_top = NodePath("../../../../..")
+focus_neighbor_right = NodePath("../CarouselRight")
+action_mode = 0
+texture_normal = SubResource("AtlasTexture_075ci")
+texture_pressed = SubResource("AtlasTexture_075ci")
+texture_hover = SubResource("AtlasTexture_58q04")
+texture_disabled = SubResource("AtlasTexture_075ci")
+texture_focused = SubResource("AtlasTexture_58q04")
+flip_h = true
+
+[node name="CarouselRight" type="TextureButton" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer/PartyCarousel"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 0
+offset_left = 179.528
+offset_top = 164.0
+offset_right = 195.528
+offset_bottom = 180.0
+scale = Vector2(2, 2)
+focus_neighbor_left = NodePath("../CarouselLeft")
+action_mode = 0
+texture_normal = SubResource("AtlasTexture_ex2pj")
+texture_pressed = SubResource("AtlasTexture_ex2pj")
+texture_hover = SubResource("AtlasTexture_5qn1y")
+texture_disabled = SubResource("AtlasTexture_ex2pj")
+texture_focused = SubResource("AtlasTexture_5qn1y")
+
+[node name="SkillTreeButton" type="Button" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "name's skill tree"
+
+[node name="HSeparator" type="HSeparator" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="LevelLabel" type="Label" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/outline_size = 4
+text = "lv:x y until next level"
+horizontal_alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 32
+columns = 2
+
+[node name="HealthLabel" type="Label" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/outline_size = 4
+text = "health:x"
+horizontal_alignment = 1
+
+[node name="AttackLabel" type="Label" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/outline_size = 4
+text = "attack:x"
+horizontal_alignment = 1
+
+[node name="DefenseLabel" type="Label" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/outline_size = 4
+text = "Defense:c"
+horizontal_alignment = 1
+
+[node name="ApRegenLabel" type="Label" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/outline_size = 4
+text = "apregen:x"
+horizontal_alignment = 1
+
+[node name="HSeparator3" type="HSeparator" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="DescriptionLabel" type="Label" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 110)
+layout_mode = 2
+text = "this is a character of all time. this character has characterstics that characterize it as the character that it is."
+autowrap_mode = 3
 
 [node name="Options" type="Control" parent="TabContainer"]
+visible = false
 layout_mode = 2
 script = ExtResource("6_88hgd")
 metadata/_tab_index = 2
@@ -256,5 +379,5 @@ visible = false
 layout_mode = 2
 text = "asdf"
 
-[connection signal="pressed" from="TabContainer/Character/debugton" to="TabContainer/Character" method="_on_debugton_pressed"]
+[connection signal="pressed" from="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer/SkillTreeButton" to="TabContainer/Character" method="_on_skill_tree_button_pressed"]
 [connection signal="pressed" from="TabContainer/Options/VBoxContainer/Return To Menu" to="TabContainer/Options" method="_on_return_to_menu_pressed"]

@@ -4,6 +4,7 @@ var menu_opened:bool = false
 
 signal menu_has_just_opened
 signal menu_has_just_closed
+@export var tungesten_counter:Node
 @onready var room:Room = $"../.."
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -23,6 +24,8 @@ func open_menu():
 	get_tree().paused = true
 	visible = true
 	menu_opened = true
+	if tungesten_counter:
+		tungesten_counter.modulate.a = 1
 	$TabContainer.get_tab_bar().grab_focus()
 	get_viewport().set_input_as_handled()
 func close_menu():
@@ -38,6 +41,8 @@ func close_menu():
 	get_tree().paused = false
 	visible = false
 	menu_opened = false
+	if tungesten_counter:
+		tungesten_counter.modulate.a = 0
 	get_viewport().set_input_as_handled()
 func make_tab_grab_focus():
 	$TabContainer.grab_focus()
