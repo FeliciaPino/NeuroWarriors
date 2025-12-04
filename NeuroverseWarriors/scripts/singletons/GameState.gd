@@ -23,7 +23,7 @@ const DEFAULT_VALUES = {
 			"experience":0,
 			"equiped_abilities":["robot_punch","heart"],
 			"not_equiped_abilities":[],
-			"max_equiped_abilities":3,
+			"max_equiped_abilities":2,
 			"active_upgrades":[],
 			"unlocked_upgrades":[]
 		},

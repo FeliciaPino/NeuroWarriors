@@ -28,7 +28,16 @@ const CAROUSEL_ROTATION_DURATION = 0.15
 signal selected_character_changed
 var selected_character = ""
 var selected_battle_action_tile = null
-
+func quick_swap(mt:BattleActionTile,bat:BattleActionTile):
+	#bat will now have a battle action and mt will be empty. (because this is supposed to be called only to automatically swap with an empty tile)
+	bat.swap(mt)
+	var par = mt.get_parent()
+	par.get_child(min(mt.get_index()+1,par.get_child_count()-1)).grab_focus()
+	for i in range(mt.get_index()+1,par.get_child_count()):
+		var a:BattleActionTile = par.get_child(i-1)
+		var b:BattleActionTile = par.get_child(i)
+		await get_tree().process_frame
+		a.swap(b,b.panel.global_position-a.global_position)
 func _on_battle_action_tile_pressed(bat:BattleActionTile):
 	if selected_battle_action_tile:
 		selected_battle_action_tile.selected = false
@@ -36,8 +45,25 @@ func _on_battle_action_tile_pressed(bat:BattleActionTile):
 		selected_battle_action_tile.grab_focus()
 		selected_battle_action_tile = null
 	elif bat.associated_battle_action != "":
+		if bat.get_parent() == equiped_abilites_container:
+			for c:BattleActionTile in not_equiped_abilites_container.get_children():
+				if c.associated_battle_action == "":
+					quick_swap(c,bat)
+					return
+		else:
+			for c:BattleActionTile in equiped_abilites_container.get_children():
+				if c.associated_battle_action == "":
+					quick_swap(c,bat)
+					return
+		if bat.get_parent() == equiped_abilites_container:
+			if not_equiped_abilites_container.get_child_count()>0:
+				not_equiped_abilites_container.get_child(min(not_equiped_abilites_container.get_child_count()-1,bat.get_index())).grab_focus()
+		else:
+			if equiped_abilites_container.get_child_count()>0:
+				equiped_abilites_container.get_child(min(equiped_abilites_container.get_child_count()-1,bat.get_index())).grab_focus()
 		bat.selected = true
 		selected_battle_action_tile = bat
+		
 func set_selected_character(new_val):
 	var prev = selected_character
 	selected_character = new_val

@@ -1,6 +1,7 @@
 extends Control
 class_name BattleActionTile
 @onready var panel := $PanelContainer
+@onready var hole := $Hole
 @onready var animation_player := $AnimationPlayer
 @onready var icon = $PanelContainer/TextureRect
 @onready var name_label = $PanelContainer/TextureRect/NameLabel
@@ -14,8 +15,10 @@ func set_associated_battle_action(value:String):
 	
 	if value == "":
 		panel.visible = false
+		if !hole.visible: visible = false
 		return
 	else:
+		visible = true
 		panel.visible = true
 	var path = str("res://assets/ui/battle_action_icons/",associated_battle_action,".png")
 	if FileAccess.file_exists(path):
@@ -28,12 +31,11 @@ func set_associated_battle_action(value:String):
 
 func _on_pressed():
 	animation_player.play("select")
-
+var movement_tween:Tween = null
 func swap(other,drop_pos=Vector2.ZERO):
 	animation_player.play("focus")
 	other.animation_player.play("focus")
-	var pos_1 = self.panel.global_position
-	var pos_2 = other.panel.global_position
+	var pos = self.panel.global_position - other.global_position
 	var parent_1 = self.get_parent()
 	var index_1 = self.get_index()
 	var parent_2 = other.get_parent()
@@ -45,18 +47,25 @@ func swap(other,drop_pos=Vector2.ZERO):
 		parent_2.add_child(self)
 	parent_1.move_child(other,index_1)
 	parent_2.move_child(self,index_2)
-	self.panel.position = pos_1-pos_2
+	print("panel global positionn:",self.panel.global_position)
+	self.panel.position = pos
+	print("panel global positionnn:",self.panel.global_position)
 	other.panel.position = drop_pos
 	self.panel.z_index += 2
 	other.panel.z_index += 2
 	swaped.emit()
 	const TWEEN_DURATION = 0.2
-	var tween = create_tween().set_parallel()
-	tween.tween_property(self.panel,"position",Vector2(0,0),TWEEN_DURATION).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	tween.tween_property(other.panel,"position",Vector2(0,0),TWEEN_DURATION).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	await tween.finished
-	self.panel.z_index -= 2
-	other.panel.z_index -= 2
+	if movement_tween:
+		movement_tween.kill()
+	movement_tween = create_tween()
+	movement_tween.tween_property(self.panel,"position",Vector2(0,0),TWEEN_DURATION).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	if other.movement_tween:
+		other.movement_tween.kill()
+	other.movement_tween = create_tween()
+	other.movement_tween.tween_property(other.panel,"position",Vector2(0,0),TWEEN_DURATION).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	movement_tween.finished.connect(func():self.panel.z_index -= 2)
+	other.movement_tween.finished.connect(func():other.panel.z_index -= 2)
+	
 var is_being_dragged:bool = false
 var drop_succesful:bool = false
 var grab_delta:Vector2 = Vector2.ZERO
@@ -80,7 +89,7 @@ func _get_drag_data(at_position: Vector2) -> Variant:
 	var preview_control = Control.new()
 	preview_control.add_child(preview)
 	preview_control.z_index = panel.z_index+3
-	preview_control.scale = Vector2(1.05,1.05)
+	preview_control.scale = Vector2(1.1,1.1)
 	preview.position = -at_position
 	set_drag_preview(preview_control)
 	panel.visible = false
