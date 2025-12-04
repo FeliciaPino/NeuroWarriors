@@ -28,6 +28,16 @@ const CAROUSEL_ROTATION_DURATION = 0.15
 signal selected_character_changed
 var selected_character = ""
 var selected_battle_action_tile = null
+func update_battle_action_info(battle_action_name:String):
+	if battle_action_name == "":
+		return
+	var battle_action:BattleAction = CharacterDatabase.get_battle_action_scene(battle_action_name).instantiate()
+	self.add_child(battle_action)
+	$Label.text = battle_action.action_name
+	$Label2.text = battle_action.description
+func _on_focus_changed(node):
+	if node is BattleActionTile:
+		update_battle_action_info(node.associated_battle_action)
 func quick_swap(mt:BattleActionTile,bat:BattleActionTile):
 	#bat will now have a battle action and mt will be empty. (because this is supposed to be called only to automatically swap with an empty tile)
 	bat.swap(mt)
@@ -159,6 +169,7 @@ func _on_skill_tree_button_pressed():
 	get_tree().change_scene_to_packed(SKILL_TREE_SCENES[selected_character])
 
 func _ready():
+	get_viewport().gui_focus_changed.connect(_on_focus_changed)
 	selected_character_changed.connect(_on_selected_character_changed)
 	carousel_left_button.pressed.connect(_on_swap_left_button_pressed)
 	carousel_right_button.pressed.connect(_on_swap_right_button_pressed)

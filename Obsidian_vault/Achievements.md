@@ -1,0 +1,100 @@
+### Now!
+Shock yourself
+
+### You monster
+Have Vedal attack his daughter
+
+### Clueless Pacifist
+Start a battle with no damaging abilities equipped on any character.
+
+### Clueful Pacifist
+Win a battle with no damaging abilities equipped on any character.
+
+### One Punch Neuro
+Defeat an enemy from a single hit of robot punch
+
+### AP Hoarder
+Finish a level with 20 unspent AP on a single character
+
+### You hurt her...
+Have Vedal defeat an enemy that defeated Neuro
+
+### Tungesten Tycoon
+Have a lot of tungesten
+
+### Teamwork makes the Dreamwork
+Use a team ability
+
+### Barely Standing
+Win a battle with every party member having 5 hp or less
+
+### Pipe Dream
+Deal 1000 total damage with pipes
+
+### Tutel-itarian Defense
+Block a lethal hit with Tutel Shield
+
+### Exact change
+Spend Tungesten and remain with exactly 0
+
+### I am Titanium
+Have an attack do 0 damage
+
+### Sister Synergy
+Enter a battle with Neuro and Evil
+
+## Daddy's girl
+Enter a battle with Vedal and Evil
+
+## Momma's girl
+Enter a battle with Anny and Neuro
+
+## Powered by Bickering
+Enter a battle with Vedal and Camila
+
+### Mother knows Best
+Win a battle where Anny is the only party member still standing
+
+### Action Economy 
+Have a character perform 5 actions in the same turn
+
+### Can't Catch Me
+Get away from 15 chasing drones
+
+### Quick Player
+Go through 5 turns in 30 seconds
+
+### Electric Personality
+Use Shock 10 times in one battle
+
+### Didn't Even Know What Hit Them
+Win a battle in the first turn
+
+## Oh Baby a Triple
+Defeat 3 enemies in one turn
+
+## Rampage
+Defeat 6 enemies in one turn
+
+## Annihilation
+Defeat 9 enemies in one turn
+
+### There's No One Here...
+Have 0 characters in party
+
+## Progress Achievements:
+
+## Defeat The Forest Boss
+Defeat the forest boss
+
+## Defeat The City Boss
+Defeat the city boss
+
+## Vedal
+Vedal joins the party
+
+## Evil
+Evil joins the party
+
+## Anny
+Anny joins the party

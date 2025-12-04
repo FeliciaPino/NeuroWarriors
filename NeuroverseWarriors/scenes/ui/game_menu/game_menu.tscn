@@ -336,6 +336,21 @@ layout_mode = 2
 [node name="BattleActionTile3" parent="TabContainer/Character/NotEquipedAbilities" instance=ExtResource("7_45a32")]
 layout_mode = 2
 
+[node name="Label" type="Label" parent="TabContainer/Character"]
+layout_mode = 0
+offset_left = 668.528
+offset_top = 244.89601
+offset_right = 708.528
+offset_bottom = 267.896
+
+[node name="Label2" type="Label" parent="TabContainer/Character"]
+layout_mode = 0
+offset_left = 707.528
+offset_top = 286.896
+offset_right = 831.528
+offset_bottom = 405.896
+autowrap_mode = 3
+
 [node name="Options" type="Control" parent="TabContainer"]
 visible = false
 layout_mode = 2

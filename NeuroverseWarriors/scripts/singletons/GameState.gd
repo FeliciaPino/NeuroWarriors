@@ -118,19 +118,20 @@ func unlock_character(character_name:String):
 	if characters_save_info["party"].size() < CharacterDatabase.MAX_PARTY_SIZE:
 		characters_save_info["party"].append(character_name)
 func unlock_ability(character_name:String,ability_name:String):
-	print_debug(str(self,":unlocking ability"))
-	var character_unlocked_abilities = characters_save_info[character_name]["equiped_abilities"]
-	character_unlocked_abilities.append_array(characters_save_info[character_name]["not_equiped_abilities"])
-	if not ability_name in character_unlocked_abilities:
-		if characters_save_info[character_name]["equiped_abilities"].size()<characters_save_info[character_name]["max_equiped_abilities"]:
-			characters_save_info[character_name]["equiped_abilities"].append(ability_name)
+	var equipped:Array = get_character_equiped_battle_actions(character_name)
+	var unequipped:Array = get_character_not_equiped_battle_actions(character_name)
+	var character_unlocked_abilities = equipped.duplicate()
+	character_unlocked_abilities.append_array(unequipped)
+	if !character_unlocked_abilities.has(ability_name):
+		if equipped.size()<get_character_max_equiped_actions(character_name):
+			equipped.append(ability_name)
 		else:
-			characters_save_info[character_name]["not_equiped_abilities"].append(ability_name)
-
+			unequipped.append(ability_name)
+			
 func get_character_equiped_battle_actions(character_name:String):
 	if !characters_save_info.has(character_name):
 		print_debug("ERROR! There is no character named ",character_name)
-		return -1
+		return ["no"]
 	return characters_save_info[character_name]["equiped_abilities"]
 func set_character_equiped_battle_actions(character_name:String, new_val:Array[String]):
 	if !characters_save_info.has(character_name):
@@ -140,7 +141,7 @@ func set_character_equiped_battle_actions(character_name:String, new_val:Array[S
 func get_character_not_equiped_battle_actions(character_name:String):
 	if !characters_save_info.has(character_name):
 		print_debug("ERROR! There is no character named ",character_name)
-		return -1
+		return ["no"]
 	return characters_save_info[character_name]["not_equiped_abilities"]
 func set_character_not_equiped_battle_actions(character_name:String, new_val:Array[String]):
 	if !characters_save_info.has(character_name):
