@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bbxpxysb4lgqt"]
+[gd_scene load_steps=17 format=3 uid="uid://bbxpxysb4lgqt"]
 
 [ext_resource type="Theme" uid="uid://cchp864k50mvc" path="res://scenes/overworld/ui_theme.tres" id="1_c2e5g"]
 [ext_resource type="Script" uid="uid://bs4n11f0d5nf0" path="res://scenes/ui/game_menu/game_menu.gd" id="1_i4ld5"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://b82dfmy46isp3" path="res://assets/ui/character_portrait_buttons.png" id="6_45a32"]
 [ext_resource type="Script" uid="uid://dk7kp5kwxgj5i" path="res://scenes/ui/game_menu/options.gd" id="6_88hgd"]
 [ext_resource type="PackedScene" uid="uid://cnpbuybm4ib8l" path="res://scenes/ui/game_menu/character_portrait.tscn" id="6_n4xiy"]
+[ext_resource type="PackedScene" uid="uid://c8fpnttm6gk4w" path="res://scenes/ui/game_menu/battle_action_tile.tscn" id="7_45a32"]
 
 [sub_resource type="Gradient" id="Gradient_j53y3"]
 offsets = PackedFloat32Array(0.9, 1)
@@ -143,25 +144,6 @@ layout_mode = 2
 script = ExtResource("4_t8iaa")
 metadata/_tab_index = 1
 
-[node name="Label3" type="Label" parent="TabContainer/Character"]
-layout_mode = 0
-offset_left = 305.528
-offset_top = 105.896
-offset_right = 572.528
-offset_bottom = 128.896
-text = "equiped abilities: punch, heart, etc
-"
-
-[node name="Label4" type="Label" parent="TabContainer/Character"]
-layout_mode = 0
-offset_left = 301.528
-offset_top = 173.896
-offset_right = 568.528
-offset_bottom = 196.896
-text = "unequiped abilites: many more
-
-"
-
 [node name="MarginContainer" type="MarginContainer" parent="TabContainer/Character"]
 layout_mode = 0
 offset_right = 910.528
@@ -224,10 +206,10 @@ disabled = true
 unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 0
-offset_left = 26.528
-offset_top = 165.0
-offset_right = 42.528
-offset_bottom = 181.0
+offset_left = 17.528015
+offset_top = 164.896
+offset_right = 33.528015
+offset_bottom = 180.896
 scale = Vector2(2, 2)
 focus_neighbor_left = NodePath("../CarouselRight")
 focus_neighbor_top = NodePath("../../../../..")
@@ -244,10 +226,10 @@ flip_h = true
 unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 0
-offset_left = 179.528
-offset_top = 164.0
-offset_right = 195.528
-offset_bottom = 180.0
+offset_left = 190.528
+offset_top = 163.896
+offset_right = 206.528
+offset_bottom = 179.896
 scale = Vector2(2, 2)
 focus_neighbor_left = NodePath("../CarouselLeft")
 action_mode = 0
@@ -319,6 +301,40 @@ custom_minimum_size = Vector2(250, 110)
 layout_mode = 2
 text = "this is a character of all time. this character has characterstics that characterize it as the character that it is."
 autowrap_mode = 3
+
+[node name="EquipedAbilities" type="HBoxContainer" parent="TabContainer/Character"]
+layout_mode = 0
+offset_left = 398.528
+offset_top = 167.89601
+offset_right = 564.528
+offset_bottom = 209.89601
+theme_override_constants/separation = 20
+
+[node name="BattleActionTile" parent="TabContainer/Character/EquipedAbilities" instance=ExtResource("7_45a32")]
+layout_mode = 2
+
+[node name="BattleActionTile2" parent="TabContainer/Character/EquipedAbilities" instance=ExtResource("7_45a32")]
+layout_mode = 2
+
+[node name="BattleActionTile3" parent="TabContainer/Character/EquipedAbilities" instance=ExtResource("7_45a32")]
+layout_mode = 2
+
+[node name="NotEquipedAbilities" type="HBoxContainer" parent="TabContainer/Character"]
+layout_mode = 0
+offset_left = 398.528
+offset_top = 263.896
+offset_right = 564.528
+offset_bottom = 305.896
+theme_override_constants/separation = 20
+
+[node name="BattleActionTile" parent="TabContainer/Character/NotEquipedAbilities" instance=ExtResource("7_45a32")]
+layout_mode = 2
+
+[node name="BattleActionTile2" parent="TabContainer/Character/NotEquipedAbilities" instance=ExtResource("7_45a32")]
+layout_mode = 2
+
+[node name="BattleActionTile3" parent="TabContainer/Character/NotEquipedAbilities" instance=ExtResource("7_45a32")]
+layout_mode = 2
 
 [node name="Options" type="Control" parent="TabContainer"]
 visible = false

@@ -21,8 +21,23 @@ const CAROUSEL_ROTATION_DURATION = 0.15
 @onready var defense_label = %DefenseLabel
 @onready var ap_regen_label = %ApRegenLabel
 @onready var description_label = %DescriptionLabel
+
+@onready var equiped_abilites_container = $EquipedAbilities
+@onready var not_equiped_abilites_container = $NotEquipedAbilities
+
 signal selected_character_changed
 var selected_character = ""
+var selected_battle_action_tile = null
+
+func _on_battle_action_tile_pressed(bat:BattleActionTile):
+	if selected_battle_action_tile:
+		selected_battle_action_tile.selected = false
+		bat.swap(selected_battle_action_tile,selected_battle_action_tile.global_position-bat.global_position)
+		selected_battle_action_tile.grab_focus()
+		selected_battle_action_tile = null
+	elif bat.associated_battle_action != "":
+		bat.selected = true
+		selected_battle_action_tile = bat
 func set_selected_character(new_val):
 	var prev = selected_character
 	selected_character = new_val
@@ -55,7 +70,47 @@ func update_characters_from_party():
 		character_portrait_front.set_associated_character(party[0])
 		character_portrait_right.visible = false
 		character_portrait_left.visible = false
+const battle_action_tile_scene = preload("res://scenes/ui/game_menu/battle_action_tile.tscn")
+#ya got a better function name? It's descriptive!
+func update_gamestate_battle_actions_of_the_selected_character():
+	var equiped_actions:Array[String] = []
+	for c:BattleActionTile in equiped_abilites_container.get_children():
+		if c.associated_battle_action != "":
+			equiped_actions.append(c.associated_battle_action)
+	GameState.set_character_equiped_battle_actions(selected_character,equiped_actions)
+	var unequiped_actions:Array[String] = []
+	for c:BattleActionTile in not_equiped_abilites_container.get_children():
+		if c.associated_battle_action != "":
+			unequiped_actions.append(c.associated_battle_action)
+	GameState.set_character_not_equiped_battle_actions(selected_character,unequiped_actions)
+
+#updates the action tiles so they represetn the ones of the selected character
+func update_action_tiles():
+	for c in equiped_abilites_container.get_children(): c.queue_free()
+	for c in not_equiped_abilites_container.get_children(): c.queue_free()
+	await get_tree().process_frame
+	var equiped_BA = GameState.get_character_equiped_battle_actions(selected_character)
+	for ba in equiped_BA:
+		var new_tile:BattleActionTile = battle_action_tile_scene.instantiate()
+		equiped_abilites_container.add_child(new_tile)
+		new_tile.set_associated_battle_action(ba)
+	for x in range(GameState.get_character_max_equiped_actions(selected_character) - equiped_BA.size()):
+		equiped_abilites_container.add_child(battle_action_tile_scene.instantiate())
+	for c:BattleActionTile in equiped_abilites_container.get_children():
+		c.pressed.connect(_on_battle_action_tile_pressed.bind(c))
+		c.swaped.connect(update_gamestate_battle_actions_of_the_selected_character)
+	var n_equiped_BA = GameState.get_character_not_equiped_battle_actions(selected_character)
+	for ba in n_equiped_BA:
+		var new_tile:BattleActionTile = battle_action_tile_scene.instantiate()
+		not_equiped_abilites_container.add_child(new_tile)
+		new_tile.set_associated_battle_action(ba)
+	for x in range(equiped_BA.size()): #add empty slot on the unequiped list for everyone you do have equiped, so in total the slots for unequiped actions is the same as the total amount of battle actions this character has
+		not_equiped_abilites_container.add_child(battle_action_tile_scene.instantiate())
+	for c:BattleActionTile in not_equiped_abilites_container.get_children():
+		c.pressed.connect(_on_battle_action_tile_pressed.bind(c))
+		c.swaped.connect(update_gamestate_battle_actions_of_the_selected_character)
 func load_character_info():
+	update_action_tiles()
 	skill_tree_button.text = tr("GAME_MENU_CHARACTER_SKILL_TREE").format({character=selected_character})
 	var char_level := GameState.get_character_level(selected_character)
 	var char_remainging_xp := int(CharacterDatabase.xp_needed_to_level_up(char_level) - GameState.get_character_xp(selected_character))
@@ -83,8 +138,6 @@ func _ready():
 	carousel_right_button.pressed.connect(_on_swap_right_button_pressed)
 	update_characters_from_party()
 	GameState.party_changed.connect(update_characters_from_party)
-	$Label3.text = str("nwero quiped biliites: ",GameState.characters_save_info["Neuro-sama"]["equiped_abilities"])
-	$Label4.text = str("newro not eqiped ablitis: ",GameState.characters_save_info["Neuro-sama"]["not_equiped_abilities"])
 func swap_3(a:CharacterPortrait, b:CharacterPortrait, c:CharacterPortrait):
 	var tween = create_tween()
 	tween.set_parallel()

@@ -126,11 +126,38 @@ func unlock_ability(character_name:String,ability_name:String):
 			characters_save_info[character_name]["equiped_abilities"].append(ability_name)
 		else:
 			characters_save_info[character_name]["not_equiped_abilities"].append(ability_name)
-			
+
+func get_character_equiped_battle_actions(character_name:String):
+	if !characters_save_info.has(character_name):
+		print_debug("ERROR! There is no character named ",character_name)
+		return -1
+	return characters_save_info[character_name]["equiped_abilities"]
+func set_character_equiped_battle_actions(character_name:String, new_val:Array[String]):
+	if !characters_save_info.has(character_name):
+		print_debug("ERROR! There is no character named ",character_name)
+		return -1
+	characters_save_info[character_name]["equiped_abilities"] = new_val
+func get_character_not_equiped_battle_actions(character_name:String):
+	if !characters_save_info.has(character_name):
+		print_debug("ERROR! There is no character named ",character_name)
+		return -1
+	return characters_save_info[character_name]["not_equiped_abilities"]
+func set_character_not_equiped_battle_actions(character_name:String, new_val:Array[String]):
+	if !characters_save_info.has(character_name):
+		print_debug("ERROR! There is no character named ",character_name)
+		return -1
+	characters_save_info[character_name]["not_equiped_abilities"] = new_val
+func get_character_max_equiped_actions(character_name:String):
+	if !characters_save_info.has(character_name):
+		print_debug("ERROR! There is no character named ",character_name)
+		return -1
+	return characters_save_info[character_name]["max_equiped_abilities"]
 func is_character_unlocked(character_name:String):
 	return characters_save_info[character_name]["unlocked"]
 func is_character_in_party(character_name):
 	return character_name in characters_save_info["party"]
+
+
 
 func character_has_upgrade(character_name:String,upgrade_name:String)->bool:
 	var ans = false

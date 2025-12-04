@@ -9,7 +9,6 @@ signal menu_has_just_closed
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	visible = false
-	get_tree().paused
 func toggle():
 	if menu_opened:
 		close_menu()

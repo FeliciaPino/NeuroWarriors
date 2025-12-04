@@ -20,3 +20,12 @@ offset_right = 452.216
 offset_bottom = 340.0
 prerequisites = [NodePath("../ReinforcePlating")]
 associated_upgrade_name = "vitality"
+
+[node name="Shock" parent="." index="6" node_paths=PackedStringArray("prerequisites") instance=ExtResource("2_sp1xc")]
+layout_mode = 1
+offset_left = 486.216
+offset_top = 274.0
+offset_right = 742.216
+offset_bottom = 334.0
+prerequisites = [NodePath("../Vitality")]
+associated_upgrade_name = "unlock_shock"
