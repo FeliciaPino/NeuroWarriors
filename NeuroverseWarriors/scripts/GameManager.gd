@@ -269,7 +269,9 @@ func _unhandled_input(event: InputEvent) -> void:
 			pass
 		
 func _input(event: InputEvent) -> void:
-	if is_mouse_click_R(event):#clear selection
+	if is_mouse_click_R(event) || event.is_action_pressed("ui_cancel"):#clear selection
 		for f in foes: f.close_menu()
 		set_selected_action(null)
+		if selected_character:
+			selected_character.button.grab_focus()
 		set_selected_character(null)
