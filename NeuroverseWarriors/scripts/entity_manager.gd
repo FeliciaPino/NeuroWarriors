@@ -37,10 +37,10 @@ func remove_entity(entity:BattleEntity):
 	game_manager.update_battle_entities()
 #returns a list of all alive player-controlled characters
 func get_party()->Array[BattleEntity]:
-	return entities.filter(func(entity): return entity.is_player_controlled and entity.alive)
+	return entities.filter(func(entity): return entity and entity.is_player_controlled and entity.alive)
 #returns a list of all alive foes
 func get_foes()->Array[BattleEntity]:
-	return entities.filter(func(entity): return not entity.is_player_controlled and entity.alive)
+	return entities.filter(func(entity): return entity and !entity.is_player_controlled and entity.alive)
 
 func _nudge_entites_from_eachother(enti:Array[BattleEntity],rect:Rect2):
 	for e in enti:
@@ -92,17 +92,17 @@ func update_entities_formations()->void:
 func update_focus_neighbours()->void:
 	var closest_to_end_turn_button:BattleEntity=entities[0]
 	for node in entities:
-		if not node.alive: continue
+		if !node: continue
+		if !node.alive: continue
 		if closest_to_end_turn_button.mySpot.distance_squared_to(game_manager.end_turn_buttton.global_position) > node.mySpot.distance_squared_to(game_manager.end_turn_buttton.global_position):
 			closest_to_end_turn_button = node
 		#up down left right neighbors, the closest node in that direction
 		var neighbors:Array[BattleEntity] = [null,null,null,null]
 		for other in entities:
-			if other==node or not other.alive: continue
-			@warning_ignore("narrowing_conversion")
-			var dy:int = other.mySpot.y - node.mySpot.y
-			@warning_ignore("narrowing_conversion")
-			var dx:int = other.mySpot.x - node.mySpot.x
+			if other==node || !other: continue
+			if !other.alive: continue
+			var dy:int = int(other.mySpot.y - node.mySpot.y)
+			var dx:int = int(other.mySpot.x - node.mySpot.x)
 			var q = -1 #the quadrant the other node is
 			if dy < dx and dy < -dx: q = 0 #up quadrant
 			if dy > dx and dy > -dx: q = 1 #down quadrant
@@ -126,7 +126,7 @@ func spawn_entity(entity:BattleEntity, keep_position:bool = false):
 	self.add_child(entity)
 	entities.append(entity)
 	entity.set_up_at_start_of_turn()
-	entity.just_freaking_died_right_now.connect(func():remove_entity(entity))
+	entity.just_freaking_died_right_now.connect(remove_entity)
 	var window_size = DisplayServer.window_get_size()
 	if not keep_position:
 		if entity.is_player_controlled:

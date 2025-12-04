@@ -10,7 +10,9 @@ func _ready() -> void:
 func _process(_delta) -> void:
 	label.text = str(int(display_amount))
 func spawn_tungesten(spawn_pos:Vector2, amount:int):
-		_spawn_tc_shower(spawn_pos,split_into_cubes(amount))
+	if amount <= 0:
+		return
+	_spawn_tc_shower(spawn_pos,split_into_cubes(amount))
 const DENOMS := [1,8,27,64,125]
 #So, to get a bit more variaty in the types of cubes that pop out, i'll only go adding the bigger ones with larger totals. get the idea?
 const INTRO_THRESHOLDS := {

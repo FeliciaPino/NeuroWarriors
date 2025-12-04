@@ -82,7 +82,16 @@ Defeat 9 enemies in one turn
 ### There's No One Here...
 Have 0 characters in party
 
+## Skill Issue
+Lose a battle on the first turn
+
+## They're just standing there... menacingly
+Do nothing for 3 consecutive turns
+
+## Outnumbered, Not Outmatched
+Win a battle against 5+ enemies with only one character in the party
 ## Progress Achievements:
+(I still need to come up with something snappy for these)
 
 ## Defeat The Forest Boss
 Defeat the forest boss

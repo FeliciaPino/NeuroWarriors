@@ -263,6 +263,9 @@ func close_menu():
 	if not is_menu_opened: return
 	print_debug(str(self,": closing menu"))
 	is_menu_opened = false
+	var focused = get_viewport().gui_get_focus_owner()
+	if focused != null and menu.is_ancestor_of(get_viewport().gui_get_focus_owner()):
+		button.grab_focus()
 	var tween = get_tree().create_tween().set_parallel()
 	tween.tween_property(menu, "modulate", Color(1,1,1,0) , 0.2)
 	tween.tween_property(menu, "scale", Vector2(), 0.2)

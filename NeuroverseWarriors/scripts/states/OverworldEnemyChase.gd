@@ -13,7 +13,8 @@ func enter():
 	timer.start()
 	
 func physics_update():
-	var direction_of_the_player = (player.global_position-body.global_position).normalized()
-	body.velocity = direction_of_the_player*enemy.movement_speed
+	if player:
+		var direction_of_the_player = (player.global_position-body.global_position).normalized()
+		body.velocity = direction_of_the_player*enemy.movement_speed
 	body.move_and_slide()
 	

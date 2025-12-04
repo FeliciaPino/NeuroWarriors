@@ -201,9 +201,9 @@ func _on_entity_defeated(entity:BattleEntity):
 		xp_reward += _calc_xp_reward(entity)
 		tungesten_counter.spawn_tungesten(entity.global_position,tung_reward)
 func _calc_xp_reward(entity:BattleEntity):
-	return entity.challenge_rating*50
+	return entity.challenge_rating*60
 func _calc_tungesten_reward(entity:BattleEntity):
-	return entity.challenge_rating*4*randfn(1,0.15)
+	return entity.challenge_rating*4*randfn(1,0.30)
 func check_game_end():
 	if foes.size()<=0:
 		finish(true)
@@ -227,14 +227,20 @@ func finish(win_status:bool):
 	animation_player.play("show_end_screen")
 
 func enemy_turn():
-	print_debug("doing enemy turn")
 	#Gotta wait for stuff to finish first, wouldn't want a player to kill an enemy on it's turn, that would just not be polite! and also crash the game
 	while pending_actions > 0:
 		await all_actions_finished
+	
+	print_debug("doing enemy turn")
 	var foes_to_act = []
-	for f in foes: foes_to_act.append(f)
-	while not foes_to_act.is_empty():
-		var foe:BattleEntity = foes_to_act.pick_random()
+	for f in entity_manager.get_foes(): foes_to_act.append(f)
+	while !foes_to_act.is_empty():
+		var foe = foes_to_act.pick_random()
+		while !is_instance_valid(foe):
+			foes_to_act.erase(foe)
+			if foes_to_act.is_empty(): break
+			foe = foes_to_act.pick_random()
+		if foes_to_act.is_empty(): break
 		var decision = foe.figure_out_something_to_do()
 		if decision["action"] == null:
 			#this guy is done for this turn
@@ -242,6 +248,7 @@ func enemy_turn():
 			continue
 		do_an_action(foe, decision["action"], decision["target"])
 		await decision["action"].action_finished
+		
 	is_player_turn = true
 	start_turn()
 	
