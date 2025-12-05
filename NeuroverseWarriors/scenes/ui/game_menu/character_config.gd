@@ -22,9 +22,9 @@ const CAROUSEL_ROTATION_DURATION = 0.15
 @onready var ap_regen_label = %ApRegenLabel
 @onready var description_label = %DescriptionLabel
 
-@onready var equiped_abilites_container = $EquipedAbilities
-@onready var not_equiped_abilites_container = $NotEquipedAbilities
-
+@onready var equiped_abilites_container = %EquipedAbilities
+@onready var not_equiped_abilites_container = %NotEquipedAbilities
+@onready var scroll_container := $MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer/VBoxContainer/ScrollContainer
 signal selected_character_changed
 var selected_character = ""
 var selected_battle_action_tile = null
@@ -33,11 +33,20 @@ func update_battle_action_info(battle_action_name:String):
 		return
 	var battle_action:BattleAction = CharacterDatabase.get_battle_action_scene(battle_action_name).instantiate()
 	self.add_child(battle_action)
-	$Label.text = battle_action.action_name
-	$Label2.text = battle_action.description
+	$MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer2/VBoxContainer/Label.text = battle_action.action_name
+	$MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer2/VBoxContainer/Label2.text = battle_action.description
 func _on_focus_changed(node):
+	if !node: return
 	if node is BattleActionTile:
 		update_battle_action_info(node.associated_battle_action)
+		if scroll_container.is_ancestor_of(node):
+			var tween = create_tween()
+			if node.get_index()*62>scroll_container.scroll_horizontal+62*2:
+				tween.tween_property(scroll_container,"scroll_horizontal",node.get_index()*62-62*2,0.3)
+			elif node.get_index()*62<scroll_container.scroll_horizontal+62*2:
+				tween.tween_property(scroll_container,"scroll_horizontal",node.get_index()*62-62*2,0.3)
+			else:
+				tween.kill()
 func quick_swap(mt:BattleActionTile,bat:BattleActionTile):
 	#bat will now have a battle action and mt will be empty. (because this is supposed to be called only to automatically swap with an empty tile)
 	bat.swap(mt)
@@ -73,12 +82,9 @@ func _on_battle_action_tile_pressed(bat:BattleActionTile):
 				equiped_abilites_container.get_child(min(equiped_abilites_container.get_child_count()-1,bat.get_index())).grab_focus()
 		bat.selected = true
 		selected_battle_action_tile = bat
-		
 func set_selected_character(new_val):
-	var prev = selected_character
 	selected_character = new_val
-	if prev != selected_character:
-		selected_character_changed.emit()
+	selected_character_changed.emit()
 func update_characters_from_party():
 	var party = GameState.get_party()
 	if party.size() == 3:
@@ -119,7 +125,26 @@ func update_gamestate_battle_actions_of_the_selected_character():
 		if c.associated_battle_action != "":
 			unequiped_actions.append(c.associated_battle_action)
 	GameState.set_character_not_equiped_battle_actions(selected_character,unequiped_actions)
-
+func update_action_tiles_focus_neighbors():
+	for c:BattleActionTile in equiped_abilites_container.get_children():
+		if c.get_index() == 0:
+			if GameState.get_party().size()<=1:
+				c.focus_neighbor_left = skill_tree_button.get_path()
+			else:
+				c.focus_neighbor_left = carousel_right_button.get_path()
+			carousel_right_button.focus_neighbor_right = c.get_path()
+		else:
+			c.focus_neighbor_left = equiped_abilites_container.get_child(c.get_index()-1).get_path()
+		if c.get_index() < equiped_abilites_container.get_child_count()-1:
+			c.focus_neighbor_right = equiped_abilites_container.get_child(c.get_index()+1).get_path()
+	for c:BattleActionTile in not_equiped_abilites_container.get_children():
+		if c.get_index()==0:
+			c.focus_neighbor_left = skill_tree_button.get_path()
+		else:
+			c.focus_neighbor_left = not_equiped_abilites_container.get_child(c.get_index()-1).get_path()
+		if c.get_index() < not_equiped_abilites_container.get_child_count()-1:
+			c.focus_neighbor_right = not_equiped_abilites_container.get_child(c.get_index()+1).get_path()
+		
 #updates the action tiles so they represetn the ones of the selected character
 func update_action_tiles():
 	for c in equiped_abilites_container.get_children(): c.queue_free()
@@ -128,13 +153,14 @@ func update_action_tiles():
 	var equiped_BA = GameState.get_character_equiped_battle_actions(selected_character)
 	for ba in equiped_BA:
 		var new_tile:BattleActionTile = battle_action_tile_scene.instantiate()
+		new_tile.associated_battle_action=ba
 		equiped_abilites_container.add_child(new_tile)
-		new_tile.set_associated_battle_action(ba)
 	for x in range(GameState.get_character_max_equiped_actions(selected_character) - equiped_BA.size()):
 		equiped_abilites_container.add_child(battle_action_tile_scene.instantiate())
 	for c:BattleActionTile in equiped_abilites_container.get_children():
 		c.pressed.connect(_on_battle_action_tile_pressed.bind(c))
 		c.swaped.connect(update_gamestate_battle_actions_of_the_selected_character)
+		c.swaped.connect(update_action_tiles_focus_neighbors)
 	var n_equiped_BA = GameState.get_character_not_equiped_battle_actions(selected_character)
 	for ba in n_equiped_BA:
 		var new_tile:BattleActionTile = battle_action_tile_scene.instantiate()
@@ -145,6 +171,9 @@ func update_action_tiles():
 	for c:BattleActionTile in not_equiped_abilites_container.get_children():
 		c.pressed.connect(_on_battle_action_tile_pressed.bind(c))
 		c.swaped.connect(update_gamestate_battle_actions_of_the_selected_character)
+		c.swaped.connect(update_action_tiles_focus_neighbors)
+	
+	update_action_tiles_focus_neighbors()
 func load_character_info():
 	update_action_tiles()
 	skill_tree_button.text = tr("GAME_MENU_CHARACTER_SKILL_TREE").format({character=selected_character})

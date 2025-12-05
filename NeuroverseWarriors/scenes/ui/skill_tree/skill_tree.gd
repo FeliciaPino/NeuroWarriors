@@ -1,8 +1,9 @@
 extends Control
 class_name SkillTree
 @export var associated_character:String
-
-func _process(delta):
+func _ready() -> void:
+	$ReinforcePlating.grab_focus()
+func _process(_delta):
 	$debugton.text = str("press to get 6 moola (u haz ",GameState.get_tungesten_amount(),"moola)")
 	$debugton2.text = str("press to level up, (",associated_character," is lvl ",GameState.characters_save_info[associated_character]["level"]," rn")
 	$Label.text = str("active upgrades:",GameState.characters_save_info[associated_character]["active_upgrades"])

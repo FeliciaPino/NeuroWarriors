@@ -1,12 +1,13 @@
 extends Control
 
+@export var always_visible:bool = false
 @onready var label:Label = %Label
 @onready var icon = %Icon
 @onready var audio_player:AudioStreamPlayer = $AudioStreamPlayer
 @onready var display_amount = GameState.get_tungesten_amount()
 const small_tc_sprite:Texture2D = preload("res://assets/ui/tungesten_cubes_small.png")
 func _ready() -> void:
-	modulate.a = 0
+	if !always_visible: modulate.a = 0
 func _process(_delta) -> void:
 	label.text = str(int(display_amount))
 func spawn_tungesten(spawn_pos:Vector2, amount:int):
@@ -50,7 +51,7 @@ func _spawn_tc_shower(spawn_pos:Vector2, values:Array[int]):
 	var modulate_tween = create_tween()
 	modulate_tween.tween_property(self,"modulate:a",1,0.3)
 	modulate_tween.tween_interval(2)
-	modulate_tween.tween_property(self,"modulate:a",0,0.3)
+	if !always_visible: modulate_tween.tween_property(self,"modulate:a",0,0.3)
 	get_tree().create_timer(3).timeout.connect(func():display_amount=GameState.get_tungesten_amount())
 	for val in values:
 		var cube = TextureRect.new()

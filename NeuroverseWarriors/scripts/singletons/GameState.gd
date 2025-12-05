@@ -22,7 +22,7 @@ const DEFAULT_VALUES = {
 			"level":0,
 			"experience":0,
 			"equiped_abilities":["robot_punch","heart"],
-			"not_equiped_abilities":[],
+			"not_equiped_abilities":["tutel_shield","rum_throw","overclock","harpoon_throw","pipes","screech","katana_slash","slap","hype_up","fluster"],
 			"max_equiped_abilities":2,
 			"active_upgrades":[],
 			"unlocked_upgrades":[]

@@ -51,8 +51,8 @@ func swap(other,drop_pos=Vector2.ZERO):
 	self.panel.position = pos
 	print("panel global positionnn:",self.panel.global_position)
 	other.panel.position = drop_pos
-	self.panel.z_index += 2
-	other.panel.z_index += 2
+	self.panel.z_index += 8
+	other.panel.z_index += 8
 	swaped.emit()
 	const TWEEN_DURATION = 0.2
 	if movement_tween:
@@ -63,8 +63,8 @@ func swap(other,drop_pos=Vector2.ZERO):
 		other.movement_tween.kill()
 	other.movement_tween = create_tween()
 	other.movement_tween.tween_property(other.panel,"position",Vector2(0,0),TWEEN_DURATION).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	movement_tween.finished.connect(func():self.panel.z_index -= 2)
-	other.movement_tween.finished.connect(func():other.panel.z_index -= 2)
+	movement_tween.finished.connect(func():self.panel.z_index -= 8)
+	other.movement_tween.finished.connect(func():other.panel.z_index -= 8)
 	
 var is_being_dragged:bool = false
 var drop_succesful:bool = false

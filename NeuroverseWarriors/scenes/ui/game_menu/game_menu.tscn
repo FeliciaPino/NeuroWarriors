@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bbxpxysb4lgqt"]
+[gd_scene load_steps=18 format=3 uid="uid://bbxpxysb4lgqt"]
 
 [ext_resource type="Theme" uid="uid://cchp864k50mvc" path="res://scenes/overworld/ui_theme.tres" id="1_c2e5g"]
 [ext_resource type="Script" uid="uid://bs4n11f0d5nf0" path="res://scenes/ui/game_menu/game_menu.gd" id="1_i4ld5"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://dk7kp5kwxgj5i" path="res://scenes/ui/game_menu/options.gd" id="6_88hgd"]
 [ext_resource type="PackedScene" uid="uid://cnpbuybm4ib8l" path="res://scenes/ui/game_menu/character_portrait.tscn" id="6_n4xiy"]
 [ext_resource type="PackedScene" uid="uid://c8fpnttm6gk4w" path="res://scenes/ui/game_menu/battle_action_tile.tscn" id="7_45a32"]
+[ext_resource type="PackedScene" uid="uid://f0gydn2c2inx" path="res://scenes/ui/tungesten_counter.tscn" id="9_075ci"]
 
 [sub_resource type="Gradient" id="Gradient_j53y3"]
 offsets = PackedFloat32Array(0.9, 1)
@@ -155,13 +156,18 @@ theme_override_constants/margin_bottom = 20
 
 [node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Character/MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Character/MarginContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.7
 
 [node name="PartyCarousel" type="Control" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(250, 220)
 layout_mode = 2
+size_flags_horizontal = 4
 
 [node name="CharacterPortraitLeft" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer/PartyCarousel" instance=ExtResource("6_n4xiy")]
 unique_name_in_owner = true
@@ -232,6 +238,7 @@ offset_right = 206.528
 offset_bottom = 179.896
 scale = Vector2(2, 2)
 focus_neighbor_left = NodePath("../CarouselLeft")
+focus_neighbor_top = NodePath("../../../../..")
 action_mode = 0
 texture_normal = SubResource("AtlasTexture_ex2pj")
 texture_pressed = SubResource("AtlasTexture_ex2pj")
@@ -302,54 +309,153 @@ layout_mode = 2
 text = "this is a character of all time. this character has characterstics that characterize it as the character that it is."
 autowrap_mode = 3
 
-[node name="EquipedAbilities" type="HBoxContainer" parent="TabContainer/Character"]
-layout_mode = 0
-offset_left = 398.528
-offset_top = 167.89601
-offset_right = 564.528
-offset_bottom = 209.89601
+[node name="VSeparator" type="VSeparator" parent="TabContainer/Character/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="TabContainer/Character/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 8
+alignment = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer"]
+layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="BattleActionTile" parent="TabContainer/Character/EquipedAbilities" instance=ExtResource("7_45a32")]
+[node name="Label" type="Label" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer/VBoxContainer"]
 layout_mode = 2
+text = "GAME_MENU_EQUIPPED_BATTLE_ACTIONS"
+clip_text = true
 
-[node name="BattleActionTile2" parent="TabContainer/Character/EquipedAbilities" instance=ExtResource("7_45a32")]
+[node name="EquipedAbilities" type="HBoxContainer" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
-
-[node name="BattleActionTile3" parent="TabContainer/Character/EquipedAbilities" instance=ExtResource("7_45a32")]
-layout_mode = 2
-
-[node name="NotEquipedAbilities" type="HBoxContainer" parent="TabContainer/Character"]
-layout_mode = 0
-offset_left = 398.528
-offset_top = 263.896
-offset_right = 564.528
-offset_bottom = 305.896
+size_flags_horizontal = 0
 theme_override_constants/separation = 20
 
-[node name="BattleActionTile" parent="TabContainer/Character/NotEquipedAbilities" instance=ExtResource("7_45a32")]
+[node name="BattleActionTile" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer/VBoxContainer/EquipedAbilities" instance=ExtResource("7_45a32")]
 layout_mode = 2
 
-[node name="BattleActionTile2" parent="TabContainer/Character/NotEquipedAbilities" instance=ExtResource("7_45a32")]
+[node name="BattleActionTile2" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer/VBoxContainer/EquipedAbilities" instance=ExtResource("7_45a32")]
 layout_mode = 2
 
-[node name="BattleActionTile3" parent="TabContainer/Character/NotEquipedAbilities" instance=ExtResource("7_45a32")]
+[node name="BattleActionTile3" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer/VBoxContainer/EquipedAbilities" instance=ExtResource("7_45a32")]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="TabContainer/Character"]
-layout_mode = 0
-offset_left = 668.528
-offset_top = 244.89601
-offset_right = 708.528
-offset_bottom = 267.896
+[node name="BattleActionTile4" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer/VBoxContainer/EquipedAbilities" instance=ExtResource("7_45a32")]
+layout_mode = 2
 
-[node name="Label2" type="Label" parent="TabContainer/Character"]
-layout_mode = 0
-offset_left = 707.528
-offset_top = 286.896
-offset_right = 831.528
-offset_bottom = 405.896
+[node name="BattleActionTile5" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer/VBoxContainer/EquipedAbilities" instance=ExtResource("7_45a32")]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "GAME_MENU_NOT_EQUIPPED_BATTLE_ACTIONS"
+clip_text = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer/VBoxContainer"]
+clip_contents = false
+custom_minimum_size = Vector2(280, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="NotEquipedAbilities" type="HBoxContainer" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer/VBoxContainer/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="BattleActionTile" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer/VBoxContainer/ScrollContainer/NotEquipedAbilities" instance=ExtResource("7_45a32")]
+layout_mode = 2
+
+[node name="BattleActionTile2" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer/VBoxContainer/ScrollContainer/NotEquipedAbilities" instance=ExtResource("7_45a32")]
+layout_mode = 2
+
+[node name="BattleActionTile4" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer/VBoxContainer/ScrollContainer/NotEquipedAbilities" instance=ExtResource("7_45a32")]
+layout_mode = 2
+
+[node name="BattleActionTile5" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer/VBoxContainer/ScrollContainer/NotEquipedAbilities" instance=ExtResource("7_45a32")]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2"]
+clip_contents = true
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer2"]
+layout_mode = 2
+
+[node name="HSeparator2" type="HSeparator" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 4
+text = "battle action name"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_constants/outline_size = 4
+text = "this battle action is a battle action, an action that you do in battle, hence the name. "
+horizontal_alignment = 1
 autowrap_mode = 3
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="TabContainer/Character/MarginContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+text = "trinkets"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+alignment = 1
+
+[node name="BattleActionTile2" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer" instance=ExtResource("7_45a32")]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="BattleActionTile3" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer" instance=ExtResource("7_45a32")]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="BattleActionTile4" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer" instance=ExtResource("7_45a32")]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="BattleActionTile5" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer" instance=ExtResource("7_45a32")]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="BattleActionTile6" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer" instance=ExtResource("7_45a32")]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="BattleActionTile7" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer" instance=ExtResource("7_45a32")]
+layout_mode = 2
+size_flags_horizontal = 4
 
 [node name="Options" type="Control" parent="TabContainer"]
 visible = false
@@ -409,6 +515,14 @@ text = "asdf"
 visible = false
 layout_mode = 2
 text = "asdf"
+
+[node name="Tungesten_counter" parent="." instance=ExtResource("9_075ci")]
+layout_mode = 1
+offset_left = 363.0
+offset_top = -286.0
+offset_right = 363.0
+offset_bottom = -286.0
+always_visible = true
 
 [connection signal="pressed" from="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer/SkillTreeButton" to="TabContainer/Character" method="_on_skill_tree_button_pressed"]
 [connection signal="pressed" from="TabContainer/Options/VBoxContainer/Return To Menu" to="TabContainer/Options" method="_on_return_to_menu_pressed"]
