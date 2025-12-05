@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bmaxfmfr4tb2k"]
+[gd_scene load_steps=3 format=3 uid="uid://bmaxfmfr4tb2k"]
 
 [ext_resource type="Script" uid="uid://iusv63tuixs2" path="res://scenes/ui/skill_tree/skill_tree.gd" id="1_7mom5"]
+[ext_resource type="PackedScene" uid="uid://f0gydn2c2inx" path="res://scenes/ui/tungesten_counter.tscn" id="2_7mom5"]
 
 [node name="SkillTree" type="Control"]
 layout_mode = 3
@@ -37,6 +38,17 @@ text = "gotogame
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Tungesten_counter" parent="CanvasLayer" instance=ExtResource("2_7mom5")]
+offset_left = 432.0
+offset_top = -276.0
+offset_right = 432.0
+offset_bottom = -276.0
+always_visible = true
 
 [connection signal="pressed" from="debugton" to="." method="_on_debugton_pressed"]
 [connection signal="pressed" from="debugton2" to="." method="_on_debugton_2_pressed"]

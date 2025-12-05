@@ -5,27 +5,83 @@
 
 [node name="Neuro-sama_skill_tree" instance=ExtResource("1_u4e1c")]
 
+[node name="debugton" parent="." index="0"]
+visible = false
+offset_left = 210.0
+offset_top = 434.0
+offset_right = 222.0
+offset_bottom = 442.0
+
+[node name="debugton2" parent="." index="1"]
+visible = false
+offset_left = 388.0
+offset_top = 555.0
+offset_right = 400.0
+offset_bottom = 563.0
+
+[node name="debugton3" parent="." index="2"]
+offset_left = 528.0
+offset_top = 300.0
+offset_right = 618.0
+offset_bottom = 331.0
+
 [node name="ReinforcePlating" parent="." index="4" instance=ExtResource("2_sp1xc")]
 layout_mode = 1
-offset_left = -67.784
-offset_top = 280.0
-offset_right = 188.216
-offset_bottom = 340.0
+offset_left = 843.216
+offset_top = 275.0
+offset_right = 1099.2161
+offset_bottom = 335.0
+text = "defens"
 
 [node name="Vitality" parent="." index="5" node_paths=PackedStringArray("prerequisites") instance=ExtResource("2_sp1xc")]
 layout_mode = 1
-offset_left = 196.216
-offset_top = 280.0
-offset_right = 452.216
-offset_bottom = 340.0
+offset_left = 840.216
+offset_top = 481.0
+offset_right = 1096.2161
+offset_bottom = 541.0
+text = "vital"
 prerequisites = [NodePath("../ReinforcePlating")]
 associated_upgrade_name = "vitality"
 
 [node name="Shock" parent="." index="6" node_paths=PackedStringArray("prerequisites") instance=ExtResource("2_sp1xc")]
 layout_mode = 1
-offset_left = 486.216
-offset_top = 274.0
-offset_right = 742.216
-offset_bottom = 334.0
+offset_left = 842.216
+offset_top = 669.0
+offset_right = 1098.2161
+offset_bottom = 729.0
+text = "shok"
 prerequisites = [NodePath("../Vitality")]
 associated_upgrade_name = "unlock_shock"
+
+[node name="Shock2" parent="." index="7" node_paths=PackedStringArray("prerequisites") instance=ExtResource("2_sp1xc")]
+layout_mode = 1
+offset_left = 838.216
+offset_top = 806.0
+offset_right = 1094.2161
+offset_bottom = 866.0
+text = "shok"
+prerequisites = [NodePath("../Vitality")]
+associated_upgrade_name = "unlock_shock"
+
+[node name="Shock3" parent="." index="8" node_paths=PackedStringArray("prerequisites") instance=ExtResource("2_sp1xc")]
+layout_mode = 1
+offset_left = 1206.2161
+offset_top = 662.0
+offset_right = 1462.2161
+offset_bottom = 722.0
+text = "shok"
+prerequisites = [NodePath("../Vitality")]
+associated_upgrade_name = "unlock_shock"
+
+[node name="Shock4" parent="." index="9" node_paths=PackedStringArray("prerequisites") instance=ExtResource("2_sp1xc")]
+layout_mode = 1
+offset_left = 499.216
+offset_top = 662.0
+offset_right = 755.216
+offset_bottom = 722.0
+text = "shok"
+prerequisites = [NodePath("../Vitality")]
+associated_upgrade_name = "unlock_shock"
+
+[node name="Camera2D" parent="." index="10"]
+position = Vector2(581, 313)

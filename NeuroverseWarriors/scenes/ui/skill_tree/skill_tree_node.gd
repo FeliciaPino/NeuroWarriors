@@ -1,6 +1,11 @@
+@tool
 extends Button
 class_name SkillTreeNode
-@export var prerequisites:Array[SkillTreeNode]
+@export var prerequisites:Array[SkillTreeNode]:
+	set(value):
+		prerequisites = value
+		if Engine.is_editor_hint():
+			queue_redraw()
 @export var associated_upgrade_name:String
 var associated_upgrade:Upgrade
 
@@ -15,6 +20,9 @@ var active:bool = false
 @onready var description_label := %Description
 
 func _ready():
+	if Engine.is_editor_hint():
+		set_process(true)
+	
 	associated_upgrade = CharacterDatabase.get_upgrade(associated_upgrade_name)
 	if associated_upgrade == null:
 		print_debug("ERRROR: could not load upgrade:",associated_upgrade_name)
@@ -27,8 +35,11 @@ func _ready():
 	for prereq in prerequisites:
 		prereq.just_got_purchased.connect(check_availability)
 	CharacterDatabase.character_leveled_up.connect(func(character_name):if character_name==skill_tree.associated_character:check_availability())
-	CharacterDatabase.character_leveled_up.connect(func(character_name):print_debug(str("I heard someone leveled up")))
+	
 	call_deferred("check_availability")
+func _process(_delta: float) -> void:
+	if Engine.is_editor_hint():
+		queue_redraw()
 func check_availability():
 	print_debug(str(self,": checking availability for the amount of prereqs ",prerequisites.size()))
 	available = true
@@ -109,3 +120,16 @@ func _on_pressed():
 	else:
 		GameState.unlock_ability(skill_tree.associated_character,associated_upgrade.associated_ability)
 	check_availability()#I just do this to update description, probably change it later
+
+func _draw() -> void:
+	if !Engine.is_editor_hint():
+		return
+	var center := size*0.5
+	for p in prerequisites:
+		if !p: continue
+		
+		draw_line(center, p.global_position-global_position+p.size*0.5, Color(0.9,0.9,0.9,0.5), 4)
+		var dir := (p.global_position-global_position+p.size*0.5-center)
+		dir = dir.normalized()
+		draw_line(center,center+dir.rotated(3.1416/4)*40,Color(0.9,0.9,0.9,0.5), 4)
+		draw_line(center,center+dir.rotated(-3.1416/4)*40,Color(0.9,0.9,0.9,0.5), 4)
