@@ -48,7 +48,8 @@ func update_characters():
 	else:
 		camera.global_position = old_camera_global_position
 	camera.position_smoothing_enabled = false
-	await get_tree().process_frame
-	camera.position_smoothing_enabled = true
 	for i in range(1,updated_characters.size()):
 		updated_characters[i].remove_from_group("player")
+	await get_tree().process_frame
+	await get_tree().process_frame
+	camera.position_smoothing_enabled = true
