@@ -37,7 +37,7 @@ var ap:int #how many actions are left in a turn
 @export var is_stationary:bool
 
 @onready var actions_node = $Actions
-@onready var ap_orbs := $VBoxContainer/Control/Ap_orbs
+@onready var ap_orbs := $VBoxContainer/HBoxContainer
 @onready var healthBar = %HealthBar
 @onready var button:TextureButton = $TextureButton
 @onready var action_menu = %ActionMenu
@@ -81,7 +81,6 @@ func _ready() -> void:
 	#healthBar.min_value = -1 #Same as with the max, one less than 0 so it doesn't look empty when the value is 1
 	healthBar.setup(maxHealth)
 	
-	ap_orbs.columns = healthBar.custom_minimum_size.x/6+1
 	
 	mySpot = global_position
 	settle_into_spot()
@@ -212,10 +211,24 @@ func make_sound(sound_name:String, switch_it_up_a_bit:bool = false):
 	
 func get_speed():
 	return speed
-		
 func update_ap_label_text():
 	actions_left_label.text = str(ap)
+	$VBoxContainer/HBoxContainer/Label.text = str(ap)
 	actions_left_display.get_child(0).size.x = len(actions_left_label.text)*9+27
+	var orb_count := ap_orbs.get_child_count()-2
+	while orb_count < min(ap,20):
+		var orb =$VBoxContainer/HBoxContainer/Control.duplicate()
+		orb.visible = true
+		ap_orbs.add_child(orb)
+		orb_count += 1
+		orb.get_child(0).scale = Vector2.ZERO
+		get_tree().create_tween().tween_property(orb.get_child(0),"scale",Vector2(0.5,0.5),0.2)
+		await get_tree().create_timer(0.1).timeout
+	while orb_count>ap:
+		var orb = ap_orbs.get_child(orb_count+1)
+		get_tree().create_tween().tween_property(orb.get_child(0),"scale",Vector2.ZERO,0.2).finished.connect(orb.queue_free)
+		orb_count -= 1
+		await get_tree().create_timer(0.1).timeout
 
 func update_menu_actions():
 	#action menu

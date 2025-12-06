@@ -51,5 +51,5 @@ func update_characters():
 	for i in range(1,updated_characters.size()):
 		updated_characters[i].remove_from_group("player")
 	await get_tree().process_frame
-	await get_tree().process_frame
+	#await get_tree().process_frame
 	camera.position_smoothing_enabled = true
