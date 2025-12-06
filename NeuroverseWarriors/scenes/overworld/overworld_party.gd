@@ -12,10 +12,6 @@ func update_characters():
 	#this whole function feels pretty messy
 	print_debug(str(self,": updating characters"))
 	var party:Array = GameState.get_party()
-	#there has to be a better way of getting rid of the empty character names
-	party.erase("")
-	party.erase("")
-	party.erase("")
 	var characters:Array[OverworldCharacter]
 	print_debug(str(self,": party:",party))
 	for c in get_children():

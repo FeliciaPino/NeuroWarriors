@@ -1,8 +1,9 @@
-[gd_resource type="Theme" load_steps=21 format=3 uid="uid://cchp864k50mvc"]
+[gd_resource type="Theme" load_steps=22 format=3 uid="uid://cchp864k50mvc"]
 
 [ext_resource type="Texture2D" uid="uid://n718aveqcqpv" path="res://assets/ui/theme_stuff/Dark_brown_panel.png" id="2_2pn01"]
-[ext_resource type="Texture2D" uid="uid://df7c3fwvbntf2" path="res://assets/ui/theme_stuff/brown_panel.png" id="2_5kxjo"]
+[ext_resource type="Texture2D" uid="uid://s4jfu2cwdh5l" path="res://assets/ui/theme_stuff/button.png" id="3_g7fvb"]
 [ext_resource type="Texture2D" uid="uid://cs6mb57ps3rcw" path="res://assets/ui/theme_stuff/focus.png" id="3_tbeor"]
+[ext_resource type="Texture2D" uid="uid://q10mk2uv20ti" path="res://assets/ui/theme_stuff/button_pressed.png" id="3_tpf0h"]
 [ext_resource type="Texture2D" uid="uid://b8wj1re8jwkdj" path="res://assets/ui/theme_stuff/dark_brown_tab_selected.png" id="4_mk0s6"]
 [ext_resource type="Texture2D" uid="uid://bu3lgx854hssn" path="res://assets/ui/theme_stuff/dark_brown_tab_unselected.png" id="5_5kxjo"]
 
@@ -12,33 +13,32 @@ texture_margin_left = 10.0
 texture_margin_top = 10.0
 texture_margin_right = 10.0
 texture_margin_bottom = 10.0
-expand_margin_left = 6.0
-expand_margin_top = 6.0
-expand_margin_right = 6.0
-expand_margin_bottom = 6.0
+expand_margin_left = 8.0
+expand_margin_top = 8.0
+expand_margin_right = 8.0
+expand_margin_bottom = 8.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g4wr8"]
-texture = ExtResource("2_5kxjo")
-texture_margin_left = 5.0
-texture_margin_top = 5.0
-texture_margin_right = 5.0
-texture_margin_bottom = 5.0
-modulate_color = Color(0.82, 0.82, 0.82, 1)
+texture = ExtResource("3_g7fvb")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wgsb3"]
-texture = ExtResource("2_5kxjo")
-texture_margin_left = 5.0
-texture_margin_top = 5.0
-texture_margin_right = 5.0
-texture_margin_bottom = 5.0
+texture = ExtResource("3_g7fvb")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+modulate_color = Color(0.95, 0.95, 0.95, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uo360"]
-texture = ExtResource("2_5kxjo")
-texture_margin_left = 5.0
-texture_margin_top = 5.0
-texture_margin_right = 5.0
-texture_margin_bottom = 5.0
-modulate_color = Color(0.59, 0.59, 0.59, 1)
+texture = ExtResource("3_tpf0h")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_auxt0"]
 bg_color = Color(0.61, 0.461973, 0.2684, 1)

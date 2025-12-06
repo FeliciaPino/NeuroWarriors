@@ -68,8 +68,8 @@ offset = Vector3(-714.29, 0, 0)
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_jar63"]
 width = 2000
 height = 2000
-color_ramp = SubResource("Gradient_65oio")
 noise = SubResource("FastNoiseLite_5vb46")
+color_ramp = SubResource("Gradient_65oio")
 
 [sub_resource type="Gradient" id="Gradient_d00tc"]
 colors = PackedColorArray(0, 0, 0, 0, 0.77, 0.5005, 0.698133, 1)
@@ -80,8 +80,8 @@ frequency = 0.0029
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3hj7a"]
 width = 2000
 height = 2000
-color_ramp = SubResource("Gradient_d00tc")
 noise = SubResource("FastNoiseLite_hha1p")
+color_ramp = SubResource("Gradient_d00tc")
 
 [sub_resource type="Animation" id="Animation_plsn7"]
 length = 0.001
@@ -524,7 +524,7 @@ autoplay = "animation"
 layout_mode = 0
 offset_left = 39.0
 offset_top = 442.0
-offset_right = 711.0
+offset_right = 723.0
 offset_bottom = 592.0
 theme_override_constants/separation = 60
 
@@ -573,6 +573,7 @@ vertical_alignment = 1
 
 [node name="EnglishButton" type="Button" parent="MenuMenus/OptionsMenu/HBoxContainer"]
 layout_mode = 2
+focus_neighbor_left = NodePath("../../../MenuButtons/OptionsButton")
 text = "English"
 
 [node name="SpanishButton" type="Button" parent="MenuMenus/OptionsMenu/HBoxContainer"]
@@ -617,7 +618,7 @@ layout_mode = 0
 offset_left = -550.0
 offset_top = 1600.0
 offset_right = -390.0
-offset_bottom = 1631.0
+offset_bottom = 1639.0
 scale = Vector2(0.6, 0.6)
 pivot_offset = Vector2(80, 0)
 focus_neighbor_left = NodePath(".")
