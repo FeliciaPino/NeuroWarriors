@@ -172,5 +172,4 @@ offset_right = 276.0
 offset_bottom = 43.0
 text = "LEVEL_SELECT_RETURN_TO_MENU"
 
-[node name="GameMenu" parent="UI" node_paths=PackedStringArray("tungesten_counter") instance=ExtResource("3_jq8hu")]
-tungesten_counter = NodePath("")
+[node name="GameMenu" parent="UI" instance=ExtResource("3_jq8hu")]

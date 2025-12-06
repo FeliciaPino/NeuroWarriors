@@ -82,7 +82,16 @@ func _ready():
 	characters_save_info = DEFAULT_VALUES["characters_save_info"].duplicate(true)
 	overworld_info = DEFAULT_VALUES["overworld_info"].duplicate(true)
 	current_room_scene = load(overworld_info["current_room_path"])
-
+func _process(_delta: float) -> void:
+	if ! OS.is_debug_build():
+		return
+	var target_time_scale := 1.0
+	if Input.is_action_pressed("debug_fast_forward"):
+		target_time_scale *= 5
+	if Input.is_action_pressed("debug_slow_motion"):
+		target_time_scale *= 0.2
+	if !is_equal_approx(Engine.time_scale, target_time_scale):
+		Engine.time_scale = target_time_scale
 var controlling_with_the_mouse:bool = true
 func _input(event: InputEvent) -> void:
 	if (event is InputEventMouse) and (not controlling_with_the_mouse):
