@@ -5,8 +5,8 @@ var leveled_up:bool = false #set from outside
 @export var associated_character:String = "" #set from outside
 @onready var xp_added_label = $Panel/Label
 @onready var level_label = %LevelLabel
-@onready var progress_bar:TextureProgressBar = $trail/progress
-@onready var trailing_bar:TextureProgressBar = $trail
+@onready var progress_bar:TextureProgressBar = $bar/trail/progress
+@onready var trailing_bar:TextureProgressBar = $bar/trail
 @onready var texture_rect = $PanelContainer/TextureRect
 func _process(_delta):
 	if xp_added_label:
@@ -26,7 +26,7 @@ func _ready():
 	var current_character_level:int = GameState.characters_save_info[associated_character]["level"]
 	if leveled_up: current_character_level -= 1
 	level_label.text = str("LV",current_character_level)
-	progress_bar.max_value = CharacterDatabase.xp_needed_to_level_up(GameState.characters_save_info[associated_character]["level"])+3
+	progress_bar.max_value = CharacterDatabase.xp_needed_to_level_up(GameState.characters_save_info[associated_character]["level"])
 	trailing_bar.max_value = progress_bar.max_value
 	
 	trailing_bar.value = GameState.characters_save_info[associated_character]["experience"]

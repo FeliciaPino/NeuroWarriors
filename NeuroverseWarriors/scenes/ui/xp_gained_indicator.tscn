@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://wbmfyhljpwx4" path="res://scenes/ui/xp_gained_indicator.gd" id="1_3ma3m"]
 [ext_resource type="Texture2D" uid="uid://dxmftxbyye7e7" path="res://assets/overworld/overworld_Neuro-sama.png" id="1_aw5pi"]
-[ext_resource type="Texture2D" uid="uid://bk6yk2o5sdexo" path="res://assets/ui/health_bar_container.png" id="2_3ma3m"]
 [ext_resource type="AudioStream" uid="uid://5xync26rqcgo" path="res://assets/audio/SFX/cheer.mp3" id="4_d83cx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ma3m"]
@@ -21,6 +20,22 @@ corner_radius_bottom_left = 5
 atlas = ExtResource("1_aw5pi")
 region = Rect2(0, 0, 32, 32)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d83cx"]
+bg_color = Color(0.29, 0.29, 0.29, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.13, 0.13, 0.13, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
 [sub_resource type="CanvasTexture" id="CanvasTexture_wgyui"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_3ma3m"]
@@ -31,7 +46,7 @@ length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../../trail:tint_progress")
+tracks/0/path = NodePath("../../bar/trail:tint_progress")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -86,7 +101,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../../trail:tint_progress")
+tracks/1/path = NodePath("../../bar/trail:tint_progress")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -113,7 +128,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../../trail:tint_progress")
+tracks/1/path = NodePath("../../bar/trail:tint_progress")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -179,13 +194,25 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(17, 10)
 text = "LVn"
+vertical_alignment = 1
 
-[node name="trail" type="TextureProgressBar" parent="."]
-texture_filter = 1
-custom_minimum_size = Vector2(70, 10)
+[node name="bar" type="Panel" parent="."]
+custom_minimum_size = Vector2(70, 6)
 layout_mode = 2
 size_flags_vertical = 4
-max_value = 2000.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_d83cx")
+
+[node name="trail" type="TextureProgressBar" parent="bar"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+max_value = 10000.0
+value = 9990.0
 nine_patch_stretch = true
 stretch_margin_left = 2
 stretch_margin_top = 2
@@ -194,21 +221,20 @@ stretch_margin_bottom = 2
 texture_progress = SubResource("CanvasTexture_wgyui")
 tint_progress = Color(0.458824, 0.815686, 1, 1)
 
-[node name="progress" type="TextureProgressBar" parent="trail"]
-custom_minimum_size = Vector2(0, 10)
+[node name="progress" type="TextureProgressBar" parent="bar/trail"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-min_value = -3.0
+max_value = 10000.0
+value = 500.0
 nine_patch_stretch = true
 stretch_margin_left = 2
 stretch_margin_top = 2
 stretch_margin_right = 2
 stretch_margin_bottom = 2
-texture_over = ExtResource("2_3ma3m")
 texture_progress = SubResource("CanvasTexture_3ma3m")
 tint_progress = Color(0.317647, 0.443137, 1, 1)
 
@@ -225,6 +251,7 @@ offset_right = 52.0
 offset_bottom = 9.0
 grow_vertical = 2
 text = "+n exp"
+vertical_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Panel/Label")
