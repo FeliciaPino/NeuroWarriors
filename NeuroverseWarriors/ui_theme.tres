@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=22 format=3 uid="uid://cchp864k50mvc"]
+[gd_resource type="Theme" load_steps=23 format=3 uid="uid://cchp864k50mvc"]
 
 [ext_resource type="Texture2D" uid="uid://n718aveqcqpv" path="res://assets/ui/theme_stuff/Dark_brown_panel.png" id="2_2pn01"]
 [ext_resource type="Texture2D" uid="uid://s4jfu2cwdh5l" path="res://assets/ui/theme_stuff/button.png" id="3_g7fvb"]
@@ -7,16 +7,24 @@
 [ext_resource type="Texture2D" uid="uid://b8wj1re8jwkdj" path="res://assets/ui/theme_stuff/dark_brown_tab_selected.png" id="4_mk0s6"]
 [ext_resource type="Texture2D" uid="uid://bu3lgx854hssn" path="res://assets/ui/theme_stuff/dark_brown_tab_unselected.png" id="5_5kxjo"]
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2v547"]
+texture = ExtResource("3_g7fvb")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+modulate_color = Color(0.37, 0.37, 0.37, 1)
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rxatu"]
 texture = ExtResource("3_tbeor")
-texture_margin_left = 10.0
-texture_margin_top = 10.0
-texture_margin_right = 10.0
-texture_margin_bottom = 10.0
-expand_margin_left = 8.0
-expand_margin_top = 8.0
-expand_margin_right = 8.0
-expand_margin_bottom = 8.0
+texture_margin_left = 14.0
+texture_margin_top = 14.0
+texture_margin_right = 14.0
+texture_margin_bottom = 14.0
+expand_margin_left = 6.0
+expand_margin_top = 6.0
+expand_margin_right = 6.0
+expand_margin_bottom = 6.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g4wr8"]
 texture = ExtResource("3_g7fvb")
@@ -122,6 +130,7 @@ vertical = true
 [resource]
 Button/colors/font_outline_color = Color(0.15, 0.15, 0.15, 1)
 Button/constants/outline_size = 4
+Button/styles/disabled = SubResource("StyleBoxTexture_2v547")
 Button/styles/focus = SubResource("StyleBoxTexture_rxatu")
 Button/styles/hover = SubResource("StyleBoxTexture_g4wr8")
 Button/styles/normal = SubResource("StyleBoxTexture_wgsb3")
