@@ -1,6 +1,7 @@
-[gd_scene load_steps=21 format=3 uid="uid://dp2gnkbdq83n4"]
+[gd_scene load_steps=22 format=3 uid="uid://dp2gnkbdq83n4"]
 
 [ext_resource type="Script" uid="uid://dxs6vaw1rnav4" path="res://scripts/BattleEntity.gd" id="1_m46ik"]
+[ext_resource type="Texture2D" uid="uid://o05esm5l4emw" path="res://assets/ui/ap.png" id="3_0ty8o"]
 [ext_resource type="PackedScene" uid="uid://bcuvnhkfoa0u" path="res://scenes/ui/health_bar.tscn" id="3_b5iiw"]
 [ext_resource type="Texture2D" uid="uid://duwanoipd03rk" path="res://assets/ui/selection_circle.png" id="4_i6faa"]
 [ext_resource type="Texture2D" uid="uid://nxqruldg0w6s" path="res://assets/explosion.png" id="5_qnmwp"]
@@ -119,7 +120,506 @@ animations = [{
 
 [node name="BattleEntity" type="Node2D"]
 y_sort_enabled = true
+texture_filter = 1
 script = ExtResource("1_m46ik")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(40, 0)
+offset_left = -18.0
+offset_top = -125.0
+offset_right = 22.0
+offset_bottom = -113.0
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="Control" type="Control" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Ap_orbs" type="GridContainer" parent="VBoxContainer/Control"]
+texture_filter = 2
+layout_mode = 0
+offset_top = -1.0
+offset_right = 42.0
+offset_bottom = -1.0
+scale = Vector2(1, -1)
+theme_override_constants/h_separation = 6
+theme_override_constants/v_separation = 6
+
+[node name="Control" type="Control" parent="VBoxContainer/Control/Ap_orbs"]
+layout_mode = 2
+
+[node name="Ap" type="Sprite2D" parent="VBoxContainer/Control/Ap_orbs/Control"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0ty8o")
+
+[node name="Control2" type="Control" parent="VBoxContainer/Control/Ap_orbs"]
+layout_mode = 2
+
+[node name="Ap" type="Sprite2D" parent="VBoxContainer/Control/Ap_orbs/Control2"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0ty8o")
+
+[node name="Control3" type="Control" parent="VBoxContainer/Control/Ap_orbs"]
+layout_mode = 2
+
+[node name="Ap" type="Sprite2D" parent="VBoxContainer/Control/Ap_orbs/Control3"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0ty8o")
+
+[node name="Control4" type="Control" parent="VBoxContainer/Control/Ap_orbs"]
+layout_mode = 2
+
+[node name="Ap" type="Sprite2D" parent="VBoxContainer/Control/Ap_orbs/Control4"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0ty8o")
+
+[node name="Control5" type="Control" parent="VBoxContainer/Control/Ap_orbs"]
+layout_mode = 2
+
+[node name="Ap" type="Sprite2D" parent="VBoxContainer/Control/Ap_orbs/Control5"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0ty8o")
+
+[node name="Control6" type="Control" parent="VBoxContainer/Control/Ap_orbs"]
+layout_mode = 2
+
+[node name="Ap" type="Sprite2D" parent="VBoxContainer/Control/Ap_orbs/Control6"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0ty8o")
+
+[node name="Control7" type="Control" parent="VBoxContainer/Control/Ap_orbs"]
+layout_mode = 2
+
+[node name="Ap" type="Sprite2D" parent="VBoxContainer/Control/Ap_orbs/Control7"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0ty8o")
+
+[node name="Control8" type="Control" parent="VBoxContainer/Control/Ap_orbs"]
+layout_mode = 2
+
+[node name="Ap" type="Sprite2D" parent="VBoxContainer/Control/Ap_orbs/Control8"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0ty8o")
+
+[node name="Control9" type="Control" parent="VBoxContainer/Control/Ap_orbs"]
+layout_mode = 2
+
+[node name="Ap" type="Sprite2D" parent="VBoxContainer/Control/Ap_orbs/Control9"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0ty8o")
+
+[node name="Control10" type="Control" parent="VBoxContainer/Control/Ap_orbs"]
+layout_mode = 2
+
+[node name="Ap" type="Sprite2D" parent="VBoxContainer/Control/Ap_orbs/Control10"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0ty8o")
+
+[node name="Control11" type="Control" parent="VBoxContainer/Control/Ap_orbs"]
+layout_mode = 2
+
+[node name="Ap" type="Sprite2D" parent="VBoxContainer/Control/Ap_orbs/Control11"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0ty8o")
+
+[node name="Control12" type="Control" parent="VBoxContainer/Control/Ap_orbs"]
+layout_mode = 2
+
+[node name="Ap" type="Sprite2D" parent="VBoxContainer/Control/Ap_orbs/Control12"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0ty8o")
+
+[node name="Control13" type="Control" parent="VBoxContainer/Control/Ap_orbs"]
+layout_mode = 2
+
+[node name="Ap" type="Sprite2D" parent="VBoxContainer/Control/Ap_orbs/Control13"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0ty8o")
+
+[node name="Control14" type="Control" parent="VBoxContainer/Control/Ap_orbs"]
+layout_mode = 2
+
+[node name="Ap" type="Sprite2D" parent="VBoxContainer/Control/Ap_orbs/Control14"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0ty8o")
+
+[node name="Control15" type="Control" parent="VBoxContainer/Control/Ap_orbs"]
+layout_mode = 2
+
+[node name="Ap" type="Sprite2D" parent="VBoxContainer/Control/Ap_orbs/Control15"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0ty8o")
+
+[node name="Control16" type="Control" parent="VBoxContainer/Control/Ap_orbs"]
+layout_mode = 2
+
+[node name="Ap" type="Sprite2D" parent="VBoxContainer/Control/Ap_orbs/Control16"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0ty8o")
+
+[node name="Control17" type="Control" parent="VBoxContainer/Control/Ap_orbs"]
+layout_mode = 2
+
+[node name="Ap" type="Sprite2D" parent="VBoxContainer/Control/Ap_orbs/Control17"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0ty8o")
+
+[node name="Control18" type="Control" parent="VBoxContainer/Control/Ap_orbs"]
+layout_mode = 2
+
+[node name="Ap" type="Sprite2D" parent="VBoxContainer/Control/Ap_orbs/Control18"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0ty8o")
+
+[node name="Control19" type="Control" parent="VBoxContainer/Control/Ap_orbs"]
+layout_mode = 2
+
+[node name="Ap" type="Sprite2D" parent="VBoxContainer/Control/Ap_orbs/Control19"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0ty8o")
+
+[node name="Control20" type="Control" parent="VBoxContainer/Control/Ap_orbs"]
+layout_mode = 2
+
+[node name="Ap" type="Sprite2D" parent="VBoxContainer/Control/Ap_orbs/Control20"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0ty8o")
+
+[node name="Control21" type="Control" parent="VBoxContainer/Control/Ap_orbs"]
+layout_mode = 2
+
+[node name="Ap" type="Sprite2D" parent="VBoxContainer/Control/Ap_orbs/Control21"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0ty8o")
+
+[node name="Control22" type="Control" parent="VBoxContainer/Control/Ap_orbs"]
+layout_mode = 2
+
+[node name="Ap" type="Sprite2D" parent="VBoxContainer/Control/Ap_orbs/Control22"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0ty8o")
+
+[node name="Control23" type="Control" parent="VBoxContainer/Control/Ap_orbs"]
+layout_mode = 2
+
+[node name="Ap" type="Sprite2D" parent="VBoxContainer/Control/Ap_orbs/Control23"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0ty8o")
+
+[node name="Control24" type="Control" parent="VBoxContainer/Control/Ap_orbs"]
+layout_mode = 2
+
+[node name="Ap" type="Sprite2D" parent="VBoxContainer/Control/Ap_orbs/Control24"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0ty8o")
+
+[node name="Control25" type="Control" parent="VBoxContainer/Control/Ap_orbs"]
+layout_mode = 2
+
+[node name="Ap" type="Sprite2D" parent="VBoxContainer/Control/Ap_orbs/Control25"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0ty8o")
+
+[node name="Control26" type="Control" parent="VBoxContainer/Control/Ap_orbs"]
+layout_mode = 2
+
+[node name="Ap" type="Sprite2D" parent="VBoxContainer/Control/Ap_orbs/Control26"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0ty8o")
+
+[node name="Control27" type="Control" parent="VBoxContainer/Control/Ap_orbs"]
+layout_mode = 2
+
+[node name="Ap" type="Sprite2D" parent="VBoxContainer/Control/Ap_orbs/Control27"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0ty8o")
+
+[node name="Control28" type="Control" parent="VBoxContainer/Control/Ap_orbs"]
+layout_mode = 2
+
+[node name="Ap" type="Sprite2D" parent="VBoxContainer/Control/Ap_orbs/Control28"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0ty8o")
+
+[node name="Control29" type="Control" parent="VBoxContainer/Control/Ap_orbs"]
+layout_mode = 2
+
+[node name="Ap" type="Sprite2D" parent="VBoxContainer/Control/Ap_orbs/Control29"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0ty8o")
+
+[node name="Control30" type="Control" parent="VBoxContainer/Control/Ap_orbs"]
+layout_mode = 2
+
+[node name="Ap" type="Sprite2D" parent="VBoxContainer/Control/Ap_orbs/Control30"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0ty8o")
+
+[node name="Control31" type="Control" parent="VBoxContainer/Control/Ap_orbs"]
+layout_mode = 2
+
+[node name="Ap" type="Sprite2D" parent="VBoxContainer/Control/Ap_orbs/Control31"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0ty8o")
+
+[node name="Control32" type="Control" parent="VBoxContainer/Control/Ap_orbs"]
+layout_mode = 2
+
+[node name="Ap" type="Sprite2D" parent="VBoxContainer/Control/Ap_orbs/Control32"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0ty8o")
+
+[node name="Control33" type="Control" parent="VBoxContainer/Control/Ap_orbs"]
+layout_mode = 2
+
+[node name="Ap" type="Sprite2D" parent="VBoxContainer/Control/Ap_orbs/Control33"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0ty8o")
+
+[node name="Control34" type="Control" parent="VBoxContainer/Control/Ap_orbs"]
+layout_mode = 2
+
+[node name="Ap" type="Sprite2D" parent="VBoxContainer/Control/Ap_orbs/Control34"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0ty8o")
+
+[node name="Control35" type="Control" parent="VBoxContainer/Control/Ap_orbs"]
+layout_mode = 2
+
+[node name="Ap" type="Sprite2D" parent="VBoxContainer/Control/Ap_orbs/Control35"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0ty8o")
+
+[node name="Control36" type="Control" parent="VBoxContainer/Control/Ap_orbs"]
+layout_mode = 2
+
+[node name="Ap" type="Sprite2D" parent="VBoxContainer/Control/Ap_orbs/Control36"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0ty8o")
+
+[node name="Control37" type="Control" parent="VBoxContainer/Control/Ap_orbs"]
+layout_mode = 2
+
+[node name="Ap" type="Sprite2D" parent="VBoxContainer/Control/Ap_orbs/Control37"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0ty8o")
+
+[node name="Control38" type="Control" parent="VBoxContainer/Control/Ap_orbs"]
+layout_mode = 2
+
+[node name="Ap" type="Sprite2D" parent="VBoxContainer/Control/Ap_orbs/Control38"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0ty8o")
+
+[node name="Control39" type="Control" parent="VBoxContainer/Control/Ap_orbs"]
+layout_mode = 2
+
+[node name="Ap" type="Sprite2D" parent="VBoxContainer/Control/Ap_orbs/Control39"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0ty8o")
+
+[node name="Control40" type="Control" parent="VBoxContainer/Control/Ap_orbs"]
+layout_mode = 2
+
+[node name="Ap" type="Sprite2D" parent="VBoxContainer/Control/Ap_orbs/Control40"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0ty8o")
+
+[node name="Control41" type="Control" parent="VBoxContainer/Control/Ap_orbs"]
+layout_mode = 2
+
+[node name="Ap" type="Sprite2D" parent="VBoxContainer/Control/Ap_orbs/Control41"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0ty8o")
+
+[node name="Control42" type="Control" parent="VBoxContainer/Control/Ap_orbs"]
+layout_mode = 2
+
+[node name="Ap" type="Sprite2D" parent="VBoxContainer/Control/Ap_orbs/Control42"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0ty8o")
+
+[node name="Control43" type="Control" parent="VBoxContainer/Control/Ap_orbs"]
+layout_mode = 2
+
+[node name="Ap" type="Sprite2D" parent="VBoxContainer/Control/Ap_orbs/Control43"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0ty8o")
+
+[node name="Control44" type="Control" parent="VBoxContainer/Control/Ap_orbs"]
+layout_mode = 2
+
+[node name="Ap" type="Sprite2D" parent="VBoxContainer/Control/Ap_orbs/Control44"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0ty8o")
+
+[node name="Control45" type="Control" parent="VBoxContainer/Control/Ap_orbs"]
+layout_mode = 2
+
+[node name="Ap" type="Sprite2D" parent="VBoxContainer/Control/Ap_orbs/Control45"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0ty8o")
+
+[node name="Control46" type="Control" parent="VBoxContainer/Control/Ap_orbs"]
+layout_mode = 2
+
+[node name="Ap" type="Sprite2D" parent="VBoxContainer/Control/Ap_orbs/Control46"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0ty8o")
+
+[node name="Control47" type="Control" parent="VBoxContainer/Control/Ap_orbs"]
+layout_mode = 2
+
+[node name="Ap" type="Sprite2D" parent="VBoxContainer/Control/Ap_orbs/Control47"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0ty8o")
+
+[node name="Control48" type="Control" parent="VBoxContainer/Control/Ap_orbs"]
+layout_mode = 2
+
+[node name="Ap" type="Sprite2D" parent="VBoxContainer/Control/Ap_orbs/Control48"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0ty8o")
+
+[node name="Control49" type="Control" parent="VBoxContainer/Control/Ap_orbs"]
+layout_mode = 2
+
+[node name="Ap" type="Sprite2D" parent="VBoxContainer/Control/Ap_orbs/Control49"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0ty8o")
+
+[node name="Control50" type="Control" parent="VBoxContainer/Control/Ap_orbs"]
+layout_mode = 2
+
+[node name="Ap" type="Sprite2D" parent="VBoxContainer/Control/Ap_orbs/Control50"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0ty8o")
+
+[node name="Control51" type="Control" parent="VBoxContainer/Control/Ap_orbs"]
+layout_mode = 2
+
+[node name="Ap" type="Sprite2D" parent="VBoxContainer/Control/Ap_orbs/Control51"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0ty8o")
+
+[node name="Control52" type="Control" parent="VBoxContainer/Control/Ap_orbs"]
+layout_mode = 2
+
+[node name="Ap" type="Sprite2D" parent="VBoxContainer/Control/Ap_orbs/Control52"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0ty8o")
+
+[node name="Control53" type="Control" parent="VBoxContainer/Control/Ap_orbs"]
+layout_mode = 2
+
+[node name="Ap" type="Sprite2D" parent="VBoxContainer/Control/Ap_orbs/Control53"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0ty8o")
+
+[node name="Control54" type="Control" parent="VBoxContainer/Control/Ap_orbs"]
+layout_mode = 2
+
+[node name="Ap" type="Sprite2D" parent="VBoxContainer/Control/Ap_orbs/Control54"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0ty8o")
+
+[node name="Control55" type="Control" parent="VBoxContainer/Control/Ap_orbs"]
+layout_mode = 2
+
+[node name="Ap" type="Sprite2D" parent="VBoxContainer/Control/Ap_orbs/Control55"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0ty8o")
+
+[node name="Control56" type="Control" parent="VBoxContainer/Control/Ap_orbs"]
+layout_mode = 2
+
+[node name="Ap" type="Sprite2D" parent="VBoxContainer/Control/Ap_orbs/Control56"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0ty8o")
+
+[node name="Control57" type="Control" parent="VBoxContainer/Control/Ap_orbs"]
+layout_mode = 2
+
+[node name="Ap" type="Sprite2D" parent="VBoxContainer/Control/Ap_orbs/Control57"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0ty8o")
+
+[node name="Control58" type="Control" parent="VBoxContainer/Control/Ap_orbs"]
+layout_mode = 2
+
+[node name="Ap" type="Sprite2D" parent="VBoxContainer/Control/Ap_orbs/Control58"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0ty8o")
+
+[node name="Control59" type="Control" parent="VBoxContainer/Control/Ap_orbs"]
+layout_mode = 2
+
+[node name="Ap" type="Sprite2D" parent="VBoxContainer/Control/Ap_orbs/Control59"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0ty8o")
+
+[node name="Control60" type="Control" parent="VBoxContainer/Control/Ap_orbs"]
+layout_mode = 2
+
+[node name="Ap" type="Sprite2D" parent="VBoxContainer/Control/Ap_orbs/Control60"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0ty8o")
+
+[node name="Control61" type="Control" parent="VBoxContainer/Control/Ap_orbs"]
+layout_mode = 2
+
+[node name="Ap" type="Sprite2D" parent="VBoxContainer/Control/Ap_orbs/Control61"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0ty8o")
+
+[node name="Control62" type="Control" parent="VBoxContainer/Control/Ap_orbs"]
+layout_mode = 2
+
+[node name="Ap" type="Sprite2D" parent="VBoxContainer/Control/Ap_orbs/Control62"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0ty8o")
+
+[node name="Control63" type="Control" parent="VBoxContainer/Control/Ap_orbs"]
+layout_mode = 2
+
+[node name="Ap" type="Sprite2D" parent="VBoxContainer/Control/Ap_orbs/Control63"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0ty8o")
+
+[node name="Control64" type="Control" parent="VBoxContainer/Control/Ap_orbs"]
+layout_mode = 2
+
+[node name="Ap" type="Sprite2D" parent="VBoxContainer/Control/Ap_orbs/Control64"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0ty8o")
+
+[node name="Control65" type="Control" parent="VBoxContainer/Control/Ap_orbs"]
+layout_mode = 2
+
+[node name="Ap" type="Sprite2D" parent="VBoxContainer/Control/Ap_orbs/Control65"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0ty8o")
+
+[node name="Control66" type="Control" parent="VBoxContainer/Control/Ap_orbs"]
+layout_mode = 2
+
+[node name="Ap" type="Sprite2D" parent="VBoxContainer/Control/Ap_orbs/Control66"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0ty8o")
+
+[node name="HealthBar" parent="VBoxContainer" node_paths=PackedStringArray("associated_entity") instance=ExtResource("3_b5iiw")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+associated_entity = NodePath("../..")
+
+[node name="StatusEffects" type="HBoxContainer" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 20
 
 [node name="visual" type="Node2D" parent="."]
 
@@ -129,28 +629,6 @@ libraries = {
 }
 
 [node name="Actions" type="Node2D" parent="."]
-
-[node name="HealthBar" parent="." instance=ExtResource("3_b5iiw")]
-unique_name_in_owner = true
-anchors_preset = 0
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = -50.0
-offset_top = -110.0
-offset_right = 50.0
-offset_bottom = -100.0
-grow_horizontal = 1
-grow_vertical = 1
-
-[node name="StatusEffects" type="HBoxContainer" parent="HealthBar"]
-unique_name_in_owner = true
-layout_mode = 0
-offset_top = 12.0
-offset_bottom = 12.0
-mouse_filter = 2
-theme_override_constants/separation = 20
 
 [node name="TextureButton" type="TextureButton" parent="."]
 offset_left = -49.0
@@ -229,8 +707,8 @@ offset_top = -151.0
 offset_right = 22.0
 offset_bottom = -128.0
 
-[connection signal="health_changed" from="." to="HealthBar" method="_on_battle_entity_health_changed"]
-[connection signal="received_damage" from="." to="HealthBar" method="_on_battle_entity_received_damage"]
+[connection signal="health_changed" from="." to="VBoxContainer/HealthBar" method="_on_battle_entity_health_changed"]
+[connection signal="received_damage" from="." to="VBoxContainer/HealthBar" method="_on_battle_entity_received_damage"]
 [connection signal="button_down" from="TextureButton" to="." method="_on_texture_button_button_down"]
 [connection signal="focus_entered" from="TextureButton" to="." method="_on_texture_button_focus_entered"]
 [connection signal="mouse_entered" from="TextureButton" to="." method="_on_texture_button_mouse_entered"]

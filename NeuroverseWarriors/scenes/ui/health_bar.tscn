@@ -1,15 +1,26 @@
 [gd_scene load_steps=5 format=3 uid="uid://bcuvnhkfoa0u"]
 
-[ext_resource type="Texture2D" uid="uid://bk6yk2o5sdexo" path="res://assets/ui/health_bar_container.png" id="2_1huhj"]
 [ext_resource type="Script" uid="uid://cl1ge1mhs0iw" path="res://scripts/ui/health_bar.gd" id="3_2hydt"]
+[ext_resource type="Texture2D" uid="uid://cgqe3pk3vx8ys" path="res://assets/ui/health_progress.png" id="3_4rf34"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qi2ti"]
+bg_color = Color(0, 0, 0, 0.03529412)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.19, 0.19, 0.19, 1)
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_g4j67"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_p72ll"]
 
 [node name="HealthBar" type="Control"]
 z_index = 1
 texture_filter = 1
+custom_minimum_size = Vector2(0, 4)
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -17,9 +28,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -46.0
-offset_top = -7.0
-offset_right = 34.0
-offset_bottom = 3.0
+offset_top = -8.0
+offset_right = -42.0
+offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -29,7 +40,16 @@ script = ExtResource("3_2hydt")
 wait_time = 0.5
 one_shot = true
 
-[node name="Trailing Bar" type="TextureProgressBar" parent="."]
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qi2ti")
+
+[node name="Trailing Bar" type="TextureProgressBar" parent="Panel"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -37,18 +57,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-min_value = -2.0
 value = 80.0
 nine_patch_stretch = true
-stretch_margin_left = 2
-stretch_margin_top = 2
-stretch_margin_right = 2
-stretch_margin_bottom = 2
-texture_under = ExtResource("2_1huhj")
 texture_progress = SubResource("CanvasTexture_g4j67")
 tint_progress = Color(1, 0.384314, 0.407843, 1)
 
-[node name="Progress Bar" type="TextureProgressBar" parent="."]
+[node name="Progress Bar" type="TextureProgressBar" parent="Panel"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -56,13 +70,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-min_value = -4.0
-value = 22.0
+value = 60.0
 nine_patch_stretch = true
 stretch_margin_left = 2
 stretch_margin_top = 2
 stretch_margin_right = 2
 stretch_margin_bottom = 2
-texture_over = ExtResource("2_1huhj")
-texture_progress = SubResource("CanvasTexture_p72ll")
+texture_progress = ExtResource("3_4rf34")
 tint_progress = Color(0.435294, 0.972549, 0.478431, 1)

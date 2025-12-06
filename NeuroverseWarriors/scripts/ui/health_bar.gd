@@ -2,19 +2,17 @@ extends Control
 @onready var trailing_bar:TextureProgressBar = %"Trailing Bar"
 @onready var progress_bar:TextureProgressBar = %"Progress Bar"
 @onready var timer = $Timer
-@onready var associated_entity:BattleEntity = $".."
+@export var associated_entity:BattleEntity
 @onready var effects_container := %StatusEffects
-func setup(newMax:int, defense:int)->void:
-	size.x = newMax*0.6+4 #add 4 to acount for the border
+func setup(newMax:int)->void:
+	custom_minimum_size.x = newMax*0.6+5
 	if newMax > 500:
-		effects_container.position.y += size.y-2
-		size.y = (size.y-2)*2
-		size.x = size.x/4
-		progress_bar.min_value = -8 
-	position.x = int(-size.x/2)
-	progress_bar.max_value = newMax+2
+		custom_minimum_size.y = 6
+		custom_minimum_size.x /= 4
+	get_parent().position.x = int(-custom_minimum_size.x/2)
+	progress_bar.max_value = newMax
 	progress_bar.value = newMax
-	trailing_bar.max_value = newMax+2
+	trailing_bar.max_value = newMax
 	trailing_bar.value = newMax
 	#associated_entity.health_changed.connect(update_value)
 	
@@ -34,7 +32,8 @@ func update_max_health()->void:
 	#TODO
 	pass
 func _on_battle_entity_health_changed() -> void:
-	if not associated_entity: return
+	if !associated_entity or !progress_bar: return
+	
 	var value_delta = abs(progress_bar.value - associated_entity.health)
 	var tween = get_tree().create_tween()
 	tween.tween_property(progress_bar,"value",associated_entity.health, log(value_delta)*0.1).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)

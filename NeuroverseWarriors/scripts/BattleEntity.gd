@@ -37,6 +37,7 @@ var ap:int #how many actions are left in a turn
 @export var is_stationary:bool
 
 @onready var actions_node = $Actions
+@onready var ap_orbs := $VBoxContainer/Control/Ap_orbs
 @onready var healthBar = %HealthBar
 @onready var button:TextureButton = $TextureButton
 @onready var action_menu = %ActionMenu
@@ -78,7 +79,9 @@ func _ready() -> void:
 	
 	#healthBar.max_value = maxHealth +1 #I add one to the max because otherwise the tippy top of the value will be the part on the border, you know those 2 pixels? Yeah
 	#healthBar.min_value = -1 #Same as with the max, one less than 0 so it doesn't look empty when the value is 1
-	healthBar.setup(maxHealth,defense)
+	healthBar.setup(maxHealth)
+	
+	ap_orbs.columns = healthBar.custom_minimum_size.x/6+1
 	
 	mySpot = global_position
 	settle_into_spot()
