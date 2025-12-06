@@ -1,14 +1,33 @@
-[gd_scene load_steps=9 format=3 uid="uid://c8fpnttm6gk4w"]
+[gd_scene load_steps=13 format=3 uid="uid://c8fpnttm6gk4w"]
 
+[ext_resource type="Theme" uid="uid://cchp864k50mvc" path="res://ui_theme.tres" id="1_a360u"]
 [ext_resource type="Script" uid="uid://r1cd026nadnb" path="res://scenes/ui/game_menu/battle_action_tile.gd" id="1_hvpp5"]
+[ext_resource type="Texture2D" uid="uid://df7c3fwvbntf2" path="res://assets/ui/theme_stuff/brown_panel.png" id="2_immxs"]
 [ext_resource type="Texture2D" uid="uid://dpjgjw8t7drb" path="res://assets/ui/battle_action_icons/default.png" id="2_q10pi"]
+[ext_resource type="Texture2D" uid="uid://6a2maeor32q" path="res://assets/ui/theme_stuff/ligh_blue_panel.png" id="4_x4qc5"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a360u"]
-bg_color = Color(0.43, 0.34615, 0.23650001, 1)
-corner_radius_top_left = 9
-corner_radius_top_right = 9
-corner_radius_bottom_right = 9
-corner_radius_bottom_left = 9
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x4qc5"]
+texture = ExtResource("2_immxs")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+modulate_color = Color(0.56, 0.56, 0.56, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5yvjv"]
+texture = ExtResource("4_x4qc5")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
 
 [sub_resource type="Animation" id="Animation_d0xoq"]
 length = 0.001
@@ -134,7 +153,7 @@ offset_bottom = 42.0
 scale = Vector2(0.9, 0.9)
 pivot_offset = Vector2(21, 21)
 mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_a360u")
+theme_override_styles/panel = SubResource("StyleBoxTexture_x4qc5")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 texture_filter = 1
@@ -144,6 +163,8 @@ offset_right = 42.0
 offset_bottom = 42.0
 pivot_offset = Vector2(21, 21)
 mouse_filter = 2
+theme = ExtResource("1_a360u")
+theme_override_styles/panel = SubResource("StyleBoxTexture_5yvjv")
 
 [node name="TextureRect" type="TextureRect" parent="PanelContainer"]
 layout_mode = 2

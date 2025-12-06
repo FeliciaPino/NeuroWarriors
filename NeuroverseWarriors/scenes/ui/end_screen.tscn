@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://d4f0gy2sw12hv"]
+[gd_scene load_steps=3 format=3 uid="uid://d4f0gy2sw12hv"]
 
 [ext_resource type="Script" uid="uid://dayll084jybxg" path="res://scripts/end_screen.gd" id="1_iqvlg"]
+[ext_resource type="Theme" uid="uid://1t6fqlgau1qd" path="res://ui_theme.tres" id="1_n8r4t"]
 
 [node name="EndScreen" type="Control"]
 z_index = 2
@@ -14,11 +15,12 @@ offset_right = 640.0
 offset_bottom = 83.0
 grow_horizontal = 2
 pivot_offset = Vector2(20, 0)
+theme = ExtResource("1_n8r4t")
 script = ExtResource("1_iqvlg")
 
 [node name="LoseScreen" type="PanelContainer" parent="."]
 visible = false
-layout_mode = 2
+layout_mode = 0
 offset_left = -295.0
 offset_top = 5.0
 offset_right = 295.0
@@ -55,6 +57,7 @@ pivot_offset = Vector2(300, 0)
 
 [node name="MarginContainer" type="MarginContainer" parent="WinScreen"]
 layout_mode = 2
+theme = ExtResource("1_n8r4t")
 theme_override_constants/margin_left = 40
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 40

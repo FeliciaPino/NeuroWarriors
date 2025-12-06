@@ -22,7 +22,7 @@ const DEFAULT_VALUES = {
 			"level":0,
 			"experience":0,
 			"equiped_abilities":["robot_punch","heart"],
-			"not_equiped_abilities":["tutel_shield","rum_throw","overclock","harpoon_throw","pipes","screech","katana_slash","slap","hype_up","fluster"],
+			"not_equiped_abilities":[],
 			"max_equiped_abilities":2,
 			"active_upgrades":[],
 			"unlocked_upgrades":[]
@@ -31,9 +31,9 @@ const DEFAULT_VALUES = {
 			"unlocked":true,
 			"level":2,
 			"experience":0,
-			"equiped_abilities":["tutel_shield","rum_throw","overclock"],
-			"not_equiped_abilities":[],
-			"max_equiped_abilities":3,
+			"equiped_abilities":["tutel_shield","overclock"],
+			"not_equiped_abilities":["rum_throw"],
+			"max_equiped_abilities":2,
 			"active_upgrades":[],
 			"unlocked_upgrades":[]
 		},
@@ -41,8 +41,8 @@ const DEFAULT_VALUES = {
 			"unlocked":true,
 			"level":0,
 			"experience":0,
-			"equiped_abilities":["harpoon_throw","pipes","screech","katana_slash"],
-			"not_equiped_abilities":[],
+			"equiped_abilities":["harpoon_throw","pipes"],
+			"not_equiped_abilities":["screech","katana_slash"],
 			"max_equiped_abilities":3,
 			"active_upgrades":[],
 			"unlocked_upgrades":[]

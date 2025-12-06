@@ -39,7 +39,7 @@ func _on_focus_changed(node):
 	if !node: return
 	if node is BattleActionTile:
 		update_battle_action_info(node.associated_battle_action)
-		if scroll_container.is_ancestor_of(node):
+		if scroll_container.is_ancestor_of(node) and !GameState.controlling_with_the_mouse:
 			var tween = create_tween()
 			if node.get_index()*62>scroll_container.scroll_horizontal+62*2:
 				tween.tween_property(scroll_container,"scroll_horizontal",node.get_index()*62-62*2,0.3)
@@ -201,7 +201,9 @@ func _ready():
 	get_viewport().gui_focus_changed.connect(_on_focus_changed)
 	selected_character_changed.connect(_on_selected_character_changed)
 	carousel_left_button.pressed.connect(_on_swap_left_button_pressed)
+	$MarginContainer/HBoxContainer/VBoxContainer/PartyCarousel/Button.pressed.connect(_on_swap_left_button_pressed)
 	carousel_right_button.pressed.connect(_on_swap_right_button_pressed)
+	$MarginContainer/HBoxContainer/VBoxContainer/PartyCarousel/Button2.pressed.connect(_on_swap_right_button_pressed)
 	update_characters_from_party()
 	GameState.party_changed.connect(update_characters_from_party)
 func swap_3(a:CharacterPortrait, b:CharacterPortrait, c:CharacterPortrait):

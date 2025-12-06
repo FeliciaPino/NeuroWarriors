@@ -1,6 +1,6 @@
-[gd_scene load_steps=18 format=3 uid="uid://bbxpxysb4lgqt"]
+[gd_scene load_steps=35 format=3 uid="uid://bbxpxysb4lgqt"]
 
-[ext_resource type="Theme" uid="uid://cchp864k50mvc" path="res://scenes/overworld/ui_theme.tres" id="1_c2e5g"]
+[ext_resource type="Theme" uid="uid://cchp864k50mvc" path="res://ui_theme.tres" id="1_c2e5g"]
 [ext_resource type="Script" uid="uid://bs4n11f0d5nf0" path="res://scenes/ui/game_menu/game_menu.gd" id="1_i4ld5"]
 [ext_resource type="Script" uid="uid://18ssjpdw7vtg" path="res://scenes/ui/game_menu/party_menu.gd" id="2_p6mcn"]
 [ext_resource type="Script" uid="uid://dtd6vh75crj5e" path="res://scenes/ui/game_menu/character_config.gd" id="4_t8iaa"]
@@ -8,23 +8,14 @@
 [ext_resource type="Script" uid="uid://dk7kp5kwxgj5i" path="res://scenes/ui/game_menu/options.gd" id="6_88hgd"]
 [ext_resource type="PackedScene" uid="uid://cnpbuybm4ib8l" path="res://scenes/ui/game_menu/character_portrait.tscn" id="6_n4xiy"]
 [ext_resource type="PackedScene" uid="uid://c8fpnttm6gk4w" path="res://scenes/ui/game_menu/battle_action_tile.tscn" id="7_45a32"]
+[ext_resource type="Texture2D" uid="uid://cs6mb57ps3rcw" path="res://assets/ui/theme_stuff/focus.png" id="8_ln8sh"]
 [ext_resource type="PackedScene" uid="uid://f0gydn2c2inx" path="res://scenes/ui/tungesten_counter.tscn" id="9_075ci"]
-
-[sub_resource type="Gradient" id="Gradient_j53y3"]
-offsets = PackedFloat32Array(0.9, 1)
-colors = PackedColorArray(0.8, 0.639216, 0.431373, 1, 0.8, 0.640533, 0.432, 0)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_bhc1j"]
-gradient = SubResource("Gradient_j53y3")
-width = 200
-
-[sub_resource type="Gradient" id="Gradient_3m5rg"]
-offsets = PackedFloat32Array(0, 0.1)
-colors = PackedColorArray(0.8, 0.640533, 0.432, 0, 0.8, 0.639216, 0.431373, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_fjlim"]
-gradient = SubResource("Gradient_3m5rg")
-width = 200
+[ext_resource type="Texture2D" uid="uid://bjajq3psyt5u4" path="res://assets/ui/theme_stuff/light_dark_brown_panel.png" id="9_dya0t"]
+[ext_resource type="Texture2D" uid="uid://ct0ti1h3x3gaj" path="res://assets/ui/theme_stuff/darker_brown_panel.png" id="10_8qi8p"]
+[ext_resource type="Texture2D" uid="uid://df7c3fwvbntf2" path="res://assets/ui/theme_stuff/brown_panel.png" id="10_dya0t"]
+[ext_resource type="Texture2D" uid="uid://n718aveqcqpv" path="res://assets/ui/theme_stuff/Dark_brown_panel.png" id="11_77t13"]
+[ext_resource type="Texture2D" uid="uid://bu3lgx854hssn" path="res://assets/ui/theme_stuff/dark_brown_tab_unselected.png" id="12_lcesv"]
+[ext_resource type="Texture2D" uid="uid://b8wj1re8jwkdj" path="res://assets/ui/theme_stuff/dark_brown_tab_selected.png" id="13_snhma"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_075ci"]
 atlas = ExtResource("6_45a32")
@@ -42,8 +33,125 @@ region = Rect2(32, 16, 16, 16)
 atlas = ExtResource("6_45a32")
 region = Rect2(32, 0, 16, 16)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_12lot"]
+texture = ExtResource("8_ln8sh")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3ky0x"]
+texture = ExtResource("9_dya0t")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7yobw"]
+texture = ExtResource("10_dya0t")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j0tka"]
+texture = ExtResource("10_8qi8p")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_auxt0"]
+bg_color = Color(0.61, 0.461973, 0.2684, 1)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_fs3tw"]
+color = Color(0, 0, 0, 0.156863)
+thickness = 6
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_npyie"]
+texture = ExtResource("11_77t13")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3587c"]
+texture = ExtResource("11_77t13")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bwjni"]
+atlas = ExtResource("8_ln8sh")
+region = Rect2(0, 0, 32, 13)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gmf4m"]
+texture = SubResource("AtlasTexture_bwjni")
+texture_margin_left = 10.0
+texture_margin_top = 15.0
+texture_margin_right = 10.0
+expand_margin_top = 5.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0y4yr"]
+content_margin_left = 25.0
+content_margin_top = 5.0
+content_margin_right = 25.0
+content_margin_bottom = 5.0
+texture = ExtResource("12_lcesv")
+texture_margin_left = 14.0
+texture_margin_top = 4.0
+texture_margin_right = 14.0
+modulate_color = Color(1, 0.98, 0.7, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bwjni"]
+content_margin_left = 25.0
+content_margin_top = 5.0
+content_margin_right = 25.0
+content_margin_bottom = 5.0
+texture = ExtResource("13_snhma")
+texture_margin_left = 14.0
+texture_margin_top = 4.0
+texture_margin_right = 14.0
+expand_margin_bottom = 7.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rtj4u"]
+content_margin_left = 25.0
+content_margin_top = 5.0
+content_margin_right = 25.0
+content_margin_bottom = 5.0
+texture = ExtResource("12_lcesv")
+texture_margin_left = 14.0
+texture_margin_top = 4.0
+texture_margin_right = 14.0
+
+[sub_resource type="Theme" id="Theme_yg8bm"]
+default_base_scale = 0.74
+Button/colors/font_outline_color = Color(0.15, 0.15, 0.15, 1)
+Button/constants/outline_size = 4
+Button/styles/focus = SubResource("StyleBoxTexture_12lot")
+Button/styles/hover = SubResource("StyleBoxTexture_3ky0x")
+Button/styles/normal = SubResource("StyleBoxTexture_7yobw")
+Button/styles/pressed = SubResource("StyleBoxTexture_j0tka")
+HScrollBar/styles/grabber = SubResource("StyleBoxFlat_auxt0")
+HScrollBar/styles/scroll = SubResource("StyleBoxLine_fs3tw")
+Label/colors/font_outline_color = Color(0.14902, 0.14902, 0.14902, 1)
+Label/constants/outline_size = 2
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_npyie")
+TabContainer/colors/font_outline_color = Color(0.15, 0.15, 0.15, 1)
+TabContainer/styles/panel = SubResource("StyleBoxTexture_3587c")
+TabContainer/styles/tab_focus = SubResource("StyleBoxTexture_gmf4m")
+TabContainer/styles/tab_hovered = SubResource("StyleBoxTexture_0y4yr")
+TabContainer/styles/tab_selected = SubResource("StyleBoxTexture_bwjni")
+TabContainer/styles/tab_unselected = SubResource("StyleBoxTexture_rtj4u")
+
 [node name="GameMenu" type="Control"]
 process_mode = 2
+texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -58,9 +166,9 @@ script = ExtResource("1_i4ld5")
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.1
-anchor_top = 0.1
+anchor_top = 0.05
 anchor_right = 0.9
-anchor_bottom = 0.9
+anchor_bottom = 0.95
 offset_left = 0.271988
 offset_top = 0.303986
 offset_right = 0.271973
@@ -81,40 +189,47 @@ theme_override_constants/margin_top = 20
 script = ExtResource("2_p6mcn")
 metadata/_tab_index = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Party"]
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Party"]
+clip_contents = true
 layout_mode = 2
-theme_override_constants/separation = 40
-alignment = 1
+size_flags_horizontal = 4
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Party/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Party/MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 15
 
-[node name="Label" type="Label" parent="TabContainer/Party/VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="TabContainer/Party/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(280, 0)
 layout_mode = 2
+theme_override_constants/outline_size = 10
 text = "characters in party:"
 horizontal_alignment = 1
 
-[node name="InParty" type="HBoxContainer" parent="TabContainer/Party/VBoxContainer/HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Party/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="InParty" type="HBoxContainer" parent="TabContainer/Party/MarginContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 8
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="TabContainer/Party/VBoxContainer"]
+[node name="Label2" type="Label" parent="TabContainer/Party/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 10
+text = "characters not  in party:"
+horizontal_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="TabContainer/Party/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="TabContainer/Party/VBoxContainer/HBoxContainer2"]
-z_index = 1
-custom_minimum_size = Vector2(0, 220)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 0
-texture = SubResource("GradientTexture1D_bhc1j")
-expand_mode = 2
-
-[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Party/VBoxContainer/HBoxContainer2"]
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Party/MarginContainer/VBoxContainer/HBoxContainer2"]
 clip_contents = false
 custom_minimum_size = Vector2(200, 190)
 layout_mode = 2
@@ -123,7 +238,7 @@ size_flags_vertical = 4
 size_flags_stretch_ratio = 2.0
 follow_focus = true
 
-[node name="NotInParty" type="HBoxContainer" parent="TabContainer/Party/VBoxContainer/HBoxContainer2/ScrollContainer"]
+[node name="NotInParty" type="HBoxContainer" parent="TabContainer/Party/MarginContainer/VBoxContainer/HBoxContainer2/ScrollContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
@@ -131,14 +246,6 @@ size_flags_horizontal = 6
 size_flags_vertical = 2
 theme_override_constants/separation = 20
 alignment = 1
-
-[node name="TextureRect2" type="TextureRect" parent="TabContainer/Party/VBoxContainer/HBoxContainer2"]
-custom_minimum_size = Vector2(0, 220)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 0
-texture = SubResource("GradientTexture1D_fjlim")
-expand_mode = 2
 
 [node name="Character" type="Control" parent="TabContainer"]
 layout_mode = 2
@@ -246,6 +353,24 @@ texture_hover = SubResource("AtlasTexture_5qn1y")
 texture_disabled = SubResource("AtlasTexture_ex2pj")
 texture_focused = SubResource("AtlasTexture_5qn1y")
 
+[node name="Button" type="Button" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer/PartyCarousel"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 18.528015
+offset_top = 7.296013
+offset_right = 105.528015
+offset_bottom = 148.29602
+focus_mode = 0
+
+[node name="Button2" type="Button" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer/PartyCarousel"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 141.52802
+offset_top = 8.296013
+offset_right = 228.52802
+offset_bottom = 149.29602
+focus_mode = 0
+
 [node name="SkillTreeButton" type="Button" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
@@ -258,7 +383,7 @@ layout_mode = 2
 [node name="LevelLabel" type="Label" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_constants/outline_size = 4
+theme_override_constants/outline_size = 10
 text = "lv:x y until next level"
 horizontal_alignment = 1
 
@@ -274,28 +399,28 @@ columns = 2
 [node name="HealthLabel" type="Label" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer/GridContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_constants/outline_size = 4
+theme_override_constants/outline_size = 10
 text = "health:x"
 horizontal_alignment = 1
 
 [node name="AttackLabel" type="Label" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer/GridContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_constants/outline_size = 4
+theme_override_constants/outline_size = 10
 text = "attack:x"
 horizontal_alignment = 1
 
 [node name="DefenseLabel" type="Label" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer/GridContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_constants/outline_size = 4
+theme_override_constants/outline_size = 10
 text = "Defense:c"
 horizontal_alignment = 1
 
 [node name="ApRegenLabel" type="Label" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer/GridContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_constants/outline_size = 4
+theme_override_constants/outline_size = 10
 text = "apregen:x"
 horizontal_alignment = 1
 
@@ -335,6 +460,8 @@ theme_override_constants/separation = 20
 
 [node name="Label" type="Label" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 10
 text = "GAME_MENU_EQUIPPED_BATTLE_ACTIONS"
 clip_text = true
 
@@ -346,21 +473,27 @@ theme_override_constants/separation = 20
 
 [node name="BattleActionTile" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer/VBoxContainer/EquipedAbilities" instance=ExtResource("7_45a32")]
 layout_mode = 2
+theme = SubResource("Theme_yg8bm")
 
 [node name="BattleActionTile2" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer/VBoxContainer/EquipedAbilities" instance=ExtResource("7_45a32")]
 layout_mode = 2
+theme = SubResource("Theme_yg8bm")
 
 [node name="BattleActionTile3" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer/VBoxContainer/EquipedAbilities" instance=ExtResource("7_45a32")]
 layout_mode = 2
+theme = SubResource("Theme_yg8bm")
 
 [node name="BattleActionTile4" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer/VBoxContainer/EquipedAbilities" instance=ExtResource("7_45a32")]
 layout_mode = 2
+theme = SubResource("Theme_yg8bm")
 
 [node name="BattleActionTile5" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer/VBoxContainer/EquipedAbilities" instance=ExtResource("7_45a32")]
 layout_mode = 2
+theme = SubResource("Theme_yg8bm")
 
 [node name="Label2" type="Label" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/outline_size = 10
 text = "GAME_MENU_NOT_EQUIPPED_BATTLE_ACTIONS"
 clip_text = true
 
@@ -377,15 +510,19 @@ theme_override_constants/separation = 20
 
 [node name="BattleActionTile" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer/VBoxContainer/ScrollContainer/NotEquipedAbilities" instance=ExtResource("7_45a32")]
 layout_mode = 2
+theme = SubResource("Theme_yg8bm")
 
 [node name="BattleActionTile2" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer/VBoxContainer/ScrollContainer/NotEquipedAbilities" instance=ExtResource("7_45a32")]
 layout_mode = 2
+theme = SubResource("Theme_yg8bm")
 
 [node name="BattleActionTile4" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer/VBoxContainer/ScrollContainer/NotEquipedAbilities" instance=ExtResource("7_45a32")]
 layout_mode = 2
+theme = SubResource("Theme_yg8bm")
 
 [node name="BattleActionTile5" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer/VBoxContainer/ScrollContainer/NotEquipedAbilities" instance=ExtResource("7_45a32")]
 layout_mode = 2
+theme = SubResource("Theme_yg8bm")
 
 [node name="MarginContainer2" type="MarginContainer" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2"]
 clip_contents = true
@@ -405,7 +542,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer2/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/outline_size = 4
+theme_override_constants/outline_size = 10
 text = "battle action name"
 horizontal_alignment = 1
 
@@ -416,7 +553,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_vertical = 1
-theme_override_constants/outline_size = 4
+theme_override_constants/outline_size = 10
 text = "this battle action is a battle action, an action that you do in battle, hence the name. "
 horizontal_alignment = 1
 autowrap_mode = 3
@@ -436,26 +573,32 @@ alignment = 1
 [node name="BattleActionTile2" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer" instance=ExtResource("7_45a32")]
 layout_mode = 2
 size_flags_horizontal = 4
+theme = SubResource("Theme_yg8bm")
 
 [node name="BattleActionTile3" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer" instance=ExtResource("7_45a32")]
 layout_mode = 2
 size_flags_horizontal = 4
+theme = SubResource("Theme_yg8bm")
 
 [node name="BattleActionTile4" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer" instance=ExtResource("7_45a32")]
 layout_mode = 2
 size_flags_horizontal = 4
+theme = SubResource("Theme_yg8bm")
 
 [node name="BattleActionTile5" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer" instance=ExtResource("7_45a32")]
 layout_mode = 2
 size_flags_horizontal = 4
+theme = SubResource("Theme_yg8bm")
 
 [node name="BattleActionTile6" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer" instance=ExtResource("7_45a32")]
 layout_mode = 2
 size_flags_horizontal = 4
+theme = SubResource("Theme_yg8bm")
 
 [node name="BattleActionTile7" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer" instance=ExtResource("7_45a32")]
 layout_mode = 2
 size_flags_horizontal = 4
+theme = SubResource("Theme_yg8bm")
 
 [node name="Options" type="Control" parent="TabContainer"]
 visible = false
