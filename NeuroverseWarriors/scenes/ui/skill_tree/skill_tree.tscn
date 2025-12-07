@@ -1,9 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://bmaxfmfr4tb2k"]
+[gd_scene load_steps=6 format=3 uid="uid://bmaxfmfr4tb2k"]
 
 [ext_resource type="Script" uid="uid://iusv63tuixs2" path="res://scenes/ui/skill_tree/skill_tree.gd" id="1_7mom5"]
 [ext_resource type="PackedScene" uid="uid://f0gydn2c2inx" path="res://scenes/ui/tungesten_counter.tscn" id="2_7mom5"]
+[ext_resource type="Shader" uid="uid://bph0yructiwit" path="res://assets/shaders/h_scroll.gdshader" id="2_kdd24"]
+[ext_resource type="Texture2D" uid="uid://de82hab2jt6l" path="res://assets/ui/skill_tree_conection.png" id="3_vp084"]
 
-[node name="SkillTree" type="Control"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7untu"]
+shader = ExtResource("2_kdd24")
+shader_parameter/scroll_speed = -0.1
+
+[node name="SkillTree" type="Control" node_paths=PackedStringArray("connection_line")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,8 +18,23 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7mom5")
 associated_character = "Neuro-sama"
+connection_line = NodePath("ConnectionLine")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="ConnectionLine" type="TextureRect" parent="."]
+visible = false
+z_index = -1
+material = SubResource("ShaderMaterial_7untu")
+layout_mode = 0
+offset_left = 288.0
+offset_top = 331.0
+offset_right = 396.0
+offset_bottom = 371.0
+pivot_offset = Vector2(0, 16)
+mouse_filter = 2
+texture = ExtResource("3_vp084")
+stretch_mode = 1
 
 [node name="debugton" type="Button" parent="."]
 layout_mode = 0
@@ -49,6 +70,14 @@ offset_top = -276.0
 offset_right = 432.0
 offset_bottom = -276.0
 always_visible = true
+
+[node name="Fade" type="ColorRect" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(29.193254, 16.425404)
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
 
 [connection signal="pressed" from="debugton" to="." method="_on_debugton_pressed"]
 [connection signal="pressed" from="debugton2" to="." method="_on_debugton_2_pressed"]

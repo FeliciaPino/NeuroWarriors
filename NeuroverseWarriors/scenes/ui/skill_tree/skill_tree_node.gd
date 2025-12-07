@@ -8,7 +8,6 @@ class_name SkillTreeNode
 			queue_redraw()
 @export var associated_upgrade_name:String
 var associated_upgrade:Upgrade
-
 signal just_got_purchased
 var purchased:bool = false
 var available:bool = false
@@ -23,6 +22,10 @@ func _glow():
 	create_tween().tween_property(glow,"scale",Vector2(1.3,1.3),0.5).set_ease(Tween.EASE_OUT)
 func _unglow():
 	create_tween().tween_property(glow,"scale",Vector2(0.5,0.5),0.5).set_ease(Tween.EASE_IN)
+func _darken_line(line:TextureRect):
+	create_tween().tween_property(line,"modulate",Color(0.3,0.3,0.3,1),0.5)
+func _undarken_line(line:TextureRect):
+	create_tween().tween_property(line,"modulate",Color(0.8,0.8,0.8,1),0.5)
 func _ready():
 	if Engine.is_editor_hint():
 		set_process(true)
@@ -44,6 +47,17 @@ func _ready():
 	cost_label.text = str(tr("COST"),": ",associated_upgrade.tungesten_cost," ",tr("TUNGESTEN"))
 	for prereq in prerequisites:
 		prereq.just_got_purchased.connect(check_availability)
+		
+		var new_line = skill_tree.connection_line.duplicate()
+		add_child(new_line)
+		var diff := global_position - prereq.global_position
+		new_line.size.x = diff.length()
+		new_line.global_position = prereq.global_position + prereq.size*0.5 - Vector2(0,16)
+		new_line.rotation = diff.angle()
+		new_line.visible = true
+		if prereq.purchased: _undarken_line(new_line)
+		else: _darken_line(new_line)
+		prereq.just_got_purchased.connect(_undarken_line.bind(new_line))
 	CharacterDatabase.character_leveled_up.connect(func(character_name):if character_name==skill_tree.associated_character:check_availability())
 	
 	call_deferred("check_availability")

@@ -1,7 +1,7 @@
 extends Control
 class_name SkillTree
 @export var associated_character:String
-
+@export var connection_line:TextureRect
 @onready var camera = $Camera2D
 func _ready() -> void:
 	get_viewport().gui_focus_changed.connect(func(_node):follow_focus=true)
@@ -32,6 +32,7 @@ func _input(event: InputEvent) -> void:
 		if event is InputEventMouseMotion:
 			camera_momentum = -event.relative
 func _leave():
+	$CanvasLayer/Fade.visible = true
 	await create_tween().tween_property($CanvasLayer/Fade,"modulate:a",1,1).finished
 	GameState.go_to_map()
 func _on_debugton_pressed():

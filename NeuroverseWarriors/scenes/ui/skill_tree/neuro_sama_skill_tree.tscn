@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://cd5a0fwn0couv"]
+[gd_scene load_steps=6 format=3 uid="uid://cd5a0fwn0couv"]
 
 [ext_resource type="PackedScene" uid="uid://bmaxfmfr4tb2k" path="res://scenes/ui/skill_tree/skill_tree.tscn" id="1_u4e1c"]
 [ext_resource type="PackedScene" uid="uid://egb0qrfm4whr" path="res://scenes/ui/skill_tree/skill_tree_node.tscn" id="2_sp1xc"]
+[ext_resource type="Texture2D" uid="uid://ke0xb4ooudh6" path="res://assets/ui/upgrade_icons/reinforced_plating.png" id="3_icvyd"]
+[ext_resource type="Texture2D" uid="uid://ritk08gq7qw1" path="res://assets/ui/upgrade_icons/vitality.png" id="4_d5iac"]
+[ext_resource type="Texture2D" uid="uid://dkgg14hhfjamw" path="res://assets/ui/upgrade_icons/unlock_shock.png" id="5_8rki0"]
 
 [node name="Neuro-sama_skill_tree" instance=ExtResource("1_u4e1c")]
 
@@ -9,59 +12,58 @@
 position = Vector2(581, 313)
 
 [node name="ColorRect" type="ColorRect" parent="Camera2D" index="0"]
+z_index = -10
 offset_left = -628.0
 offset_top = -344.0
 offset_right = 598.0
 offset_bottom = 356.0
 color = Color(0.67, 0.58290005, 0.6496767, 1)
 
-[node name="debugton" parent="." index="1"]
+[node name="debugton" parent="." index="2"]
 offset_left = 210.0
 offset_top = 434.0
 offset_right = 222.0
 offset_bottom = 442.0
 
-[node name="debugton2" parent="." index="2"]
+[node name="debugton2" parent="." index="3"]
 offset_left = 388.0
 offset_top = 555.0
 offset_right = 400.0
 offset_bottom = 563.0
 
-[node name="debugton3" parent="." index="3"]
-offset_left = 528.0
-offset_top = 300.0
-offset_right = 618.0
-offset_bottom = 331.0
-
 [node name="ReinforcePlating" parent="." index="4" instance=ExtResource("2_sp1xc")]
 layout_mode = 1
-offset_left = 712.0
-offset_top = 290.0
-offset_right = 806.0
-offset_bottom = 384.0
+offset_left = 698.0
+offset_top = 252.0
+offset_right = 792.0
+offset_bottom = 346.0
+icon = ExtResource("3_icvyd")
 
 [node name="Vitality" parent="." index="5" node_paths=PackedStringArray("prerequisites") instance=ExtResource("2_sp1xc")]
 layout_mode = 1
-offset_left = 897.0
-offset_top = 301.0
-offset_right = 991.0
-offset_bottom = 395.0
+offset_left = 849.0
+offset_top = 153.0
+offset_right = 943.0
+offset_bottom = 247.0
+icon = ExtResource("4_d5iac")
 prerequisites = [NodePath("../ReinforcePlating")]
 associated_upgrade_name = "vitality"
 
 [node name="Shock" parent="." index="6" node_paths=PackedStringArray("prerequisites") instance=ExtResource("2_sp1xc")]
 layout_mode = 1
-offset_left = 1104.0
-offset_top = 295.0
-offset_right = 1198.0
-offset_bottom = 389.0
+offset_left = 1007.0
+offset_top = 257.0
+offset_right = 1101.0
+offset_bottom = 351.0
+icon = ExtResource("5_8rki0")
 prerequisites = [NodePath("../Vitality")]
 associated_upgrade_name = "unlock_shock"
 
-[node name="Fade" type="ColorRect" parent="CanvasLayer" index="1"]
-modulate = Color(1, 1, 1, 0)
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(29.193254, 16.425404)
-mouse_filter = 2
-color = Color(0, 0, 0, 1)
+[node name="debugton3" parent="." index="7"]
+offset_left = 528.0
+offset_top = 300.0
+offset_right = 618.0
+offset_bottom = 331.0
+
+[node name="Fade" parent="CanvasLayer" index="1"]
+visible = false
