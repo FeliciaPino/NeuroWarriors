@@ -10,6 +10,7 @@ shader = ExtResource("2_kdd24")
 shader_parameter/scroll_speed = -0.1
 
 [node name="SkillTree" type="Control" node_paths=PackedStringArray("connection_line")]
+texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,7 +21,38 @@ script = ExtResource("1_7mom5")
 associated_character = "Neuro-sama"
 connection_line = NodePath("ConnectionLine")
 
+[node name="Icons1" type="Parallax2D" parent="."]
+z_index = -1000
+scroll_scale = Vector2(0.1, 0.1)
+repeat_size = Vector2(1200, 700)
+
+[node name="Dust1" type="Parallax2D" parent="."]
+z_index = -1000
+scroll_scale = Vector2(0.2, 0.2)
+repeat_size = Vector2(1200, 700)
+
+[node name="Icons2" type="Parallax2D" parent="."]
+z_index = -1000
+scroll_scale = Vector2(0.3, 0.3)
+repeat_size = Vector2(1200, 700)
+
+[node name="Dust2" type="Parallax2D" parent="."]
+z_index = -1000
+scroll_scale = Vector2(0.4, 0.4)
+repeat_size = Vector2(1200, 700)
+
 [node name="Camera2D" type="Camera2D" parent="."]
+z_index = -1000
+
+[node name="ColorRect" type="ColorRect" parent="Camera2D"]
+visible = false
+z_index = -4096
+offset_left = -586.0
+offset_top = -331.0
+offset_right = -546.0
+offset_bottom = -291.0
+scale = Vector2(29.34495, 16.995537)
+color = Color(0, 0, 0, 1)
 
 [node name="ConnectionLine" type="TextureRect" parent="."]
 visible = false
@@ -56,11 +88,6 @@ offset_right = 12.0
 offset_bottom = 8.0
 text = "gotogame
 "
-
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

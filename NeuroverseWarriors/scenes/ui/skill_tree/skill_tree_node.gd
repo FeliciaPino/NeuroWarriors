@@ -44,7 +44,7 @@ func _ready():
 	active = GameState.is_upgrade_active(skill_tree.associated_character,associated_upgrade.name_id)
 	if active: _glow()
 	level_req_label.text = str("LV: ",associated_upgrade.level_requirement)
-	cost_label.text = str(tr("COST"),": ",associated_upgrade.tungesten_cost," ",tr("TUNGESTEN"))
+	cost_label.text = str(associated_upgrade.tungesten_cost)
 	for prereq in prerequisites:
 		prereq.just_got_purchased.connect(check_availability)
 		
@@ -75,14 +75,27 @@ func check_availability():
 		available = false
 	disabled = !available
 	if available:
-		description_label.text = str(associated_upgrade.description,"\npurchased:",purchased,"\n available:",available,"\nactive:",active)
+		description_label.text = str(associated_upgrade.description,"\n")
+		if purchased:
+			if active: description_label.text += "[color=67A167]"+tr("ACTIVE")
+			else: description_label.text += "[color=FA9999]"+tr("INACTIVE")
 	else:
-		description_label.text = str("uug u cant, u need dis stuff:\n",)
+		description_label.text = tr("REQUIRES") + ":[color=#FF6767]\n"
 		if GameState.characters_save_info[skill_tree.associated_character]["level"] < associated_upgrade.level_requirement:
-			description_label.text += str("haz to b levl ",associated_upgrade.level_requirement,"\n")
+			description_label.text += str(tr("ATLEAST")," LV",associated_upgrade.level_requirement,'\n')
+			level_req_label.modulate = Color(0.8,0.6,0.6)
+		else:
+			level_req_label.modulate = Color(1,1,1)
+			
 		for prereq in prerequisites: if not prereq.purchased:
 			description_label.text += prereq.associated_upgrade.display_name + "\n"
-	if purchased: self_modulate = Color(0.9,0.9,0.9,1)
+		description_label.text += "[/color]"
+	if purchased:
+		self_modulate = Color(0.9,0.9,0.9,1)
+		$InfoPanel/VBoxContainer/MarginContainer/HBoxContainer/HBoxContainer/Label.visible = false
+		$InfoPanel/VBoxContainer/MarginContainer/HBoxContainer/HBoxContainer/TextureRect.visible = false
+		
+		cost_label.text = tr("PURCHASED")
 	else: self_modulate = Color(0.6,0.6,0.6,1)
 	if active:
 		self_modulate = Color.WHITE
@@ -90,12 +103,15 @@ func show_info():
 	z_index = 10
 	info_panel.visible = true
 func hide_info():
-	z_index = 10
+	z_index = 0
 	info_panel.visible = false
 func throw_text(text_to_throw:String):
 	var label = Label.new()
-	label.text = text_to_throw
 	self.add_child(label)
+	label.text = text_to_throw
+	label.modulate = Color(0.8,0.4,0.4)
+	label.add_theme_constant_override("outline_size",4)
+	label.scale = Vector2(1.1,1.1)
 	label.position = Vector2(0,-20)
 	print_debug(str(self,":throwing text, sizex:",label.size.x))
 	label.position.x -= label.size.x/2
@@ -133,7 +149,7 @@ func _on_pressed():
 		return
 	#enough tungesten?
 	if GameState.get_tungesten_amount() < associated_upgrade.tungesten_cost:
-		throw_text("Nut enouhasd tungestne, get more moola!")
+		throw_text(tr("NOT_ENOUGH_TUNGESTEN"))
 		return
 	purchased = true
 	_glow()

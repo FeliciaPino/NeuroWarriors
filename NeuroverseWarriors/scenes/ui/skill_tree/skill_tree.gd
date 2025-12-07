@@ -19,18 +19,21 @@ func _process(_delta):
 	$CanvasLayer/Tungesten_counter.update_displayed_value()
 	$debugton.text = str("press to get 6 moola (u haz ",GameState.get_tungesten_amount(),"moola)")
 	$debugton2.text = str("press to level up, (",associated_character," is lvl ",GameState.characters_save_info[associated_character]["level"]," rn")
-	$Label.text = str("active upgrades:",GameState.characters_save_info[associated_character]["active_upgrades"])
+	
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		_leave()
 	
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		follow_focus = false
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
 		var focused = get_viewport().gui_get_focus_owner()
 		if focused and focused is SkillTreeNode:
-			focused.hide_info()
-		if event is InputEventMouseMotion:
-			camera_momentum = -event.relative
+			if not focused.get_rect().has_point(get_global_mouse_position()):
+				focused.hide_info()
+				follow_focus = false
+			
+	if event is InputEventMouseMotion and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		camera_momentum = -event.relative
+		follow_focus = false
 func _leave():
 	$CanvasLayer/Fade.visible = true
 	await create_tween().tween_property($CanvasLayer/Fade,"modulate:a",1,1).finished

@@ -907,7 +907,6 @@ z_index = 10
 position = Vector2(-249, -106)
 zoom = Vector2(1.8, 1.8)
 limit_left = -250
-position_smoothing_enabled = true
 position_smoothing_speed = 3.0
 
 [node name="StoryBattleTriggers" type="Node" parent="."]
