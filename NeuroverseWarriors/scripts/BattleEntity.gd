@@ -169,6 +169,7 @@ func update_health(value):
 	health_changed.emit()
 	alive = health>0
 	if not alive:
+		$VBoxContainer.visible = false
 		just_freaking_died_right_now.emit(self)
 		animation_player.play("die")
 func update_ap(value:int):
