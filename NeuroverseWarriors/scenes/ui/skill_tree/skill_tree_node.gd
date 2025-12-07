@@ -18,18 +18,28 @@ var active:bool = false
 @onready var level_req_label := %LevelReq
 @onready var cost_label := %Cost
 @onready var description_label := %Description
-
+@onready var glow := $Glow
+func _glow():
+	create_tween().tween_property(glow,"scale",Vector2(1.3,1.3),0.5).set_ease(Tween.EASE_OUT)
+func _unglow():
+	create_tween().tween_property(glow,"scale",Vector2(0.5,0.5),0.5).set_ease(Tween.EASE_IN)
 func _ready():
 	if Engine.is_editor_hint():
 		set_process(true)
-	
+		
+	var path = str("res://assets/ui/upgrade_icons/",associated_upgrade_name,".png")
+	if FileAccess.file_exists(path):
+		icon = load(path)
+	else:
+		icon = load("res://assets/ui/battle_action_icons/default.png")
 	associated_upgrade = CharacterDatabase.get_upgrade(associated_upgrade_name)
 	if associated_upgrade == null:
 		print_debug("ERRROR: could not load upgrade:",associated_upgrade_name)
-	text = associated_upgrade.display_name
+	$InfoPanel/VBoxContainer/NameLabel.text = associated_upgrade.display_name
 	description_label.text = associated_upgrade.description
 	purchased = GameState.character_has_upgrade(skill_tree.associated_character,associated_upgrade.name_id)
 	active = GameState.is_upgrade_active(skill_tree.associated_character,associated_upgrade.name_id)
+	if active: _glow()
 	level_req_label.text = str("LV: ",associated_upgrade.level_requirement)
 	cost_label.text = str(tr("COST"),": ",associated_upgrade.tungesten_cost," ",tr("TUNGESTEN"))
 	for prereq in prerequisites:
@@ -58,18 +68,15 @@ func check_availability():
 			description_label.text += str("haz to b levl ",associated_upgrade.level_requirement,"\n")
 		for prereq in prerequisites: if not prereq.purchased:
 			description_label.text += prereq.associated_upgrade.display_name + "\n"
+	if purchased: self_modulate = Color(0.9,0.9,0.9,1)
+	else: self_modulate = Color(0.6,0.6,0.6,1)
+	if active:
+		self_modulate = Color.WHITE
 func show_info():
-	info_panel.scale.y = 0
-	info_panel.position.y = 0
-	var tween = get_tree().create_tween().set_parallel()
-	tween.tween_property(info_panel,"scale",Vector2(1,1),0.05)
-	tween.tween_property(info_panel,"position",Vector2(info_panel.position.x,75),0.05)
+	z_index = 10
 	info_panel.visible = true
 func hide_info():
-	var tween = get_tree().create_tween().set_parallel()
-	tween.tween_property(info_panel,"scale",Vector2(1,0),0.05)
-	tween.tween_property(info_panel,"position",Vector2(info_panel.position.x,0),0.05)
-	await tween.finished
+	z_index = 10
 	info_panel.visible = false
 func throw_text(text_to_throw:String):
 	var label = Label.new()
@@ -95,15 +102,19 @@ func _on_mouse_entered():
 
 
 func _on_pressed():
+	show_info()
 	if purchased:
 		if associated_upgrade.type == Upgrade.UpgradeType.ABILITY_UNLOCK: return
 		#toggle activation
 		if active:
 			GameState.deactivate_upgrade(skill_tree.associated_character,associated_upgrade.name_id)
 			active = false
+			_unglow()
+			
 		else:
 			GameState.activate_upgrade(skill_tree.associated_character,associated_upgrade.name_id)
 			active = true
+			_glow()
 		check_availability()#I just do this to update description, probably change it later
 		return
 	#enough tungesten?
@@ -111,16 +122,18 @@ func _on_pressed():
 		throw_text("Nut enouhasd tungestne, get more moola!")
 		return
 	purchased = true
+	_glow()
 	just_got_purchased.emit()
 	GameState.set_tungesten_amount(GameState.get_tungesten_amount()-associated_upgrade.tungesten_cost)
 	GameState.unlock_upgrade(skill_tree.associated_character,associated_upgrade.name_id)
-	if not associated_upgrade.type == Upgrade.UpgradeType.ABILITY_UNLOCK:
-		active = true
-		GameState.activate_upgrade(skill_tree.associated_character,associated_upgrade.name_id)
-	else:
+	
+	active = true
+	GameState.activate_upgrade(skill_tree.associated_character,associated_upgrade.name_id)
+	if associated_upgrade.type == Upgrade.UpgradeType.ABILITY_UNLOCK:
 		GameState.unlock_ability(skill_tree.associated_character,associated_upgrade.associated_ability)
 	check_availability()#I just do this to update description, probably change it later
 
+#this is just so I can see the connections better in the editor
 func _draw() -> void:
 	if !Engine.is_editor_hint():
 		return
@@ -131,5 +144,5 @@ func _draw() -> void:
 		draw_line(center, p.global_position-global_position+p.size*0.5, Color(0.9,0.9,0.9,0.5), 4)
 		var dir := (p.global_position-global_position+p.size*0.5-center)
 		dir = dir.normalized()
-		draw_line(center,center+dir.rotated(3.1416/4)*40,Color(0.9,0.9,0.9,0.5), 4)
-		draw_line(center,center+dir.rotated(-3.1416/4)*40,Color(0.9,0.9,0.9,0.5), 4)
+		draw_line(center+dir*40,center+dir.rotated(3.1416/4)*40+dir*40,Color(0.9,0.9,0.9,0.5), 4)
+		draw_line(center+dir*40,center+dir.rotated(-3.1416/4)*40+dir*40,Color(0.9,0.9,0.9,0.5), 4)

@@ -8,23 +8,32 @@ func _ready() -> void:
 	$debugton3.grab_focus()
 var follow_focus := true
 var camera_momentum := Vector2.ZERO
-var dragging := false
 func _process(_delta):
 	var focused := get_viewport().gui_get_focus_owner()
-	if focused and follow_focus and focused is Control: camera.global_position = lerp(camera.global_position,focused.global_position+focused.size*0.5,0.01)
+	if follow_focus and focused:
+		camera.global_position = lerp(camera.global_position,focused.global_position+focused.size*0.5,0.01)
+	
 	camera.position += camera_momentum
 	camera_momentum *= 0.9
 	if camera_momentum.length() < 0.1: camera_momentum = Vector2.ZERO
+	$CanvasLayer/Tungesten_counter.update_displayed_value()
 	$debugton.text = str("press to get 6 moola (u haz ",GameState.get_tungesten_amount(),"moola)")
 	$debugton2.text = str("press to level up, (",associated_character," is lvl ",GameState.characters_save_info[associated_character]["level"]," rn")
 	$Label.text = str("active upgrades:",GameState.characters_save_info[associated_character]["active_upgrades"])
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
-		GameState.go_to_map()
+		_leave()
 	
-	if event is InputEventMouseMotion and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		follow_focus = false
-		camera_momentum = -event.relative
+		var focused = get_viewport().gui_get_focus_owner()
+		if focused and focused is SkillTreeNode:
+			focused.hide_info()
+		if event is InputEventMouseMotion:
+			camera_momentum = -event.relative
+func _leave():
+	await create_tween().tween_property($CanvasLayer/Fade,"modulate:a",1,1).finished
+	GameState.go_to_map()
 func _on_debugton_pressed():
 	GameState.increase_tungesten_amount(6)
 func _on_debugton_2_pressed():
@@ -34,4 +43,4 @@ func _on_debugton_2_pressed():
 
 func _on_debugton_3_pressed():
 	print_debug(str(self,": debugton pressed"))
-	GameState.go_to_map()
+	_leave()

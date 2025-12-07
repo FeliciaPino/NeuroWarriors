@@ -13,6 +13,8 @@ grow_vertical = 2
 script = ExtResource("1_7mom5")
 associated_character = "Neuro-sama"
 
+[node name="Camera2D" type="Camera2D" parent="."]
+
 [node name="debugton" type="Button" parent="."]
 layout_mode = 0
 offset_left = 822.0
@@ -38,8 +40,6 @@ text = "gotogame
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
-
-[node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

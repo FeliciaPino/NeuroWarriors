@@ -10,6 +10,8 @@ func _ready() -> void:
 	if !always_visible: modulate.a = 0
 func _process(_delta) -> void:
 	label.text = str(int(display_amount))
+func update_displayed_value():
+	display_amount=GameState.get_tungesten_amount()
 func spawn_tungesten(spawn_pos:Vector2, amount:int):
 	if amount <= 0:
 		return
@@ -52,7 +54,7 @@ func _spawn_tc_shower(spawn_pos:Vector2, values:Array[int]):
 	modulate_tween.tween_property(self,"modulate:a",1,0.3)
 	modulate_tween.tween_interval(2)
 	if !always_visible: modulate_tween.tween_property(self,"modulate:a",0,0.3)
-	get_tree().create_timer(3).timeout.connect(func():display_amount=GameState.get_tungesten_amount())
+	get_tree().create_timer(3).timeout.connect(func():update_displayed_value)
 	for val in values:
 		var cube = TextureRect.new()
 		cube.z_index = 1
