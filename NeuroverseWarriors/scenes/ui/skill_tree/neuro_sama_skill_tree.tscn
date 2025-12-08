@@ -38,7 +38,16 @@ seamless = true
 
 [node name="Neuro-sama_skill_tree" instance=ExtResource("1_u4e1c")]
 
-[node name="Icons1" parent="." index="0"]
+[node name="Background" parent="." index="0"]
+z_index = -1000
+repeat_size = Vector2(1000, 1000)
+
+[node name="ColorRect" type="ColorRect" parent="Background" index="0"]
+offset_right = 2000.0
+offset_bottom = 1000.0
+color = Color(1, 0.68, 0.7760001, 1)
+
+[node name="Icons1" parent="." index="1"]
 modulate = Color(1, 1, 1, 0.40392157)
 
 [node name="TextureRect" type="TextureRect" parent="Icons1" index="0"]
@@ -237,7 +246,7 @@ scale = Vector2(0.755, 0.755)
 pivot_offset = Vector2(50, 50)
 texture = ExtResource("2_ki58n")
 
-[node name="Dust2" parent="." index="3"]
+[node name="Dust2" parent="." index="4"]
 modulate = Color(1, 1, 1, 0.1764706)
 
 [node name="TextureRect" type="TextureRect" parent="Dust2" index="0"]
@@ -246,36 +255,33 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = SubResource("NoiseTexture2D_ww5id")
 
-[node name="Camera2D" parent="." index="4"]
+[node name="Camera2D" parent="." index="5"]
 position = Vector2(538, 322)
+limit_left = -755
+limit_top = -485
+limit_right = 2085
+limit_bottom = 1135
 
-[node name="ColorRect" parent="Camera2D" index="0"]
-visible = true
-color = Color(0.66, 0.32340002, 0.48048005, 1)
-
-[node name="ConnectionLine" parent="." index="5"]
+[node name="ConnectionLine" parent="." index="6"]
 z_index = -15
 
-[node name="debugton" parent="." index="6"]
+[node name="debugton" parent="." index="7"]
 offset_left = 225.0
 offset_top = 443.0
 offset_right = 241.0
 offset_bottom = 459.0
 
-[node name="debugton2" parent="." index="7"]
+[node name="debugton2" parent="." index="8"]
 offset_left = 388.0
 offset_top = 555.0
 offset_right = 400.0
 offset_bottom = 563.0
 
-[node name="debugton3" parent="." index="8"]
+[node name="debugton3" parent="." index="9"]
 offset_left = 528.0
 offset_top = 300.0
 offset_right = 618.0
 offset_bottom = 331.0
-
-[node name="Fade" parent="CanvasLayer" index="1"]
-visible = false
 
 [node name="ReinforcePlating" parent="." index="10" instance=ExtResource("2_sp1xc")]
 layout_mode = 1
@@ -340,3 +346,6 @@ offset_top = 327.0
 offset_right = 1171.0
 offset_bottom = 421.0
 prerequisites = [NodePath("../Vitality"), NodePath("../Shock")]
+
+[node name="Fade" parent="CanvasLayer" index="1"]
+visible = false

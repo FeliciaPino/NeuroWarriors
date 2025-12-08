@@ -21,6 +21,8 @@ script = ExtResource("1_7mom5")
 associated_character = "Neuro-sama"
 connection_line = NodePath("ConnectionLine")
 
+[node name="Background" type="Parallax2D" parent="."]
+
 [node name="Icons1" type="Parallax2D" parent="."]
 z_index = -1000
 scroll_scale = Vector2(0.1, 0.1)
@@ -43,16 +45,6 @@ repeat_size = Vector2(1200, 700)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 z_index = -1000
-
-[node name="ColorRect" type="ColorRect" parent="Camera2D"]
-visible = false
-z_index = -4096
-offset_left = -586.0
-offset_top = -331.0
-offset_right = -546.0
-offset_bottom = -291.0
-scale = Vector2(29.34495, 16.995537)
-color = Color(0, 0, 0, 1)
 
 [node name="ConnectionLine" type="TextureRect" parent="."]
 visible = false
