@@ -423,7 +423,7 @@ _data = {
 
 [node name="Anny" instance=ExtResource("1_rdaju")]
 entity_name = "Anny"
-speed = 2
+ap_regen = 2
 is_player_controlled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="visual" index="1"]

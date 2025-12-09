@@ -38,6 +38,6 @@ func _process(delta):
 	health_label.text = str(tr("BATTLESTAT_HEALTH"),":",battle_entity.health,"/",battle_entity.maxHealth)
 	attack_label.text = str(tr("BATTLESTAT_ATTACK"),":",battle_entity.attack)
 	defense_label.text = str(tr("BATTLESTAT_DEFENSE"),":",battle_entity.defense)
-	ap_regen_label.text = str(tr("BATTLESTAT_AP_REGEN"),":",battle_entity.speed)
+	ap_regen_label.text = str(tr("BATTLESTAT_AP_REGEN"),":",battle_entity.ap_regen)
 	
 	entity_viewport_camera.global_position = battle_entity.global_position

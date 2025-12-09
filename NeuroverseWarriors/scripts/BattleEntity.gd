@@ -21,9 +21,9 @@ signal defense_changed
 signal attack_changed
 @export var attack:int = 10 
 #how many ap is earned at the start of each turn
-#TODO: refactor name, it's supposed to be calld ap_regen, not speed. speed doesn't make sense
-signal speed_changed
-@export var speed:int = 1 
+
+signal ap_regen_changed
+@export var ap_regen:int = 1 
 
 signal received_damage(amount:int, bypass_shield:bool)
 
@@ -188,7 +188,7 @@ func did_an_action(price:int):
 	update_menu_actions()
 	#making sure this isn't negative will be handled... somewhere else idk
 func set_up_at_start_of_turn():
-	ap += get_speed()
+	ap += get_ap_regen()
 	for effect in effects_container.get_children():
 		if not effect is StatusEffect: continue
 		effect.affected = self#this shouln't be necessary maybe
@@ -210,8 +210,8 @@ func make_sound(sound_name:String, switch_it_up_a_bit:bool = false):
 	sound_to_play.play()
 	sound_to_play.finished.connect(func():sound_to_play.pitch_scale = original_pitch)
 	
-func get_speed():
-	return speed
+func get_ap_regen():
+	return ap_regen
 func update_ap_label_text():
 	actions_left_label.text = str(ap)
 	$VBoxContainer/HBoxContainer/Label.text = str(ap)

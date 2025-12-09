@@ -6,7 +6,7 @@ func get_description():
 
 func start_effect():
 	super.start_effect()
-	affected.speed += intensity
+	affected.ap_regen += intensity
 	
 func start_of_turn():
 	super.start_of_turn()
@@ -14,4 +14,4 @@ func start_of_turn():
 
 func end_effect():
 	super.end_effect()
-	affected.speed -= intensity
+	affected.ap_regen -= intensity

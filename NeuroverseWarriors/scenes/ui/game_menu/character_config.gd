@@ -188,7 +188,7 @@ func load_character_info():
 	health_label.text = str(tr("BATTLESTAT_HEALTH"),": ",character_battle_entity.maxHealth)
 	attack_label.text = str(tr("BATTLESTAT_ATTACK"),": ",character_battle_entity.attack)
 	defense_label.text = str(tr("BATTLESTAT_DEFENSE"),": ",character_battle_entity.defense)
-	ap_regen_label.text = str(tr("BATTLESTAT_AP_REGEN"),": ",character_battle_entity.speed)
+	ap_regen_label.text = str(tr("BATTLESTAT_AP_REGEN"),": ",character_battle_entity.ap_regen)
 	
 func _on_selected_character_changed():
 	load_character_info()

@@ -516,7 +516,7 @@ maxHealth = 60
 entity_name = "Evil"
 entity_description = "Neuro's evil twin, daddy issues, inferiority complext, super cute"
 attack = 15
-speed = 3
+ap_regen = 3
 is_player_controlled = true
 
 [node name="body" type="AnimatedSprite2D" parent="visual" index="0"]

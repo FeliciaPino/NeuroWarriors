@@ -6,4 +6,4 @@ func get_description():
 	return tr("STATUS_EFFECT_SHOCKED_DESCRIPTION")
 func start_of_turn():
 	super.start_of_turn()
-	affected.update_ap(affected.ap - (affected.speed+1)/2)
+	affected.update_ap(affected.ap - (affected.get_ap_regen()+1)/2)

@@ -695,7 +695,7 @@ _data = {
 entity_name = "Vedal"
 entity_description = "Workaholic with a deadpan personality. This British avid alcohol fan became an unexpected father of two AIs."
 defense = 10
-speed = 2
+ap_regen = 2
 is_player_controlled = true
 
 [node name="VedalLaptop" type="AnimatedSprite2D" parent="visual" index="0"]
