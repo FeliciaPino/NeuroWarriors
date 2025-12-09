@@ -22,6 +22,7 @@ associated_character = "Neuro-sama"
 connection_line = NodePath("ConnectionLine")
 
 [node name="Background" type="Parallax2D" parent="."]
+z_index = -1000
 
 [node name="Icons1" type="Parallax2D" parent="."]
 z_index = -1000

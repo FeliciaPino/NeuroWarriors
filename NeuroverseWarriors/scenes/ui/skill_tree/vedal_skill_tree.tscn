@@ -1,5 +1,195 @@
-[gd_scene load_steps=2 format=3 uid="uid://ove21v1mtnfj"]
+[gd_scene load_steps=12 format=3 uid="uid://ove21v1mtnfj"]
 
 [ext_resource type="PackedScene" uid="uid://bmaxfmfr4tb2k" path="res://scenes/ui/skill_tree/skill_tree.tscn" id="1_dq5sp"]
+[ext_resource type="Shader" uid="uid://dtbmonj6mwmos" path="res://assets/shaders/rotate.gdshader" id="2_15atm"]
+[ext_resource type="Texture2D" uid="uid://pycydsl7s3be" path="res://assets/ui/skill_tree/turt.png" id="2_s7fqy"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g0ukb"]
+shader = ExtResource("2_15atm")
+shader_parameter/rotation_speed = 0.3
+shader_parameter/pivot_offset = Vector2(50, 50)
+
+[sub_resource type="Gradient" id="Gradient_15atm"]
+offsets = PackedFloat32Array(0, 0.9904762)
+colors = PackedColorArray(0, 0, 0, 0, 0.74, 1, 0.8006667, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_g0ukb"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_i0exe"]
+noise = SubResource("FastNoiseLite_g0ukb")
+color_ramp = SubResource("Gradient_15atm")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_15atm"]
+shader = ExtResource("2_15atm")
+shader_parameter/rotation_speed = 0.1
+shader_parameter/pivot_offset = Vector2(50, 50)
+
+[sub_resource type="Gradient" id="Gradient_g0ukb"]
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_i0exe"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_eq5r8"]
+width = 1200
+height = 700
+noise = SubResource("FastNoiseLite_i0exe")
+color_ramp = SubResource("Gradient_g0ukb")
+seamless = true
 
 [node name="VedalSkillTree" instance=ExtResource("1_dq5sp")]
+
+[node name="Background" parent="." index="0"]
+repeat_size = Vector2(2000, 1000)
+
+[node name="ColorRect" type="ColorRect" parent="Background" index="0"]
+offset_right = 79.59
+offset_bottom = 40.0
+scale = Vector2(26.155, 26.155)
+color = Color(0.23760001, 0.54, 0.24768, 1)
+
+[node name="Icons1" parent="." index="1"]
+modulate = Color(0.92, 0.92, 0.92, 0.8784314)
+
+[node name="TextureRect" type="TextureRect" parent="Icons1" index="0"]
+material = SubResource("ShaderMaterial_g0ukb")
+offset_left = 271.0
+offset_top = 95.0
+offset_right = 371.0
+offset_bottom = 195.0
+rotation = -0.34608725
+scale = Vector2(0.565, 0.565)
+texture = ExtResource("2_s7fqy")
+
+[node name="TextureRect2" type="TextureRect" parent="Icons1" index="1"]
+modulate = Color(1, 1, 1, 0.54901963)
+material = SubResource("ShaderMaterial_g0ukb")
+offset_left = 670.0
+offset_top = 265.0
+offset_right = 770.0
+offset_bottom = 365.0
+rotation = 0.23489046
+scale = Vector2(0.31, 0.31)
+texture = ExtResource("2_s7fqy")
+
+[node name="TextureRect3" type="TextureRect" parent="Icons1" index="2"]
+modulate = Color(1, 1, 1, 0.6784314)
+material = SubResource("ShaderMaterial_g0ukb")
+offset_left = 449.00006
+offset_top = 349.0
+offset_right = 549.00006
+offset_bottom = 449.0
+rotation = -0.2565772
+scale = Vector2(0.425, 0.425)
+texture = ExtResource("2_s7fqy")
+
+[node name="TextureRect4" type="TextureRect" parent="Icons1" index="3"]
+modulate = Color(1, 1, 1, 0.38431373)
+material = SubResource("ShaderMaterial_g0ukb")
+offset_left = 557.0
+offset_top = 536.99994
+offset_right = 657.0
+offset_bottom = 636.99994
+rotation = 0.04222643
+scale = Vector2(0.17, 0.17)
+texture = ExtResource("2_s7fqy")
+
+[node name="TextureRect5" type="TextureRect" parent="Icons1" index="4"]
+modulate = Color(1, 1, 1, 0.67058825)
+material = SubResource("ShaderMaterial_g0ukb")
+offset_left = 920.0
+offset_top = 515.0
+offset_right = 1020.0
+offset_bottom = 615.0
+rotation = 0.04337616
+scale = Vector2(0.425, 0.425)
+texture = ExtResource("2_s7fqy")
+
+[node name="TextureRect6" type="TextureRect" parent="Icons1" index="5"]
+modulate = Color(1, 1, 1, 0.67058825)
+material = SubResource("ShaderMaterial_g0ukb")
+offset_left = 106.99988
+offset_top = 447.0
+offset_right = 206.99988
+offset_bottom = 547.0
+rotation = -0.3045943
+scale = Vector2(0.555, 0.555)
+texture = ExtResource("2_s7fqy")
+
+[node name="TextureRect7" type="TextureRect" parent="Icons1" index="6"]
+modulate = Color(1, 1, 1, 0.67058825)
+material = SubResource("ShaderMaterial_g0ukb")
+offset_left = 864.0
+offset_top = 144.0
+offset_right = 964.0
+offset_bottom = 244.0
+rotation = -0.08152898
+scale = Vector2(0.21, 0.21)
+texture = ExtResource("2_s7fqy")
+
+[node name="TextureRect8" type="TextureRect" parent="Icons1" index="7"]
+material = SubResource("ShaderMaterial_g0ukb")
+offset_left = 988.0
+offset_top = 305.0
+offset_right = 1088.0
+offset_bottom = 405.0
+scale = Vector2(0.555, 0.555)
+texture = ExtResource("2_s7fqy")
+
+[node name="TextureRect" type="TextureRect" parent="Dust1" index="0"]
+modulate = Color(1, 1, 1, 0.4392157)
+offset_right = 1200.0
+offset_bottom = 700.0
+texture = SubResource("NoiseTexture2D_i0exe")
+
+[node name="TextureRect" type="TextureRect" parent="Icons2" index="0"]
+modulate = Color(0.99, 0.99, 0.99, 1)
+material = SubResource("ShaderMaterial_15atm")
+offset_left = -4.000004
+offset_top = 197.0
+offset_right = 96.0
+offset_bottom = 297.0
+rotation = 0.277514
+scale = Vector2(1.825, 1.825)
+texture = ExtResource("2_s7fqy")
+
+[node name="TextureRect2" type="TextureRect" parent="Icons2" index="1"]
+material = SubResource("ShaderMaterial_15atm")
+offset_left = 249.0
+offset_top = 434.0
+offset_right = 349.0
+offset_bottom = 534.0
+rotation = 1.573861
+scale = Vector2(0.885, 0.885)
+texture = ExtResource("2_s7fqy")
+
+[node name="TextureRect3" type="TextureRect" parent="Icons2" index="2"]
+material = SubResource("ShaderMaterial_15atm")
+offset_left = 539.0
+offset_top = 184.0
+offset_right = 639.0
+offset_bottom = 284.0
+rotation = -1.5155675
+scale = Vector2(0.655, 0.655)
+texture = ExtResource("2_s7fqy")
+
+[node name="TextureRect4" type="TextureRect" parent="Icons2" index="3"]
+material = SubResource("ShaderMaterial_15atm")
+offset_left = 831.0
+offset_top = 467.99994
+offset_right = 931.0
+offset_bottom = 567.99994
+rotation = -0.72817695
+scale = Vector2(0.83, 0.83)
+texture = ExtResource("2_s7fqy")
+
+[node name="ColorRect" type="ColorRect" parent="Dust2" index="0"]
+offset_right = 1200.0
+offset_bottom = 700.0
+color = Color(0.30359998, 0.69, 0.31647998, 0.6156863)
+
+[node name="TextureRect" type="TextureRect" parent="Dust2" index="1"]
+modulate = Color(0.49045002, 0.85, 0.45049998, 0.18431373)
+offset_right = 512.0
+offset_bottom = 512.0
+texture = SubResource("NoiseTexture2D_eq5r8")

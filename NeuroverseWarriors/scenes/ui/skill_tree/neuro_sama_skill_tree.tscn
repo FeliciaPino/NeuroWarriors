@@ -18,8 +18,8 @@ colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1)
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_d5iac"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_8rki0"]
-width = 1200
-height = 700
+width = 600
+height = 350
 noise = SubResource("FastNoiseLite_d5iac")
 color_ramp = SubResource("Gradient_icvyd")
 seamless = true
@@ -39,13 +39,12 @@ seamless = true
 [node name="Neuro-sama_skill_tree" instance=ExtResource("1_u4e1c")]
 
 [node name="Background" parent="." index="0"]
-z_index = -1000
 repeat_size = Vector2(1000, 1000)
 
 [node name="ColorRect" type="ColorRect" parent="Background" index="0"]
 offset_right = 2000.0
 offset_bottom = 1000.0
-color = Color(1, 0.68, 0.7760001, 1)
+color = Color(0.84, 0.47879997, 0.5871601, 1)
 
 [node name="Icons1" parent="." index="1"]
 modulate = Color(1, 1, 1, 0.40392157)
@@ -186,9 +185,10 @@ pivot_offset = Vector2(50, 50)
 texture = ExtResource("2_ki58n")
 
 [node name="TextureRect" type="TextureRect" parent="Dust1" index="0"]
-modulate = Color(0.7198217, 0.46610004, 0.79, 0.20392157)
+modulate = Color(0.91089165, 0.7695, 0.95, 0.40784314)
 offset_right = 40.0
 offset_bottom = 40.0
+scale = Vector2(2, 2)
 texture = SubResource("NoiseTexture2D_8rki0")
 
 [node name="TextureRect" type="TextureRect" parent="Icons2" index="0"]
@@ -246,11 +246,8 @@ scale = Vector2(0.755, 0.755)
 pivot_offset = Vector2(50, 50)
 texture = ExtResource("2_ki58n")
 
-[node name="Dust2" parent="." index="4"]
-modulate = Color(1, 1, 1, 0.1764706)
-
 [node name="TextureRect" type="TextureRect" parent="Dust2" index="0"]
-modulate = Color(1, 1, 1, 0.35686275)
+modulate = Color(1, 0.58000004, 0.79, 0.26666668)
 offset_right = 40.0
 offset_bottom = 40.0
 texture = SubResource("NoiseTexture2D_ww5id")
