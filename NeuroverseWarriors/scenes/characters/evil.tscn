@@ -511,13 +511,16 @@ _data = {
 }
 
 [node name="Evil" instance=ExtResource("1_m0h1s")]
+challenge_rating = null
 health = 60
 maxHealth = 60
 entity_name = "Evil"
 entity_description = "Neuro's evil twin, daddy issues, inferiority complext, super cute"
+defense = null
 attack = 15
 ap_regen = 3
 is_player_controlled = true
+is_stationary = null
 
 [node name="body" type="AnimatedSprite2D" parent="visual" index="0"]
 y_sort_enabled = true

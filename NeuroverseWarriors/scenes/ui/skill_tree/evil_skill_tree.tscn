@@ -164,3 +164,4 @@ offset_bottom = 142.0
 associated_upgrade_name = "horns"
 level_requirement = 2
 price = 15
+toggable = null

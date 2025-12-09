@@ -9,7 +9,10 @@ signal health_changed
 		health = new_value
 		health_changed.emit()
 signal maxHealth_changed
-@export var maxHealth:int = 100
+@export var maxHealth:int = 100:
+	set(new_value):
+		maxHealth = new_value
+		maxHealth_changed.emit()
 @export var entity_name:String = "default name"
 @export var entity_description:String = "default description"
 signal defense_changed
@@ -19,17 +22,25 @@ signal defense_changed
 		defense_changed.emit()
 #entity's base attack stat
 signal attack_changed
-@export var attack:int = 10 
-#how many ap is earned at the start of each turn
+@export var attack:int = 10:
+	set(new_value):
+		attack = new_value
+		attack_changed.emit()
 
+#how many ap is earned at the start of each turn
 signal ap_regen_changed
-@export var ap_regen:int = 1 
+@export var ap_regen:int = 1:
+	set(new_value):
+		ap_regen = new_value
+		ap_regen_changed.emit()
 
 signal received_damage(amount:int, bypass_shield:bool)
-
+signal just_freaking_died_right_now(entity:BattleEntity)
+signal somebody_entered_my_personal_space(entity:BattleEntity)
+signal status_effect_applied(status:StatusEffect)
+signal status_effect_finished(status:StatusEffect)
 var mySpot:Vector2 #where the entity returns after moving and stuff. Y'know, their spot
 var is_facing_right:bool = true
-signal just_freaking_died_right_now(entity,killer)
 var alive:bool = true
 var actions:Array[BattleAction] = [] #the actions the entity can take, such as active abilites or attacks
 var ap:int #how many actions are left in a turn
@@ -122,6 +133,7 @@ func remove_effect(effectName:String):
 			eff.queue_free()
 func add_effect(effect:StatusEffect):
 	print_debug("adding effect "+effect.effect_name)
+	status_effect_applied.emit(effect)
 	#if entity already has this effect, remove it. that way it's replace by the new one
 	remove_effect(effect.effect_name)
 	effect.set_affected(self)
@@ -194,6 +206,7 @@ func set_up_at_start_of_turn():
 		effect.affected = self#this shouln't be necessary maybe
 		effect.start_of_turn()
 		if effect.turns_remaining <= 0:
+			status_effect_finished.emit(effect)
 			remove_effect(effect.effect_name)
 	update_health(health)#in case an effect modified health and it didn't regiser correctly
 	update_ap_label_text()
@@ -235,13 +248,13 @@ func update_menu_actions():
 	#action menu
 	for child in action_menu.get_children(): child.queue_free()
 	for action in actions:
-		var button = Button.new()
-		button.text = action.action_name
-		button.pressed.connect(func():game_manager.set_selected_action(action))
-		button.tooltip_text = "AP:"+str(action.price)+" "+action.description
+		var new_button = Button.new()
+		new_button.text = action.action_name
+		new_button.pressed.connect(func():game_manager.set_selected_action(action))
+		new_button.tooltip_text = "AP:"+str(action.price)+" "+action.description
 		if ap < action.price or not is_player_controlled:
-			button.disabled = true
-		action_menu.add_child(button)
+			new_button.disabled = true
+		action_menu.add_child(new_button)
 	await get_tree().process_frame
 	if is_menu_opened:
 		print_debug(str("Entity menu updated while open, giving focus to ",action_menu.get_child(0)))
@@ -260,7 +273,10 @@ func settle_into_spot():
 		face_right()
 
 func toggle_menu():
-	close_menu() if is_menu_opened else open_menu()
+	if is_menu_opened:
+		close_menu() 
+	else:
+		open_menu()
 func open_menu():
 	if is_menu_opened: return
 	print_debug(str(self,": opening menu"))
@@ -322,7 +338,7 @@ func get_strongest_posible_action():
 	return ans
 func got_on_your_personal_space(other:BattleEntity):
 	print_debug(entity_name+": Hey! " + other.entity_name + " got all up in my personal space!")
-	pass
+	somebody_entered_my_personal_space.emit(other)
 
 func _on_texture_button_button_down() -> void:
 	game_manager.battleEntityClicked(self)

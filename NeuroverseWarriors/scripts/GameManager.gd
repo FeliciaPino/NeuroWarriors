@@ -28,7 +28,12 @@ var selected_action:BattleAction = null:
 
 signal pending_actions_updated
 signal all_actions_finished
-signal player_turn_ended
+signal somebody_finished_an_action(action:BattleAction,user:BattleEntity,target:BattleEntity)
+signal turn_ended(is_player_turn:bool)
+signal turn_started(is_player_turn:bool)
+
+signal entity_died(entity:BattleEntity)
+signal entities_got_close(offender:BattleEntity,offended:BattleEntity)
 var pending_actions = 0: #How many actions are being currently done
 	set(new_value):
 		pending_actions = new_value
@@ -53,7 +58,7 @@ func _ready() -> void:
 	xp_reward = 0 #it increases for each enemy defeated
 	for e:BattleEntity in entity_manager.entities:
 		e.just_freaking_died_right_now.connect(_on_entity_defeated)
-	
+		e.somebody_entered_my_personal_space.connect(_on_entities_got_close.bind(e))
 	end_turn_buttton.pressed.connect(end_turn)
 	return_to_map_button.pressed.connect(return_to_menu)
 		
@@ -76,15 +81,18 @@ func update_battle_entities():
 	party = entity_manager.get_party()
 	foes = entity_manager.get_foes()
 func end_turn():
+	turn_ended.emit(true)
 	end_turn_buttton.disabled = true
 	if is_game_over or not is_player_turn: return
 	update_battle_entities()
 	print_debug("turn ended")
-	player_turn_ended.emit()
 	is_player_turn = false
 	for foe in foes: foe.set_up_at_start_of_turn()
+	turn_started.emit(false)#enemy turn started
 	enemy_turn()
 func start_turn():
+	turn_ended.emit(false) #enemy turn ended
+	turn_started.emit(true)
 	end_turn_buttton.disabled = false
 	update_battle_entities()
 	if turn_count != 0: if check_game_end(): return
@@ -158,12 +166,13 @@ func do_an_action(user:BattleEntity, action:BattleAction, target:BattleEntity):
 	if not user or not target:
 		return
 	if not action.action_finished.is_connected(_on_action_finished):
-		action.action_finished.connect(_on_action_finished.bind(action))
+		action.action_finished.connect(_on_action_finished.bind(action,user,target))
 	print_debug("action started ", action.action_name)
 	pending_actions += 1
 	action.execute(user,target)
 	
-func _on_action_finished(action):
+func _on_action_finished(action,user,target):
+	somebody_finished_an_action.emit(action,user,target)
 	print_debug("actions finished ", action.action_name)
 	pending_actions -= 1
 	if is_game_over: return
@@ -192,8 +201,10 @@ func get_entity_by_name(entity_name:String)->BattleEntity:
 		if entity.entity_name == entity_name:
 			return entity
 	return null
-
+func _on_entities_got_close(offender,offended):
+	entities_got_close.emit(offender,offended)
 func _on_entity_defeated(entity:BattleEntity):
+	entity_died.emit(entity)
 	if !entity.is_player_controlled:
 		var tung_reward = _calc_tungesten_reward(entity)
 		GameState.increase_tungesten_amount(tung_reward)
