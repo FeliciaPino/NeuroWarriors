@@ -286,37 +286,18 @@ offset_left = 664.0
 offset_top = 226.0
 offset_right = 758.0
 offset_bottom = 320.0
+toggable = true
 
-[node name="ReinforcePlating2" parent="." index="11" instance=ExtResource("2_sp1xc")]
+[node name="moreabs" parent="." index="11" instance=ExtResource("2_sp1xc")]
 layout_mode = 1
-offset_left = 557.0
-offset_top = 411.0
-offset_right = 651.0
-offset_bottom = 505.0
+offset_left = 511.0
+offset_top = 419.0
+offset_right = 605.0
+offset_bottom = 513.0
+associated_upgrade_name = "increase_max_equiped_abilities"
+toggable = null
 
-[node name="ReinforcePlating5" parent="." index="12" node_paths=PackedStringArray("prerequisites") instance=ExtResource("2_sp1xc")]
-layout_mode = 1
-offset_left = 335.0
-offset_top = 486.0
-offset_right = 429.0
-offset_bottom = 580.0
-prerequisites = [NodePath("../ReinforcePlating2"), NodePath("../ReinforcePlating3")]
-
-[node name="ReinforcePlating3" parent="." index="13" instance=ExtResource("2_sp1xc")]
-layout_mode = 1
-offset_left = 376.0
-offset_top = 272.0
-offset_right = 470.0
-offset_bottom = 366.0
-
-[node name="ReinforcePlating4" parent="." index="14" instance=ExtResource("2_sp1xc")]
-layout_mode = 1
-offset_left = 513.0
-offset_top = 145.0
-offset_right = 607.0
-offset_bottom = 239.0
-
-[node name="Vitality" parent="." index="15" node_paths=PackedStringArray("prerequisites") instance=ExtResource("2_sp1xc")]
+[node name="Vitality" parent="." index="12" node_paths=PackedStringArray("prerequisites") instance=ExtResource("2_sp1xc")]
 layout_mode = 1
 offset_left = 821.0
 offset_top = 248.0
@@ -325,8 +306,9 @@ offset_bottom = 342.0
 icon = ExtResource("4_d5iac")
 prerequisites = [NodePath("../ReinforcePlating")]
 associated_upgrade_name = "vitality"
+toggable = null
 
-[node name="Shock" parent="." index="16" node_paths=PackedStringArray("prerequisites") instance=ExtResource("2_sp1xc")]
+[node name="Shock" parent="." index="13" node_paths=PackedStringArray("prerequisites") instance=ExtResource("2_sp1xc")]
 layout_mode = 1
 offset_left = 1017.0
 offset_top = 160.0
@@ -335,14 +317,16 @@ offset_bottom = 254.0
 icon = ExtResource("5_8rki0")
 prerequisites = [NodePath("../Vitality")]
 associated_upgrade_name = "unlock_shock"
+toggable = null
 
-[node name="Shock2" parent="." index="17" node_paths=PackedStringArray("prerequisites") instance=ExtResource("2_sp1xc")]
+[node name="Shock2" parent="." index="14" node_paths=PackedStringArray("prerequisites") instance=ExtResource("2_sp1xc")]
 layout_mode = 1
 offset_left = 1077.0
 offset_top = 327.0
 offset_right = 1171.0
 offset_bottom = 421.0
 prerequisites = [NodePath("../Vitality"), NodePath("../Shock")]
+toggable = null
 
 [node name="Fade" parent="CanvasLayer" index="1"]
 visible = false

@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://eresikko6340"]
+[gd_scene load_steps=13 format=3 uid="uid://eresikko6340"]
 
 [ext_resource type="PackedScene" uid="uid://bmaxfmfr4tb2k" path="res://scenes/ui/skill_tree/skill_tree.tscn" id="1_bckr6"]
 [ext_resource type="Texture2D" uid="uid://brgdkp26edrfo" path="res://assets/ui/skill_tree/evil_spinny_thingy.png" id="2_cfuaj"]
 [ext_resource type="Shader" uid="uid://dtbmonj6mwmos" path="res://assets/shaders/rotate.gdshader" id="2_i2klt"]
+[ext_resource type="PackedScene" uid="uid://egb0qrfm4whr" path="res://scenes/ui/skill_tree/skill_tree_node.tscn" id="4_1i2cr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1i2cr"]
 shader = ExtResource("2_i2klt")
@@ -39,6 +40,7 @@ color_ramp = SubResource("Gradient_i2klt")
 seamless = true
 
 [node name="EvilSkillTree" instance=ExtResource("1_bckr6")]
+associated_character = "Evil"
 
 [node name="Background" parent="." index="0"]
 repeat_size = Vector2(1200, 700)
@@ -152,3 +154,13 @@ texture = SubResource("NoiseTexture2D_kqdrd")
 
 [node name="Camera2D" parent="." index="5"]
 position = Vector2(41, 31)
+
+[node name="SkillTreeNode" parent="." index="11" instance=ExtResource("4_1i2cr")]
+layout_mode = 0
+offset_left = 131.0
+offset_top = 48.0
+offset_right = 225.0
+offset_bottom = 142.0
+associated_upgrade_name = "horns"
+level_requirement = 2
+price = 15

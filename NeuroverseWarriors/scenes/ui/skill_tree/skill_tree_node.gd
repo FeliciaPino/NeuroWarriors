@@ -7,6 +7,9 @@ class_name SkillTreeNode
 		if Engine.is_editor_hint():
 			queue_redraw()
 @export var associated_upgrade_name:String
+@export var level_requirement:int
+@export var price:int
+@export var toggable:bool = false
 var associated_upgrade:Upgrade
 signal just_got_purchased
 var purchased:bool = false
@@ -43,8 +46,8 @@ func _ready():
 	purchased = GameState.character_has_upgrade(skill_tree.associated_character,associated_upgrade.name_id)
 	active = GameState.is_upgrade_active(skill_tree.associated_character,associated_upgrade.name_id)
 	if active: _glow()
-	level_req_label.text = str("LV: ",associated_upgrade.level_requirement)
-	cost_label.text = str(associated_upgrade.tungesten_cost)
+	level_req_label.text = str("LV: ",level_requirement)
+	cost_label.text = str(price)
 	for prereq in prerequisites:
 		prereq.just_got_purchased.connect(check_availability)
 		
@@ -71,18 +74,18 @@ func check_availability():
 		print_debug(str(self,": checking prerequisite:",prereq))
 		if not prereq.purchased:
 			available = false
-	if GameState.characters_save_info[skill_tree.associated_character]["level"] < associated_upgrade.level_requirement:
+	if GameState.characters_save_info[skill_tree.associated_character]["level"] < level_requirement:
 		available = false
 	disabled = !available
 	if available:
 		description_label.text = str(associated_upgrade.description,"\n")
-		if purchased:
+		if purchased and toggable:
 			if active: description_label.text += "[color=67A167]"+tr("ACTIVE")
 			else: description_label.text += "[color=FA9999]"+tr("INACTIVE")
 	else:
 		description_label.text = tr("REQUIRES") + ":[color=#FF6767]\n"
-		if GameState.characters_save_info[skill_tree.associated_character]["level"] < associated_upgrade.level_requirement:
-			description_label.text += str(tr("ATLEAST")," LV",associated_upgrade.level_requirement,'\n')
+		if GameState.characters_save_info[skill_tree.associated_character]["level"] < level_requirement:
+			description_label.text += str(tr("ATLEAST")," LV",level_requirement,'\n')
 			level_req_label.modulate = Color(0.8,0.6,0.6)
 		else:
 			level_req_label.modulate = Color(1,1,1)
@@ -134,7 +137,7 @@ func _on_mouse_entered():
 func _on_pressed():
 	show_info()
 	if purchased:
-		if associated_upgrade.type == Upgrade.UpgradeType.ABILITY_UNLOCK: return
+		if associated_upgrade.type == Upgrade.UpgradeType.ABILITY_UNLOCK or !toggable: return
 		#toggle activation
 		if active:
 			GameState.deactivate_upgrade(skill_tree.associated_character,associated_upgrade.name_id)
@@ -148,19 +151,21 @@ func _on_pressed():
 		check_availability()#I just do this to update description, probably change it later
 		return
 	#enough tungesten?
-	if GameState.get_tungesten_amount() < associated_upgrade.tungesten_cost:
+	if GameState.get_tungesten_amount() < price:
 		throw_text(tr("NOT_ENOUGH_TUNGESTEN"))
 		return
 	purchased = true
 	_glow()
 	just_got_purchased.emit()
-	GameState.set_tungesten_amount(GameState.get_tungesten_amount()-associated_upgrade.tungesten_cost)
+	GameState.set_tungesten_amount(GameState.get_tungesten_amount()-price)
 	GameState.unlock_upgrade(skill_tree.associated_character,associated_upgrade.name_id)
 	
 	active = true
 	GameState.activate_upgrade(skill_tree.associated_character,associated_upgrade.name_id)
 	if associated_upgrade.type == Upgrade.UpgradeType.ABILITY_UNLOCK:
 		GameState.unlock_ability(skill_tree.associated_character,associated_upgrade.associated_ability)
+	if !toggable:
+		associated_upgrade.purchased_effect(skill_tree.associated_character)
 	check_availability()#I just do this to update description, probably change it later
 
 #this is just so I can see the connections better in the editor

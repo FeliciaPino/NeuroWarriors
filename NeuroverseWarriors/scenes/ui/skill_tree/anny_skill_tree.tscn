@@ -37,6 +37,7 @@ color_ramp = SubResource("Gradient_njp4p")
 seamless = true
 
 [node name="AnnySkillTree" instance=ExtResource("1_d0031")]
+associated_character = "Anny"
 
 [node name="Background" parent="." index="0"]
 repeat_size = Vector2(1200, 700)

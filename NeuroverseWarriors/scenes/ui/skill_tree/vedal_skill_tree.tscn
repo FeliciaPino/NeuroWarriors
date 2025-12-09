@@ -38,6 +38,7 @@ color_ramp = SubResource("Gradient_g0ukb")
 seamless = true
 
 [node name="VedalSkillTree" instance=ExtResource("1_dq5sp")]
+associated_character = "Vedal"
 
 [node name="Background" parent="." index="0"]
 repeat_size = Vector2(2000, 1000)

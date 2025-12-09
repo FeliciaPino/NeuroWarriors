@@ -162,6 +162,12 @@ func get_character_max_equiped_actions(character_name:String):
 		print_debug("ERROR! There is no character named ",character_name)
 		return -1
 	return characters_save_info[character_name]["max_equiped_abilities"]
+func set_character_max_equiped_actions(character_name:String, new_val):
+	
+	if !characters_save_info.has(character_name):
+		print_debug("ERROR! There is no character named ",character_name)
+		return -1
+	characters_save_info[character_name]["max_equiped_abilities"] = new_val
 func is_character_unlocked(character_name:String):
 	return characters_save_info[character_name]["unlocked"]
 func is_character_in_party(character_name):
