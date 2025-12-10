@@ -154,7 +154,9 @@ SKILL_TREE_UPGRADE_HORNS_DESCRIPTION,Increases attack by {amount}, Aumenta el da
 SKILL_TREE_UPGRADE_SHARP_HORNS_NAME,Sharp Horns, Cuernos Afilados
 SKILL_TREE_UPGRADE_INCREASE_MAX_EQUIPPED_ABILITIES_DESCRIPTION, Increases the amount of abilities you can bring to battle by {amount}.,Aumenta la cantidad de habilidades que puedes llevar a la batalla en {amount}.
 SKILL_TREE_UPGRADE_STRONGER_BREW_NAME,Stronger Brew,Alcohol Mas Fuerte
-SKILL_TREE_UPGRADE_STRONGER_BREW_DESCRIPTION,Increase the poison damage of {ability_name} by {amount}., Aumenta el daño de veneno de {ability_name} en {amount}.
+SKILL_TREE_UPRADE_STRONGER_BREW_DESCRIPTION,Increase the poison damage of {ability_name} by {amount}., Aumenta el daño de veneno de {ability_name} en {amount}.
+SKILL_TREE_UPGRADE_HYPERACTIVE_NAME,Hyperactive,Hiperactiva
+SKILL_TREE_UPGRADE_HYPERACTIVE_DESCRIPTION,Increases AP regeneration by {amount}.,Aumenta la regeneracion de AP en {amount}.
 PASSSIVE_ABILITY_SPIKY_DESCRIPTION,Damages entities that get near by {amount}.,Daña a las entidades que se acercan en {amount}.
 CREDITS_LINE_1,Congratulations! You have finished the game.,Felicitaciones! Haz completado el juego.¡Felicitaciones! Has completado el juego.
 CREDITS_LINE_2,Credits:,Créditos:

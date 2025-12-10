@@ -24,6 +24,9 @@ func apply_to_entity(_entity:BattleEntity):
 #for ABILITY_UNLOCK Upgrades. Also any others that change game state
 func purchased_effect(_associated_character:String):
 	pass
+#for upgrades that use purchased_effect
+func deactivated_effect(_associated_character:String):
+	pass
 #FOR ABILITY_MOD upgrades.
 func apply_to_battle_action(_battle_action:BattleAction):
 	pass
