@@ -141,6 +141,7 @@ func _on_pressed():
 		#toggle activation
 		if active:
 			GameState.deactivate_upgrade(skill_tree.associated_character,associated_upgrade.name_id)
+			associated_upgrade.deactivated_effect(skill_tree.associated_character)
 			active = false
 			_unglow()
 			
@@ -164,8 +165,8 @@ func _on_pressed():
 	GameState.activate_upgrade(skill_tree.associated_character,associated_upgrade.name_id)
 	if associated_upgrade.type == Upgrade.UpgradeType.ABILITY_UNLOCK:
 		GameState.unlock_ability(skill_tree.associated_character,associated_upgrade.associated_ability)
-	if !toggable:
-		associated_upgrade.purchased_effect(skill_tree.associated_character)
+	
+	associated_upgrade.purchased_effect(skill_tree.associated_character)
 	check_availability()#I just do this to update description, probably change it later
 
 #this is just so I can see the connections better in the editor
