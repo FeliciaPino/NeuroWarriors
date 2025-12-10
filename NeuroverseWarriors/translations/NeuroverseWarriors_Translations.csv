@@ -151,6 +151,8 @@ SKILL_TREE_UPGRADE_UNLOCK_SHOCK_NAME,Shock,Electroshock
 SKILL_TREE_UPGRADE_UNLOCK_SHOCK_DESCRIPTION,Unlocks the Shock ability. It deals a good amount a damage and paralyzes enemies,"Desbloquea la abilidad Electroshock, hace daño y paraliza enemigos"
 SKILL_TREE_UPGRADE_HORNS_NAME,Horns,Cuernos
 SKILL_TREE_UPGRADE_HORNS_DESCRIPTION,Increases attack by {amount}, Aumenta el daño en {amount}.
+SKILL_TREE_UPGRADE_SHARP_HORNS_NAME,Sharp Horns, Cuernos Afilados
+SKILL_TREE_UPGRADE_SHARP_HORNS_DESCRIPTION, Damages entities that get close., Daña a entidades que se acercan.
 SKILL_TREE_UPGRADE_INCREASE_MAX_EQUIPPED_ABILITIES_DESCRIPTION, Increases the amount of abilities you can bring to battle by {amount}.,Aumenta la cantidad de habilidades que puedes llevar a la batalla en {amount}.
 CREDITS_LINE_1,Congratulations! You have finished the game.,Felicitaciones! Haz completado el juego.¡Felicitaciones! Has completado el juego.
 CREDITS_LINE_2,Credits:,Créditos:

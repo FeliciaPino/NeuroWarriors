@@ -136,7 +136,7 @@ func unlock_ability(character_name:String,ability_name:String):
 			equipped.append(ability_name)
 		else:
 			unequipped.append(ability_name)
-			
+#returns the _names_ of the battle actions, not instances
 func get_character_equiped_battle_actions(character_name:String):
 	if !characters_save_info.has(character_name):
 		print_debug("ERROR! There is no character named ",character_name)

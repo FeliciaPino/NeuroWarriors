@@ -25,8 +25,8 @@ func get_battle_action_scene(ability_name:String) -> PackedScene:
 #returns an instance of the upgrade by name
 func get_upgrade(upgrade_name:String) -> Upgrade:
 	return load("res://scripts/upgrades/"+upgrade_name+".gd").new()
-	
-	
+func get_passive_ability(passive_name:String) -> PassiveAbility:
+	return load("res://scripts/pasive_abilities/"+passive_name+".gd").new()
 #called when instantiating a character, to modify their stats according to their level
 func apply_level(battle_entity:BattleEntity,level:int)->void:
 	battle_entity.maxHealth += int(level*battle_entity.maxHealth*0.02)
