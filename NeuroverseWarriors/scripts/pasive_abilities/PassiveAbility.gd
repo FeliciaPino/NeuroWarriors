@@ -8,4 +8,5 @@ func _ready() -> void:
 	if game_manager == null:
 		await get_tree().process_frame
 		game_manager = get_tree().get_first_node_in_group("GameManager")
-		
+func get_description():
+	pass

@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://ove21v1mtnfj"]
+[gd_scene load_steps=13 format=3 uid="uid://ove21v1mtnfj"]
 
 [ext_resource type="PackedScene" uid="uid://bmaxfmfr4tb2k" path="res://scenes/ui/skill_tree/skill_tree.tscn" id="1_dq5sp"]
 [ext_resource type="Shader" uid="uid://dtbmonj6mwmos" path="res://assets/shaders/rotate.gdshader" id="2_15atm"]
 [ext_resource type="Texture2D" uid="uid://pycydsl7s3be" path="res://assets/ui/skill_tree/turt.png" id="2_s7fqy"]
+[ext_resource type="PackedScene" uid="uid://egb0qrfm4whr" path="res://scenes/ui/skill_tree/skill_tree_node.tscn" id="4_g0ukb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g0ukb"]
 shader = ExtResource("2_15atm")
@@ -194,3 +195,11 @@ modulate = Color(0.49045002, 0.85, 0.45049998, 0.18431373)
 offset_right = 512.0
 offset_bottom = 512.0
 texture = SubResource("NoiseTexture2D_eq5r8")
+
+[node name="SkillTreeNode" parent="." index="11" instance=ExtResource("4_g0ukb")]
+layout_mode = 0
+offset_left = 177.0
+offset_top = 125.0
+offset_right = 271.0
+offset_bottom = 219.0
+associated_upgrade_name = "stronger_brew"

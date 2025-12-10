@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://eresikko6340"]
+[gd_scene load_steps=15 format=3 uid="uid://eresikko6340"]
 
 [ext_resource type="PackedScene" uid="uid://bmaxfmfr4tb2k" path="res://scenes/ui/skill_tree/skill_tree.tscn" id="1_bckr6"]
 [ext_resource type="Texture2D" uid="uid://brgdkp26edrfo" path="res://assets/ui/skill_tree/evil_spinny_thingy.png" id="2_cfuaj"]
 [ext_resource type="Shader" uid="uid://dtbmonj6mwmos" path="res://assets/shaders/rotate.gdshader" id="2_i2klt"]
 [ext_resource type="PackedScene" uid="uid://egb0qrfm4whr" path="res://scenes/ui/skill_tree/skill_tree_node.tscn" id="4_1i2cr"]
+[ext_resource type="Texture2D" uid="uid://dpjgjw8t7drb" path="res://assets/ui/battle_action_icons/default.png" id="5_kqdrd"]
 [ext_resource type="Texture2D" uid="uid://bc72urs3vp10d" path="res://assets/ui/upgrade_icons/horns.png" id="5_nq662"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1i2cr"]
@@ -162,6 +163,7 @@ offset_left = 128.0
 offset_top = 128.0
 offset_right = 222.0
 offset_bottom = 222.0
+icon = ExtResource("5_kqdrd")
 associated_upgrade_name = "spiky"
 level_requirement = 3
 price = 15

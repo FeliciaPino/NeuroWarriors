@@ -8,7 +8,11 @@ enum UpgradeType {ENTITY_MOD,ABILITY_UNLOCK,ABILITY_MOD,PASSIVE_ABILITY,OTHER}
 #OTHER :none of the above
 var name_id:String #The unique string identifier of this upgrade. 
 var display_name:String #the name, but translated into the apropiate language
-var description:String
+var description:String="":
+	get():
+		if description=="" and type == UpgradeType.PASSIVE_ABILITY:
+			description = CharacterDatabase.get_passive_ability(associated_ability).get_description()
+		return description
 var type:UpgradeType
 
 
@@ -21,5 +25,5 @@ func apply_to_entity(_entity:BattleEntity):
 func purchased_effect(_associated_character:String):
 	pass
 #FOR ABILITY_MOD upgrades.
-func apply_to_battle_action(_battle_action):
+func apply_to_battle_action(_battle_action:BattleAction):
 	pass

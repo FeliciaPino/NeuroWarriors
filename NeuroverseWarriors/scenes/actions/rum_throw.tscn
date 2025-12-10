@@ -57,6 +57,9 @@ _data = {
 
 [node name="RumThrow" instance=ExtResource("1_5mapb")]
 script = ExtResource("1_5rjq5")
+price = 2
+effect_duration = 3
+effect_intensity = 10
 
 [node name="sprite" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_o4my3")
@@ -72,5 +75,5 @@ bus = &"SFX"
 
 [node name="AnimationPlayer" parent="." index="3"]
 libraries = {
-"": SubResource("AnimationLibrary_sqtqw")
+&"": SubResource("AnimationLibrary_sqtqw")
 }

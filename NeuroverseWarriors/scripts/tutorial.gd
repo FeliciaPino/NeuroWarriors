@@ -32,7 +32,6 @@ func _ready() -> void:
 	text = texts[0]
 	short_timer.timeout.connect(_short_timer_timeout)
 	game_manager.selected_action_changed.connect(_a_neuro_button_got_clicked)
-	game_manager.player_turn_ended.connect(_on_player_turn_ended)
 	game_manager.all_actions_finished.connect(_on_action_finished)
 	find_neuro()
 func find_neuro():
@@ -64,10 +63,7 @@ func _short_timer_timeout():
 func _on_action_finished():
 	if index<=3 and neuro_sama.ap!=3:
 		advance(4)
-func _on_player_turn_ended():
-	if index == 3:
-		pass
-		#advance(4)
+
 func advance(new_index=-1):
 	if new_index==-1:
 		index += 1

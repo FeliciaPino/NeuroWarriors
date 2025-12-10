@@ -4,14 +4,9 @@ var poisoned_effect = preload("res://scenes/status_effects/poisoned.tscn")
 
 func _ready() -> void:
 	super._ready()
-	effect_duration = 3
-	action_multiplier = 1
 	action_name = tr("BATTLE_ACTION_RUM_THROW_NAME")
 	description = tr("BATTLE_ACTION_RUM_THROW_DESCRIPTION").format({multiplier=action_multiplier,stat=tr("BATTLESTAT_ATTACK"), turn_amount=effect_duration})
 	verb = tr("BATTLE_ACTION_RUM_THROW_VERB")
-	isMelee = false
-	isPositive = false
-	price = 2
 	animationType = "throw"
 	_validate_values_are_initialized()
 
@@ -21,7 +16,7 @@ func execute (user:BattleEntity, target:BattleEntity):
 	
 func _action_effect()->void:
 	var effect:StatusEffect = poisoned_effect.instantiate()
-	effect.intensity = user.attack
+	effect.intensity = effect_intensity
 	effect.turns_remaining = effect_duration
 	target.add_effect(effect)
 	if target.entity_name == "Vedal":
