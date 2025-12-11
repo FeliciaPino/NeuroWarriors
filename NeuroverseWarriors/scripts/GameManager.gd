@@ -164,7 +164,18 @@ func battle_entity_grabbed_focus(focused_entity:BattleEntity):
 				target_info_panel.set_entity_displayed(focused_entity)
 	else:
 		target_info_panel.set_entity_displayed(focused_entity)
-
+func can_player_do_something():
+	var ans = false
+	for p in party:
+		ans = ans or p.are_there_posible_action()
+	return ans
+func pulsate_next_turn_button():
+	var pulse_tween = create_tween().set_loops()
+	pulse_tween.tween_property(end_turn_buttton, "modulate", Color(0.5,0.5,0.5), 0.4).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	pulse_tween.tween_property(end_turn_buttton, "modulate", Color(1,1,1), 0.4).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	await end_turn_buttton.pressed
+	pulse_tween.kill()
+	end_turn_buttton.modulate = Color.WHITE
 func do_an_action(user:BattleEntity, action:BattleAction, target:BattleEntity):
 	if not user or not target:
 		return
@@ -181,8 +192,11 @@ func _on_action_finished(action,user,target):
 	if is_game_over: return
 	update_battle_entities()
 	if check_game_end(): return
-
-
+	#check if the player can do anything (to see if should highlight button)
+	if !can_player_do_something() and is_player_turn:
+		await get_tree().create_timer(4).timeout
+		if !can_player_do_something() and is_player_turn:
+			pulsate_next_turn_button()
 func _on_pending_actions_updated() -> void:
 	instruction_label.visible = true
 	if pending_actions <0:
