@@ -9,7 +9,7 @@ class_name GameManager
 @onready var end_turn_buttton:Button = %EndTurnButton
 @onready var character_info_panel:BattleEntityInfoPanel = %CharacterInfoPanel
 @onready var target_info_panel:BattleEntityInfoPanel = %TargetInfoPanel
-@onready var animation_player = $AnimationPlayer
+@onready var animation_player:AnimationPlayer = $AnimationPlayer
 @onready var end_screen = %EndScreen
 @onready var return_to_map_button:Button = %Return
 @onready var background = $Background
@@ -86,8 +86,10 @@ func end_turn():
 	end_turn_buttton.disabled = true
 	if is_game_over or not is_player_turn: return
 	update_battle_entities()
-	print_debug("turn ended")
 	is_player_turn = false
+	animation_player.play("end_player_turn")
+	
+	await animation_player.animation_finished
 	for foe in foes: foe.set_up_at_start_of_turn()
 	turn_started.emit(false)#enemy turn started
 	enemy_turn()
@@ -122,7 +124,7 @@ func set_selected_action(action: BattleAction):
 		return
 	instruction_label.text = tr("BATTLE_TARGET_SELECT_HINT").format({verb=selected_action.verb})
 	instruction_label.visible = true
-	
+	instruction_label.pivot_offset = instruction_label.size/2
 	if action.isPositive:
 		if selected_character:#this should always be true when selecting an action
 			selected_character.button.grab_focus()
@@ -288,6 +290,12 @@ func _unhandled_input(event: InputEvent) -> void:
 			pass
 		
 func _input(event: InputEvent) -> void:
+	#for impatient players, skips to the end of the turn animation thingy
+	if animation_player.is_playing()\
+	 and animation_player.current_animation=="end_player_turn"\
+	 and (event is InputEventMouseButton or event is InputEventKey):
+		animation_player.seek(max(animation_player.current_animation_length-0.15,animation_player.current_animation_position))
+	
 	if is_mouse_click_R(event) || event.is_action_pressed("ui_cancel"):#clear selection
 		for f in foes: f.close_menu()
 		set_selected_action(null)

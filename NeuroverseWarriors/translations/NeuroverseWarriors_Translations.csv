@@ -43,6 +43,7 @@ TUTORIAL_5,Status effects are visible right bellow the health bar. They have an 
 BATTLE_TARGET_SELECT_HINT,Select who to {verb}.,Selecciona a quién {verb}.
 BATTLE_NEXT_TURN_BUTTON,End turn,Terminar turno
 BATTLE_YOUR_TURN,Your turn,Tu turno
+BATTLE_ENEMY_TURN,Enemy turn,Turno enemigos
 BATTLE_VICTORY,"Victory, progress saved.","Victoria, progreso guardado."
 BATTLE_LEVELED_UP,Leveled Up!,Nivel Aumentado!
 BATTLE_RETURN_TO_MAP,Return to map,Volver al mapa

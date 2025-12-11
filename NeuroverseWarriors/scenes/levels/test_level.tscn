@@ -28,7 +28,6 @@ texture_filter = 0
 position = Vector2(-178, 353)
 health = 1
 attack = 100
-speed = 30
 
 [node name="RobotPunch" parent="Entity_manager/NeuroSama" index="8" instance=ExtResource("4_hfwtw")]
 
@@ -41,7 +40,10 @@ maxHealth = 600
 
 [node name="Evil" parent="Entity_manager" index="2" instance=ExtResource("5_oeaud")]
 texture_filter = 0
-speed = 42343
+position = Vector2(-140, 192)
+challenge_rating = 0.0
+defense = 0
+is_stationary = false
 
 [node name="Pipes" parent="Entity_manager/Evil" index="8" instance=ExtResource("7_2mu0v")]
 
@@ -51,7 +53,7 @@ speed = 42343
 
 [node name="Vedal" parent="Entity_manager" index="3" instance=ExtResource("6_t7qt4")]
 texture_filter = 0
-speed = 30
+position = Vector2(-332, 412)
 
 [node name="Heart" parent="Entity_manager/Vedal" index="8" instance=ExtResource("9_2mu0v")]
 
@@ -59,11 +61,14 @@ speed = 30
 
 [node name="Anny" parent="Entity_manager" index="4" instance=ExtResource("10_2mu0v")]
 texture_filter = 0
+position = Vector2(-301, 265)
 
 [node name="monocopter" parent="Entity_manager" index="5" instance=ExtResource("12_a5rnb")]
 texture_filter = 0
+position = Vector2(1372, 387)
 challenge_rating = 3.0
 
 [node name="offensiveDrone" parent="Entity_manager" index="6" instance=ExtResource("13_fqldq")]
 texture_filter = 0
+position = Vector2(1416, 376)
 challenge_rating = 15.0

@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://nxqruldg0w6s" path="res://assets/explosion.png" id="5_qnmwp"]
 [ext_resource type="PackedScene" uid="uid://cto77pwu6noeu" path="res://scenes/ui/ap_display.tscn" id="5_wqjtl"]
 [ext_resource type="AudioStream" uid="uid://fjhqrwyqj5im" path="res://addons/sfx/Retro Explosion Short 15.wav" id="6_0htqn"]
-[ext_resource type="AudioStream" uid="uid://c5cnketelr6mc" path="res://addons/sfx/Retro Blop 18.wav" id="7_5e4t5"]
+[ext_resource type="AudioStream" uid="uid://bymhdcicx5ap3" path="res://assets/audio/homemade/SFX/Woosh.mp3" id="8_ogrof"]
 [ext_resource type="AudioStream" uid="uid://lnqaagn01gqm" path="res://assets/audio/homemade/SFX/bwoaa.wav" id="9_deo4h"]
 [ext_resource type="AudioStream" uid="uid://b22eiqdfnoyr" path="res://addons/sfx/Retro FootStep 03.wav" id="10_5ppgc"]
 
@@ -227,8 +227,8 @@ volume_db = -10.0
 bus = &"SFX"
 
 [node name="menu_up" type="AudioStreamPlayer" parent="sound_effects"]
-stream = ExtResource("7_5e4t5")
-volume_db = -18.0
+stream = ExtResource("8_ogrof")
+volume_db = -10.0
 pitch_scale = 0.8
 bus = &"SFX"
 

@@ -1,71 +1,175 @@
-[gd_scene load_steps=13 format=3 uid="uid://b82kauwohbvun"]
+[gd_scene load_steps=18 format=3 uid="uid://b82kauwohbvun"]
 
 [ext_resource type="Script" uid="uid://mmu44ppqby8v" path="res://scripts/GameManager.gd" id="1_5lrye"]
 [ext_resource type="PackedScene" uid="uid://c0cerfjhi148m" path="res://scenes/entity_manager.tscn" id="3_iprcq"]
 [ext_resource type="PackedScene" uid="uid://dswe4b60aebu5" path="res://scenes/ui/battle_entity_info.tscn" id="4_riktp"]
+[ext_resource type="AudioStream" uid="uid://bymhdcicx5ap3" path="res://assets/audio/homemade/SFX/Woosh.mp3" id="5_7rg7d"]
 [ext_resource type="PackedScene" uid="uid://f0gydn2c2inx" path="res://scenes/ui/tungesten_counter.tscn" id="5_a1osm"]
 [ext_resource type="Script" uid="uid://cc20vrfd222y3" path="res://scripts/pasive_abilities/PassiveManager.gd" id="6_limtx"]
 [ext_resource type="PackedScene" uid="uid://d4f0gy2sw12hv" path="res://scenes/ui/end_screen.tscn" id="9_s08fr"]
 
 [sub_resource type="Animation" id="Animation_3mlxk"]
 length = 0.001
-tracks/0/type = "bezier"
+tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/TurnLabel:position:y")
+tracks/0/path = NodePath("CanvasLayer/EndScreen:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(5, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/TurnLabel:modulate:a")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("CanvasLayer/EndScreen:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(448, 14)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/EndScreen:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/EndScreen:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("CanvasLayer/EndScreen:scale")
+tracks/3/path = NodePath("CanvasLayer/TurnLabel:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(1188, 80)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("CanvasLayer/EndScreen:visible")
+tracks/4/path = NodePath("CanvasLayer/TurnLabel:text")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
+"values": ["BATTLE_YOUR_TURN"]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CanvasLayer/TurnLabel/AudioStreamPlayer:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
 "values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CanvasLayer/TurnLabel/AudioStreamPlayer:pitch_scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.56]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CanvasLayer/TurnLabel:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_limtx"]
+resource_name = "end_player_turn"
+length = 1.6
+step = 0.0538
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/TurnLabel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.21052632, 0.68421054, 1.2631578, 1.5789474),
+"transitions": PackedFloat32Array(0.3535533, 0.3186403, 3.8637445, 1.6245056, 2),
+"update": 0,
+"values": [Vector2(258.998, -30), Vector2(258.998, 60), Vector2(258.998, 50), Vector2(258.998, 60), Vector2(258.998, -30)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/TurnLabel:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["BATTLE_ENEMY_TURN"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/TurnLabel/AudioStreamPlayer:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.2631578),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/TurnLabel/AudioStreamPlayer:pitch_scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.3157895),
+"transitions": PackedFloat32Array(1, 0.8705506),
+"update": 0,
+"values": [0.36, 0.26]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer/TurnLabel:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2631579, 1.2105263, 1.5789474),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 0.82, 0.82, 0), Color(1, 0.81960785, 0.81960785, 1), Color(1, 0.81960785, 0.81960785, 1), Color(1, 0.82, 0.82, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_yj4cw"]
@@ -110,34 +214,73 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_puse5"]
 resource_name = "start_player_turn"
-length = 2.0
+length = 1.6
 step = 0.0538
-tracks/0/type = "bezier"
+tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/TurnLabel:position:y")
+tracks/0/path = NodePath("CanvasLayer/TurnLabel:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(5, -0.25, 0, 0.25, 0, 80, -0.25, 0, 0.25, 0, 80, -0.25, 0, 0.25, 0, 160, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0.517541, 0.950874, 1.21754, 1.68421)
+"times": PackedFloat32Array(0, 0.21052632, 0.68421054, 1.3684211, 1.5789474),
+"transitions": PackedFloat32Array(0.3535533, 0.3186403, 3.8637445, 1.4640862, 2),
+"update": 0,
+"values": [Vector2(258.998, -30), Vector2(258.998, 60), Vector2(258.998, 50), Vector2(258.998, 60), Vector2(258.998, -30)]
 }
-tracks/1/type = "bezier"
+tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/TurnLabel:modulate:a")
+tracks/1/path = NodePath("CanvasLayer/TurnLabel:text")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0.517541, 0.950874, 1.21754, 1.68421)
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["BATTLE_YOUR_TURN"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/TurnLabel/AudioStreamPlayer:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.2631578),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/TurnLabel/AudioStreamPlayer:pitch_scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.3157895),
+"transitions": PackedFloat32Array(1, 0.8705506),
+"update": 0,
+"values": [0.36, 0.26]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer/TurnLabel:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2631579, 1.2105263, 1.5263158),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.77, 1, 1, 0), Color(0.77, 1, 1, 1), Color(0.76862746, 1, 1, 1), Color(0.77, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xsa6o"]
 _data = {
 &"RESET": SubResource("Animation_3mlxk"),
+&"end_player_turn": SubResource("Animation_limtx"),
 &"show_end_screen": SubResource("Animation_yj4cw"),
 &"start_player_turn": SubResource("Animation_puse5")
 }
@@ -149,6 +292,43 @@ unicode = 107
 
 [sub_resource type="Shortcut" id="Shortcut_di83f"]
 events = [SubResource("InputEventKey_fvtbi")]
+
+[sub_resource type="Animation" id="Animation_7rg7d"]
+resource_name = "new_animation"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [-0.03490658503988659, 0.03490658503988659]
+}
+
+[sub_resource type="Animation" id="Animation_xmnyv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xmnyv"]
+_data = {
+&"RESET": SubResource("Animation_xmnyv"),
+&"new_animation": SubResource("Animation_7rg7d")
+}
 
 [node name="Game" type="Node2D"]
 texture_filter = 1
@@ -194,9 +374,16 @@ offset_top = 50.0
 offset_right = 20.0
 offset_bottom = 73.0
 grow_horizontal = 2
+pivot_offset = Vector2(90, 17)
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 24
 horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/InstructionLabel"]
+libraries = {
+&"": SubResource("AnimationLibrary_xmnyv")
+}
+autoplay = "new_animation"
 
 [node name="Return" type="Button" parent="CanvasLayer"]
 unique_name_in_owner = true
@@ -269,15 +456,25 @@ modulate = Color(1, 1, 1, 0)
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -317.0
-offset_top = 5.0
-offset_right = 317.0
-offset_bottom = 93.0
+offset_left = 612.0
+offset_top = 80.0
+offset_right = 1246.0037
+offset_bottom = 168.00125
 grow_horizontal = 2
-theme_override_constants/outline_size = 20
-theme_override_font_sizes/font_size = 48
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.78, 0.78, 0.78, 0.28235295)
+theme_override_colors/font_outline_color = Color(0.2, 0.013333333, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 20
+theme_override_font_sizes/font_size = 32
 text = "BATTLE_YOUR_TURN"
 horizontal_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer/TurnLabel"]
+stream = ExtResource("5_7rg7d")
+volume_db = -8.0
+pitch_scale = 0.56
+bus = &"SFX"
 
 [node name="Tungesten_counter" parent="CanvasLayer" instance=ExtResource("5_a1osm")]
 unique_name_in_owner = true

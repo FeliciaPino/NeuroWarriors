@@ -256,7 +256,7 @@ func update_menu_actions():
 			new_button.disabled = true
 		action_menu.add_child(new_button)
 	await get_tree().process_frame
-	if is_menu_opened:
+	if is_menu_opened and action_menu.get_child_count()>0:
 		print_debug(str("Entity menu updated while open, giving focus to ",action_menu.get_child(0)))
 		action_menu.get_child(0).grab_focus()
 func go_to_your_spot()->void:
@@ -283,8 +283,8 @@ func open_menu():
 	update_ap_label_text()
 	
 	is_menu_opened = true
-	if is_player_controlled:
-		sfx_menu_up.play()
+	sfx_menu_up.pitch_scale = randfn(1,0.05)
+	sfx_menu_up.play()
 	var tween = get_tree().create_tween().set_parallel()
 	tween.tween_property(menu, "modulate", Color(1,1,1,1) , 0.02)
 	tween.tween_property(menu, "scale", Vector2(1,1), 0.2)
@@ -296,6 +296,8 @@ func close_menu():
 	if not is_menu_opened: return
 	print_debug(str(self,": closing menu"))
 	is_menu_opened = false
+	sfx_menu_up.pitch_scale = randfn(0.8,0.05)
+	sfx_menu_up.play()
 	var focused = get_viewport().gui_get_focus_owner()
 	if focused != null and menu.is_ancestor_of(get_viewport().gui_get_focus_owner()):
 		button.grab_focus()
