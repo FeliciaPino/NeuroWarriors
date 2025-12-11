@@ -183,22 +183,10 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("HealthBar:visible")
+tracks/6/path = NodePath("sound_effects/explosion:playing")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0.1),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("sound_effects/explosion:playing")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -271,7 +259,6 @@ challenge_rating = 1.5
 entity_name = "Healing Drone"
 entity_description = "It's the healing drone. It uh, it heals. n stuff"
 defense = 3
-speed = 3
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="visual" index="0"]
 y_sort_enabled = true
