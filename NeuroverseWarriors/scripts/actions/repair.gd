@@ -6,15 +6,6 @@ func _ready() -> void:
 	action_name = tr("BATTLE_ACTION_REPAIR_NAME")
 	description = tr("BATTLE_ACTION_REPAIR_DESCRIPTION").format({amount=20})
 	verb = tr("BATTLE_ACTION_REPAIR_VERB")
-	isMelee = false
-	isPositive = true
-	price = 2
-	animationType = "throw"
-	_validate_values_are_initialized()
 
-func execute (user:BattleEntity, target:BattleEntity):
-	super.execute(user,target)
-	_projectile_action(600)
-	
 func _action_effect()->void:
-	target.heal(20)
+	current_target.heal(int(20*action_multiplier))

@@ -128,6 +128,9 @@ _data = {
 
 [node name="Slap" instance=ExtResource("1_wjjuq")]
 script = ExtResource("2_ifd2y")
+price = 1
+action_multiplier = 0.5
+animationType = "throw"
 
 [node name="sprite" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_8pn74")
@@ -139,5 +142,5 @@ pitch_scale = 0.7
 
 [node name="AnimationPlayer" parent="." index="2"]
 libraries = {
-"": SubResource("AnimationLibrary_6omvi")
+&"": SubResource("AnimationLibrary_6omvi")
 }

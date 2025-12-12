@@ -3,18 +3,9 @@ extends BattleAction
 
 func _ready() -> void:
 	super._ready()
-	action_multiplier
 	action_name = tr("BATTLE_ACTION_LASER_SHOOT_NAME")
 	description = tr("BATTLE_ACTION_LASER_SHOOT_DESCRIPTION").format({multiplier=action_multiplier,stat=tr("BATTLESTAT_ATTACK")})
 	verb = tr("BATTLE_ACTION_LASER_SHOOT_VERB")
-	isMelee = false
-	isPositive = false
-	price = 1
-	animationType = "effect"
-	_validate_values_are_initialized()
 
-func execute (user:BattleEntity, target:BattleEntity):
-	super.execute(user,target)
-	_projectile_action(2500)
 func _action_effect()->void:
-	target.receive_damage(user.attack)
+	current_target.receive_damage(user.attack)

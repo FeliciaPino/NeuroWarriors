@@ -82,27 +82,13 @@ tracks/1/keys = {
 "update": 1,
 "values": [true]
 }
-tracks/2/type = "method"
+tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath(".")
+tracks/2/path = NodePath("sprite:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.4),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [&"action_effect"],
-"method": &"emit_signal"
-}]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("sprite:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
@@ -117,6 +103,12 @@ _data = {
 
 [node name="forceField" instance=ExtResource("1_c7syv")]
 script = ExtResource("1_l4pmk")
+reach = 2
+isPositive = true
+price = 2
+effect_duration = 2
+effect_intensity = 10
+animationType = "effect"
 
 [node name="sprite" parent="." index="0"]
 modulate = Color(1, 1, 1, 0.6)

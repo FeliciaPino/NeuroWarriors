@@ -410,6 +410,9 @@ use_parent_material = true
 sprite_frames = SubResource("SpriteFrames_6hsqf")
 autoplay = "default"
 
+[node name="Eyes" type="Node2D" parent="visual/AnimatedSprite2D" index="0"]
+position = Vector2(23, 8)
+
 [node name="laserShot" parent="Actions" index="0" instance=ExtResource("5_vic0x")]
 
 [node name="generic_meele" parent="Actions" index="1" instance=ExtResource("4_ak1p3")]

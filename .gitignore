@@ -3,5 +3,7 @@ NeuroverseWarriors/.godot/
 NeuroverseWarriors/android/
 NeuroverseWarriors/export_presets.cfg
 
+*.tmp
+
 #obsidian
 Obsidian_vault/.obsidian/

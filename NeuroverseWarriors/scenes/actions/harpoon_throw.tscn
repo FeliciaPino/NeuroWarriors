@@ -26,6 +26,10 @@ _data = {
 
 [node name="HarpoonThrow" instance=ExtResource("1_qsrqi")]
 script = ExtResource("1_iyune")
+reach = 1
+price = 2
+action_multiplier = 1.5
+projectile_speed = 600.0
 
 [node name="sprite" parent="." index="0"]
 texture_filter = 2
@@ -37,5 +41,5 @@ volume_db = -15.0
 
 [node name="AnimationPlayer" parent="." index="2"]
 libraries = {
-"": SubResource("AnimationLibrary_avu8r")
+&"": SubResource("AnimationLibrary_avu8r")
 }

@@ -9,15 +9,7 @@ func _ready() -> void:
 	action_name = tr("BATTLE_ACTION_SUMMON_DRONE_NAME")
 	description = tr("BATTLE_ACTION_SUMMON_DRONE_DESCRIPTION")
 	verb = tr("BATTLE_ACTION_SUMMON_DRONE_VERB")
-	isMelee = false
-	isPositive = true
-	price = 6
-	animationType = "effect"
-	_validate_values_are_initialized()
 
-func execute (user:BattleEntity, target:BattleEntity):
-	super.execute(user,target)
-	_ranged_non_projectile_action()
 func _action_effect()->void:
 	var random_number = randi()%100
 	var new_guy:BattleEntity

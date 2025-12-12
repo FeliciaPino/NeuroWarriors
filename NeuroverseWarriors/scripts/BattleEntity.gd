@@ -39,6 +39,8 @@ signal just_freaking_died_right_now(entity:BattleEntity)
 signal somebody_entered_my_personal_space(entity:BattleEntity)
 signal status_effect_applied(status:StatusEffect)
 signal status_effect_finished(status:StatusEffect)
+@warning_ignore("unused_signal")
+signal action_impact #Emited by animations when it's time to perform the battle action's effects
 var mySpot:Vector2 #where the entity returns after moving and stuff. Y'know, their spot
 var is_facing_right:bool = true
 var alive:bool = true
@@ -149,7 +151,7 @@ func receive_damage(attack_power:int):
 	make_sound("hit", true)
 
 #makes some info be thrown from the entity. I'm thinking mostly using it to indicate damage
-func throw_text(text:String, color:Color = Color.WHITE, size = 2):
+func throw_text(text:String, color:Color = Color.WHITE, size = 2.0):
 	var label = Label.new()
 	label.modulate = color
 	self.add_child(label)
@@ -238,7 +240,7 @@ func update_ap_label_text():
 		orb.get_child(0).scale = Vector2.ZERO
 		get_tree().create_tween().tween_property(orb.get_child(0),"scale",Vector2(0.5,0.5),0.2)
 		await get_tree().create_timer(0.1).timeout
-	while orb_count>ap:
+	while orb_count>max(ap,0):
 		var orb = ap_orbs.get_child(orb_count+1)
 		get_tree().create_tween().tween_property(orb.get_child(0),"scale",Vector2.ZERO,0.2).finished.connect(orb.queue_free)
 		orb_count -= 1

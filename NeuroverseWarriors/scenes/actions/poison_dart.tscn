@@ -43,6 +43,11 @@ _data = {
 
 [node name="PoisonDart" instance=ExtResource("1_03j1x")]
 script = ExtResource("2_6purc")
+reach = 1
+price = 4
+action_multiplier = 0.2
+effect_duration = 4
+effect_intensity = 1
 
 [node name="sprite" parent="." index="0"]
 texture_filter = 1
@@ -55,5 +60,5 @@ stream = ExtResource("4_6kwt5")
 
 [node name="AnimationPlayer" parent="." index="2"]
 libraries = {
-"": SubResource("AnimationLibrary_e7ixk")
+&"": SubResource("AnimationLibrary_e7ixk")
 }

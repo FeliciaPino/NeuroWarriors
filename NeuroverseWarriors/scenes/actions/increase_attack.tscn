@@ -117,6 +117,11 @@ _data = {
 
 [node name="IncreaseAttack" instance=ExtResource("1_6y7q3")]
 script = ExtResource("2_ljspx")
+reach = 2
+isPositive = true
+price = 2
+effect_duration = 2
+effect_intensity = 10
 
 [node name="sprite" parent="." index="0"]
 modulate = Color(1, 1, 1, 0)
@@ -128,5 +133,5 @@ volume_db = -15.0
 
 [node name="AnimationPlayer" parent="." index="2"]
 libraries = {
-"": SubResource("AnimationLibrary_s1525")
+&"": SubResource("AnimationLibrary_s1525")
 }

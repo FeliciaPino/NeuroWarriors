@@ -81,39 +81,25 @@ tracks/0/keys = {
 "update": 1,
 "values": [true]
 }
-tracks/1/type = "method"
+tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".")
+tracks/1/path = NodePath("sprite:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.5),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [&"action_effect"],
-"method": &"emit_signal"
-}]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("sprite:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("sprite:flip_h")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("sprite:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.166667, 0.366667, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
@@ -128,12 +114,17 @@ _data = {
 
 [node name="Shock" instance=ExtResource("1_4r42l")]
 script = ExtResource("1_k7ikc")
+reach = 2
+price = 4
+action_multiplier = 2.0
+effect_duration = 2
+effect_intensity = 1
 
 [node name="sprite" parent="." index="0"]
 modulate = Color(0.878431, 0.956863, 1, 1)
 sprite_frames = SubResource("SpriteFrames_3wj4k")
 autoplay = "default"
-frame_progress = 0.247953
+frame_progress = 0.84884435
 
 [node name="sound" parent="." index="1"]
 stream = ExtResource("4_t876y")
@@ -141,5 +132,5 @@ volume_db = -10.0
 
 [node name="AnimationPlayer" parent="." index="2"]
 libraries = {
-"": SubResource("AnimationLibrary_55von")
+&"": SubResource("AnimationLibrary_55von")
 }

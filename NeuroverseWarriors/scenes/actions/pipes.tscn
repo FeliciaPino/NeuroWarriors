@@ -1,30 +1,30 @@
-[gd_scene load_steps=7 format=3 uid="uid://c5ykioygv4mrj"]
+[gd_scene load_steps=9 format=3 uid="uid://c5ykioygv4mrj"]
 
 [ext_resource type="PackedScene" uid="uid://c0p02mr1a5wep" path="res://scenes/actions/BattleAction.tscn" id="1_jy8vj"]
 [ext_resource type="Script" uid="uid://ciravs1ibbwim" path="res://scripts/actions/pipes.gd" id="2_13bvw"]
 [ext_resource type="AudioStream" uid="uid://ulsx6bs1jbvr" path="res://assets/audio/SFX/metal-pipe-clang.mp3" id="3_meww8"]
+[ext_resource type="Texture2D" uid="uid://deo5j8f3dp0ge" path="res://assets/ui/skill_tree/pipe.png" id="3_w35y6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nbwwv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_w35y6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="Animation" id="Animation_hoge8"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("sound2:playing")
+tracks/0/path = NodePath("sound:playing")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("sound:playing")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -34,55 +34,17 @@ tracks/1/keys = {
 [sub_resource type="Animation" id="Animation_qteqj"]
 resource_name = "animation"
 length = 1.95
-tracks/0/type = "method"
+tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".")
+tracks/0/path = NodePath("sound:playing")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.3, 0.7, 1.1, 1.4, 1.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"values": [{
-"args": [&"action_effect"],
-"method": &"emit_signal"
-}, {
-"args": [],
-"method": &"make_user_play_animation"
-}, {
-"args": [&"action_effect"],
-"method": &"emit_signal"
-}, {
-"args": [],
-"method": &"make_user_play_animation"
-}, {
-"args": [&"action_effect"],
-"method": &"emit_signal"
-}]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("sound2:playing")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.7),
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("sound:playing")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bawqv"]
@@ -93,6 +55,14 @@ _data = {
 
 [node name="Pipes" instance=ExtResource("1_jy8vj")]
 script = ExtResource("2_13bvw")
+price = 3
+action_multiplier = 0.75
+hits = 3
+animationType = "throw"
+
+[node name="sprite" parent="." index="0"]
+rotation = -0.94746506
+sprite_frames = SubResource("SpriteFrames_nbwwv")
 
 [node name="sound" parent="." index="1"]
 stream = ExtResource("3_meww8")

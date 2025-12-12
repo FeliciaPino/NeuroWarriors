@@ -56,6 +56,9 @@ _data = {
 
 [node name="RobotPunch" instance=ExtResource("1_f5awo")]
 script = ExtResource("1_v63vm")
+price = 2
+action_multiplier = 1.5
+animationType = "attack"
 
 [node name="sound" parent="." index="1"]
 stream = ExtResource("2_lc6iq")

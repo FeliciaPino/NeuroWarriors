@@ -56,6 +56,8 @@ _data = {
 
 [node name="GenericMelee" instance=ExtResource("1_06rwy")]
 script = ExtResource("1_sh0rd")
+price = 2
+animationType = "attack"
 
 [node name="sound" parent="." index="1"]
 stream = ExtResource("3_a20eu")
@@ -63,5 +65,5 @@ volume_db = -8.0
 
 [node name="AnimationPlayer" parent="." index="2"]
 libraries = {
-"": SubResource("AnimationLibrary_pfl2x")
+&"": SubResource("AnimationLibrary_pfl2x")
 }

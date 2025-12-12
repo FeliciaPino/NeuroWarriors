@@ -55,11 +55,14 @@ _data = {
 
 [node name="Repair" instance=ExtResource("1_ewsih")]
 script = ExtResource("2_wna17")
+reach = 1
+isPositive = true
+price = 2
 
 [node name="sprite" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_jysq1")
 
 [node name="AnimationPlayer" parent="." index="2"]
 libraries = {
-"": SubResource("AnimationLibrary_85bc1")
+&"": SubResource("AnimationLibrary_85bc1")
 }

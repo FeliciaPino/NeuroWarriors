@@ -137,7 +137,7 @@ func battleEntityClicked(clicked_entity: BattleEntity):
 	for e in foes: if e != clicked_entity: e.close_menu()
 	for e in party: if e != clicked_entity: e.close_menu()
 	#if there's an action selected, then clicking on an entity executes it.
-	if selected_action:
+	if selected_action and selected_action.target_count == 1:
 		#did an action!
 		var act = selected_action
 		set_selected_action(null)
@@ -183,7 +183,7 @@ func do_an_action(user:BattleEntity, action:BattleAction, target:BattleEntity):
 		action.action_finished.connect(_on_action_finished.bind(action,user,target))
 	print_debug("action started ", action.action_name)
 	pending_actions += 1
-	action.execute(user,target)
+	action.execute(user,[target])
 	
 func _on_action_finished(action,user,target):
 	somebody_finished_an_action.emit(action,user,target)
@@ -275,7 +275,9 @@ func enemy_turn():
 			foes_to_act.erase(foe)
 			continue
 		do_an_action(foe, decision["action"], decision["target"])
+		print(decision["action"],"<- FINNA DO THAT")
 		await decision["action"].action_finished
+		print(decision["action"],"FINISHEDDD")
 		
 	is_player_turn = true
 	start_turn()

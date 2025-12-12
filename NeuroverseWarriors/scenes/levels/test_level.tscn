@@ -1,19 +1,15 @@
-[gd_scene load_steps=15 format=3 uid="uid://by2t4l3fto5ou"]
+[gd_scene load_steps=11 format=3 uid="uid://by2t4l3fto5ou"]
 
 [ext_resource type="PackedScene" uid="uid://b82kauwohbvun" path="res://scenes/levels/game.tscn" id="1_hhncd"]
 [ext_resource type="Texture2D" uid="uid://dl6b6ewaxaxom" path="res://assets/backgrounds/forest_background.png" id="2_tkf6i"]
-[ext_resource type="PackedScene" uid="uid://du1rkche8wapa" path="res://scenes/characters/enemies/drone.tscn" id="4_0l3y4"]
 [ext_resource type="PackedScene" uid="uid://c4ii0hbadpfiv" path="res://scenes/actions/robot_punch.tscn" id="4_hfwtw"]
+[ext_resource type="PackedScene" uid="uid://c5fgqjhldruh1" path="res://scenes/actions/rum_throw.tscn" id="5_6xh4u"]
 [ext_resource type="PackedScene" uid="uid://cmccd8rxiyqab" path="res://scenes/characters/neuro_sama.tscn" id="5_gqr5d"]
-[ext_resource type="PackedScene" uid="uid://b6410g70liyhb" path="res://scenes/characters/evil.tscn" id="5_oeaud"]
-[ext_resource type="PackedScene" uid="uid://uwmc3sf7fq3o" path="res://scenes/characters/vedal.tscn" id="6_t7qt4"]
-[ext_resource type="PackedScene" uid="uid://c5ykioygv4mrj" path="res://scenes/actions/pipes.tscn" id="7_2mu0v"]
-[ext_resource type="PackedScene" uid="uid://cj1hdugjo18ff" path="res://scenes/actions/harpoon_throw.tscn" id="8_hppjq"]
-[ext_resource type="PackedScene" uid="uid://b36hf4y7sydbp" path="res://scenes/actions/heart.tscn" id="9_2mu0v"]
-[ext_resource type="PackedScene" uid="uid://be7cg2gxou6i2" path="res://scenes/characters/anny.tscn" id="10_2mu0v"]
-[ext_resource type="PackedScene" uid="uid://c5qewxuc3kb2w" path="res://scenes/actions/slap.tscn" id="10_jmx14"]
+[ext_resource type="PackedScene" uid="uid://dskhgf30rx6ai" path="res://scenes/actions/shock.tscn" id="6_7x1jh"]
+[ext_resource type="PackedScene" uid="uid://du1rkche8wapa" path="res://scenes/characters/enemies/drone.tscn" id="7_cyt5c"]
+[ext_resource type="PackedScene" uid="uid://b6410g70liyhb" path="res://scenes/characters/evil.tscn" id="9_2mu0v"]
+[ext_resource type="PackedScene" uid="uid://c5ykioygv4mrj" path="res://scenes/actions/pipes.tscn" id="10_jmx14"]
 [ext_resource type="PackedScene" uid="uid://b3wy6ts3hkpc5" path="res://scenes/characters/enemies/monocopter.tscn" id="12_a5rnb"]
-[ext_resource type="PackedScene" uid="uid://cshv2w6p6ypkr" path="res://scenes/characters/enemies/offensive_drone.tscn" id="13_fqldq"]
 
 [node name="Game" instance=ExtResource("1_hhncd")]
 
@@ -26,49 +22,23 @@ texture = ExtResource("2_tkf6i")
 [node name="NeuroSama" parent="Entity_manager" index="0" instance=ExtResource("5_gqr5d")]
 texture_filter = 0
 position = Vector2(-178, 353)
-health = 1
-attack = 100
 
 [node name="RobotPunch" parent="Entity_manager/NeuroSama" index="8" instance=ExtResource("4_hfwtw")]
 
-[node name="Drone2" parent="Entity_manager" index="1" instance=ExtResource("4_0l3y4")]
-texture_filter = 0
-position = Vector2(1374, 322)
-challenge_rating = 20.0
-health = 600
-maxHealth = 600
+[node name="RumThrow" parent="Entity_manager/NeuroSama" index="10" instance=ExtResource("5_6xh4u")]
 
-[node name="Evil" parent="Entity_manager" index="2" instance=ExtResource("5_oeaud")]
-texture_filter = 0
-position = Vector2(-140, 192)
-challenge_rating = 0.0
-defense = 0
-is_stationary = false
+[node name="Shock" parent="Entity_manager/NeuroSama" index="11" instance=ExtResource("6_7x1jh")]
 
-[node name="Pipes" parent="Entity_manager/Evil" index="8" instance=ExtResource("7_2mu0v")]
-
-[node name="RobotPunch" parent="Entity_manager/Evil" index="9" instance=ExtResource("4_hfwtw")]
-
-[node name="HarpoonThrow" parent="Entity_manager/Evil" index="11" instance=ExtResource("8_hppjq")]
-
-[node name="Vedal" parent="Entity_manager" index="3" instance=ExtResource("6_t7qt4")]
-texture_filter = 0
-position = Vector2(-332, 412)
-
-[node name="Heart" parent="Entity_manager/Vedal" index="8" instance=ExtResource("9_2mu0v")]
-
-[node name="Slap" parent="Entity_manager/Vedal" index="10" instance=ExtResource("10_jmx14")]
-
-[node name="Anny" parent="Entity_manager" index="4" instance=ExtResource("10_2mu0v")]
-texture_filter = 0
-position = Vector2(-301, 265)
-
-[node name="monocopter" parent="Entity_manager" index="5" instance=ExtResource("12_a5rnb")]
+[node name="monocopter" parent="Entity_manager" index="1" instance=ExtResource("12_a5rnb")]
 texture_filter = 0
 position = Vector2(1372, 387)
 challenge_rating = 3.0
+health = 160
+maxHealth = 285
 
-[node name="offensiveDrone" parent="Entity_manager" index="6" instance=ExtResource("13_fqldq")]
-texture_filter = 0
-position = Vector2(1416, 376)
-challenge_rating = 15.0
+[node name="Drone" parent="Entity_manager" index="2" instance=ExtResource("7_cyt5c")]
+position = Vector2(1279, 343)
+
+[node name="Evil" parent="Entity_manager" index="3" instance=ExtResource("9_2mu0v")]
+
+[node name="Pipes" parent="Entity_manager/Evil" index="9" instance=ExtResource("10_jmx14")]

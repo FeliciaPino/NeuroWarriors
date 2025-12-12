@@ -56,6 +56,11 @@ _data = {
 
 [node name="Heart" instance=ExtResource("1_ixepv")]
 script = ExtResource("1_ie21g")
+reach = 1
+isPositive = true
+price = 3
+projectile_speed = 200.0
+animationType = "effect"
 
 [node name="sprite" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_7yr44")

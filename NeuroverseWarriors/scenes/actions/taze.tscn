@@ -104,6 +104,8 @@ _data = {
 
 [node name="Taze" instance=ExtResource("1_55xsy")]
 script = ExtResource("2_5uyue")
+price = 2
+action_multiplier = 1.5
 
 [node name="sprite" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_twskx")
@@ -117,5 +119,5 @@ pitch_scale = 1.87
 
 [node name="AnimationPlayer" parent="." index="2"]
 libraries = {
-"": SubResource("AnimationLibrary_h0lhn")
+&"": SubResource("AnimationLibrary_h0lhn")
 }

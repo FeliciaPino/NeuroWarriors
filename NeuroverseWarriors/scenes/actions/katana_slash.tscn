@@ -56,6 +56,9 @@ _data = {
 
 [node name="KatanaSlash" instance=ExtResource("1_to6oy")]
 script = ExtResource("2_wnxrx")
+price = 4
+action_multiplier = 2.75
+animationType = "throw"
 
 [node name="sound" parent="." index="1"]
 stream = ExtResource("3_mgcur")
@@ -63,5 +66,5 @@ volume_db = -15.0
 
 [node name="AnimationPlayer" parent="." index="2"]
 libraries = {
-"": SubResource("AnimationLibrary_24l3k")
+&"": SubResource("AnimationLibrary_24l3k")
 }

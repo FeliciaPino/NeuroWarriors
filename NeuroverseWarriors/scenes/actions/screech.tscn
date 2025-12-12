@@ -33,6 +33,10 @@ _data = {
 [node name="Screech" instance=ExtResource("1_m5tg8")]
 position = Vector2(0, -30)
 script = ExtResource("2_a7m2n")
+reach = 1
+price = 4
+effect_duration = 2
+effect_intensity = 6
 
 [node name="sprite" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_wh8aw")
@@ -53,5 +57,5 @@ bus = &"SFX"
 
 [node name="AnimationPlayer" parent="." index="4"]
 libraries = {
-"": SubResource("AnimationLibrary_jiqcs")
+&"": SubResource("AnimationLibrary_jiqcs")
 }

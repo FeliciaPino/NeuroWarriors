@@ -26,11 +26,17 @@ _data = {
 
 [node name="LaserShot" instance=ExtResource("1_6uchr")]
 script = ExtResource("1_7wgxe")
+reach = 1
+price = 1
+body_part_source = "Eyes"
+projectile_speed = 2000.0
+animationType = "effect"
 
 [node name="sprite" parent="." index="0"]
 modulate = Color(1, 0, 0, 1)
 scale = Vector2(30, 5)
 sprite_frames = SubResource("SpriteFrames_ao5b8")
+offset = Vector2(-0.405, 0)
 
 [node name="sound" parent="." index="1"]
 stream = ExtResource("3_e0r44")
@@ -38,5 +44,5 @@ volume_db = -20.0
 
 [node name="AnimationPlayer" parent="." index="2"]
 libraries = {
-"": SubResource("AnimationLibrary_jeyqq")
+&"": SubResource("AnimationLibrary_jeyqq")
 }

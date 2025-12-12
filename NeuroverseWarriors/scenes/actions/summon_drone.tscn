@@ -24,27 +24,13 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_lk4mw"]
 resource_name = "animation"
 length = 0.5
-tracks/0/type = "method"
+tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".")
+tracks/0/path = NodePath("sound:playing")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.4),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [&"action_effect"],
-"method": &"emit_signal"
-}]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("sound:playing")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -59,6 +45,9 @@ _data = {
 
 [node name="SummonDrone" instance=ExtResource("1_boe6a")]
 script = ExtResource("2_snlb0")
+reach = 2
+isPositive = true
+price = 6
 
 [node name="sprite" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_xjmed")
@@ -69,5 +58,5 @@ volume_db = -5.01
 
 [node name="AnimationPlayer" parent="." index="2"]
 libraries = {
-"": SubResource("AnimationLibrary_h26of")
+&"": SubResource("AnimationLibrary_h26of")
 }

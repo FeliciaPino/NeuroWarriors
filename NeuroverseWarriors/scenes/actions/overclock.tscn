@@ -45,27 +45,13 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_dmf2h"]
 resource_name = "animation"
 length = 0.4
-tracks/0/type = "method"
+tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".")
+tracks/0/path = NodePath("sprite:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.4),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [&"action_effect"],
-"method": &"emit_signal"
-}]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("sprite:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0.0333333, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
@@ -80,6 +66,11 @@ _data = {
 
 [node name="overclock" instance=ExtResource("1_putr0")]
 script = ExtResource("1_py1wo")
+reach = 2
+isPositive = true
+price = 2
+effect_duration = 2
+effect_intensity = 2
 
 [node name="sprite" parent="." index="0"]
 visible = false
@@ -93,5 +84,5 @@ volume_db = -15.0
 
 [node name="AnimationPlayer" parent="." index="2"]
 libraries = {
-"": SubResource("AnimationLibrary_1wemy")
+&"": SubResource("AnimationLibrary_1wemy")
 }

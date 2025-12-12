@@ -57,9 +57,13 @@ _data = {
 
 [node name="RumThrow" instance=ExtResource("1_5mapb")]
 script = ExtResource("1_5rjq5")
+reach = 1
 price = 2
+body_part_source = "Hand_R"
 effect_duration = 3
 effect_intensity = 10
+projectile_speed = 600.0
+animationType = "throw"
 
 [node name="sprite" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_o4my3")

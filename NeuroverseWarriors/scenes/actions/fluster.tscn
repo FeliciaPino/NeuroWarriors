@@ -56,6 +56,12 @@ _data = {
 
 [node name="Fluster" instance=ExtResource("1_no5x0")]
 script = ExtResource("2_24y7i")
+reach = 1
+price = 3
+effect_duration = 3
+effect_intensity = 5
+projectile_speed = 600.0
+animationType = "effect"
 
 [node name="sprite" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_q682x")
