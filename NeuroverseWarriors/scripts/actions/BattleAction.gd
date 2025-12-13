@@ -169,8 +169,8 @@ func _meele_action()->void:
 		if gotta_wait:#wait until x% of the animation
 			var target_time = user.animation_player.current_animation_length*0.99
 			if i<hits-1:target_time *= 0.81
-			while valid_user() and user.animation_player.current_animation_position < target_time:
-				await  get_tree().process_frame
+			await get_tree().create_timer(max(0,target_time  - user.animation_player.current_animation_position)).timeout
+				
 	
 	if !valid_user():return
 	user.walk_to(user.mySpot,500)

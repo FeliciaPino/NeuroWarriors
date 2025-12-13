@@ -21,6 +21,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_d67lq"]
 resource_name = "animation"
+length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -28,24 +29,10 @@ tracks/0/path = NodePath("sound:playing")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.366667),
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.5),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [&"action_effect"],
-"method": &"emit_signal"
-}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wv84h"]

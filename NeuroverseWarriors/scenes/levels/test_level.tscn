@@ -1,10 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://by2t4l3fto5ou"]
+[gd_scene load_steps=16 format=3 uid="uid://by2t4l3fto5ou"]
 
 [ext_resource type="PackedScene" uid="uid://b82kauwohbvun" path="res://scenes/levels/game.tscn" id="1_hhncd"]
 [ext_resource type="Texture2D" uid="uid://dl6b6ewaxaxom" path="res://assets/backgrounds/forest_background.png" id="2_tkf6i"]
-[ext_resource type="Texture2D" uid="uid://c7w7b4xl8rj5x" path="res://assets/backgrounds/assembly_station_draft.png" id="3_jmx14"]
+[ext_resource type="Texture2D" uid="uid://bkkc6ggjlaaaq" path="res://assets/backgrounds/assembly_station_background.png" id="3_3ay3b"]
 [ext_resource type="PackedScene" uid="uid://c4ii0hbadpfiv" path="res://scenes/actions/robot_punch.tscn" id="4_hfwtw"]
-[ext_resource type="Texture2D" uid="uid://cjs37nc0sh54n" path="res://assets/overworld/Assembly_station.png" id="4_hppjq"]
 [ext_resource type="PackedScene" uid="uid://e2g21mtkqscf" path="res://scenes/actions/generic_melee.tscn" id="5_3ay3b"]
 [ext_resource type="PackedScene" uid="uid://c5fgqjhldruh1" path="res://scenes/actions/rum_throw.tscn" id="5_6xh4u"]
 [ext_resource type="PackedScene" uid="uid://cmccd8rxiyqab" path="res://scenes/characters/neuro_sama.tscn" id="5_gqr5d"]
@@ -30,20 +29,10 @@ offset_bottom = 950.0
 texture = ExtResource("2_tkf6i")
 
 [node name="TextureRect2" type="TextureRect" parent="Background" index="1"]
-offset_left = -4.0
-offset_top = 44.0
-offset_right = 1190.0
-offset_bottom = 724.0
-texture = ExtResource("3_jmx14")
-expand_mode = 1
-
-[node name="TextureRect3" type="TextureRect" parent="Background" index="2"]
-offset_left = 521.99994
-offset_top = 89.00001
-offset_right = 649.99994
-offset_bottom = 185.0
-rotation = 0.010955095
-texture = ExtResource("4_hppjq")
+offset_top = 50.0
+offset_right = 1152.0
+offset_bottom = 698.0
+texture = ExtResource("3_3ay3b")
 
 [node name="NeuroSama" parent="Entity_manager" index="0" instance=ExtResource("5_gqr5d")]
 texture_filter = 0

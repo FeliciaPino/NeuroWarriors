@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjs37nc0sh54n"
-path="res://.godot/imported/Assembly_station.png-70f2430c1d6da44958d5f5bbb51d6610.ctex"
+uid="uid://bkkc6ggjlaaaq"
+path="res://.godot/imported/assembly_station_background.png-a109dc95ae2674ffd7d70aad2a8b931c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/overworld/Assembly_station.png"
-dest_files=["res://.godot/imported/Assembly_station.png-70f2430c1d6da44958d5f5bbb51d6610.ctex"]
+source_file="res://assets/backgrounds/assembly_station_background.png"
+dest_files=["res://.godot/imported/assembly_station_background.png-a109dc95ae2674ffd7d70aad2a8b931c.ctex"]
 
 [params]
 
