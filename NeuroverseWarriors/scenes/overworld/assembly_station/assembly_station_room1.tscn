@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://df27cdnd7ge0o"]
+
+[ext_resource type="PackedScene" uid="uid://dqj0d32s78jae" path="res://scenes/overworld/assembly_station/assembly_station_room.tscn" id="1_bgli3"]
+[ext_resource type="PackedScene" uid="uid://bkpwf2lqtm1jy" path="res://scenes/overworld/passage.tscn" id="2_bllll"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bgli3"]
+size = Vector2(38, 19)
+
+[node name="Assembly" instance=ExtResource("1_bgli3")]
+
+[node name="TileMapLayer" parent="TileLayers" index="0"]
+z_index = -1
+
+[node name="Passage" parent="Passages" index="0" node_paths=PackedStringArray("collision_area") instance=ExtResource("2_bllll")]
+position = Vector2(-2, 84)
+collision_area = NodePath("Area2D")
+scene_path = "res://scenes/overworld/overworld.tscn"
+arriving_passage_name = "AssemblyPassage"
+
+[node name="Area2D" type="Area2D" parent="Passages/Passage" index="0"]
+position = Vector2(1, 38)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Passages/Passage/Area2D" index="0"]
+shape = SubResource("RectangleShape2D_bgli3")

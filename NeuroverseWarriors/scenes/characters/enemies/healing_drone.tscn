@@ -227,6 +227,20 @@ tracks/0/keys = {
 "update": 0,
 "values": [0.0, -0.0872665, 0.436332, 0.0]
 }
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.26666668),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"action_impact"],
+"method": &"emit_signal"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_vyb3b"]
 resource_name = "walking"
@@ -275,3 +289,5 @@ autoplay = "default"
 libraries = {
 &"": SubResource("AnimationLibrary_qahpv")
 }
+next/effect = &"idle"
+next/throw = &"idle"

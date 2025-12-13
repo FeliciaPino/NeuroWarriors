@@ -1,15 +1,37 @@
-[gd_scene load_steps=15 format=3 uid="uid://db6vwqoodof3o"]
+[gd_scene load_steps=18 format=4 uid="uid://db6vwqoodof3o"]
 
 [ext_resource type="PackedScene" uid="uid://c4knnckwwejji" path="res://scenes/overworld/room.tscn" id="1_o6j7m"]
 [ext_resource type="Script" uid="uid://ba1rbjqs1nmgt" path="res://scenes/overworld/interactable/rock/rock.gd" id="2_csp3m"]
 [ext_resource type="Texture2D" uid="uid://g04rqk377lfp" path="res://assets/ui/circle.png" id="3_c1vcw"]
+[ext_resource type="Texture2D" uid="uid://doap6lhvxsd7v" path="res://assets/overworld/tilesets/assembly_station_tiles.png" id="4_17a1n"]
 [ext_resource type="PackedScene" uid="uid://bu7ouujuhbdw2" path="res://scenes/overworld/interactable/interactable_component.tscn" id="4_tvv83"]
 [ext_resource type="PackedScene" uid="uid://chub0oea1rtve" path="res://scenes/ui/dialogue/dialogue_manager.tscn" id="4_yjh1c"]
 [ext_resource type="Texture2D" uid="uid://l71gewe0yuvu" path="res://assets/chroma.png" id="5_tvv83"]
 [ext_resource type="PackedScene" uid="uid://lid4f4jxk5j2" path="res://scenes/ui/dialogue/dialogue_display.tscn" id="6_yjh1c"]
-[ext_resource type="Texture2D" uid="uid://c2bq58th4ub5" path="res://assets/overworld/city_tiles.png" id="8_qy337"]
-[ext_resource type="Texture2D" uid="uid://o5sq0tkkglam" path="res://assets/overworld/tiles.png" id="10_17a1n"]
+[ext_resource type="Texture2D" uid="uid://c2bq58th4ub5" path="res://assets/overworld/tilesets/city_tiles.png" id="8_qy337"]
+[ext_resource type="Texture2D" uid="uid://o5sq0tkkglam" path="res://assets/overworld/tilesets/forest_tiles.png" id="10_17a1n"]
 [ext_resource type="PackedScene" uid="uid://bi30e7q4hmdo" path="res://scenes/ui/dialogue/dialogue_trigger.tscn" id="12_ekpo1"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ekpo1"]
+texture = ExtResource("4_17a1n")
+texture_region_size = Vector2i(32, 32)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 16, -0.4913826, 16, -0.5076256, -8.731196, 16, -8.528146, 16, -16, -16, -16)
+3:2/0 = 0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -8.619959, 16, -8.619959, 16, -16, -16, -16)
+3:3/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+2:3/0 = 0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-0.21762848, -16, -0.43525696, 16, -16, 16, -16, -16)
+2:0/0 = 0
+3:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_vje6e"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 0
+sources/0 = SubResource("TileSetAtlasSource_ekpo1")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cmg84"]
 size = Vector2(44, 42)
@@ -50,6 +72,11 @@ texture = ExtResource("8_qy337")
 [node name="Tiles" type="Sprite2D" parent="Background" index="1"]
 position = Vector2(121, -252)
 texture = ExtResource("10_17a1n")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Background" index="2"]
+position = Vector2(-510, -84)
+tile_map_data = PackedByteArray("AAD7/wAAAAADAAMAAAD8/wAAAAADAAMAAAD9/wAAAAADAAMAAAD+/wAAAAADAAMAAAD+////AAADAAMAAAD9////AAADAAMAAAD8////AAADAAMAAAD7////AAADAAMAAAD7/wEAAAADAAMAAAD8/wEAAAADAAMAAAD9/wEAAAADAAMAAAD+/wEAAAADAAMAAAD//wEAAAADAAMAAAD//wAAAAADAAMAAAD/////AAADAAMAAAD6/wEAAAADAAMAAAD6/wAAAAADAAMAAAD6////AAADAAMAAAD///7/AAADAAIAAAD+//7/AAADAAIAAAD9//7/AAADAAIAAAD8//7/AAADAAIAAAD7//7/AAADAAIAAAD6//7/AAADAAIAAAD///3/AAADAAEAAAD+//3/AAADAAEAAAD9//3/AAADAAEAAAD8//3/AAADAAEAAAD7//3/AAADAAEAAAD7//z/AAADAAAAAAD6//z/AAADAAAAAAD8//z/AAADAAAAAAD9//z/AAADAAAAAAD+//z/AAADAAAAAAD///z/AAADAAAAAAD6//3/AAADAAEAAAD5//7/AAACAAIAAAD5//3/AAACAAEAAAD5//z/AAACAAAAAAD5////AAACAAMAAAD5/wAAAAACAAMAAAD5/wEAAAACAAMAAAAAAAEAAAACAAMAABAAAAAAAAACAAMAABAAAP//AAACAAMAABAAAP7/AAACAAIAABAAAP3/AAACAAEAABAAAPz/AAACAAAAABD5/wIAAAACAAMAAAD5/wMAAAACAAMAAAD5/wQAAAACAAIAACAAAAQAAAACAAIAADAAAAMAAAACAAMAABAAAAIAAAACAAMAABD//wIAAAADAAMAAAD+/wIAAAADAAMAAAD9/wIAAAADAAMAAAD8/wIAAAADAAMAAAD7/wIAAAADAAMAAAD6/wIAAAADAAMAAAD6/wMAAAADAAMAAAD7/wMAAAADAAMAAAD8/wMAAAADAAMAAAD9/wMAAAADAAMAAAD+/wMAAAADAAMAAAD//wMAAAADAAMAAAD6/wQAAAADAAIAACD7/wQAAAADAAIAACD8/wQAAAADAAIAACD+/wQAAAADAAIAACD//wQAAAADAAIAACA=")
+tile_set = SubResource("TileSet_vje6e")
 
 [node name="DialogueManager" parent="." index="5" instance=ExtResource("4_yjh1c")]
 unique_name_in_owner = true

@@ -62,7 +62,7 @@ price = 2
 body_part_source = "Hand_R"
 effect_duration = 3
 effect_intensity = 10
-projectile_speed = 600.0
+projectile_speed = 500.0
 animationType = "throw"
 
 [node name="sprite" parent="." index="0"]

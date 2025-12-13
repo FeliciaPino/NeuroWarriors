@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=4 uid="uid://dqj0d32s78jae"]
+
+[ext_resource type="PackedScene" uid="uid://c4knnckwwejji" path="res://scenes/overworld/room.tscn" id="1_oooog"]
+[ext_resource type="Texture2D" uid="uid://doap6lhvxsd7v" path="res://assets/overworld/tilesets/assembly_station_tiles.png" id="2_svsqu"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jommr"]
+texture = ExtResource("2_svsqu")
+texture_region_size = Vector2i(32, 32)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 16, -0.4913826, 16, -0.5076256, -8.731196, 16, -8.528146, 16, -16, -16, -16)
+3:2/0 = 0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -8.619959, 16, -8.619959, 16, -16, -16, -16)
+3:3/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+2:3/0 = 0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-0.21762848, -16, -0.43525696, 16, -16, 16, -16, -16)
+2:0/0 = 0
+3:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ls0q1"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 0
+sources/0 = SubResource("TileSetAtlasSource_jommr")
+
+[node name="Assembly" instance=ExtResource("1_oooog")]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="TileLayers" index="0"]
+position = Vector2(84, -39)
+tile_map_data = PackedByteArray("AAD7/wAAAAADAAMAAAD8/wAAAAADAAMAAAD9/wAAAAADAAMAAAD+/wAAAAADAAMAAAD+////AAADAAMAAAD9////AAADAAMAAAD8////AAADAAMAAAD7////AAADAAMAAAD7/wEAAAADAAMAAAD8/wEAAAADAAMAAAD9/wEAAAADAAMAAAD+/wEAAAADAAMAAAD//wEAAAADAAMAAAD//wAAAAADAAMAAAD/////AAADAAMAAAD6/wEAAAADAAMAAAD6/wAAAAADAAMAAAD6////AAADAAMAAAD///7/AAADAAIAAAD+//7/AAADAAIAAAD9//7/AAADAAIAAAD8//7/AAADAAIAAAD7//7/AAADAAIAAAD6//7/AAADAAIAAAD///3/AAADAAEAAAD+//3/AAADAAEAAAD9//3/AAADAAEAAAD8//3/AAADAAEAAAD7//3/AAADAAEAAAD7//z/AAADAAAAAAD6//z/AAADAAAAAAD8//z/AAADAAAAAAD9//z/AAADAAAAAAD+//z/AAADAAAAAAD///z/AAADAAAAAAD6//3/AAADAAEAAAD5//7/AAACAAIAAAD5//3/AAACAAEAAAD5//z/AAACAAAAAAD5////AAACAAMAAAD5/wAAAAACAAMAAAD5/wEAAAACAAMAAAAAAAEAAAACAAMAABAAAAAAAAACAAMAABAAAP//AAACAAMAABAAAP7/AAACAAIAABAAAP3/AAACAAEAABAAAPz/AAACAAAAABD5/wIAAAACAAMAAAD5/wMAAAACAAMAAAD5/wQAAAACAAIAACAAAAQAAAACAAIAADAAAAMAAAACAAMAABAAAAIAAAACAAMAABD//wIAAAADAAMAAAD+/wIAAAADAAMAAAD9/wIAAAADAAMAAAD8/wIAAAADAAMAAAD7/wIAAAADAAMAAAD6/wIAAAADAAMAAAD6/wMAAAADAAMAAAD7/wMAAAADAAMAAAD8/wMAAAADAAMAAAD9/wMAAAADAAMAAAD+/wMAAAADAAMAAAD//wMAAAADAAMAAAD6/wQAAAADAAIAACD7/wQAAAADAAIAACD8/wQAAAADAAIAACD+/wQAAAADAAIAACD//wQAAAADAAIAACA=")
+tile_set = SubResource("TileSet_ls0q1")
+
+[node name="ColorRect" type="ColorRect" parent="Party/Camera2D" index="0"]
+z_index = -1000
+offset_left = -340.0
+offset_top = -193.0
+offset_right = 353.0
+offset_bottom = 196.0
+color = Color(0.14, 0.12908, 0.1148, 1)

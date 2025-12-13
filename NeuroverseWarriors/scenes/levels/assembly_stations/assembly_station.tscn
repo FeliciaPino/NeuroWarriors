@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://ds7t7angn8cpk"]
+
+[ext_resource type="PackedScene" uid="uid://b82kauwohbvun" path="res://scenes/levels/game.tscn" id="1_u2vln"]
+[ext_resource type="Texture2D" uid="uid://c7w7b4xl8rj5x" path="res://assets/backgrounds/assembly_station_draft.png" id="2_ggyge"]
+
+[node name="AssemblyStation" instance=ExtResource("1_u2vln")]
+
+[node name="AssemblyStationDraft" type="Sprite2D" parent="." index="5"]
+position = Vector2(572, 315)
+scale = Vector2(0.63125, 0.6259259)
+texture = ExtResource("2_ggyge")

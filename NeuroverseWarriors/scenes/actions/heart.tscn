@@ -59,7 +59,7 @@ script = ExtResource("1_ie21g")
 reach = 1
 isPositive = true
 price = 3
-projectile_speed = 200.0
+projectile_speed = 300.0
 animationType = "effect"
 
 [node name="sprite" parent="." index="0"]

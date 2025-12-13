@@ -159,6 +159,8 @@ func _meele_action()->void:
 		await get_tree().process_frame
 		if !valid_user():break
 		var gotta_wait = did_impact
+		sprite.global_position = current_target.global_position
+		animationPlayer.play("animation")
 		_do_action_effect()
 		if sounds[0].playing and sounds.size()>1:
 			sounds[1].play()

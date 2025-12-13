@@ -20,6 +20,7 @@ func set_win_status(value:bool):
 		var xp_per_character = game_manager.xp_reward/game_manager.party.size()
 		for p in game_manager.party:
 			var new_xp_indicator = xp_indicator_scene.instantiate()
+			if !CharacterDatabase.ALL_CHARACTERS.has(p.entity_name): continue
 			new_xp_indicator.leveled_up = CharacterDatabase.gain_xp(p.entity_name,xp_per_character)
 			new_xp_indicator.associated_character = p.entity_name
 			new_xp_indicator.xp_added = xp_per_character

@@ -8,4 +8,4 @@ func _ready() -> void:
 	verb = tr("BATTLE_ACTION_TAZE_VERB")
 
 func _action_effect()->void:
-	current_target.receive_damage(user.attack*action_multiplier)
+	current_target.receive_damage(int(user.attack*action_multiplier))

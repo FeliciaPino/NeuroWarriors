@@ -1,8 +1,8 @@
-[gd_scene load_steps=92 format=4 uid="uid://bpbb157lbnats"]
+[gd_scene load_steps=93 format=4 uid="uid://bpbb157lbnats"]
 
 [ext_resource type="Script" uid="uid://cu14dpq8i23cb" path="res://scripts/overworld/overworld.gd" id="1_a6uxc"]
-[ext_resource type="Texture2D" uid="uid://o5sq0tkkglam" path="res://assets/overworld/tiles.png" id="1_t2akb"]
-[ext_resource type="Texture2D" uid="uid://c2bq58th4ub5" path="res://assets/overworld/city_tiles.png" id="3_2leis"]
+[ext_resource type="Texture2D" uid="uid://o5sq0tkkglam" path="res://assets/overworld/tilesets/forest_tiles.png" id="1_t2akb"]
+[ext_resource type="Texture2D" uid="uid://c2bq58th4ub5" path="res://assets/overworld/tilesets/city_tiles.png" id="3_2leis"]
 [ext_resource type="Script" uid="uid://c7idah1du5a0p" path="res://scenes/overworld/overworld_party.gd" id="3_pyupe"]
 [ext_resource type="PackedScene" uid="uid://bwv2hto833xa3" path="res://scenes/overworld/overworld_enemy.tscn" id="3_t5cvq"]
 [ext_resource type="Texture2D" uid="uid://cjs37nc0sh54n" path="res://assets/overworld/Assembly_station.png" id="3_tj4ld"]
@@ -251,10 +251,10 @@ texture_region_size = Vector2i(32, 32)
 0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, -1.14094, -16, -1.14905)
 1:2/0 = 0
 1:2/0/z_index = -1
-1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, -1.14094, -16, -1.14905)
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, -16, -1.14905)
 2:2/0 = 0
 2:2/0/z_index = -1
-2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, -1.14094, -16, -1.14905)
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, -1.14094)
 3:2/0 = 0
 3:2/0/z_index = -1
 3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, -1.14094, -16, -1.14905)
@@ -777,31 +777,31 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 0)]
+"values": [Color(1, 1, 1, 1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../../Party/Camera2D:zoom")
+tracks/1/path = NodePath("AudioStreamPlayer:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1.8, 1.8)]
+"update": 1,
+"values": [false]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("AudioStreamPlayer:playing")
+tracks/2/path = NodePath("../../Party/Camera2D:zoom")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [Vector2(1.8, 1.8)]
 }
 
 [sub_resource type="Animation" id="Animation_i4au7"]
@@ -822,29 +822,44 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../../Party/Camera2D:zoom")
+tracks/1/path = NodePath("AudioStreamPlayer:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.1, 0.8),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1.8, 1.8), Vector2(3, 3)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("AudioStreamPlayer:playing")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../Party/Camera2D:zoom")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1.8, 1.8), Vector2(3, 3)]
+}
 
-[sub_resource type="Animation" id="Animation_xsbfg"]
+[sub_resource type="Animation" id="Animation_cxq0r"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_bthyh"]
 resource_name = "fade_out"
 length = 0.4
 tracks/0/type = "value"
@@ -854,7 +869,7 @@ tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4),
+"times": PackedFloat32Array(0.0333333, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -864,7 +879,8 @@ tracks/0/keys = {
 _data = {
 &"RESET": SubResource("Animation_nadat"),
 &"battle_fade": SubResource("Animation_i4au7"),
-&"fade_out": SubResource("Animation_xsbfg")
+&"fade_in": SubResource("Animation_cxq0r"),
+&"fade_out": SubResource("Animation_bthyh")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mb3b3"]
@@ -1703,7 +1719,6 @@ target_spot = NodePath("../PathFollow2D")
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="Fade" type="ColorRect" parent="UI"]
-modulate = Color(1, 1, 1, 0)
 z_index = 10
 offset_right = 1200.0
 offset_bottom = 700.0
@@ -1714,6 +1729,7 @@ unique_name_in_owner = true
 libraries = {
 &"": SubResource("AnimationLibrary_vshbj")
 }
+autoplay = "fade_in"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="UI/Fade"]
 stream = ExtResource("8_8k8fn")
@@ -1734,7 +1750,7 @@ text = "LEVEL_SELECT_RETURN_TO_MENU"
 [node name="Passages" type="Node2D" parent="."]
 
 [node name="Passage" type="Node2D" parent="Passages" node_paths=PackedStringArray("collision_area")]
-position = Vector2(-236, -106)
+position = Vector2(-236, -107)
 script = ExtResource("14_duv1i")
 collision_area = NodePath("Area2D")
 scene_path = "res://scenes/overworld/forest/forest_room_1.tscn"
@@ -1746,5 +1762,22 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Passages/Passage/Area2D"]
+position = Vector2(-19.5, 1)
+shape = SubResource("RectangleShape2D_mb3b3")
+
+[node name="AssemblyPassage" type="Node2D" parent="Passages" node_paths=PackedStringArray("collision_area")]
+position = Vector2(-1, -70)
+script = ExtResource("14_duv1i")
+collision_area = NodePath("Area2D")
+scene_path = "res://scenes/overworld/assembly_station/assembly_station_room1.tscn"
+arriving_passage_name = "Passage"
+
+[node name="Area2D" type="Area2D" parent="Passages/AssemblyPassage"]
+position = Vector2(15, -27)
+scale = Vector2(0.7192341, 0.21866159)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Passages/AssemblyPassage/Area2D"]
 position = Vector2(-19.5, 1)
 shape = SubResource("RectangleShape2D_mb3b3")

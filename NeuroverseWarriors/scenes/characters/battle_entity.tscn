@@ -1,8 +1,9 @@
-[gd_scene load_steps=22 format=3 uid="uid://dp2gnkbdq83n4"]
+[gd_scene load_steps=23 format=3 uid="uid://dp2gnkbdq83n4"]
 
 [ext_resource type="Script" uid="uid://dxs6vaw1rnav4" path="res://scripts/BattleEntity.gd" id="1_m46ik"]
 [ext_resource type="Texture2D" uid="uid://o05esm5l4emw" path="res://assets/ui/ap.png" id="3_0ty8o"]
 [ext_resource type="PackedScene" uid="uid://bcuvnhkfoa0u" path="res://scenes/ui/health_bar.tscn" id="3_b5iiw"]
+[ext_resource type="Texture2D" uid="uid://couv7g5cw4o2o" path="res://assets/ui/true_circle.png" id="4_0ty8o"]
 [ext_resource type="Texture2D" uid="uid://duwanoipd03rk" path="res://assets/ui/selection_circle.png" id="4_i6faa"]
 [ext_resource type="Texture2D" uid="uid://nxqruldg0w6s" path="res://assets/explosion.png" id="5_qnmwp"]
 [ext_resource type="PackedScene" uid="uid://cto77pwu6noeu" path="res://scenes/ui/ap_display.tscn" id="5_wqjtl"]
@@ -169,6 +170,13 @@ mouse_filter = 2
 theme_override_constants/separation = 20
 
 [node name="visual" type="Node2D" parent="."]
+
+[node name="Shadow" type="Sprite2D" parent="visual"]
+modulate = Color(0, 0, 0, 0.1764706)
+z_index = -1
+position = Vector2(1.0000001, 70)
+scale = Vector2(0.56109214, 0.13439678)
+texture = ExtResource("4_0ty8o")
 
 [node name="Flipper" type="AnimationPlayer" parent="visual"]
 libraries = {

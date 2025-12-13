@@ -507,4 +507,6 @@ stream = ExtResource("6_e3eyn")
 libraries = {
 &"": SubResource("AnimationLibrary_8v7bq")
 }
+next/attack = &"idle"
 next/effect = &"idle"
+next/throw = &"idle"

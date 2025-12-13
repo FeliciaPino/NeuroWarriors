@@ -48,6 +48,7 @@ price = 4
 action_multiplier = 0.2
 effect_duration = 4
 effect_intensity = 1
+projectile_speed = 600.0
 
 [node name="sprite" parent="." index="0"]
 texture_filter = 1

@@ -58,6 +58,7 @@ script = ExtResource("2_wna17")
 reach = 1
 isPositive = true
 price = 2
+projectile_speed = 300.0
 
 [node name="sprite" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_jysq1")

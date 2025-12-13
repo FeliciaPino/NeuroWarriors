@@ -21,4 +21,5 @@ func _action_effect()->void:
 		new_guy = defensive_drone_scene.instantiate()
 	else:
 		new_guy = healing_drone_scene.instantiate()
+	new_guy.is_player_controlled = user.is_player_controlled
 	user.game_manager.entity_manager.spawn_entity(new_guy)
