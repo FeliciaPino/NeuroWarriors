@@ -1,13 +1,16 @@
-[gd_scene load_steps=16 format=3 uid="uid://by2t4l3fto5ou"]
+[gd_scene load_steps=28 format=3 uid="uid://by2t4l3fto5ou"]
 
 [ext_resource type="PackedScene" uid="uid://b82kauwohbvun" path="res://scenes/levels/game.tscn" id="1_hhncd"]
 [ext_resource type="Texture2D" uid="uid://dl6b6ewaxaxom" path="res://assets/backgrounds/forest_background.png" id="2_tkf6i"]
-[ext_resource type="Texture2D" uid="uid://bkkc6ggjlaaaq" path="res://assets/backgrounds/assembly_station_background.png" id="3_3ay3b"]
+[ext_resource type="Texture2D" uid="uid://diojtns3m7eoh" path="res://assets/backgrounds/assembly_station_background.png" id="3_3ay3b"]
 [ext_resource type="PackedScene" uid="uid://c4ii0hbadpfiv" path="res://scenes/actions/robot_punch.tscn" id="4_hfwtw"]
+[ext_resource type="Texture2D" uid="uid://bus4m5kmrp5r1" path="res://assets/backgrounds/background_machine_thingies.png" id="4_hppjq"]
 [ext_resource type="PackedScene" uid="uid://e2g21mtkqscf" path="res://scenes/actions/generic_melee.tscn" id="5_3ay3b"]
 [ext_resource type="PackedScene" uid="uid://c5fgqjhldruh1" path="res://scenes/actions/rum_throw.tscn" id="5_6xh4u"]
 [ext_resource type="PackedScene" uid="uid://cmccd8rxiyqab" path="res://scenes/characters/neuro_sama.tscn" id="5_gqr5d"]
+[ext_resource type="Texture2D" uid="uid://c8ffvkryw8ol0" path="res://scenes/levels/unlock_evil/assembly_arm.png" id="5_os2yb"]
 [ext_resource type="PackedScene" uid="uid://dskhgf30rx6ai" path="res://scenes/actions/shock.tscn" id="6_7x1jh"]
+[ext_resource type="Texture2D" uid="uid://dju6yh1wm6yo2" path="res://scenes/levels/unlock_evil/half-built_evil.png" id="6_v6k17"]
 [ext_resource type="PackedScene" uid="uid://du1rkche8wapa" path="res://scenes/characters/enemies/drone.tscn" id="7_cyt5c"]
 [ext_resource type="PackedScene" uid="uid://s8dyi6mkp2np" path="res://scenes/actions/summon_drone.tscn" id="8_eaa0b"]
 [ext_resource type="PackedScene" uid="uid://b6410g70liyhb" path="res://scenes/characters/evil.tscn" id="9_2mu0v"]
@@ -15,6 +18,42 @@
 [ext_resource type="PackedScene" uid="uid://b36hf4y7sydbp" path="res://scenes/actions/heart.tscn" id="10_3ay3b"]
 [ext_resource type="PackedScene" uid="uid://c5ykioygv4mrj" path="res://scenes/actions/pipes.tscn" id="10_jmx14"]
 [ext_resource type="PackedScene" uid="uid://b3wy6ts3hkpc5" path="res://scenes/characters/enemies/monocopter.tscn" id="12_a5rnb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_os2yb"]
+atlas = ExtResource("4_hppjq")
+region = Rect2(232.48537, 53.618347, 48.835495, 34.560486)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v6k17"]
+atlas = ExtResource("4_hppjq")
+region = Rect2(29.18431, 11.420429, 112.73575, 131.76906)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_upsmr"]
+atlas = ExtResource("4_hppjq")
+region = Rect2(149.79984, 31.399883, 77.00003, 103.40004)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qgrpf"]
+atlas = ExtResource("4_hppjq")
+region = Rect2(232.53693, 86.20921, 76.20398, 42.900024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c7nhy"]
+atlas = ExtResource("5_os2yb")
+region = Rect2(60.042336, 124.99744, 84.10662, 45.157913)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lxl1u"]
+atlas = ExtResource("5_os2yb")
+region = Rect2(83.18578, 14.925011, 36.690796, 111.20138)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cibht"]
+atlas = ExtResource("5_os2yb")
+region = Rect2(30.68969, 26.21449, 56.447403, 36.69081)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_owgeq"]
+atlas = ExtResource("5_os2yb")
+region = Rect2(-2.049797, 29.036861, 29.91713, 23.143433)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_78u6e"]
+atlas = ExtResource("6_v6k17")
+region = Rect2(403.54544, 1.5454559, 96.45456, 158.45454)
 
 [node name="Game" instance=ExtResource("1_hhncd")]
 
@@ -33,6 +72,168 @@ offset_top = 50.0
 offset_right = 1152.0
 offset_bottom = 698.0
 texture = ExtResource("3_3ay3b")
+
+[node name="TextureRect3" type="TextureRect" parent="Background" index="2"]
+offset_left = 968.0
+offset_top = 207.0
+offset_right = 1016.0
+offset_bottom = 247.0
+texture = SubResource("AtlasTexture_os2yb")
+stretch_mode = 2
+
+[node name="TextureRect9" type="TextureRect" parent="Background" index="3"]
+offset_left = 1040.0
+offset_top = 250.0
+offset_right = 1088.0
+offset_bottom = 290.0
+texture = SubResource("AtlasTexture_os2yb")
+stretch_mode = 2
+
+[node name="TextureRect13" type="TextureRect" parent="Background" index="4"]
+offset_left = 148.0
+offset_top = 222.0
+offset_right = 196.0
+offset_bottom = 262.0
+texture = SubResource("AtlasTexture_os2yb")
+stretch_mode = 2
+
+[node name="TextureRect10" type="TextureRect" parent="Background" index="5"]
+offset_left = 1098.0
+offset_top = 254.0
+offset_right = 1146.0
+offset_bottom = 294.0
+texture = SubResource("AtlasTexture_os2yb")
+stretch_mode = 2
+
+[node name="TextureRect4" type="TextureRect" parent="Background" index="6"]
+offset_left = 67.0
+offset_top = 120.0
+offset_right = 179.0
+offset_bottom = 251.0
+texture = SubResource("AtlasTexture_v6k17")
+stretch_mode = 2
+
+[node name="TextureRect7" type="TextureRect" parent="Background" index="7"]
+offset_left = 948.0
+offset_top = 160.0
+offset_right = 1060.0
+offset_bottom = 291.0
+texture = SubResource("AtlasTexture_v6k17")
+stretch_mode = 2
+flip_h = true
+
+[node name="TextureRect5" type="TextureRect" parent="Background" index="8"]
+offset_left = 155.0
+offset_top = 143.0
+offset_right = 256.0
+offset_bottom = 260.0
+texture = SubResource("AtlasTexture_upsmr")
+stretch_mode = 2
+
+[node name="TextureRect6" type="TextureRect" parent="Background" index="9"]
+offset_left = 66.0
+offset_top = 230.0
+offset_right = 167.0
+offset_bottom = 347.0
+texture = SubResource("AtlasTexture_qgrpf")
+stretch_mode = 2
+
+[node name="TextureRect8" type="TextureRect" parent="Background" index="10"]
+offset_left = 312.0
+offset_top = 193.0
+offset_right = 413.0
+offset_bottom = 310.0
+texture = SubResource("AtlasTexture_qgrpf")
+stretch_mode = 2
+
+[node name="TextureRect11" type="TextureRect" parent="Background" index="11"]
+offset_left = 897.0
+offset_top = 228.0
+offset_right = 981.0
+offset_bottom = 273.0
+texture = SubResource("AtlasTexture_c7nhy")
+stretch_mode = 2
+
+[node name="TextureRect12" type="TextureRect" parent="Background/TextureRect11" index="0"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = -88.0
+offset_right = 58.0
+offset_bottom = 23.0
+rotation = 0.63246846
+pivot_offset = Vector2(17.55, 101.025)
+texture = SubResource("AtlasTexture_lxl1u")
+stretch_mode = 2
+
+[node name="TextureRect13" type="TextureRect" parent="Background/TextureRect11/TextureRect12" index="0"]
+layout_mode = 0
+offset_left = -40.0
+offset_top = 12.0
+offset_right = 16.0
+offset_bottom = 48.0
+rotation = -0.1592081
+pivot_offset = Vector2(54.995, 16.35)
+texture = SubResource("AtlasTexture_cibht")
+stretch_mode = 2
+
+[node name="TextureRect14" type="TextureRect" parent="Background/TextureRect11/TextureRect12/TextureRect13" index="0"]
+layout_mode = 0
+offset_left = -25.0
+offset_top = 3.0
+offset_right = 4.0
+offset_bottom = 26.0
+rotation = -0.9012533
+pivot_offset = Vector2(27.17, 15.46)
+texture = SubResource("AtlasTexture_owgeq")
+stretch_mode = 2
+
+[node name="TextureRect12" type="TextureRect" parent="Background" index="12"]
+offset_left = 16.0
+offset_top = 276.0
+offset_right = 100.0
+offset_bottom = 321.0
+texture = SubResource("AtlasTexture_c7nhy")
+stretch_mode = 2
+
+[node name="TextureRect12" type="TextureRect" parent="Background/TextureRect12" index="0"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = -88.0
+offset_right = 58.0
+offset_bottom = 23.0
+rotation = 0.3791362
+pivot_offset = Vector2(17.55, 101.025)
+texture = SubResource("AtlasTexture_lxl1u")
+stretch_mode = 2
+
+[node name="TextureRect13" type="TextureRect" parent="Background/TextureRect12/TextureRect12" index="0"]
+layout_mode = 0
+offset_left = -40.0
+offset_top = 12.0
+offset_right = 16.0
+offset_bottom = 48.0
+rotation = 2.8868332
+pivot_offset = Vector2(54.995, 16.35)
+texture = SubResource("AtlasTexture_cibht")
+stretch_mode = 2
+
+[node name="TextureRect14" type="TextureRect" parent="Background/TextureRect12/TextureRect12/TextureRect13" index="0"]
+layout_mode = 0
+offset_left = -25.0
+offset_top = 3.0
+offset_right = 4.0
+offset_bottom = 26.0
+rotation = -0.50231373
+pivot_offset = Vector2(27.17, 15.46)
+texture = SubResource("AtlasTexture_owgeq")
+stretch_mode = 2
+
+[node name="TextureRect14" type="TextureRect" parent="Background" index="13"]
+offset_left = 170.0
+offset_top = 163.0
+offset_right = 266.0
+offset_bottom = 321.0
+texture = SubResource("AtlasTexture_78u6e")
 
 [node name="NeuroSama" parent="Entity_manager" index="0" instance=ExtResource("5_gqr5d")]
 texture_filter = 0

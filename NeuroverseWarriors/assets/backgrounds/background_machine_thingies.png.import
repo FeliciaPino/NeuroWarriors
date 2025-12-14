@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://diojtns3m7eoh"
-path="res://.godot/imported/assembly_station_background.png-a109dc95ae2674ffd7d70aad2a8b931c.ctex"
+uid="uid://bus4m5kmrp5r1"
+path="res://.godot/imported/background_machine_thingies.png-0c8469c940d24fe0fe71761c73eb0f52.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/backgrounds/assembly_station_background.png"
-dest_files=["res://.godot/imported/assembly_station_background.png-a109dc95ae2674ffd7d70aad2a8b931c.ctex"]
+source_file="res://assets/backgrounds/background_machine_thingies.png"
+dest_files=["res://.godot/imported/background_machine_thingies.png-0c8469c940d24fe0fe71761c73eb0f52.ctex"]
 
 [params]
 
