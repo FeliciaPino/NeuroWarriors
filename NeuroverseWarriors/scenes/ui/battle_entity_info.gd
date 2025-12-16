@@ -30,7 +30,7 @@ func _remove_info():
 		c.text = ""
 		if not(c==health_label or c==attack_label or c==defense_label or c==ap_regen_label):
 			c.queue_free()
-func _process(delta):
+func _process(_delta):
 	if not battle_entity:
 		return
 	name_label.text = battle_entity.entity_name

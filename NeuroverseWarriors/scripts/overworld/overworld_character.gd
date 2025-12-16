@@ -27,7 +27,7 @@ func update_sprite_frames_from_character_name(character_name:String):
 func set_sprite_frames(new_frames:SpriteFrames):
 	sprite.sprite_frames = new_frames
 	
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	GameState.set_player_map_position(global_position)
 	var direction  = Input.get_vector("left","right","up","down")
 	velocity = direction*speed

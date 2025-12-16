@@ -53,5 +53,5 @@ func previous_frame():
 func return_to_level_select():
 	await get_tree().create_tween().tween_property(fade,"modulate",Color(0,0,0,1),0.6).finished 
 	GameState.start_game()
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	pass

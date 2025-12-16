@@ -14,10 +14,10 @@ func _ready() -> void:
 	if initial_state:
 		initial_state.enter()
 		current_state = initial_state
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if current_state:
 		current_state.update()
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if current_state:
 		current_state.physics_update()
 func _on_child_transition(state, new_state_name):

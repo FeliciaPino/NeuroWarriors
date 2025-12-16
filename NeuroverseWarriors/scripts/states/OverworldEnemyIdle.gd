@@ -9,8 +9,8 @@ var enemy_spot:Node2D
 func _ready() -> void:
 	vision_area.body_entered.connect(_on_body_entered_vision)
 	enemy_spot = enemy.target_spot
-func _on_body_entered_vision(body):
-	if body.is_in_group("player"):
+func _on_body_entered_vision(body_entered):
+	if body_entered.is_in_group("player"):
 		transitioned.emit(self, "Chasing")
 func physics_update():
 	if not enemy_spot:
