@@ -5,6 +5,7 @@ class_name GameManager
 
 @onready var entity_manager:EntityManager = $Entity_manager
 @onready var passive_manager = $PassiveManager #manages passibe abilities
+@onready var vfx_node = $VFXs #containes world vfxs
 @onready var instruction_label = %InstructionLabel
 @onready var end_turn_buttton:Button = %EndTurnButton
 @onready var character_info_panel:BattleEntityInfoPanel = %CharacterInfoPanel
@@ -124,12 +125,13 @@ func set_selected_action(action: BattleAction):
 		return
 	instruction_label.text = tr("BATTLE_TARGET_SELECT_HINT").format({verb=selected_action.verb})
 	instruction_label.visible = true
-	instruction_label.pivot_offset = instruction_label.size/2
 	if action.isPositive:
 		if selected_character:#this should always be true when selecting an action
 			selected_character.button.grab_focus()
 	else:
 		foes[0].button.grab_focus()
+	await get_tree().process_frame
+	instruction_label.pivot_offset = instruction_label.size/2
 #called by a battle entity when it is clicked
 func battleEntityClicked(clicked_entity: BattleEntity):
 	print_debug(clicked_entity.entity_name + " got clicked")
@@ -183,7 +185,7 @@ func do_an_action(user:BattleEntity, action:BattleAction, target:BattleEntity):
 		action.action_finished.connect(_on_action_finished.bind(action,user,target))
 	print_debug("action started ", action.action_name)
 	pending_actions += 1
-	action.execute(user,[target])
+	action.execute([target])
 	
 func _on_action_finished(action,user,target):
 	somebody_finished_an_action.emit(action,user,target)

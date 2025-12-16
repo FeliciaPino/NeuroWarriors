@@ -9,8 +9,8 @@ func _ready() -> void:
 	verb = tr("BATTLE_ACTION_FORCE_FIELD_VERB")
 	
 
-func _action_effect()->void:
+func _action_effect(target)->void:
 	var effect:StatusEffect = defense_effect.instantiate()
 	effect.set_turns_remaining(effect_duration)
 	effect.intensity = 10
-	current_target.add_effect(effect)
+	target.add_effect(effect)

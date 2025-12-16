@@ -17,6 +17,7 @@ func _add_evil():
 
 func _ready() -> void:
 	timer.start()
+	game_manager.turn_ended.connect(_on_game_turn_ended)
 var working = false
 func _on_timer_timeout() -> void:
 	if not working:
@@ -29,6 +30,9 @@ func _on_timer_timeout() -> void:
 		get_tree().create_tween().tween_property(arm_ik_target,"global_position",assembly_points_node.global_position, 0.3)
 		animation_player.play("RESET")
 const assembly_points_removal_order = ["","Knee","LeftArm","RightArm","Face"]
+func _on_game_turn_ended(is_player:bool):
+	if is_player:
+		_on_game_player_turn_ended()
 func _on_game_player_turn_ended() -> void:
 	if evil_sprite.frame == last_evil_sprite_frame: return
 	if game_manager.turn_count%2:return

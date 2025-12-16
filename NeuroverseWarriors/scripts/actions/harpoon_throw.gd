@@ -5,5 +5,5 @@ func _ready() -> void:
 	action_name = tr("BATTLE_ACTION_HARPOON_THROW_NAME")
 	description = tr("BATTLE_ACTION_HARPOON_THROW_DESCRIPTION").format({multiplier=action_multiplier,stat=tr("BATTLESTAT_ATTACK")})
 	verb = tr("BATTLE_ACTION_HARPOON_THROW_VERB")
-func _action_effect()->void:
-	current_target.receive_damage(int(user.attack * action_multiplier))
+func _action_effect(target)->void:
+	target.receive_damage(int(user.attack * action_multiplier))

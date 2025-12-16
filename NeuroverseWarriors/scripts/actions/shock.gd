@@ -8,9 +8,9 @@ func _ready() -> void:
 	description = tr("BATTLE_ACTION_SHOCK_DESCRIPTION").format({multiplier=action_multiplier,stat=tr("BATTLESTAT_ATTACK"),turn_amount=effect_duration})
 	verb = tr("BATTLE_ACTION_SHOCK_VERB")
 
-func _action_effect()->void:
+func _action_effect(target)->void:
 	var effect:StatusEffect = shocked_effect.instantiate()
 	effect.set_turns_remaining(effect_duration)
 	effect.intensity = effect_intensity
-	current_target.add_effect(effect)
-	current_target.receive_damage(int(user.attack*action_multiplier))
+	target.add_effect(effect)
+	target.receive_damage(int(user.attack*action_multiplier))

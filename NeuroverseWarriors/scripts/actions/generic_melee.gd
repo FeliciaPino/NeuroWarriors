@@ -6,5 +6,5 @@ func _ready():
 	description = tr("BATTLE_ACTION_GENERIC_MELEE_DESCRIPTION")
 	verb = tr("BATTLE_ACTION_GENERIC_MELEE_VERB")
 
-func _action_effect()->void:
-	current_target.receive_damage(user.attack*2)
+func _action_effect(target)->void:
+	target.receive_damage(user.attack*2)

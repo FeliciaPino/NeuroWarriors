@@ -303,6 +303,30 @@ tracks/5/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("visual/Hand_R:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-2.0876198, -53.155415)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("visual/Hand_R:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.6829353]
+}
 
 [sub_resource type="Animation" id="Animation_dsxnk"]
 resource_name = "attack"
@@ -426,6 +450,20 @@ tracks/0/keys = {
 "update": 1,
 "values": [&"effect"]
 }
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"action_impact"],
+"method": &"emit_signal"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_ovgun"]
 resource_name = "idle"
@@ -441,6 +479,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [&"default"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("visual/Hand_R:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-23.205, 8.785)]
 }
 
 [sub_resource type="Animation" id="Animation_bn40e"]
@@ -465,10 +515,10 @@ tracks/1/path = NodePath("visual/Hand_R:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.23333333, 0.33333337, 0.4, 0.46666667, 0.5, 0.59999996, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(-17, 2.861023e-06), Vector2(-27, -46.999996), Vector2(-43, -66), Vector2(43, -39), Vector2(20, 7.000003), Vector2(-17, 2.861023e-06)]
+"values": [Vector2(-23.675, 8.245), Vector2(-17, 2.861023e-06), Vector2(-27, -46.999996), Vector2(-43, -66), Vector2(0.382, -67.535), Vector2(18.181, -67.085), Vector2(43, -41.725), Vector2(20, 7.000003), Vector2(-17, 2.861023e-06)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -477,10 +527,10 @@ tracks/2/path = NodePath("visual/Hand_R:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.23333333, 0.33333337, 0.5, 0.59999996, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [0.6829353, -0.9123965, -1.8880665, -0.68570197, 0.53158724, 0.6829353]
+"values": [0.6829353, 0.6829353, -0.9123965, -1.8880665, -0.68570197, 0.53158724, 0.6829353]
 }
 tracks/3/type = "method"
 tracks/3/imported = false
@@ -489,7 +539,7 @@ tracks/3/path = NodePath(".")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.3),
+"times": PackedFloat32Array(0.36666667),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [&"action_impact"],
@@ -541,8 +591,11 @@ sprite_frames = SubResource("SpriteFrames_os5q3")
 autoplay = "default"
 
 [node name="Hand_R" type="Node2D" parent="visual" index="2"]
-position = Vector2(-17, 2.861023e-06)
+position = Vector2(-2.0876198, -53.155415)
 rotation = 0.6829353
+
+[node name="Mouth" type="Node2D" parent="visual" index="4"]
+position = Vector2(1, -44)
 
 [node name="melee_attack" parent="sound_effects" index="2"]
 stream = ExtResource("7_qpb55")

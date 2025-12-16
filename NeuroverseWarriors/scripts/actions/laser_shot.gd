@@ -7,5 +7,5 @@ func _ready() -> void:
 	description = tr("BATTLE_ACTION_LASER_SHOOT_DESCRIPTION").format({multiplier=action_multiplier,stat=tr("BATTLESTAT_ATTACK")})
 	verb = tr("BATTLE_ACTION_LASER_SHOOT_VERB")
 
-func _action_effect()->void:
-	current_target.receive_damage(user.attack)
+func _action_effect(target)->void:
+	target.receive_damage(user.attack)

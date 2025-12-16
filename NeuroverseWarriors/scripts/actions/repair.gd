@@ -7,5 +7,5 @@ func _ready() -> void:
 	description = tr("BATTLE_ACTION_REPAIR_DESCRIPTION").format({amount=20})
 	verb = tr("BATTLE_ACTION_REPAIR_VERB")
 
-func _action_effect()->void:
-	current_target.heal(int(20*action_multiplier))
+func _action_effect(target)->void:
+	target.heal(int(20*action_multiplier))

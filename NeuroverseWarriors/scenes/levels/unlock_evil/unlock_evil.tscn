@@ -77,7 +77,7 @@ joint_data/2/bone2d_node = NodePath("Bone2D")
 joint_data/2/rotate_from_joint = false
 joint_data/2/enable_constraint = true
 joint_data/2/constraint_angle_min = 80.001
-joint_data/2/constraint_angle_max = 269.298
+joint_data/2/constraint_angle_max = 269.29797
 joint_data/2/constraint_angle_invert = true
 joint_data/2/constraint_in_localspace = true
 joint_data/2/editor_draw_gizmo = true
@@ -258,9 +258,9 @@ remote_path = NodePath("../../../../../Arm/hand")
 [node name="Arm" type="Node2D" parent="Background/AssemblyStationBackground/AssemblyArm" index="2"]
 
 [node name="hand" type="Sprite2D" parent="Background/AssemblyStationBackground/AssemblyArm/Arm" index="0"]
-position = Vector2(2.98407, -8.54662)
-rotation = -1.21011
-scale = Vector2(1, 1)
+position = Vector2(2.9841309, -8.546589)
+rotation = -1.210101
+scale = Vector2(0.9999996, 0.9999996)
 texture = SubResource("AtlasTexture_53neq")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Background/AssemblyStationBackground/AssemblyArm/Arm/hand" index="0"]
@@ -269,13 +269,14 @@ emitting = false
 process_material = SubResource("ParticleProcessMaterial_vlg71")
 
 [node name="arm2" type="Sprite2D" parent="Background/AssemblyStationBackground/AssemblyArm/Arm" index="1"]
-position = Vector2(23.4943, -9.69949)
-rotation = 0.511943
+position = Vector2(23.494385, -9.699474)
+rotation = 0.5119447
+scale = Vector2(0.9999997, 0.9999997)
 texture = SubResource("AtlasTexture_hklrg")
 
 [node name="arm" type="Sprite2D" parent="Background/AssemblyStationBackground/AssemblyArm/Arm" index="2"]
-position = Vector2(45.6804, 38.0919)
-rotation = 0.203758
+position = Vector2(45.68036, 38.091873)
+rotation = 0.20375615
 texture = SubResource("AtlasTexture_3yxsx")
 
 [node name="base" type="Sprite2D" parent="Background/AssemblyStationBackground/AssemblyArm/Arm" index="3"]
@@ -284,7 +285,7 @@ texture = SubResource("AtlasTexture_enxhs")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Background/AssemblyStationBackground/AssemblyArm" index="3"]
 libraries = {
-"": SubResource("AnimationLibrary_5ns4k")
+&"": SubResource("AnimationLibrary_5ns4k")
 }
 next/start_working = &"working"
 
@@ -319,5 +320,4 @@ position = Vector2(1313, 329)
 [node name="Drone" parent="Entity_manager" index="2" instance=ExtResource("9_0pb1n")]
 position = Vector2(1416, 501)
 
-[connection signal="player_turn_ended" from="." to="Background/AssemblyStationBackground" method="_on_game_player_turn_ended"]
 [connection signal="timeout" from="Background/AssemblyStationBackground/Timer" to="Background/AssemblyStationBackground" method="_on_timer_timeout"]

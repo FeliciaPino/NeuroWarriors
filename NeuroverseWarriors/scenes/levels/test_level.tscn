@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://by2t4l3fto5ou"]
+[gd_scene load_steps=27 format=3 uid="uid://by2t4l3fto5ou"]
 
 [ext_resource type="PackedScene" uid="uid://b82kauwohbvun" path="res://scenes/levels/game.tscn" id="1_hhncd"]
 [ext_resource type="Texture2D" uid="uid://dl6b6ewaxaxom" path="res://assets/backgrounds/forest_background.png" id="2_tkf6i"]
@@ -9,15 +9,14 @@
 [ext_resource type="PackedScene" uid="uid://c5fgqjhldruh1" path="res://scenes/actions/rum_throw.tscn" id="5_6xh4u"]
 [ext_resource type="PackedScene" uid="uid://cmccd8rxiyqab" path="res://scenes/characters/neuro_sama.tscn" id="5_gqr5d"]
 [ext_resource type="Texture2D" uid="uid://c8ffvkryw8ol0" path="res://scenes/levels/unlock_evil/assembly_arm.png" id="5_os2yb"]
-[ext_resource type="PackedScene" uid="uid://dskhgf30rx6ai" path="res://scenes/actions/shock.tscn" id="6_7x1jh"]
 [ext_resource type="Texture2D" uid="uid://dju6yh1wm6yo2" path="res://scenes/levels/unlock_evil/half-built_evil.png" id="6_v6k17"]
 [ext_resource type="PackedScene" uid="uid://du1rkche8wapa" path="res://scenes/characters/enemies/drone.tscn" id="7_cyt5c"]
-[ext_resource type="PackedScene" uid="uid://s8dyi6mkp2np" path="res://scenes/actions/summon_drone.tscn" id="8_eaa0b"]
 [ext_resource type="PackedScene" uid="uid://b6410g70liyhb" path="res://scenes/characters/evil.tscn" id="9_2mu0v"]
-[ext_resource type="PackedScene" uid="uid://d3t2ah38644av" path="res://scenes/actions/taze.tscn" id="9_fqldq"]
 [ext_resource type="PackedScene" uid="uid://b36hf4y7sydbp" path="res://scenes/actions/heart.tscn" id="10_3ay3b"]
 [ext_resource type="PackedScene" uid="uid://c5ykioygv4mrj" path="res://scenes/actions/pipes.tscn" id="10_jmx14"]
+[ext_resource type="PackedScene" uid="uid://bk30a0mgktx6r" path="res://scenes/actions/laser_shot.tscn" id="11_hppjq"]
 [ext_resource type="PackedScene" uid="uid://b3wy6ts3hkpc5" path="res://scenes/characters/enemies/monocopter.tscn" id="12_a5rnb"]
+[ext_resource type="PackedScene" uid="uid://cj1hdugjo18ff" path="res://scenes/actions/harpoon_throw.tscn" id="15_3ay3b"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_os2yb"]
 atlas = ExtResource("4_hppjq")
@@ -244,15 +243,9 @@ ap_regen = 68
 
 [node name="RobotPunch" parent="Entity_manager/NeuroSama" index="9" instance=ExtResource("4_hfwtw")]
 
-[node name="RumThrow" parent="Entity_manager/NeuroSama" index="11" instance=ExtResource("5_6xh4u")]
+[node name="Heart" parent="Entity_manager/NeuroSama" index="11" instance=ExtResource("10_3ay3b")]
 
-[node name="Shock" parent="Entity_manager/NeuroSama" index="12" instance=ExtResource("6_7x1jh")]
-
-[node name="SummonDrone" parent="Entity_manager/NeuroSama" index="13" instance=ExtResource("8_eaa0b")]
-
-[node name="Taze" parent="Entity_manager/NeuroSama" index="14" instance=ExtResource("9_fqldq")]
-
-[node name="Heart" parent="Entity_manager/NeuroSama" index="15" instance=ExtResource("10_3ay3b")]
+[node name="LaserShot" parent="Entity_manager/NeuroSama" index="12" instance=ExtResource("11_hppjq")]
 
 [node name="monocopter" parent="Entity_manager" index="1" instance=ExtResource("12_a5rnb")]
 texture_filter = 0
@@ -266,5 +259,11 @@ position = Vector2(1279, 343)
 
 [node name="Evil" parent="Entity_manager" index="3" instance=ExtResource("9_2mu0v")]
 position = Vector2(-302, 360)
+ap_regen = 93
 
 [node name="Pipes" parent="Entity_manager/Evil" index="9" instance=ExtResource("10_jmx14")]
+
+[node name="HarpoonThrow" parent="Entity_manager/Evil" index="10" instance=ExtResource("15_3ay3b")]
+projectile_speed = 100.0
+
+[node name="RumThrow" parent="Entity_manager/Evil" index="11" instance=ExtResource("5_6xh4u")]

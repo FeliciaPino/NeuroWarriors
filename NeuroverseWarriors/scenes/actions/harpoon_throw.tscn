@@ -29,6 +29,7 @@ script = ExtResource("1_iyune")
 reach = 1
 price = 2
 action_multiplier = 1.5
+body_part_source = "Hand_R"
 projectile_speed = 600.0
 
 [node name="sprite" parent="." index="0"]

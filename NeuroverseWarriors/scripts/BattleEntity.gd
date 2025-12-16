@@ -80,7 +80,8 @@ func _ready() -> void:
 	for child in get_children():
 		if child is BattleAction:
 			actions.append(child)
-			
+	for action in actions:
+		action.set_user(self)
 	alive = true
 	ap = 0
 	#menu

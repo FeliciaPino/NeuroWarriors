@@ -8,8 +8,8 @@ func _ready() -> void:
 	
 
 const overclocked_effect = preload("res://scenes/status_effects/overclocked.tscn")
-func _action_effect()->void:
+func _action_effect(target)->void:
 	var effect:StatusEffect = overclocked_effect.instantiate()
 	effect.turns_remaining = effect_duration
 	effect.intensity = effect_intensity
-	current_target.add_effect(effect)
+	target.add_effect(effect)

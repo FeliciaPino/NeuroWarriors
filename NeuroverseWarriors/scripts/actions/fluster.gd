@@ -8,15 +8,15 @@ func _ready() -> void:
 	verb = tr("BATTLE_ACTION_FLUSTER_VERB")
 
 const flushed_status_scene = preload("res://scenes/status_effects/flushed.tscn")
-func _action_effect()->void:
-	print_debug(str(self,": attemtping to fluster ",current_target.entity_name))
-	if user.entity_name=="Anny" and (current_target.entity_name=="Neuro-sama" or current_target.entity_name=="Evil"):
+func _action_effect(target)->void:
+	print_debug(str(self,": attemtping to fluster ",target.entity_name))
+	if user.entity_name=="Anny" and (target.entity_name=="Neuro-sama" or target.entity_name=="Evil"):
 		print_debug(str(self,": target is immune"))
-		current_target.throw_text("Immune",Color.DARK_GRAY,1.5)
+		target.throw_text("Immune",Color.DARK_GRAY,1.5)
 		return
-	if user.entity_name=="Anny" and current_target.entity_name=="Vedal":
+	if user.entity_name=="Anny" and target.entity_name=="Vedal":
 		user.throw_text("V- V- Vedal kun~", Color.DEEP_PINK,1.2)
 	var effect:StatusEffect = flushed_status_scene.instantiate()
 	effect.intensity = effect_intensity
 	effect.turns_remaining = effect_duration
-	current_target.add_effect(effect)
+	target.add_effect(effect)

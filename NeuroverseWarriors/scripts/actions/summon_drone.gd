@@ -10,7 +10,7 @@ func _ready() -> void:
 	description = tr("BATTLE_ACTION_SUMMON_DRONE_DESCRIPTION")
 	verb = tr("BATTLE_ACTION_SUMMON_DRONE_VERB")
 
-func _action_effect()->void:
+func _action_effect(target)->void:
 	var random_number = randi()%100
 	var new_guy:BattleEntity
 	if random_number<= 45:

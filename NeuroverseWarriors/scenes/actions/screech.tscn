@@ -35,8 +35,11 @@ position = Vector2(0, -30)
 script = ExtResource("2_a7m2n")
 reach = 1
 price = 4
+body_part_source = "Mouth"
 effect_duration = 2
 effect_intensity = 6
+projectile_speed = 1000.0
+animationType = "effect"
 
 [node name="sprite" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_wh8aw")

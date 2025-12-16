@@ -8,8 +8,8 @@ func _ready() -> void:
 	verb = tr("BATTLE_ACTION_HYPE_UP_VERB")
 	
 const hyped_status_effect_scene = preload("res://scenes/status_effects/hyped.tscn")
-func _action_effect()->void:
+func _action_effect(target)->void:
 	var effect:StatusEffect = hyped_status_effect_scene.instantiate()
 	effect.intensity = effect_intensity
 	effect.set_turns_remaining(effect_duration)
-	current_target.add_effect(effect)
+	target.add_effect(effect)

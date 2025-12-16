@@ -7,5 +7,5 @@ func _ready() -> void:
 	description = tr("BATTLE_ACTION_HEART_DESCRIPTION").format({amount=heal_amount})
 	verb = tr("BATTLE_ACTION_HEART_VERB")
 
-func _action_effect()->void:
-	current_target.heal(heal_amount)
+func _action_effect(target)->void:
+	target.heal(heal_amount)

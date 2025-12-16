@@ -8,12 +8,12 @@ func _ready() -> void:
 	description = tr("BATTLE_ACTION_RUM_THROW_DESCRIPTION").format({multiplier=action_multiplier,stat=tr("BATTLESTAT_ATTACK"), turn_amount=effect_duration})
 	verb = tr("BATTLE_ACTION_RUM_THROW_VERB")
 
-func _action_effect()->void:
+func _action_effect(target)->void:
 	var effect:StatusEffect = poisoned_effect.instantiate()
 	effect.intensity = effect_intensity
 	effect.turns_remaining = effect_duration
-	current_target.add_effect(effect)
-	if current_target.entity_name == "Vedal":
-		current_target.heal(20)
+	target.add_effect(effect)
+	if target.entity_name == "Vedal":
+		target.heal(20)
 		return
-	current_target.receive_damage(int(user.attack*action_multiplier))
+	target.receive_damage(int(user.attack*action_multiplier))

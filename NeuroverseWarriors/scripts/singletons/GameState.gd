@@ -89,7 +89,7 @@ func _process(_delta: float) -> void:
 	if Input.is_action_pressed("debug_fast_forward"):
 		target_time_scale *= 5
 	if Input.is_action_pressed("debug_slow_motion"):
-		target_time_scale *= 0.2
+		target_time_scale *= 0.1
 	if !is_equal_approx(Engine.time_scale, target_time_scale):
 		Engine.time_scale = target_time_scale
 var controlling_with_the_mouse:bool = true
