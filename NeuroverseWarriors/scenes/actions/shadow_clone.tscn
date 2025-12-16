@@ -1,28 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://btq0qkod0rqo"]
+[gd_scene load_steps=3 format=3 uid="uid://btq0qkod0rqo"]
 
 [ext_resource type="PackedScene" uid="uid://c0p02mr1a5wep" path="res://scenes/actions/BattleAction.tscn" id="1_l74rf"]
 [ext_resource type="Script" uid="uid://xc8qv4g7mlta" path="res://scripts/actions/shadow_clone.gd" id="2_6gk5n"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_j22uc"]
-
-[sub_resource type="Animation" id="Animation_e52a4"]
-resource_name = "animation"
-length = 0.6
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_sc2f5"]
-_data = {
-&"animation": SubResource("Animation_e52a4")
-}
 
 [node name="ShadowClone" instance=ExtResource("1_l74rf")]
 script = ExtResource("2_6gk5n")
 reach = 2
 price = 5
-
-[node name="sprite" parent="." index="0"]
-sprite_frames = SubResource("SpriteFrames_j22uc")
-
-[node name="AnimationPlayer" parent="." index="2"]
-libraries = {
-&"": SubResource("AnimationLibrary_sc2f5")
-}

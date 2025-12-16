@@ -1,46 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://s8dyi6mkp2np"]
+[gd_scene load_steps=5 format=3 uid="uid://s8dyi6mkp2np"]
 
 [ext_resource type="PackedScene" uid="uid://c0p02mr1a5wep" path="res://scenes/actions/BattleAction.tscn" id="1_boe6a"]
 [ext_resource type="Script" uid="uid://qy6hf4064ffv" path="res://scripts/actions/summon_drone.gd" id="2_snlb0"]
 [ext_resource type="AudioStream" uid="uid://cy5mifqnfg751" path="res://assets/audio/homemade/SFX/sonar.wav" id="3_m0bvu"]
 [ext_resource type="PackedScene" uid="uid://dtu1oa37ndobg" path="res://scenes/battle_vfx/circle_out_vfx.tscn" id="4_71sqx"]
-
-[sub_resource type="Animation" id="Animation_s7sdy"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("sound:playing")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
-[sub_resource type="Animation" id="Animation_lk4mw"]
-resource_name = "animation"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("sound:playing")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_h26of"]
-_data = {
-&"RESET": SubResource("Animation_s7sdy"),
-&"animation": SubResource("Animation_lk4mw")
-}
 
 [node name="SummonDrone" node_paths=PackedStringArray("_start_sfx", "_user_start_vfx") instance=ExtResource("1_boe6a")]
 script = ExtResource("2_snlb0")
@@ -50,21 +13,12 @@ price = 6
 _start_sfx = [NodePath("sonar")]
 _user_start_vfx = [NodePath("Circle Out VFX")]
 
-[node name="sound" parent="." index="1"]
-stream = ExtResource("3_m0bvu")
-volume_db = -5.01
-
 [node name="sonar" type="AudioStreamPlayer" parent="." index="2"]
 stream = ExtResource("3_m0bvu")
 volume_db = -5.01
 bus = &"SFX"
 
-[node name="AnimationPlayer" parent="." index="3"]
-libraries = {
-&"": SubResource("AnimationLibrary_h26of")
-}
-
-[node name="Circle Out VFX" parent="." index="4" instance=ExtResource("4_71sqx")]
+[node name="Circle Out VFX" parent="." index="3" instance=ExtResource("4_71sqx")]
 modulate = Color(0.58, 0.44, 1, 1)
 scale = Vector2(0.7, 0.7)
 speed_scale = 0.7

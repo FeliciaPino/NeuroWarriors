@@ -1,48 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://c5fgqjhldruh1"]
+[gd_scene load_steps=8 format=3 uid="uid://c5fgqjhldruh1"]
 
 [ext_resource type="PackedScene" uid="uid://c0p02mr1a5wep" path="res://scenes/actions/BattleAction.tscn" id="1_5mapb"]
 [ext_resource type="Script" uid="uid://ctj811ebj8dc" path="res://scripts/actions/rum_throw.gd" id="1_5rjq5"]
 [ext_resource type="Texture2D" uid="uid://dd4x7ub5hj3mw" path="res://assets/rum.png" id="2_eu38x"]
 [ext_resource type="AudioStream" uid="uid://bymhdcicx5ap3" path="res://assets/audio/homemade/SFX/Woosh.mp3" id="4_rpxqk"]
 [ext_resource type="AudioStream" uid="uid://d4a0ll67wiweg" path="res://assets/audio/SFX/shatter.mp3" id="5_8nle4"]
-
-[sub_resource type="Animation" id="Animation_c21uv"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("sprite:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
-[sub_resource type="Animation" id="Animation_2rdyp"]
-resource_name = "animation"
-length = 0.6
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("sprite:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 6.28319]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_sqtqw"]
-_data = {
-&"RESET": SubResource("Animation_c21uv"),
-&"animation": SubResource("Animation_2rdyp")
-}
 
 [sub_resource type="Animation" id="Animation_k3t1v"]
 resource_name = "new_animation"
@@ -79,12 +41,6 @@ animationType = "throw"
 _impact_sfx = [NodePath("throw")]
 _hit_sfx = [NodePath("shatter")]
 
-[node name="sprite" parent="." index="0"]
-visible = false
-
-[node name="sound" parent="." index="1"]
-stream = ExtResource("4_rpxqk")
-
 [node name="throw" type="AudioStreamPlayer" parent="." index="2"]
 stream = ExtResource("4_rpxqk")
 bus = &"SFX"
@@ -95,12 +51,7 @@ volume_db = -5.0
 pitch_scale = 2.0
 bus = &"SFX"
 
-[node name="AnimationPlayer" parent="." index="4"]
-libraries = {
-&"": SubResource("AnimationLibrary_sqtqw")
-}
-
-[node name="rum" type="Sprite2D" parent="." index="5"]
+[node name="rum" type="Sprite2D" parent="." index="4"]
 texture = ExtResource("2_eu38x")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="rum" index="0"]

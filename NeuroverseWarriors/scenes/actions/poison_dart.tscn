@@ -1,23 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://dwoectv3rk5u3"]
+[gd_scene load_steps=8 format=3 uid="uid://dwoectv3rk5u3"]
 
 [ext_resource type="PackedScene" uid="uid://c0p02mr1a5wep" path="res://scenes/actions/BattleAction.tscn" id="1_03j1x"]
 [ext_resource type="Texture2D" uid="uid://61lcotrehrl4" path="res://assets/poison_dart.png" id="2_5evah"]
 [ext_resource type="Script" uid="uid://uvpvhbs0od7x" path="res://scripts/actions/poison_dart.gd" id="2_6purc"]
 [ext_resource type="AudioStream" uid="uid://bymhdcicx5ap3" path="res://assets/audio/homemade/SFX/Woosh.mp3" id="4_6kwt5"]
-
-[sub_resource type="Animation" id="Animation_2ehal"]
-length = 0.001
-
-[sub_resource type="Animation" id="Animation_vmeg4"]
-resource_name = "animation"
-length = 0.4
-loop_mode = 1
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_e7ixk"]
-_data = {
-&"RESET": SubResource("Animation_2ehal"),
-&"animation": SubResource("Animation_vmeg4")
-}
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u2gbk"]
 atlas = ExtResource("2_5evah")
@@ -52,19 +38,7 @@ projectile_speed = 600.0
 projectiles = [NodePath("dart")]
 _impact_sfx = [NodePath("throw")]
 
-[node name="sprite" parent="." index="0"]
-texture_filter = 1
-rotation = -0.0523599
-
-[node name="sound" parent="." index="1"]
-stream = ExtResource("4_6kwt5")
-
-[node name="AnimationPlayer" parent="." index="2"]
-libraries = {
-&"": SubResource("AnimationLibrary_e7ixk")
-}
-
-[node name="dart" type="AnimatedSprite2D" parent="." index="3"]
+[node name="dart" type="AnimatedSprite2D" parent="." index="2"]
 z_index = 1
 y_sort_enabled = true
 texture_filter = 1
@@ -73,5 +47,5 @@ sprite_frames = SubResource("SpriteFrames_mtvur")
 autoplay = "default"
 frame_progress = 0.849486
 
-[node name="throw" type="AudioStreamPlayer" parent="." index="4"]
+[node name="throw" type="AudioStreamPlayer" parent="." index="3"]
 stream = ExtResource("4_6kwt5")

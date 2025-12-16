@@ -1,69 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://bt827bsp0jnmw"]
+[gd_scene load_steps=5 format=3 uid="uid://bt827bsp0jnmw"]
 
 [ext_resource type="PackedScene" uid="uid://c0p02mr1a5wep" path="res://scenes/actions/BattleAction.tscn" id="1_putr0"]
 [ext_resource type="Script" uid="uid://chgbbxacliy3o" path="res://scripts/actions/overclock.gd" id="1_py1wo"]
-[ext_resource type="Texture2D" uid="uid://dddg12jifbdpc" path="res://assets/actions/Thunder2.png" id="3_qjkbo"]
 [ext_resource type="AudioStream" uid="uid://cbihur5nfjeb4" path="res://addons/sfx/Retro Charge Magic 11.wav" id="4_buh5l"]
 [ext_resource type="PackedScene" uid="uid://djke3wqr08gik" path="res://scenes/battle_vfx/electricity_vfx.tscn" id="5_5yx6l"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_o3rcc"]
-atlas = ExtResource("3_qjkbo")
-region = Rect2(0, 0, 100, 160)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_70l3n"]
-atlas = ExtResource("3_qjkbo")
-region = Rect2(100, 0, 100, 160)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_lr2va"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_o3rcc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_70l3n")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="Animation" id="Animation_28twq"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("sprite:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
-[sub_resource type="Animation" id="Animation_dmf2h"]
-resource_name = "animation"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("sprite:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.0333333, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_1wemy"]
-_data = {
-&"RESET": SubResource("Animation_28twq"),
-&"animation": SubResource("Animation_dmf2h")
-}
 
 [node name="overclock" node_paths=PackedStringArray("_impact_sfx", "_target_impact_vfx") instance=ExtResource("1_putr0")]
 script = ExtResource("1_py1wo")
@@ -75,25 +15,10 @@ effect_intensity = 2
 _impact_sfx = [NodePath("chargeup")]
 _target_impact_vfx = [NodePath("ElectricityVFX")]
 
-[node name="sprite" parent="." index="0"]
-visible = false
-sprite_frames = SubResource("SpriteFrames_lr2va")
-autoplay = "default"
-frame_progress = 0.197364
-
-[node name="sound" parent="." index="1"]
-stream = ExtResource("4_buh5l")
-volume_db = -15.0
-
-[node name="AnimationPlayer" parent="." index="2"]
-libraries = {
-&"": SubResource("AnimationLibrary_1wemy")
-}
-
-[node name="ElectricityVFX" parent="." index="3" instance=ExtResource("5_5yx6l")]
+[node name="ElectricityVFX" parent="." index="2" instance=ExtResource("5_5yx6l")]
 modulate = Color(1, 1, 1, 0.5294118)
 
-[node name="chargeup" type="AudioStreamPlayer" parent="." index="4"]
+[node name="chargeup" type="AudioStreamPlayer" parent="." index="3"]
 stream = ExtResource("4_buh5l")
 volume_db = -15.0
 bus = &"SFX"

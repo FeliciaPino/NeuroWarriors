@@ -1,25 +1,15 @@
-[gd_scene load_steps=30 format=3 uid="uid://by2t4l3fto5ou"]
+[gd_scene load_steps=20 format=3 uid="uid://by2t4l3fto5ou"]
 
 [ext_resource type="PackedScene" uid="uid://b82kauwohbvun" path="res://scenes/levels/game.tscn" id="1_hhncd"]
 [ext_resource type="Texture2D" uid="uid://dl6b6ewaxaxom" path="res://assets/backgrounds/forest_background.png" id="2_tkf6i"]
 [ext_resource type="Texture2D" uid="uid://diojtns3m7eoh" path="res://assets/backgrounds/assembly_station_background.png" id="3_3ay3b"]
 [ext_resource type="Texture2D" uid="uid://bus4m5kmrp5r1" path="res://assets/backgrounds/background_machine_thingies.png" id="4_hppjq"]
-[ext_resource type="PackedScene" uid="uid://c5fgqjhldruh1" path="res://scenes/actions/rum_throw.tscn" id="5_6xh4u"]
 [ext_resource type="PackedScene" uid="uid://cmccd8rxiyqab" path="res://scenes/characters/neuro_sama.tscn" id="5_gqr5d"]
 [ext_resource type="Texture2D" uid="uid://c8ffvkryw8ol0" path="res://scenes/levels/unlock_evil/assembly_arm.png" id="5_os2yb"]
 [ext_resource type="Texture2D" uid="uid://dju6yh1wm6yo2" path="res://scenes/levels/unlock_evil/half-built_evil.png" id="6_v6k17"]
-[ext_resource type="PackedScene" uid="uid://d3t2ah38644av" path="res://scenes/actions/taze.tscn" id="8_hfwtw"]
 [ext_resource type="PackedScene" uid="uid://b6410g70liyhb" path="res://scenes/characters/evil.tscn" id="9_2mu0v"]
-[ext_resource type="PackedScene" uid="uid://b36hf4y7sydbp" path="res://scenes/actions/heart.tscn" id="10_3ay3b"]
-[ext_resource type="PackedScene" uid="uid://c5ykioygv4mrj" path="res://scenes/actions/pipes.tscn" id="10_jmx14"]
-[ext_resource type="PackedScene" uid="uid://b3wy6ts3hkpc5" path="res://scenes/characters/enemies/monocopter.tscn" id="12_a5rnb"]
-[ext_resource type="PackedScene" uid="uid://cj1hdugjo18ff" path="res://scenes/actions/harpoon_throw.tscn" id="15_3ay3b"]
-[ext_resource type="PackedScene" uid="uid://i17xkiofe1vx" path="res://scenes/actions/increase_attack.tscn" id="15_hppjq"]
-[ext_resource type="PackedScene" uid="uid://cw8myvw1tqj80" path="res://scenes/actions/screech.tscn" id="16_qgrpf"]
-[ext_resource type="PackedScene" uid="uid://cgpf6o36fg7r5" path="res://scenes/actions/tutel_shield.tscn" id="17_qgrpf"]
+[ext_resource type="PackedScene" uid="uid://be7cg2gxou6i2" path="res://scenes/characters/anny.tscn" id="11_eaa0b"]
 [ext_resource type="PackedScene" uid="uid://uwmc3sf7fq3o" path="res://scenes/characters/vedal.tscn" id="18_upsmr"]
-[ext_resource type="PackedScene" uid="uid://s8dyi6mkp2np" path="res://scenes/actions/summon_drone.tscn" id="19_upsmr"]
-[ext_resource type="PackedScene" uid="uid://c5qewxuc3kb2w" path="res://scenes/actions/slap.tscn" id="20_qgrpf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_os2yb"]
 atlas = ExtResource("4_hppjq")
@@ -242,33 +232,14 @@ texture_filter = 0
 position = Vector2(-178, 353)
 ap_regen = 68
 
-[node name="Taze" parent="Entity_manager/NeuroSama" index="9" instance=ExtResource("8_hfwtw")]
-
-[node name="Heart" parent="Entity_manager/NeuroSama" index="10" instance=ExtResource("10_3ay3b")]
-
 [node name="Evil" parent="Entity_manager" index="1" instance=ExtResource("9_2mu0v")]
 position = Vector2(-302, 360)
 ap_regen = 93
+is_player_controlled = false
 
-[node name="HarpoonThrow" parent="Entity_manager/Evil" index="9" instance=ExtResource("15_3ay3b")]
-
-[node name="IncreaseAttack" parent="Entity_manager/Evil" index="10" instance=ExtResource("15_hppjq")]
-
-[node name="Pipes" parent="Entity_manager/Evil" index="11" instance=ExtResource("10_jmx14")]
-
-[node name="Screech" parent="Entity_manager/Evil" index="12" instance=ExtResource("16_qgrpf")]
-
-[node name="monocopter" parent="Entity_manager" index="2" instance=ExtResource("12_a5rnb")]
-position = Vector2(1249, 265)
-
-[node name="Vedal" parent="Entity_manager" index="3" instance=ExtResource("18_upsmr")]
+[node name="Vedal" parent="Entity_manager" index="2" instance=ExtResource("18_upsmr")]
 position = Vector2(-47, 345)
 ap_regen = 117
 
-[node name="TutelShield" parent="Entity_manager/Vedal" index="0" instance=ExtResource("17_qgrpf")]
-
-[node name="RumThrow" parent="Entity_manager/Vedal" index="10" instance=ExtResource("5_6xh4u")]
-
-[node name="Slap" parent="Entity_manager/Vedal" index="11" instance=ExtResource("20_qgrpf")]
-
-[node name="SummonDrone" parent="Entity_manager/Vedal" index="12" instance=ExtResource("19_upsmr")]
+[node name="Anny" parent="Entity_manager" index="3" instance=ExtResource("11_eaa0b")]
+ap_regen = 37

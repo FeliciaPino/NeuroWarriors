@@ -1,57 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://c5ykioygv4mrj"]
+[gd_scene load_steps=4 format=3 uid="uid://c5ykioygv4mrj"]
 
 [ext_resource type="PackedScene" uid="uid://c0p02mr1a5wep" path="res://scenes/actions/BattleAction.tscn" id="1_jy8vj"]
 [ext_resource type="Script" uid="uid://ciravs1ibbwim" path="res://scripts/actions/pipes.gd" id="2_13bvw"]
 [ext_resource type="AudioStream" uid="uid://ulsx6bs1jbvr" path="res://assets/audio/SFX/metal-pipe-clang.mp3" id="3_meww8"]
-[ext_resource type="Texture2D" uid="uid://deo5j8f3dp0ge" path="res://assets/ui/skill_tree/pipe.png" id="3_w35y6"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_nbwwv"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_w35y6")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="Animation" id="Animation_hoge8"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("sound:playing")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
-[sub_resource type="Animation" id="Animation_qteqj"]
-resource_name = "animation"
-length = 1.95
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("sound:playing")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_bawqv"]
-_data = {
-&"RESET": SubResource("Animation_hoge8"),
-&"animation": SubResource("Animation_qteqj")
-}
 
 [node name="Pipes" node_paths=PackedStringArray("_hit_sfx") instance=ExtResource("1_jy8vj")]
 script = ExtResource("2_13bvw")
@@ -61,26 +12,12 @@ hits = 3
 animationType = "throw"
 _hit_sfx = [NodePath("pipesound")]
 
-[node name="sprite" parent="." index="0"]
-visible = false
-rotation = -0.94746506
-sprite_frames = SubResource("SpriteFrames_nbwwv")
-
-[node name="sound" parent="." index="1"]
-stream = ExtResource("3_meww8")
-volume_db = -17.0
-
 [node name="sound2" type="AudioStreamPlayer" parent="." index="2"]
 stream = ExtResource("3_meww8")
 volume_db = -17.0
 bus = &"SFX"
 
-[node name="AnimationPlayer" parent="." index="3"]
-libraries = {
-&"": SubResource("AnimationLibrary_bawqv")
-}
-
-[node name="pipesound" type="AudioStreamPlayer" parent="." index="4"]
+[node name="pipesound" type="AudioStreamPlayer" parent="." index="3"]
 stream = ExtResource("3_meww8")
 volume_db = -15.0
 max_polyphony = 3

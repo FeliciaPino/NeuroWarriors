@@ -1,17 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cj1hdugjo18ff"]
+[gd_scene load_steps=5 format=3 uid="uid://cj1hdugjo18ff"]
 
 [ext_resource type="Script" uid="uid://bm30i4oqxxb8" path="res://scripts/actions/harpoon_throw.gd" id="1_iyune"]
 [ext_resource type="PackedScene" uid="uid://c0p02mr1a5wep" path="res://scenes/actions/BattleAction.tscn" id="1_qsrqi"]
 [ext_resource type="Texture2D" uid="uid://cdyfbvubj5pqq" path="res://assets/actions/harpoon.png" id="3_sywqy"]
 [ext_resource type="AudioStream" uid="uid://cn087r6raiygd" path="res://assets/audio/SFX/soundslikerumenough.wav" id="4_6iwqg"]
-
-[sub_resource type="Animation" id="Animation_jp6ak"]
-resource_name = "animation"
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_avu8r"]
-_data = {
-&"animation": SubResource("Animation_jp6ak")
-}
 
 [node name="HarpoonThrow" node_paths=PackedStringArray("projectiles", "_impact_sfx") instance=ExtResource("1_qsrqi")]
 script = ExtResource("1_iyune")
@@ -23,22 +15,10 @@ projectile_speed = 600.0
 projectiles = [NodePath("harpoon")]
 _impact_sfx = [NodePath("woosh")]
 
-[node name="sprite" parent="." index="0"]
-texture_filter = 2
-
-[node name="sound" parent="." index="1"]
-stream = ExtResource("4_6iwqg")
-volume_db = -15.0
-
-[node name="AnimationPlayer" parent="." index="2"]
-libraries = {
-&"": SubResource("AnimationLibrary_avu8r")
-}
-
-[node name="harpoon" type="Sprite2D" parent="." index="3"]
+[node name="harpoon" type="Sprite2D" parent="." index="2"]
 texture = ExtResource("3_sywqy")
 
-[node name="woosh" type="AudioStreamPlayer" parent="." index="4"]
+[node name="woosh" type="AudioStreamPlayer" parent="." index="3"]
 stream = ExtResource("4_6iwqg")
 volume_db = -15.0
 bus = &"SFX"

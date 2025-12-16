@@ -1,53 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://e2g21mtkqscf"]
+[gd_scene load_steps=3 format=3 uid="uid://e2g21mtkqscf"]
 
 [ext_resource type="PackedScene" uid="uid://c0p02mr1a5wep" path="res://scenes/actions/BattleAction.tscn" id="1_06rwy"]
 [ext_resource type="Script" uid="uid://ck3l8b4fab57b" path="res://scripts/actions/generic_melee.gd" id="1_sh0rd"]
-
-[sub_resource type="Animation" id="Animation_cvhxb"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("sound:playing")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
-[sub_resource type="Animation" id="Animation_k80g0"]
-resource_name = "animation"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("sound:playing")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.133333, 0.866667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_pfl2x"]
-_data = {
-&"RESET": SubResource("Animation_cvhxb"),
-&"animation": SubResource("Animation_k80g0")
-}
 
 [node name="GenericMelee" instance=ExtResource("1_06rwy")]
 script = ExtResource("1_sh0rd")
 price = 2
 animationType = "attack"
-
-[node name="sound" parent="." index="1"]
-volume_db = -8.0
-
-[node name="AnimationPlayer" parent="." index="2"]
-libraries = {
-&"": SubResource("AnimationLibrary_pfl2x")
-}

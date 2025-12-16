@@ -1,47 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://b36hf4y7sydbp"]
+[gd_scene load_steps=7 format=3 uid="uid://b36hf4y7sydbp"]
 
 [ext_resource type="Script" uid="uid://b2x5b4s5t1txc" path="res://scripts/actions/heart.gd" id="1_ie21g"]
 [ext_resource type="PackedScene" uid="uid://c0p02mr1a5wep" path="res://scenes/actions/BattleAction.tscn" id="1_ixepv"]
 [ext_resource type="Texture2D" uid="uid://wutm5en1rqjf" path="res://assets/actions/RedHeart.png" id="3_endp1"]
 [ext_resource type="AudioStream" uid="uid://bi3naco087bmv" path="res://assets/audio/homemade/clips/heart.mp3" id="4_q7t5m"]
-
-[sub_resource type="Animation" id="Animation_jw6yy"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("sprite:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
-[sub_resource type="Animation" id="Animation_k2kku"]
-resource_name = "animation"
-length = 0.8
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("sprite:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.8),
-"transitions": PackedFloat32Array(-2, -2, -2),
-"update": 0,
-"values": [-0.349066, 0.349066, -0.349066]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_kqet7"]
-_data = {
-&"RESET": SubResource("Animation_jw6yy"),
-&"animation": SubResource("Animation_k2kku")
-}
 
 [sub_resource type="Animation" id="Animation_q7t5m"]
 resource_name = "new_animation"
@@ -75,16 +37,7 @@ projectiles = [NodePath("heartsprite")]
 animationType = "effect"
 _start_sfx = [NodePath("heartsound")]
 
-[node name="sound" parent="." index="1"]
-stream = ExtResource("4_q7t5m")
-volume_db = -10.0
-
-[node name="AnimationPlayer" parent="." index="2"]
-libraries = {
-&"": SubResource("AnimationLibrary_kqet7")
-}
-
-[node name="heartsprite" type="Sprite2D" parent="." index="3"]
+[node name="heartsprite" type="Sprite2D" parent="." index="2"]
 rotation = 0.27271825
 texture = ExtResource("3_endp1")
 
@@ -94,7 +47,7 @@ libraries = {
 }
 autoplay = "new_animation"
 
-[node name="heartsound" type="AudioStreamPlayer" parent="." index="4"]
+[node name="heartsound" type="AudioStreamPlayer" parent="." index="3"]
 stream = ExtResource("4_q7t5m")
 volume_db = -10.0
 bus = &"SFX"

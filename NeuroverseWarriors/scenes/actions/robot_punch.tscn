@@ -1,45 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://c4ii0hbadpfiv"]
+[gd_scene load_steps=4 format=3 uid="uid://c4ii0hbadpfiv"]
 
 [ext_resource type="PackedScene" uid="uid://c0p02mr1a5wep" path="res://scenes/actions/BattleAction.tscn" id="1_f5awo"]
 [ext_resource type="Script" uid="uid://c4ytkwwlstiwf" path="res://scripts/actions/robot_punch.gd" id="1_v63vm"]
 [ext_resource type="AudioStream" uid="uid://rf2y8u0ttqxw" path="res://addons/sfx/Retro Impact Punch 07.wav" id="2_lc6iq"]
-
-[sub_resource type="Animation" id="Animation_wretn"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("sound:playing")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
-[sub_resource type="Animation" id="Animation_d67lq"]
-resource_name = "animation"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("sound:playing")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_wv84h"]
-_data = {
-&"RESET": SubResource("Animation_wretn"),
-&"animation": SubResource("Animation_d67lq")
-}
 
 [node name="RobotPunch" node_paths=PackedStringArray("_impact_sfx") instance=ExtResource("1_f5awo")]
 script = ExtResource("1_v63vm")
@@ -48,16 +11,7 @@ action_multiplier = 1.5
 animationType = "attack"
 _impact_sfx = [NodePath("punch")]
 
-[node name="sound" parent="." index="1"]
-stream = ExtResource("2_lc6iq")
-volume_db = -13.783
-
 [node name="punch" type="AudioStreamPlayer" parent="." index="2"]
 stream = ExtResource("2_lc6iq")
 volume_db = -10.0
 bus = &"SFX"
-
-[node name="AnimationPlayer" parent="." index="3"]
-libraries = {
-&"": SubResource("AnimationLibrary_wv84h")
-}

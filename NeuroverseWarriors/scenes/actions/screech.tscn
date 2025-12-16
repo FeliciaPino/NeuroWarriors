@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cw8myvw1tqj80"]
+[gd_scene load_steps=7 format=3 uid="uid://cw8myvw1tqj80"]
 
 [ext_resource type="PackedScene" uid="uid://c0p02mr1a5wep" path="res://scenes/actions/BattleAction.tscn" id="1_m5tg8"]
 [ext_resource type="Script" uid="uid://c2184w0wb52rp" path="res://scripts/actions/screech.gd" id="2_a7m2n"]
@@ -6,18 +6,6 @@
 [ext_resource type="AudioStream" uid="uid://dfe87vpt5orv0" path="res://assets/audio/homemade/clips/evil_screech_1.mp3" id="3_y7jul"]
 [ext_resource type="AudioStream" uid="uid://cv18ik7l0c5la" path="res://assets/audio/homemade/clips/evil_screech_2.mp3" id="4_c4ude"]
 [ext_resource type="AudioStream" uid="uid://ciq0fwd0mud0i" path="res://assets/audio/homemade/clips/evil_screech_3.mp3" id="6_wny4q"]
-
-[sub_resource type="Animation" id="Animation_g0mkl"]
-length = 0.001
-
-[sub_resource type="Animation" id="Animation_fy5ix"]
-resource_name = "animation"
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_jiqcs"]
-_data = {
-&"RESET": SubResource("Animation_g0mkl"),
-&"animation": SubResource("Animation_fy5ix")
-}
 
 [node name="Screech" node_paths=PackedStringArray("projectiles", "_impact_sfx") instance=ExtResource("1_m5tg8")]
 position = Vector2(0, -30)
@@ -31,10 +19,6 @@ projectile_speed = 1000.0
 projectiles = [NodePath("soundwave")]
 animationType = "effect"
 _impact_sfx = [NodePath("sound3"), NodePath("sound2"), NodePath("sound4")]
-
-[node name="sound" parent="." index="1"]
-stream = ExtResource("4_c4ude")
-volume_db = -5.0
 
 [node name="sound4" type="AudioStreamPlayer" parent="." index="2"]
 stream = ExtResource("4_c4ude")
@@ -51,10 +35,5 @@ stream = ExtResource("6_wny4q")
 volume_db = 2.0
 bus = &"SFX"
 
-[node name="AnimationPlayer" parent="." index="5"]
-libraries = {
-&"": SubResource("AnimationLibrary_jiqcs")
-}
-
-[node name="soundwave" type="Sprite2D" parent="." index="6"]
+[node name="soundwave" type="Sprite2D" parent="." index="5"]
 texture = ExtResource("2_rxi0n")
