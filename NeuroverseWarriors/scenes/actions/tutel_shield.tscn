@@ -1,20 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://cgpf6o36fg7r5"]
+[gd_scene load_steps=8 format=3 uid="uid://cgpf6o36fg7r5"]
 
 [ext_resource type="PackedScene" uid="uid://c0p02mr1a5wep" path="res://scenes/actions/BattleAction.tscn" id="1_7wytg"]
 [ext_resource type="Script" uid="uid://c6bwcvlcadmqh" path="res://scripts/actions/tutel_shield.gd" id="2_3xrb5"]
-[ext_resource type="Texture2D" uid="uid://bdltdynro0s8x" path="res://assets/tutel_shield.png" id="2_x81h4"]
 [ext_resource type="AudioStream" uid="uid://h0dkp76w84xe" path="res://assets/audio/homemade/SFX/ting.wav" id="4_re06y"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_ag4b6"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_x81h4")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[ext_resource type="PackedScene" uid="uid://dsuka2rioyvol" path="res://scenes/battle_vfx/tutel_shell_vfx.tscn" id="5_1t0rh"]
 
 [sub_resource type="Animation" id="Animation_jsk2m"]
 length = 0.001
@@ -101,24 +90,35 @@ _data = {
 &"animation": SubResource("Animation_a2p80")
 }
 
-[node name="TutelShield" instance=ExtResource("1_7wytg")]
+[node name="TutelShield" node_paths=PackedStringArray("_hit_sfx", "_target_impact_vfx") instance=ExtResource("1_7wytg")]
 script = ExtResource("2_3xrb5")
 reach = 2
 isPositive = true
 price = 2
 effect_duration = 3
 effect_intensity = 15
+_hit_sfx = [NodePath("ting")]
+_target_impact_vfx = [NodePath("TutelShell VFX")]
 
 [node name="sprite" parent="." index="0"]
 modulate = Color(1, 1, 1, 0.580392)
-sprite_frames = SubResource("SpriteFrames_ag4b6")
 
 [node name="sound" parent="." index="1"]
 stream = ExtResource("4_re06y")
 volume_db = -10.0
 pitch_scale = 0.42
 
-[node name="AnimationPlayer" parent="." index="2"]
+[node name="ting" type="AudioStreamPlayer" parent="." index="2"]
+stream = ExtResource("4_re06y")
+volume_db = -10.0
+pitch_scale = 0.42
+bus = &"SFX"
+
+[node name="AnimationPlayer" parent="." index="3"]
 libraries = {
 &"": SubResource("AnimationLibrary_jem67")
 }
+
+[node name="TutelShell VFX" parent="." index="4" instance=ExtResource("5_1t0rh")]
+modulate = Color(1, 1, 1, 0.49019608)
+duration = 0.8

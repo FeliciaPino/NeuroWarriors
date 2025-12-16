@@ -5,6 +5,20 @@
 [ext_resource type="Script" uid="uid://uvpvhbs0od7x" path="res://scripts/actions/poison_dart.gd" id="2_6purc"]
 [ext_resource type="AudioStream" uid="uid://bymhdcicx5ap3" path="res://assets/audio/homemade/SFX/Woosh.mp3" id="4_6kwt5"]
 
+[sub_resource type="Animation" id="Animation_2ehal"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_vmeg4"]
+resource_name = "animation"
+length = 0.4
+loop_mode = 1
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e7ixk"]
+_data = {
+&"RESET": SubResource("Animation_2ehal"),
+&"animation": SubResource("Animation_vmeg4")
+}
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_u2gbk"]
 atlas = ExtResource("2_5evah")
 region = Rect2(0, 0, 40, 20)
@@ -27,21 +41,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="Animation" id="Animation_2ehal"]
-length = 0.001
-
-[sub_resource type="Animation" id="Animation_vmeg4"]
-resource_name = "animation"
-length = 0.4
-loop_mode = 1
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_e7ixk"]
-_data = {
-&"RESET": SubResource("Animation_2ehal"),
-&"animation": SubResource("Animation_vmeg4")
-}
-
-[node name="PoisonDart" instance=ExtResource("1_03j1x")]
+[node name="PoisonDart" node_paths=PackedStringArray("projectiles", "_impact_sfx") instance=ExtResource("1_03j1x")]
 script = ExtResource("2_6purc")
 reach = 1
 price = 4
@@ -49,12 +49,12 @@ action_multiplier = 0.2
 effect_duration = 4
 effect_intensity = 1
 projectile_speed = 600.0
+projectiles = [NodePath("dart")]
+_impact_sfx = [NodePath("throw")]
 
 [node name="sprite" parent="." index="0"]
 texture_filter = 1
 rotation = -0.0523599
-sprite_frames = SubResource("SpriteFrames_mtvur")
-frame_progress = 0.849486
 
 [node name="sound" parent="." index="1"]
 stream = ExtResource("4_6kwt5")
@@ -63,3 +63,15 @@ stream = ExtResource("4_6kwt5")
 libraries = {
 &"": SubResource("AnimationLibrary_e7ixk")
 }
+
+[node name="dart" type="AnimatedSprite2D" parent="." index="3"]
+z_index = 1
+y_sort_enabled = true
+texture_filter = 1
+rotation = -0.0523599
+sprite_frames = SubResource("SpriteFrames_mtvur")
+autoplay = "default"
+frame_progress = 0.849486
+
+[node name="throw" type="AudioStreamPlayer" parent="." index="4"]
+stream = ExtResource("4_6kwt5")

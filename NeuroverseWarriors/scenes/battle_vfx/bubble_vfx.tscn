@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://drshkj57h4a7k"]
+
+[ext_resource type="PackedScene" uid="uid://b55x0y6g8lfpt" path="res://scenes/battle_vfx/battle_vfx.tscn" id="1_e66fm"]
+[ext_resource type="Texture2D" uid="uid://cfddrf68kdhe8" path="res://assets/bubble.png" id="2_xxjr4"]
+
+[sub_resource type="Animation" id="Animation_e66fm"]
+resource_name = "new_animation"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("bubble:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333265, 0.29999965, 0.39999965),
+"transitions": PackedFloat32Array(0.257095, -3.36359, -2, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1.4, 1.4), Vector2(1.1, 1.1), Vector2(1.2, 1.2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xxjr4"]
+_data = {
+&"new_animation": SubResource("Animation_e66fm")
+}
+
+[node name="BubbleVFX" instance=ExtResource("1_e66fm")]
+
+[node name="AnimationPlayer" parent="." index="0"]
+libraries = {
+&"": SubResource("AnimationLibrary_xxjr4")
+}
+autoplay = "new_animation"
+
+[node name="bubble" type="Sprite2D" parent="." index="2"]
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("2_xxjr4")

@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://b55x0y6g8lfpt"]
+
+[ext_resource type="Script" uid="uid://b0l4uw11dle8m" path="res://scenes/battle_vfx/battle_vfx.gd" id="1_lj5n6"]
+
+[node name="Battle VFX" type="Node2D"]
+script = ExtResource("1_lj5n6")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Delay" type="Timer" parent="."]

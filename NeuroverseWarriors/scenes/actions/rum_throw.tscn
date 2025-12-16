@@ -1,21 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://c5fgqjhldruh1"]
+[gd_scene load_steps=11 format=3 uid="uid://c5fgqjhldruh1"]
 
 [ext_resource type="PackedScene" uid="uid://c0p02mr1a5wep" path="res://scenes/actions/BattleAction.tscn" id="1_5mapb"]
 [ext_resource type="Script" uid="uid://ctj811ebj8dc" path="res://scripts/actions/rum_throw.gd" id="1_5rjq5"]
 [ext_resource type="Texture2D" uid="uid://dd4x7ub5hj3mw" path="res://assets/rum.png" id="2_eu38x"]
 [ext_resource type="AudioStream" uid="uid://bymhdcicx5ap3" path="res://assets/audio/homemade/SFX/Woosh.mp3" id="4_rpxqk"]
 [ext_resource type="AudioStream" uid="uid://d4a0ll67wiweg" path="res://assets/audio/SFX/shatter.mp3" id="5_8nle4"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_o4my3"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_eu38x")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [sub_resource type="Animation" id="Animation_c21uv"]
 length = 0.001
@@ -55,7 +44,29 @@ _data = {
 &"animation": SubResource("Animation_2rdyp")
 }
 
-[node name="RumThrow" instance=ExtResource("1_5mapb")]
+[sub_resource type="Animation" id="Animation_k3t1v"]
+resource_name = "new_animation"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q7ec2"]
+_data = {
+&"new_animation": SubResource("Animation_k3t1v")
+}
+
+[node name="RumThrow" node_paths=PackedStringArray("projectiles", "_impact_sfx", "_hit_sfx") instance=ExtResource("1_5mapb")]
 script = ExtResource("1_5rjq5")
 reach = 1
 price = 2
@@ -63,21 +74,37 @@ body_part_source = "Hand_R"
 effect_duration = 3
 effect_intensity = 10
 projectile_speed = 500.0
+projectiles = [NodePath("rum")]
 animationType = "throw"
+_impact_sfx = [NodePath("throw")]
+_hit_sfx = [NodePath("shatter")]
 
 [node name="sprite" parent="." index="0"]
-sprite_frames = SubResource("SpriteFrames_o4my3")
+visible = false
 
 [node name="sound" parent="." index="1"]
 stream = ExtResource("4_rpxqk")
 
-[node name="sound2" type="AudioStreamPlayer" parent="." index="2"]
+[node name="throw" type="AudioStreamPlayer" parent="." index="2"]
+stream = ExtResource("4_rpxqk")
+bus = &"SFX"
+
+[node name="shatter" type="AudioStreamPlayer" parent="." index="3"]
 stream = ExtResource("5_8nle4")
 volume_db = -5.0
 pitch_scale = 2.0
 bus = &"SFX"
 
-[node name="AnimationPlayer" parent="." index="3"]
+[node name="AnimationPlayer" parent="." index="4"]
 libraries = {
 &"": SubResource("AnimationLibrary_sqtqw")
 }
+
+[node name="rum" type="Sprite2D" parent="." index="5"]
+texture = ExtResource("2_eu38x")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="rum" index="0"]
+libraries = {
+&"": SubResource("AnimationLibrary_q7ec2")
+}
+autoplay = "new_animation"

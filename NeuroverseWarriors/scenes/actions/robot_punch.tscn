@@ -41,17 +41,23 @@ _data = {
 &"animation": SubResource("Animation_d67lq")
 }
 
-[node name="RobotPunch" instance=ExtResource("1_f5awo")]
+[node name="RobotPunch" node_paths=PackedStringArray("_impact_sfx") instance=ExtResource("1_f5awo")]
 script = ExtResource("1_v63vm")
 price = 2
 action_multiplier = 1.5
 animationType = "attack"
+_impact_sfx = [NodePath("punch")]
 
 [node name="sound" parent="." index="1"]
 stream = ExtResource("2_lc6iq")
 volume_db = -13.783
 
-[node name="AnimationPlayer" parent="." index="2"]
+[node name="punch" type="AudioStreamPlayer" parent="." index="2"]
+stream = ExtResource("2_lc6iq")
+volume_db = -10.0
+bus = &"SFX"
+
+[node name="AnimationPlayer" parent="." index="3"]
 libraries = {
 &"": SubResource("AnimationLibrary_wv84h")
 }

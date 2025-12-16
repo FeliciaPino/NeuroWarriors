@@ -1,20 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://8y32ijl0g07n"]
+[gd_scene load_steps=10 format=3 uid="uid://8y32ijl0g07n"]
 
 [ext_resource type="PackedScene" uid="uid://c0p02mr1a5wep" path="res://scenes/actions/BattleAction.tscn" id="1_no5x0"]
 [ext_resource type="Script" uid="uid://cmmeisd7dniyy" path="res://scripts/actions/fluster.gd" id="2_24y7i"]
 [ext_resource type="Texture2D" uid="uid://cuiyr20gbaupr" path="res://assets/actions/PinkHeart.png" id="3_vx2do"]
 [ext_resource type="AudioStream" uid="uid://qjkrupbb8ine" path="res://assets/audio/SFX/rizz.mp3" id="4_xix12"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_q682x"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_vx2do")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [sub_resource type="Animation" id="Animation_aaeco"]
 length = 0.001
@@ -54,22 +43,57 @@ _data = {
 &"animation": SubResource("Animation_quntx")
 }
 
-[node name="Fluster" instance=ExtResource("1_no5x0")]
+[sub_resource type="Animation" id="Animation_2gl2o"]
+resource_name = "new_animation"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.9, 0.9), Vector2(1.1, 1.1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xs5wr"]
+_data = {
+&"new_animation": SubResource("Animation_2gl2o")
+}
+
+[node name="Fluster" node_paths=PackedStringArray("projectiles", "_impact_sfx") instance=ExtResource("1_no5x0")]
 script = ExtResource("2_24y7i")
 reach = 1
 price = 3
 effect_duration = 3
 effect_intensity = 5
-projectile_speed = 600.0
+projectile_speed = 500.0
+projectiles = [NodePath("heart")]
 animationType = "effect"
+_impact_sfx = [NodePath("rizz")]
 
 [node name="sprite" parent="." index="0"]
-sprite_frames = SubResource("SpriteFrames_q682x")
-
-[node name="sound" parent="." index="1"]
-stream = ExtResource("4_xix12")
+visible = false
 
 [node name="AnimationPlayer" parent="." index="2"]
 libraries = {
 &"": SubResource("AnimationLibrary_btcke")
 }
+
+[node name="heart" type="Sprite2D" parent="." index="3"]
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("3_vx2do")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="heart" index="0"]
+libraries = {
+&"": SubResource("AnimationLibrary_xs5wr")
+}
+autoplay = "new_animation"
+
+[node name="rizz" type="AudioStreamPlayer" parent="." index="4"]
+stream = ExtResource("4_xix12")
+bus = &"SFX"

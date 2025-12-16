@@ -1,0 +1,75 @@
+[gd_scene load_steps=6 format=3 uid="uid://dtu1oa37ndobg"]
+
+[ext_resource type="PackedScene" uid="uid://b55x0y6g8lfpt" path="res://scenes/battle_vfx/battle_vfx.tscn" id="1_v28eq"]
+[ext_resource type="Texture2D" uid="uid://g04rqk377lfp" path="res://assets/ui/circle.png" id="2_xmsi7"]
+
+[sub_resource type="Animation" id="Animation_pd1yh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("circle:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("circle:modulate:a")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_c0lgx"]
+resource_name = "new_animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("circle:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1.5, 1.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("circle:modulate:a")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n2qaq"]
+_data = {
+&"RESET": SubResource("Animation_pd1yh"),
+&"new_animation": SubResource("Animation_c0lgx")
+}
+
+[node name="Circle Out VFX" instance=ExtResource("1_v28eq")]
+
+[node name="AnimationPlayer" parent="." index="0"]
+libraries = {
+&"": SubResource("AnimationLibrary_n2qaq")
+}
+autoplay = "new_animation"
+
+[node name="circle" type="Sprite2D" parent="." index="2"]
+texture = ExtResource("2_xmsi7")

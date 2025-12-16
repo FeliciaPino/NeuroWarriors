@@ -54,11 +54,15 @@ _data = {
 &"animation": SubResource("Animation_q1idr")
 }
 
-[node name="KatanaSlash" instance=ExtResource("1_to6oy")]
+[node name="KatanaSlash" node_paths=PackedStringArray("_impact_sfx") instance=ExtResource("1_to6oy")]
 script = ExtResource("2_wnxrx")
 price = 4
 action_multiplier = 2.75
 animationType = "throw"
+_impact_sfx = [NodePath("AudioStreamPlayer")]
+
+[node name="sprite" parent="." index="0"]
+visible = false
 
 [node name="sound" parent="." index="1"]
 stream = ExtResource("3_mgcur")
@@ -68,3 +72,8 @@ volume_db = -15.0
 libraries = {
 &"": SubResource("AnimationLibrary_24l3k")
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="3"]
+stream = ExtResource("3_mgcur")
+volume_db = -15.0
+bus = &"SFX"

@@ -1,0 +1,76 @@
+[gd_scene load_steps=8 format=3 uid="uid://4616pf77ck34"]
+
+[ext_resource type="PackedScene" uid="uid://b55x0y6g8lfpt" path="res://scenes/battle_vfx/battle_vfx.tscn" id="1_2vlpx"]
+
+[sub_resource type="Animation" id="Animation_2vlpx"]
+resource_name = "new_animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GPUParticles2D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.01),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_ilvf6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GPUParticles2D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ic70v"]
+_data = {
+&"RESET": SubResource("Animation_ilvf6"),
+&"new_animation": SubResource("Animation_2vlpx")
+}
+
+[sub_resource type="Curve" id="Curve_2vlpx"]
+_data = [Vector2(0.0136364, 0.984906), 0.0, 0.0, 0, 0, Vector2(0.859091, 0.939623), 0.0, 0.0, 0, 0, Vector2(1, 0.0490566), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_lik2l"]
+curve = SubResource("Curve_2vlpx")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ilvf6"]
+particle_flag_disable_z = true
+spread = 15.0
+initial_velocity_min = 400.0
+initial_velocity_max = 600.0
+gravity = Vector3(0, 1500, 0)
+scale_min = 4.0
+scale_max = 4.0
+color = Color(1, 0.33, 0.33, 1)
+alpha_curve = SubResource("CurveTexture_lik2l")
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+
+[node name="Confetti VFX" instance=ExtResource("1_2vlpx")]
+
+[node name="AnimationPlayer" parent="." index="0"]
+libraries = {
+&"": SubResource("AnimationLibrary_ic70v")
+}
+autoplay = "new_animation"
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." index="3"]
+rotation = -1.5708
+emitting = false
+amount = 100
+lifetime = 0.85
+one_shot = true
+explosiveness = 0.85
+process_material = SubResource("ParticleProcessMaterial_ilvf6")

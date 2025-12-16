@@ -7,6 +7,7 @@ enum ActionReach {MELEE,PROJECTILE,TELE,SELF}
 #TELE: Instant effect
 #SELF: targets user only
 
+
 #How the target is selected
 enum ActionTargetSelection {PLAYER_CHOICE,RANDOM_ENEMY,RANDOM_ANY,AUTOCHAIN}
 #PLAYER_CHOICE: the default, player chooses target
@@ -29,11 +30,23 @@ var description
 @export var effect_duration:int #how many turns the applied  status effect lasts
 @export var effect_intensity:int #multiplier for the status effect
 @export var projectile_speed:float = 100
-var user:BattleEntity = null
+@export var projectiles:Array[Node2D]
 @export var animationType:String = "" #either  "attack", "throw", or "effect". Or another if it's unique maybe? 
-@onready var sprite = $sprite
-@onready var sounds:Array[AudioStreamPlayer]
-@onready var animationPlayer:AnimationPlayer = $AnimationPlayer
+
+@export var sound_variation_percentage:float
+@export var _start_sfx:Array[AudioStreamPlayer] #sounds that play when action is started
+@export var _impact_sfx:Array[AudioStreamPlayer] #sounds that play when action_impact is emitted
+@export var _hit_sfx:Array[AudioStreamPlayer] #sounds that play when _action_effect is called (mostly for projectiles methinks)
+
+@export var _user_start_vfx:Array[Node2D] #visual effects that play on the user when the action is started
+@export var _user_impact_vfx:Array[Node2D] #eeh, you get the idea
+@export var _user_hit_vfx:Array[Node2D]
+
+@export var _target_start_vfx:Array[Node2D]
+@export var _target_impact_vfx:Array[Node2D]
+@export var _target_hit_vfx:Array[Node2D]
+
+var user:BattleEntity = null
 
 signal action_impact_or_animation_changed
 var did_impact := false
@@ -43,20 +56,39 @@ signal action_finished
 
 
 func _ready() -> void:
-	sprite.visible = false
-	for c in get_children():
-		if c is AudioStreamPlayer:
-			sounds.append(c)
-func _random_sound():
-	if sounds.size()<1:return
-	sounds.pick_random().play()
+	for vf in _user_start_vfx:
+		vf.visible = false
+		vf.process_mode = Node.PROCESS_MODE_DISABLED
+	for vf in _user_hit_vfx:
+		vf.visible = false
+		vf.process_mode = Node.PROCESS_MODE_DISABLED
+	for vf in _user_impact_vfx:
+		vf.visible = false
+		vf.process_mode = Node.PROCESS_MODE_DISABLED
+		
+	for vf in _target_start_vfx:
+		vf.visible = false
+		vf.process_mode = Node.PROCESS_MODE_DISABLED
+	for vf in _target_impact_vfx:
+		vf.visible = false
+		vf.process_mode = Node.PROCESS_MODE_DISABLED
+	for vf in _target_hit_vfx:
+		vf.visible = false
+		vf.process_mode = Node.PROCESS_MODE_DISABLED
+	for p in projectiles:
+		p.visible = false
+
 func _do_action_effect(targets):
 	if not valid_targets(targets) or not valid_user(): 
 		print_debug(str(self,": somethings not valid"))
 		return
 	for t in targets:
 		_action_effect(t)
-	
+func _play_vfx(entity:BattleEntity,vf:Node2D):
+	var new_vf = vf.duplicate()
+	new_vf.visible = true
+	new_vf.process_mode = Node.PROCESS_MODE_INHERIT
+	entity.applied_vfx_node.add_child(new_vf)
 func valid_targets(targets:Array)->bool:
 	for target in targets:
 		if target == null:
@@ -114,6 +146,13 @@ func set_user(value:BattleEntity):
 #each specific action must override this with it's effects
 func execute(targets:Array[BattleEntity]):
 	print_debug(action_name,"started")
+	if !valid_user(): return
+	if !_start_sfx.is_empty():_start_sfx.pick_random().play()
+	if !_user_start_vfx.is_empty():_play_vfx(user,_user_start_vfx.pick_random())
+	if !_target_start_vfx.is_empty():
+		for t in targets:
+			if !valid_target(t):continue
+			_play_vfx(t,_target_start_vfx.pick_random())
 	match reach:
 		ActionReach.MELEE:
 			await _meele_action(targets)
@@ -138,13 +177,15 @@ func _meele_action(targets:Array)->void:
 			spotToAttackFrom = user.global_position
 		user.walk_to(spotToAttackFrom,600)
 		await user.finished_walking
-		if not valid_user():
+		if !valid_user():
 			print_debug("invalid user on action "+str(self))
 			return
+		else:
+			if !_user_impact_vfx.is_empty(): _play_vfx(user,_user_impact_vfx.pick_random())
 		if valid_target(current_target):
 			if spotToAttackFrom.x < current_target.global_position.x: user.face_right()
 			else: user.face_left()
-			sprite.global_position = current_target.global_position
+			if !_target_impact_vfx.is_empty(): _play_vfx(current_target,_target_impact_vfx.pick_random())
 			current_target.got_on_your_personal_space(user)
 		user.did_an_action(price)
 		print_debug(str(self)+": approaching target")
@@ -155,16 +196,15 @@ func _meele_action(targets:Array)->void:
 			user.animation_player.seek(0)
 			did_impact = false
 			await action_impact_or_animation_changed
+			if !_impact_sfx.is_empty(): _impact_sfx.pick_random().play()
+			elif !_hit_sfx.is_empty(): _hit_sfx.pick_random().play()
 			await get_tree().process_frame
 			if !valid_user():break
+			if !valid_target(current_target):continue
 			var gotta_wait = did_impact
-			sprite.global_position = current_target.global_position
-			animationPlayer.play("animation")
 			_action_effect(current_target)
-			if sounds[0].playing and sounds.size()>1:
-				sounds[1].play()
-			else:
-				sounds[0].play()
+			if !_target_hit_vfx.is_empty():_play_vfx(current_target,_target_hit_vfx.pick_random())
+			if !_user_hit_vfx.is_empty():_play_vfx(user,_user_hit_vfx.pick_random())
 			if gotta_wait:#wait until x% of the animation
 				var target_time = user.animation_player.current_animation_length*0.99
 				if i<hits-1:target_time *= 0.81
@@ -177,6 +217,7 @@ func _meele_action(targets:Array)->void:
 	user.settle_into_spot()
 
 #does the throwing thing and calls _action_effect
+
 func _projectile_action(target)->void:
 	if not valid_user() or not valid_target(target): return
 	if target.global_position < user.global_position:
@@ -188,39 +229,42 @@ func _projectile_action(target)->void:
 		user.animation_player.play("throw")
 		
 	await action_impact_or_animation_changed
-	sounds[0].play()
-	var new_sprite = sprite.duplicate()
-	new_sprite.visible = true
+	if !_impact_sfx.is_empty(): _impact_sfx.pick_random().play()
+	var projectile = projectiles.pick_random().duplicate()
+	projectile.visible = true
 	if valid_user():
+		if !_user_impact_vfx.is_empty(): _play_vfx(user,_user_impact_vfx.pick_random())
 		user.did_an_action(price) #makes sense to charge when throwing the thing, even if it doesn't reach a target
 		var anchor = null
 		if body_part_source != "": anchor = user.visual_node.find_child(body_part_source)
 		if anchor:
-			new_sprite.global_position = anchor.global_position
+			projectile.global_position = anchor.global_position
 		else:
-			new_sprite.global_position = user.global_position
-	animationPlayer.play("animation")
+			projectile.global_position = user.global_position
 	if valid_target(target):
-		user.game_manager.vfx_node.add_child(new_sprite)
-		new_sprite.rotation = (target.global_position-new_sprite.global_position).normalized().angle()
+		if !_target_impact_vfx.is_empty(): _play_vfx(target,_target_impact_vfx.pick_random())
+		user.game_manager.vfx_node.add_child(projectile)
+		projectile.rotation = (target.global_position-projectile.global_position).normalized().angle()
 	var tween = get_tree().create_tween()
 	if user != target:
-		tween.tween_property(new_sprite,"global_position",target.global_position, new_sprite.global_position.distance_to(target.global_position)/(projectile_speed))
+		tween.tween_property(projectile,"global_position",target.global_position, projectile.global_position.distance_to(target.global_position)/(projectile_speed))
 	else:
 		print_debug("self projectile")
-		tween.tween_property(new_sprite,"global_position",user.global_position+Vector2(0,-100),100.0/projectile_speed).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
-		tween.tween_property(new_sprite,"global_position",user.global_position,100.0/projectile_speed).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
-	tween.finished.connect(projectile_hit_target.bind(target,new_sprite))
+		tween.tween_property(projectile,"global_position",user.global_position+Vector2(0,-100),100.0/projectile_speed).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+		tween.tween_property(projectile,"global_position",user.global_position,100.0/projectile_speed).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+	tween.finished.connect(projectile_hit_target.bind(target,projectile))
 	
 func projectile_hit_target(target,projectile):
 	projectile.visible = false
 	if valid_target(target):
+		if !_hit_sfx.is_empty(): _hit_sfx.pick_random().play()
+		if !_target_hit_vfx.is_empty(): _play_vfx(target,_target_hit_vfx.pick_random())
 		_action_effect(target)
-		if sounds.size()>1:
-			sounds[1].play()
 	if valid_user():
+		if !_user_hit_vfx.is_empty(): _play_vfx(user,_user_hit_vfx.pick_random())
 		user.settle_into_spot()
 	projectile.queue_free()
+
 #plays the animation of the entity and calls _action_effect
 func _ranged_non_projectile_action(targets:Array)->void:
 	if not valid_user():
@@ -230,12 +274,14 @@ func _ranged_non_projectile_action(targets:Array)->void:
 		
 	print_debug(str(self,": wating for ",user," to finish animation ",user.animation_player.current_animation))
 	await action_impact_or_animation_changed
-	sounds[0].play()
+	if !_impact_sfx.is_empty(): _impact_sfx.pick_random().play()
+	elif !_hit_sfx.is_empty(): _hit_sfx.pick_random().play()
 	for t in targets:
 		if valid_target(t):
-			sprite.global_position = t.global_position
-			animationPlayer.play("animation")
+			if !_target_impact_vfx.is_empty():_play_vfx(t,_target_impact_vfx.pick_random())
+			elif !_target_hit_vfx.is_empty():_play_vfx(t,_target_hit_vfx.pick_random())
 			_action_effect(t)
 	if valid_user():
 		user.did_an_action(price)
-	
+		if !_user_impact_vfx.is_empty():_play_vfx(user,_user_impact_vfx.pick_random())
+		elif !_user_hit_vfx.is_empty():_play_vfx(user,_user_hit_vfx.pick_random())

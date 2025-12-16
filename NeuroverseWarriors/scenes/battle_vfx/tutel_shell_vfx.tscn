@@ -1,0 +1,76 @@
+[gd_scene load_steps=6 format=3 uid="uid://dsuka2rioyvol"]
+
+[ext_resource type="PackedScene" uid="uid://b55x0y6g8lfpt" path="res://scenes/battle_vfx/battle_vfx.tscn" id="1_64lx1"]
+[ext_resource type="Texture2D" uid="uid://bdltdynro0s8x" path="res://assets/tutel_shield.png" id="2_vxiv8"]
+
+[sub_resource type="Animation" id="Animation_gi8by"]
+resource_name = "new_animation"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("shell:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333265, 0.29999965, 0.39999965),
+"transitions": PackedFloat32Array(0.257095, -3.36359, -2, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1.4, 1.4), Vector2(1.1, 1.1), Vector2(1.2, 1.2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("shell:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.26666668, 0.4, 0.53333336),
+"transitions": PackedFloat32Array(0.5, -2, -2, 1),
+"update": 0,
+"values": [0.0, 6.806784082777885, 5.759586531581287, 6.283185307179586]
+}
+
+[sub_resource type="Animation" id="Animation_64lx1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("shell:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("shell:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i3ub5"]
+_data = {
+&"RESET": SubResource("Animation_64lx1"),
+&"new_animation": SubResource("Animation_gi8by")
+}
+
+[node name="TutelShell VFX" instance=ExtResource("1_64lx1")]
+
+[node name="AnimationPlayer" parent="." index="0"]
+libraries = {
+&"": SubResource("AnimationLibrary_i3ub5")
+}
+autoplay = "new_animation"
+
+[node name="shell" type="Sprite2D" parent="." index="3"]
+texture = ExtResource("2_vxiv8")

@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://cw108b5mnaxro"]
+
+[ext_resource type="PackedScene" uid="uid://b55x0y6g8lfpt" path="res://scenes/battle_vfx/battle_vfx.tscn" id="1_v86rf"]
+[ext_resource type="Texture2D" uid="uid://g04rqk377lfp" path="res://assets/ui/circle.png" id="2_u5jja"]
+
+[sub_resource type="Animation" id="Animation_v86rf"]
+resource_name = "new_animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("circle:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 1),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [Vector2(1.5, 1.5), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("circle:modulate:a")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333333, 1),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [0.0, 0.76]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u5jja"]
+_data = {
+&"new_animation": SubResource("Animation_v86rf")
+}
+
+[node name="Circle In VFX" instance=ExtResource("1_v86rf")]
+
+[node name="AnimationPlayer" parent="." index="0"]
+libraries = {
+&"": SubResource("AnimationLibrary_u5jja")
+}
+autoplay = "new_animation"
+
+[node name="circle" type="Sprite2D" parent="." index="3"]
+modulate = Color(1, 1, 1, 0)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_u5jja")

@@ -1,20 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bk30a0mgktx6r"]
+[gd_scene load_steps=7 format=3 uid="uid://bk30a0mgktx6r"]
 
 [ext_resource type="PackedScene" uid="uid://c0p02mr1a5wep" path="res://scenes/actions/BattleAction.tscn" id="1_6uchr"]
 [ext_resource type="Script" uid="uid://ct0xq6jjgaasq" path="res://scripts/actions/laser_shot.gd" id="1_7wgxe"]
 [ext_resource type="Texture2D" uid="uid://c0yh4sjku8ha3" path="res://assets/solid_white_square.png" id="2_4upev"]
 [ext_resource type="AudioStream" uid="uid://c4tfdbdvvf3ta" path="res://addons/sfx/Retro Weapon Laser 03.wav" id="3_e0r44"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_ao5b8"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_4upev")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [sub_resource type="Animation" id="Animation_i5g0q"]
 resource_name = "animation"
@@ -24,18 +13,19 @@ _data = {
 &"animation": SubResource("Animation_i5g0q")
 }
 
-[node name="LaserShot" instance=ExtResource("1_6uchr")]
+[node name="LaserShot" node_paths=PackedStringArray("projectiles", "_impact_sfx") instance=ExtResource("1_6uchr")]
 script = ExtResource("1_7wgxe")
 reach = 1
 price = 1
 body_part_source = "Eyes"
 projectile_speed = 2000.0
+projectiles = [NodePath("laser")]
 animationType = "effect"
+_impact_sfx = [NodePath("pew")]
 
 [node name="sprite" parent="." index="0"]
 modulate = Color(1, 0, 0, 1)
 scale = Vector2(30, 5)
-sprite_frames = SubResource("SpriteFrames_ao5b8")
 offset = Vector2(-0.405, 0)
 
 [node name="sound" parent="." index="1"]
@@ -46,3 +36,14 @@ volume_db = -20.0
 libraries = {
 &"": SubResource("AnimationLibrary_jeyqq")
 }
+
+[node name="pew" type="AudioStreamPlayer" parent="." index="3"]
+stream = ExtResource("3_e0r44")
+volume_db = -20.0
+max_polyphony = 2
+bus = &"SFX"
+
+[node name="laser" type="Sprite2D" parent="." index="4"]
+modulate = Color(1, 0, 0, 1)
+scale = Vector2(31, 3.9999998)
+texture = ExtResource("2_4upev")

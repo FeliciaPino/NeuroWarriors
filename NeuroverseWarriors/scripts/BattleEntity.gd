@@ -60,6 +60,7 @@ var ap:int #how many actions are left in a turn
 @onready var actions_left_display = $Menu/ApDisplay
 @onready var game_manager:GameManager = $"../.."
 @onready var visual_node = $visual
+@onready var applied_vfx_node = $visual/AppliedVFX #contains visual effects applied internally. Stuff here might be freed at any moment.
 @onready var flipper = $visual/Flipper
 @onready var animation_player:AnimationPlayer = $AnimationPlayer
 
@@ -253,6 +254,7 @@ func update_menu_actions():
 	for action in actions:
 		var new_button = Button.new()
 		new_button.text = action.action_name
+		new_button.mouse_filter = Control.MOUSE_FILTER_STOP
 		new_button.pressed.connect(func():game_manager.set_selected_action(action))
 		new_button.tooltip_text = "AP:"+str(action.price)+" "+action.description
 		if ap < action.price or not is_player_controlled:

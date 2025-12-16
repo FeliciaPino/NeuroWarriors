@@ -53,14 +53,16 @@ _data = {
 &"animation": SubResource("Animation_qteqj")
 }
 
-[node name="Pipes" instance=ExtResource("1_jy8vj")]
+[node name="Pipes" node_paths=PackedStringArray("_hit_sfx") instance=ExtResource("1_jy8vj")]
 script = ExtResource("2_13bvw")
 price = 3
 action_multiplier = 0.75
 hits = 3
 animationType = "throw"
+_hit_sfx = [NodePath("pipesound")]
 
 [node name="sprite" parent="." index="0"]
+visible = false
 rotation = -0.94746506
 sprite_frames = SubResource("SpriteFrames_nbwwv")
 
@@ -77,3 +79,8 @@ bus = &"SFX"
 libraries = {
 &"": SubResource("AnimationLibrary_bawqv")
 }
+
+[node name="pipesound" type="AudioStreamPlayer" parent="." index="4"]
+stream = ExtResource("3_meww8")
+volume_db = -15.0
+max_polyphony = 3

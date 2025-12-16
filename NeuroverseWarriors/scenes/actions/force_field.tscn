@@ -2,19 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://c0p02mr1a5wep" path="res://scenes/actions/BattleAction.tscn" id="1_c7syv"]
 [ext_resource type="Script" uid="uid://b8abcl75ii0wf" path="res://scripts/actions/force_field.gd" id="1_l4pmk"]
-[ext_resource type="Texture2D" uid="uid://cfddrf68kdhe8" path="res://assets/bubble.png" id="2_njlen"]
 [ext_resource type="AudioStream" uid="uid://bc27pq7l68110" path="res://assets/audio/homemade/SFX/booaa.mp3" id="4_0ydc3"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_dh5xu"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_njlen")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[ext_resource type="PackedScene" uid="uid://dtu1oa37ndobg" path="res://scenes/battle_vfx/circle_out_vfx.tscn" id="5_gpqhh"]
+[ext_resource type="PackedScene" uid="uid://drshkj57h4a7k" path="res://scenes/battle_vfx/bubble_vfx.tscn" id="5_qmgut"]
 
 [sub_resource type="Animation" id="Animation_8cqg7"]
 length = 0.001
@@ -101,7 +91,7 @@ _data = {
 &"animation": SubResource("Animation_814ga")
 }
 
-[node name="forceField" instance=ExtResource("1_c7syv")]
+[node name="forceField" node_paths=PackedStringArray("_impact_sfx", "_user_start_vfx", "_target_hit_vfx") instance=ExtResource("1_c7syv")]
 script = ExtResource("1_l4pmk")
 reach = 2
 isPositive = true
@@ -109,11 +99,13 @@ price = 2
 effect_duration = 2
 effect_intensity = 10
 animationType = "effect"
+_impact_sfx = [NodePath("booaa")]
+_user_start_vfx = [NodePath("Circle Out VFX")]
+_target_hit_vfx = [NodePath("BubbleVFX")]
 
 [node name="sprite" parent="." index="0"]
 modulate = Color(1, 1, 1, 0.6)
 scale = Vector2(1e-05, 1e-05)
-sprite_frames = SubResource("SpriteFrames_dh5xu")
 
 [node name="sound" parent="." index="1"]
 stream = ExtResource("4_0ydc3")
@@ -123,3 +115,19 @@ pitch_scale = 1.34
 libraries = {
 &"": SubResource("AnimationLibrary_neydj")
 }
+
+[node name="BubbleVFX" parent="." index="3" instance=ExtResource("5_qmgut")]
+modulate = Color(1, 1, 1, 0.47058824)
+scale = Vector2(1.3, 1.3)
+duration = 0.8
+delay = 0.1
+speed_scale = 0.8
+
+[node name="booaa" type="AudioStreamPlayer" parent="." index="4"]
+stream = ExtResource("4_0ydc3")
+pitch_scale = 1.34
+
+[node name="Circle Out VFX" parent="." index="5" instance=ExtResource("5_gpqhh")]
+modulate = Color(0.56, 0.9266666, 1, 1)
+delay = 0.1
+speed_scale = 0.5

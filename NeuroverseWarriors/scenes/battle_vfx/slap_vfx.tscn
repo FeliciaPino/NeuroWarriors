@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=3 uid="uid://bwt7fgv0pgcou"]
+
+[ext_resource type="PackedScene" uid="uid://b55x0y6g8lfpt" path="res://scenes/battle_vfx/battle_vfx.tscn" id="1_5uner"]
+[ext_resource type="Texture2D" uid="uid://dbus1atkuxj1m" path="res://assets/actions/slap.png" id="2_1jmwg"]
+
+[sub_resource type="Animation" id="Animation_egm8x"]
+resource_name = "new_animation"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4m1d1"]
+_data = {
+&"new_animation": SubResource("Animation_egm8x")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cym3r"]
+atlas = ExtResource("2_1jmwg")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5jfrf"]
+atlas = ExtResource("2_1jmwg")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dwdr0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cym3r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5jfrf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[node name="Slap VFX" instance=ExtResource("1_5uner")]
+
+[node name="AnimationPlayer" parent="." index="0"]
+libraries = {
+&"": SubResource("AnimationLibrary_4m1d1")
+}
+autoplay = "new_animation"
+
+[node name="sprite" type="AnimatedSprite2D" parent="." index="3"]
+z_index = 1
+y_sort_enabled = true
+sprite_frames = SubResource("SpriteFrames_dwdr0")

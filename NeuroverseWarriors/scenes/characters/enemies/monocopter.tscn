@@ -563,7 +563,7 @@ texture = ExtResource("4_jttrs")
 [node name="Eyes" type="Node2D" parent="visual/body" index="2"]
 position = Vector2(13, 7)
 
-[node name="Flipper" parent="visual" index="1"]
+[node name="Flipper" parent="visual" index="2"]
 libraries = {
 &"": SubResource("AnimationLibrary_bi0e0")
 }

@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://qn8gedpj1hv5"]
+[gd_scene load_steps=12 format=3 uid="uid://qn8gedpj1hv5"]
 
 [ext_resource type="PackedScene" uid="uid://c0p02mr1a5wep" path="res://scenes/actions/BattleAction.tscn" id="1_lp1ij"]
 [ext_resource type="AudioStream" uid="uid://5xync26rqcgo" path="res://assets/audio/SFX/cheer.mp3" id="2_7upt3"]
 [ext_resource type="Script" uid="uid://bk1osxpp8qam5" path="res://scripts/actions/hype_up.gd" id="2_aivlv"]
+[ext_resource type="PackedScene" uid="uid://4616pf77ck34" path="res://scenes/battle_vfx/confetti_vfx.tscn" id="4_ynmeg"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4prew"]
 
@@ -10,7 +11,7 @@
 _data = [Vector2(0.0136364, 0.984906), 0.0, 0.0, 0, 0, Vector2(0.859091, 0.939623), 0.0, 0.0, 0, 0, Vector2(1, 0.0490566), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_lik2l"]
+[sub_resource type="CurveTexture" id="CurveTexture_33tmb"]
 curve = SubResource("Curve_6t7lt")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6bktj"]
@@ -22,7 +23,7 @@ gravity = Vector3(0, 1500, 0)
 scale_min = 4.0
 scale_max = 4.0
 color = Color(1, 0.33, 0.33, 1)
-alpha_curve = SubResource("CurveTexture_lik2l")
+alpha_curve = SubResource("CurveTexture_33tmb")
 hue_variation_min = -1.0
 hue_variation_max = 1.0
 
@@ -125,13 +126,15 @@ _data = {
 &"animation": SubResource("Animation_36jxy")
 }
 
-[node name="HypeUp" instance=ExtResource("1_lp1ij")]
+[node name="HypeUp" node_paths=PackedStringArray("_hit_sfx", "_target_impact_vfx") instance=ExtResource("1_lp1ij")]
 script = ExtResource("2_aivlv")
 reach = 2
 isPositive = true
 price = 2
 effect_duration = 2
 effect_intensity = 10
+_hit_sfx = [NodePath("cheer")]
+_target_impact_vfx = [NodePath("Confetti VFX")]
 
 [node name="sprite" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_4prew")
@@ -153,3 +156,10 @@ volume_db = -12.0
 libraries = {
 &"": SubResource("AnimationLibrary_o0v2l")
 }
+
+[node name="Confetti VFX" parent="." index="3" instance=ExtResource("4_ynmeg")]
+
+[node name="cheer" type="AudioStreamPlayer" parent="." index="4"]
+stream = ExtResource("2_7upt3")
+volume_db = -12.0
+bus = &"SFX"

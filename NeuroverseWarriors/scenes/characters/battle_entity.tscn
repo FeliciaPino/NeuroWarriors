@@ -183,6 +183,8 @@ libraries = {
 &"": SubResource("AnimationLibrary_meimr")
 }
 
+[node name="AppliedVFX" type="Node2D" parent="visual"]
+
 [node name="Actions" type="Node2D" parent="."]
 
 [node name="TextureButton" type="TextureButton" parent="."]

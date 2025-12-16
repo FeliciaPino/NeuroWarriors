@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cw8myvw1tqj80"]
+[gd_scene load_steps=10 format=3 uid="uid://cw8myvw1tqj80"]
 
 [ext_resource type="PackedScene" uid="uid://c0p02mr1a5wep" path="res://scenes/actions/BattleAction.tscn" id="1_m5tg8"]
 [ext_resource type="Script" uid="uid://c2184w0wb52rp" path="res://scripts/actions/screech.gd" id="2_a7m2n"]
@@ -6,17 +6,6 @@
 [ext_resource type="AudioStream" uid="uid://dfe87vpt5orv0" path="res://assets/audio/homemade/clips/evil_screech_1.mp3" id="3_y7jul"]
 [ext_resource type="AudioStream" uid="uid://cv18ik7l0c5la" path="res://assets/audio/homemade/clips/evil_screech_2.mp3" id="4_c4ude"]
 [ext_resource type="AudioStream" uid="uid://ciq0fwd0mud0i" path="res://assets/audio/homemade/clips/evil_screech_3.mp3" id="6_wny4q"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_wh8aw"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_rxi0n")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [sub_resource type="Animation" id="Animation_g0mkl"]
 length = 0.001
@@ -30,7 +19,7 @@ _data = {
 &"animation": SubResource("Animation_fy5ix")
 }
 
-[node name="Screech" instance=ExtResource("1_m5tg8")]
+[node name="Screech" node_paths=PackedStringArray("projectiles", "_impact_sfx") instance=ExtResource("1_m5tg8")]
 position = Vector2(0, -30)
 script = ExtResource("2_a7m2n")
 reach = 1
@@ -39,26 +28,33 @@ body_part_source = "Mouth"
 effect_duration = 2
 effect_intensity = 6
 projectile_speed = 1000.0
+projectiles = [NodePath("soundwave")]
 animationType = "effect"
-
-[node name="sprite" parent="." index="0"]
-sprite_frames = SubResource("SpriteFrames_wh8aw")
+_impact_sfx = [NodePath("sound3"), NodePath("sound2"), NodePath("sound4")]
 
 [node name="sound" parent="." index="1"]
 stream = ExtResource("4_c4ude")
 volume_db = -5.0
 
-[node name="sound2" type="AudioStreamPlayer" parent="." index="2"]
+[node name="sound4" type="AudioStreamPlayer" parent="." index="2"]
+stream = ExtResource("4_c4ude")
+volume_db = -5.0
+bus = &"SFX"
+
+[node name="sound2" type="AudioStreamPlayer" parent="." index="3"]
 stream = ExtResource("3_y7jul")
 volume_db = -13.0
 bus = &"SFX"
 
-[node name="sound3" type="AudioStreamPlayer" parent="." index="3"]
+[node name="sound3" type="AudioStreamPlayer" parent="." index="4"]
 stream = ExtResource("6_wny4q")
 volume_db = 2.0
 bus = &"SFX"
 
-[node name="AnimationPlayer" parent="." index="4"]
+[node name="AnimationPlayer" parent="." index="5"]
 libraries = {
 &"": SubResource("AnimationLibrary_jiqcs")
 }
+
+[node name="soundwave" type="Sprite2D" parent="." index="6"]
+texture = ExtResource("2_rxi0n")

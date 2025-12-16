@@ -1,0 +1,64 @@
+[gd_scene load_steps=8 format=3 uid="uid://djke3wqr08gik"]
+
+[ext_resource type="PackedScene" uid="uid://b55x0y6g8lfpt" path="res://scenes/battle_vfx/battle_vfx.tscn" id="1_ldg2y"]
+[ext_resource type="Texture2D" uid="uid://dddg12jifbdpc" path="res://assets/actions/Thunder2.png" id="2_jt77m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1y5ul"]
+atlas = ExtResource("2_jt77m")
+region = Rect2(0, 0, 100, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1o2x8"]
+atlas = ExtResource("2_jt77m")
+region = Rect2(100, 0, 100, 160)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_thu03"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1y5ul")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1o2x8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="Animation" id="Animation_ldg2y"]
+resource_name = "new_animation"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.366667, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jt77m"]
+_data = {
+&"new_animation": SubResource("Animation_ldg2y")
+}
+
+[node name="ElectricityVFX" instance=ExtResource("1_ldg2y")]
+duration = 0.5
+
+[node name="sprite" type="AnimatedSprite2D" parent="." index="0"]
+modulate = Color(0.878431, 0.956863, 1, 1)
+z_index = 1
+y_sort_enabled = true
+sprite_frames = SubResource("SpriteFrames_thu03")
+autoplay = "default"
+
+[node name="AnimationPlayer" parent="." index="1"]
+libraries = {
+&"": SubResource("AnimationLibrary_jt77m")
+}
+autoplay = "new_animation"
