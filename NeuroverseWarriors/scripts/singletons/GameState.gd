@@ -63,7 +63,7 @@ const DEFAULT_VALUES = {
 		"player_position_x":0,
 		"player_position_y":-64,
 		"defeated_enemies":{},
-		"current_room_path":"res://scenes/overworld/overworld.tscn"
+		"current_room_path":"res://scenes/overworld/assembly_station/assembly_station_room1.tscn"
 	}
 }
 

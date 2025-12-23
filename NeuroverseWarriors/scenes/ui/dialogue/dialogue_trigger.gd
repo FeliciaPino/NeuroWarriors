@@ -21,6 +21,6 @@ func _ready() -> void:
 		area_trigger.body_entered.connect(_on_area_entered)
 	dialogue_triggered.connect(dialogue_manager.start_dialogue.bind(path_to_dialogue_sequence))
 
-func _on_area_entered(body: Node2D) -> void:
+func _on_area_entered(_body: Node2D) -> void:
 	print_debug("dialogue area entered")
 	dialogue_triggered.emit()

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8ffvkryw8ol0"
-path="res://.godot/imported/assembly_arm.png-d6c4ecc17a1f7190c054fbead29b1dc1.ctex"
+uid="uid://c436ijatka8qr"
+path="res://.godot/imported/hand.png-66472ee1cc70691d35850d4a01203d56.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/levels/unlock_evil/assembly_arm.png"
-dest_files=["res://.godot/imported/assembly_arm.png-d6c4ecc17a1f7190c054fbead29b1dc1.ctex"]
+source_file="res://assets/characters/enemies/assembly_arm/hand.png"
+dest_files=["res://.godot/imported/hand.png-66472ee1cc70691d35850d4a01203d56.ctex"]
 
 [params]
 

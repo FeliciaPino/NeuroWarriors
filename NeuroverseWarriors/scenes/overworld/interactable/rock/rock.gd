@@ -6,8 +6,8 @@ func _ready() -> void:
 func _on_player_interaction():
 	var movement:Vector2 = Vector2()
 	var player:OverworldCharacter = get_tree().get_first_node_in_group("player")
-	var dy:int = player.global_position.y - global_position.y
-	var dx:int = player.global_position.x - global_position.x
+	var dy:int = int(player.global_position.y - global_position.y)
+	var dx:int = int(player.global_position.x - global_position.x)
 	if dy < dx and dy < -dx: movement = Vector2(0,32) #up quadrant
 	if dy > dx and dy > -dx: movement = Vector2(0,-32) #down quadrant
 	if dy > dx and dy < -dx: movement = Vector2(32,0) #left quadrant

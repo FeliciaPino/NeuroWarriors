@@ -4,9 +4,9 @@ class_name GameManager
 @export var xp_reward = 0 #the amount of xp to be split among the party when winning
 
 @onready var entity_manager:EntityManager = $Entity_manager
-@onready var passive_manager = $PassiveManager #manages passibe abilities
-@onready var vfx_node = $VFXs #containes world vfxs
-@onready var instruction_label = %InstructionLabel
+@onready var passive_manager := $PassiveManager #manages passibe abilities
+@onready var vfx_node := $VFXs #containes world vfxs
+@onready var instruction_label := %InstructionLabel
 @onready var end_turn_buttton:Button = %EndTurnButton
 @onready var character_info_panel:BattleEntityInfoPanel = %CharacterInfoPanel
 @onready var target_info_panel:BattleEntityInfoPanel = %TargetInfoPanel

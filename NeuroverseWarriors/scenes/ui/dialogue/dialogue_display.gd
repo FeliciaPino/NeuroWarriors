@@ -43,7 +43,7 @@ var text_tween:Tween = null
 
 	
 var previous_label_visible_characters = 0
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if label.visible_characters != previous_label_visible_characters:
 		if label.get_parsed_text()[label.visible_characters-1] != ' ':
 			dialogue_bleeps.pitch_scale = 0.9 + randf()/5.0

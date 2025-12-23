@@ -243,9 +243,79 @@
               "icon": "lucide-file",
               "title": "Vedal"
             }
+          },
+          {
+            "id": "a3367386a0d2c965",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Achievements.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Achievements"
+            }
+          },
+          {
+            "id": "e1d878df3c9a958e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "wiki/Time warp.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Time warp"
+            }
+          },
+          {
+            "id": "13a24dc212afe4d1",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "wiki/Assembly Arm.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Assembly Arm"
+            }
+          },
+          {
+            "id": "a28fd19725bbf612",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "wiki/Battle Guitar Solo.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Battle Guitar Solo"
+            }
+          },
+          {
+            "id": "06a353a0d5b98738",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "wiki/Pipe Bomb.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Pipe Bomb"
+            }
           }
         ],
-        "currentTab": 15
+        "currentTab": 21
       }
     ],
     "direction": "vertical"
@@ -366,13 +436,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "wiki/Mold Mother.md",
+                "file": "wiki/Pipe Bomb.md",
                 "followCursor": false,
                 "showSearch": true,
                 "searchQuery": "#Consumable"
               },
               "icon": "lucide-list",
-              "title": "Outline of Mold Mother"
+              "title": "Outline of Pipe Bomb"
             }
           }
         ],
@@ -395,12 +465,17 @@
   },
   "active": "bcaa855407174cf9",
   "lastOpenFiles": [
-    "wiki/Neuro-sama.md",
-    "wiki/Mold Mother.md",
+    "wiki/Battle Guitar Solo.md",
+    "wiki/Pipe Bomb.md",
+    "wiki/Assembly Arm.md",
+    "wiki/Time warp.md",
+    "Achievements.md",
     "Untitled",
+    "wiki/Stick Seven.md",
+    "wiki/Mold Mother.md",
+    "wiki/Neuro-sama.md",
     "wiki/Wiki Index.md",
     "wiki/Huggies.md",
-    "Achievements.md",
     "lore stuff.md",
     "wiki/Action Points.md",
     "wiki/Anti Entropy Wire.md",
@@ -418,11 +493,6 @@
     "wiki/Battle Actions.md",
     "wiki/Game Mechanics.md",
     "Base.base",
-    "wiki/Beeble.md",
-    "wiki/Beans.md",
-    "wiki/Cookie.md",
-    "wiki/Evil Bread.md",
-    "wiki/Vedal.md",
     "Untitled.base",
     "images/forst_puzles.png.import"
   ]

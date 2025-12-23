@@ -41,17 +41,19 @@ Spend Tungesten and remain with exactly 0
 Have an attack do 0 damage
 
 ### Sister Synergy
-Enter a battle with Neuro and Evil
+Win a battle with Neuro and Evil
 
 ## Daddy's girl
-Enter a battle with Vedal and Evil
+Win a battle with Vedal and Evil
 
 ## Momma's girl
-Enter a battle with Anny and Neuro
+Win a battle with Anny and Neuro
 
 ## Powered by Bickering
-Enter a battle with Vedal and Camila
+Win a battle with Vedal and Camila
 
+## President and Vice President
+Win a battle with Cerbr and Neuro
 ### Mother knows Best
 Win a battle where Anny is the only party member still standing
 
