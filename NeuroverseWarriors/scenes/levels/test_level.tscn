@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://by2t4l3fto5ou"]
+[gd_scene load_steps=23 format=3 uid="uid://by2t4l3fto5ou"]
 
 [ext_resource type="PackedScene" uid="uid://b82kauwohbvun" path="res://scenes/levels/game.tscn" id="1_hhncd"]
 [ext_resource type="Texture2D" uid="uid://dl6b6ewaxaxom" path="res://assets/backgrounds/forest_background.png" id="2_tkf6i"]
@@ -6,14 +6,12 @@
 [ext_resource type="Texture2D" uid="uid://bus4m5kmrp5r1" path="res://assets/backgrounds/background_machine_thingies.png" id="4_hppjq"]
 [ext_resource type="PackedScene" uid="uid://cmccd8rxiyqab" path="res://scenes/characters/neuro_sama.tscn" id="5_gqr5d"]
 [ext_resource type="Texture2D" uid="uid://c8ffvkryw8ol0" path="res://scenes/levels/unlock_evil/assembly_arm.png" id="5_os2yb"]
-[ext_resource type="Texture2D" uid="uid://dr88rfaxlt7m" path="res://assets/characters/enemies/assembly_arm/base.png" id="6_fqldq"]
 [ext_resource type="Texture2D" uid="uid://dju6yh1wm6yo2" path="res://scenes/levels/unlock_evil/half-built_evil.png" id="6_v6k17"]
-[ext_resource type="Texture2D" uid="uid://bg567khw4oxes" path="res://assets/characters/enemies/assembly_arm/arm_A.png" id="7_3ay3b"]
-[ext_resource type="Texture2D" uid="uid://c3bkqccjrloci" path="res://assets/characters/enemies/assembly_arm/arm_B.png" id="8_hppjq"]
+[ext_resource type="PackedScene" uid="uid://c4ii0hbadpfiv" path="res://scenes/actions/robot_punch.tscn" id="8_a5rnb"]
 [ext_resource type="PackedScene" uid="uid://b6410g70liyhb" path="res://scenes/characters/evil.tscn" id="9_2mu0v"]
-[ext_resource type="Texture2D" uid="uid://b7q5dyl7vnfj3" path="res://assets/characters/enemies/assembly_arm/arm_C.png" id="9_os2yb"]
-[ext_resource type="Texture2D" uid="uid://c436ijatka8qr" path="res://assets/characters/enemies/assembly_arm/hand.png" id="10_3ay3b"]
 [ext_resource type="PackedScene" uid="uid://be7cg2gxou6i2" path="res://scenes/characters/anny.tscn" id="11_eaa0b"]
+[ext_resource type="PackedScene" uid="uid://bs88ioenl3x63" path="res://scenes/characters/enemies/assembly_arm.tscn" id="13_fqldq"]
+[ext_resource type="PackedScene" uid="uid://criuo0gomqd7t" path="res://scenes/characters/enemies/generic_guy.tscn" id="16_hppjq"]
 [ext_resource type="PackedScene" uid="uid://uwmc3sf7fq3o" path="res://scenes/characters/vedal.tscn" id="18_upsmr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_os2yb"]
@@ -47,120 +45,6 @@ region = Rect2(36.158676, 33.76291, 50.9684, 19.91277)
 [sub_resource type="AtlasTexture" id="AtlasTexture_owgeq"]
 atlas = ExtResource("5_os2yb")
 region = Rect2(0.22530937, 37.409657, 32.18563, 13.268444)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hppjq"]
-atlas = ExtResource("10_3ay3b")
-region = Rect2(8.541851, 8.137259, 39.499672, 28.7031)
-
-[sub_resource type="Animation" id="Animation_jmx14"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TextureRect12:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.30948097]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("TextureRect12/TextureRect13:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-6.300179]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("TextureRect12/TextureRect13/TextureRect14:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("TextureRect12/TextureRect13/TextureRect14/TextureRect:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
-[sub_resource type="Animation" id="Animation_2mu0v"]
-resource_name = "new_animation"
-length = 2.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TextureRect12:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.56666666),
-"transitions": PackedFloat32Array(0.8408964, 1),
-"update": 0,
-"values": [-0.5183627878423157, 0.05061454830783516]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("TextureRect12/TextureRect13:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.53333336),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.193731546971371, 2.2026055160168436]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("TextureRect12/TextureRect13/TextureRect14:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.26666668, 1.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-1.8535396656179777, 1.226966464152014]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("TextureRect12/TextureRect13/TextureRect14/TextureRect:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.9333334),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-1.8535396656179777, 1.226966464152014]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_eaa0b"]
-_data = {
-&"RESET": SubResource("Animation_jmx14"),
-&"new_animation": SubResource("Animation_2mu0v")
-}
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_78u6e"]
 atlas = ExtResource("6_v6k17")
@@ -345,65 +229,7 @@ pivot_offset = Vector2(27.17, 15.46)
 texture = SubResource("AtlasTexture_owgeq")
 stretch_mode = 2
 
-[node name="TextureRect15" type="TextureRect" parent="Background" index="13"]
-offset_left = 642.0
-offset_top = 347.0
-offset_right = 726.0
-offset_bottom = 392.0
-texture = ExtResource("6_fqldq")
-stretch_mode = 2
-
-[node name="TextureRect12" type="TextureRect" parent="Background/TextureRect15" index="0"]
-show_behind_parent = true
-layout_mode = 0
-offset_left = 25.999973
-offset_top = -56.999992
-offset_right = 76.000015
-offset_bottom = 63.000008
-rotation = 0.30948097
-pivot_offset = Vector2(21.505, 83.535)
-texture = ExtResource("7_3ay3b")
-stretch_mode = 2
-
-[node name="TextureRect13" type="TextureRect" parent="Background/TextureRect15/TextureRect12" index="0"]
-layout_mode = 0
-offset_left = -17.999977
-offset_top = -34.999996
-offset_right = 42.000023
-offset_bottom = 45.000004
-rotation = -6.300179
-pivot_offset = Vector2(39.545, 58.52)
-texture = ExtResource("8_hppjq")
-stretch_mode = 2
-
-[node name="TextureRect14" type="TextureRect" parent="Background/TextureRect15/TextureRect12/TextureRect13" index="0"]
-layout_mode = 0
-offset_left = -41.000008
-offset_top = -3.0000057
-offset_right = 58.999992
-offset_bottom = 46.999992
-pivot_offset = Vector2(61.535, 23.535)
-texture = ExtResource("9_os2yb")
-stretch_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="Background/TextureRect15/TextureRect12/TextureRect13/TextureRect14" index="0"]
-show_behind_parent = true
-layout_mode = 0
-offset_left = -16.56863
-offset_top = 6.0939803
-offset_right = 22.43137
-offset_bottom = 34.09398
-pivot_offset = Vector2(34.515, 17.1)
-texture = SubResource("AtlasTexture_hppjq")
-stretch_mode = 2
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Background/TextureRect15" index="1"]
-libraries = {
-&"": SubResource("AnimationLibrary_eaa0b")
-}
-autoplay = "new_animation"
-
-[node name="TextureRect14" type="TextureRect" parent="Background" index="14"]
+[node name="TextureRect14" type="TextureRect" parent="Background" index="13"]
 offset_left = 170.0
 offset_top = 163.0
 offset_right = 266.0
@@ -413,12 +239,14 @@ texture = SubResource("AtlasTexture_78u6e")
 [node name="NeuroSama" parent="Entity_manager" index="0" instance=ExtResource("5_gqr5d")]
 texture_filter = 0
 position = Vector2(-178, 353)
+attack = 40
 ap_regen = 68
+
+[node name="RobotPunch" parent="Entity_manager/NeuroSama" index="9" instance=ExtResource("8_a5rnb")]
 
 [node name="Evil" parent="Entity_manager" index="1" instance=ExtResource("9_2mu0v")]
 position = Vector2(-302, 360)
 ap_regen = 93
-is_player_controlled = false
 
 [node name="Vedal" parent="Entity_manager" index="2" instance=ExtResource("18_upsmr")]
 position = Vector2(-47, 345)
@@ -426,3 +254,14 @@ ap_regen = 117
 
 [node name="Anny" parent="Entity_manager" index="3" instance=ExtResource("11_eaa0b")]
 ap_regen = 37
+
+[node name="GenericGuy" parent="Entity_manager" index="4" instance=ExtResource("16_hppjq")]
+position = Vector2(1205, 270)
+
+[node name="Assembly Arm" parent="Entity_manager" index="5" instance=ExtResource("13_fqldq")]
+position = Vector2(889, 273)
+
+[node name="Assembly Arm2" parent="Entity_manager" index="6" instance=ExtResource("13_fqldq")]
+position = Vector2(495, 364)
+ap_regen = 31
+is_player_controlled = true

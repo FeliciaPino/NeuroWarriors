@@ -94,7 +94,7 @@ func _play_rand_sfx(sfx:Array[AudioStreamPlayer]):
 	if sfx.is_empty():return
 	var sound:AudioStreamPlayer = sfx.pick_random().duplicate()
 	add_child(sound)
-	sound.pitch_scale = max(0,sound.pitch_scale + randf_range(-sound.pitch_scale*sound_variation_percentage,sound.pitch_scale*sound_variation_percentage))
+	sound.pitch_scale = max(0.001,sound.pitch_scale + randf_range(-sound.pitch_scale*sound_variation_percentage,sound.pitch_scale*sound_variation_percentage))
 	sound.play()
 	sound.finished.connect(sound.queue_free)
 func valid_targets(targets:Array)->bool:

@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://cc4a6rr0omavo"]
+
+[ext_resource type="PackedScene" uid="uid://c0p02mr1a5wep" path="res://scenes/actions/BattleAction.tscn" id="1_01vkw"]
+[ext_resource type="Shader" uid="uid://dtbmonj6mwmos" path="res://assets/shaders/rotate.gdshader" id="2_2m7fa"]
+[ext_resource type="Script" uid="uid://qhocknebgk2a" path="res://scripts/actions/scrap_throw.gd" id="2_7snq0"]
+[ext_resource type="Texture2D" uid="uid://cdq5j4fs8icd8" path="res://assets/actions/gear.png" id="3_7snq0"]
+[ext_resource type="AudioStream" uid="uid://bymhdcicx5ap3" path="res://assets/audio/homemade/SFX/Woosh.mp3" id="4_2m7fa"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4luvn"]
+shader = ExtResource("2_2m7fa")
+shader_parameter/rotation_speed = 5.875
+shader_parameter/pivot_offset = Vector2(0, 0)
+
+[node name="Scrap Throw" node_paths=PackedStringArray("projectiles", "_impact_sfx") instance=ExtResource("1_01vkw")]
+script = ExtResource("2_7snq0")
+reach = 1
+price = 2
+body_part_source = "Hand_R"
+projectile_speed = 600.0
+projectiles = [NodePath("gear")]
+sound_variation_percentage = 0.05
+_impact_sfx = [NodePath("wosh")]
+
+[node name="gear" type="Sprite2D" parent="." index="0"]
+material = SubResource("ShaderMaterial_4luvn")
+texture = ExtResource("3_7snq0")
+
+[node name="wosh" type="AudioStreamPlayer" parent="." index="1"]
+stream = ExtResource("4_2m7fa")
+volume_db = -14.52
+pitch_scale = 1.05
+bus = &"SFX"

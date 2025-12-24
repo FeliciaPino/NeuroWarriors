@@ -120,6 +120,9 @@ BATTLE_ACTION_PIPES_VERB,hit with a pipe,golpear
 BATTLE_ACTION_SCREECH_NAME,Screech,Grito
 BATTLE_ACTION_SCREECH_DESCRIPTION,Loud scream that does {multiplier}×[{stat}] damage and reduces defense.,Fuerte grito que causa {multiplier}×[{stat}] de daño y reduce la defensa.
 BATTLE_ACTION_SCREECH_VERB,scream at,gritar
+BATTLE_ACTION_SCRAP_THROW_NAME,Scrap Throw,Lanzar Chatarra
+BATTLE_ACTION_SCRAP_THROW_DESCRIPTION, Does {multiplier}×[{stat}] damage to target, Hace {multiplier}×[{stat}] daño al objetivo
+BATTLE_ACTION_SCRAP_THROW_VERB, throw scrap at, lanzarle chatarra
 STATUS_EFFECT_ATTACK_UP_NAME,Attack Up,Aumento de Ataque
 STATUS_EFFECT_ATTACK_UP_DESCRIPTION,Increases attack by {amount} points.,Aumenta el ataque por {amount} puntos.
 STATUS_EFFECT_DEFENSE_UP_NAME,Defense Up,Aumento de Defensa
