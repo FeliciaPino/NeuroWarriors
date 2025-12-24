@@ -73,7 +73,6 @@ signal got_clicked_on
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	print_debug(str("mouse connections:",get_signal_connection_list("mouse_entered")))
-	animation_player.play("idle")
 	for child in actions_node.get_children():
 		if child is BattleAction:
 			actions.append(child)

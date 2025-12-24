@@ -3,11 +3,11 @@ extends Label
 
 var texts:Array[String]
 var positions:Array[Vector2] = [
-	Vector2(200,160),
-	Vector2(360,20),
+	Vector2(400,160),
+	Vector2(0,100),
 	Vector2(230,140),
 	Vector2(720,80),
-	Vector2(600,400),
+	Vector2(600,300),
 	Vector2(360,20)
 	]
 
@@ -76,6 +76,6 @@ func advance(new_index=-1):
 	text = texts[index]
 
 
-func _on_monocopter_got_clicked_on() -> void:
+func _on_assembly_arm_got_clicked_on() -> void:
 	if index==4:
-		advance()
+		advance(999)

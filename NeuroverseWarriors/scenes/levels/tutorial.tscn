@@ -3,10 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://b82kauwohbvun" path="res://scenes/levels/game.tscn" id="1_jevbs"]
 [ext_resource type="Texture2D" uid="uid://diojtns3m7eoh" path="res://assets/backgrounds/assembly_station_background.png" id="2_u4f7j"]
 [ext_resource type="Texture2D" uid="uid://bus4m5kmrp5r1" path="res://assets/backgrounds/background_machine_thingies.png" id="3_iig34"]
-[ext_resource type="PackedScene" uid="uid://b3wy6ts3hkpc5" path="res://scenes/characters/enemies/monocopter.tscn" id="3_wcjib"]
 [ext_resource type="Texture2D" uid="uid://c8ffvkryw8ol0" path="res://scenes/levels/unlock_evil/assembly_arm.png" id="4_3e81p"]
 [ext_resource type="Texture2D" uid="uid://dju6yh1wm6yo2" path="res://scenes/levels/unlock_evil/half-built_evil.png" id="5_g7bfq"]
 [ext_resource type="Script" uid="uid://dgewtytq3kf5k" path="res://scripts/tutorial.gd" id="5_u27sd"]
+[ext_resource type="PackedScene" uid="uid://bs88ioenl3x63" path="res://scenes/characters/enemies/assembly_arm.tscn" id="6_iig34"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4a02d"]
 atlas = ExtResource("3_iig34")
@@ -235,14 +235,16 @@ offset_right = 266.0
 offset_bottom = 321.0
 texture = SubResource("AtlasTexture_wr5d5")
 
-[node name="monocopter" parent="Entity_manager" index="0" instance=ExtResource("3_wcjib")]
-position = Vector2(1459, 315)
+[node name="Assembly Arm" parent="Entity_manager" index="0" instance=ExtResource("6_iig34")]
+position = Vector2(857, 267)
 health = 40
 maxHealth = 40
 
 [node name="Tutorial" type="Label" parent="." index="6"]
+z_index = 215
 offset_right = 400.0
 offset_bottom = 200.0
+theme_override_constants/outline_size = 10
 horizontal_alignment = 1
 autowrap_mode = 3
 script = ExtResource("5_u27sd")
@@ -252,4 +254,4 @@ wait_time = 5.0
 
 [node name="ShortTimer" type="Timer" parent="Tutorial" index="1"]
 
-[connection signal="got_clicked_on" from="Entity_manager/monocopter" to="Tutorial" method="_on_monocopter_got_clicked_on"]
+[connection signal="got_clicked_on" from="Entity_manager/Assembly Arm" to="Tutorial" method="_on_assembly_arm_got_clicked_on"]
