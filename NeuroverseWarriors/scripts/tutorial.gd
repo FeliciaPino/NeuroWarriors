@@ -9,7 +9,7 @@ var positions:Array[Vector2] = [
 	Vector2(720,80),
 	Vector2(600,300),
 	Vector2(360,20)
-	]
+]
 
 
 @onready var entity_manager:EntityManager = $"../Entity_manager"
