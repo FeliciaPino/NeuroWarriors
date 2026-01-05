@@ -1,9 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://c4knnckwwejji"]
+[gd_scene load_steps=12 format=3 uid="uid://c4knnckwwejji"]
 
 [ext_resource type="Script" uid="uid://c7idah1du5a0p" path="res://scenes/overworld/overworld_party.gd" id="1_47ymd"]
 [ext_resource type="Script" uid="uid://cu14dpq8i23cb" path="res://scripts/overworld/overworld.gd" id="1_eb5g4"]
 [ext_resource type="PackedScene" uid="uid://bbxpxysb4lgqt" path="res://scenes/ui/game_menu/game_menu.tscn" id="3_jq8hu"]
 [ext_resource type="AudioStream" uid="uid://ckiqmemr4mvcu" path="res://assets/audio/homemade/SFX/kchchchch.mp3" id="3_rdp7m"]
+[ext_resource type="PackedScene" uid="uid://lid4f4jxk5j2" path="res://scenes/ui/dialogue/dialogue_display.tscn" id="5_2hmef"]
+[ext_resource type="PackedScene" uid="uid://chub0oea1rtve" path="res://scenes/ui/dialogue/dialogue_manager.tscn" id="5_upclc"]
 
 [sub_resource type="Animation" id="Animation_nadat"]
 length = 0.001
@@ -128,6 +130,7 @@ y_sort_enabled = true
 script = ExtResource("1_eb5g4")
 
 [node name="TileLayers" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="Passages" type="Node2D" parent="."]
 
@@ -173,3 +176,11 @@ offset_bottom = 43.0
 text = "LEVEL_SELECT_RETURN_TO_MENU"
 
 [node name="GameMenu" parent="UI" instance=ExtResource("3_jq8hu")]
+
+[node name="DialogueDisplay" parent="UI" instance=ExtResource("5_2hmef")]
+unique_name_in_owner = true
+process_mode = 2
+visible = false
+
+[node name="DialogueManager" parent="." instance=ExtResource("5_upclc")]
+unique_name_in_owner = true

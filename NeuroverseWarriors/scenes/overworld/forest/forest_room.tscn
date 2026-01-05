@@ -1,8 +1,17 @@
-[gd_scene load_steps=9 format=3 uid="uid://ds7mmdtobydfi"]
+[gd_scene load_steps=12 format=3 uid="uid://ds7mmdtobydfi"]
 
 [ext_resource type="PackedScene" uid="uid://c4knnckwwejji" path="res://scenes/overworld/room.tscn" id="1_irgfo"]
 [ext_resource type="Texture2D" uid="uid://o5sq0tkkglam" path="res://assets/overworld/tilesets/forest_tiles.png" id="2_2l0op"]
 [ext_resource type="Texture2D" uid="uid://cjs37nc0sh54n" path="res://assets/overworld/Assembly_station.png" id="3_62tnt"]
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_tx6vy"]
+tile_data = PackedInt32Array(0, 131072, 0, 65536, 131072, 2, 1, 262144, 0, 65537, 262144, 2)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_vkdx1"]
+tile_data = PackedInt32Array(0, 131072, 1, 1, 262144, 1)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_lbmal"]
+tile_data = PackedInt32Array(0, 0, 0, 65536, 262144, 1, 131072, 0, 1, 1, 196608, 2, 65537, 327680, 0, 131073, 196608, 0, 2, 65536, 0, 65538, 131072, 1, 131074, 65536, 1)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b5ale"]
 texture = ExtResource("2_2l0op")
@@ -348,6 +357,67 @@ texture_region_size = Vector2i(32, 32)
 3:6/0/terrains_peering_bit/top_left_corner = 1
 3:6/0/terrains_peering_bit/top_side = 0
 3:6/0/terrains_peering_bit/top_right_corner = 1
+0:2/0 = 0
+0:2/0/terrain_set = 0
+0:2/0/terrain = 0
+0:2/0/terrains_peering_bit/right_side = 0
+0:2/0/terrains_peering_bit/bottom_right_corner = 1
+0:2/0/terrains_peering_bit/bottom_side = 1
+0:2/0/terrains_peering_bit/bottom_left_corner = 1
+0:2/0/terrains_peering_bit/left_side = 1
+0:2/0/terrains_peering_bit/top_left_corner = 0
+0:2/0/terrains_peering_bit/top_side = 1
+0:2/0/terrains_peering_bit/top_right_corner = 1
+3:3/0 = 0
+4:3/0 = 0
+1:5/next_alternative_id = 4
+1:5/0 = 0
+1:5/0/terrain_set = 0
+1:5/0/terrain = 0
+1:5/0/terrains_peering_bit/right_side = 1
+1:5/0/terrains_peering_bit/bottom_right_corner = 0
+1:5/0/terrains_peering_bit/bottom_side = 0
+1:5/0/terrains_peering_bit/bottom_left_corner = 0
+1:5/0/terrains_peering_bit/left_side = 1
+1:5/0/terrains_peering_bit/top_left_corner = 1
+1:5/0/terrains_peering_bit/top_side = 1
+1:5/0/terrains_peering_bit/top_right_corner = 1
+1:5/1 = 1
+1:5/1/transpose = true
+1:5/1/terrain_set = 0
+1:5/1/terrain = 0
+1:5/1/terrains_peering_bit/right_side = 0
+1:5/1/terrains_peering_bit/bottom_right_corner = 0
+1:5/1/terrains_peering_bit/bottom_side = 1
+1:5/1/terrains_peering_bit/bottom_left_corner = 1
+1:5/1/terrains_peering_bit/left_side = 1
+1:5/1/terrains_peering_bit/top_left_corner = 1
+1:5/1/terrains_peering_bit/top_side = 1
+1:5/1/terrains_peering_bit/top_right_corner = 0
+1:5/2 = 2
+1:5/2/flip_v = true
+1:5/2/terrain_set = 0
+1:5/2/terrain = 0
+1:5/2/terrains_peering_bit/right_side = 1
+1:5/2/terrains_peering_bit/bottom_side = 1
+1:5/2/terrains_peering_bit/bottom_left_corner = 1
+1:5/2/terrains_peering_bit/left_side = 1
+1:5/2/terrains_peering_bit/top_left_corner = 0
+1:5/2/terrains_peering_bit/top_side = 0
+1:5/2/terrains_peering_bit/top_right_corner = 0
+1:5/3 = 3
+1:5/3/flip_h = true
+1:5/3/transpose = true
+1:5/3/terrain_set = 0
+1:5/3/terrain = 0
+1:5/3/terrains_peering_bit/right_side = 1
+1:5/3/terrains_peering_bit/bottom_right_corner = 1
+1:5/3/terrains_peering_bit/bottom_side = 1
+1:5/3/terrains_peering_bit/bottom_left_corner = 0
+1:5/3/terrains_peering_bit/left_side = 0
+1:5/3/terrains_peering_bit/top_left_corner = 0
+1:5/3/terrains_peering_bit/top_side = 1
+1:5/3/terrains_peering_bit/top_right_corner = 1
 
 [sub_resource type="TileSet" id="TileSet_n7gh0"]
 tile_size = Vector2i(32, 32)
@@ -358,6 +428,9 @@ terrain_set_0/terrain_0/color = Color(0.5, 0.19166666, 0, 1)
 terrain_set_0/terrain_1/name = "Terrain 1"
 terrain_set_0/terrain_1/color = Color(0.01666665, 0.5, 0, 1)
 sources/0 = SubResource("TileSetAtlasSource_b5ale")
+pattern_0 = SubResource("TileMapPattern_tx6vy")
+pattern_1 = SubResource("TileMapPattern_vkdx1")
+pattern_2 = SubResource("TileMapPattern_lbmal")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_docsr"]
 texture = ExtResource("3_62tnt")
@@ -368,21 +441,21 @@ texture_region_size = Vector2i(32, 32)
 1:1/0 = 0
 1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 0:1/0 = 0
-0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, -16, -8, -16, -8, 16, 16, 16)
 0:2/0 = 0
 0:2/0/z_index = -1
-0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, -1.14094, -16, -1.14905)
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, -16, -8, -16, -8, 8, 16, 8)
 1:2/0 = 0
 1:2/0/z_index = -1
-1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, -1.14094, -16, -1.14905)
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, -8, -8, -8, -8, 8, -16, 8)
 2:2/0 = 0
 2:2/0/z_index = -1
-2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, -1.14094, -16, -1.14905)
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, -16, -16, -16, -16, -8, 8, -8, 8, 8, 16, 8)
 3:2/0 = 0
 3:2/0/z_index = -1
-3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, -1.14094, -16, -1.14905)
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 8, -16, 8, 8, -16, 8)
 3:1/0 = 0
-3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 8, -16, 8, 16, -16, 16)
 2:1/0 = 0
 2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 3:0/0 = 0
@@ -391,7 +464,7 @@ texture_region_size = Vector2i(32, 32)
 texture = ExtResource("2_2l0op")
 texture_region_size = Vector2i(32, 32)
 5:1/size_in_atlas = Vector2i(3, 2)
-5:1/next_alternative_id = 2
+5:1/next_alternative_id = 3
 5:1/0 = 0
 5:1/0/texture_origin = Vector2i(0, 16)
 5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, -16, 16, 16, -16, 16, -16, -16)

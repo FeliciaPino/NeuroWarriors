@@ -14,18 +14,17 @@ size = Vector2(11, 10)
 
 [node name="OverworldCharacter" type="CharacterBody2D"]
 y_sort_enabled = true
-position = Vector2(0, -16)
 collision_layer = 2
 script = ExtResource("1_e0gxn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 y_sort_enabled = true
 texture_filter = 1
+position = Vector2(0, -2)
 sprite_frames = ExtResource("2_f6c2w")
 animation = &"moving_w"
 
 [node name="Body" type="CollisionShape2D" parent="."]
-position = Vector2(0, 2)
 shape = SubResource("CapsuleShape2D_w2dh8")
 
 [node name="Facer" parent="." node_paths=PackedStringArray("body", "sprite") instance=ExtResource("3_5phls")]
@@ -33,7 +32,7 @@ body = NodePath("..")
 sprite = NodePath("../AnimatedSprite2D")
 
 [node name="interacter" type="Area2D" parent="."]
-position = Vector2(0, -16)
+position = Vector2(0, -18)
 collision_layer = 4
 collision_mask = 4
 

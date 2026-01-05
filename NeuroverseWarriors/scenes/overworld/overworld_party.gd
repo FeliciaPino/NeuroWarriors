@@ -8,9 +8,9 @@ const overworld_character_scene = preload("res://scenes/overworld/overworld_char
 func _ready() -> void:
 	pass
 func _process(_delta: float) -> void:
-	var player = get_tree().get_first_node_in_group("player")
+	var player:OverworldCharacter = get_tree().get_first_node_in_group("player")
 	if player:
-		camera.position = lerp(camera.position,player.position,0.05)
+		camera.position = lerp(camera.position,player.position+player.velocity*0.67,0.9*_delta)
 #makes the overworld characters reflect the current party stored in gamestate
 func update_characters():
 	var party:Array = GameState.get_party()

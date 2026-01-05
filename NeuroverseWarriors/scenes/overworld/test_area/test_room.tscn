@@ -1,13 +1,11 @@
-[gd_scene load_steps=18 format=4 uid="uid://db6vwqoodof3o"]
+[gd_scene load_steps=16 format=4 uid="uid://db6vwqoodof3o"]
 
 [ext_resource type="PackedScene" uid="uid://c4knnckwwejji" path="res://scenes/overworld/room.tscn" id="1_o6j7m"]
 [ext_resource type="Script" uid="uid://ba1rbjqs1nmgt" path="res://scenes/overworld/interactable/rock/rock.gd" id="2_csp3m"]
 [ext_resource type="Texture2D" uid="uid://g04rqk377lfp" path="res://assets/ui/circle.png" id="3_c1vcw"]
 [ext_resource type="Texture2D" uid="uid://doap6lhvxsd7v" path="res://assets/overworld/tilesets/assembly_station_tiles.png" id="4_17a1n"]
 [ext_resource type="PackedScene" uid="uid://bu7ouujuhbdw2" path="res://scenes/overworld/interactable/interactable_component.tscn" id="4_tvv83"]
-[ext_resource type="PackedScene" uid="uid://chub0oea1rtve" path="res://scenes/ui/dialogue/dialogue_manager.tscn" id="4_yjh1c"]
 [ext_resource type="Texture2D" uid="uid://l71gewe0yuvu" path="res://assets/chroma.png" id="5_tvv83"]
-[ext_resource type="PackedScene" uid="uid://lid4f4jxk5j2" path="res://scenes/ui/dialogue/dialogue_display.tscn" id="6_yjh1c"]
 [ext_resource type="Texture2D" uid="uid://c2bq58th4ub5" path="res://assets/overworld/tilesets/city_tiles.png" id="8_qy337"]
 [ext_resource type="Texture2D" uid="uid://o5sq0tkkglam" path="res://assets/overworld/tilesets/forest_tiles.png" id="10_17a1n"]
 [ext_resource type="PackedScene" uid="uid://bi30e7q4hmdo" path="res://scenes/ui/dialogue/dialogue_trigger.tscn" id="12_ekpo1"]
@@ -78,18 +76,10 @@ position = Vector2(-510, -84)
 tile_map_data = PackedByteArray("AAD7/wAAAAADAAMAAAD8/wAAAAADAAMAAAD9/wAAAAADAAMAAAD+/wAAAAADAAMAAAD+////AAADAAMAAAD9////AAADAAMAAAD8////AAADAAMAAAD7////AAADAAMAAAD7/wEAAAADAAMAAAD8/wEAAAADAAMAAAD9/wEAAAADAAMAAAD+/wEAAAADAAMAAAD//wEAAAADAAMAAAD//wAAAAADAAMAAAD/////AAADAAMAAAD6/wEAAAADAAMAAAD6/wAAAAADAAMAAAD6////AAADAAMAAAD///7/AAADAAIAAAD+//7/AAADAAIAAAD9//7/AAADAAIAAAD8//7/AAADAAIAAAD7//7/AAADAAIAAAD6//7/AAADAAIAAAD///3/AAADAAEAAAD+//3/AAADAAEAAAD9//3/AAADAAEAAAD8//3/AAADAAEAAAD7//3/AAADAAEAAAD7//z/AAADAAAAAAD6//z/AAADAAAAAAD8//z/AAADAAAAAAD9//z/AAADAAAAAAD+//z/AAADAAAAAAD///z/AAADAAAAAAD6//3/AAADAAEAAAD5//7/AAACAAIAAAD5//3/AAACAAEAAAD5//z/AAACAAAAAAD5////AAACAAMAAAD5/wAAAAACAAMAAAD5/wEAAAACAAMAAAAAAAEAAAACAAMAABAAAAAAAAACAAMAABAAAP//AAACAAMAABAAAP7/AAACAAIAABAAAP3/AAACAAEAABAAAPz/AAACAAAAABD5/wIAAAACAAMAAAD5/wMAAAACAAMAAAD5/wQAAAACAAIAACAAAAQAAAACAAIAADAAAAMAAAACAAMAABAAAAIAAAACAAMAABD//wIAAAADAAMAAAD+/wIAAAADAAMAAAD9/wIAAAADAAMAAAD8/wIAAAADAAMAAAD7/wIAAAADAAMAAAD6/wIAAAADAAMAAAD6/wMAAAADAAMAAAD7/wMAAAADAAMAAAD8/wMAAAADAAMAAAD9/wMAAAADAAMAAAD+/wMAAAADAAMAAAD//wMAAAADAAMAAAD6/wQAAAADAAIAACD7/wQAAAADAAIAACD8/wQAAAADAAIAACD+/wQAAAADAAIAACD//wQAAAADAAIAACA=")
 tile_set = SubResource("TileSet_vje6e")
 
-[node name="DialogueManager" parent="." index="5" instance=ExtResource("4_yjh1c")]
-unique_name_in_owner = true
-
 [node name="ReturnButton" parent="UI" index="1"]
 visible = false
 
-[node name="DialogueDisplay" parent="UI" index="3" instance=ExtResource("6_yjh1c")]
-unique_name_in_owner = true
-process_mode = 2
-visible = false
-
-[node name="boudler" type="Node2D" parent="." index="7" node_paths=PackedStringArray("sprite", "interactable_component")]
+[node name="boudler" type="Node2D" parent="." index="6" node_paths=PackedStringArray("sprite", "interactable_component")]
 position = Vector2(118, -97)
 script = ExtResource("2_csp3m")
 sprite = NodePath("Sprite2D")
@@ -106,7 +96,7 @@ shape = SubResource("RectangleShape2D_cmg84")
 [node name="InteractableComponent" parent="boudler" index="2" instance=ExtResource("4_tvv83")]
 scale = Vector2(2.22739, 2.16148)
 
-[node name="DialogueTrigger" parent="." index="8" instance=ExtResource("12_ekpo1")]
+[node name="DialogueTrigger" parent="." index="7" instance=ExtResource("12_ekpo1")]
 position = Vector2(-70, -187)
 path_to_dialogue_sequence = "res://scenes/overworld/test_area/dialogue_test_bogos.json"
 
@@ -125,7 +115,7 @@ offset_bottom = -7.0
 scale = Vector2(0.585679, 0.643512)
 text = "dialogue"
 
-[node name="DialogueTrigger2" parent="." index="9" instance=ExtResource("12_ekpo1")]
+[node name="DialogueTrigger2" parent="." index="8" instance=ExtResource("12_ekpo1")]
 position = Vector2(-260, -165)
 path_to_dialogue_sequence = "res://scenes/overworld/test_area/dialogue_test_2.json"
 
@@ -140,7 +130,7 @@ offset_bottom = -9.0
 scale = Vector2(0.964737, 0.713777)
 text = "building"
 
-[node name="DialogueTrigger3" parent="." index="10" instance=ExtResource("12_ekpo1")]
+[node name="DialogueTrigger3" parent="." index="9" instance=ExtResource("12_ekpo1")]
 position = Vector2(-16, -187)
 path_to_dialogue_sequence = "res://scenes/overworld/test_area/dialogue_test_conditions.json"
 
@@ -159,7 +149,7 @@ offset_bottom = -5.0
 scale = Vector2(0.616619, 0.576124)
 text = "conditions"
 
-[node name="DialogueTrigger4" parent="." index="11" instance=ExtResource("12_ekpo1")]
+[node name="DialogueTrigger4" parent="." index="10" instance=ExtResource("12_ekpo1")]
 position = Vector2(54, -186)
 path_to_dialogue_sequence = "res://scenes/overworld/test_area/dialogue_test_speed.json"
 
@@ -178,7 +168,7 @@ offset_bottom = -5.0
 scale = Vector2(0.632969, 0.600498)
 text = "speed"
 
-[node name="DialogueTrigger5" parent="." index="12" instance=ExtResource("12_ekpo1")]
+[node name="DialogueTrigger5" parent="." index="11" instance=ExtResource("12_ekpo1")]
 position = Vector2(115, -189)
 path_to_dialogue_sequence = "res://scenes/overworld/test_area/dialogue_test_color.json"
 

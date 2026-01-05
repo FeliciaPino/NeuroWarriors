@@ -348,12 +348,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Endo fuser.md",
+                "file": "dev_docs/Dialogue System.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Endo fuser"
+              "title": "Dialogue System"
             }
           }
         ],
@@ -478,13 +478,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Endo fuser.md",
+                "file": "dev_docs/Dialogue System.md",
                 "followCursor": false,
                 "showSearch": true,
                 "searchQuery": "#Consumable"
               },
               "icon": "lucide-list",
-              "title": "Outline of Endo fuser"
+              "title": "Outline of Dialogue System"
             }
           }
         ],
@@ -505,10 +505,11 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "bc3239f137c9f65a",
+  "active": "bcaa855407174cf9",
   "lastOpenFiles": [
-    "Something something rap.md",
+    "dev_docs/Room Traversal.md",
     "Endo fuser.md",
+    "Something something rap.md",
     "wiki/Dodge Charger.md",
     "wiki/Pipe Bomb.md",
     "wiki/Battle Guitar Solo.md",
@@ -524,7 +525,6 @@
     "lore stuff.md",
     "wiki/Action Points.md",
     "wiki/Anti Entropy Wire.md",
-    "dev_docs/Room Traversal.md",
     "dev_docs/Dialogue System.md",
     "wiki/Silent Pipes.md",
     "River Puzzles.md",

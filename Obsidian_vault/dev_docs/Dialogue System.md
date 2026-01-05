@@ -109,4 +109,4 @@ The speed at which the text is written on screen can be modified adding a speed 
 	 "next":"line3"
 }
 
-	The speed is measured in characters per second, the default speed is 25.
+The speed is measured in characters per second, the default speed is 25.
