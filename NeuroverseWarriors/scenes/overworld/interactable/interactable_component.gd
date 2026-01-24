@@ -4,7 +4,6 @@ signal interacted
 var is_colliding:bool = false
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("accept") and is_colliding:
-		print("AAAAAAAAA INTERACTED")
 		interacted.emit()
 
 

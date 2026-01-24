@@ -101,6 +101,7 @@ func end_dialogue():
 	dialogue_display.visible = false
 	dialogue_display.clear()
 	get_tree().paused = false
+	dialogue_ended.emit()
 func _input(event):
 	if not room.current_mode == Room.Mode.DIALOGUE: return
 	if event is InputEventKey:

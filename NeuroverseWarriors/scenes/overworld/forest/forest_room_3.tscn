@@ -31,14 +31,14 @@ position = Vector2(-1, -1.5)
 shape = SubResource("RectangleShape2D_wlthr")
 
 [node name="Passage2" type="Node2D" parent="Passages" index="1" node_paths=PackedStringArray("collision_area")]
-position = Vector2(-67, -687)
+position = Vector2(1031, -390)
 script = ExtResource("2_gjjv2")
 collision_area = NodePath("Area2D")
-scene_path = "res://scenes/overworld/forest/forest_room_4.tscn"
+scene_path = "res://scenes/overworld/forest/forest_room_vedal.tscn"
 arriving_passage_name = "Passage"
 
 [node name="Area2D" type="Area2D" parent="Passages/Passage2" index="0"]
-position = Vector2(27, -65)
+position = Vector2(109, 1)
 collision_layer = 0
 collision_mask = 2
 

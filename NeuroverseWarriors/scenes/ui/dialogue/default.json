@@ -1,0 +1,12 @@
+[
+	{
+		"id":"start",
+		"next":"line1"
+	},
+	{
+		"id":"line1",
+		"speaker":"Narrator",
+		"expression":"neutral",
+		"text_key":"It seems that Copper forgot to plug in this dialogue trigger",
+	}
+]

@@ -13,7 +13,8 @@ class_name OverworldCharacter
 @onready var collider := $Body
 @onready var facer := $Facer
 @onready var interacter := $interacter #collider that detects interactions with the world (such as inspecting, activating something, or talking with an npc)
-@export var following_target:OverworldCharacter = null
+@export var following_target:Node2D = null
+@export var follow_distance := 1.0
 func _ready() -> void:
 	print_debug(str(self,": set pos as ",global_position))
 	if associated_character != "null":
@@ -30,12 +31,13 @@ func set_sprite_frames(new_frames:SpriteFrames):
 func _physics_process(_delta: float) -> void:
 	GameState.set_player_map_position(global_position)
 	var direction  = Input.get_vector("left","right","up","down")
-	velocity = direction*speed
+	if !get_tree().paused: velocity = direction*speed
 	if following_target:
 		var difference_to_target = (following_target.global_position - global_position)
 		var distance_to_target = difference_to_target.length()
-		if distance_to_target>25:
-			velocity = difference_to_target.normalized()*((distance_to_target-24)*15+1)
+		if distance_to_target>follow_distance:
+			var speedness = min((distance_to_target-follow_distance)*0.6/_delta+1.5,speed)
+			velocity = difference_to_target.normalized()*speedness
 		else:
 			velocity = Vector2()
 		if distance_to_target>80:
