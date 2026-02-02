@@ -1,13 +1,14 @@
 extends Node
 class_name DialogueManager
 signal dialogue_started
-signal dialogue_ended
+signal dialogue_ended(ending_line_id)
 
 @onready var dialogue_display := %DialogueDisplay
 @onready var timer:Timer = $Timer
 @onready var room:Room = $".."
 var sequence = {}
 var current_line = {}
+var current_line_id:String = "" #this is mostly only used for the dialogue_ended signal
 #This is called by the dialogue triggers
 func start_dialogue(path_to_dialogue_sequence_json:String):
 	dialogue_started.emit()
@@ -33,6 +34,7 @@ func start_dialogue(path_to_dialogue_sequence_json:String):
 			sequence[id] = line
 			print_debug(str("adding id:",id))
 	current_line = sequence.get("start",null)
+	current_line_id = "start"
 	if not current_line:
 		push_error("Dialogue JSON missing start line")
 	dialogue_display.visible = true
@@ -47,7 +49,7 @@ func _show_current_line():
 	dialogue_display.display_line(speaker_to_display,current_line.get("expression",""),tr(current_line["text_key"]))
 	
 func _get_speaker_from_line(dialogue_line):
-	var speaker = current_line.get("speaker","")
+	var speaker = dialogue_line.get("speaker","")
 	if speaker is Array:
 		var options = speaker
 		speaker = ""
@@ -90,6 +92,7 @@ func _next_line():
 		return
 		
 	current_line = sequence.get(next_id, null)
+	current_line_id = next_id
 	if not current_line:
 		push_error("Non existant dialogue id")
 	_show_current_line()
@@ -101,7 +104,7 @@ func end_dialogue():
 	dialogue_display.visible = false
 	dialogue_display.clear()
 	get_tree().paused = false
-	dialogue_ended.emit()
+	dialogue_ended.emit(current_line_id)
 func _input(event):
 	if not room.current_mode == Room.Mode.DIALOGUE: return
 	if event is InputEventKey:
@@ -112,7 +115,7 @@ func _input(event):
 				_next_line()
 			elif timer.is_stopped():
 				dialogue_display.show_whole_text()
-func ready_for_next_line():
+func ready_for_next_line() -> bool:
 	var ans = true
 	if not timer.is_stopped(): ans = false
 	if not dialogue_display.is_whole_text_visible(): ans = false
@@ -120,7 +123,8 @@ func ready_for_next_line():
 
 
 #functions for the condition expressions to use
-
+func get_party_size()->int:
+	return GameState.get_party().size()
 func character_in_party(character_name):
 	return GameState.is_character_in_party(character_name)
 func get_index_in_party(character_name):

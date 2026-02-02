@@ -236,12 +236,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "wiki/Vedal.md",
+                "file": "dev_docs/Dialogue System.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Vedal"
+              "title": "Dialogue System"
             }
           },
           {
@@ -357,7 +357,7 @@
             }
           }
         ],
-        "currentTab": 24
+        "currentTab": 16
       }
     ],
     "direction": "vertical"
@@ -505,8 +505,10 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "bcaa855407174cf9",
+  "active": "d82c67f81f2be14f",
   "lastOpenFiles": [
+    "wiki/Vedal.md",
+    "dev_docs/Dialogue System.md",
     "dev_docs/Room Traversal.md",
     "Endo fuser.md",
     "Something something rap.md",
@@ -525,7 +527,6 @@
     "lore stuff.md",
     "wiki/Action Points.md",
     "wiki/Anti Entropy Wire.md",
-    "dev_docs/Dialogue System.md",
     "wiki/Silent Pipes.md",
     "River Puzzles.md",
     "Game Design Document.md",
@@ -533,7 +534,6 @@
     "wiki/List of Enemies.md",
     "wiki/Evil.md",
     "wiki/Shock.md",
-    "wiki/Programmer Socks.md",
     "Base.base",
     "Untitled.base",
     "images/forst_puzles.png.import"

@@ -10,7 +10,10 @@ signal dialogue_triggered
 @export var path_to_dialogue_sequence:String
 
 @export var animation_before:AnimationPlayer
-@export var animation_after:AnimationPlayer
+@export var animations_after:Dictionary[String, AnimationPlayer] 
+
+
+var finishing_line_id:String = "" #For selecting which animation to play after
 func _ready() -> void:
 	for c in get_children():
 		if c is InteractableComponent:
@@ -22,6 +25,10 @@ func _ready() -> void:
 	if area_trigger:
 		area_trigger.body_entered.connect(_on_area_entered)
 	dialogue_triggered.connect(_on_dialogue_triggered)
+	dialogue_manager.dialogue_ended.connect(_on_dialogue_ended)
+#this is triggered when _any_ dialogue finishes
+func _on_dialogue_ended(ending_line_id):
+	finishing_line_id  = ending_line_id
 func _on_dialogue_triggered():
 	if animation_before:
 		if animation_before.has_animation("new_animation"):
@@ -38,7 +45,9 @@ func _on_dialogue_triggered():
 	
 	if path_to_dialogue_sequence: dialogue_manager.start_dialogue(path_to_dialogue_sequence)
 	else: dialogue_manager.start_dialogue("res://scenes/ui/dialogue/default.json")
+	
 	await  dialogue_manager.dialogue_ended
+	var animation_after = animations_after.get(finishing_line_id)
 	if animation_after:
 		if animation_after.has_animation("new_animation"):
 			get_tree().paused = true

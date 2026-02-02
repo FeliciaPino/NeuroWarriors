@@ -1,12 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://chub0oea1rtve"]
+[gd_scene format=3 uid="uid://chub0oea1rtve"]
 
 [ext_resource type="Script" uid="uid://cee085tws7h0y" path="res://scenes/ui/dialogue/dialogue_manager.gd" id="1_7bw6c"]
 
-[node name="DialogueManager" type="Node"]
+[node name="DialogueManager" type="Node" unique_id=1093913061]
 process_mode = 2
 script = ExtResource("1_7bw6c")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=563432144]
 wait_time = 0.1
 one_shot = true
 

@@ -1,0 +1,35 @@
+[
+	{
+		"id":"start",
+		"next":[
+			{"condition":"get_party_size()>=2","next":"success_1"},
+			{"next":"needs_help"}
+		]
+	},
+	{
+		"id":"needs_help",
+		"speaker":["Neuro-sama","Vedal"],
+		"expression":"Thoughtful",
+		"text_key":"This log is too big for me to remove on my own",
+	},
+	{
+		"id":"success_1",
+		"speaker":"Vedal",
+		"expression":"Neutral",
+		"text_key":"erm, looks like a tree feel in the way of this path here"  ,
+		"next":"success_2"
+	},
+	{
+		"id":"success_2",
+		"speaker":"Neuro-sama",
+		"expression":"Happy",
+		"text_key":"Let's work together to remove it!",
+		"next":"success_3"
+	},
+	{
+		"id":"success_3",
+		"speaker":"Vedal",
+		"expression":"Neutral",
+		"text_key":"Alright, on the count of 3. 1... 2... "
+	}
+]

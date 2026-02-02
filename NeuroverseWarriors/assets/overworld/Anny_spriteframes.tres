@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=18 format=3 uid="uid://dmtcf7hjrpnt1"]
+[gd_resource type="SpriteFrames" format=3 uid="uid://dmtcf7hjrpnt1"]
 
 [ext_resource type="Texture2D" uid="uid://c782q0dp1s8f1" path="res://assets/overworld/overworld_Anny.png" id="1_piwvi"]
 
