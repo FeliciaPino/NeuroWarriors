@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c4knnckwwejji"]
+[gd_scene format=3 uid="uid://c4knnckwwejji"]
 
 [ext_resource type="Script" uid="uid://c7idah1du5a0p" path="res://scenes/overworld/overworld_party.gd" id="1_47ymd"]
 [ext_resource type="Script" uid="uid://cu14dpq8i23cb" path="res://scripts/overworld/overworld.gd" id="1_eb5g4"]
@@ -125,64 +125,55 @@ _data = {
 &"fade_out": SubResource("Animation_bthyh")
 }
 
-[node name="Room" type="Node2D"]
+[node name="Room" type="Node2D" unique_id=657665087]
 y_sort_enabled = true
 script = ExtResource("1_eb5g4")
 
-[node name="TileLayers" type="Node2D" parent="."]
+[node name="TileLayers" type="Node2D" parent="." unique_id=230436696]
 y_sort_enabled = true
 
-[node name="Passages" type="Node2D" parent="."]
+[node name="Passages" type="Node2D" parent="." unique_id=1766370370]
 
-[node name="Party" type="Node2D" parent="." node_paths=PackedStringArray("camera")]
+[node name="Party" type="Node2D" parent="." unique_id=1665668401 node_paths=PackedStringArray("camera")]
 y_sort_enabled = true
 script = ExtResource("1_47ymd")
 camera = NodePath("Camera2D")
 
-[node name="Camera2D" type="Camera2D" parent="Party"]
+[node name="Camera2D" type="Camera2D" parent="Party" unique_id=574425385]
 process_mode = 3
 zoom = Vector2(1.8, 1.8)
 
-[node name="AnimationFollowTargets" type="Node2D" parent="Party"]
+[node name="AnimationFollowTargets" type="Node2D" parent="Party" unique_id=132693407]
 
-[node name="Enemies" type="Node2D" parent="."]
+[node name="Enemies" type="Node2D" parent="." unique_id=1986628849]
 
-[node name="UI" type="CanvasLayer" parent="."]
+[node name="UI" type="CanvasLayer" parent="." unique_id=1620278496]
 
-[node name="Fade" type="ColorRect" parent="UI"]
+[node name="Fade" type="ColorRect" parent="UI" unique_id=948958175]
 process_mode = 3
 z_index = 10
 offset_right = 1200.0
 offset_bottom = 700.0
 color = Color(0, 0, 0, 1)
 
-[node name="FadeAnimationPlayer" type="AnimationPlayer" parent="UI/Fade"]
+[node name="FadeAnimationPlayer" type="AnimationPlayer" parent="UI/Fade" unique_id=2141445113]
 unique_name_in_owner = true
-libraries = {
-&"": SubResource("AnimationLibrary_vshbj")
-}
-autoplay = "fade_in"
+libraries/ = SubResource("AnimationLibrary_vshbj")
+autoplay = &"fade_in"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="UI/Fade"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="UI/Fade" unique_id=1561347313]
 stream = ExtResource("3_rdp7m")
 volume_db = -6.265
 pitch_scale = 1.1
 bus = &"SFX"
 
-[node name="ReturnButton" type="Button" parent="UI"]
-unique_name_in_owner = true
-offset_left = 8.0
-offset_top = 12.0
-offset_right = 276.0
-offset_bottom = 43.0
-text = "LEVEL_SELECT_RETURN_TO_MENU"
+[node name="GameMenu" parent="UI" unique_id=1626842651 instance=ExtResource("3_jq8hu")]
+z_index = 1
 
-[node name="GameMenu" parent="UI" instance=ExtResource("3_jq8hu")]
-
-[node name="DialogueDisplay" parent="UI" instance=ExtResource("5_2hmef")]
+[node name="DialogueDisplay" parent="UI" unique_id=975659909 instance=ExtResource("5_2hmef")]
 unique_name_in_owner = true
 process_mode = 2
 visible = false
 
-[node name="DialogueManager" parent="." instance=ExtResource("5_upclc")]
+[node name="DialogueManager" parent="." unique_id=1981799443 instance=ExtResource("5_upclc")]
 unique_name_in_owner = true

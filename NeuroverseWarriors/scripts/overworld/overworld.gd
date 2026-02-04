@@ -1,6 +1,5 @@
 extends Node2D
 class_name  Room
-@onready var return_to_menu_button = %ReturnButton
 @onready var ui := $UI
 @onready var party_node = $Party
 @onready var passages_node = $Passages
@@ -16,7 +15,6 @@ func _ready() -> void:
 	print_debug(str(self,": arrival_passage_name: ",GameState.arrival_passage_name))
 	ui.visible = true
 	MusicPlayer.play_music(load("res://addons/Pixel_boy/theme-3.ogg"))
-	return_to_menu_button.pressed.connect(return_to_menu)
 	if not passages_node: return
 	for p in passages_node.get_children():
 		if p.name == GameState.arrival_passage_name:
@@ -36,6 +34,7 @@ func fade_to_room(new_room:PackedScene, arrival_passage_name:String):
 	get_tree().get_first_node_in_group("player").process_mode = PROCESS_MODE_DISABLED
 	fade.play("fade_out")
 	await fade.animation_finished
+	game_menu.close_menu()
 	GameState.set_player_map_position(Vector2())
 	GameState.arrival_passage_name = arrival_passage_name
 	GameState.current_room_scene = new_room

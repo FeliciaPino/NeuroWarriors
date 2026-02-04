@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ds7mmdtobydfi"]
+[gd_scene format=3 uid="uid://ds7mmdtobydfi"]
 
 [ext_resource type="PackedScene" uid="uid://c4knnckwwejji" path="res://scenes/overworld/room.tscn" id="1_irgfo"]
 [ext_resource type="Texture2D" uid="uid://o5sq0tkkglam" path="res://assets/overworld/tilesets/forest_tiles.png" id="2_2l0op"]
@@ -477,18 +477,18 @@ physics_layer_0/collision_layer = 1
 sources/2 = SubResource("TileSetAtlasSource_51eh4")
 sources/0 = SubResource("TileSetAtlasSource_docsr")
 
-[node name="ForestRoom" instance=ExtResource("1_irgfo")]
+[node name="ForestRoom" unique_id=1694871651 instance=ExtResource("1_irgfo")]
 
-[node name="grass" type="TileMapLayer" parent="TileLayers" index="0"]
+[node name="grass" type="TileMapLayer" parent="TileLayers" parent_id_path=PackedInt32Array(230436696) index="0" unique_id=1580640893]
 z_index = -1
 texture_filter = 1
 tile_set = SubResource("TileSet_n7gh0")
 
-[node name="trees" type="TileMapLayer" parent="TileLayers" index="1"]
+[node name="trees" type="TileMapLayer" parent="TileLayers" parent_id_path=PackedInt32Array(230436696) index="1" unique_id=752081159]
 z_index = 1
 y_sort_enabled = true
 texture_filter = 1
 tile_set = SubResource("TileSet_d336s")
 
-[node name="UI" parent="." index="4"]
+[node name="UI" parent="." index="4" unique_id=1620278496]
 visible = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b82kauwohbvun"]
+[gd_scene format=3 uid="uid://b82kauwohbvun"]
 
 [ext_resource type="Script" uid="uid://mmu44ppqby8v" path="res://scripts/GameManager.gd" id="1_5lrye"]
 [ext_resource type="PackedScene" uid="uid://c0cerfjhi148m" path="res://scenes/entity_manager.tscn" id="3_iprcq"]
@@ -330,28 +330,26 @@ _data = {
 &"new_animation": SubResource("Animation_7rg7d")
 }
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" unique_id=268961466]
 texture_filter = 1
 script = ExtResource("1_5lrye")
 xp_reward = 50
 
-[node name="Background" type="Node2D" parent="."]
+[node name="Background" type="Node2D" parent="." unique_id=1258881707]
 position = Vector2(0, -50)
 
-[node name="Entity_manager" parent="." instance=ExtResource("3_iprcq")]
+[node name="Entity_manager" parent="." unique_id=2063756186 instance=ExtResource("3_iprcq")]
 partyRect = Rect2(100, 150, 450, 300)
 foesRect = Rect2(600, 150, 450, 300)
 
-[node name="VFXs" type="Node2D" parent="."]
+[node name="VFXs" type="Node2D" parent="." unique_id=1613646163]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_xsa6o")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1657765838]
+libraries/ = SubResource("AnimationLibrary_xsa6o")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1469035995]
 
-[node name="EndTurnButton" type="Button" parent="CanvasLayer"]
+[node name="EndTurnButton" type="Button" parent="CanvasLayer" unique_id=1286631439]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -366,7 +364,7 @@ grow_vertical = 0
 shortcut = SubResource("Shortcut_di83f")
 text = "BATTLE_NEXT_TURN_BUTTON"
 
-[node name="InstructionLabel" type="Label" parent="CanvasLayer"]
+[node name="InstructionLabel" type="Label" parent="CanvasLayer" unique_id=620155685]
 unique_name_in_owner = true
 anchors_preset = 5
 anchor_left = 0.5
@@ -381,13 +379,11 @@ theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 24
 horizontal_alignment = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/InstructionLabel"]
-libraries = {
-&"": SubResource("AnimationLibrary_xmnyv")
-}
-autoplay = "new_animation"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/InstructionLabel" unique_id=1674787028]
+libraries/ = SubResource("AnimationLibrary_xmnyv")
+autoplay = &"new_animation"
 
-[node name="Return" type="Button" parent="CanvasLayer"]
+[node name="Return" type="Button" parent="CanvasLayer" unique_id=1005859045]
 unique_name_in_owner = true
 visible = false
 anchors_preset = -1
@@ -399,7 +395,7 @@ offset_right = -0.416016
 offset_bottom = -0.104
 text = "LEVEL_SELECT_RETURN_TO_MENU"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=929706262]
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -410,40 +406,40 @@ grow_vertical = 0
 size_flags_vertical = 8
 theme_override_constants/separation = -5
 
-[node name="CharacterInfoPanel" parent="CanvasLayer/HBoxContainer" instance=ExtResource("4_riktp")]
+[node name="CharacterInfoPanel" parent="CanvasLayer/HBoxContainer" unique_id=820475760 instance=ExtResource("4_riktp")]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/HBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/HBoxContainer" unique_id=1237777596]
 clip_contents = true
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HBoxContainer/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HBoxContainer/PanelContainer" unique_id=881134667]
 clip_contents = true
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_right = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HBoxContainer/PanelContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HBoxContainer/PanelContainer/MarginContainer" unique_id=402156947]
 layout_mode = 2
 alignment = 1
 
-[node name="EndTurnButton" type="Button" parent="CanvasLayer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="EndTurnButton" type="Button" parent="CanvasLayer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=997879671]
 unique_name_in_owner = true
 layout_mode = 2
 text = "BATTLE_NEXT_TURN_BUTTON"
 autowrap_mode = 1
 
-[node name="Button2" type="Button" parent="CanvasLayer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Button2" type="Button" parent="CanvasLayer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1636258580]
 layout_mode = 2
 text = "menu"
 
-[node name="TargetInfoPanel" parent="CanvasLayer/HBoxContainer" instance=ExtResource("4_riktp")]
+[node name="TargetInfoPanel" parent="CanvasLayer/HBoxContainer" unique_id=638297163 instance=ExtResource("4_riktp")]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="EndScreen" parent="CanvasLayer" node_paths=PackedStringArray("game_manager") instance=ExtResource("9_s08fr")]
+[node name="EndScreen" parent="CanvasLayer" unique_id=1985365237 node_paths=PackedStringArray("game_manager") instance=ExtResource("9_s08fr")]
 unique_name_in_owner = true
 visible = false
 offset_left = -128.0
@@ -452,7 +448,7 @@ offset_right = -88.0
 offset_bottom = 54.0
 game_manager = NodePath("../..")
 
-[node name="TurnLabel" type="Label" parent="CanvasLayer"]
+[node name="TurnLabel" type="Label" parent="CanvasLayer" unique_id=1825837466]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0)
 anchors_preset = 5
@@ -472,18 +468,18 @@ theme_override_font_sizes/font_size = 32
 text = "BATTLE_YOUR_TURN"
 horizontal_alignment = 1
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer/TurnLabel"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer/TurnLabel" unique_id=904151750]
 stream = ExtResource("5_7rg7d")
 volume_db = -8.0
 pitch_scale = 0.56
 bus = &"SFX"
 
-[node name="Tungesten_counter" parent="CanvasLayer" instance=ExtResource("5_a1osm")]
+[node name="Tungesten_counter" parent="CanvasLayer" unique_id=1333209353 instance=ExtResource("5_a1osm")]
 unique_name_in_owner = true
 offset_left = 459.0
 offset_top = -294.0
 offset_right = 459.0
 offset_bottom = -294.0
 
-[node name="PassiveManager" type="Node" parent="."]
+[node name="PassiveManager" type="Node" parent="." unique_id=2133441339]
 script = ExtResource("6_limtx")
