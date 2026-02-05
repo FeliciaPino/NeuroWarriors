@@ -25,7 +25,7 @@ func _ready() -> void:
 	party_node.update_characters()
 	game_menu.menu_has_just_closed.connect(party_node.update_characters)
 	
-const main_menu_scene = preload("res://scenes/main_menu.tscn")
+const main_menu_scene = preload("res://scenes/main_menu.tscn")	
 @onready var fade = %FadeAnimationPlayer
 func return_to_menu():
 	get_tree().change_scene_to_packed(main_menu_scene)

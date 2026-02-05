@@ -2,11 +2,12 @@
 
 [ext_resource type="Script" uid="uid://mmu44ppqby8v" path="res://scripts/GameManager.gd" id="1_5lrye"]
 [ext_resource type="PackedScene" uid="uid://c0cerfjhi148m" path="res://scenes/entity_manager.tscn" id="3_iprcq"]
-[ext_resource type="PackedScene" uid="uid://dswe4b60aebu5" path="res://scenes/ui/battle_entity_info.tscn" id="4_riktp"]
+[ext_resource type="PackedScene" uid="uid://dswe4b60aebu5" path="res://scenes/ui/battle_menus/battle_entity_info.tscn" id="4_riktp"]
 [ext_resource type="AudioStream" uid="uid://bymhdcicx5ap3" path="res://assets/audio/homemade/SFX/Woosh.mp3" id="5_7rg7d"]
 [ext_resource type="PackedScene" uid="uid://f0gydn2c2inx" path="res://scenes/ui/tungesten_counter.tscn" id="5_a1osm"]
 [ext_resource type="Script" uid="uid://cc20vrfd222y3" path="res://scripts/pasive_abilities/PassiveManager.gd" id="6_limtx"]
-[ext_resource type="PackedScene" uid="uid://d4f0gy2sw12hv" path="res://scenes/ui/end_screen.tscn" id="9_s08fr"]
+[ext_resource type="PackedScene" uid="uid://db5536f40fftj" path="res://scenes/ui/battle_menus/battle_menu.tscn" id="7_xmnyv"]
+[ext_resource type="PackedScene" uid="uid://d4f0gy2sw12hv" path="res://scenes/ui/battle_menus/end_screen.tscn" id="9_s08fr"]
 
 [sub_resource type="Animation" id="Animation_3mlxk"]
 length = 0.001
@@ -431,7 +432,8 @@ layout_mode = 2
 text = "BATTLE_NEXT_TURN_BUTTON"
 autowrap_mode = 1
 
-[node name="Button2" type="Button" parent="CanvasLayer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1636258580]
+[node name="MenuButton" type="Button" parent="CanvasLayer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1636258580]
+unique_name_in_owner = true
 layout_mode = 2
 text = "menu"
 
@@ -481,5 +483,18 @@ offset_top = -294.0
 offset_right = 459.0
 offset_bottom = -294.0
 
+[node name="Battle Menu" parent="CanvasLayer" unique_id=332062431 instance=ExtResource("7_xmnyv")]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="PassiveManager" type="Node" parent="." unique_id=2133441339]
 script = ExtResource("6_limtx")
+
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://uyf2xv345f10"]
+[gd_scene format=3 uid="uid://uyf2xv345f10"]
 
 [ext_resource type="Script" uid="uid://lto3neoapax6" path="res://scripts/main_menu.gd" id="1_3ih0l"]
 [ext_resource type="Texture2D" uid="uid://daakoqoug8tly" path="res://assets/backgrounds/destroyed_city_background1.png" id="4_71udx"]
@@ -458,7 +458,7 @@ _data = {
 &"RESET": SubResource("Animation_57ta3")
 }
 
-[node name="Menu" type="Control"]
+[node name="Menu" type="Control" unique_id=1206678184]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -467,7 +467,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3ih0l")
 
-[node name="Title" type="TextureRect" parent="."]
+[node name="Title" type="TextureRect" parent="." unique_id=1691762806]
 z_index = -1
 layout_mode = 0
 offset_left = 161.0
@@ -477,21 +477,19 @@ offset_bottom = 383.0
 pivot_offset = Vector2(400, 200)
 texture = ExtResource("4_seej8")
 
-[node name="moving title" type="AnimationPlayer" parent="Title"]
+[node name="moving title" type="AnimationPlayer" parent="Title" unique_id=1634194233]
 root_node = NodePath("../..")
-libraries = {
-&"": SubResource("AnimationLibrary_kqvf1")
-}
-autoplay = "moving_title"
+libraries/ = SubResource("AnimationLibrary_kqvf1")
+autoplay = &"moving_title"
 
-[node name="background" type="AnimatedSprite2D" parent="."]
+[node name="background" type="AnimatedSprite2D" parent="." unique_id=190298052]
 visible = false
 z_index = -2
 position = Vector2(578, 336)
 sprite_frames = SubResource("SpriteFrames_bild0")
 frame_progress = 0.60241
 
-[node name="Background1" type="TextureRect" parent="."]
+[node name="Background1" type="TextureRect" parent="." unique_id=1460818834]
 z_index = -10
 layout_mode = 0
 offset_left = -431.0
@@ -502,7 +500,7 @@ pivot_offset = Vector2(1000, 1000)
 mouse_filter = 2
 texture = SubResource("NoiseTexture2D_jar63")
 
-[node name="Background2" type="TextureRect" parent="Background1"]
+[node name="Background2" type="TextureRect" parent="Background1" unique_id=367208301]
 modulate = Color(1, 1, 1, 0.678431)
 z_index = -5
 layout_mode = 0
@@ -514,13 +512,11 @@ pivot_offset = Vector2(1000, 1000)
 mouse_filter = 2
 texture = SubResource("NoiseTexture2D_3hj7a")
 
-[node name="background animation" type="AnimationPlayer" parent="Background1"]
-libraries = {
-&"": SubResource("AnimationLibrary_1wsp1")
-}
-autoplay = "animation"
+[node name="background animation" type="AnimationPlayer" parent="Background1" unique_id=1321084077]
+libraries/ = SubResource("AnimationLibrary_1wsp1")
+autoplay = &"animation"
 
-[node name="MenuMenus" type="HBoxContainer" parent="."]
+[node name="MenuMenus" type="HBoxContainer" parent="." unique_id=200717825]
 layout_mode = 0
 offset_left = 39.0
 offset_top = 442.0
@@ -528,81 +524,81 @@ offset_right = 723.0
 offset_bottom = 592.0
 theme_override_constants/separation = 60
 
-[node name="MenuButtons" type="VBoxContainer" parent="MenuMenus"]
+[node name="MenuButtons" type="VBoxContainer" parent="MenuMenus" unique_id=107692520]
 custom_minimum_size = Vector2(256, 150)
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="PlayButton" type="Button" parent="MenuMenus/MenuButtons"]
+[node name="PlayButton" type="Button" parent="MenuMenus/MenuButtons" unique_id=1059144794]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 text = "MAIN_MENU_PLAY_BUTTON"
 
-[node name="howtoplay" type="Button" parent="MenuMenus/MenuButtons"]
+[node name="howtoplay" type="Button" parent="MenuMenus/MenuButtons" unique_id=579850056]
 visible = false
 layout_mode = 2
 text = "HOW TO PLAY"
 
-[node name="OptionsButton" type="Button" parent="MenuMenus/MenuButtons"]
+[node name="OptionsButton" type="Button" parent="MenuMenus/MenuButtons" unique_id=493168166]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 toggle_mode = true
 text = "MAIN_MENU_OPTIONS_BUTTON"
 
-[node name="ExitButton" type="Button" parent="MenuMenus/MenuButtons"]
+[node name="ExitButton" type="Button" parent="MenuMenus/MenuButtons" unique_id=622091385]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 text = "MAIN_MENU_EXIT_BUTTON"
 
-[node name="OptionsMenu" type="VBoxContainer" parent="MenuMenus"]
+[node name="OptionsMenu" type="VBoxContainer" parent="MenuMenus" unique_id=1452035044]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MenuMenus/OptionsMenu"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MenuMenus/OptionsMenu" unique_id=1644879273]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="Label" type="Label" parent="MenuMenus/OptionsMenu/HBoxContainer"]
+[node name="Label" type="Label" parent="MenuMenus/OptionsMenu/HBoxContainer" unique_id=639250940]
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 text = "MAIN_MENU_LANGUAGE"
 vertical_alignment = 1
 
-[node name="EnglishButton" type="Button" parent="MenuMenus/OptionsMenu/HBoxContainer"]
+[node name="EnglishButton" type="Button" parent="MenuMenus/OptionsMenu/HBoxContainer" unique_id=2013133476]
 layout_mode = 2
 focus_neighbor_left = NodePath("../../../MenuButtons/OptionsButton")
 text = "English"
 
-[node name="SpanishButton" type="Button" parent="MenuMenus/OptionsMenu/HBoxContainer"]
+[node name="SpanishButton" type="Button" parent="MenuMenus/OptionsMenu/HBoxContainer" unique_id=859906573]
 layout_mode = 2
 text = "Español"
 
-[node name="MusicSliderLabel" type="Label" parent="MenuMenus/OptionsMenu"]
+[node name="MusicSliderLabel" type="Label" parent="MenuMenus/OptionsMenu" unique_id=2066145477]
 layout_mode = 2
 text = "MAIN_MENU_MUSIC_VOLUME"
 horizontal_alignment = 1
 
-[node name="MusicSlider" type="HSlider" parent="MenuMenus/OptionsMenu"]
+[node name="MusicSlider" type="HSlider" parent="MenuMenus/OptionsMenu" unique_id=521253044]
 unique_name_in_owner = true
 layout_mode = 2
 min_value = -50.0
 max_value = 10.0
 
-[node name="SFXSliderLabel" type="Label" parent="MenuMenus/OptionsMenu"]
+[node name="SFXSliderLabel" type="Label" parent="MenuMenus/OptionsMenu" unique_id=1867776727]
 layout_mode = 2
 text = "MAIN_MENU_SFX_VOLUME"
 horizontal_alignment = 1
 
-[node name="SFXSlider" type="HSlider" parent="MenuMenus/OptionsMenu"]
+[node name="SFXSlider" type="HSlider" parent="MenuMenus/OptionsMenu" unique_id=107716624]
 unique_name_in_owner = true
 layout_mode = 2
 min_value = -50.0
 max_value = 50.0
 
-[node name="SaveSlots" type="Control" parent="."]
+[node name="SaveSlots" type="Control" parent="." unique_id=92029611]
 unique_name_in_owner = true
 anchors_preset = 0
 offset_left = 576.0
@@ -610,7 +606,7 @@ offset_top = 200.0
 offset_right = 616.0
 offset_bottom = 240.0
 
-[node name="ReturnToMenuButton" type="Button" parent="SaveSlots"]
+[node name="ReturnToMenuButton" type="Button" parent="SaveSlots" unique_id=765496354]
 modulate = Color(1, 1, 1, 0.117647)
 z_index = -7
 custom_minimum_size = Vector2(160, 30)
@@ -624,7 +620,7 @@ pivot_offset = Vector2(80, 0)
 focus_neighbor_left = NodePath(".")
 text = "Return to menu"
 
-[node name="Slots" type="VBoxContainer" parent="SaveSlots"]
+[node name="Slots" type="VBoxContainer" parent="SaveSlots" unique_id=342872865]
 modulate = Color(1, 1, 1, 0.0784314)
 z_index = -7
 custom_minimum_size = Vector2(600, 150)
@@ -638,21 +634,19 @@ pivot_offset = Vector2(300, 0)
 theme_override_constants/separation = 10
 alignment = 2
 
-[node name="SaveSlot" parent="SaveSlots/Slots" instance=ExtResource("6_0ytnp")]
+[node name="SaveSlot" parent="SaveSlots/Slots" unique_id=450184696 instance=ExtResource("6_0ytnp")]
 layout_mode = 2
 
-[node name="SaveSlot2" parent="SaveSlots/Slots" instance=ExtResource("6_0ytnp")]
+[node name="SaveSlot2" parent="SaveSlots/Slots" unique_id=2005858910 instance=ExtResource("6_0ytnp")]
 layout_mode = 2
 slot_index = 2
 
-[node name="SaveSlot3" parent="SaveSlots/Slots" instance=ExtResource("6_0ytnp")]
+[node name="SaveSlot3" parent="SaveSlots/Slots" unique_id=1635361902 instance=ExtResource("6_0ytnp")]
 layout_mode = 2
 slot_index = 3
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_heiu7")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=865486270]
+libraries/ = SubResource("AnimationLibrary_heiu7")
 speed_scale = 2.0
 
 [connection signal="toggled" from="MenuMenus/MenuButtons/OptionsButton" to="." method="_on_options_button_toggled"]

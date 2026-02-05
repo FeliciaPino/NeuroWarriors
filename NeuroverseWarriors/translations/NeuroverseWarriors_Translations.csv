@@ -9,6 +9,11 @@ MAIN_MENU_SAVE_FILE,Save File {number},Archivo de Guardado {number}
 MAIN_MENU_DELETE_SAVE_FILE,Delete,Borrar
 MAIN_MENU_NEW_GAME,New Game,Nuevo Juego
 MAIN_MENU_CONTINUE,Continue,Continuar
+UI_CONFIRM,Confirm,Confirmar
+UI_CANCEL,Cancel,Cancelar
+UI_MENU,Menu,Menú
+UI_RETURN,Return,Volver
+UI_CLOSE,Close,Cerrar
 CUTSCENE_FRAME_0,Vedal AI building. \n Year 202X,Edificio de Vedal AI.\n Año 202X.
 CUTSCENE_FRAME_1,"Unbeknownst to Vedal, Evil is working on her own project using the building's facilities.","Sin que Vedal lo sepa, Evil está trabajando en su propio proyecto usando las tecnologías del edificio."
 CUTSCENE_FRAME_2,Uh oh...,Uh oh...
@@ -46,6 +51,8 @@ BATTLE_LEVELED_UP,Leveled Up!,Nivel Aumentado!
 BATTLE_RETURN_TO_MAP,Return to map,Volver al mapa
 BATTLE_DEFEAT,Defeat,Derrota
 BATTLE_RELOAD,Reload from last checkpoint.,Volver a cargar desde ultimo checkpoint.
+BATTLE_MENU_LEAVE_TO_MENU_CONFIRMATION_DIALOGUE_TITLE,Leave,Salir
+BATTLE_MENU_LEAVE_TO_MENU_CONFIRMATION_DIALOGUE_TEXT,Are you sure you want to go to main menu? You will lose your progress since last save point,De verdad quieres salir? Perderas tu progreso desde el ultimo punto de guardado
 BATTLESTAT_HEALTH,Health,Vida
 BATTLESTAT_ATTACK,Attack,Ataque
 BATTLESTAT_DEFENSE,Defense,Defensa

@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://dswe4b60aebu5"]
+[gd_scene format=3 uid="uid://dswe4b60aebu5"]
 
-[ext_resource type="Script" uid="uid://cxcouiyll8424" path="res://scenes/ui/battle_entity_info.gd" id="1_wpbbg"]
+[ext_resource type="Script" uid="uid://cxcouiyll8424" path="res://scenes/ui/battle_menus/battle_entity_info.gd" id="1_wpbbg"]
 
 [node name="Battle Entity Info" type="Control"]
 custom_minimum_size = Vector2(500, 150)

@@ -8,10 +8,12 @@ class_name GameManager
 @onready var vfx_node := $VFXs #containes world vfxs
 @onready var instruction_label := %InstructionLabel
 @onready var end_turn_buttton:Button = %EndTurnButton
+@onready var menu_button:Button = %MenuButton
 @onready var character_info_panel:BattleEntityInfoPanel = %CharacterInfoPanel
 @onready var target_info_panel:BattleEntityInfoPanel = %TargetInfoPanel
 @onready var animation_player:AnimationPlayer = $AnimationPlayer
 @onready var end_screen = %EndScreen
+@onready var menu = %"Battle Menu"
 @onready var return_to_map_button:Button = %Return
 @onready var background = $Background
 @onready var tungesten_counter = %Tungesten_counter
@@ -320,3 +322,7 @@ func _input(event: InputEvent) -> void:
 		if selected_character:
 			selected_character.button.grab_focus()
 		set_selected_character(null)
+
+
+func _on_menu_button_pressed() -> void:
+	menu.toggle()

@@ -55,6 +55,5 @@ func _on_english_button_pressed() -> void:
 	TranslationServer.set_locale("en")
 	
 
-
 func _on_spanish_button_pressed() -> void:
 	TranslationServer.set_locale("es")

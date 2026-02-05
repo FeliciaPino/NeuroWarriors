@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://bbxpxysb4lgqt"]
+[gd_scene format=3 uid="uid://bbxpxysb4lgqt"]
 
 [ext_resource type="Theme" uid="uid://cchp864k50mvc" path="res://ui_theme.tres" id="1_c2e5g"]
 [ext_resource type="Script" uid="uid://bs4n11f0d5nf0" path="res://scenes/ui/game_menu/game_menu.gd" id="1_i4ld5"]
@@ -149,7 +149,7 @@ TabContainer/styles/tab_hovered = SubResource("StyleBoxTexture_0y4yr")
 TabContainer/styles/tab_selected = SubResource("StyleBoxTexture_bwjni")
 TabContainer/styles/tab_unselected = SubResource("StyleBoxTexture_rtj4u")
 
-[node name="GameMenu" type="Control"]
+[node name="GameMenu" type="Control" unique_id=33238093]
 process_mode = 2
 texture_filter = 1
 layout_mode = 3
@@ -162,7 +162,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_i4ld5")
 
-[node name="TabContainer" type="TabContainer" parent="."]
+[node name="TabContainer" type="TabContainer" parent="." unique_id=123367417]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.1
@@ -177,10 +177,10 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_c2e5g")
 tab_alignment = 1
-current_tab = 1
+current_tab = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Party" type="MarginContainer" parent="TabContainer"]
+[node name="Party" type="MarginContainer" parent="TabContainer" unique_id=779069597]
 unique_name_in_owner = true
 visible = false
 clip_contents = true
@@ -189,7 +189,7 @@ theme_override_constants/margin_top = 20
 script = ExtResource("2_p6mcn")
 metadata/_tab_index = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Party"]
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Party" unique_id=599736639]
 clip_contents = true
 layout_mode = 2
 size_flags_horizontal = 4
@@ -198,38 +198,38 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 30
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Party/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Party/MarginContainer" unique_id=1723760958]
 layout_mode = 2
 theme_override_constants/separation = 15
 
-[node name="Label" type="Label" parent="TabContainer/Party/MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="TabContainer/Party/MarginContainer/VBoxContainer" unique_id=1591853938]
 custom_minimum_size = Vector2(280, 0)
 layout_mode = 2
 theme_override_constants/outline_size = 10
 text = "characters in party:"
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Party/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Party/MarginContainer/VBoxContainer" unique_id=780734558]
 layout_mode = 2
 
-[node name="InParty" type="HBoxContainer" parent="TabContainer/Party/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="InParty" type="HBoxContainer" parent="TabContainer/Party/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1875511499]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 8
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="Label2" type="Label" parent="TabContainer/Party/MarginContainer/VBoxContainer"]
+[node name="Label2" type="Label" parent="TabContainer/Party/MarginContainer/VBoxContainer" unique_id=106531062]
 custom_minimum_size = Vector2(280, 0)
 layout_mode = 2
 theme_override_constants/outline_size = 10
 text = "characters not  in party:"
 horizontal_alignment = 1
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="TabContainer/Party/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="TabContainer/Party/MarginContainer/VBoxContainer" unique_id=529934009]
 layout_mode = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Party/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Party/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1115938946]
 clip_contents = false
 custom_minimum_size = Vector2(200, 190)
 layout_mode = 2
@@ -238,7 +238,7 @@ size_flags_vertical = 4
 size_flags_stretch_ratio = 2.0
 follow_focus = true
 
-[node name="NotInParty" type="HBoxContainer" parent="TabContainer/Party/MarginContainer/VBoxContainer/HBoxContainer2/ScrollContainer"]
+[node name="NotInParty" type="HBoxContainer" parent="TabContainer/Party/MarginContainer/VBoxContainer/HBoxContainer2/ScrollContainer" unique_id=297177339]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
@@ -247,12 +247,13 @@ size_flags_vertical = 2
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="Character" type="Control" parent="TabContainer"]
+[node name="Character" type="Control" parent="TabContainer" unique_id=793587651]
+visible = false
 layout_mode = 2
 script = ExtResource("4_t8iaa")
 metadata/_tab_index = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Character"]
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Character" unique_id=67023485]
 layout_mode = 0
 offset_right = 910.528
 offset_bottom = 479.896
@@ -261,22 +262,22 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Character/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Character/MarginContainer" unique_id=1965488246]
 layout_mode = 2
 theme_override_constants/separation = 0
 alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Character/MarginContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Character/MarginContainer/HBoxContainer" unique_id=1501275302]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.7
 
-[node name="PartyCarousel" type="Control" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="PartyCarousel" type="Control" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1476196890]
 custom_minimum_size = Vector2(250, 220)
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="CharacterPortraitLeft" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer/PartyCarousel" instance=ExtResource("6_n4xiy")]
+[node name="CharacterPortraitLeft" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer/PartyCarousel" unique_id=124331436 instance=ExtResource("6_n4xiy")]
 unique_name_in_owner = true
 modulate = Color(0.8, 0.8, 0.8, 0.9411765)
 z_index = 3
@@ -290,7 +291,7 @@ focus_mode = 0
 disabled = true
 associated_character = "Vedal"
 
-[node name="CharacterPortraitRight" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer/PartyCarousel" instance=ExtResource("6_n4xiy")]
+[node name="CharacterPortraitRight" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer/PartyCarousel" unique_id=902614754 instance=ExtResource("6_n4xiy")]
 unique_name_in_owner = true
 modulate = Color(0.8, 0.8, 0.8, 0.9411765)
 z_index = 3
@@ -304,7 +305,7 @@ focus_mode = 0
 disabled = true
 associated_character = "Evil"
 
-[node name="CharacterPortraitFront" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer/PartyCarousel" instance=ExtResource("6_n4xiy")]
+[node name="CharacterPortraitFront" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer/PartyCarousel" unique_id=615723450 instance=ExtResource("6_n4xiy")]
 unique_name_in_owner = true
 z_index = 5
 layout_mode = 0
@@ -315,7 +316,7 @@ offset_bottom = 197.89601
 focus_mode = 0
 disabled = true
 
-[node name="CarouselLeft" type="TextureButton" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer/PartyCarousel"]
+[node name="CarouselLeft" type="TextureButton" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer/PartyCarousel" unique_id=1051346641]
 unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 0
@@ -335,7 +336,7 @@ texture_disabled = SubResource("AtlasTexture_075ci")
 texture_focused = SubResource("AtlasTexture_58q04")
 flip_h = true
 
-[node name="CarouselRight" type="TextureButton" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer/PartyCarousel"]
+[node name="CarouselRight" type="TextureButton" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer/PartyCarousel" unique_id=1426258332]
 unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 0
@@ -353,7 +354,7 @@ texture_hover = SubResource("AtlasTexture_5qn1y")
 texture_disabled = SubResource("AtlasTexture_ex2pj")
 texture_focused = SubResource("AtlasTexture_5qn1y")
 
-[node name="Button" type="Button" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer/PartyCarousel"]
+[node name="Button" type="Button" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer/PartyCarousel" unique_id=1570029608]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_left = 18.528015
@@ -362,7 +363,7 @@ offset_right = 105.528015
 offset_bottom = 148.29602
 focus_mode = 0
 
-[node name="Button2" type="Button" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer/PartyCarousel"]
+[node name="Button2" type="Button" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer/PartyCarousel" unique_id=268390393]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_left = 141.52802
@@ -371,80 +372,80 @@ offset_right = 228.52802
 offset_bottom = 149.29602
 focus_mode = 0
 
-[node name="SkillTreeButton" type="Button" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="SkillTreeButton" type="Button" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1397240161]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 text = "name's skill tree"
 
-[node name="HSeparator" type="HSeparator" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1455998075]
 layout_mode = 2
 
-[node name="LevelLabel" type="Label" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="LevelLabel" type="Label" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer" unique_id=432696145]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/outline_size = 10
 text = "lv:x y until next level"
 horizontal_alignment = 1
 
-[node name="HSeparator2" type="HSeparator" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="HSeparator2" type="HSeparator" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1238914136]
 layout_mode = 2
 
-[node name="GridContainer" type="GridContainer" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="GridContainer" type="GridContainer" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer" unique_id=905002315]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/h_separation = 32
 columns = 2
 
-[node name="HealthLabel" type="Label" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer/GridContainer"]
+[node name="HealthLabel" type="Label" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer/GridContainer" unique_id=1804173896]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/outline_size = 10
 text = "health:x"
 horizontal_alignment = 1
 
-[node name="AttackLabel" type="Label" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer/GridContainer"]
+[node name="AttackLabel" type="Label" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer/GridContainer" unique_id=305064639]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/outline_size = 10
 text = "attack:x"
 horizontal_alignment = 1
 
-[node name="DefenseLabel" type="Label" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer/GridContainer"]
+[node name="DefenseLabel" type="Label" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer/GridContainer" unique_id=1196752882]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/outline_size = 10
 text = "Defense:c"
 horizontal_alignment = 1
 
-[node name="ApRegenLabel" type="Label" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer/GridContainer"]
+[node name="ApRegenLabel" type="Label" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer/GridContainer" unique_id=1728670300]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/outline_size = 10
 text = "apregen:x"
 horizontal_alignment = 1
 
-[node name="HSeparator3" type="HSeparator" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="HSeparator3" type="HSeparator" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1008726081]
 layout_mode = 2
 
-[node name="DescriptionLabel" type="Label" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="DescriptionLabel" type="Label" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer" unique_id=339398200]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(250, 110)
 layout_mode = 2
 text = "this is a character of all time. this character has characterstics that characterize it as the character that it is."
 autowrap_mode = 3
 
-[node name="VSeparator" type="VSeparator" parent="TabContainer/Character/MarginContainer/HBoxContainer"]
+[node name="VSeparator" type="VSeparator" parent="TabContainer/Character/MarginContainer/HBoxContainer" unique_id=1289747681]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="TabContainer/Character/MarginContainer/HBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="TabContainer/Character/MarginContainer/HBoxContainer" unique_id=461889476]
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 8
 alignment = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2"]
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2" unique_id=1469334848]
 clip_contents = true
 layout_mode = 2
 size_flags_horizontal = 4
@@ -454,77 +455,77 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer" unique_id=342220288]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="Label" type="Label" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer/VBoxContainer" unique_id=1903672753]
 layout_mode = 2
 theme_override_constants/outline_size = 10
 theme_override_constants/shadow_outline_size = 10
 text = "GAME_MENU_EQUIPPED_BATTLE_ACTIONS"
 clip_text = true
 
-[node name="EquipedAbilities" type="HBoxContainer" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer/VBoxContainer"]
+[node name="EquipedAbilities" type="HBoxContainer" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer/VBoxContainer" unique_id=905866450]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_constants/separation = 20
 
-[node name="BattleActionTile" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer/VBoxContainer/EquipedAbilities" instance=ExtResource("7_45a32")]
+[node name="BattleActionTile" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer/VBoxContainer/EquipedAbilities" unique_id=68832431 instance=ExtResource("7_45a32")]
 layout_mode = 2
 theme = SubResource("Theme_yg8bm")
 
-[node name="BattleActionTile2" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer/VBoxContainer/EquipedAbilities" instance=ExtResource("7_45a32")]
+[node name="BattleActionTile2" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer/VBoxContainer/EquipedAbilities" unique_id=1249648816 instance=ExtResource("7_45a32")]
 layout_mode = 2
 theme = SubResource("Theme_yg8bm")
 
-[node name="BattleActionTile3" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer/VBoxContainer/EquipedAbilities" instance=ExtResource("7_45a32")]
+[node name="BattleActionTile3" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer/VBoxContainer/EquipedAbilities" unique_id=1973007441 instance=ExtResource("7_45a32")]
 layout_mode = 2
 theme = SubResource("Theme_yg8bm")
 
-[node name="BattleActionTile4" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer/VBoxContainer/EquipedAbilities" instance=ExtResource("7_45a32")]
+[node name="BattleActionTile4" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer/VBoxContainer/EquipedAbilities" unique_id=1941644478 instance=ExtResource("7_45a32")]
 layout_mode = 2
 theme = SubResource("Theme_yg8bm")
 
-[node name="BattleActionTile5" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer/VBoxContainer/EquipedAbilities" instance=ExtResource("7_45a32")]
+[node name="BattleActionTile5" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer/VBoxContainer/EquipedAbilities" unique_id=1169925008 instance=ExtResource("7_45a32")]
 layout_mode = 2
 theme = SubResource("Theme_yg8bm")
 
-[node name="Label2" type="Label" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer/VBoxContainer"]
+[node name="Label2" type="Label" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer/VBoxContainer" unique_id=1123293861]
 layout_mode = 2
 theme_override_constants/outline_size = 10
 text = "GAME_MENU_NOT_EQUIPPED_BATTLE_ACTIONS"
 clip_text = true
 
-[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer/VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer/VBoxContainer" unique_id=1635522416]
 clip_contents = false
 custom_minimum_size = Vector2(280, 50)
 layout_mode = 2
 size_flags_horizontal = 0
 
-[node name="NotEquipedAbilities" type="HBoxContainer" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer/VBoxContainer/ScrollContainer"]
+[node name="NotEquipedAbilities" type="HBoxContainer" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer/VBoxContainer/ScrollContainer" unique_id=323948127]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="BattleActionTile" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer/VBoxContainer/ScrollContainer/NotEquipedAbilities" instance=ExtResource("7_45a32")]
+[node name="BattleActionTile" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer/VBoxContainer/ScrollContainer/NotEquipedAbilities" unique_id=1328656418 instance=ExtResource("7_45a32")]
 layout_mode = 2
 theme = SubResource("Theme_yg8bm")
 
-[node name="BattleActionTile2" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer/VBoxContainer/ScrollContainer/NotEquipedAbilities" instance=ExtResource("7_45a32")]
+[node name="BattleActionTile2" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer/VBoxContainer/ScrollContainer/NotEquipedAbilities" unique_id=2066865102 instance=ExtResource("7_45a32")]
 layout_mode = 2
 theme = SubResource("Theme_yg8bm")
 
-[node name="BattleActionTile4" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer/VBoxContainer/ScrollContainer/NotEquipedAbilities" instance=ExtResource("7_45a32")]
+[node name="BattleActionTile4" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer/VBoxContainer/ScrollContainer/NotEquipedAbilities" unique_id=915150000 instance=ExtResource("7_45a32")]
 layout_mode = 2
 theme = SubResource("Theme_yg8bm")
 
-[node name="BattleActionTile5" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer/VBoxContainer/ScrollContainer/NotEquipedAbilities" instance=ExtResource("7_45a32")]
+[node name="BattleActionTile5" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer/VBoxContainer/ScrollContainer/NotEquipedAbilities" unique_id=613445718 instance=ExtResource("7_45a32")]
 layout_mode = 2
 theme = SubResource("Theme_yg8bm")
 
-[node name="MarginContainer2" type="MarginContainer" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2"]
+[node name="MarginContainer2" type="MarginContainer" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2" unique_id=572428345]
 clip_contents = true
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
@@ -534,22 +535,22 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer2" unique_id=613409342]
 layout_mode = 2
 
-[node name="HSeparator2" type="HSeparator" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer2/VBoxContainer"]
+[node name="HSeparator2" type="HSeparator" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer2/VBoxContainer" unique_id=480525585]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer2/VBoxContainer"]
+[node name="Label" type="Label" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer2/VBoxContainer" unique_id=1334167826]
 layout_mode = 2
 theme_override_constants/outline_size = 10
 text = "battle action name"
 horizontal_alignment = 1
 
-[node name="HSeparator" type="HSeparator" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer2/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer2/VBoxContainer" unique_id=914978810]
 layout_mode = 2
 
-[node name="Label2" type="Label" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer2/VBoxContainer"]
+[node name="Label2" type="Label" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer2/VBoxContainer" unique_id=1855044752]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_vertical = 1
@@ -558,55 +559,54 @@ text = "this battle action is a battle action, an action that you do in battle, 
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="TabContainer/Character/MarginContainer/HBoxContainer"]
+[node name="VBoxContainer3" type="VBoxContainer" parent="TabContainer/Character/MarginContainer/HBoxContainer" unique_id=681868500]
 visible = false
 layout_mode = 2
 
-[node name="Label" type="Label" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer3"]
+[node name="Label" type="Label" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer3" unique_id=1075437263]
 layout_mode = 2
 text = "trinkets"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer3"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer3" unique_id=32986040]
 layout_mode = 2
 alignment = 1
 
-[node name="BattleActionTile2" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer" instance=ExtResource("7_45a32")]
+[node name="BattleActionTile2" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer" unique_id=1450829944 instance=ExtResource("7_45a32")]
 layout_mode = 2
 size_flags_horizontal = 4
 theme = SubResource("Theme_yg8bm")
 
-[node name="BattleActionTile3" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer" instance=ExtResource("7_45a32")]
+[node name="BattleActionTile3" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer" unique_id=57922336 instance=ExtResource("7_45a32")]
 layout_mode = 2
 size_flags_horizontal = 4
 theme = SubResource("Theme_yg8bm")
 
-[node name="BattleActionTile4" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer" instance=ExtResource("7_45a32")]
+[node name="BattleActionTile4" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer" unique_id=811559655 instance=ExtResource("7_45a32")]
 layout_mode = 2
 size_flags_horizontal = 4
 theme = SubResource("Theme_yg8bm")
 
-[node name="BattleActionTile5" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer" instance=ExtResource("7_45a32")]
+[node name="BattleActionTile5" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer" unique_id=1775595824 instance=ExtResource("7_45a32")]
 layout_mode = 2
 size_flags_horizontal = 4
 theme = SubResource("Theme_yg8bm")
 
-[node name="BattleActionTile6" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer" instance=ExtResource("7_45a32")]
+[node name="BattleActionTile6" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer" unique_id=1915725854 instance=ExtResource("7_45a32")]
 layout_mode = 2
 size_flags_horizontal = 4
 theme = SubResource("Theme_yg8bm")
 
-[node name="BattleActionTile7" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer" instance=ExtResource("7_45a32")]
+[node name="BattleActionTile7" parent="TabContainer/Character/MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer" unique_id=149744301 instance=ExtResource("7_45a32")]
 layout_mode = 2
 size_flags_horizontal = 4
 theme = SubResource("Theme_yg8bm")
 
-[node name="Options" type="Control" parent="TabContainer"]
-visible = false
+[node name="Options" type="Control" parent="TabContainer" unique_id=825134438]
 layout_mode = 2
 script = ExtResource("6_88hgd")
 metadata/_tab_index = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Options"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Options" unique_id=421190732]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -619,47 +619,13 @@ offset_bottom = 0.197998
 grow_horizontal = 2
 theme_override_constants/separation = 30
 
-[node name="Return To Menu" type="Button" parent="TabContainer/Options/VBoxContainer"]
+[node name="Return To Menu" type="Button" parent="TabContainer/Options/VBoxContainer" unique_id=706932280]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 text = "LEVEL_SELECT_RETURN_TO_MENU"
 
-[node name="Button2" type="Button" parent="TabContainer/Options/VBoxContainer"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-text = "save?
-"
-
-[node name="PanelContainer" type="PanelContainer" parent="TabContainer/Options/VBoxContainer"]
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Options/VBoxContainer/PanelContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
-
-[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Options/VBoxContainer/PanelContainer/MarginContainer"]
-layout_mode = 2
-
-[node name="Button" type="Button" parent="TabContainer/Options/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
-layout_mode = 2
-text = "asdf"
-
-[node name="Button2" type="Button" parent="TabContainer/Options/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
-visible = false
-layout_mode = 2
-text = "asdf"
-
-[node name="Button3" type="Button" parent="TabContainer/Options/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
-visible = false
-layout_mode = 2
-text = "asdf"
-
-[node name="Tungesten_counter" parent="." instance=ExtResource("9_075ci")]
+[node name="Tungesten_counter" parent="." unique_id=1600403045 instance=ExtResource("9_075ci")]
 layout_mode = 1
 offset_left = 363.0
 offset_top = -286.0

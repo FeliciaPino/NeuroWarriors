@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://db5536f40fftj"]
+
+[ext_resource type="Script" uid="uid://kaqqkkd0beho" path="res://scenes/ui/battle_menus/battle_menu.gd" id="1_ry0f6"]
+
+[node name="Battle Menu" type="Control" unique_id=332062431]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ry0f6")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=719515529]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -234.5
+offset_top = -134.5
+offset_right = 234.5
+offset_bottom = 134.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=2135423939]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="ReturnToMainMenuButton" type="Button" parent="PanelContainer/VBoxContainer" unique_id=2024810247]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Return To Main Menu"
+
+[node name="CloseMenu" type="Button" parent="PanelContainer/VBoxContainer" unique_id=969465208]
+layout_mode = 2
+text = "UI_CLOSE"
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/ReturnToMainMenuButton" to="." method="_on_return_to_main_menu_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/CloseMenu" to="." method="_on_close_menu_pressed"]
