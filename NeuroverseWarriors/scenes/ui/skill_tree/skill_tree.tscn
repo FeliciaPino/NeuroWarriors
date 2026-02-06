@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bmaxfmfr4tb2k"]
+[gd_scene format=3 uid="uid://bmaxfmfr4tb2k"]
 
 [ext_resource type="Script" uid="uid://iusv63tuixs2" path="res://scenes/ui/skill_tree/skill_tree.gd" id="1_7mom5"]
 [ext_resource type="PackedScene" uid="uid://f0gydn2c2inx" path="res://scenes/ui/tungesten_counter.tscn" id="2_7mom5"]
@@ -9,7 +9,7 @@
 shader = ExtResource("2_kdd24")
 shader_parameter/scroll_speed = -0.1
 
-[node name="SkillTree" type="Control" node_paths=PackedStringArray("connection_line")]
+[node name="SkillTree" type="Control" unique_id=2017805622 node_paths=PackedStringArray("connection_line")]
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
@@ -21,33 +21,33 @@ script = ExtResource("1_7mom5")
 associated_character = "Neuro-sama"
 connection_line = NodePath("ConnectionLine")
 
-[node name="Background" type="Parallax2D" parent="."]
+[node name="Background" type="Parallax2D" parent="." unique_id=710476958]
 z_index = -1000
 
-[node name="Icons1" type="Parallax2D" parent="."]
+[node name="Icons1" type="Parallax2D" parent="." unique_id=1636740800]
 z_index = -1000
 scroll_scale = Vector2(0.1, 0.1)
 repeat_size = Vector2(1200, 700)
 
-[node name="Dust1" type="Parallax2D" parent="."]
+[node name="Dust1" type="Parallax2D" parent="." unique_id=647131299]
 z_index = -1000
 scroll_scale = Vector2(0.2, 0.2)
 repeat_size = Vector2(1200, 700)
 
-[node name="Icons2" type="Parallax2D" parent="."]
+[node name="Icons2" type="Parallax2D" parent="." unique_id=1674415649]
 z_index = -1000
 scroll_scale = Vector2(0.3, 0.3)
 repeat_size = Vector2(1200, 700)
 
-[node name="Dust2" type="Parallax2D" parent="."]
+[node name="Dust2" type="Parallax2D" parent="." unique_id=1274787500]
 z_index = -1000
 scroll_scale = Vector2(0.4, 0.4)
 repeat_size = Vector2(1200, 700)
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1157099068]
 z_index = -1000
 
-[node name="ConnectionLine" type="TextureRect" parent="."]
+[node name="ConnectionLine" type="TextureRect" parent="." unique_id=990511458]
 visible = false
 z_index = -1
 material = SubResource("ShaderMaterial_7untu")
@@ -61,37 +61,37 @@ mouse_filter = 2
 texture = ExtResource("3_vp084")
 stretch_mode = 1
 
-[node name="debugton" type="Button" parent="."]
+[node name="debugton" type="Button" parent="." unique_id=402226706]
 layout_mode = 0
 offset_left = 822.0
 offset_top = 460.0
 offset_right = 834.0
 offset_bottom = 468.0
 
-[node name="debugton2" type="Button" parent="."]
+[node name="debugton2" type="Button" parent="." unique_id=1737995265]
 layout_mode = 0
 offset_left = 793.0
 offset_top = 573.0
 offset_right = 805.0
 offset_bottom = 581.0
 
-[node name="debugton3" type="Button" parent="."]
+[node name="debugton3" type="Button" parent="." unique_id=666943292]
 layout_mode = 0
 offset_right = 12.0
 offset_bottom = 8.0
 text = "gotogame
 "
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1854554092]
 
-[node name="Tungesten_counter" parent="CanvasLayer" instance=ExtResource("2_7mom5")]
+[node name="Tungesten_counter" parent="CanvasLayer" unique_id=322707470 instance=ExtResource("2_7mom5")]
 offset_left = 432.0
 offset_top = -276.0
 offset_right = 432.0
 offset_bottom = -276.0
 always_visible = true
 
-[node name="Fade" type="ColorRect" parent="CanvasLayer"]
+[node name="Fade" type="ColorRect" parent="CanvasLayer" unique_id=2130247890]
 modulate = Color(1, 1, 1, 0)
 offset_right = 40.0
 offset_bottom = 40.0

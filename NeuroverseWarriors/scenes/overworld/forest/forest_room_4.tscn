@@ -49,6 +49,3 @@ shape = SubResource("RectangleShape2D_2ou1y")
 [node name="Camera2D" parent="Party" parent_id_path=PackedInt32Array(1665668401) index="0" unique_id=574425385]
 position = Vector2(3, 281)
 limit_bottom = 300
-
-[node name="UI" parent="." index="4" unique_id=1620278496]
-visible = true

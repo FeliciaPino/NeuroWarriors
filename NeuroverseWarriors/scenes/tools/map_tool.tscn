@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://buj7ofk45tf4b"]
+
+[ext_resource type="Script" uid="uid://b6g1s1txkq44" path="res://scenes/tools/map_tool.gd" id="1_teq4e"]
+[ext_resource type="PackedScene" uid="uid://cs4wo4t1lg03w" path="res://scenes/overworld/forest/forest_room_vedal.tscn" id="2_wg14y"]
+[ext_resource type="PackedScene" uid="uid://duil1xs7picit" path="res://scenes/overworld/forest/forest_room_3.tscn" id="3_eum5q"]
+[ext_resource type="PackedScene" uid="uid://caon2se8dtabu" path="res://scenes/overworld/forest/forest_room_2.tscn" id="5_i13xu"]
+[ext_resource type="PackedScene" uid="uid://ba7c37qkg37px" path="res://scenes/overworld/forest/forest_room_1.tscn" id="6_jyo5o"]
+[ext_resource type="PackedScene" uid="uid://df27cdnd7ge0o" path="res://scenes/overworld/assembly_station/assembly_station_room1.tscn" id="7_0x15u"]
+[ext_resource type="PackedScene" uid="uid://dgwexmts8tsxt" path="res://scenes/overworld/forest/forest_room_4.tscn" id="8_n5ncr"]
+
+[node name="MapTool" type="Node2D" unique_id=889706117]
+script = ExtResource("1_teq4e")
+door_offset_scale = 20.0
+
+[node name="ForestRoom1" parent="." unique_id=2039676180 instance=ExtResource("6_jyo5o")]
+show_behind_parent = true
+position = Vector2(-2983, -649.3762)
+metadata/handled_connection = true
+
+[node name="ForestRoom2" parent="." unique_id=1819657789 instance=ExtResource("5_i13xu")]
+show_behind_parent = true
+position = Vector2(-589.6798, -217.93109)
+metadata/handled_connection = true
+
+[node name="ForestRoom_3" parent="." unique_id=742388875 instance=ExtResource("3_eum5q")]
+show_behind_parent = true
+position = Vector2(2112.8772, -182.25854)
+metadata/handled_connection = true
+
+[node name="ForestRoomVedal" parent="." unique_id=1168418563 instance=ExtResource("2_wg14y")]
+show_behind_parent = true
+position = Vector2(4626.1665, -516.6156)
+metadata/handled_connection = true
+
+[node name="ForestRoom4" parent="." unique_id=1243791580 instance=ExtResource("8_n5ncr")]
+show_behind_parent = true
+position = Vector2(-31.146057, -1941)
+metadata/handled_connection = true
+
+[node name="Assembly" parent="." unique_id=231448099 instance=ExtResource("7_0x15u")]
+show_behind_parent = true
+position = Vector2(-1843.4886, -1705.2384)
+metadata/handled_connection = true

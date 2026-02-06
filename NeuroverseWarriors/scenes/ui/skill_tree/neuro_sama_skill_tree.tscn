@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cd5a0fwn0couv"]
+[gd_scene format=3 uid="uid://cd5a0fwn0couv"]
 
 [ext_resource type="PackedScene" uid="uid://bmaxfmfr4tb2k" path="res://scenes/ui/skill_tree/skill_tree.tscn" id="1_u4e1c"]
 [ext_resource type="Shader" uid="uid://dtbmonj6mwmos" path="res://assets/shaders/rotate.gdshader" id="2_icvyd"]
@@ -37,12 +37,12 @@ noise = SubResource("FastNoiseLite_8rki0")
 color_ramp = SubResource("Gradient_d5iac")
 seamless = true
 
-[node name="Neuro-sama_skill_tree" instance=ExtResource("1_u4e1c")]
+[node name="Neuro-sama_skill_tree" unique_id=1350868216 instance=ExtResource("1_u4e1c")]
 
 [node name="Background" parent="." index="0"]
 repeat_size = Vector2(1000, 1000)
 
-[node name="ColorRect" type="ColorRect" parent="Background" index="0"]
+[node name="ColorRect" type="ColorRect" parent="Background" index="0" unique_id=1287493948]
 offset_right = 2000.0
 offset_bottom = 1000.0
 color = Color(0.84, 0.47879997, 0.5871601, 1)
@@ -50,7 +50,7 @@ color = Color(0.84, 0.47879997, 0.5871601, 1)
 [node name="Icons1" parent="." index="1"]
 modulate = Color(1, 1, 1, 0.40392157)
 
-[node name="TextureRect" type="TextureRect" parent="Icons1" index="0"]
+[node name="TextureRect" type="TextureRect" parent="Icons1" index="0" unique_id=1877011799]
 modulate = Color(1, 1, 1, 0.8784314)
 material = SubResource("ShaderMaterial_d5iac")
 offset_left = 152.75005
@@ -61,7 +61,7 @@ scale = Vector2(0.42, 0.42)
 pivot_offset = Vector2(50, 50)
 texture = ExtResource("2_ki58n")
 
-[node name="TextureRect2" type="TextureRect" parent="Icons1" index="1"]
+[node name="TextureRect2" type="TextureRect" parent="Icons1" index="1" unique_id=502516955]
 material = SubResource("ShaderMaterial_d5iac")
 offset_left = 616.0001
 offset_top = 220.00006
@@ -71,7 +71,7 @@ scale = Vector2(0.23, 0.23)
 pivot_offset = Vector2(50, 50)
 texture = ExtResource("2_ki58n")
 
-[node name="TextureRect12" type="TextureRect" parent="Icons1" index="2"]
+[node name="TextureRect12" type="TextureRect" parent="Icons1" index="2" unique_id=745520255]
 material = SubResource("ShaderMaterial_d5iac")
 offset_left = 896.0
 offset_top = 372.0
@@ -81,7 +81,7 @@ scale = Vector2(0.43, 0.43)
 pivot_offset = Vector2(50, 50)
 texture = ExtResource("2_ki58n")
 
-[node name="TextureRect3" type="TextureRect" parent="Icons1" index="3"]
+[node name="TextureRect3" type="TextureRect" parent="Icons1" index="3" unique_id=47501139]
 modulate = Color(1, 1, 1, 0.7882353)
 material = SubResource("ShaderMaterial_d5iac")
 offset_left = 184.00002
@@ -92,7 +92,7 @@ scale = Vector2(0.413, 0.423)
 pivot_offset = Vector2(50, 50)
 texture = ExtResource("2_ki58n")
 
-[node name="TextureRect13" type="TextureRect" parent="Icons1" index="4"]
+[node name="TextureRect13" type="TextureRect" parent="Icons1" index="4" unique_id=1164668569]
 material = SubResource("ShaderMaterial_d5iac")
 offset_left = 99.99999
 offset_top = 388.00003
@@ -102,7 +102,7 @@ scale = Vector2(0.413, 0.423)
 pivot_offset = Vector2(50, 50)
 texture = ExtResource("2_ki58n")
 
-[node name="TextureRect10" type="TextureRect" parent="Icons1" index="5"]
+[node name="TextureRect10" type="TextureRect" parent="Icons1" index="5" unique_id=1321205000]
 modulate = Color(1, 1, 1, 0.44705883)
 material = SubResource("ShaderMaterial_d5iac")
 offset_left = 349.99997
@@ -113,7 +113,7 @@ scale = Vector2(0.343, 0.352)
 pivot_offset = Vector2(50, 50)
 texture = ExtResource("2_ki58n")
 
-[node name="TextureRect11" type="TextureRect" parent="Icons1" index="6"]
+[node name="TextureRect11" type="TextureRect" parent="Icons1" index="6" unique_id=2147449390]
 material = SubResource("ShaderMaterial_d5iac")
 offset_left = 498.99994
 offset_top = 8.999954
@@ -123,7 +123,7 @@ scale = Vector2(0.413, 0.423)
 pivot_offset = Vector2(50, 50)
 texture = ExtResource("2_ki58n")
 
-[node name="TextureRect9" type="TextureRect" parent="Icons1" index="7"]
+[node name="TextureRect9" type="TextureRect" parent="Icons1" index="7" unique_id=107557829]
 modulate = Color(1, 1, 1, 0.34117648)
 material = SubResource("ShaderMaterial_d5iac")
 offset_left = -67.0
@@ -134,7 +134,7 @@ scale = Vector2(0.235, 0.235)
 pivot_offset = Vector2(50, 50)
 texture = ExtResource("2_ki58n")
 
-[node name="TextureRect4" type="TextureRect" parent="Icons1" index="8"]
+[node name="TextureRect4" type="TextureRect" parent="Icons1" index="8" unique_id=355028052]
 material = SubResource("ShaderMaterial_d5iac")
 offset_left = 453.0
 offset_top = 341.0
@@ -144,7 +144,7 @@ scale = Vector2(0.4, 0.4)
 pivot_offset = Vector2(50, 50)
 texture = ExtResource("2_ki58n")
 
-[node name="TextureRect5" type="TextureRect" parent="Icons1" index="9"]
+[node name="TextureRect5" type="TextureRect" parent="Icons1" index="9" unique_id=614845365]
 material = SubResource("ShaderMaterial_d5iac")
 offset_left = 647.0
 offset_top = 482.0
@@ -154,7 +154,7 @@ scale = Vector2(0.445, 0.445)
 pivot_offset = Vector2(50, 50)
 texture = ExtResource("2_ki58n")
 
-[node name="TextureRect8" type="TextureRect" parent="Icons1" index="10"]
+[node name="TextureRect8" type="TextureRect" parent="Icons1" index="10" unique_id=412779605]
 modulate = Color(1, 1, 1, 0.5372549)
 material = SubResource("ShaderMaterial_d5iac")
 offset_left = 992.75
@@ -165,7 +165,7 @@ scale = Vector2(0.405, 0.405)
 pivot_offset = Vector2(50, 50)
 texture = ExtResource("2_ki58n")
 
-[node name="TextureRect7" type="TextureRect" parent="Icons1" index="11"]
+[node name="TextureRect7" type="TextureRect" parent="Icons1" index="11" unique_id=99208025]
 material = SubResource("ShaderMaterial_d5iac")
 offset_left = 16.999998
 offset_top = 617.0
@@ -175,7 +175,7 @@ scale = Vector2(0.35, 0.35)
 pivot_offset = Vector2(50, 50)
 texture = ExtResource("2_ki58n")
 
-[node name="TextureRect6" type="TextureRect" parent="Icons1" index="12"]
+[node name="TextureRect6" type="TextureRect" parent="Icons1" index="12" unique_id=1181374346]
 material = SubResource("ShaderMaterial_d5iac")
 offset_left = 773.75
 offset_top = -3.4332275e-05
@@ -185,14 +185,14 @@ scale = Vector2(0.245, 0.245)
 pivot_offset = Vector2(50, 50)
 texture = ExtResource("2_ki58n")
 
-[node name="TextureRect" type="TextureRect" parent="Dust1" index="0"]
+[node name="TextureRect" type="TextureRect" parent="Dust1" index="0" unique_id=1609096407]
 modulate = Color(0.91089165, 0.7695, 0.95, 0.40784314)
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(2, 2)
 texture = SubResource("NoiseTexture2D_8rki0")
 
-[node name="TextureRect" type="TextureRect" parent="Icons2" index="0"]
+[node name="TextureRect" type="TextureRect" parent="Icons2" index="0" unique_id=937365386]
 modulate = Color(1, 1, 1, 0.8862745)
 material = SubResource("ShaderMaterial_d5iac")
 offset_left = 20.0
@@ -203,7 +203,7 @@ scale = Vector2(0.645, 0.645)
 pivot_offset = Vector2(50, 50)
 texture = ExtResource("2_ki58n")
 
-[node name="TextureRect2" type="TextureRect" parent="Icons2" index="1"]
+[node name="TextureRect2" type="TextureRect" parent="Icons2" index="1" unique_id=2137541125]
 modulate = Color(1, 1, 1, 0.70980394)
 material = SubResource("ShaderMaterial_d5iac")
 offset_left = 286.0
@@ -214,7 +214,7 @@ scale = Vector2(0.52, 0.52)
 pivot_offset = Vector2(50, 50)
 texture = ExtResource("2_ki58n")
 
-[node name="TextureRect3" type="TextureRect" parent="Icons2" index="2"]
+[node name="TextureRect3" type="TextureRect" parent="Icons2" index="2" unique_id=612834416]
 modulate = Color(1, 1, 1, 0.8352941)
 material = SubResource("ShaderMaterial_d5iac")
 offset_left = -51.0
@@ -225,7 +225,7 @@ scale = Vector2(0.965, 0.965)
 pivot_offset = Vector2(50, 50)
 texture = ExtResource("2_ki58n")
 
-[node name="TextureRect4" type="TextureRect" parent="Icons2" index="3"]
+[node name="TextureRect4" type="TextureRect" parent="Icons2" index="3" unique_id=1109803833]
 modulate = Color(1, 1, 1, 0.8352941)
 material = SubResource("ShaderMaterial_d5iac")
 offset_left = 746.0
@@ -236,7 +236,7 @@ scale = Vector2(0.965, 0.965)
 pivot_offset = Vector2(50, 50)
 texture = ExtResource("2_ki58n")
 
-[node name="TextureRect5" type="TextureRect" parent="Icons2" index="4"]
+[node name="TextureRect5" type="TextureRect" parent="Icons2" index="4" unique_id=2026306399]
 modulate = Color(1, 1, 1, 0.8784314)
 material = SubResource("ShaderMaterial_d5iac")
 offset_left = 915.0
@@ -247,7 +247,7 @@ scale = Vector2(0.755, 0.755)
 pivot_offset = Vector2(50, 50)
 texture = ExtResource("2_ki58n")
 
-[node name="TextureRect" type="TextureRect" parent="Dust2" index="0"]
+[node name="TextureRect" type="TextureRect" parent="Dust2" index="0" unique_id=529016756]
 modulate = Color(1, 0.58000004, 0.79, 0.26666668)
 offset_right = 40.0
 offset_bottom = 40.0
@@ -281,7 +281,7 @@ offset_top = 300.0
 offset_right = 618.0
 offset_bottom = 331.0
 
-[node name="ReinforcePlating" parent="." index="10" instance=ExtResource("2_sp1xc")]
+[node name="ReinforcePlating" parent="." index="10" unique_id=1514301535 instance=ExtResource("2_sp1xc")]
 layout_mode = 1
 offset_left = 666.0
 offset_top = 266.0
@@ -289,7 +289,7 @@ offset_right = 760.0
 offset_bottom = 360.0
 toggable = true
 
-[node name="moreabs" parent="." index="11" instance=ExtResource("2_sp1xc")]
+[node name="moreabs" parent="." index="11" unique_id=1738078431 instance=ExtResource("2_sp1xc")]
 layout_mode = 1
 offset_left = 346.0
 offset_top = 268.0
@@ -298,7 +298,7 @@ offset_bottom = 362.0
 icon = ExtResource("5_d5iac")
 associated_upgrade_name = "increase_max_equiped_abilities"
 
-[node name="hyperactive" parent="." index="12" instance=ExtResource("2_sp1xc")]
+[node name="hyperactive" parent="." index="12" unique_id=602690944 instance=ExtResource("2_sp1xc")]
 layout_mode = 1
 offset_left = 512.0
 offset_top = 428.0
@@ -307,7 +307,7 @@ offset_bottom = 522.0
 icon = ExtResource("5_d5iac")
 associated_upgrade_name = "hyperactive"
 
-[node name="beterram" parent="." index="13" instance=ExtResource("2_sp1xc")]
+[node name="beterram" parent="." index="13" unique_id=1394666049 instance=ExtResource("2_sp1xc")]
 layout_mode = 1
 offset_left = 335.0
 offset_top = 428.0
@@ -317,7 +317,7 @@ icon = ExtResource("5_d5iac")
 associated_upgrade_name = "better_ram"
 toggable = true
 
-[node name="Vitality" parent="." index="14" node_paths=PackedStringArray("prerequisites") instance=ExtResource("2_sp1xc")]
+[node name="Vitality" parent="." index="14" unique_id=1709168334 node_paths=PackedStringArray("prerequisites") instance=ExtResource("2_sp1xc")]
 layout_mode = 1
 offset_left = 880.0
 offset_top = 267.0
@@ -327,7 +327,7 @@ icon = ExtResource("4_d5iac")
 prerequisites = [NodePath("../ReinforcePlating")]
 associated_upgrade_name = "vitality"
 
-[node name="Shock" parent="." index="15" node_paths=PackedStringArray("prerequisites") instance=ExtResource("2_sp1xc")]
+[node name="Shock" parent="." index="15" unique_id=845217765 node_paths=PackedStringArray("prerequisites") instance=ExtResource("2_sp1xc")]
 layout_mode = 1
 offset_left = 1064.0
 offset_top = 259.0
