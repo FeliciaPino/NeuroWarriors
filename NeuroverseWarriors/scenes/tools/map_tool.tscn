@@ -18,26 +18,21 @@ position = Vector2(-2983, -649.3762)
 metadata/handled_connection = true
 
 [node name="ForestRoom2" parent="." unique_id=1819657789 instance=ExtResource("5_i13xu")]
-show_behind_parent = true
-position = Vector2(-589.6798, -217.93109)
+position = Vector2(-492, -218)
 metadata/handled_connection = true
 
 [node name="ForestRoom_3" parent="." unique_id=742388875 instance=ExtResource("3_eum5q")]
-show_behind_parent = true
 position = Vector2(2112.8772, -182.25854)
 metadata/handled_connection = true
 
 [node name="ForestRoomVedal" parent="." unique_id=1168418563 instance=ExtResource("2_wg14y")]
-show_behind_parent = true
 position = Vector2(4626.1665, -516.6156)
 metadata/handled_connection = true
 
 [node name="ForestRoom4" parent="." unique_id=1243791580 instance=ExtResource("8_n5ncr")]
-show_behind_parent = true
-position = Vector2(-31.146057, -1941)
+position = Vector2(-158, -1554)
 metadata/handled_connection = true
 
-[node name="Assembly" parent="." unique_id=231448099 instance=ExtResource("7_0x15u")]
-show_behind_parent = true
+[node name="Assembly" parent="." unique_id=85390632 instance=ExtResource("7_0x15u")]
 position = Vector2(-1843.4886, -1705.2384)
 metadata/handled_connection = true

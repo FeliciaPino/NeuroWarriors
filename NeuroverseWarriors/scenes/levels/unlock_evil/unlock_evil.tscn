@@ -1,8 +1,7 @@
-[gd_scene load_steps=31 format=3 uid="uid://c2p0eeuc6b3re"]
+[gd_scene format=3 uid="uid://c2p0eeuc6b3re"]
 
 [ext_resource type="PackedScene" uid="uid://b82kauwohbvun" path="res://scenes/levels/game.tscn" id="1_i4cdn"]
-[ext_resource type="Texture2D" uid="uid://dl6b6ewaxaxom" path="res://assets/backgrounds/forest_background.png" id="2_u5jnf"]
-[ext_resource type="Texture2D" uid="uid://b4ldo6pam4ska" path="res://scenes/levels/unlock_evil/assembly_station_background.png" id="3_g3xpp"]
+[ext_resource type="Texture2D" uid="uid://diojtns3m7eoh" path="res://assets/backgrounds/assembly_station_background.png" id="2_iycsq"]
 [ext_resource type="Script" uid="uid://f758iv8kdo6j" path="res://scenes/levels/unlock_evil/assembling_evil_controller.gd" id="4_6cil1"]
 [ext_resource type="Texture2D" uid="uid://dju6yh1wm6yo2" path="res://scenes/levels/unlock_evil/half-built_evil.png" id="4_capdy"]
 [ext_resource type="PackedScene" uid="uid://c85gj43e28h10" path="res://scenes/characters/enemies/defensive_drone.tscn" id="4_vkc8h"]
@@ -77,7 +76,7 @@ joint_data/2/bone2d_node = NodePath("Bone2D")
 joint_data/2/rotate_from_joint = false
 joint_data/2/enable_constraint = true
 joint_data/2/constraint_angle_min = 80.001
-joint_data/2/constraint_angle_max = 269.29797
+joint_data/2/constraint_angle_max = 269.29794
 joint_data/2/constraint_angle_invert = true
 joint_data/2/constraint_in_localspace = true
 joint_data/2/editor_draw_gizmo = true
@@ -191,133 +190,132 @@ _data = {
 &"working": SubResource("Animation_oeqds")
 }
 
-[node name="Game" instance=ExtResource("1_i4cdn")]
+[node name="Game" unique_id=1800569553 instance=ExtResource("1_i4cdn")]
 
-[node name="TextureRect" type="TextureRect" parent="Background" index="0"]
+[node name="TextureRect" type="TextureRect" parent="Background" parent_id_path=PackedInt32Array(1258881707) index="0" unique_id=479004623]
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("2_u5jnf")
+texture = ExtResource("2_iycsq")
 
-[node name="AssemblyStationBackground" type="Sprite2D" parent="Background" index="1" node_paths=PackedStringArray("sfx")]
+[node name="AssemblyStationBackground" type="Sprite2D" parent="Background" parent_id_path=PackedInt32Array(1258881707) index="1" unique_id=1693164952 node_paths=PackedStringArray("sfx")]
 texture_filter = 1
 position = Vector2(607, 115)
-texture = ExtResource("3_g3xpp")
 script = ExtResource("4_6cil1")
 sfx = NodePath("guitarsfx")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Background/AssemblyStationBackground" index="0"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Background/AssemblyStationBackground" index="0" unique_id=1047977867]
 position = Vector2(-57, 50)
 sprite_frames = SubResource("SpriteFrames_mk1aw")
 
-[node name="AssemblyArm" type="Node2D" parent="Background/AssemblyStationBackground" index="1"]
+[node name="AssemblyArm" type="Node2D" parent="Background/AssemblyStationBackground" index="1" unique_id=363471861]
 
-[node name="IK target" type="Node2D" parent="Background/AssemblyStationBackground/AssemblyArm" index="0"]
+[node name="IK target" type="Node2D" parent="Background/AssemblyStationBackground/AssemblyArm" index="0" unique_id=388445224]
 position = Vector2(-2, -1)
 
-[node name="Skeleton2D" type="Skeleton2D" parent="Background/AssemblyStationBackground/AssemblyArm" index="1"]
+[node name="Skeleton2D" type="Skeleton2D" parent="Background/AssemblyStationBackground/AssemblyArm" index="1" unique_id=2006618875]
 visible = false
 modification_stack = SubResource("SkeletonModificationStack2D_i8ffo")
 
-[node name="Bone2D" type="Bone2D" parent="Background/AssemblyStationBackground/AssemblyArm/Skeleton2D" index="0"]
+[node name="Bone2D" type="Bone2D" parent="Background/AssemblyStationBackground/AssemblyArm/Skeleton2D" index="0" unique_id=1381332253]
 position = Vector2(36, 80)
 rotation = 0.203755
 rest = Transform2D(1, 0, 0, 1, 36, 80)
 metadata/_local_pose_override_enabled_ = true
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Background/AssemblyStationBackground/AssemblyArm/Skeleton2D/Bone2D" index="0"]
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Background/AssemblyStationBackground/AssemblyArm/Skeleton2D/Bone2D" index="0" unique_id=417763629]
 position = Vector2(1, -43)
 remote_path = NodePath("../../../Arm/arm")
 
-[node name="Bone2D" type="Bone2D" parent="Background/AssemblyStationBackground/AssemblyArm/Skeleton2D/Bone2D" index="1"]
+[node name="Bone2D" type="Bone2D" parent="Background/AssemblyStationBackground/AssemblyArm/Skeleton2D/Bone2D" index="1" unique_id=1967973094]
 position = Vector2(2.00031, -75.0001)
 rotation = 0.308192
 rest = Transform2D(1, 0, 0, 1, 2, -75)
 metadata/_local_pose_override_enabled_ = true
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Background/AssemblyStationBackground/AssemblyArm/Skeleton2D/Bone2D/Bone2D" index="0"]
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Background/AssemblyStationBackground/AssemblyArm/Skeleton2D/Bone2D/Bone2D" index="0" unique_id=757863516]
 position = Vector2(-34, 0)
 remote_path = NodePath("../../../../Arm/arm2")
 
-[node name="Bone2D" type="Bone2D" parent="Background/AssemblyStationBackground/AssemblyArm/Skeleton2D/Bone2D/Bone2D" index="1"]
+[node name="Bone2D" type="Bone2D" parent="Background/AssemblyStationBackground/AssemblyArm/Skeleton2D/Bone2D/Bone2D" index="1" unique_id=1608292028]
 position = Vector2(-53.0004, 0.000137329)
 rotation = -1.72206
 rest = Transform2D(1, 0, 0, 1, -53, 0)
 metadata/_local_pose_override_enabled_ = true
 
-[node name="Bone2D" type="Bone2D" parent="Background/AssemblyStationBackground/AssemblyArm/Skeleton2D/Bone2D/Bone2D/Bone2D" index="0"]
+[node name="Bone2D" type="Bone2D" parent="Background/AssemblyStationBackground/AssemblyArm/Skeleton2D/Bone2D/Bone2D/Bone2D" index="0" unique_id=967888649]
 position = Vector2(-20, -2)
 rest = Transform2D(1, 0, 0, 1, -20, -2)
 auto_calculate_length_and_angle = false
 length = 16.0
 bone_angle = 180.0
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Background/AssemblyStationBackground/AssemblyArm/Skeleton2D/Bone2D/Bone2D/Bone2D" index="1"]
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Background/AssemblyStationBackground/AssemblyArm/Skeleton2D/Bone2D/Bone2D/Bone2D" index="1" unique_id=1480381229]
 position = Vector2(-11.18, 0)
 remote_path = NodePath("../../../../../Arm/hand")
 
-[node name="Arm" type="Node2D" parent="Background/AssemblyStationBackground/AssemblyArm" index="2"]
+[node name="Arm" type="Node2D" parent="Background/AssemblyStationBackground/AssemblyArm" index="2" unique_id=2002395973]
 
-[node name="hand" type="Sprite2D" parent="Background/AssemblyStationBackground/AssemblyArm/Arm" index="0"]
-position = Vector2(2.9841309, -8.546589)
-rotation = -1.210101
-scale = Vector2(0.9999996, 0.9999996)
+[node name="hand" type="Sprite2D" parent="Background/AssemblyStationBackground/AssemblyArm/Arm" index="0" unique_id=621837619]
+position = Vector2(2.9840088, -8.546574)
+rotation = -1.2101039
+scale = Vector2(0.99999523, 0.99999523)
 texture = SubResource("AtlasTexture_53neq")
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="Background/AssemblyStationBackground/AssemblyArm/Arm/hand" index="0"]
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Background/AssemblyStationBackground/AssemblyArm/Arm/hand" index="0" unique_id=926635868]
 position = Vector2(-8.19807, 0.324024)
 emitting = false
 process_material = SubResource("ParticleProcessMaterial_vlg71")
 
-[node name="arm2" type="Sprite2D" parent="Background/AssemblyStationBackground/AssemblyArm/Arm" index="1"]
-position = Vector2(23.494385, -9.699474)
-rotation = 0.5119447
-scale = Vector2(0.9999997, 0.9999997)
+[node name="arm2" type="Sprite2D" parent="Background/AssemblyStationBackground/AssemblyArm/Arm" index="1" unique_id=2094282969]
+position = Vector2(23.495544, -9.69902)
+rotation = 0.51194793
+scale = Vector2(0.99999785, 0.99999785)
 texture = SubResource("AtlasTexture_hklrg")
 
-[node name="arm" type="Sprite2D" parent="Background/AssemblyStationBackground/AssemblyArm/Arm" index="2"]
-position = Vector2(45.68036, 38.091873)
-rotation = 0.20375615
+[node name="arm" type="Sprite2D" parent="Background/AssemblyStationBackground/AssemblyArm/Arm" index="2" unique_id=106430325]
+position = Vector2(45.680786, 38.09205)
+rotation = 0.20376806
+scale = Vector2(0.99999857, 0.99999857)
 texture = SubResource("AtlasTexture_3yxsx")
 
-[node name="base" type="Sprite2D" parent="Background/AssemblyStationBackground/AssemblyArm/Arm" index="3"]
+[node name="base" type="Sprite2D" parent="Background/AssemblyStationBackground/AssemblyArm/Arm" index="3" unique_id=697777403]
 position = Vector2(36, 80)
 texture = SubResource("AtlasTexture_enxhs")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Background/AssemblyStationBackground/AssemblyArm" index="3"]
-libraries = {
-&"": SubResource("AnimationLibrary_5ns4k")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Background/AssemblyStationBackground/AssemblyArm" index="3" unique_id=1501325748]
+libraries/ = SubResource("AnimationLibrary_5ns4k")
 next/start_working = &"working"
 
-[node name="Assembly Points" type="Node2D" parent="Background/AssemblyStationBackground" index="2"]
+[node name="Assembly Points" type="Node2D" parent="Background/AssemblyStationBackground" index="2" unique_id=874544707]
 position = Vector2(-34, 4)
 
-[node name="LeftArm" type="Node2D" parent="Background/AssemblyStationBackground/Assembly Points" index="0"]
+[node name="LeftArm" type="Node2D" parent="Background/AssemblyStationBackground/Assembly Points" index="0" unique_id=1119517702]
 position = Vector2(-14, 34)
 
-[node name="Knee" type="Node2D" parent="Background/AssemblyStationBackground/Assembly Points" index="1"]
+[node name="Knee" type="Node2D" parent="Background/AssemblyStationBackground/Assembly Points" index="1" unique_id=594902177]
 position = Vector2(-27, 66)
 
-[node name="RightArm" type="Node2D" parent="Background/AssemblyStationBackground/Assembly Points" index="2"]
+[node name="RightArm" type="Node2D" parent="Background/AssemblyStationBackground/Assembly Points" index="2" unique_id=1587419203]
 position = Vector2(-44, 29)
 
-[node name="Face" type="Node2D" parent="Background/AssemblyStationBackground/Assembly Points" index="3"]
+[node name="Face" type="Node2D" parent="Background/AssemblyStationBackground/Assembly Points" index="3" unique_id=628659342]
 position = Vector2(-29, 5)
 
-[node name="Timer" type="Timer" parent="Background/AssemblyStationBackground" index="3"]
+[node name="Timer" type="Timer" parent="Background/AssemblyStationBackground" index="3" unique_id=732969617]
 wait_time = 2.0
 
-[node name="guitarsfx" type="AudioStreamPlayer" parent="Background/AssemblyStationBackground" index="4"]
+[node name="guitarsfx" type="AudioStreamPlayer" parent="Background/AssemblyStationBackground" index="4" unique_id=1509406254]
 stream = ExtResource("7_jqcjf")
+volume_db = -7.37
 bus = &"SFX"
 
-[node name="defensive drone" parent="Entity_manager" index="0" instance=ExtResource("4_vkc8h")]
+[node name="defensive drone" parent="Entity_manager" parent_id_path=PackedInt32Array(2063756186) index="0" unique_id=779233587 instance=ExtResource("4_vkc8h")]
 position = Vector2(1313, 329)
 
-[node name="defensive drone2" parent="Entity_manager" index="1" instance=ExtResource("4_vkc8h")]
+[node name="defensive drone2" parent="Entity_manager" parent_id_path=PackedInt32Array(2063756186) index="1" unique_id=394854433 instance=ExtResource("4_vkc8h")]
 position = Vector2(1313, 329)
 
-[node name="Drone" parent="Entity_manager" index="2" instance=ExtResource("9_0pb1n")]
+[node name="Drone" parent="Entity_manager" parent_id_path=PackedInt32Array(2063756186) index="2" unique_id=1134652142 instance=ExtResource("9_0pb1n")]
 position = Vector2(1416, 501)
 
 [connection signal="timeout" from="Background/AssemblyStationBackground/Timer" to="Background/AssemblyStationBackground" method="_on_timer_timeout"]
