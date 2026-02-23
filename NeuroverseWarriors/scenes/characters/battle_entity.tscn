@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dp2gnkbdq83n4"]
+[gd_scene format=3 uid="uid://dp2gnkbdq83n4"]
 
 [ext_resource type="Script" uid="uid://dxs6vaw1rnav4" path="res://scripts/BattleEntity.gd" id="1_m46ik"]
 [ext_resource type="Texture2D" uid="uid://o05esm5l4emw" path="res://assets/ui/ap.png" id="3_0ty8o"]
@@ -64,29 +64,41 @@ _data = {
 &"face_right": SubResource("Animation_xh3tb")
 }
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cirw1"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ty8o"]
 atlas = ExtResource("5_qnmwp")
-region = Rect2(0, 0, 120, 160)
+region = Rect2(0, 0, 100, 160)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_s2puk"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_3odli"]
 atlas = ExtResource("5_qnmwp")
-region = Rect2(120, 0, 120, 160)
+region = Rect2(100, 0, 100, 160)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_323n4"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_1dt83"]
 atlas = ExtResource("5_qnmwp")
-region = Rect2(240, 0, 120, 160)
+region = Rect2(200, 0, 100, 160)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7b8tf"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_7hxsa"]
 atlas = ExtResource("5_qnmwp")
-region = Rect2(360, 0, 120, 160)
+region = Rect2(300, 0, 100, 160)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7d8ve"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_sd0jn"]
 atlas = ExtResource("5_qnmwp")
-region = Rect2(480, 0, 120, 160)
+region = Rect2(400, 0, 100, 160)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5aawl"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_s4xj2"]
 atlas = ExtResource("5_qnmwp")
-region = Rect2(600, 0, 120, 160)
+region = Rect2(500, 0, 100, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kb0ds"]
+atlas = ExtResource("5_qnmwp")
+region = Rect2(600, 0, 100, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f7gvf"]
+atlas = ExtResource("5_qnmwp")
+region = Rect2(700, 0, 100, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k8iiy"]
+atlas = ExtResource("5_qnmwp")
+region = Rect2(800, 0, 100, 160)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pjh8r"]
 animations = [{
@@ -97,34 +109,43 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_cirw1")
+"texture": SubResource("AtlasTexture_0ty8o")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_s2puk")
+"texture": SubResource("AtlasTexture_3odli")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_323n4")
+"texture": SubResource("AtlasTexture_1dt83")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7b8tf")
+"texture": SubResource("AtlasTexture_7hxsa")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7d8ve")
+"texture": SubResource("AtlasTexture_sd0jn")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5aawl")
+"texture": SubResource("AtlasTexture_s4xj2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kb0ds")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f7gvf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k8iiy")
 }],
 "loop": false,
 "name": &"explosion",
-"speed": 8.0
+"speed": 12.0
 }]
 
-[node name="BattleEntity" type="Node2D"]
+[node name="BattleEntity" type="Node2D" unique_id=1045581682]
 y_sort_enabled = true
 texture_filter = 1
 script = ExtResource("1_m46ik")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1660060183]
 custom_minimum_size = Vector2(40, 0)
 offset_left = -21.0
 offset_top = -125.0
@@ -133,20 +154,20 @@ offset_bottom = -113.0
 size_flags_horizontal = 4
 alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1770780671]
 layout_mode = 2
 theme_override_constants/separation = 6
 
-[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer"]
+[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer" unique_id=137803477]
 visible = false
 layout_mode = 2
 
-[node name="Ap" type="Sprite2D" parent="VBoxContainer/HBoxContainer/Control"]
+[node name="Ap" type="Sprite2D" parent="VBoxContainer/HBoxContainer/Control" unique_id=226247321]
 position = Vector2(-1, 7)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_0ty8o")
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=395025305]
 custom_minimum_size = Vector2(6, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.29000002, 0.9408332, 1, 1)
@@ -155,7 +176,7 @@ theme_override_constants/outline_size = 4
 theme_override_font_sizes/font_size = 8
 text = "0"
 
-[node name="HealthBar" parent="VBoxContainer" node_paths=PackedStringArray("associated_entity") instance=ExtResource("3_b5iiw")]
+[node name="HealthBar" parent="VBoxContainer" unique_id=1485610043 node_paths=PackedStringArray("associated_entity") instance=ExtResource("3_b5iiw")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 4)
 layout_mode = 2
@@ -163,31 +184,29 @@ size_flags_horizontal = 0
 size_flags_vertical = 4
 associated_entity = NodePath("../..")
 
-[node name="StatusEffects" type="HBoxContainer" parent="VBoxContainer"]
+[node name="StatusEffects" type="HBoxContainer" parent="VBoxContainer" unique_id=2011127388]
 unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 20
 
-[node name="visual" type="Node2D" parent="."]
+[node name="visual" type="Node2D" parent="." unique_id=598397537]
 
-[node name="Shadow" type="Sprite2D" parent="visual"]
+[node name="Shadow" type="Sprite2D" parent="visual" unique_id=1389436324]
 modulate = Color(0, 0, 0, 0.1764706)
 z_index = -1
 position = Vector2(1.0000001, 70)
 scale = Vector2(0.56109214, 0.13439678)
 texture = ExtResource("4_0ty8o")
 
-[node name="Flipper" type="AnimationPlayer" parent="visual"]
-libraries = {
-&"": SubResource("AnimationLibrary_meimr")
-}
+[node name="Flipper" type="AnimationPlayer" parent="visual" unique_id=353260710]
+libraries/ = SubResource("AnimationLibrary_meimr")
 
-[node name="AppliedVFX" type="Node2D" parent="visual"]
+[node name="AppliedVFX" type="Node2D" parent="visual" unique_id=1587081559]
 
-[node name="Actions" type="Node2D" parent="."]
+[node name="Actions" type="Node2D" parent="." unique_id=1998615803]
 
-[node name="TextureButton" type="TextureButton" parent="."]
+[node name="TextureButton" type="TextureButton" parent="." unique_id=1062109216]
 offset_left = -49.0
 offset_top = -76.0
 offset_right = 51.0
@@ -195,7 +214,7 @@ offset_bottom = 84.0
 texture_pressed = ExtResource("4_i6faa")
 texture_focused = ExtResource("4_i6faa")
 
-[node name="Menu" type="Control" parent="."]
+[node name="Menu" type="Control" parent="." unique_id=791608178]
 unique_name_in_owner = true
 z_index = 2
 layout_mode = 3
@@ -203,7 +222,7 @@ anchors_preset = 0
 offset_right = 54.0
 offset_bottom = 40.0
 
-[node name="ActionMenu" type="BoxContainer" parent="Menu"]
+[node name="ActionMenu" type="BoxContainer" parent="Menu" unique_id=595727522]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 68.0
@@ -212,7 +231,7 @@ offset_right = 108.0
 offset_bottom = -20.0
 vertical = true
 
-[node name="ApDisplay" parent="Menu" instance=ExtResource("5_wqjtl")]
+[node name="ApDisplay" parent="Menu" unique_id=1896303575 instance=ExtResource("5_wqjtl")]
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
@@ -224,40 +243,40 @@ offset_bottom = -82.0
 grow_horizontal = 1
 grow_vertical = 1
 
-[node name="explosion" type="AnimatedSprite2D" parent="."]
+[node name="explosion" type="AnimatedSprite2D" parent="." unique_id=763766269]
 visible = false
 sprite_frames = SubResource("SpriteFrames_pjh8r")
 animation = &"explosion"
 
-[node name="sound_effects" type="Node" parent="."]
+[node name="sound_effects" type="Node" parent="." unique_id=117393607]
 
-[node name="explosion" type="AudioStreamPlayer" parent="sound_effects"]
+[node name="explosion" type="AudioStreamPlayer" parent="sound_effects" unique_id=1103570288]
 stream = ExtResource("6_0htqn")
 volume_db = -10.0
 bus = &"SFX"
 
-[node name="menu_up" type="AudioStreamPlayer" parent="sound_effects"]
+[node name="menu_up" type="AudioStreamPlayer" parent="sound_effects" unique_id=1196277310]
 stream = ExtResource("8_ogrof")
 volume_db = -10.0
 pitch_scale = 0.8
 bus = &"SFX"
 
-[node name="melee_attack" type="AudioStreamPlayer" parent="sound_effects"]
+[node name="melee_attack" type="AudioStreamPlayer" parent="sound_effects" unique_id=650204547]
 volume_db = -10.0
 bus = &"SFX"
 
-[node name="bwoaa" type="AudioStreamPlayer" parent="sound_effects"]
+[node name="bwoaa" type="AudioStreamPlayer" parent="sound_effects" unique_id=825975052]
 stream = ExtResource("9_deo4h")
 pitch_scale = 1.81
 bus = &"SFX"
 
-[node name="hit" type="AudioStreamPlayer" parent="sound_effects"]
+[node name="hit" type="AudioStreamPlayer" parent="sound_effects" unique_id=847221166]
 stream = ExtResource("10_5ppgc")
 volume_db = -10.0
 pitch_scale = 2.0
 bus = &"SFX"
 
-[node name="level label" type="Label" parent="."]
+[node name="level label" type="Label" parent="." unique_id=1937255418]
 visible = false
 offset_left = -18.0
 offset_top = -151.0
