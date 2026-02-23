@@ -11,7 +11,8 @@ signal dialogue_triggered
 
 @export var animation_before:AnimationPlayer
 @export var animations_after:Dictionary[String, AnimationPlayer] 
-
+##The story battle that happens after the dialogue.
+@export var story_battle_trigger:Node2D
 
 var finishing_line_id:String = "" #For selecting which animation to play after
 func _ready() -> void:
@@ -63,6 +64,8 @@ func _on_dialogue_triggered():
 			
 	dialogue_manager.room.party_node.end_being_controlled_by_animation()
 	get_tree().paused = false
+	if story_battle_trigger:
+		story_battle_trigger.go_to_encounter()
 func _on_area_entered(_body: Node2D) -> void:
 	print_debug("dialogue area entered")
 	dialogue_triggered.emit()

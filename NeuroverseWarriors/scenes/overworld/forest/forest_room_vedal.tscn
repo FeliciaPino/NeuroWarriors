@@ -10,6 +10,12 @@
 [ext_resource type="Texture2D" uid="uid://cmd4d5h6bklop" path="res://assets/overworld/vedal_shack.png" id="7_a7gnt"]
 [ext_resource type="AudioStream" uid="uid://dk341qkm60081" path="res://assets/audio/SFX/cartoonslip.mp3" id="7_oo7r5"]
 [ext_resource type="PackedScene" uid="uid://bi30e7q4hmdo" path="res://scenes/ui/dialogue/dialogue_trigger.tscn" id="8_oo7r5"]
+[ext_resource type="AudioStream" uid="uid://6a2dt53f5a6b" path="res://assets/audio/SFX/deltarune-explosion.mp3" id="8_q1sr5"]
+[ext_resource type="Texture2D" uid="uid://nxqruldg0w6s" path="res://assets/explosion.png" id="12_kyee8"]
+[ext_resource type="Texture2D" uid="uid://cac6j2bibn05c" path="res://assets/overworld/overworld_Vedal.png" id="13_kyee8"]
+[ext_resource type="PackedScene" uid="uid://d1542r6f3ougb" path="res://scenes/overworld/story_battle_trigger.tscn" id="14_em5sv"]
+[ext_resource type="Texture2D" uid="uid://br5ltd6b852fw" path="res://assets/offensive_drone.png" id="14_m5nkb"]
+[ext_resource type="Texture2D" uid="uid://do3tfkcmbjss0" path="res://assets/characters/monocopter.png" id="16_5qp7s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bps50"]
 size = Vector2(113, 75)
@@ -176,6 +182,294 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7wplt"]
 size = Vector2(21, 46)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_em5sv"]
+atlas = ExtResource("12_kyee8")
+region = Rect2(0, 0, 120, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m5nkb"]
+atlas = ExtResource("12_kyee8")
+region = Rect2(120, 0, 120, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5qp7s"]
+atlas = ExtResource("12_kyee8")
+region = Rect2(240, 0, 120, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fsq73"]
+atlas = ExtResource("12_kyee8")
+region = Rect2(360, 0, 120, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qd165"]
+atlas = ExtResource("12_kyee8")
+region = Rect2(480, 0, 120, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4j8ts"]
+atlas = ExtResource("12_kyee8")
+region = Rect2(600, 0, 120, 160)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p82b1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_em5sv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m5nkb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5qp7s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fsq73")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qd165")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4j8ts")
+}],
+"loop": false,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="Animation" id="Animation_ri6fp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("boomsprtie:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Turt:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("OverworldVedal:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("DeltaruneExplosion:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_gs71g"]
+resource_name = "new_animation"
+length = 1.285
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("boomsprtie:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("boomsprtie")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"default", 1.0, false],
+"method": &"play"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Turt:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.033333335, 0.73333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.283185307179586]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("OverworldVedal:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("DeltaruneExplosion:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u5uoe"]
+_data = {
+&"RESET": SubResource("Animation_ri6fp"),
+&"new_animation": SubResource("Animation_gs71g")
+}
+
+[sub_resource type="Animation" id="Animation_5qp7s"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../OffensiveDrone:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-66, -165)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../OffensiveDrone:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(550, -224.00002)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_fsq73"]
+resource_name = "new_animation"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../OffensiveDrone:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.033333335, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-66, -165), Vector2(171, -29)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../OffensiveDrone:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.033333335),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.033333335, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(550, -224.00002), Vector2(221.99997, -25.999954)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qd165"]
+_data = {
+&"RESET": SubResource("Animation_5qp7s"),
+&"new_animation": SubResource("Animation_fsq73")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kyee8"]
+size = Vector2(31, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_em5sv"]
+size = Vector2(255, 55)
+
 [node name="ForestRoomVedal" unique_id=1168418563 instance=ExtResource("1_516ip")]
 
 [node name="grass" parent="TileLayers" parent_id_path=PackedInt32Array(230436696) index="0" unique_id=1580640893]
@@ -253,11 +547,28 @@ collision_mask = 0
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_7wplt")
 
-[node name="VedalShack" type="Sprite2D" parent="." index="7" unique_id=1016458599]
+[node name="VedalShack" type="Node2D" parent="." index="7" unique_id=485693062]
 position = Vector2(207, -85)
-texture = ExtResource("7_a7gnt")
 
-[node name="Label" type="Label" parent="VedalShack" index="0" unique_id=1076611507]
+[node name="vis" type="Sprite2D" parent="VedalShack" index="0" unique_id=1074699503]
+position = Vector2(0, 70)
+texture = ExtResource("7_a7gnt")
+region_enabled = true
+region_rect = Rect2(0, 131, 300, 69)
+
+[node name="vis2" type="Sprite2D" parent="VedalShack" index="1" unique_id=1596748907]
+z_index = 1
+position = Vector2(0, -30)
+texture = ExtResource("7_a7gnt")
+region_enabled = true
+region_rect = Rect2(0, 0, 300, 131)
+
+[node name="DeltaruneExplosion" type="AudioStreamPlayer" parent="VedalShack" index="2" unique_id=1303595849]
+stream = ExtResource("8_q1sr5")
+volume_db = -10.0
+bus = &"SFX"
+
+[node name="Label" type="Label" parent="VedalShack" index="3" unique_id=1076611507]
 offset_left = -76.0
 offset_top = -66.0
 offset_right = 83.0
@@ -265,19 +576,87 @@ offset_bottom = -43.0
 theme_override_constants/outline_size = 13
 text = "TS (this shack) so  ah"
 
-[node name="Arrow" type="Sprite2D" parent="VedalShack" index="1" unique_id=585366544]
+[node name="Arrow" type="Sprite2D" parent="VedalShack" index="4" unique_id=585366544]
 self_modulate = Color(1, 0, 0, 1)
 z_index = 14
 position = Vector2(95, -4)
 rotation = 0.35855395
 texture = ExtResource("5_fflv5")
 
-[node name="Circle" type="Sprite2D" parent="VedalShack" index="2" unique_id=168691216]
+[node name="Circle" type="Sprite2D" parent="VedalShack" index="5" unique_id=168691216]
 modulate = Color(1, 0, 0, 1)
 position = Vector2(159, -34)
 texture = ExtResource("4_j02r0")
 
-[node name="Turt" type="Sprite2D" parent="VedalShack" index="3" unique_id=1200455466]
+[node name="Turt" type="Sprite2D" parent="VedalShack" index="6" unique_id=1200455466]
 position = Vector2(160, -37)
 scale = Vector2(0.6186664, 0.5396114)
 texture = ExtResource("3_bps50")
+
+[node name="boomsprtie" type="AnimatedSprite2D" parent="VedalShack" index="7" unique_id=945471238]
+process_mode = 3
+z_index = 3
+sprite_frames = SubResource("SpriteFrames_p82b1")
+frame = 5
+frame_progress = 1.0
+
+[node name="OverworldVedal" type="Sprite2D" parent="VedalShack" index="8" unique_id=1519321599]
+visible = false
+z_index = 2
+position = Vector2(1, -6)
+texture = ExtResource("13_kyee8")
+region_enabled = true
+region_rect = Rect2(0.647707, 1.3377924, 28.688213, 30.323296)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="VedalShack" index="9" unique_id=1265583430]
+libraries/ = SubResource("AnimationLibrary_u5uoe")
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="VedalShack" index="10" unique_id=1664430542]
+root_node = NodePath("Monocopter")
+libraries/ = SubResource("AnimationLibrary_qd165")
+
+[node name="OffensiveDrone" type="Sprite2D" parent="VedalShack/AnimationPlayer2" index="0" unique_id=1777686773]
+visible = false
+z_index = 3
+position = Vector2(-66, -165)
+rotation = 0.56356084
+scale = Vector2(0.47826087, 0.5)
+texture = ExtResource("14_m5nkb")
+region_enabled = true
+region_rect = Rect2(5.2211914, 45.354023, 92.88992, 58.73921)
+
+[node name="Monocopter" type="Sprite2D" parent="VedalShack/AnimationPlayer2" index="1" unique_id=1019521790]
+visible = false
+z_index = 3
+position = Vector2(550, -224.00002)
+rotation = -0.5631192
+scale = Vector2(0.62, 0.63125)
+texture = ExtResource("16_5qp7s")
+flip_h = true
+
+[node name="StoryBattleTrigger" parent="VedalShack" index="11" unique_id=1316696253 instance=ExtResource("14_em5sv")]
+visible = false
+level_path = "res://scenes/levels/unlock_vedal.tscn"
+
+[node name="DialogueTrigger" parent="VedalShack" index="12" unique_id=2006842491 node_paths=PackedStringArray("interactable_component", "animation_before", "animations_after", "story_battle_trigger") instance=ExtResource("8_oo7r5")]
+position = Vector2(-118, 33)
+interactable_component = NodePath("../InteractableComponent2")
+path_to_dialogue_sequence = "res://content/dialogues/forest/vedal_intro.json"
+animation_before = NodePath("../AnimationPlayer")
+animations_after = {
+"line_4": NodePath("../AnimationPlayer2")
+}
+story_battle_trigger = NodePath("../StoryBattleTrigger")
+
+[node name="InteractableComponent2" parent="VedalShack" index="13" unique_id=1882075525 instance=ExtResource("7_7wplt")]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="VedalShack/InteractableComponent2" index="1" unique_id=944221712]
+position = Vector2(-2, 55)
+shape = SubResource("RectangleShape2D_kyee8")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="VedalShack" index="14" unique_id=985751187]
+position = Vector2(-118, 33)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VedalShack/StaticBody2D" index="0" unique_id=629183399]
+position = Vector2(117.5, -4.5)
+shape = SubResource("RectangleShape2D_em5sv")
