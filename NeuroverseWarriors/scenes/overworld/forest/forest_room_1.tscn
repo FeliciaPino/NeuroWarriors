@@ -39,14 +39,14 @@ position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_ej0jp")
 
 [node name="AssemblyPassage" type="Node2D" parent="Passages" parent_id_path=PackedInt32Array(1766370370) index="1" unique_id=955421073 node_paths=PackedStringArray("collision_area")]
-position = Vector2(94, -156)
+position = Vector2(95, -154)
 script = ExtResource("2_5ue4y")
 collision_area = NodePath("Area2D")
 scene_path = "res://scenes/overworld/assembly_station/assembly_station_room1.tscn"
 arriving_passage_name = "Passage"
 
 [node name="Area2D" type="Area2D" parent="Passages/AssemblyPassage" index="0" unique_id=1577343794]
-position = Vector2(24, -17)
+position = Vector2(23, -40)
 collision_layer = 0
 collision_mask = 2
 
@@ -68,7 +68,7 @@ curve = SubResource("Curve2D_flfrs")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Enemies/Path2D" index="0" unique_id=547836370]
 position = Vector2(115, 88)
-rotation = 2.2856047
+rotation = 2.285605
 script = ExtResource("3_nq1n5")
 speed = 50.0
 

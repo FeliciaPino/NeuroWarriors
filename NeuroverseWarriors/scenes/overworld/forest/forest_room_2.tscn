@@ -36,7 +36,7 @@ scene_path = "res://scenes/overworld/forest/forest_room_1.tscn"
 arriving_passage_name = "Passage"
 
 [node name="Area2D" type="Area2D" parent="Passages/Passage" index="0" unique_id=357604723]
-position = Vector2(-71, -1)
+position = Vector2(-86, -1)
 collision_layer = 0
 collision_mask = 2
 
@@ -52,7 +52,7 @@ scene_path = "res://scenes/overworld/forest/forest_room_3.tscn"
 arriving_passage_name = "Passage"
 
 [node name="Area2D" type="Area2D" parent="Passages/Passage2" index="0" unique_id=2085934170]
-position = Vector2(76, 2)
+position = Vector2(87, 0)
 collision_layer = 0
 collision_mask = 2
 
@@ -68,7 +68,7 @@ scene_path = "res://scenes/overworld/forest/forest_room_4.tscn"
 arriving_passage_name = "Passage"
 
 [node name="Area2D" type="Area2D" parent="Passages/Passage3" index="0" unique_id=1647299182]
-position = Vector2(13, -71)
+position = Vector2(12, -86)
 collision_layer = 0
 collision_mask = 2
 
