@@ -55,7 +55,8 @@ func _ready() -> void:
 	add_to_group("GameManager")
 	if background is AnimatedSprite2D:
 		background.play("default")
-		
+	
+	menu.menu_has_closed.connect(menu_button.grab_focus)
 	update_battle_entities()
 	for party_member in entity_manager.get_party():
 		party_member.is_player_controlled = true

@@ -1,12 +1,18 @@
 extends Control
+signal menu_has_closed
+signal menu_has_opened
 var is_menu_open:bool = false
 @onready var return_to_main_menu_button = %ReturnToMainMenuButton
+@onready var close_menu_button = %CloseMenu
 func open_menu() -> void:
 	if is_menu_open: return
+	menu_has_opened.emit()
 	visible = true
 	is_menu_open = true
+	close_menu_button.grab_focus()
 func close_menu() -> void:
 	if !is_menu_open: return
+	menu_has_closed.emit()
 	visible = false
 	is_menu_open = false
 	
