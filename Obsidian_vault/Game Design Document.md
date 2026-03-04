@@ -1,6 +1,5 @@
-THis game will be super cool and so fun! Everyone is gonna love it and I'm gonna be a [BIG SHOOT]. (yeah, prolly not, haha)
 
-It's a turn based RPG based around Neuro-sama and her friends and family. The player engages in tactical battles against evil robots.
+It's a turn based RPG based around Neuro-sama and her friends and family. The player engages in tactical battles against enemy drones
 
 It's a world that's pretty silly! But not tooo  silly! And the logic of the battles isn't very literal! THey aren't very much canon! just that they fight and they win! but they don't litterally throw bottles and bottles of rum! I think. maybe not!
 
