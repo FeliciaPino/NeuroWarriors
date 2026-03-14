@@ -1,21 +1,38 @@
-[gd_scene load_steps=11 format=3 uid="uid://c7pvv8itnf4b8"]
+[gd_scene format=3 uid="uid://c7pvv8itnf4b8"]
 
 [ext_resource type="Script" uid="uid://b8b55ijimf0u7" path="res://scripts/intro_cutscene.gd" id="1_fl8qn"]
 [ext_resource type="Texture2D" uid="uid://c0yh4sjku8ha3" path="res://assets/solid_white_square.png" id="1_od4nq"]
 [ext_resource type="Texture2D" uid="uid://lv0x3urw78g2" path="res://assets/cutscenes/intro_cutscene_frame1.png" id="2_4evac"]
+[ext_resource type="Texture2D" uid="uid://d15gpmdvloro5" path="res://assets/cutscenes/intro_cutsene_vedalai_tower_outside.png" id="3_bprnf"]
+[ext_resource type="Shader" uid="uid://blqhxgxkylgch" path="res://assets/shaders/zoom.gdshader" id="3_pbanw"]
 [ext_resource type="Texture2D" uid="uid://nijykxnmtugx" path="res://assets/cutscenes/intro_cutscene_frame_2.png" id="4_icbu4"]
 [ext_resource type="Texture2D" uid="uid://csk8ptr4f2bw8" path="res://assets/cutscenes/intro_cutscene_frame_3.png" id="5_gk2fo"]
 [ext_resource type="Texture2D" uid="uid://cko88wjo7tewb" path="res://assets/cutscenes/intro_cutscene_frame_4.png" id="6_d8ujj"]
 [ext_resource type="Texture2D" uid="uid://bvuthcfovf1pg" path="res://assets/cutscenes/intro_cutscene_frame_5.png" id="7_yno0h"]
 [ext_resource type="Texture2D" uid="uid://c5goroaw74wp7" path="res://assets/cutscenes/intro_cutscene_frame_6.png" id="8_oyqlf"]
 [ext_resource type="Texture2D" uid="uid://joqcli1fj7c8" path="res://assets/cutscenes/intro_cutscene_frame_7.png" id="9_1b46i"]
+[ext_resource type="Texture2D" uid="uid://bp67tndr5lrq" path="res://assets/cutscenes/intro_cutsene_city_background.png" id="10_wo2cs"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pbanw"]
+shader = ExtResource("3_pbanw")
+shader_parameter/starting_zoom = 0.95
+shader_parameter/max_zoom = 1.05
+shader_parameter/zoom_speed = 0.008
+shader_parameter/pivot_offset = Vector2(0.5, 0.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fxsd4"]
+shader = ExtResource("3_pbanw")
+shader_parameter/starting_zoom = 0.9
+shader_parameter/max_zoom = 1.2
+shader_parameter/zoom_speed = 0.02
+shader_parameter/pivot_offset = Vector2(0.335, 0.18)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ucomv"]
 font_size = 24
 outline_size = 5
 outline_color = Color(0, 0, 0, 1)
 
-[node name="intro_cutscene" type="Control"]
+[node name="intro_cutscene" type="Control" unique_id=667549550]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,7 +41,32 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_fl8qn")
 
-[node name="Fade" type="Sprite2D" parent="."]
+[node name="city_backgrtound" type="TextureRect" parent="." unique_id=1800677245]
+z_index = 49
+material = SubResource("ShaderMaterial_pbanw")
+layout_mode = 0
+offset_left = 288.0
+offset_top = 159.0
+offset_right = 864.0
+offset_bottom = 487.0
+scale = Vector2(2, 2)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("10_wo2cs")
+stretch_mode = 4
+
+[node name="ved_tower" type="TextureRect" parent="." unique_id=1464895141]
+z_index = 51
+material = SubResource("ShaderMaterial_fxsd4")
+layout_mode = 0
+offset_left = 306.0
+offset_top = 33.0
+offset_right = 606.0
+offset_bottom = 361.0
+scale = Vector2(2, 2)
+texture = ExtResource("3_bprnf")
+stretch_mode = 2
+
+[node name="Fade" type="Sprite2D" parent="." unique_id=1814997710]
 visible = false
 modulate = Color(0, 0, 0, 1)
 z_index = 3
@@ -32,50 +74,50 @@ position = Vector2(659, 307)
 scale = Vector2(1953.5, -969.888)
 texture = ExtResource("1_od4nq")
 
-[node name="frames" type="Node" parent="."]
+[node name="frames" type="Node" parent="." unique_id=419985657]
 
-[node name="frame1" type="Sprite2D" parent="frames"]
+[node name="frame1" type="Sprite2D" parent="frames" unique_id=602841737]
 visible = false
 position = Vector2(584, 319)
 scale = Vector2(0.84637, 0.771001)
 texture = ExtResource("2_4evac")
 
-[node name="frame2" type="Sprite2D" parent="frames"]
+[node name="frame2" type="Sprite2D" parent="frames" unique_id=297192538]
 position = Vector2(576, 328)
 scale = Vector2(0.836492, 0.783622)
 texture = ExtResource("4_icbu4")
 
-[node name="frame3" type="Sprite2D" parent="frames"]
+[node name="frame3" type="Sprite2D" parent="frames" unique_id=1355968898]
 visible = false
 position = Vector2(606, 343)
 scale = Vector2(0.880046, 0.800607)
 texture = ExtResource("5_gk2fo")
 
-[node name="frame4" type="Sprite2D" parent="frames"]
+[node name="frame4" type="Sprite2D" parent="frames" unique_id=488342133]
 visible = false
 position = Vector2(603, 321)
 scale = Vector2(0.8468, 0.768652)
 texture = ExtResource("6_d8ujj")
 
-[node name="frame5" type="Sprite2D" parent="frames"]
+[node name="frame5" type="Sprite2D" parent="frames" unique_id=1633618910]
 visible = false
 position = Vector2(581, 340)
 scale = Vector2(0.885303, 0.794931)
 texture = ExtResource("7_yno0h")
 
-[node name="frame6" type="Sprite2D" parent="frames"]
+[node name="frame6" type="Sprite2D" parent="frames" unique_id=468929333]
 visible = false
 position = Vector2(576, 322)
 scale = Vector2(0.819203, 0.744464)
 texture = ExtResource("8_oyqlf")
 
-[node name="frame7" type="Sprite2D" parent="frames"]
+[node name="frame7" type="Sprite2D" parent="frames" unique_id=1386268560]
 visible = false
 position = Vector2(586, 347)
 scale = Vector2(0.855638, 0.791844)
 texture = ExtResource("9_1b46i")
 
-[node name="TextPanel" type="PanelContainer" parent="."]
+[node name="TextPanel" type="PanelContainer" parent="." unique_id=1042874888]
 z_index = 1
 layout_mode = 1
 anchors_preset = 7
@@ -89,7 +131,7 @@ offset_right = 304.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="Label" type="Label" parent="TextPanel"]
+[node name="Label" type="Label" parent="TextPanel" unique_id=1871191842]
 unique_name_in_owner = true
 z_index = 1
 custom_minimum_size = Vector2(100, 50)
@@ -101,7 +143,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="PageControlsContainer" type="MarginContainer" parent="."]
+[node name="PageControlsContainer" type="MarginContainer" parent="." unique_id=158111217]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -117,23 +159,23 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="PageControls" type="VBoxContainer" parent="PageControlsContainer"]
+[node name="PageControls" type="VBoxContainer" parent="PageControlsContainer" unique_id=357352569]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="NextButton" type="Button" parent="PageControlsContainer/PageControls"]
+[node name="NextButton" type="Button" parent="PageControlsContainer/PageControls" unique_id=364091434]
 unique_name_in_owner = true
 z_index = 1
 layout_mode = 2
 text = "CUTSCENE_NEXT"
 
-[node name="PreviousButton" type="Button" parent="PageControlsContainer/PageControls"]
+[node name="PreviousButton" type="Button" parent="PageControlsContainer/PageControls" unique_id=869230709]
 unique_name_in_owner = true
 z_index = 1
 layout_mode = 2
 text = "CUTSCENE_PREVIOUS"
 
-[node name="SkipButtonContainer" type="MarginContainer" parent="."]
+[node name="SkipButtonContainer" type="MarginContainer" parent="." unique_id=261765177]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -146,7 +188,7 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="SkipButton" type="Button" parent="SkipButtonContainer"]
+[node name="SkipButton" type="Button" parent="SkipButtonContainer" unique_id=2048946675]
 unique_name_in_owner = true
 z_index = 2
 layout_mode = 2
